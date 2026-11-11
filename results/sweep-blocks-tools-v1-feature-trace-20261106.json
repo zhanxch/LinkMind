@@ -1,0 +1,265 @@
+{
+  "checked_at": "2026-11-05T21:56:33.192430+00:00",
+  "tag": "sweep-blocks-tools-v1-dev-20261106",
+  "candidate_commit": "ca604e59ea87b280b14757c23134bf62701a9cbd",
+  "native_audit_sha256": "664fa26c368c79fb2d952d0a180d9a1970764048eeda0f2f526d4a8e9d68c8d3",
+  "freeze_sha256": "b423cf9850f74ef84358fe5da0b89aedb41d6830e0342adc34de74402794d58c",
+  "auditor_sha256": "a0051768fc772a7cfba1a4e07f79fb1584df8239e11f92dcc80ba9470c33d1dc",
+  "helper_source_sha256": "37bc36617d0c8609e8635e4b5f7a04e961adbf690a43ff42d901020a4d56fe41",
+  "rows": [
+    {
+      "variant": "standard",
+      "layout": 0,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "820a7b3a750eb25a570c5eb4378ec4e7949bcfd0e90ddb8daef8b8c2b6c48d6c",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 0,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "62d6909e856c3e92ce0ecd3a6cbf88d0ed93aa5a1cca831d010f93ad5e058c75",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 12,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 752,
+          "step_after": 752,
+          "action_steps": 0,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "right_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.281203031539917,
+                "current_delta_joint_index": 2,
+                "max_target_delta_rad": 0.28402137756347656,
+                "target_delta_joint_index": 2,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s=robo.state()\npanlip=pixel_to_plane(s,'head',[207,296],0.80)\nbrush=pixel_to_plane(s,'head',[287,177],0.80)\nlxyz,lr=tcp_pose(s,'left');rxyz,rr=tcp_pose(s,'right')\nlq=(Rotation.from_rotvec([0,0,np.deg2rad(58)])*lr).as_quat()[[3,0,1,2]].tolist()\nrq=(Rotation.from_rotvec([0,0,-np.pi/2])*rr).as_quat()[[3,0,1,2]].tolist()\nprint('current lip/brush',panlip,brush,'q',lq,rq)\nrobo.move_features({'left':{'source':panlip.tolist(),'target':[0.025,-0.015,0.81],'quaternion':lq},'right':{'source':brush.tolist(),'target':[0.39,-0.03,0.84],'quaternion':rq}},steps=24,subgoal='按当前刷沿和簸口转动工具并在桌上方定位',expected_feedback='簸口朝右、刷沿在目标右侧，工具仍稳定夹持；随后检查接触高度')",
+          "code_sha256": "975e6e6f3efe09993385b8c10e1d5da86bf5c3f1593a2517ab6651987cd6ce21",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 0,
+            "executed_waypoints": 0,
+            "action_steps": 0,
+            "discarded_rows": 24,
+            "last_command": null,
+            "last_tracking": null,
+            "step": 752,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "right_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.281203031539917,
+                  "current_delta_joint_index": 2,
+                  "max_target_delta_rad": 0.28402137756347656,
+                  "target_delta_joint_index": 2,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 1,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "63c04878a026445ca7043f625b797250702284bef608e47c8ce7e167fbcd35c2",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 11,
+          "helper": "move_feature",
+          "statement": "Assign",
+          "step_before": 308,
+          "step_after": 330,
+          "action_steps": 22,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "r=robo.move_feature('right',source=[0.436785,-0.161835,0.759198],target=[0.32,-0.13,0.76],quaternion=[0.463806,-0.430703,0.284606,0.719985],steps=22,subgoal='以当前可见刷缘为基准转位到紫色目标右侧',expected_feedback='刷缘贴近桌面、位于紫色右方且与簸口前半对齐')",
+          "code_sha256": "7727e589911aebf70e44d4fbb9201604ff8d6c8ec2cc90c20a926727a780e7b4",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 22,
+            "executed_rows": 22,
+            "executed_waypoints": 0,
+            "action_steps": 22,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.18058030307292938,
+                -0.05974636226892471,
+                0.9572083353996277,
+                0.7756273743723948,
+                0.001653395370389139,
+                0.6311848646400103,
+                0.0022603223897909915
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.4247693610817973,
+                -0.2986150362756868,
+                1.0887608046484147,
+                0.46380598717437344,
+                -0.4307029880897702,
+                0.28460599212979043,
+                0.719984980090256
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 330,
+              "tracking_error_m": {
+                "left": 0.00012516791110477287,
+                "right": 0.0013999380789155049
+              }
+            },
+            "step": 330,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 14,
+          "helper": "move_feature",
+          "statement": "Assign",
+          "step_before": 424,
+          "step_after": 445,
+          "action_steps": 21,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "right_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.2540152296423912,
+                "current_delta_joint_index": 3,
+                "max_target_delta_rad": 0.22655994445085526,
+                "target_delta_joint_index": 3,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s=robo.state(); qflat=(Rotation.from_euler('x',60,degrees=True)*tcp_pose(s,'right')[1]).as_quat(scalar_first=True);print(qflat)\nr=robo.move_feature('right',source=[0.380871,-0.025816,0.759987],target=[0.46,0.05,0.79],quaternion=np.round(qflat,6).tolist(),steps=24,subgoal='按重测刷缘转平刷头长边并抬至青黄目标右侧',expected_feedback='刷缘两端接近同高，覆盖目标y范围，接触前检查')",
+          "code_sha256": "623f290efbb871fb839f7deb1dbf044ead96ad4ca1107b17b9d06338bff987a9",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 21,
+            "executed_waypoints": 0,
+            "action_steps": 21,
+            "discarded_rows": 3,
+            "last_command": {
+              "left_ee_pose": [
+                -0.18161793053150177,
+                -0.02515134960412979,
+                0.957182765007019,
+                0.7755675299346098,
+                0.0010309534823926038,
+                0.6312545524510006,
+                0.003410814555551261
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.47031442586430217,
+                -0.3501303073499187,
+                0.906955562310106,
+                0.6090329961324813,
+                -0.17887161456623638,
+                -0.06106797296730648,
+                0.7702950459415052
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 445,
+              "tracking_error_m": {
+                "left": 0.00013357379399391034,
+                "right": 0.001788125123134693
+              }
+            },
+            "step": 445,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "right_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.2540152296423912,
+                  "current_delta_joint_index": 3,
+                  "max_target_delta_rad": 0.22655994445085526,
+                  "target_delta_joint_index": 3,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 1,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "9a27b92a7e81d22354be50ee1da599f0f92dd77829c8cb1b844eb83f07b27d3e",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    }
+  ],
+  "counts": {
+    "confirmed_simple_calls": 3,
+    "positive_step_calls": 2,
+    "positive_steps": 43,
+    "zero_step_rejections": 1,
+    "unclassified_mentions": 0
+  },
+  "interpretation": "Only supported unconditional calls with one matching parent receipt and native action prefix are confirmed. Assignment suppresses the cell last-value field but does not mean no invocation. Unsupported source and incomplete cells remain unknown. Counts do not prove physical grasp or causal benefit."
+}

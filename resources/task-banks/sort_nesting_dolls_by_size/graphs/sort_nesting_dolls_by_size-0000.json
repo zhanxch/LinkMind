@@ -1,0 +1,553 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "sort_nesting_dolls_by_size-0000",
+  "task": "sort_nesting_dolls_by_size",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "sort_nesting_dolls_by_size",
+  "title": "双臂借助桌面暂放区，依次排出从小到大的套娃横排",
+  "summary": "示范将最小、第二小和第二大套娃经桌面中部暂放后由另一臂接续搬运，中号与最大套娃由右臂直接放入横排。结束时五枚套娃从左到右由小到大排列，双臂撤回；阶段边界为估计值。",
+  "instruction": "Arrange the five nesting dolls in a row from left to right, from smallest to largest.",
+  "episode": 0,
+  "source": {
+    "path": "runtime-data/sort_nesting_dolls_by_size/train/episode_0000000.hdf5",
+    "sha256": "38150185f44f8bc4505fbbcc9c66975070a257099c5cf70c39b2494205e93e2e",
+    "frames": 748,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-28T17:43:51.529451+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "右臂将最小套娃移到暂放区",
+      "summary": "把最小套娃送到左臂便于接取的位置。",
+      "objects": [
+        "最小套娃",
+        "右臂夹爪",
+        "桌面中前部暂放区"
+      ],
+      "start_frame": 0,
+      "end_frame": 97,
+      "order": 0,
+      "keyframes": [
+        0,
+        48,
+        96
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "桌面上的套娃分散摆放，尚未形成横排；右侧部分取物区域受机械臂遮挡。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂从右侧取物区搬运最小套娃，移向桌面中前部，下降、张开夹爪后抬起。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右臂抬起后，中前部可见最小套娃；具体抓取和落桌瞬间部分被机械臂遮挡。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "左臂把最小套娃放到横排左端",
+      "summary": "用最小套娃确定排序横排的起点。",
+      "objects": [
+        "最小套娃",
+        "左臂夹爪",
+        "横排最左端",
+        "桌面中前部暂放区"
+      ],
+      "start_frame": 97,
+      "end_frame": 194,
+      "order": 1,
+      "keyframes": [
+        97,
+        145,
+        193
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "最小套娃已位于中前部暂放区，右臂正在撤离，左侧预定排列区域空闲。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂伸向暂放区，夹取最小套娃，抬起后向左后方搬运，下降释放并撤开。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "最小套娃留在横排最左端，与前方原有的较大套娃分开。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "右臂暂放第二小套娃",
+      "summary": "将第二小套娃送入双臂接续搬运的位置。",
+      "objects": [
+        "第二小套娃",
+        "最小套娃",
+        "右臂夹爪",
+        "桌面中前部暂放区"
+      ],
+      "start_frame": 194,
+      "end_frame": 282,
+      "order": 2,
+      "keyframes": [
+        194,
+        237,
+        281
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "最小套娃已在左端，第二小套娃仍位于桌面后部，其余较大套娃尚未排列。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂靠近第二小套娃，将其夹起并移到中前部暂放区，下降后张开夹爪。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "第二小套娃出现在暂放区，右臂撤开；最小套娃保持在左端。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "左臂摆好横排第二枚",
+      "summary": "将第二小套娃放在最小套娃右侧。",
+      "objects": [
+        "第二小套娃",
+        "最小套娃",
+        "左臂夹爪",
+        "横排第二个位置"
+      ],
+      "start_frame": 282,
+      "end_frame": 378,
+      "order": 3,
+      "keyframes": [
+        282,
+        329,
+        377
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "第二小套娃已暂放在桌面中前部，最小套娃右侧仍有空位。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂从暂放区夹起第二小套娃，移到最小套娃右侧，降低并释放，然后撤回。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "左侧出现相邻的两枚套娃，大小从左向右递增；其余三枚仍在横排之外。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "右臂直接放入中号套娃",
+      "summary": "在前两枚右侧补上大小居中的第三枚。",
+      "objects": [
+        "中号套娃",
+        "第二小套娃",
+        "右臂夹爪",
+        "横排第三个位置"
+      ],
+      "start_frame": 378,
+      "end_frame": 478,
+      "order": 4,
+      "keyframes": [
+        378,
+        427,
+        477
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "最小和第二小套娃已排列在左侧，中号套娃仍在右后方。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂夹起右后方的中号套娃，抬起并向左搬运，直接放到第二小套娃右侧，释放后撤离。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "横排已有三枚套娃，从左到右逐渐变大；剩余两枚较大套娃仍在前方。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "左臂将第二大套娃移至中部",
+      "summary": "把左前方的第二大套娃送到右臂接取区域。",
+      "objects": [
+        "第二大套娃",
+        "左臂夹爪",
+        "桌面中前部暂放区",
+        "已排列的前三枚套娃"
+      ],
+      "start_frame": 478,
+      "end_frame": 566,
+      "order": 5,
+      "keyframes": [
+        478,
+        521,
+        565
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "前三枚套娃已排好；第二大套娃仍在左前方，最大套娃位于右前方。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂靠近左前方的第二大套娃，夹起后移向桌面中前部暂放区，下降、释放并抬起。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "第二大套娃离开原来的左前方位置，暂放在中前部；落桌附近受到左夹爪遮挡，前三枚未见移动。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "右臂接取并摆好第二大套娃",
+      "summary": "将第二大套娃放入横排第四个位置。",
+      "objects": [
+        "第二大套娃",
+        "中号套娃",
+        "右臂夹爪",
+        "横排第四个位置",
+        "最大套娃"
+      ],
+      "start_frame": 566,
+      "end_frame": 649,
+      "order": 6,
+      "keyframes": [
+        566,
+        607,
+        648
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "第二大套娃已移到中前部暂放区，中号套娃右侧有空位，最大套娃仍在右前方。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂伸向暂放区，夹起第二大套娃，将其移到中号套娃右侧，下降释放后上抬。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "第二大套娃留在第四个位置，释放附近短暂被夹爪遮挡；最大套娃仍在横排前方。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "右臂补上最大套娃并撤回",
+      "summary": "完成横排最右端的放置并露出最终排列。",
+      "objects": [
+        "最大套娃",
+        "第二大套娃",
+        "右臂夹爪",
+        "横排最右端",
+        "五枚套娃"
+      ],
+      "start_frame": 649,
+      "end_frame": 748,
+      "order": 7,
+      "keyframes": [
+        649,
+        698,
+        747
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "前四枚套娃已按大小排列，最大套娃仍独立位于右前方。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂转向最大套娃，将其夹起并搬到第二大套娃右侧，下降释放，随后撤回待机位置。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "末帧清楚显示五枚套娃沿横向排列，从左到右由小到大；双臂均已撤离排列区域。",
+      "parent": "p08"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

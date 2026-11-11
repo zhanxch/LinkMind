@@ -1,0 +1,59 @@
+{
+  "schema": "roborag.graph-bank.v1",
+  "name": "RoboRAG · 交互经验图库",
+  "updated_at": "2026-10-28T17:04:47.999115+00:00",
+  "graphs": [
+    {
+      "id": "pack_objects_into_box-0000",
+      "task": "pack_objects_into_box",
+      "task_name": "pack_objects_into_box",
+      "title": "先整理箱位，再由双手分工逐件装箱",
+      "summary": "先把锤子和红鞋移到右侧，再将纸箱移到中央，依次装入红鞋、锤子、蓝白色细长物体和黄色玩具车。搬运中转腕调整朝向，红鞋鞋尖朝左可见，其余物体的最终朝向部分受遮挡。",
+      "episode": 0,
+      "instruction": "Place all the objects into the box with their front sides facing left.",
+      "phase_count": 7,
+      "node_count": 28,
+      "edge_count": 27,
+      "frames": 1156,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "pack_objects_into_box-0001",
+      "task": "pack_objects_into_box",
+      "task_name": "pack_objects_into_box",
+      "title": "先整理桌面布局，再逐件朝左装箱",
+      "summary": "右臂先调整红鞋和牙刷的位置并移近纸箱，左臂依次装入玩具皮卡和锤子，右臂再装入红鞋和牙刷。搬运时通过转腕调整朝向，最终四件物体均留在箱内，部分最终朝向因重叠遮挡不能完全确认；阶段边界为估计值。",
+      "episode": 1,
+      "instruction": "Place all the objects into the box with their front sides facing left.",
+      "phase_count": 11,
+      "node_count": 44,
+      "edge_count": 43,
+      "frames": 1022,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "pack_objects_into_box-0002",
+      "task": "pack_objects_into_box",
+      "task_name": "pack_objects_into_box",
+      "title": "先整理箱旁空间，再逐件转向装箱",
+      "summary": "先挪开运动鞋并调整纸箱位置，再依次装入电动牙刷、运动鞋、锤子和玩具汽车。转运中调整物体朝向；末尾四件物体均已放入箱内，部分最终朝向因遮挡无法完全确认。",
+      "episode": 2,
+      "instruction": "Place all the objects into the box with their front sides facing left.",
+      "phase_count": 10,
+      "node_count": 40,
+      "edge_count": 39,
+      "frames": 837,
+      "frequency": 25.0,
+      "preview_frame": 0
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "phases": 28,
+    "nodes": 112,
+    "edges": 109,
+    "tasks": 1
+  }
+}

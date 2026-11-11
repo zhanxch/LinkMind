@@ -1,0 +1,434 @@
+............................[11/06/26 04:47:58] INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445223 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445223 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445229 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445229 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445256 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     Tool 'measure_mug_geometry' failed:   server.py:453
+                             'Error executing tool                              
+                             measure_mug_geometry: RGB-only                     
+                             observation: provide pixels2                       
+                             correspondences or a measured world                
+                             z'                                                 
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445256 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445262 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445262 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.................................                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445266 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445266 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445270 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+[11/06/26 04:47:59] INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445270 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445274 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445274 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445278 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     Tool 'hold_joints' rejected           server.py:450
+                             arguments: ['steps']                               
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445278 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445283 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445283 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445287 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445287 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445291 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445291 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445295 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445295 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445300 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445300 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445306 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445306 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+..........                    INFO     Tool 'execute_chunk' failed: 'Error   server.py:453
+                             executing tool execute_chunk: Total                
+                             expanded rows must be <=24'                        
+.                    INFO     Tool 'execute_chunk' failed: 'Error   server.py:453
+                             executing tool execute_chunk:                      
+                             record_plan must precede execution'                
+..                    INFO     Tool 'execute_chunk' failed: 'Error   server.py:453
+                             executing tool execute_chunk:                      
+                             record_plan must precede execution'                
+...........                    INFO     Tool 'read_action_reference' failed:  server.py:453
+                             'Error executing tool                              
+                             read_action_reference: Choose a                    
+                             source from retrieve_evidence first'               
+                    INFO     Tool 'read_action_reference' failed:  server.py:453
+                             'Error executing tool                              
+                             read_action_reference: Experience                  
+                             section demo:p01/start is not stored               
+                             in this SOP package. Available                     
+                             sections: close. No archive                        
+                             fallback.'                                         
+                    INFO     Tool 'read_action_reference' failed:  server.py:453
+                             'Error executing tool                              
+                             read_action_reference: Raw action                  
+                             arrays are not stored in this SOP                  
+                             package; use include_actions=false'                
+..............................[11/06/26 04:48:00] INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445315 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445315 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445319 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445319 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445324 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445324 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445328 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     Tool 'hold_joints' rejected           server.py:450
+                             arguments: ['steps']                               
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445328 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445332 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445332 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+.                    INFO     execute program                 base_events.py:1712
+                             '/usr/bin/bwrap':                                  
+                             <_UnixSubprocessTransport                          
+                             pid=1445336 running                                
+                             stdin=<_UnixWritePipeTransport                     
+                             fd=7 idle bufsize=0>                               
+                             stdout=<_UnixReadPipeTransport                     
+                             fd=8 polling>>                                     
+                    INFO     <_UnixSubprocessTransport    base_subprocess.py:211
+                             pid=1445336 running                                
+                             stdin=<_UnixWritePipeTranspo                       
+                             rt fd=7 idle bufsize=0>                            
+                             stdout=<_UnixReadPipeTranspo                       
+                             rt fd=8 polling>> exited                           
+                             with return code -9                                
+                    INFO     <_UnixReadPipeTransport fd=8     unix_events.py:533
+                             polling> was closed by peer                        
+                    INFO     <_UnixWritePipeTransport fd=7    unix_events.py:672
+                             idle bufsize=0> was closed by                      
+                             peer                                               
+..
+----------------------------------------------------------------------
+Ran 133 tests in 3.705s
+
+OK

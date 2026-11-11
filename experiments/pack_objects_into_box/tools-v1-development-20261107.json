@@ -1,0 +1,95 @@
+{
+  "schema": "roborag.pack-box-tools.v1",
+  "status": "registered_before_launch",
+  "registered_at": "2026-11-06T16:42:22.384397+00:00",
+  "base_commit": "1ac841d1241fbff8d20bbd1d80427925732999e2",
+  "calibration_reference_commit": "1f9d4cd55a040a3f597b9118b9a5be59035369c8",
+  "historical_pack_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "planned_native_attempts": 4,
+  "tasks": [
+    {
+      "task": "pack_objects_into_box",
+      "bank": "artifacts/pack-box-tools/pack_objects_into_box",
+      "cases_file": "experiments/pack_objects_into_box/cases-tools-v1-development-20261107.json",
+      "case_count": 4,
+      "native_step_limits": {
+        "standard": 1300,
+        "random": 1300
+      },
+      "preflight_file": "results/pack-box-tools-bank-preflight-20261107.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 9000,
+    "control_step_limit": 2000,
+    "budget_mode": "modified",
+    "native_step_budget": "Native default 1300; explicit 2000-step experiment includes every cell dispatch, gripper hold and home action",
+    "context": "Original full TRAIN retrieval, model-owned record_plan, read-only calibrated references and optional persistent Python cells",
+    "feedback": "Current RGB with paired calibration and measured robot state; no object truth or holding sensor",
+    "execution_guard": {
+      "kind": "native_ik_continuity",
+      "max_joint_increment_rad": 0.25
+    }
+  },
+  "verification": {
+    "static": "results/pack-box-tools-v1-static-tests-20261107.json",
+    "static_sha256": "a6de251ebffba6d46694f9fdd8aa2caa9ad947cda75ee94264de060d97a7c292",
+    "interfaces": "results/pack-box-tools-v1-interface-verification-20261107.json",
+    "interfaces_sha256": "eacb1eb9fa5b17c9564c61d89c295a4585c287751576cfe268614107e58cf880"
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure; preserve unknown counters and terminal usage",
+    "retests": "No automatic repeats or best-of selection",
+    "early_stopping": "No failure-rate skipping within this registered batch"
+  },
+  "scope": {
+    "runtime_changes": [
+      "Enable existing isolated persistent cells and measured-joint gripper holds only for pack",
+      "Reuse exact v6 read-only RGB calibration/pose-reference functions; expose the same public values and labelled images inside cells",
+      "Enable existing task-scoped 0.25rad native IK continuity guard",
+      "Forward explicit modified 2000-step budget through scheduler, runner and simulator; default native limit unchanged",
+      "Retain v6 box approach/rematching guidance and user-requested object order; add cell usage guidance"
+    ],
+    "unchanged": [
+      "Original full TRAIN graphs, action/state/RGB",
+      "Current model-owned plan, original motion compiler, native task scoring and controller",
+      "Ten other tasks assembled prompts and tool interfaces",
+      "Original native 1300-step defaults when no override is supplied"
+    ],
+    "interpretation": "Four previously used seed1 development scenes only, all fresh attempts. New joint candidate, not inherited historical success, causal cells evidence or heldout generalization. Modified 2000-step results stay separate from 1300-step history. After this development batch closes and is audited, register a fresh full50 run as explicitly requested; no old stopped queue is resumed."
+  },
+  "required_closed_batches": [
+    {
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-full50-supplement-closure-20261106.json",
+      "closure_sha256": "7cb8ff86a45665d59c25246846e86bac6f05fde5dad45aa453f2916249756dd1",
+      "freeze": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-guard-v2-full50-supplement-20261106-freeze.json",
+      "candidate_commit": "bfd1e1698ad6b73c1179961c5e93d0c22ac4455b",
+      "attempts_closed": 6
+    },
+    {
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/results/sweep-blocks-tools-v1-full50-supplement-closure-20261107.json",
+      "closure_sha256": "5e1bf557561e39ed44eca9f86b159f985f6d0e871a9dc9fcc7e84bbd48ec10ef",
+      "freeze": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-supplement-20261106-freeze.json",
+      "candidate_commit": "5cae5770d687f601a4abdbfa1911d785f69fc4cb",
+      "attempts_closed": 2
+    }
+  ],
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "User-paused; do not resume automatically",
+    "frozen_during_run": true
+  },
+  "authorization": "Current goal: optimize pack_objects_into_box with reference to PyRUA-Lean Python cells/tools, then complete full testing. Earlier pack user explicitly authorized 2000 steps and subsequent full testing; this new candidate retains that modified budget, with native default and scoring unchanged.",
+  "baseline_evidence": {
+    "path": "results/pack-box-baseline-and-references-20261107.json",
+    "sha256": "6cd8e3bfb2e3187443c4e0b4ead80636bda41e9755c80d917177654a15809560"
+  }
+}

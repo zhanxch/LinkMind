@@ -1,0 +1,680 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "pack_objects_into_box-0002",
+  "task": "pack_objects_into_box",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "pack_objects_into_box",
+  "title": "先整理箱旁空间，再逐件转向装箱",
+  "summary": "先挪开运动鞋并调整纸箱位置，再依次装入电动牙刷、运动鞋、锤子和玩具汽车。转运中调整物体朝向；末尾四件物体均已放入箱内，部分最终朝向因遮挡无法完全确认。",
+  "instruction": "Place all the objects into the box with their front sides facing left.",
+  "episode": 2,
+  "source": {
+    "path": "runtime-data/pack_objects_into_box/train/episode_0000002.hdf5",
+    "sha256": "4d390d0135ca059b6abf61d2eebe9d82bad3e6de3bfa9255606f684bc6660a2d",
+    "frames": 837,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-28T17:04:47.990036+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "将运动鞋向左挪开",
+      "summary": "扩大纸箱左侧的操作空间。",
+      "objects": [
+        "左夹爪",
+        "黑白运动鞋",
+        "纸箱"
+      ],
+      "start_frame": 0,
+      "end_frame": 109,
+      "order": 0,
+      "keyframes": [
+        0,
+        54,
+        108
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "纸箱位于桌面右后方，运动鞋紧邻箱子左侧，黄色柄锤子和银白色玩具汽车位于更左侧。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪靠近鞋身，夹取后将鞋向左移动，放回桌面并撤开。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "鞋留在纸箱左侧、锤子后方的桌面上，与箱体之间的间隙增大，尚未入箱。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "将纸箱移到中部并转正",
+      "summary": "调整箱体位置，为后续逐件放入提供入口。",
+      "objects": [
+        "右夹爪",
+        "纸箱",
+        "黑白运动鞋",
+        "电动牙刷"
+      ],
+      "start_frame": 109,
+      "end_frame": 218,
+      "order": 1,
+      "keyframes": [
+        109,
+        163,
+        217
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "鞋已移开，空纸箱仍偏右，电动牙刷躺在箱体右侧。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪靠近箱体右侧边缘，带动纸箱向桌面中部移动并转动，随后松开、退至箱右侧。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "纸箱停在鞋与牙刷之间，箱口朝上，空箱底可见。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "从箱右侧抓起牙刷",
+      "summary": "将第一件物体提起并送向箱口。",
+      "objects": [
+        "右夹爪",
+        "黑色电动牙刷",
+        "纸箱"
+      ],
+      "start_frame": 218,
+      "end_frame": 290,
+      "order": 2,
+      "keyframes": [
+        218,
+        253,
+        289
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "黑色电动牙刷位于箱右侧桌面，绿色刷头可见，右夹爪已靠近其上方。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪下降到刷柄附近，夹取牙刷并抬离桌面，向箱口上方转移。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "牙刷随右夹爪离开原位，绿色刷头从夹爪旁露出，刷柄部分被遮挡。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "将牙刷横放到箱底",
+      "summary": "调整牙刷方向并完成首次放置。",
+      "objects": [
+        "右夹爪",
+        "黑色电动牙刷",
+        "纸箱"
+      ],
+      "start_frame": 290,
+      "end_frame": 363,
+      "order": 3,
+      "keyframes": [
+        290,
+        326,
+        362
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "牙刷已到箱口上方，箱底仍为空，右夹爪握持刷柄。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手调整牙刷朝向，将其降入箱内、释放，再抬起并向右撤出。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "牙刷横放在箱底靠前的位置，绿色刷头位于画面左端；右夹爪已离开箱口。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "抓起箱左侧的运动鞋",
+      "summary": "从暂放位置提起运动鞋。",
+      "objects": [
+        "左夹爪",
+        "黑白运动鞋",
+        "纸箱"
+      ],
+      "start_frame": 363,
+      "end_frame": 436,
+      "order": 4,
+      "keyframes": [
+        363,
+        399,
+        435
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "牙刷已在箱底，运动鞋仍在箱左后方桌面，左夹爪开始向鞋移动。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪对准鞋身，下降夹取后向上抬起，使鞋离开桌面。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "鞋随左夹爪悬起，原来的桌面位置空出，尚未放入箱内。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "调整鞋头方向并放入箱内",
+      "summary": "将运动鞋以鞋头朝左的方向装箱。",
+      "objects": [
+        "左夹爪",
+        "黑白运动鞋",
+        "黑色电动牙刷",
+        "纸箱"
+      ],
+      "start_frame": 436,
+      "end_frame": 508,
+      "order": 5,
+      "keyframes": [
+        436,
+        471,
+        507
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "鞋已被提起，箱内牙刷靠前，箱体中后部仍有放置空间。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手携鞋移到箱口，转动鞋身后下降放入，松开夹爪并抬手撤出。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "鞋留在箱内，鞋头朝画面左侧；牙刷在鞋前方仍部分可见。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "抓起黄色柄锤子",
+      "summary": "提起箱外的锤子并开始调整方向。",
+      "objects": [
+        "左夹爪",
+        "黄色柄锤子",
+        "纸箱"
+      ],
+      "start_frame": 508,
+      "end_frame": 581,
+      "order": 6,
+      "keyframes": [
+        508,
+        544,
+        580
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "锤子仍在纸箱左侧，黄色柄和金属锤头可见，玩具汽车位于其更左侧。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手从箱口移向锤子，下降夹取后提离桌面，并在抬升过程中转动锤子。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "锤子随左手离开桌面，黄色柄从夹爪侧面伸出，原放置位置空出。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "将锤子横向放入鞋前方",
+      "summary": "利用箱内前部空间放置锤子。",
+      "objects": [
+        "左夹爪",
+        "黄色柄锤子",
+        "黑白运动鞋",
+        "黑色电动牙刷",
+        "纸箱"
+      ],
+      "start_frame": 581,
+      "end_frame": 654,
+      "order": 7,
+      "keyframes": [
+        581,
+        617,
+        653
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "锤子已被提起，鞋占据箱内中后部，前侧仍有可放置区域。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手携锤移至箱口，将其调整为近左右横向，降到鞋前侧的箱内空间，释放后撤出。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "黄色锤柄横向留在箱内前部；锤头及牙刷部分被遮挡，锤头最终朝向不能完全确认。",
+      "parent": "p08"
+    },
+    {
+      "id": "p09",
+      "kind": "phase",
+      "title": "抓取最后的玩具汽车",
+      "summary": "将桌面上剩余的汽车提起。",
+      "objects": [
+        "左夹爪",
+        "银白色玩具汽车",
+        "纸箱"
+      ],
+      "start_frame": 654,
+      "end_frame": 763,
+      "order": 8,
+      "keyframes": [
+        654,
+        708,
+        762
+      ]
+    },
+    {
+      "id": "p09-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "银白色玩具汽车仍在箱左侧桌面，其余三件物体已依次放入箱内。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手移向汽车，对准车身后下降、合拢夹爪，抬起汽车并向箱体转移。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "汽车离开原来的桌面位置，随左夹爪移动；转运时车身部分被末端遮挡。",
+      "parent": "p09"
+    },
+    {
+      "id": "p10",
+      "kind": "phase",
+      "title": "横放汽车并退出箱口",
+      "summary": "完成最后一件物体的装箱并结束操作。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "银白色玩具汽车",
+        "黑白运动鞋",
+        "黄色柄锤子",
+        "黑色电动牙刷",
+        "纸箱"
+      ],
+      "start_frame": 763,
+      "end_frame": 837,
+      "order": 9,
+      "keyframes": [
+        763,
+        799,
+        836
+      ]
+    },
+    {
+      "id": "p10-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "汽车已被提起，箱内已有鞋、锤子和牙刷，前部仍有可容纳汽车的位置。",
+      "parent": "p10"
+    },
+    {
+      "id": "p10-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手在转运中旋转汽车，将其横向降到鞋前侧的箱内空间，释放后撤回。",
+      "parent": "p10"
+    },
+    {
+      "id": "p10-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "汽车横放在箱内前部，鞋和黄色锤柄仍可见，牙刷大部被遮挡。四件物体均已依次入箱，双臂退开；最终朝左要求无法对所有物体逐一核实。",
+      "parent": "p10"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p08",
+      "target": "p09",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p09",
+      "target": "p09-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p09",
+      "target": "p09-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p09",
+      "target": "p09-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p09",
+      "target": "p10",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p10",
+      "target": "p10-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p10",
+      "target": "p10-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p10",
+      "target": "p10-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

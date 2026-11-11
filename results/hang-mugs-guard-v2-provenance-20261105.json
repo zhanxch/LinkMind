@@ -1,0 +1,49 @@
+{
+  "checked_at": "2026-11-05T04:58:59.988177+00:00",
+  "passed": true,
+  "predecessor_commit": "556f718cef8078028bb1dc29c832a9aa7cd7b23e",
+  "predecessor_closure_commit": "3b88443d577da6e4a56aa1ba27efdacfffe1aa4f",
+  "predecessor_source_entries": 247,
+  "still_matching_sources": 242,
+  "post_closure_changes": [
+    {
+      "path": "src/roborag/mcp/python_cells.py",
+      "before_sha256": "b301c4a609ec2677949e42b17d23f93ffd46e2421e118869f0eba5164fcb9631",
+      "after_sha256": "54330195214e1ad3e02dfea45ae3991d02dc96cafc68b0f8afb3870a8d6b8fb7",
+      "original_preserved_in_commit": "556f718cef8078028bb1dc29c832a9aa7cd7b23e"
+    },
+    {
+      "path": "src/roborag/rag_sim.py",
+      "before_sha256": "9d95f2fee11f105ddec335a7783ab3c828dcbb743feeaa1b91c2897f94b55af1",
+      "after_sha256": "383b6deccf89644b0d77720a063e8a772b98ad941dbe9889c6ae6eba6cb54cfe",
+      "original_preserved_in_commit": "556f718cef8078028bb1dc29c832a9aa7cd7b23e"
+    },
+    {
+      "path": "src/roborag/toast_motion.py",
+      "before_sha256": "9597ce8d1272337b0ddaff1536a95772e20f71a8607837676577ff853525f7bc",
+      "after_sha256": "aa0dca5c67ec1e808bacf551850c796a2af316f499fd097e5a0a7eed54931712",
+      "original_preserved_in_commit": "556f718cef8078028bb1dc29c832a9aa7cd7b23e"
+    },
+    {
+      "path": "scripts/audit_hang_mugs_interfaces.py",
+      "before_sha256": "a1026b08ed6cd94a580e8e35e0607f396b1800507bc1bca3cf4afcb4ee58fdb4",
+      "after_sha256": "71318ee2622b683acbf5cb0100af1b759476097bc00d76211cde6df0b254e662",
+      "original_preserved_in_commit": "556f718cef8078028bb1dc29c832a9aa7cd7b23e"
+    },
+    {
+      "path": "scripts/run_hang_mugs_tools_validation.py",
+      "before_sha256": "9b13b7bc7d82a390ec7e7f1344868d7f15ed8e394afa8bdb62327f33bc82fd7a",
+      "after_sha256": "e6ec6b2700216653d3b695d6ab74e12b2e171b7979074780af2222d0181dd020",
+      "original_preserved_in_commit": "556f718cef8078028bb1dc29c832a9aa7cd7b23e"
+    }
+  ],
+  "runtime_changes": [
+    "src/roborag/mcp/python_cells.py",
+    "src/roborag/rag_sim.py",
+    "src/roborag/toast_motion.py"
+  ],
+  "unchanged_assembled_prompt_sha256": "f4797f3515bb275962ef0f15bf78c51cc3ee5a7612b37cf25364f4b0486e1bb3",
+  "prior_native_reports_preserved": 3,
+  "train_preflight_reused_after_source_and_metadata_hash_verification": true,
+  "interpretation": "V1 was fully closed before these edits. Original changed source bytes remain in the frozen Git commit; original reports and failures are retained. No native v2 outcome yet."
+}

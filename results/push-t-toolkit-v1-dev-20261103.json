@@ -1,0 +1,407 @@
+{
+  "task": "push_T",
+  "tag": "push-t-toolkit-v1-dev-20261103",
+  "complete": true,
+  "candidate_commit": "ead91e45e24b845ef5ba8bfc2057d8b9e243fb6b",
+  "counts": {
+    "attempts_closed": 6,
+    "success": 6,
+    "failure": 0,
+    "unscored": 0,
+    "scored": 6,
+    "success_rate_scored": 1.0,
+    "confirmed_success_fraction_closed": 1.0
+  },
+  "variants": {
+    "standard": {
+      "attempts_closed": 3,
+      "success": 3,
+      "failure": 0,
+      "unscored": 0,
+      "scored": 3,
+      "success_rate_scored": 1.0,
+      "confirmed_success_fraction_closed": 1.0,
+      "mean_native_score_scored": 100.0
+    },
+    "random": {
+      "attempts_closed": 3,
+      "success": 3,
+      "failure": 0,
+      "unscored": 0,
+      "scored": 3,
+      "success_rate_scored": 1.0,
+      "confirmed_success_fraction_closed": 1.0,
+      "mean_native_score_scored": 100.0
+    }
+  },
+  "cases": [
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 0,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0",
+      "returncode": 0,
+      "success": true,
+      "native_score": 100.0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+      "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6",
+      "native_scoring_issues": [],
+      "native_without_runner_summary": false,
+      "failure": null,
+      "steps": 326,
+      "steps_complete": true,
+      "wall_seconds": 434.4096440570429,
+      "usage": {
+        "input_tokens": 1674281,
+        "cached_input_tokens": 1606528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9143,
+        "reasoning_output_tokens": 2859
+      },
+      "layout_sha256": "f3e13e45b3d040ea029b3835d02160b2cf662ace9dc5898ba102ff5dac335127",
+      "workflow_verified": true,
+      "trajectory_problems": [],
+      "command_count": 29,
+      "tool_counts": {
+        "execute_chunk": 21,
+        "measure_planar": 8,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 2,
+        "retrieve_evidence": 2
+      },
+      "artifact_sha256": {
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/run.json": "a2dd8401e8c1aaa4a48d2f143d7f80be33523f61cec9202c534ef8babf4c35e9",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/result.json": "651edf3acbe73be109d17c6f52172d911d516f2ce7b33fa959408867c3d5b94d",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/agent-exit.json": "ff244170fa52f2f719e361f203fb0a76ae38f2542e9a0048206a82e359d1e1ff",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/agent-prompt.txt": "665c1f51132203eaeca8d263c99c8d4c4523ec1cab87dc478d8668a35397a282",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/actions.jsonl": "891effbd01cd3f49896170a4a234ec82cb115c0fcdc2ee6820a0ea9b75fd4d21",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/commands.jsonl": "b49536042a9e996b0dd3bada5d02a78c19d42077c7ad59f27e628f23f6079931",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/mcp-calls.jsonl": "59943951f19826de7240c9a1d025af715f364f95f8d4481eba364ad54bb7a1fe",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/gpt-plan.json": "73296fc590ce7b80e25037fd6c1d8f2d09415222b910deb824422c64e91cef1e",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/episode_end.json": "aff764c0ddc4cb4e08d8307d59c7b6a1f285883b98a9f8bdbbd8ab01b0bcaa0f",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/ready.json": "8172c2cd8241a64abf38bd0a8f777c01bf3e23488c921f2363d052676e220db6",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l0/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 0,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0",
+      "returncode": 0,
+      "success": true,
+      "native_score": 100.0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+      "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6",
+      "native_scoring_issues": [],
+      "native_without_runner_summary": false,
+      "failure": null,
+      "steps": 271,
+      "steps_complete": true,
+      "wall_seconds": 492.9278884159867,
+      "usage": {
+        "input_tokens": 1339104,
+        "cached_input_tokens": 1272192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8201,
+        "reasoning_output_tokens": 3122
+      },
+      "layout_sha256": "6956fccbba1e5db2c7f2c8a1c930b43f267da1a2713394fec8254ab6cbe921ab",
+      "workflow_verified": true,
+      "trajectory_problems": [],
+      "command_count": 27,
+      "tool_counts": {
+        "execute_chunk": 17,
+        "measure_planar": 10,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "artifact_sha256": {
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/run.json": "aa2ba6138019e7482d464f0cda55f75ad929e34b452a4cdf39d9c53f3a1064cb",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/result.json": "f187065b352b825a2e9b1cfad96f553e71bf7e61813fca4633712d26864b42c7",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/agent-exit.json": "b1d3b1e0466eb746342e70e8dc202dd7e934f2d652c31abfa31df62551422cb0",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/agent-prompt.txt": "665c1f51132203eaeca8d263c99c8d4c4523ec1cab87dc478d8668a35397a282",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/actions.jsonl": "fbbfe0fbcb995f61940e32884ea19db30c7304957f2e50b87fe9bbdadace202b",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/commands.jsonl": "00d010809b9bf3fc73271f73a7fd7b7dc35de5b876dcfb60e8fbade46cfdac42",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/mcp-calls.jsonl": "7b6ff8073e39026fc12c5eb3f35f6baefbdf54c6547928da7e6bae79042242e9",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/gpt-plan.json": "f71a33f0c20ac95275f6b4a5a1722cbb8d9bba6cf2a5d7bf8ee85d6dba775b60",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/episode_end.json": "28d9fa204a758b29493699614ba82eed30fb0658ba9ffa939567780e45ca8220",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/ready.json": "59e2ce4d3e93a993cf0b5132e47b9394cad4f1d4c4a309bbaa306c5967eaed5f",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l0/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 1,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1",
+      "returncode": 0,
+      "success": true,
+      "native_score": 100.0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+      "native_sha256": "8ae6a937232fc1b8c6d1e3b297a60df76889c266a3fa45274dc4e42ae609b509",
+      "native_scoring_issues": [],
+      "native_without_runner_summary": false,
+      "failure": null,
+      "steps": 399,
+      "steps_complete": true,
+      "wall_seconds": 518.2843612001743,
+      "usage": {
+        "input_tokens": 1958987,
+        "cached_input_tokens": 1879808,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9637,
+        "reasoning_output_tokens": 3297
+      },
+      "layout_sha256": "9f7dc663aa68583b1762a38782dc69060fdc7b6f929dc9b14f4acf9815e43684",
+      "workflow_verified": true,
+      "trajectory_problems": [],
+      "command_count": 31,
+      "tool_counts": {
+        "execute_chunk": 25,
+        "measure_planar": 6,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "artifact_sha256": {
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/run.json": "e9a9ced4c7d24d3e7413b9952437aeadcece2a1b94dafdb61509deb77c909b35",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/result.json": "8fb94d2c03ca3496cfddaffad12abe0ee0947da837c9a3e10dc76846abb0216b",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/agent-exit.json": "979dc692da44ec33b3b46a7edd4ba32ba4490f4826ed6d281f88bb93abb7760c",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/agent-prompt.txt": "665c1f51132203eaeca8d263c99c8d4c4523ec1cab87dc478d8668a35397a282",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/actions.jsonl": "47a680e8bcc09279b809f070ed20550ae4d65b3686d08e789b3343dc83178da0",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/commands.jsonl": "392af488f96064af4f1da448dd687c003b9de5adb51270a991f0b01dc95da8ba",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/mcp-calls.jsonl": "c99d48f2a0123d639b506e2a8db67884e5ebeba5455969e1bb156184303771e5",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/gpt-plan.json": "4f9b05e248756a90dc1b20401934fd63cc5f35d82c0e5f607fc3f37ec960a361",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/episode_end.json": "5aec608ea634abc59be100bef045aa085fabb4e6cd33ad3be6c1d63afa7fda9d",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/ready.json": "ce8e2ad979bd69725e507b5fe7309b56cac8b165665459a568c82cf2597393d0",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l1/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json": "8ae6a937232fc1b8c6d1e3b297a60df76889c266a3fa45274dc4e42ae609b509"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 1,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1",
+      "returncode": 0,
+      "success": true,
+      "native_score": 100.0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l1/_result.json",
+      "native_sha256": "8ae6a937232fc1b8c6d1e3b297a60df76889c266a3fa45274dc4e42ae609b509",
+      "native_scoring_issues": [],
+      "native_without_runner_summary": false,
+      "failure": null,
+      "steps": 291,
+      "steps_complete": true,
+      "wall_seconds": 522.0252454390284,
+      "usage": {
+        "input_tokens": 1578967,
+        "cached_input_tokens": 1504128,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9819,
+        "reasoning_output_tokens": 3629
+      },
+      "layout_sha256": "3006df38d777cfd922f409cd4517de4c0bd4179e686570fd95f6f9ab1e194fdd",
+      "workflow_verified": true,
+      "trajectory_problems": [],
+      "command_count": 31,
+      "tool_counts": {
+        "execute_chunk": 19,
+        "measure_planar": 12,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 2
+      },
+      "artifact_sha256": {
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/run.json": "e3490d821201a3decfca426ec4216d80e530805d7440e6c08f65312615cf31fd",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/result.json": "9a72006fb6e4b8159ffcfba6b1dbd271be8bfecc94fb4e65cd8ca65b71168379",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/agent-exit.json": "62f88ad6424c7c71d95fe3dfb9fe970a314949dbf90e66c2b1acfe03bcd3d6b1",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/agent-prompt.txt": "665c1f51132203eaeca8d263c99c8d4c4523ec1cab87dc478d8668a35397a282",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/actions.jsonl": "e3eadbd078e8675edd01168ea9b0f514fdb373ecb0ee9d6bd36fdd4999c1c086",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/commands.jsonl": "2ab6ea21382a6af33f135a77d38e128fb7d741c958f22f151ef4605eae7fc1c6",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/mcp-calls.jsonl": "450ea43c7adc5ac278e39bbcccd3b731bbf96486d7464f90f40e158ff20d99c9",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/gpt-plan.json": "a63fd7e734effd7de1355b86c9498faaf51d2f5ac279aa9acec768fa4d25d1e6",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/episode_end.json": "8f7a2b5557d8077a63b5dd920b4c1c1012ceba9fb1b36cbe1025f896004a11ad",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/ready.json": "6709c36e9ac423b4133998edbe36cbc7240b82ad27ab55329de61f8e0fc8b8d0",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l1/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l1/_result.json": "8ae6a937232fc1b8c6d1e3b297a60df76889c266a3fa45274dc4e42ae609b509"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 2,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2",
+      "returncode": 0,
+      "success": true,
+      "native_score": 100.0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l2/_result.json",
+      "native_sha256": "cc6468b7f7528bd52d7561d2f877115ef92241bd4a3fd3868f48e41f5da17fd0",
+      "native_scoring_issues": [],
+      "native_without_runner_summary": false,
+      "failure": null,
+      "steps": 328,
+      "steps_complete": true,
+      "wall_seconds": 502.15741999587044,
+      "usage": {
+        "input_tokens": 1783533,
+        "cached_input_tokens": 1708544,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9431,
+        "reasoning_output_tokens": 3224
+      },
+      "layout_sha256": "435c27097485d10dcff22c6e01bc9bfd7f943e120290cd733a0d17dc64b52678",
+      "workflow_verified": true,
+      "trajectory_problems": [],
+      "command_count": 28,
+      "tool_counts": {
+        "execute_chunk": 22,
+        "measure_planar": 6,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "artifact_sha256": {
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/run.json": "740f4c50dd6f7e16952526b214ef237abea970d002e924e40e4ad2cf7fe7e100",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/result.json": "3b193e19df25976c8cb98bbe73c98549ac6333b8b5b9919d504a17c00851f4cd",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/agent-exit.json": "4a87f2eeb511acae5070dc4371cda3066862f5c0e821a5f09fedb2168c8fa931",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/agent-prompt.txt": "665c1f51132203eaeca8d263c99c8d4c4523ec1cab87dc478d8668a35397a282",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/actions.jsonl": "e6609fe57000d2297f0fdec95195ef26796014f10dafe6ca5f88d6a9245ec02d",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/commands.jsonl": "2008966318043581cff925ae8f7bc94e9f36f7ded90a054ba56ddc70c25e1934",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/mcp-calls.jsonl": "592af5151033fa680a1d9f0bf4d72ea713cb2235ed58ec39477d1cf7540f290a",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/gpt-plan.json": "45210a39a54510fcf934896c4c217e3e63abda4a4e9a766ea7dcb157bf3e5627",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/episode_end.json": "63e8e920c8b752e139571f3e453c52211f2e0a813017c712882e618ddaf24b93",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/ready.json": "e26d1b95d5fdc9ebd9f57c250d57228af68baa28c946bb4845b3ec4eda3a5c5a",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-standard-l2/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l2/_result.json": "cc6468b7f7528bd52d7561d2f877115ef92241bd4a3fd3868f48e41f5da17fd0"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 2,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2",
+      "returncode": 0,
+      "success": true,
+      "native_score": 100.0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l2/_result.json",
+      "native_sha256": "cc6468b7f7528bd52d7561d2f877115ef92241bd4a3fd3868f48e41f5da17fd0",
+      "native_scoring_issues": [],
+      "native_without_runner_summary": false,
+      "failure": null,
+      "steps": 432,
+      "steps_complete": true,
+      "wall_seconds": 807.1492381899152,
+      "usage": {
+        "input_tokens": 2599669,
+        "cached_input_tokens": 2419584,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13569,
+        "reasoning_output_tokens": 5629
+      },
+      "layout_sha256": "a7cf263684ad074cbcc26a7ab7e91b368d9828d41a0adb6b49d7711cb138c0b4",
+      "workflow_verified": true,
+      "trajectory_problems": [],
+      "command_count": 39,
+      "tool_counts": {
+        "execute_chunk": 29,
+        "measure_planar": 10,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 3,
+        "retrieve_evidence": 3
+      },
+      "artifact_sha256": {
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/run.json": "e78d8f455204dbd5919d86f146c1e4f5fa86327e6b4358cf4d6ca96e4373225d",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/result.json": "83f666f94da65373b1ffb321260cd6e635e413d002d5b13f7a7b0bc82e5ece0b",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/agent-exit.json": "6ae3d0e41cbcbc549a5b390e61dbe19db5afbbfd05bf2213f4c2b3a99f05045a",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/agent-prompt.txt": "665c1f51132203eaeca8d263c99c8d4c4523ec1cab87dc478d8668a35397a282",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/actions.jsonl": "076e22eb071393b518d3a276537f3bcbb9dbf3ccec154d7c54041c4f6c4701f2",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/commands.jsonl": "f7ca8ce09f68368fdf8894e074933b17351799f5288ccf3e5589c88e94e375ec",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/mcp-calls.jsonl": "4612f3da1c67f329310f7398e85373d92467922c9c180aca52504220ccb351e8",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/gpt-plan.json": "1d85d935477dd626a4020261d09950e676f6e4f280446a09f5f044c19edb1d56",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/episode_end.json": "6d683aa75aa895dfb52a8fe6d7218f9d85bbec40c3184e1147510ada8aa82043",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/ready.json": "caad120addab70a5cd6e2a86a65c30149bbd475eeb8e4aeff4f315f5133c5bb6",
+        "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-dev-20261103/seed1-random-l2/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l2/_result.json": "cc6468b7f7528bd52d7561d2f877115ef92241bd4a3fd3868f48e41f5da17fd0"
+      }
+    }
+  ],
+  "equal_variant_weight_success_rate": 1.0,
+  "all_attempt_costs": {
+    "steps": {
+      "known_count": 6,
+      "unknown_count": 0,
+      "known_sum": 2047,
+      "known_mean": 341.1666666666667,
+      "partial_lower_bound_cases": 0
+    },
+    "wall_seconds": {
+      "known_count": 6,
+      "unknown_count": 0,
+      "known_sum": 3276.953797298018,
+      "known_mean": 546.1589662163364
+    },
+    "input_tokens": {
+      "known_count": 6,
+      "unknown_count": 0,
+      "known_sum": 10934541,
+      "known_mean": 1822423.5
+    },
+    "cached_input_tokens": {
+      "known_count": 6,
+      "unknown_count": 0,
+      "known_sum": 10390784,
+      "known_mean": 1731797.3333333333
+    },
+    "output_tokens": {
+      "known_count": 6,
+      "unknown_count": 0,
+      "known_sum": 59800,
+      "known_mean": 9966.666666666666
+    },
+    "reasoning_output_tokens": {
+      "known_count": 6,
+      "unknown_count": 0,
+      "known_sum": 21760,
+      "known_mean": 3626.6666666666665
+    },
+    "total_tokens": {
+      "known_count": 6,
+      "unknown_count": 0,
+      "known_sum": 10994341,
+      "known_mean": 1832390.1666666667
+    },
+    "uncached_input_tokens": {
+      "known_count": 6,
+      "unknown_count": 0,
+      "known_sum": 543757,
+      "known_mean": 90626.16666666667
+    }
+  },
+  "batch_wall_seconds": 1878.3702947138809,
+  "audit": {
+    "passed": true,
+    "frozen_sources_verified": 237,
+    "candidate_matches_registered_suite": true,
+    "conditions_match_registered_suite": true,
+    "batch_configuration_verified": true,
+    "scene_task_and_layout_sources_verified": true,
+    "native_results_verified": 6,
+    "trajectories_checked": 6,
+    "freeze_sha256": "15d643e27e2c2aace5eff03e7c6482182e6a63753eb76239072a4f87f2458618",
+    "status_sha256": "f74250944f698539218fae75e1507592b4fa57dcb24d67af8d229731420dc261"
+  },
+  "active": [],
+  "pending": 0,
+  "schema": "roborag.push-t-current-audit.v1",
+  "generated_at": "2026-11-03T09:50:00.140318+00:00",
+  "protocol_sha256": "5be6c76800bd622852c5190f7c08596a3e0287babf4086b270fbbda1ebe7e88d",
+  "base_commit": "6cbb378436207200fe50884d9eaf6869deef9621",
+  "interpretation": "Six previously used development scenes, one attempt each on a new frozen candidate; do not inherit historical 50/50 or pool with the stopped minimal batch",
+  "actual_billed_usd": null,
+  "mean_native_score_scored": 100.0
+}

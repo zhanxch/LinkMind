@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "scope": "Replay only the new guard-audit logic against three immutable native toast traces; no simulator or policy execution",
+  "auditor": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/scripts/audit_hang_mugs_closure.py",
+  "auditor_sha256": "dc991118ed411d2bde25928f4b741ab388543e65c7f76c588913a2ef800c6c0d",
+  "rows": [
+    {
+      "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-supplement-20261105/seed1-random-l10/ik-continuity.jsonl",
+      "journal_sha256": "59fc6d53d3804ea14290598e22456c84222438d270c3db2415308f41bb230b5a",
+      "accepted_delta_rows": 770,
+      "rejected_attempts": 9,
+      "rejected_receipts_verified": 9,
+      "violation_counts": {
+        "joint_target_jump": 2,
+        "ik_failed": 7
+      },
+      "case": "seed1-random-l10"
+    },
+    {
+      "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-supplement-20261105/seed1-random-l11/ik-continuity.jsonl",
+      "journal_sha256": "5eac7f4b965df273008bf8d08709ac4c6bacbd03a9acb8beba1455458a7201d9",
+      "accepted_delta_rows": 1136,
+      "rejected_attempts": 9,
+      "rejected_receipts_verified": 9,
+      "violation_counts": {
+        "ik_failed": 5,
+        "joint_target_jump": 4
+      },
+      "case": "seed1-random-l11"
+    },
+    {
+      "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-supplement-20261105/seed1-standard-l12/ik-continuity.jsonl",
+      "journal_sha256": "d776ec60e301f0f1fa42a5e391f17f8a8852223f283dea1c290c5d09a86403cc",
+      "accepted_delta_rows": 1102,
+      "rejected_attempts": 9,
+      "rejected_receipts_verified": 9,
+      "violation_counts": {
+        "joint_target_jump": 7,
+        "ik_failed": 2
+      },
+      "case": "seed1-standard-l12"
+    }
+  ]
+}

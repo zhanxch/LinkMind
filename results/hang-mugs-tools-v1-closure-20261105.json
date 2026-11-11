@@ -1,0 +1,894 @@
+{
+  "checked_at": "2026-11-05T04:55:10.080701+00:00",
+  "complete": true,
+  "tag": "hang-mugs-tools-v1-dev-20261105",
+  "root": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools",
+  "candidate_commit": "556f718cef8078028bb1dc29c832a9aa7cd7b23e",
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/experiments/hang_mugs/tools-v1-development-20261105.json",
+  "protocol_sha256": "6f4d5a0a41ff6f28ea3df31b15a1e89c6e000f012aa2244cbfbf511a4556f82e",
+  "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-tools-v1-dev-20261105.json",
+  "report_sha256": "5632b9bcf4e885a80b492f7601cbb6741cef4019311033690b3184f4f4ffc816",
+  "freeze_sha256": "2a266f645f126dcda930e4f7bb05130d639d71484fb44b54bc9b56d505668b33",
+  "driver_sha256": "17a4622e25c75c2f08c6849f04d8f4682fd29b325eeb739e12b0032d5407b531",
+  "frozen_sources_verified": 247,
+  "baseline_native_reports_preserved": 7,
+  "registered_pids": [
+    1236389,
+    1236390,
+    1236402,
+    1236404,
+    1236779,
+    1236916,
+    1236922,
+    1236960,
+    1237049,
+    1237050,
+    1237051,
+    1237053,
+    1237163,
+    1237165,
+    1237488,
+    1237573,
+    1237796,
+    1237797,
+    1237846,
+    1237925,
+    1237926,
+    1237927,
+    1237929,
+    1238062,
+    1238064,
+    1238066,
+    1238082,
+    1238291,
+    1238293,
+    1238295,
+    1238341,
+    1243577,
+    1243579,
+    1243951,
+    1244110,
+    1244111,
+    1244169,
+    1244239,
+    1244240,
+    1244241,
+    1244243,
+    1244440,
+    1244695,
+    1244697,
+    1244698
+  ],
+  "registered_process_identities": 43,
+  "policy_workspaces_checked": [
+    "/tmp/roborag-mcp-38xbbsna",
+    "/tmp/roborag-mcp-t2zw4fb9",
+    "/tmp/roborag-mcp-j159r3a3"
+  ],
+  "reused_pid_numbers": [],
+  "live_related_processes": [],
+  "rows": [
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 1,
+      "success": false,
+      "native_score": 15.0,
+      "steps": 800,
+      "steps_complete": true,
+      "wall_seconds": 1661.6967196241021,
+      "usage": {
+        "input_tokens": 9254309,
+        "cached_input_tokens": 9074944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 33201,
+        "reasoning_output_tokens": 17933
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-tools-v1-dev-20261105/seed1-standard-l1/native/eval_result/RoboDojo/hang_mugs/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+      "native_sha256": "96cf8e42bf46170235dcdc30bd867473c42aea88c0e2fb61a9e47e8df26c9c4d",
+      "independent_action_rows_verified": 800,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 4,
+        "read_action_reference": 2,
+        "python_cell_start": 26,
+        "python_cell": 26,
+        "execute_chunk": 65,
+        "measure_mug_geometry": 1
+      },
+      "measurement_commands": {
+        "stereo_guide": 1
+      },
+      "measurement_errors": 0,
+      "measurements_verified_zero_steps": 1,
+      "completed_cells": 26,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 2,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 5,
+        "calls": [
+          {
+            "cell": 4,
+            "step_before": 44,
+            "step_after": 62,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "source_sha256": "eec39a6ea025b3a8b3671340e34844a7c6f00263b40de991c958b23da8011d61",
+            "feature_prediction": {
+              "xyz": [
+                0.1696114589706312,
+                -0.08001469719893227,
+                1.0582604621006322
+              ],
+              "target": [
+                0.17,
+                -0.08,
+                1.06
+              ],
+              "error_m": 0.0017824624098411194,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 5,
+            "step_before": 62,
+            "step_after": 82,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "source_sha256": "9168a0a09a2c112e3e0ddd61c8bb35c789a9060c70d92268989caf869032bee5",
+            "feature_prediction": {
+              "xyz": [
+                0.16951333412404884,
+                -0.08006583038425699,
+                1.059952407716175
+              ],
+              "target": [
+                0.17,
+                -0.08,
+                1.06
+              ],
+              "error_m": 0.0004933987634625996,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 16,
+            "step_before": 351,
+            "step_after": 359,
+            "action_steps": 8,
+            "motion_stopped": false,
+            "source_sha256": "a62c0ccb6c88b6e7666494fbf1b08bc5e32d38dde58a0b45a9a180505a842f93",
+            "feature_prediction": {
+              "xyz": [
+                0.033951192733463226,
+                -0.05083561787425225,
+                1.033714127267879
+              ],
+              "target": [
+                0.03399854402396505,
+                -0.050525311021352014,
+                1.034335992364045
+              ],
+              "error_m": 0.0006965979367602282,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 21,
+            "step_before": 579,
+            "step_after": 599,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "source_sha256": "2c192e4df0ef660473a1d8d93f87b380815a7f559d0264d4192f19f91a1d8754",
+            "feature_prediction": {
+              "xyz": [
+                -0.1401722126555403,
+                -0.0432626150442079,
+                1.0593338252827977
+              ],
+              "target": [
+                -0.15,
+                -0.06,
+                1.12
+              ],
+              "error_m": 0.06369544892741098,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 24,
+            "step_before": 635,
+            "step_after": 643,
+            "action_steps": 8,
+            "motion_stopped": false,
+            "source_sha256": "558a05627e89a29d6fde4ceeace1253c593344017431660dc305f2ae76fa6ec9",
+            "feature_prediction": {
+              "xyz": [
+                -0.09957420887699012,
+                0.0036455543089189135,
+                1.113957639156752
+              ],
+              "target": [
+                -0.09904763315821893,
+                0.0033390129838106533,
+                1.1142280448338915
+              ],
+              "error_m": 0.0006666099322900531,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          }
+        ],
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 5,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 0.0,
+        "steps": 800,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-hang_mugs-20261029/seed1-standard-l1/native/eval_result/RoboDojo/hang_mugs/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+        "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 3,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 674,
+      "steps_complete": true,
+      "wall_seconds": 1649.1668964640703,
+      "usage": {
+        "input_tokens": 10264400,
+        "cached_input_tokens": 10078208,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 33654,
+        "reasoning_output_tokens": 16509
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-tools-v1-dev-20261105/seed1-random-l3/native/eval_result/RoboDojo/hang_mugs_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l3/_result.json",
+      "native_sha256": "da320cac65f46500da326a25e3b5f36a433d844b25f08c9dff59c323ba942bdc",
+      "independent_action_rows_verified": 674,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 2,
+        "python_cell_start": 43,
+        "python_cell": 43,
+        "record_plan": 3,
+        "execute_chunk": 54,
+        "measure_mug_geometry": 7
+      },
+      "measurement_commands": {
+        "stereo_guide": 2,
+        "aperture": 1,
+        "peg_measure": 3,
+        "surface": 1
+      },
+      "measurement_errors": 3,
+      "measurements_verified_zero_steps": 7,
+      "completed_cells": 43,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 3,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 12,
+        "calls": [
+          {
+            "cell": 7,
+            "step_before": 101,
+            "step_after": 114,
+            "action_steps": 13,
+            "motion_stopped": true,
+            "source_sha256": "808c560d1d4d5fced55b211dfb5d445593b49877091d2517167a4faffbe68661",
+            "feature_prediction": {
+              "xyz": [
+                -0.06172212985717128,
+                -0.032577254570924946,
+                1.0264701832602898
+              ],
+              "target": [
+                -0.12391861948959834,
+                0.004363483129841085,
+                0.9433834055072433
+              ],
+              "error_m": 0.11016548489367052,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 9,
+            "step_before": 114,
+            "step_after": 122,
+            "action_steps": 8,
+            "motion_stopped": false,
+            "source_sha256": "50f3a8612e5c9bbe5363be20ab63613ba6d2e8139b1381b4864d18cf472cc4c9",
+            "feature_prediction": {
+              "xyz": [
+                -0.11728151332851564,
+                0.0079794677907142,
+                0.9399280865046238
+              ],
+              "target": [
+                -0.11795726762570545,
+                0.00809932762855013,
+                0.9395747640386451
+              ],
+              "error_m": 0.0007719112746046525,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 12,
+            "step_before": 144,
+            "step_after": 156,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "source_sha256": "7e250169cb21180901c47f5565bff7a4f1059f1ad34dff1a7c40904ada41128a",
+            "feature_prediction": {
+              "xyz": [
+                -0.12101562369092203,
+                0.006323253088545009,
+                0.9430042686624067
+              ],
+              "target": [
+                -0.12019277457466529,
+                0.006698385941534237,
+                0.9410030045893695
+              ],
+              "error_m": 0.002196101822672611,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 15,
+            "step_before": 156,
+            "step_after": 168,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "source_sha256": "fc4d087ce917bac443ded687eb93377d721a3e440dcf5c551b4c0294d46f3842",
+            "feature_prediction": {
+              "xyz": [
+                -0.1339676101066092,
+                0.01150658238824364,
+                0.9399366907535385
+              ],
+              "target": [
+                -0.11795726762570545,
+                0.00809932762855013,
+                0.9395747640386451
+              ],
+              "error_m": 0.016372887414877045,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 23,
+            "step_before": 302,
+            "step_after": 315,
+            "action_steps": 13,
+            "motion_stopped": true,
+            "source_sha256": "ef0d19b9cc9ed312560bf5d169299e0795d2931646fdc5533f8a0bc27de6426f",
+            "feature_prediction": {
+              "xyz": [
+                -0.1261861491673365,
+                -0.1234911602770267,
+                0.9558867386017152
+              ],
+              "target": [
+                -0.1276444644045314,
+                0.00202858031814793,
+                0.9457638064251173
+              ],
+              "error_m": 0.1259357205810288,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 25,
+            "step_before": 315,
+            "step_after": 329,
+            "action_steps": 14,
+            "motion_stopped": false,
+            "source_sha256": "5708256007678f7674a88dc1be96e65bf556066260515bfb185f4495bc194c1e",
+            "feature_prediction": {
+              "xyz": [
+                -0.1242371216718248,
+                0.0034565613046519256,
+                0.9433602156059263
+              ],
+              "target": [
+                -0.12391861948959834,
+                0.004363483129841085,
+                0.9433834055072433
+              ],
+              "error_m": 0.0009615033066040609,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 26,
+            "step_before": 329,
+            "step_after": 337,
+            "action_steps": 8,
+            "motion_stopped": false,
+            "source_sha256": "1ece2cc202e35009fe92087a0fa37ff07ee96df1ad4376ac90c6e52749a1a3df",
+            "feature_prediction": {
+              "xyz": [
+                -0.11103606413716527,
+                0.0127888503548544,
+                0.934401083392679
+              ],
+              "target": [
+                -0.11050557779583933,
+                0.012769133251936435,
+                0.9348139622028973
+              ],
+              "error_m": 0.0006725127763902169,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 33,
+            "step_before": 463,
+            "step_after": 479,
+            "action_steps": 16,
+            "motion_stopped": true,
+            "source_sha256": "4cac077c17332187530bf8c54505ea6d9c7cafb1791e0986e7999ac9e71a6f0f",
+            "feature_prediction": {
+              "xyz": [
+                0.1164471414276859,
+                -0.025815007105562185,
+                0.9695292235695282
+              ],
+              "target": [
+                0.044926754449513565,
+                0.07142806231760464,
+                0.9524475337470745
+              ],
+              "error_m": 0.12191457842086353,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 35,
+            "step_before": 479,
+            "step_after": 497,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "source_sha256": "9888bb3711f80aba933b827e2a756a6d24532bcbbb9d0ef141855a9a183ac3dc",
+            "feature_prediction": {
+              "xyz": [
+                0.04392567751243458,
+                0.0731459502500531,
+                0.9425516386042285
+              ],
+              "target": [
+                0.044926754449513565,
+                0.07142806231760464,
+                0.9524475337470745
+              ],
+              "error_m": 0.010093663094268873,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 37,
+            "step_before": 497,
+            "step_after": 504,
+            "action_steps": 7,
+            "motion_stopped": false,
+            "source_sha256": "48d74b5315f4a5e61b9939ea9760c64fd1e65ef1bd204068f62db604e0c641ac",
+            "feature_prediction": {
+              "xyz": [
+                0.027181575847548295,
+                0.0699325918775772,
+                0.9378677595061586
+              ],
+              "target": [
+                0.02697284894568438,
+                0.07007928964798045,
+                0.9381353679624964
+              ],
+              "error_m": 0.00036973158007733473,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 41,
+            "step_before": 576,
+            "step_after": 596,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "source_sha256": "5ce9bf9ddb3ebed581e60933cc9c0735e8d761a299581f91060b74663bce05c0",
+            "feature_prediction": {
+              "xyz": [
+                -0.1435232116312062,
+                0.007419214219568655,
+                1.0686313680428579
+              ],
+              "target": [
+                -0.14315320780350924,
+                0.004749124666123348,
+                1.0816100760932423
+              ],
+              "error_m": 0.01325568344948849,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 43,
+            "step_before": 596,
+            "step_after": 604,
+            "action_steps": 8,
+            "motion_stopped": false,
+            "source_sha256": "d1cb16fd7a7648c09885d9d27572aa88e204deb84c9b574d2bc134e6d7ec22f9",
+            "feature_prediction": {
+              "xyz": [
+                -0.11633061958258777,
+                0.01457234475701466,
+                1.0697843939724012
+              ],
+              "target": [
+                -0.11575388687220288,
+                0.014239861007238376,
+                1.0706463570067866
+              ],
+              "error_m": 0.0010891034550216038,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          }
+        ],
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 12,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 40.0,
+        "steps": 800,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-hang_mugs-20261029/seed1-random-l3/native/eval_result/RoboDojo/hang_mugs_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l3/_result.json",
+        "native_sha256": "fac190c5c38bfb76394e459210f47ae3f9a0a07407627892028992c80e834c7f"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 2,
+      "success": false,
+      "native_score": 15.0,
+      "steps": 800,
+      "steps_complete": true,
+      "wall_seconds": 1386.4509455240332,
+      "usage": {
+        "input_tokens": 8047026,
+        "cached_input_tokens": 7879040,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 27124,
+        "reasoning_output_tokens": 13593
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-tools-v1-dev-20261105/seed1-standard-l2/native/eval_result/RoboDojo/hang_mugs/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l2/_result.json",
+      "native_sha256": "5173cd585649428e7dd13bac6435ecb72aae639286055b7c3000eb5ff1544e34",
+      "independent_action_rows_verified": 800,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 4,
+        "record_plan": 4,
+        "python_cell_start": 23,
+        "python_cell": 23,
+        "execute_chunk": 60,
+        "measure_mug_geometry": 2
+      },
+      "measurement_commands": {
+        "stereo_guide": 2
+      },
+      "measurement_errors": 0,
+      "measurements_verified_zero_steps": 2,
+      "completed_cells": 23,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 8,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 10,
+        "calls": [
+          {
+            "cell": 6,
+            "step_before": 90,
+            "step_after": 108,
+            "action_steps": 18,
+            "motion_stopped": true,
+            "source_sha256": "696ba6db8c7ab447dcd4cae9cac624044fe0239b64557e79d01b549a4c237a19",
+            "feature_prediction": {
+              "xyz": [
+                0.28104021881923547,
+                -0.018519476473744863,
+                0.9736523767998221
+              ],
+              "target": [
+                0.26506955522085834,
+                -0.009847119503180214,
+                0.9637880192702368
+              ],
+              "error_m": 0.020677945271929572,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 7,
+            "step_before": 132,
+            "step_after": 142,
+            "action_steps": 10,
+            "motion_stopped": false,
+            "source_sha256": "d7e189e632da43517098dffe3ffc5640a2ace6e5a15933e7d73f1de631e7dfdc",
+            "feature_prediction": {
+              "xyz": [
+                0.24122416136192604,
+                -0.0015672105781703687,
+                0.9442871249010303
+              ],
+              "target": [
+                0.24248827761042918,
+                -0.006790059751590107,
+                0.9535050096351184
+              ],
+              "error_m": 0.01066984265811619,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 8,
+            "step_before": 152,
+            "step_after": 169,
+            "action_steps": 17,
+            "motion_stopped": true,
+            "source_sha256": "37272c39d9ea19dd008fc7291914ad295aa7017c39d12ec4577fb307271f5899",
+            "feature_prediction": {
+              "xyz": [
+                0.24672624231878726,
+                -0.05302308948056094,
+                0.9340708819348053
+              ],
+              "target": [
+                0.2560370441766867,
+                -0.008624295602544171,
+                0.9596748154161894
+              ],
+              "error_m": 0.052091317307002574,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 12,
+            "step_before": 238,
+            "step_after": 248,
+            "action_steps": 10,
+            "motion_stopped": true,
+            "source_sha256": "0399fbee11b1d277b8a5808398ec68b10e03804c2bfc29be6b43c8a70fc20052",
+            "feature_prediction": {
+              "xyz": [
+                0.2268231336742716,
+                -0.0682421267701327,
+                1.1156269910540955
+              ],
+              "target": [
+                0.11194187405856444,
+                -0.11122856484557622,
+                1.042876799175614
+              ],
+              "error_m": 0.1426118090750598,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 13,
+            "step_before": 248,
+            "step_after": 260,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "source_sha256": "8d185edb16045ac423cdc9d51bffb57e1ce732f089c4b2cd146b604678f31b2e",
+            "feature_prediction": {
+              "xyz": [
+                0.2315364997697102,
+                -0.019530719400826874,
+                1.1342916349001906
+              ],
+              "target": [
+                0.23186580023704143,
+                -0.018822143746358547,
+                1.134600772840355
+              ],
+              "error_m": 0.0008402883564223333,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 18,
+            "step_before": 364,
+            "step_after": 368,
+            "action_steps": 4,
+            "motion_stopped": true,
+            "source_sha256": "341286af8882b94d6ea8088cced480c8829e4801f28a8781fb057f0f4a0c5243",
+            "feature_prediction": {
+              "xyz": [
+                -0.06913058287526329,
+                0.016743671754962136,
+                0.9509252063215334
+              ],
+              "target": [
+                0.0190193070544023,
+                0.0402912502517616,
+                0.950394348697706
+              ],
+              "error_m": 0.09124238794273125,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 19,
+            "step_before": 368,
+            "step_after": 370,
+            "action_steps": 2,
+            "motion_stopped": true,
+            "source_sha256": "dd64186cde48cefa9106c9a2da64d1dc5877839bc5f5664a65452df9b8d7bc10",
+            "feature_prediction": {
+              "xyz": [
+                -0.07798397929677495,
+                -0.00231363660498278,
+                0.8922284552263542
+              ],
+              "target": [
+                -0.12,
+                -0.08,
+                0.94
+              ],
+              "error_m": 0.10041233760518152,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 20,
+            "step_before": 549,
+            "step_after": 573,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "source_sha256": "2c756f1d2b20b7e86f5ff99b1a345688b6ddccf68b0be2e98151f12e796c1727",
+            "feature_prediction": {
+              "xyz": [
+                0.01698324789095903,
+                0.03993228730535437,
+                0.962036750729076
+              ],
+              "target": [
+                0.0190193070544023,
+                0.0402912502517616,
+                0.962394348697706
+              ],
+              "error_m": 0.0020981581496881917,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 21,
+            "step_before": 645,
+            "step_after": 654,
+            "action_steps": 9,
+            "motion_stopped": true,
+            "source_sha256": "55f4ebe0fbc4f102202edede945c3b70751968bad22ea1d6cdee39bd32665262",
+            "feature_prediction": {
+              "xyz": [
+                0.11834633393037058,
+                -0.08838201699693585,
+                0.973746741156354
+              ],
+              "target": [
+                0.11434077359867514,
+                -0.09764337052823562,
+                1.036987166219601
+              ],
+              "error_m": 0.06404036652754844,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 22,
+            "step_before": 664,
+            "step_after": 666,
+            "action_steps": 2,
+            "motion_stopped": true,
+            "source_sha256": "395bf33b009bfd64652a72813398e87decab2415ecf8ea237562cda5d4a04623",
+            "feature_prediction": {
+              "xyz": [
+                0.10577327510057019,
+                -0.08205229071611547,
+                1.0951676228698821
+              ],
+              "target": [
+                0.11594003995874895,
+                -0.0885865743166752,
+                1.033060744248926
+              ],
+              "error_m": 0.0632718289753997,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          }
+        ],
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 10,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": true,
+        "native_score": 100.0,
+        "steps": 347,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-hang_mugs-20261029/seed1-standard-l2/native/eval_result/RoboDojo/hang_mugs/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l2/_result.json",
+        "native_sha256": "cc6468b7f7528bd52d7561d2f877115ef92241bd4a3fd3868f48e41f5da17fd0"
+      }
+    }
+  ],
+  "counts": {
+    "attempts_closed": 3,
+    "success": 1,
+    "failure": 2,
+    "unscored": 0,
+    "scored": 3,
+    "success_rate_scored": 0.3333333333333333,
+    "confirmed_success_fraction_closed": 0.3333333333333333
+  },
+  "costs": {
+    "steps": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 2274,
+      "known_mean": 758,
+      "partial_lower_bound_cases": 0
+    },
+    "wall_seconds": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 4697.314561612206,
+      "known_mean": 1565.7715205374018
+    },
+    "input_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 27565735,
+      "known_mean": 9188578.333333334
+    },
+    "cached_input_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 27032192,
+      "known_mean": 9010730.666666666
+    },
+    "output_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 93979,
+      "known_mean": 31326.333333333332
+    },
+    "reasoning_output_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 48035,
+      "known_mean": 16011.666666666666
+    },
+    "total_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 27659714,
+      "known_mean": 9219904.666666666
+    },
+    "uncached_input_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 533543,
+      "known_mean": 177847.66666666666
+    }
+  },
+  "batch_wall_seconds": 3054.474167263834,
+  "actual_billed_usd": null,
+  "interpretation": "First combined hang-mug tools candidate on two prior failures and one prior success regression. Not an independent heldout evaluation or individual-tool causal claim."
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "roborag.full-train-evidence.v1",
+  "task": "pour_liquid_into_cup",
+  "source_manifest": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/data/runtime-data/pour_liquid_into_cup/train/sources-0-1-2.json",
+  "source_manifest_sha256": "bde56b40f2aee36ae95039cf622cef3e4a3ddedd046e8833b8270969e052abbf",
+  "train_source_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/pour_liquid_into_cup/train/episode_0000000.hdf5": "72b5eff7a627c76917f3af0c501e7c2daa8259f6ea2734cfefade69b35dccd57",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/pour_liquid_into_cup/train/episode_0000001.hdf5": "dec834c2b40011098dad716f8ca2d0feca97a023037e349c826c3cf5594710db",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/pour_liquid_into_cup/train/episode_0000002.hdf5": "f696ab4649b1861245b038884754c5bf68d6ba863a82c86e9b202c992f61640b"
+  },
+  "metadata_sha256": {
+    "bank.json": "32e8b383692a15fb53335e0ce684a2c4ebf0f2335924f93a243d8eee59f3ee6a",
+    "search-index.json": "ffdc8a0a597d4cd62d79c3ef073e5601f0780d5551fff95db9a3000b7fd677ff",
+    "execution-index.json": "74391da01633436aea90773b703f4158366e30a21ba3fda3b8d5c9f126fb2b39",
+    "graphs/pour_liquid_into_cup-0000.json": "1e127e5aa163e56e8c78180bd19ff006e0044b229179e0a0280bf92054b16570",
+    "graphs/pour_liquid_into_cup-0001.json": "5086391b6c47f59639c2620d358227b6b43addb279b9252538cf4e00f146b2f1",
+    "graphs/pour_liquid_into_cup-0002.json": "90f125dea6633cd4cf1cd9171e0eb0c3f1ca3d97f061371aea054e0392a19289"
+  },
+  "counts": {
+    "graphs": 3,
+    "phases": 21,
+    "chunks": 124
+  },
+  "scope": "All preselected TRAIN episodes, complete phase coverage, original actions/states/RGB accessible; no test-usage pruning"
+}

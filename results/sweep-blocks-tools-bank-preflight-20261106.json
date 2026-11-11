@@ -1,0 +1,40 @@
+{
+  "task": "sweep_blocks",
+  "bank": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/artifacts/sweep-blocks-tools/sweep_blocks",
+  "passed": true,
+  "generated_at": "2026-11-05T20:47:57.834288+00:00",
+  "metadata_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/artifacts/sweep-blocks-tools/sweep_blocks/bank.json": "d11eca3ad715c1eb3f82ce07b42a8a20ab8e7f8562dd3c4ffb5852885ccf221b",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/artifacts/sweep-blocks-tools/sweep_blocks/search-index.json": "52ff0ec77c62b26a6599b238c74b93733319a9255d312ac277d3bdd2c1cf2d0c",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/artifacts/sweep-blocks-tools/sweep_blocks/source-inventory.json": "1503273a8925b1b718f17eb1bf3dd3a388b5c3e5858a7434bcd10252dbcd3e76",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/artifacts/sweep-blocks-tools/sweep_blocks/execution-index.json": "a20a1d75013791fcc0d695c0da0972ad9566b887be19f7757a1f89918c4378fb",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/artifacts/sweep-blocks-tools/sweep_blocks/graphs/sweep_blocks-0001.json": "b804deda0d1e5450745d33433a0e807f11a325adadddf7a7d7ceb778b82eb3cb",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/artifacts/sweep-blocks-tools/sweep_blocks/graphs/sweep_blocks-0000.json": "0b9f0959df0f21feaf8628eade2aba8b9e64a9d3e72cdf8ced18529c2a4eaa86",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/artifacts/sweep-blocks-tools/sweep_blocks/graphs/sweep_blocks-0002.json": "7271e7370987fae054d503d1aa8579650a74a96075cf8366407b7e65f8dea4cd"
+  },
+  "source_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/sweep_blocks/train/episode_0000000.hdf5": "bce5edd0c62c71c674c5b93b137f8feee03af7399480aa738d583c62e4f5f033",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/sweep_blocks/train/episode_0000001.hdf5": "ec26db73fedafb4f12469c239cf9daccd0e925e472f51e30b58888417942e8c9",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/sweep_blocks/train/episode_0000002.hdf5": "b21c7ba5a19b90a6dbe7f9227f25a6cdc074dde85db9c25ccc381754b952cbbb"
+  },
+  "demonstrations": [
+    {
+      "id": "sweep_blocks-0000",
+      "frames": 702,
+      "phases": 10
+    },
+    {
+      "id": "sweep_blocks-0001",
+      "frames": 985,
+      "phases": 9
+    },
+    {
+      "id": "sweep_blocks-0002",
+      "frames": 1063,
+      "phases": 9
+    }
+  ],
+  "phases": 28,
+  "sections": 112,
+  "images": 672
+}

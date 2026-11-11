@@ -1,0 +1,284 @@
+{
+  "checked_at": "2026-11-06T16:41:14.127843+00:00",
+  "passed": true,
+  "base_commit": "1ac841d1241fbff8d20bbd1d80427925732999e2",
+  "unchanged_task_interfaces_and_prompts": [
+    "arrange_largest_number",
+    "fold_clothes",
+    "hang_mugs",
+    "make_toast",
+    "pour_liquid_into_cup",
+    "sort_nesting_dolls_by_size",
+    "stack_blocks",
+    "stack_bowls",
+    "store_laptop_and_headphones",
+    "sweep_blocks"
+  ],
+  "before": {
+    "arrange_largest_number": {
+      "prompt_sha256": "0c58b2bbe31faf696330b04c648bfb85d5a7fcbfddf43ffbdec130699ed529f1",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "fold_clothes": {
+      "prompt_sha256": "26aa5ab01f3a0b78546089a84fdebf04c428ded0f2bb5fbf3945f4e95df8796b",
+      "tool_sha256": "8d77c3c0298b7f5616a90040d9a5c8441e3635a85da69c89acec2d2ccad7bbd1",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "measure_scene",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "hang_mugs": {
+      "prompt_sha256": "f4797f3515bb275962ef0f15bf78c51cc3ee5a7612b37cf25364f4b0486e1bb3",
+      "tool_sha256": "974071e8d3c3c652990f08b9034752b4e212bc731025dd7d9960d823c6ddd7b0",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "measure_mug_geometry",
+        "hold_joints",
+        "python_cell"
+      ]
+    },
+    "make_toast": {
+      "prompt_sha256": "05f5591caaaa581f8a69d110bb3e18877a55a15d97dfc49a069434078da55a64",
+      "tool_sha256": "6aca851a664769733ec35822c9faaa120e76e09729ef4e54d94cbb93ae1264d0",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "hold_joints",
+        "python_cell"
+      ]
+    },
+    "pack_objects_into_box": {
+      "prompt_sha256": "01b5fe1bce7a9d2b3b11a9b11ef781f527b19c01d8a49b6dc3a8503b524a43c7",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "pour_liquid_into_cup": {
+      "prompt_sha256": "aeaebf8d8f7dd4092e6eb9a21129e228df1c6c0f329e44e41dbc71d2ad43b05e",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "sort_nesting_dolls_by_size": {
+      "prompt_sha256": "c51eb69297a46f273c157766a6ffea5268a3b4aa25c41e18f1cc893f00c1632b",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "stack_blocks": {
+      "prompt_sha256": "9fdb9bfa0c7a1bd973b6451b0b3c0d745f892cb78a47abffecda84f567aeadb6",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "stack_bowls": {
+      "prompt_sha256": "0eeea71381a7734bf9f1ad6e95219cb44faa0731eab8d1a6383e79d9b226352b",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "store_laptop_and_headphones": {
+      "prompt_sha256": "275478d3a0f1595e1a59260ab93f8d57300d7c64f678387a6244fb77bcaa7519",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "sweep_blocks": {
+      "prompt_sha256": "aaeaa04e3013cff592b7efe10e4701627bfa89150c82bcd1ff082b71ede2e0bd",
+      "tool_sha256": "0cbe6d6cd2e240a11326f740358250497d497a2b3820b0014ad62004161b669c",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "hold_joints",
+        "python_cell"
+      ]
+    }
+  },
+  "after": {
+    "arrange_largest_number": {
+      "prompt_sha256": "0c58b2bbe31faf696330b04c648bfb85d5a7fcbfddf43ffbdec130699ed529f1",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "fold_clothes": {
+      "prompt_sha256": "26aa5ab01f3a0b78546089a84fdebf04c428ded0f2bb5fbf3945f4e95df8796b",
+      "tool_sha256": "8d77c3c0298b7f5616a90040d9a5c8441e3635a85da69c89acec2d2ccad7bbd1",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "measure_scene",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "hang_mugs": {
+      "prompt_sha256": "f4797f3515bb275962ef0f15bf78c51cc3ee5a7612b37cf25364f4b0486e1bb3",
+      "tool_sha256": "974071e8d3c3c652990f08b9034752b4e212bc731025dd7d9960d823c6ddd7b0",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "measure_mug_geometry",
+        "hold_joints",
+        "python_cell"
+      ]
+    },
+    "make_toast": {
+      "prompt_sha256": "05f5591caaaa581f8a69d110bb3e18877a55a15d97dfc49a069434078da55a64",
+      "tool_sha256": "6aca851a664769733ec35822c9faaa120e76e09729ef4e54d94cbb93ae1264d0",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "hold_joints",
+        "python_cell"
+      ]
+    },
+    "pack_objects_into_box": {
+      "prompt_sha256": "005f9c6b113c51507a6ebfce7034e9705b8520c878dffb24ee35436f2b010ed5",
+      "tool_sha256": "795ca649d922dc16fd0527835360db4293c678e7dfb39ed9b9401fac1736e354",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "inspect_transfer_reference",
+        "match_scene_reference",
+        "prepare_motion_transfer",
+        "hold_joints",
+        "python_cell"
+      ]
+    },
+    "pour_liquid_into_cup": {
+      "prompt_sha256": "aeaebf8d8f7dd4092e6eb9a21129e228df1c6c0f329e44e41dbc71d2ad43b05e",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "sort_nesting_dolls_by_size": {
+      "prompt_sha256": "c51eb69297a46f273c157766a6ffea5268a3b4aa25c41e18f1cc893f00c1632b",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "stack_blocks": {
+      "prompt_sha256": "9fdb9bfa0c7a1bd973b6451b0b3c0d745f892cb78a47abffecda84f567aeadb6",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "stack_bowls": {
+      "prompt_sha256": "0eeea71381a7734bf9f1ad6e95219cb44faa0731eab8d1a6383e79d9b226352b",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "store_laptop_and_headphones": {
+      "prompt_sha256": "275478d3a0f1595e1a59260ab93f8d57300d7c64f678387a6244fb77bcaa7519",
+      "tool_sha256": "c8d0d3d5caca92c3974adb6056cb83a89282609f6a2932867ae4a00560ea98e3",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "sweep_blocks": {
+      "prompt_sha256": "aaeaa04e3013cff592b7efe10e4701627bfa89150c82bcd1ff082b71ede2e0bd",
+      "tool_sha256": "0cbe6d6cd2e240a11326f740358250497d497a2b3820b0014ad62004161b669c",
+      "names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "hold_joints",
+        "python_cell"
+      ]
+    }
+  }
+}

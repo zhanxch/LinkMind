@@ -1,0 +1,429 @@
+{
+  "checked_at": "2026-11-06T19:11:35.074698+00:00",
+  "complete": true,
+  "tag": "pack-box-tools-v1-dev-20261107",
+  "root": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools",
+  "candidate_commit": "cd82ce5499c59e6da6c0505e59618f0d73b41a47",
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/experiments/pack_objects_into_box/tools-v1-development-20261107.json",
+  "protocol_sha256": "a0be68fd3d536bfe7873107cb6e3118cdd64cd867951714e20641cf13e98885f",
+  "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-tools-v1-dev-20261107.json",
+  "report_sha256": "1d8b59137e4907281a15bb8d612c7e5467019db8517b60d90127f8a4e3969cad",
+  "freeze_sha256": "ae0f899a622f820a570d5d2ee99be2214e405317f5075b706f61071c073f6670",
+  "driver_sha256": "878d436946cfa50f338dd1ebbbe7e22a56357ff20b240151b49b9fbe5de30f54",
+  "frozen_sources_verified": 267,
+  "baseline_native_reports_preserved": 8,
+  "registered_pids": [
+    1723390,
+    1723402,
+    1723457,
+    1723507,
+    1723887,
+    1724058,
+    1724059,
+    1724114,
+    1724191,
+    1724241,
+    1724242,
+    1724244,
+    1724316,
+    1724365,
+    1724791,
+    1724876,
+    1725000,
+    1725009,
+    1725059,
+    1725135,
+    1725183,
+    1725184,
+    1725186,
+    1725328,
+    1725529,
+    1725531,
+    1725533,
+    1725577,
+    1725579,
+    1725582,
+    1740841,
+    1740890,
+    1741284,
+    1741485,
+    1741486,
+    1741536,
+    1741622,
+    1741670,
+    1741671,
+    1741673,
+    1741822,
+    1742054,
+    1742056,
+    1742058,
+    1742572,
+    1742621,
+    1742999,
+    1743207,
+    1743208,
+    1743258,
+    1743336,
+    1743384,
+    1743385,
+    1743387,
+    1743518,
+    1744054,
+    1744056,
+    1744058
+  ],
+  "registered_process_identities": 56,
+  "policy_workspaces_checked": [
+    "/tmp/roborag-mcp-by5aoxox",
+    "/tmp/roborag-mcp-xubgii3d",
+    "/tmp/roborag-mcp-sr1qhdrn",
+    "/tmp/roborag-mcp-trm0rayb"
+  ],
+  "reused_pid_numbers": [],
+  "live_related_processes": [],
+  "rows": [
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 0,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 1986,
+      "steps_complete": true,
+      "wall_seconds": 5305.936494348105,
+      "usage": {
+        "input_tokens": 20837149,
+        "cached_input_tokens": 20499968,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 59617,
+        "reasoning_output_tokens": 30452
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/runs/pack-box-tools-v1-dev-20261107/seed1-standard-l0/native/eval_result/RoboDojo/pack_objects_into_box/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+      "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6",
+      "independent_action_rows_verified": 1986,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/runs/pack-box-tools-v1-dev-20261107/seed1-standard-l0/ik-continuity.jsonl",
+        "journal_sha256": "5398027baba945beed951fa5ea803c04ac6967cc1e7bffeaa843fb8ae24673fc",
+        "accepted_delta_rows": 1885,
+        "rejected_attempts": 15,
+        "rejected_receipts_verified": 15,
+        "violation_counts": {
+          "joint_target_jump": 10,
+          "ik_failed": 5
+        }
+      },
+      "tool_trace_available": true,
+      "reference_calls": {
+        "inspect_transfer_reference": 7,
+        "match_scene_reference": 14,
+        "prepare_motion_transfer": 15
+      },
+      "cells_with_motion": 10,
+      "cell_motion_steps": 164,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 2,
+        "read_action_reference": 14,
+        "inspect_transfer_reference": 7,
+        "python_cell_start": 33,
+        "python_cell": 33,
+        "record_plan": 5,
+        "match_scene_reference": 14,
+        "prepare_motion_transfer": 15,
+        "execute_chunk": 134
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 33,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 2,
+      "cell_accounting": {
+        "starts": 33,
+        "completed": 33,
+        "incomplete": 0,
+        "interpretation": "Cell dispatch steps are a subset of total native steps, not additional cost or causal evidence."
+      },
+      "usage_note": "Reference tools are read-only; cell and hold steps are included in total native control steps. Usage does not prove causal benefit.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 10.0,
+        "steps": 1300,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-pack_objects_into_box-20261029/seed1-standard-l0/native/eval_result/RoboDojo/pack_objects_into_box/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+        "native_sha256": "9bdc0fa56eff782c76625c7b3a164829f9ac3e76128cdf742fd961424ac1b740"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 0,
+      "success": false,
+      "native_score": 50.0,
+      "steps": 2000,
+      "steps_complete": true,
+      "wall_seconds": 5569.998270406155,
+      "usage": {
+        "input_tokens": 18700033,
+        "cached_input_tokens": 18258176,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 62266,
+        "reasoning_output_tokens": 32867
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/runs/pack-box-tools-v1-dev-20261107/seed1-random-l0/native/eval_result/RoboDojo/pack_objects_into_box_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+      "native_sha256": "81081545f04f0d8d433b4dae9da37a1519b0dfa4e12e26dd6a625e4831b9eb29",
+      "independent_action_rows_verified": 2000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/runs/pack-box-tools-v1-dev-20261107/seed1-random-l0/ik-continuity.jsonl",
+        "journal_sha256": "37992d171940804bed28d40f1bc0e2c8bf72146cfdd023fa217b6cc897262e65",
+        "accepted_delta_rows": 1940,
+        "rejected_attempts": 36,
+        "rejected_receipts_verified": 36,
+        "violation_counts": {
+          "joint_target_jump": 24,
+          "ik_failed": 12
+        }
+      },
+      "tool_trace_available": true,
+      "reference_calls": {
+        "inspect_transfer_reference": 8,
+        "match_scene_reference": 20,
+        "prepare_motion_transfer": 20
+      },
+      "cells_with_motion": 3,
+      "cell_motion_steps": 35,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 8,
+        "inspect_transfer_reference": 8,
+        "python_cell_start": 29,
+        "python_cell": 29,
+        "match_scene_reference": 20,
+        "record_plan": 4,
+        "prepare_motion_transfer": 20,
+        "execute_chunk": 129
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 29,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 2,
+      "cell_accounting": {
+        "starts": 29,
+        "completed": 29,
+        "incomplete": 0,
+        "interpretation": "Cell dispatch steps are a subset of total native steps, not additional cost or causal evidence."
+      },
+      "usage_note": "Reference tools are read-only; cell and hold steps are included in total native control steps. Usage does not prove causal benefit.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 10.0,
+        "steps": 1300,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-pack_objects_into_box-20261029/seed1-random-l0/native/eval_result/RoboDojo/pack_objects_into_box_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+        "native_sha256": "9bdc0fa56eff782c76625c7b3a164829f9ac3e76128cdf742fd961424ac1b740"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 1,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 1152,
+      "steps_complete": true,
+      "wall_seconds": 2716.3246541270055,
+      "usage": {
+        "input_tokens": 13771543,
+        "cached_input_tokens": 13427840,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 36392,
+        "reasoning_output_tokens": 19760
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/runs/pack-box-tools-v1-dev-20261107/seed1-standard-l1/native/eval_result/RoboDojo/pack_objects_into_box/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+      "native_sha256": "8ae6a937232fc1b8c6d1e3b297a60df76889c266a3fa45274dc4e42ae609b509",
+      "independent_action_rows_verified": 1152,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/runs/pack-box-tools-v1-dev-20261107/seed1-standard-l1/ik-continuity.jsonl",
+        "journal_sha256": "6f474570f7aa45c54b06385ddee033be8f24ee6ef16527a90a81b4ab8f90e90d",
+        "accepted_delta_rows": 1119,
+        "rejected_attempts": 22,
+        "rejected_receipts_verified": 22,
+        "violation_counts": {
+          "ik_failed": 11,
+          "joint_target_jump": 11
+        }
+      },
+      "tool_trace_available": true,
+      "reference_calls": {
+        "inspect_transfer_reference": 6,
+        "match_scene_reference": 10,
+        "prepare_motion_transfer": 11
+      },
+      "cells_with_motion": 12,
+      "cell_motion_steps": 217,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 9,
+        "inspect_transfer_reference": 6,
+        "python_cell_start": 31,
+        "python_cell": 31,
+        "match_scene_reference": 10,
+        "record_plan": 2,
+        "prepare_motion_transfer": 11,
+        "execute_chunk": 79
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 31,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 4,
+      "cell_accounting": {
+        "starts": 31,
+        "completed": 31,
+        "incomplete": 0,
+        "interpretation": "Cell dispatch steps are a subset of total native steps, not additional cost or causal evidence."
+      },
+      "usage_note": "Reference tools are read-only; cell and hold steps are included in total native control steps. Usage does not prove causal benefit.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 10.0,
+        "steps": 1300,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-pack_objects_into_box-20261029/seed1-standard-l1/native/eval_result/RoboDojo/pack_objects_into_box/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+        "native_sha256": "f8226da9aafb10e942314b78b1f13f4ff00fcb85e07d0bca760dca783044bbb1"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 1,
+      "success": false,
+      "native_score": 25.0,
+      "steps": 2000,
+      "steps_complete": true,
+      "wall_seconds": 2909.030943832826,
+      "usage": {
+        "input_tokens": 19852299,
+        "cached_input_tokens": 19547648,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 57350,
+        "reasoning_output_tokens": 28386
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/runs/pack-box-tools-v1-dev-20261107/seed1-random-l1/native/eval_result/RoboDojo/pack_objects_into_box_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l1/_result.json",
+      "native_sha256": "d535842086faba8858f53890a6cc9b1ee8c93412f755c3ba1de857c30af339d5",
+      "independent_action_rows_verified": 2000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/runs/pack-box-tools-v1-dev-20261107/seed1-random-l1/ik-continuity.jsonl",
+        "journal_sha256": "95a1b690da020bb01afb3f0c85660a702faed1d4f7a8c9142412a46d0a5e7654",
+        "accepted_delta_rows": 1941,
+        "rejected_attempts": 20,
+        "rejected_receipts_verified": 20,
+        "violation_counts": {
+          "joint_target_jump": 11,
+          "ik_failed": 9
+        }
+      },
+      "tool_trace_available": true,
+      "reference_calls": {
+        "inspect_transfer_reference": 9,
+        "match_scene_reference": 14,
+        "prepare_motion_transfer": 14
+      },
+      "cells_with_motion": 7,
+      "cell_motion_steps": 140,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 2,
+        "read_action_reference": 12,
+        "inspect_transfer_reference": 9,
+        "match_scene_reference": 14,
+        "record_plan": 4,
+        "prepare_motion_transfer": 14,
+        "execute_chunk": 123,
+        "python_cell_start": 22,
+        "python_cell": 22
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 22,
+      "cells_with_errors": 1,
+      "truncated_or_stopped_cells": 1,
+      "cell_accounting": {
+        "starts": 22,
+        "completed": 22,
+        "incomplete": 0,
+        "interpretation": "Cell dispatch steps are a subset of total native steps, not additional cost or causal evidence."
+      },
+      "usage_note": "Reference tools are read-only; cell and hold steps are included in total native control steps. Usage does not prove causal benefit.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 25.0,
+        "steps": 1300,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-pack_objects_into_box-20261029/seed1-random-l1/native/eval_result/RoboDojo/pack_objects_into_box_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l1/_result.json",
+        "native_sha256": "d535842086faba8858f53890a6cc9b1ee8c93412f755c3ba1de857c30af339d5"
+      }
+    }
+  ],
+  "counts": {
+    "attempts_closed": 4,
+    "success": 2,
+    "failure": 2,
+    "unscored": 0,
+    "scored": 4,
+    "success_rate_scored": 0.5,
+    "confirmed_success_fraction_closed": 0.5
+  },
+  "costs": {
+    "steps": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 7138,
+      "known_mean": 1784.5,
+      "partial_lower_bound_cases": 0
+    },
+    "wall_seconds": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 16501.29036271409,
+      "known_mean": 4125.322590678523
+    },
+    "input_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 73161024,
+      "known_mean": 18290256
+    },
+    "cached_input_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 71733632,
+      "known_mean": 17933408
+    },
+    "output_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 215625,
+      "known_mean": 53906.25
+    },
+    "reasoning_output_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 111465,
+      "known_mean": 27866.25
+    },
+    "total_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 73376649,
+      "known_mean": 18344162.25
+    },
+    "uncached_input_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 1427392,
+      "known_mean": 356848
+    }
+  },
+  "batch_wall_seconds": 8531.606464877026,
+  "actual_billed_usd": null,
+  "interpretation": "Four previously used seed1 development scenes only, all fresh attempts. New joint candidate, not inherited historical success, causal cells evidence or heldout generalization. Modified 2000-step results stay separate from 1300-step history. After this development batch closes and is audited, register a fresh full50 run as explicitly requested; no old stopped queue is resumed."
+}

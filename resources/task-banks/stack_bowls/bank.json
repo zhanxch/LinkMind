@@ -1,0 +1,59 @@
+{
+  "schema": "roborag.graph-bank.v1",
+  "name": "RoboRAG · 交互经验图库",
+  "updated_at": "2026-10-28T16:52:28.382647+00:00",
+  "graphs": [
+    {
+      "id": "stack_bowls-0000",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "title": "以中间碗为底，双臂依次叠入两侧碗",
+      "summary": "右夹爪先将初始右侧碗搬到中间碗上，形成两碗叠放；随后左夹爪将初始左侧碗叠到最上方。释放并撤回后，三个碗保持叠放。阶段边界为估计值。",
+      "episode": 0,
+      "instruction": "Stack the three bowls together.",
+      "phase_count": 9,
+      "node_count": 36,
+      "edge_count": 35,
+      "frames": 240,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "stack_bowls-0001",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "title": "右手内移底碗，左手依次套叠另外两碗",
+      "summary": "右手先将初始右侧碗移到桌面中部偏右，左手再依次将初始左侧碗和中后方碗放入底碗。最后双臂撤回，桌面留下一个叠碗组；阶段边界为估计值。",
+      "episode": 1,
+      "instruction": "Stack the three bowls together.",
+      "phase_count": 9,
+      "node_count": 36,
+      "edge_count": 35,
+      "frames": 366,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "title": "右臂先建立底碗落点，再依次套叠前侧碗和后侧碗",
+      "summary": "右臂先将初始右侧碗移到桌面中部偏左作为底碗，再依次将前侧碗和后侧碗叠入，最终形成三碗叠层。左臂保持原位，右臂完成放置后空手撤回；阶段边界为估计值。",
+      "episode": 2,
+      "instruction": "Stack the three bowls together.",
+      "phase_count": 10,
+      "node_count": 40,
+      "edge_count": 39,
+      "frames": 341,
+      "frequency": 25.0,
+      "preview_frame": 0
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "phases": 28,
+    "nodes": 112,
+    "edges": 109,
+    "tasks": 1
+  }
+}

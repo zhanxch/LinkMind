@@ -1,0 +1,59 @@
+{
+  "schema": "roborag.graph-bank.v1",
+  "name": "RoboRAG · 交互经验图库",
+  "updated_at": "2026-10-28T17:58:37.602539+00:00",
+  "graphs": [
+    {
+      "id": "store_laptop_and_headphones-0000",
+      "task": "store_laptop_and_headphones",
+      "task_name": "store_laptop_and_headphones",
+      "title": "先挂好耳机，再合上笔记本并交接入架",
+      "summary": "左手将耳机挂到耳机架，右手随后合上笔记本。左手抬起并调整笔记本姿态，交给右手放入竖直支架，最后松手撤回；阶段边界为估计值。",
+      "episode": 0,
+      "instruction": "Hang the headphones on the headphone stand, close the laptop, then place it into the vertical laptop stand.",
+      "phase_count": 10,
+      "node_count": 40,
+      "edge_count": 39,
+      "frames": 550,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "store_laptop_and_headphones-0001",
+      "task": "store_laptop_and_headphones",
+      "task_name": "store_laptop_and_headphones",
+      "title": "先挂耳机，再合盖并换手竖放笔记本",
+      "summary": "左手先将耳机挂到耳机架，右手随后合上笔记本。左手提起并调整笔记本，经双手交接后由右手放入立式支架，最后松手撤离。阶段边界为估计值。",
+      "episode": 1,
+      "instruction": "Hang the headphones on the headphone stand, close the laptop, then place it into the vertical laptop stand.",
+      "phase_count": 9,
+      "node_count": 36,
+      "edge_count": 35,
+      "frames": 492,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "store_laptop_and_headphones-0002",
+      "task": "store_laptop_and_headphones",
+      "task_name": "store_laptop_and_headphones",
+      "title": "先挂耳机，再合盖并经双手交接竖放笔记本",
+      "summary": "左手将耳机挂上耳机架，右手随后合上笔记本。左手提起并调整笔记本姿态，交给右手后放入竖直支架，松手撤离；阶段边界依据采样画面估计。",
+      "episode": 2,
+      "instruction": "Hang the headphones on the headphone stand, close the laptop, then place it into the vertical laptop stand.",
+      "phase_count": 10,
+      "node_count": 40,
+      "edge_count": 39,
+      "frames": 661,
+      "frequency": 25.0,
+      "preview_frame": 0
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "phases": 29,
+    "nodes": 116,
+    "edges": 113,
+    "tasks": 1
+  }
+}

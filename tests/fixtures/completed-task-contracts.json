@@ -1,0 +1,235 @@
+{
+  "fold_clothes": {
+    "source_branch": "refactor/v3-evidence-context",
+    "candidate_commit": "c9f7a99daf125068ce2881b4feac1b514f8b0bd1",
+    "rag": {
+      "prompt_sha256": "26aa5ab01f3a0b78546089a84fdebf04c428ded0f2bb5fbf3945f4e95df8796b",
+      "tools_sha256": "64c72e3493bdfdd4a4932b4bdb09f49e1345d30464c17c312912ceea60c6ae6a",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "measure_scene",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "no_rag": {
+      "prompt_sha256": "3b3c4a50bc42c8ad6cdba226ccdbf4ad7f222bf8917cd158a2f73dd4b70ae289",
+      "tools_sha256": "64c72e3493bdfdd4a4932b4bdb09f49e1345d30464c17c312912ceea60c6ae6a",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "measure_scene",
+        "record_plan",
+        "execute_chunk"
+      ]
+    }
+  },
+  "stack_blocks": {
+    "source_branch": "refactor/v3-generalization",
+    "candidate_commit": "7fa895e6df692877269246198b87202b1e834873",
+    "rag": {
+      "prompt_sha256": "9fdb9bfa0c7a1bd973b6451b0b3c0d745f892cb78a47abffecda84f567aeadb6",
+      "tools_sha256": "c7f87ac6c2b19b7c27585102cedbd98071a4f898532c7d4a1e8bdf3f0f61e8a4",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "no_rag": {
+      "prompt_sha256": "325d52456809bc8cd0259a6d9b437f90c81643af727a63234303640c30f33001",
+      "tools_sha256": "c7f87ac6c2b19b7c27585102cedbd98071a4f898532c7d4a1e8bdf3f0f61e8a4",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    }
+  },
+  "stack_bowls": {
+    "source_branch": "refactor/v3-generalization",
+    "candidate_commit": "7fa895e6df692877269246198b87202b1e834873",
+    "rag": {
+      "prompt_sha256": "0eeea71381a7734bf9f1ad6e95219cb44faa0731eab8d1a6383e79d9b226352b",
+      "tools_sha256": "c7f87ac6c2b19b7c27585102cedbd98071a4f898532c7d4a1e8bdf3f0f61e8a4",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "no_rag": {
+      "prompt_sha256": "f00d8a67669fea37a1d14bfe2d18a33fe2c00729bee2a396344f828ab10e32ff",
+      "tools_sha256": "c7f87ac6c2b19b7c27585102cedbd98071a4f898532c7d4a1e8bdf3f0f61e8a4",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    }
+  },
+  "push_T": {
+    "source_branch": "feat/push-t-toolkit-20261103",
+    "candidate_commit": "50fcf826cb410629f1e9c532bd01906abcda3fe5",
+    "rag": {
+      "prompt_sha256": "665c1f51132203eaeca8d263c99c8d4c4523ec1cab87dc478d8668a35397a282",
+      "tools_sha256": "45b0bcc721daa2dea9c05ed48dd8a5c80ead8e9d7d8f58719702774daed3bec8",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "measure_planar",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    },
+    "no_rag": {
+      "prompt_sha256": "4a7c086f632e0446097403bf2df9aa4d85b3a349300dd1a1f452d35fb133e9ea",
+      "tools_sha256": "45b0bcc721daa2dea9c05ed48dd8a5c80ead8e9d7d8f58719702774daed3bec8",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "measure_planar",
+        "observe",
+        "record_plan",
+        "execute_chunk"
+      ]
+    }
+  },
+  "make_toast": {
+    "source_branch": "codex/make-toast-reliability",
+    "candidate_commit": "b4ace31f1a0b0549db64cc9775be23280628accf",
+    "rag": {
+      "prompt_sha256": "05f5591caaaa581f8a69d110bb3e18877a55a15d97dfc49a069434078da55a64",
+      "tools_sha256": "0f42cb3b70447243c8354c95f8b369aea48bea0fa15bdd56ed24ed32e8265577",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "hold_joints",
+        "python_cell"
+      ]
+    },
+    "no_rag": {
+      "prompt_sha256": "98d2c265bd464dd30a446a873944dc31c22331cabf972d52e43a6653f1e73375",
+      "tools_sha256": "0f42cb3b70447243c8354c95f8b369aea48bea0fa15bdd56ed24ed32e8265577",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "hold_joints",
+        "python_cell"
+      ]
+    }
+  },
+  "hang_mugs": {
+    "source_branch": "codex/hang-mugs-tools",
+    "candidate_commit": "8a954e3b8dc01fb99fbe57a60e968fa917ad832d",
+    "rag": {
+      "prompt_sha256": "f4797f3515bb275962ef0f15bf78c51cc3ee5a7612b37cf25364f4b0486e1bb3",
+      "tools_sha256": "ad40954d5b15ffc7791fa1e6415d53f7dda65700733862597877087994a8de32",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "measure_mug_geometry",
+        "hold_joints",
+        "python_cell"
+      ]
+    },
+    "no_rag": {
+      "prompt_sha256": "c37a7153846fd7b8d7ab0d4eac99f97cf927a96848b3bc612ea52e2f201b5481",
+      "tools_sha256": "ad40954d5b15ffc7791fa1e6415d53f7dda65700733862597877087994a8de32",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "measure_mug_geometry",
+        "hold_joints",
+        "python_cell"
+      ]
+    }
+  },
+  "sweep_blocks": {
+    "source_branch": "codex/sweep-blocks-tools",
+    "candidate_commit": "ca604e59ea87b280b14757c23134bf62701a9cbd",
+    "rag": {
+      "prompt_sha256": "aaeaa04e3013cff592b7efe10e4701627bfa89150c82bcd1ff082b71ede2e0bd",
+      "tools_sha256": "9441abfff46f9d4c07b38fc19ce0d89ec9ee56fdaf3242dbca75b81aa91a27cd",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "hold_joints",
+        "python_cell"
+      ]
+    },
+    "no_rag": {
+      "prompt_sha256": "7fd704b288374594e97b55f047f684a0f6dbd97de25e94b64170ecb299c589cc",
+      "tools_sha256": "9441abfff46f9d4c07b38fc19ce0d89ec9ee56fdaf3242dbca75b81aa91a27cd",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "hold_joints",
+        "python_cell"
+      ]
+    }
+  },
+  "pack_objects_into_box": {
+    "source_branch": "codex/pack-box-tools",
+    "candidate_commit": "cd82ce5499c59e6da6c0505e59618f0d73b41a47",
+    "rag": {
+      "prompt_sha256": "005f9c6b113c51507a6ebfce7034e9705b8520c878dffb24ee35436f2b010ed5",
+      "tools_sha256": "ebb8bff4bb196a2d71e4a9dfab5f316c50463a48e290bf8cb7a62c3125753ae6",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "inspect_transfer_reference",
+        "match_scene_reference",
+        "prepare_motion_transfer",
+        "hold_joints",
+        "python_cell"
+      ]
+    },
+    "no_rag": {
+      "prompt_sha256": "24efcb782a93f1066edfcda413fc7b47febbe8c3889043927ce8b0da7759c797",
+      "tools_sha256": "0f42cb3b70447243c8354c95f8b369aea48bea0fa15bdd56ed24ed32e8265577",
+      "tool_names": [
+        "retrieve_evidence",
+        "read_action_reference",
+        "observe",
+        "record_plan",
+        "execute_chunk",
+        "hold_joints",
+        "python_cell"
+      ]
+    }
+  }
+}

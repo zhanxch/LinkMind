@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "main_scenarios": 400,
+  "main_attempts": 413,
+  "main_native_reports": 398,
+  "pilot_attempts": 10,
+  "model_attempts": 62,
+  "native_reports": 466
+}

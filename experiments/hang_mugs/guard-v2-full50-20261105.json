@@ -1,0 +1,98 @@
+{
+  "schema": "roborag.hang-mugs-guard-full50.v1",
+  "status": "registered_before_launch",
+  "base_commit": "8a954e3b8dc01fb99fbe57a60e968fa917ad832d",
+  "historical_hang_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "planned_native_attempts": 50,
+  "tasks": [
+    {
+      "task": "hang_mugs",
+      "bank": "artifacts/generalization-v3-full/hang_mugs",
+      "cases_file": "experiments/hang_mugs/cases-guard-v2-full50-seed1.json",
+      "case_count": 50,
+      "native_step_limits": {
+        "standard": 800,
+        "random": 800
+      },
+      "preflight_file": "results/hang-mugs-tools-bank-preflight-20261105.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Original native 800 steps, including every cell dispatch and joint hold",
+    "context": "Original full TRAIN retrieval and model-owned record_plan; optional persistent Python cells",
+    "feedback": "Current RGB with paired calibration and measured robot state; no object truth or holding sensor",
+    "execution_guard": {
+      "kind": "native_ik_continuity",
+      "max_joint_increment_rad": 0.25
+    }
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure, preserve unknown counters and usage",
+    "retests": "Exactly one fresh attempt per registered scene; no automatic retries or replacement of unscored episodes.",
+    "aggregation": "Report standard/random and native success/failure/unscored separately. Prior development and historical outcomes remain separate.",
+    "early_stopping": "Do not stop based on task failures. Explicit user interruption, source drift or infrastructure failure must be recorded."
+  },
+  "scope": {
+    "runtime_changes": [],
+    "unchanged": [
+      "All runtime source, prompts and tools exactly match the accepted frozen 8a954e3 candidate",
+      "Original full TRAIN retrieval, model-owned plans, native IK/scoring, 0.25rad pre-dispatch check and 800-step budget",
+      "Model gpt-6-astra/xhigh, parallel 2, per-episode 5400-second wall limit",
+      "Other task behavior, prior development/historical reports and costs"
+    ],
+    "interpretation": "Full first pass of seed1 standard/random layouts 0-24, each freshly run once using the accepted candidate. Includes previously seen development layouts; not independent heldout, cross-seed, or single-tool causal evidence. Prior results are not pooled or substituted.",
+    "references": [
+      {
+        "repository": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+        "commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+        "usage": "Persistent Python and robot primitive design reference; no upstream task program copied"
+      },
+      {
+        "repository": "https://github.com/HexaFuture/HexaShell",
+        "commit": "d1a2a24dc4c528a652b359fd689398530ef941d8",
+        "files": [
+          "tasks/hang_mugs/tools/precision/tool.py",
+          "tasks/hang_mugs/tools/pegs/tool.py"
+        ],
+        "usage": "Frozen read-only RGB geometry functions; no upstream motion programs, depth fallback or task-stage scheduler"
+      }
+    ]
+  },
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "Paused by user; do not resume automatically",
+    "frozen_during_run": true
+  },
+  "toast_supplement_gate": {
+    "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/results/make-toast-python-cells-full50-supplement-closure-20261105.json",
+    "closure_sha256": "592720fe86952b8b7b565a05f263d474507569c2abf40dfd3e1eedd8d7d8e602",
+    "status": "Closed before any hang implementation"
+  },
+  "authorization": "User explicitly requested: 那就完整测试挂杯吧",
+  "development_batch": {
+    "tag": "hang-mugs-guard-v2-dev-20261105",
+    "candidate_commit": "8a954e3b8dc01fb99fbe57a60e968fa917ad832d",
+    "counts": {
+      "success": 2,
+      "failure": 1,
+      "unscored": 0
+    },
+    "known_regression": "standard-l2: historical success 100/347; v2 failure 15/800, retained and freshly evaluated in this full set.",
+    "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-dev-20261105.json",
+    "report_sha256": "3130b319cad87b66cacbe71e1c39eaa7ec0fc64cb67be670a40f1e454b1410f5",
+    "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-closure-20261105.json",
+    "closure_sha256": "4cdcaceb918346564b78ed7426373ef26e2f87a2c073a9e52a5f62a1fe4a5061",
+    "freeze": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-guard-v2-dev-20261105-freeze.json",
+    "freeze_sha256": "e900ad1fedf8e1a6abd3fcb0e63429757a4a3fbc4ee2151a5348615cd5655e07"
+  },
+  "launch_condition": "Development batch fully closed, original 248 sources and accepted runtime/prompt unchanged, all 50 scene files present, current worktree committed, GPU available."
+}

@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-11-06T16:48:08.659431+00:00",
+  "passed": true,
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/experiments/pack_objects_into_box/tools-v1-development-20261107.json",
+  "protocol_sha256": "a0be68fd3d536bfe7873107cb6e3118cdd64cd867951714e20641cf13e98885f",
+  "preflight": {
+    "case_count": 4,
+    "original_train_demonstrations": 3,
+    "original_train_phases": 28,
+    "image_references_verified": 672
+  },
+  "active_native_processes": [],
+  "gpu_free_mib": 23511,
+  "driver_sha256": "21860fe7bbb0a66e6dbf6db6e5463d02d2e2d7b8411a0bc33277594a53d0ce28",
+  "scope": "Pre-launch integrity and availability snapshot; does not prove native performance"
+}

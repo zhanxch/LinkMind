@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-11-03T17:44:28.835542+00:00",
+  "candidate_commit": "50fcf826cb410629f1e9c532bd01906abcda3fe5",
+  "runtime_equivalent_commit": "ead91e45e24b845ef5ba8bfc2057d8b9e243fb6b",
+  "existing_frozen_sources_unchanged": 237,
+  "changed_paths": [
+    "experiments/push_T/toolkit-v1-full50-20261104.json",
+    "scripts/run_push_t_toolkit_full50.py"
+  ],
+  "driver_pid": 752598,
+  "driver_created_epoch": 1793727868.45,
+  "driver_command": [
+    "/home/zxc/文档/ChatGPT/infiniDojo/reproduction/astra_robodojo/.venv/bin/python",
+    "-u",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/scripts/run_push_t_toolkit_full50.py"
+  ],
+  "free_gpu_mib_at_launch": 23511,
+  "cases": 50,
+  "variants": {
+    "standard": 25,
+    "random": 25
+  },
+  "prior_results_excluded": true,
+  "conditions_match_development": true,
+  "codex_binary": "/home/zxc/.codex/packages/standalone/recovered-0.155.0-alpha.16.3/bin/codex",
+  "codex_binary_sha256": "a969c7c42b842c759d157d2500bbf33a562ff95f22dcb7112aa4d8f9e68833d3"
+}

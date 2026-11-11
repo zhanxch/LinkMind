@@ -1,0 +1,112 @@
+{
+  "schema": "roborag.sweep-blocks-tools-development.v1",
+  "status": "registered_before_launch",
+  "base_commit": "e05fff8c3518658c12f2ed26b95f04dfc123a18f",
+  "historical_sweep_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "planned_native_attempts": 4,
+  "tasks": [
+    {
+      "task": "sweep_blocks",
+      "bank": "artifacts/sweep-blocks-tools/sweep_blocks",
+      "cases_file": "experiments/sweep_blocks/cases-tools-v1-development-20261106.json",
+      "case_count": 4,
+      "native_step_limits": {
+        "standard": 1000,
+        "random": 1000
+      },
+      "preflight_file": "results/sweep-blocks-tools-bank-preflight-20261106.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Original native 1000 steps, including every cell dispatch and joint hold",
+    "context": "Original full TRAIN retrieval and model-owned record_plan; optional persistent Python cells",
+    "feedback": "Current public RGB/calibration and measured robot state; no object truth, reward or holding sensor",
+    "execution_guard": {
+      "kind": "native_ik_continuity",
+      "max_joint_increment_rad": 0.25
+    }
+  },
+  "verification": {
+    "static": "results/sweep-blocks-tools-v1-static-tests-20261106.json",
+    "static_sha256": "5bc8b89edc9d27fd964ff31220cdae9f77a651288733c4c42efa7dfdc1ca462d",
+    "interfaces": "results/sweep-blocks-tools-v1-interface-verification-20261106.json",
+    "interfaces_sha256": "9c6c5961ab818a1b668740c2283b2f39efcb6dc923c39cd6fc40aa0481777412"
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure; preserve unknown counters and usage",
+    "retests": "One fresh attempt per registered scene; no unchanged-version automatic retry",
+    "aggregation": "Four existing development scenes only; never merge best outcomes across candidates or with full50"
+  },
+  "scope": {
+    "runtime_changes": [
+      "Opt-in persistent cells and measured-joint grip/hold for sweep_blocks",
+      "Caller-selected one/two-arm held-feature interpolation through the same short action compiler",
+      "Existing proprioception-only native IK continuity check at 0.25rad",
+      "Public task wording covers all target objects and requires current RGB verification of handover and containment"
+    ],
+    "unchanged": [
+      "Other ten task prompts and serialized tools, including accepted toast and hang",
+      "Original full TRAIN, model-owned planning, native IK solver, 1000-step scoring and 5400-second wall limit",
+      "No fixed task program, fixed scene object count or coordinates, object-state access or phase gate"
+    ],
+    "interpretation": "Combined candidate on four existing seed1 scenes that each scored 0/1000 historically. This is development evidence, not heldout generalization or single-tool causality. Complete full50 follows candidate validation and freezes a fresh first pass.",
+    "references": [
+      {
+        "repository": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+        "commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+        "usage": "Persistent cells, stdout/error feedback and public robot primitives as design reference; no task program copied"
+      }
+    ]
+  },
+  "development_selection": [
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 0,
+      "reason": "Historical native failure 0/1000; standard/random both included"
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 0,
+      "reason": "Historical native failure 0/1000; standard/random both included"
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 1,
+      "reason": "Historical native failure 0/1000; standard/random both included"
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 1,
+      "reason": "Historical native failure 0/1000; standard/random both included"
+    }
+  ],
+  "hypothesis": "All-object wording addresses an observed omission; selected tool points and short motion feedback address tool pose and contact reasoning. Large tracking residuals do not establish a unique IK cause, and the guard is a hypothesis to validate.",
+  "required_closed_batches": [
+    {
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-full50-closure-20261106.json",
+      "closure_sha256": "0fdff350c9ce8873ca3fa940d75be93d0204f67382b81472eb7fdca79bde58f5",
+      "candidate_commit": "230c3897f573fe44045c3b1cf13e8bdfda21366d",
+      "attempts_closed": 50,
+      "freeze": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-guard-v2-full50-20261105-freeze.json"
+    }
+  ],
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "Paused by user; do not resume automatically",
+    "frozen_during_run": true
+  },
+  "authorization": "User goal: wait for hang completion, optimize sweep_blocks using PyRUA-Lean style tools, then conduct a complete evaluation. This batch is bounded development before the requested full50."
+}

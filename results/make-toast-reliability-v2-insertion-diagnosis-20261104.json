@@ -1,0 +1,129 @@
+{
+  "checked_at": "2026-11-04T07:58:31.523883+00:00",
+  "candidate_commit": "99ed5582f3e21da357dcd9fa9a91207d60801b3b",
+  "case": "seed1-standard-l1",
+  "interval": [
+    {
+      "start": 112,
+      "end": 130,
+      "subgoal": "垂直抬起B1六厘米验证单片抓取",
+      "right_gripper_commands": [
+        0.0
+      ],
+      "rejection": null,
+      "observation": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/008_step130"
+    },
+    {
+      "start": 130,
+      "end": 154,
+      "subgoal": "将已夹持B1抬离货架并移向烤机上方",
+      "right_gripper_commands": [
+        0.0
+      ],
+      "rejection": null,
+      "observation": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/009_step154"
+    },
+    {
+      "start": 154,
+      "end": 164,
+      "subgoal": "把B1抬高到槽口上方并校正其竖直平面",
+      "right_gripper_commands": [
+        0.0
+      ],
+      "rejection": {
+        "type": "action_rejected_ik_continuity",
+        "rejected_action_executed": false,
+        "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+        "violations": [
+          {
+            "arm": "right_arm_joint_state",
+            "passed": false,
+            "limit_rad": 0.25,
+            "error": "ik_failed"
+          }
+        ]
+      },
+      "observation": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/010_step164"
+    },
+    {
+      "start": 164,
+      "end": 188,
+      "subgoal": "保持面包低边高于槽口，沿较低路径平移",
+      "right_gripper_commands": [
+        0.0
+      ],
+      "rejection": null,
+      "observation": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/011_step188"
+    },
+    {
+      "start": 188,
+      "end": 196,
+      "subgoal": "将B1横向中心对准左槽并修正倾角",
+      "right_gripper_commands": [
+        0.0
+      ],
+      "rejection": {
+        "type": "action_rejected_ik_continuity",
+        "rejected_action_executed": false,
+        "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+        "violations": [
+          {
+            "arm": "right_arm_joint_state",
+            "passed": false,
+            "limit_rad": 0.25,
+            "error": "ik_failed"
+          }
+        ]
+      },
+      "observation": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/012_step196"
+    },
+    {
+      "start": 196,
+      "end": 220,
+      "subgoal": "小幅倾斜腕部增加可达性并把B1中心对准S1",
+      "right_gripper_commands": [
+        0.0
+      ],
+      "rejection": null,
+      "observation": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/013_step220"
+    },
+    {
+      "start": 220,
+      "end": 236,
+      "subgoal": "把B1下放四厘米到S1入口，检查接触与对齐",
+      "right_gripper_commands": [
+        0.0
+      ],
+      "rejection": null,
+      "observation": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/014_step236"
+    },
+    {
+      "start": 236,
+      "end": 256,
+      "subgoal": "面包碰到槽边后先抬起，检查是否仍在指间",
+      "right_gripper_commands": [
+        0.0
+      ],
+      "rejection": null,
+      "observation": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/015_step256"
+    }
+  ],
+  "source_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/013_step220/head.png": "ecbd3862fb23d09e89e29f23eb69a07382ccb03ccbf7f786a6ed8788e6ac3251",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/013_step220/wrist_r.png": "9f2fccfac396ef60b033bba89f70e73180fe256ead44ad488afe71010953fefe",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/013_step220/state.json": "12e0d5937691b04182a455cb65abc1dc5a0573039593dea83cb9f209098e5d17",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/014_step236/head.png": "e5665410a0904fd297506a3ad4481e526706ebe55415b39763f188249bfbacf0",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/014_step236/wrist_r.png": "9516b19f4e92d86645ee6915d48d4d2014945604f9723fd80d6767b6949246ff",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/014_step236/state.json": "98edb418f067195d3610f44e6d8b1878ce23aecc45e8ed5e579ce7c9b4d96ba8",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/015_step256/head.png": "d54fa41439870e8de4bed74f7ef619d0eb2430a23827107079a250143cc2b3ca",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/015_step256/wrist_r.png": "39e7cc845e2a59e78d1791a79ce3006dffc994f111cef1e904968341136c59cf",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/observations/015_step256/state.json": "b6b728b43ef63ee821f0cc9e5c18e719e92aec6253e27f8255613541661eec66"
+  },
+  "visual_findings": [
+    "Step220: slice is carried immediately above the toaster; wrist RGB shows its edge to the left of the projected target area.",
+    "Step236 after 4cm downward target: slice lies across the toaster top.",
+    "Step256 after lift: hand is clear while slice remains on the top."
+  ],
+  "supported_conclusion": "No intentional gripper opening during this interval. Insertion contact coincided with loss of the carried slice; grasp pose/object-to-finger offset/alignment/contact remain possible contributors. This does not identify a unique physical cause.",
+  "policy_access": "Offline diagnosis only; no data injected into active episode."
+}

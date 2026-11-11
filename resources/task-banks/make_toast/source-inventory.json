@@ -1,0 +1,25 @@
+{
+  "schema": "roborag.full-train-evidence.v1",
+  "task": "make_toast",
+  "source_manifest": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/data/runtime-data/make_toast/train/sources-0-1-2.json",
+  "source_manifest_sha256": "2c82a28cfe3d02ae7a1c3d1bec353e020943e8e57d63a982c23541af3cea8c0b",
+  "train_source_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/make_toast/train/episode_0000000.hdf5": "24694890c7a5057022fd250064121a835371691a3025274d4eaa393ef3554410",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/make_toast/train/episode_0000001.hdf5": "65e7b32c0b4bf1eec02e01857b8b1b7fc29ef1627f7814bad6efe4fd78066a58",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/make_toast/train/episode_0000002.hdf5": "d816142a5becaf7b500b68583a56407c869cf2dacc345880e1a583d40b5c53ef"
+  },
+  "metadata_sha256": {
+    "bank.json": "d0e359d8dfc03f481929ad63edd4e54a54523f36d66d2a7327124ed60eedc4c9",
+    "search-index.json": "18e6998e78fc7ec6f5043c5c8f93054a9f210fd75ff37e75a0fc58b940f43fd7",
+    "execution-index.json": "2749e91e14f61dce428d229f9a4a6ccb52b08d642ef0faaea62f1c403617180b",
+    "graphs/make_toast-0002.json": "c3f7f1564c1dab981133576d2ecd16fde11ea3556fc82ac75095418d69fc6fbf",
+    "graphs/make_toast-0000.json": "c272b282b5104afb646fc3e82aa430f58a217adad1244f5d92a4ea6bc98576a6",
+    "graphs/make_toast-0001.json": "79bb0ce04b2393ec8df4382e5d7d335ec5a73f7e1ccfc6f21ccdf5ae297bb8ad"
+  },
+  "counts": {
+    "graphs": 3,
+    "phases": 27,
+    "chunks": 334
+  },
+  "scope": "All preselected TRAIN episodes, complete phase coverage, original actions/states/RGB accessible; no test-usage pruning"
+}

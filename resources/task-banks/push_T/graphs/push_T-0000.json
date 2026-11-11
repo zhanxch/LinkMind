@@ -1,0 +1,548 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "push_T-0000",
+  "task": "push_T",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "push_T",
+  "title": "右夹爪分次推移并微调红色T形块对齐灰色垫",
+  "summary": "右臂靠近红色T形块，通过多次低位推移、抬起换位和短程修正，使其逐步接近灰色T形垫的位置与朝向，随后撤回。左臂基本静止；末段灰垫大部分被遮盖，精确重合程度无法完全确认，阶段边界为估计。",
+  "instruction": "Push the T-shaped block to align it precisely with the gray T-shaped pad.",
+  "episode": 0,
+  "source": {
+    "path": "runtime-data/push_T/train/episode_0000000.hdf5",
+    "sha256": "bd4907829ffd6f26c16f099233224282e3f52284023ca7ec11af41a46d623966",
+    "frames": 359,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-25T10:32:09.641719+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "抬臂靠近并收拢右夹爪",
+      "summary": "将右夹爪移到红色T形块附近，为桌面推移做准备。",
+      "objects": [
+        "右夹爪",
+        "红色T形块",
+        "灰色T形垫",
+        "左夹爪"
+      ],
+      "start_frame": 0,
+      "end_frame": 47,
+      "order": 0,
+      "keyframes": [
+        0,
+        23,
+        46
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "红色T形块与灰色T形垫分离，右夹爪在红块附近，左夹爪停在桌面左侧。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂抬起并向目标区域移动，收拢夹爪后逐渐下降。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右夹爪来到红块上方附近；红块与灰垫仍有明显间隔，没有可确认的抓持。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "下降贴近红块并开始推移",
+      "summary": "建立低位操作位置，推动红块靠近灰垫。",
+      "objects": [
+        "右夹爪",
+        "红色T形块",
+        "灰色T形垫",
+        "桌面"
+      ],
+      "start_frame": 47,
+      "end_frame": 78,
+      "order": 1,
+      "keyframes": [
+        47,
+        62,
+        77
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "灰垫位于红块的画面下方，右夹爪已靠近红块。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪降至接近桌面的高度，沿红块边缘作短程横向移动。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "红块位置与朝向发生变化，仍偏离灰垫；右腕画面显示红块紧邻夹爪，接触细节部分被遮挡。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "抬起换位后再次推进",
+      "summary": "更换施力位置，继续缩小红块与灰垫的间隔。",
+      "objects": [
+        "右夹爪",
+        "红色T形块",
+        "灰色T形垫"
+      ],
+      "start_frame": 78,
+      "end_frame": 125,
+      "order": 2,
+      "keyframes": [
+        78,
+        101,
+        124
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "红块经过初次推移后仍未覆盖灰垫，夹爪处在红块一侧。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪短暂抬起并横向换位，再下降贴近红块，继续短距离推移。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "红块逐渐进入灰垫附近区域，但轮廓方向仍有偏差；夹爪遮挡了部分红块。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "绕红块调整推压方向",
+      "summary": "通过重新落点和侧向推移调整红块朝向。",
+      "objects": [
+        "右夹爪",
+        "红色T形块",
+        "灰色T形垫"
+      ],
+      "start_frame": 125,
+      "end_frame": 187,
+      "order": 3,
+      "keyframes": [
+        125,
+        155,
+        186
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "红块与灰垫已较接近，但红色T形轮廓仍倾斜错开。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪抬高少许、改变位置后再次下降，在红块边缘作侧向短推，随后抬离。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "红块朝向继续改变，灰垫在其下方仍有露出，尚不能判断重合。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "低位短推修正方向",
+      "summary": "使红块的T形轮廓更接近灰垫方向。",
+      "objects": [
+        "右夹爪",
+        "红色T形块",
+        "灰色T形垫"
+      ],
+      "start_frame": 187,
+      "end_frame": 234,
+      "order": 4,
+      "keyframes": [
+        187,
+        210,
+        233
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "红块靠近灰垫但仍有角度差，右夹爪停在红块上方一侧。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪重新下降，在红块边缘作一轮低位短推，再抬起让出观察空间。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "红块呈较清晰的T形轮廓，方向更接近灰垫；灰色边缘仍在红块下方可见。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "沿目标边缘小幅校正位置",
+      "summary": "在朝向接近后进一步减小平移偏差。",
+      "objects": [
+        "右夹爪",
+        "红色T形块",
+        "灰色T形垫"
+      ],
+      "start_frame": 234,
+      "end_frame": 281,
+      "order": 5,
+      "keyframes": [
+        234,
+        257,
+        280
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "红块与灰垫方向大致接近，仍可看到灰垫从红块边缘露出。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪从抬起位置下降，围绕红块上端附近作小幅位移，并短暂抬高调整落点。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "红块在灰垫附近仅有较小的位置变化；灰垫露出范围减少，局部轮廓被夹爪遮挡。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "贴近桌面完成末轮微调",
+      "summary": "通过最后几次短程修正稳定红块位置。",
+      "objects": [
+        "右夹爪",
+        "红色T形块",
+        "灰色T形垫"
+      ],
+      "start_frame": 281,
+      "end_frame": 336,
+      "order": 6,
+      "keyframes": [
+        281,
+        308,
+        335
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "红块已位于灰垫附近，右夹爪悬在其上端，主要轮廓方向保持稳定。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪再次降到桌面附近，沿红块边缘缓慢小幅调整，随后逐步抬起。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "红块保持在目标区域，灰垫大部分不可见；画面支持已较接近对齐，但无法确认精确重合。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "张开夹爪并撤回右臂",
+      "summary": "结束推移，将右臂退回起始附近。",
+      "objects": [
+        "右夹爪",
+        "右臂",
+        "红色T形块",
+        "灰色T形垫",
+        "左臂"
+      ],
+      "start_frame": 336,
+      "end_frame": 359,
+      "order": 7,
+      "keyframes": [
+        336,
+        347,
+        358
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "红块停止明显移动，右夹爪已从末轮低位操作中抬起。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂向外后撤，逐渐张开夹爪并返回起始附近，左臂继续保持原位。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右臂撤离操作位置；撤离初段可见红块留在目标附近，最终画面受右臂遮挡，无法进一步核验灰垫与红块边缘。",
+      "parent": "p08"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

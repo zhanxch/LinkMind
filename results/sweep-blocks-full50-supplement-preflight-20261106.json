@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "task": "sweep_blocks",
+  "case_count": 2,
+  "cases": [
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 16
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 21
+    }
+  ],
+  "parent_sources_and_reports": [
+    {
+      "tag": "sweep-blocks-tools-v1-full50-20261106",
+      "frozen_sources": 302,
+      "attempt_artifacts": 546,
+      "native_reports": 48
+    },
+    {
+      "tag": "hang-mugs-guard-v2-full50-20261105",
+      "frozen_sources": 296,
+      "attempt_artifacts": 529,
+      "native_reports": 44
+    }
+  ],
+  "prompt_sha256": "aaeaa04e3013cff592b7efe10e4701627bfa89150c82bcd1ff082b71ede2e0bd",
+  "conditions_identical_to_parent": true,
+  "runtime_and_prompts_identical_to_parent": true,
+  "gpu_free_mib": [
+    23511
+  ],
+  "active_related_native_processes": [],
+  "checked_at": "2026-11-06T13:12:05.393130+00:00",
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/experiments/sweep_blocks/full50-unscored-supplement-20261106.json",
+  "protocol_sha256": "dd87e3f92236836f999115509309b992821e78dd449e85bf8e6d768b72c55b64",
+  "cases_sha256": "d09bd66bb3ef4a5bfac5fcad454abaf8652fcb48e6962592eaf079d9de950623",
+  "driver": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/scripts/run_unscored_supplement.py",
+  "driver_sha256": "37e155703289d6993ce21e47aa651ca6a0a6d8eed8caf262e0506f962e68bbdd",
+  "accepted_runtime_commit": "ca604e59ea87b280b14757c23134bf62701a9cbd",
+  "previous_static_tests_passed": 133,
+  "runtime_prompts_and_tests_identical_to_parent": true,
+  "static_tests_rerun": false,
+  "interpretation": "Read-only preflight before this supplement launches; both original full50 batches closed. Only missing native-score scenes are selected. Source and prompt remain unchanged, and runtime/tests match the previously tested parent commit."
+}

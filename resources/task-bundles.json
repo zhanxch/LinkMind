@@ -1,0 +1,464 @@
+{
+  "schema": "linkmind.task-bundles.v1",
+  "tasks": {
+    "fold_clothes": {
+      "bundle": "resources/fold-v3-full",
+      "install": "artifacts/fold-v3-full",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "269457a3b42d8d0ae69898a601f2c1487c2f826e",
+      "train": [
+        {
+          "path": "runtime-data/fold_clothes/train/episode_0000000.hdf5",
+          "sha256": "5a1fbba99a9f13900ec4439ba503674627335e28aeba6840223beb3e17cc93ac",
+          "bytes": 625657616,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/fold_clothes/train/episode_0000001.hdf5",
+          "sha256": "9c7ada4f69becfdd82e73f122fa3c2fa6aedf1a5c5031ec4fff550e0a1ee754a",
+          "bytes": 394604856,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/fold_clothes/train/episode_0000002.hdf5",
+          "sha256": "56604d1ae7142b2945baf4aa33e061d9f7f464383156d1d074c5f590bbc31cab",
+          "bytes": 270551221,
+          "episode": 2
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "47fa24bf427b329c5098dba86a46fd8aa8111a561ebe4b85b1338ba0d82d9d4f",
+        "execution-index.json": "4a2529a791f234469f88e1a034205f9662d8b2a8dd98572720a94038d80189a2",
+        "graphs/cover_blocks-0000.json": "80eb440c2b472e948c193e771ea1b2a97f6626f64a7c70301cc53c9fa4ac9c27",
+        "graphs/deposit_coin-0000.json": "7d04b687831295e7a07d602aed1488919fc4e8a59eb2e8b6e6de019916a4dc78",
+        "graphs/fold_clothes-0000.json": "12fc14d22851fc034086e1637e9f7ac61a94dcbca107da7ac5be04bfcede6b34",
+        "graphs/fold_clothes-0001.json": "4d87dfc8fa3edea86c1a38bed4519b17f998c9051477a9f8e60a9fc6bb429efa",
+        "graphs/fold_clothes-0002.json": "9c0f0a43820c4a3c9becf6306240e9c9deb47a8579e5726e066e2fbdd33b075d",
+        "graphs/put_bottles_into_dustbin-0000.json": "ffa93bda091082e0c511f5a7e051bd76560ecfdb404c7681a317988eb11e28bf",
+        "graphs/stack_blocks-0000.json": "dce2cd6a9943feca2877c268a3f45a31cbc31bd54af1cc1394ad374f5cd4bfac",
+        "graphs/stack_blocks-0001.json": "cb6cf71670bbccb07eb88e15e730e27ee1e3b2b9a045d4b21ae9e742f4d8764c",
+        "graphs/stack_blocks-0002.json": "9015239569901eaf84a949dba60144b53df90c4f9e23d34d97a783eca426ec0c",
+        "graphs/stack_blocks-0003.json": "5eeab2a8c8fb5fce7f6bd736ec8588092084586f752b2427f588ca5725f13565",
+        "graphs/stack_blocks-0004.json": "65616daaa386d62b374c38ff8fb19af8b6d713248b2e6f6e6e4f34b071aae772",
+        "graphs/stack_blocks-0005.json": "4d195a5a8e1d9dad1419f2542e1c777e10d98dd077f1189936707aa3b491b158",
+        "search-index.json": "cfa86ce25f0f1c20b65b9cfcdcb0b817499673f5c6e06a6f87b49f65b11c6df3",
+        "source-inventory.json": "e887858336767e18cb043f3b8beb185d4dbbde9e2739312b1de61733eab9464b"
+      }
+    },
+    "stack_blocks": {
+      "bundle": "resources/task-banks/stack_blocks",
+      "install": "artifacts/generalization-v3-full/stack_blocks",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "35efbc7dedfdbeeb6e95fb749bd885d73d483e41",
+      "train": [
+        {
+          "path": "runtime-data/stack_blocks/train/episode_0000000.hdf5",
+          "sha256": "b5a7bca9b023ba6c65b3b81b52fbb2c0e87764cd8711be7f9a661fffd33a8cfc",
+          "bytes": 221559537,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/stack_blocks/train/episode_0000001.hdf5",
+          "sha256": "7169c78365248b83d091b0e38127e454362cd1059f562f9b5f904e05ff3f8775",
+          "bytes": 240735562,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/stack_blocks/train/episode_0000002.hdf5",
+          "sha256": "32b3dbeeaca73706baaa1a55a873103d94b306334ca7a59a08808d324b5e044c",
+          "bytes": 237382878,
+          "episode": 2
+        },
+        {
+          "path": "runtime-data/stack_blocks/train/episode_0000003.hdf5",
+          "sha256": "f08121cabeb10e92d1af7c2da14fff3353b709b746da36e89bf0e1f6bf6c7623",
+          "bytes": 236251573,
+          "episode": 3
+        },
+        {
+          "path": "runtime-data/stack_blocks/train/episode_0000004.hdf5",
+          "sha256": "107a0340837aefa8a98b7943a58541f6e5d357d8fd334ca7c4001c1242409893",
+          "bytes": 233153705,
+          "episode": 4
+        },
+        {
+          "path": "runtime-data/stack_blocks/train/episode_0000005.hdf5",
+          "sha256": "e288acec35c29a07616c479e63a79c8f0f6e12a2175f20e537784ec06834d1a6",
+          "bytes": 235121303,
+          "episode": 5
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "47fa24bf427b329c5098dba86a46fd8aa8111a561ebe4b85b1338ba0d82d9d4f",
+        "execution-index.json": "4a2529a791f234469f88e1a034205f9662d8b2a8dd98572720a94038d80189a2",
+        "graphs/cover_blocks-0000.json": "80eb440c2b472e948c193e771ea1b2a97f6626f64a7c70301cc53c9fa4ac9c27",
+        "graphs/deposit_coin-0000.json": "7d04b687831295e7a07d602aed1488919fc4e8a59eb2e8b6e6de019916a4dc78",
+        "graphs/fold_clothes-0000.json": "12fc14d22851fc034086e1637e9f7ac61a94dcbca107da7ac5be04bfcede6b34",
+        "graphs/fold_clothes-0001.json": "4d87dfc8fa3edea86c1a38bed4519b17f998c9051477a9f8e60a9fc6bb429efa",
+        "graphs/fold_clothes-0002.json": "9c0f0a43820c4a3c9becf6306240e9c9deb47a8579e5726e066e2fbdd33b075d",
+        "graphs/put_bottles_into_dustbin-0000.json": "ffa93bda091082e0c511f5a7e051bd76560ecfdb404c7681a317988eb11e28bf",
+        "graphs/stack_blocks-0000.json": "dce2cd6a9943feca2877c268a3f45a31cbc31bd54af1cc1394ad374f5cd4bfac",
+        "graphs/stack_blocks-0001.json": "cb6cf71670bbccb07eb88e15e730e27ee1e3b2b9a045d4b21ae9e742f4d8764c",
+        "graphs/stack_blocks-0002.json": "9015239569901eaf84a949dba60144b53df90c4f9e23d34d97a783eca426ec0c",
+        "graphs/stack_blocks-0003.json": "5eeab2a8c8fb5fce7f6bd736ec8588092084586f752b2427f588ca5725f13565",
+        "graphs/stack_blocks-0004.json": "65616daaa386d62b374c38ff8fb19af8b6d713248b2e6f6e6e4f34b071aae772",
+        "graphs/stack_blocks-0005.json": "4d195a5a8e1d9dad1419f2542e1c777e10d98dd077f1189936707aa3b491b158",
+        "search-index.json": "cfa86ce25f0f1c20b65b9cfcdcb0b817499673f5c6e06a6f87b49f65b11c6df3"
+      }
+    },
+    "stack_bowls": {
+      "bundle": "resources/task-banks/stack_bowls",
+      "install": "artifacts/generalization-v3-full/stack_bowls",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "35efbc7dedfdbeeb6e95fb749bd885d73d483e41",
+      "train": [
+        {
+          "path": "runtime-data/stack_bowls/train/episode_0000000.hdf5",
+          "sha256": "b583a31fdfbe565038579b1446c9d25a5c13b879fb700b92c6704564064c8a0c",
+          "bytes": 194563021,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/stack_bowls/train/episode_0000001.hdf5",
+          "sha256": "76528dfb17cb466c8d8c4f712e6f89e57783aa5e8ea96dd58146d8ab42236993",
+          "bytes": 334020311,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/stack_bowls/train/episode_0000002.hdf5",
+          "sha256": "2cf510a961759efb2e10c11368cd604fe8d30969fad2617714348474e5161b4b",
+          "bytes": 443196751,
+          "episode": 2
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "61cbb691482d036aab1cef11e0750a2d395f8a98018c4ca0347731da41dd1f9a",
+        "execution-index.json": "a0b9e668ae7a4340e264ea59f0c217851b40d0748b9670f12cbb915635a2e066",
+        "graphs/stack_bowls-0000.json": "f7fece8eb7112f275ea82a52ceef1817a63f5a6994c069268037d500bc5cc8f8",
+        "graphs/stack_bowls-0001.json": "187a010cd0e02f4dafc1d974288d2025b223c0b921acc6594be39ff5a0de0dfb",
+        "graphs/stack_bowls-0002.json": "f1f0797bce561bf3957e8dc4bc88d702ea400e9bea71b9097dc97f5f99d7c73e",
+        "search-index.json": "a921ef87932da2d3c57024f2f0221cd561eaa8a9faa0da879676744943a78fad",
+        "source-inventory.json": "84ac6d399ef8b41eae9eaa901106b9385b59a210b6e3f233cd936ee2349c5201"
+      }
+    },
+    "push_T": {
+      "bundle": "resources/task-banks/push_T",
+      "install": "artifacts/generalization-v3-full/push_T",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "35efbc7dedfdbeeb6e95fb749bd885d73d483e41",
+      "train": [
+        {
+          "path": "runtime-data/push_T/train/episode_0000000.hdf5",
+          "sha256": "bd4907829ffd6f26c16f099233224282e3f52284023ca7ec11af41a46d623966",
+          "bytes": 296260537,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/push_T/train/episode_0000001.hdf5",
+          "sha256": "3984f2223c4ac57946dd9cbf38c8457ebd9c5f80267583c9b406d1e410bd2a3f",
+          "bytes": 432310016,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/push_T/train/episode_0000002.hdf5",
+          "sha256": "c40012e5fae51ffb84f567ad5303ef40ddf2a26df5fade225f4f16013960b26d",
+          "bytes": 382605709,
+          "episode": 2
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "8ad05d80ca5b97f037bb609c5b93e1016669be5b2de80d4a5eea23060260e2ca",
+        "execution-index.json": "9be3213792f342739e2384f6d5336075fce8e93a55d43b987e7b4e4b9738c82f",
+        "graphs/push_T-0000.json": "aab91c7b9a276f2587081612106cd8948036138598ba189e1274b2affc5edc3b",
+        "graphs/push_T-0001.json": "f7e9f23d887f72bf064fdd294e87c00aef6362c034445b53928b680d944959bc",
+        "graphs/push_T-0002.json": "417970f3a7fc7f3f4f0dd99ade2c5beb20aee930fcb5757caff39efc5b3fdf4c",
+        "search-index.json": "b39d3b543af940dbf6e02fae5310fa6f6bf75912bd67ffc4148f40a68563c0ff"
+      }
+    },
+    "make_toast": {
+      "bundle": "resources/task-banks/make_toast",
+      "install": "artifacts/generalization-v3-full/make_toast",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "35efbc7dedfdbeeb6e95fb749bd885d73d483e41",
+      "train": [
+        {
+          "path": "runtime-data/make_toast/train/episode_0000000.hdf5",
+          "sha256": "24694890c7a5057022fd250064121a835371691a3025274d4eaa393ef3554410",
+          "bytes": 662998197,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/make_toast/train/episode_0000001.hdf5",
+          "sha256": "65e7b32c0b4bf1eec02e01857b8b1b7fc29ef1627f7814bad6efe4fd78066a58",
+          "bytes": 539798297,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/make_toast/train/episode_0000002.hdf5",
+          "sha256": "d816142a5becaf7b500b68583a56407c869cf2dacc345880e1a583d40b5c53ef",
+          "bytes": 675854732,
+          "episode": 2
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "d0e359d8dfc03f481929ad63edd4e54a54523f36d66d2a7327124ed60eedc4c9",
+        "execution-index.json": "2749e91e14f61dce428d229f9a4a6ccb52b08d642ef0faaea62f1c403617180b",
+        "graphs/make_toast-0000.json": "c272b282b5104afb646fc3e82aa430f58a217adad1244f5d92a4ea6bc98576a6",
+        "graphs/make_toast-0001.json": "79bb0ce04b2393ec8df4382e5d7d335ec5a73f7e1ccfc6f21ccdf5ae297bb8ad",
+        "graphs/make_toast-0002.json": "c3f7f1564c1dab981133576d2ecd16fde11ea3556fc82ac75095418d69fc6fbf",
+        "search-index.json": "18e6998e78fc7ec6f5043c5c8f93054a9f210fd75ff37e75a0fc58b940f43fd7",
+        "source-inventory.json": "865f41f082b75bbfad946b803501f4b0d8108f29f88f1f9e821988007cf09d70"
+      }
+    },
+    "hang_mugs": {
+      "bundle": "resources/task-banks/hang_mugs",
+      "install": "artifacts/generalization-v3-full/hang_mugs",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "35efbc7dedfdbeeb6e95fb749bd885d73d483e41",
+      "train": [
+        {
+          "path": "runtime-data/hang_mugs/train/episode_0000000.hdf5",
+          "sha256": "99518ec85ba0551f205bb34053454eb06a6c0a030d228c1ed40e0f22b4d329b6",
+          "bytes": 450939099,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/hang_mugs/train/episode_0000001.hdf5",
+          "sha256": "92040a25d2d17f43d4e488d963306f17bf93367c0bad469a5adbdd29291de0c6",
+          "bytes": 519986885,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/hang_mugs/train/episode_0000002.hdf5",
+          "sha256": "daeb2a8ec3b8ad23b5e4a2caf2f72868a7dceb1fb1bf4a47de3404e92f970557",
+          "bytes": 773130079,
+          "episode": 2
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "b4710276135efcbe5c4acd3dafa9621b6f666bf8244ab1c2e2f74d781cd97677",
+        "execution-index.json": "ce2d5d24f56ed2af329fff3885143751b1decdccb890b1c4d757ef0b3eb18acb",
+        "graphs/hang_mugs-0000.json": "e133f06b7657e6618b0df7e6383aa70dd789adb8872c1844f87825fb716e642f",
+        "graphs/hang_mugs-0001.json": "736eb71b4d058ae823e556fd49b86fa3a8a5e420a581bad904c4c8d750a41da5",
+        "graphs/hang_mugs-0002.json": "44d1ad2cc722f028c465a7a18088d73a5f05a146bb8982555857f15fc2a99185",
+        "search-index.json": "d2d395694f6ec9fdc9cd575950caaae43f950f75031e9008299731e27b02f521",
+        "source-inventory.json": "7e0d714e6feaf1889e83bd2e588688a10f7150af4136da49ab294b1da06888b0"
+      }
+    },
+    "sweep_blocks": {
+      "bundle": "resources/task-banks/sweep_blocks",
+      "install": "artifacts/generalization-v3-full/sweep_blocks",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "35efbc7dedfdbeeb6e95fb749bd885d73d483e41",
+      "train": [
+        {
+          "path": "runtime-data/sweep_blocks/train/episode_0000000.hdf5",
+          "sha256": "bce5edd0c62c71c674c5b93b137f8feee03af7399480aa738d583c62e4f5f033",
+          "bytes": 694902372,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/sweep_blocks/train/episode_0000001.hdf5",
+          "sha256": "ec26db73fedafb4f12469c239cf9daccd0e925e472f51e30b58888417942e8c9",
+          "bytes": 874635745,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/sweep_blocks/train/episode_0000002.hdf5",
+          "sha256": "b21c7ba5a19b90a6dbe7f9227f25a6cdc074dde85db9c25ccc381754b952cbbb",
+          "bytes": 992920073,
+          "episode": 2
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "d11eca3ad715c1eb3f82ce07b42a8a20ab8e7f8562dd3c4ffb5852885ccf221b",
+        "execution-index.json": "a20a1d75013791fcc0d695c0da0972ad9566b887be19f7757a1f89918c4378fb",
+        "graphs/sweep_blocks-0000.json": "0b9f0959df0f21feaf8628eade2aba8b9e64a9d3e72cdf8ced18529c2a4eaa86",
+        "graphs/sweep_blocks-0001.json": "b804deda0d1e5450745d33433a0e807f11a325adadddf7a7d7ceb778b82eb3cb",
+        "graphs/sweep_blocks-0002.json": "7271e7370987fae054d503d1aa8579650a74a96075cf8366407b7e65f8dea4cd",
+        "search-index.json": "52ff0ec77c62b26a6599b238c74b93733319a9255d312ac277d3bdd2c1cf2d0c",
+        "source-inventory.json": "1503273a8925b1b718f17eb1bf3dd3a388b5c3e5858a7434bcd10252dbcd3e76"
+      }
+    },
+    "pack_objects_into_box": {
+      "bundle": "resources/task-banks/pack_objects_into_box",
+      "install": "artifacts/generalization-v3-full/pack_objects_into_box",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "35efbc7dedfdbeeb6e95fb749bd885d73d483e41",
+      "train": [
+        {
+          "path": "runtime-data/pack_objects_into_box/train/episode_0000000.hdf5",
+          "sha256": "170bb151cadea1c235bf78f57a01b695c6f04941a47f9c1ad83868bcb03897aa",
+          "bytes": 1028429179,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/pack_objects_into_box/train/episode_0000001.hdf5",
+          "sha256": "c3f5f209f32545760b198a83684338eb881c59aff142a1f22835a25063a8d4a5",
+          "bytes": 887346637,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/pack_objects_into_box/train/episode_0000002.hdf5",
+          "sha256": "4d390d0135ca059b6abf61d2eebe9d82bad3e6de3bfa9255606f684bc6660a2d",
+          "bytes": 822668161,
+          "episode": 2
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "efa5ee421fdb091aa50562ae19a6c4d6e5404cc0598e670613f4278837a64e51",
+        "execution-index.json": "7f2baaaa92af5d216fff6ebd4d18ab430b93beaf02cd04cdf095df83a4c94bd7",
+        "graphs/pack_objects_into_box-0000.json": "172cc573c1ae6a09ba5e507160b2f3bca23da7e04ca58bc1953e8160d507ba58",
+        "graphs/pack_objects_into_box-0001.json": "9ecd0e9eccbdd1f09afb3008cc99cb3725e965a0628ef150e2d02b62993c2646",
+        "graphs/pack_objects_into_box-0002.json": "a6a90e5d2ae2eabe3dfdf75f8e7f494359334163695e6d3c880f012e513cc85f",
+        "search-index.json": "bd947f1cc6c3a0e00e2e2694d665dac78572838880519d8fed0cc262cf8cc4d7",
+        "source-inventory.json": "8a7dd5b3b88e2e8840c18771f68013e39759f0c1aa5a3315a66bdcf884a1bea7"
+      }
+    },
+    "pour_liquid_into_cup": {
+      "bundle": "resources/task-banks/pour_liquid_into_cup",
+      "install": "artifacts/generalization-v3-full/pour_liquid_into_cup",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "35efbc7dedfdbeeb6e95fb749bd885d73d483e41",
+      "train": [
+        {
+          "path": "runtime-data/pour_liquid_into_cup/train/episode_0000000.hdf5",
+          "sha256": "72b5eff7a627c76917f3af0c501e7c2daa8259f6ea2734cfefade69b35dccd57",
+          "bytes": 154661616,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/pour_liquid_into_cup/train/episode_0000001.hdf5",
+          "sha256": "dec834c2b40011098dad716f8ca2d0feca97a023037e349c826c3cf5594710db",
+          "bytes": 177665485,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/pour_liquid_into_cup/train/episode_0000002.hdf5",
+          "sha256": "f696ab4649b1861245b038884754c5bf68d6ba863a82c86e9b202c992f61640b",
+          "bytes": 187835112,
+          "episode": 2
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "32e8b383692a15fb53335e0ce684a2c4ebf0f2335924f93a243d8eee59f3ee6a",
+        "execution-index.json": "74391da01633436aea90773b703f4158366e30a21ba3fda3b8d5c9f126fb2b39",
+        "graphs/pour_liquid_into_cup-0000.json": "1e127e5aa163e56e8c78180bd19ff006e0044b229179e0a0280bf92054b16570",
+        "graphs/pour_liquid_into_cup-0001.json": "5086391b6c47f59639c2620d358227b6b43addb279b9252538cf4e00f146b2f1",
+        "graphs/pour_liquid_into_cup-0002.json": "90f125dea6633cd4cf1cd9171e0eb0c3f1ca3d97f061371aea054e0392a19289",
+        "search-index.json": "ffdc8a0a597d4cd62d79c3ef073e5601f0780d5551fff95db9a3000b7fd677ff",
+        "source-inventory.json": "a46a8f0536a1befb513f4b6bfbf4464ab555707e7450879bbd40252ee0b42fc9"
+      }
+    },
+    "arrange_largest_number": {
+      "bundle": "resources/task-banks/arrange_largest_number",
+      "install": "artifacts/generalization-v3-full/arrange_largest_number",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "35efbc7dedfdbeeb6e95fb749bd885d73d483e41",
+      "train": [
+        {
+          "path": "runtime-data/arrange_largest_number/train/episode_0000000.hdf5",
+          "sha256": "f2b28192fe387d90d3d98c95b81f5d558584a2aef1634408fe7569bdd45cd87e",
+          "bytes": 573135362,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/arrange_largest_number/train/episode_0000001.hdf5",
+          "sha256": "e35c83509f1a86d48c6b53cb6a0440707c8992310c67dc63dc73008d90632c86",
+          "bytes": 508978178,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/arrange_largest_number/train/episode_0000002.hdf5",
+          "sha256": "04d995bc664305dcb5da779155449e9968b27a4fff1e1f3bdf0547814f9ffc63",
+          "bytes": 648940040,
+          "episode": 2
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "11156cc13aec5a4a858fe4ce97aaaa2181470db76486b35841f238acd6ccbf62",
+        "execution-index.json": "15dc187f72c879617b15c245685e303ad68016ed2245b4dc7f0daaae0fec11ef",
+        "graphs/arrange_largest_number-0000.json": "2c2ec606f8ad88ce2ebd0d052d9acdf37558c7e4363dec6de089fb0e4a6df8f4",
+        "graphs/arrange_largest_number-0001.json": "4033842e9eba1e17e0ca0a593a6951234efccf84100105ac7df1f86da92d7462",
+        "graphs/arrange_largest_number-0002.json": "568fb3982a5a93515c1ed46d2d9fe22e3a33364cd1c7ed75e27db4b115c63b0c",
+        "search-index.json": "7bedc1f04653dde8a99076cf6bb021b342dc6a0d465a47fee0123daf80bfb6c8",
+        "source-inventory.json": "870dcb244c9b2c08fba96799300e73ee5f8046a5394da3f950eb4288d0b26505"
+      }
+    },
+    "sort_nesting_dolls_by_size": {
+      "bundle": "resources/task-banks/sort_nesting_dolls_by_size",
+      "install": "artifacts/generalization-v3-full/sort_nesting_dolls_by_size",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "35efbc7dedfdbeeb6e95fb749bd885d73d483e41",
+      "train": [
+        {
+          "path": "runtime-data/sort_nesting_dolls_by_size/train/episode_0000000.hdf5",
+          "sha256": "38150185f44f8bc4505fbbcc9c66975070a257099c5cf70c39b2494205e93e2e",
+          "bytes": 742654694,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/sort_nesting_dolls_by_size/train/episode_0000001.hdf5",
+          "sha256": "8d215ba2edf3d63ace72963edaa1af743d53d812563bc103ba938e418b80a887",
+          "bytes": 921862731,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/sort_nesting_dolls_by_size/train/episode_0000002.hdf5",
+          "sha256": "b58ceb0dd5d1063f44c16531eaeaeb8ef1f35bbb3194703ddb21c702c908de05",
+          "bytes": 425629367,
+          "episode": 2
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "5d4f6ade71d6bd94fc54b7972cf9d77d3ed379d87fa96c82fe807228c76c5a3b",
+        "execution-index.json": "6033d493e18befb043a024147d1a3ce5851715608d17605ecdae1ab10f5ac39f",
+        "graphs/sort_nesting_dolls_by_size-0000.json": "62131a81e147629bd9b82a71c91be6b2af3be65de2a504d6e279b5598830db30",
+        "graphs/sort_nesting_dolls_by_size-0001.json": "007b2f68fc5e3b533ba30b1f836c0723a505b11f6057a98b3257d527d9d48110",
+        "graphs/sort_nesting_dolls_by_size-0002.json": "58601da42c43708e930173665e3b26c7bf500ff1cb5cf162718771a0f640ed06",
+        "search-index.json": "85e442477ff1777e27e5afa0fc9dddf51ef74812fdccb4e839176eeaa0b47369",
+        "source-inventory.json": "a2369b8fd09fefc94d0ced690aa49bf129e84318e070db3fd70173dc70d458c9"
+      }
+    },
+    "store_laptop_and_headphones": {
+      "bundle": "resources/task-banks/store_laptop_and_headphones",
+      "install": "artifacts/generalization-v3-full/store_laptop_and_headphones",
+      "repository": "RoboDojo-Benchmark/RoboDojo",
+      "revision": "35efbc7dedfdbeeb6e95fb749bd885d73d483e41",
+      "train": [
+        {
+          "path": "runtime-data/store_laptop_and_headphones/train/episode_0000000.hdf5",
+          "sha256": "3c58e9b07ec0d21ae0ad471484d4565c565fa685b95145dbb4b6c84ad6bbc9dc",
+          "bytes": 572087037,
+          "episode": 0
+        },
+        {
+          "path": "runtime-data/store_laptop_and_headphones/train/episode_0000001.hdf5",
+          "sha256": "6efc18249e2e7ca759330555c657037fa4a3eedb2549031fce01b99e515877dd",
+          "bytes": 511996014,
+          "episode": 1
+        },
+        {
+          "path": "runtime-data/store_laptop_and_headphones/train/episode_0000002.hdf5",
+          "sha256": "08c0162d701ebbaafeca6e41d5e88fa3927d1af3256082b1d35136dd266099c0",
+          "bytes": 678045209,
+          "episode": 2
+        }
+      ],
+      "metadata_sha256": {
+        "bank.json": "42d967d340dd2dc7d912adce1b0f226f8c8cd3233e707ca6a2d39be38246fb42",
+        "execution-index.json": "009e1cb78463ea48e5ed6007e1948b097bbba78bbf9c2ea041145b373c580afe",
+        "graphs/store_laptop_and_headphones-0000.json": "2130472556d7cea2244819587b1896cf569cd449529abd7a0e47008d1e4aeee1",
+        "graphs/store_laptop_and_headphones-0001.json": "3ed63a2ee3d33e6fb072167dce5aef756d3d4bbe226b3de0b470b788611f2cb0",
+        "graphs/store_laptop_and_headphones-0002.json": "9aedfeb31edcd5b1d874c6f7c6b5dca94f99b1bd81e233f5b1c3350473ca3d3f",
+        "search-index.json": "3e93b0232027057f73cbed0fd9a0831fa542602f6896b24bb3990bd88313abfb",
+        "source-inventory.json": "33b02c315ebcac9430a3366b785d71e4ca873f52b3df1f8ba1fb6c7488af11e2"
+      }
+    }
+  },
+  "push_fixed_reference": {
+    "path": "resources/push-t-fixed-references.json",
+    "sha256": "207fcc1c3a7f518ca63fc67dc2f5661e5d1bb2ab8a696f3fe33f5bb4c56247a5",
+    "install": "artifacts/push-t-simplification/fixed-references.json"
+  }
+}

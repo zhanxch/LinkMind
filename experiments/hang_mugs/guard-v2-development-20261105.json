@@ -1,0 +1,108 @@
+{
+  "schema": "roborag.hang-mugs-guard-development.v2",
+  "status": "registered_before_launch",
+  "base_commit": "3b88443d577da6e4a56aa1ba27efdacfffe1aa4f",
+  "historical_hang_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "planned_native_attempts": 3,
+  "tasks": [
+    {
+      "task": "hang_mugs",
+      "bank": "artifacts/generalization-v3-full/hang_mugs",
+      "cases_file": "experiments/hang_mugs/cases-guard-v2-development-20261105.json",
+      "case_count": 3,
+      "native_step_limits": {
+        "standard": 800,
+        "random": 800
+      },
+      "preflight_file": "results/hang-mugs-tools-bank-preflight-20261105.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Original native 800 steps, including every cell dispatch and joint hold",
+    "context": "Original full TRAIN retrieval and model-owned record_plan; optional persistent Python cells",
+    "feedback": "Current RGB with paired calibration and measured robot state; no object truth or holding sensor",
+    "execution_guard": {
+      "kind": "native_ik_continuity",
+      "max_joint_increment_rad": 0.25
+    }
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure, preserve unknown counters and usage",
+    "retests": "One fresh attempt per registered scene; no automatic retries or full50 expansion",
+    "aggregation": "Three existing development scenes only; historical same-scene results remain separate"
+  },
+  "scope": {
+    "runtime_changes": [
+      "Enable the existing native 0.25rad IK pre-dispatch check for hang_mugs and hang_mugs_random; normalized legal joint targets and atomic rejection receipts use the existing guarded delta dispatcher",
+      "Describe the actual native guard in the existing hang Python cell tool interface"
+    ],
+    "unchanged": [
+      "All v1 geometry, feature interpolation, hold primitives and task/assembled prompt text",
+      "Other ten task assembled prompts and serialized tool interfaces, including accepted make_toast",
+      "Original full TRAIN, model-owned planning, native IK solver, 800-step scoring and 5400-second wall limit; no new task program or phase gate"
+    ],
+    "interpretation": "Second combined candidate on the same three existing development scenes after v1 closed at 1 success/2 failures, including a historical-success regression. V2 changes only dispatch reliability and its description. No heldout or single-cause claim; never merge best outcomes across candidates.",
+    "references": [
+      {
+        "repository": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+        "commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+        "usage": "Persistent Python and robot primitive design reference; no upstream task program copied"
+      },
+      {
+        "repository": "https://github.com/HexaFuture/HexaShell",
+        "commit": "d1a2a24dc4c528a652b359fd689398530ef941d8",
+        "files": [
+          "tasks/hang_mugs/tools/precision/tool.py",
+          "tasks/hang_mugs/tools/pegs/tool.py"
+        ],
+        "usage": "Frozen read-only RGB geometry functions; no upstream motion programs, depth fallback or task-stage scheduler"
+      }
+    ]
+  },
+  "development_selection": [
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 1,
+      "reason": "Historical 0/800 failure"
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 3,
+      "reason": "Historical 40/800 failure"
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 2,
+      "reason": "Historical 100/347 success regression"
+    }
+  ],
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "Paused by user; do not resume automatically",
+    "frozen_during_run": true
+  },
+  "toast_supplement_gate": {
+    "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/results/make-toast-python-cells-full50-supplement-closure-20261105.json",
+    "closure_sha256": "592720fe86952b8b7b565a05f263d474507569c2abf40dfd3e1eedd8d7d8e602",
+    "status": "Closed before any hang implementation"
+  },
+  "authorization": "Continued user goal to optimize hang mugs after the toast supplement. One new bounded three-scene development batch after the preceding candidate regressed; no unchanged-version retry or full50 expansion.",
+  "hypothesis": "V1 had repeated tracking truncations and object slips. Its logs do not identify per-step IK status, so discontinuous targets are a testable execution hypothesis, not an established unique cause. Reuse the existing proprioception-only native pre-dispatch check without adding grasp or phase gates.",
+  "predecessor_gate": {
+    "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-tools-v1-closure-20261105.json",
+    "closure_sha256": "7a695f6ee2aff04db3921635076ba89fb6c150110344db7db5ba02e3c7dcb576",
+    "candidate_commit": "556f718cef8078028bb1dc29c832a9aa7cd7b23e"
+  }
+}

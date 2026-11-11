@@ -1,0 +1,493 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "pour_liquid_into_cup-0000",
+  "task": "pour_liquid_into_cup",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "pour_liquid_into_cup",
+  "title": "左手取瓶，对准杯口倾倒后扶正降回",
+  "summary": "左臂靠近并抓起瓶子，将瓶口移到杯口上方，逐渐倒置瓶身完成倾倒，再扶正并降回杯子左侧桌面附近。右臂全程保持原位，末尾未见明确松爪。",
+  "instruction": "Pour the liquid from the bottle into the cup.",
+  "episode": 0,
+  "source": {
+    "path": "runtime-data/pour_liquid_into_cup/train/episode_0000000.hdf5",
+    "sha256": "72b5eff7a627c76917f3af0c501e7c2daa8259f6ea2734cfefade69b35dccd57",
+    "frames": 176,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-28T17:22:53.800218+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "张开夹爪靠近瓶身",
+      "summary": "将左夹爪移到直立瓶子的抓取位置。",
+      "objects": [
+        "左臂",
+        "左夹爪",
+        "瓶子",
+        "杯子",
+        "桌面"
+      ],
+      "start_frame": 0,
+      "end_frame": 32,
+      "order": 0,
+      "keyframes": [
+        0,
+        15,
+        31
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "瓶子直立在桌面上，杯子位于其右侧；左夹爪张开，与瓶子尚有距离。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂向前伸出并调整高度，从瓶子左侧靠近，使夹爪对准瓶身。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "左夹爪到达瓶身附近，瓶子仍直立在桌面上，尚未见明确提起。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "夹住瓶身并提起",
+      "summary": "建立抓持，使瓶子离开桌面。",
+      "objects": [
+        "左臂",
+        "左夹爪",
+        "瓶子",
+        "桌面"
+      ],
+      "start_frame": 32,
+      "end_frame": 46,
+      "order": 1,
+      "keyframes": [
+        32,
+        38,
+        45
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左夹爪已靠近瓶身，瓶口朝上，杯子保持不动。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪围住瓶身并合拢，随后左臂抬升，同时开始转动瓶子。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "瓶子随左手抬起并发生倾斜，支持已形成抓持；夹爪与瓶身的具体接触处受到遮挡。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "把瓶口移向杯口",
+      "summary": "将悬空瓶子的出口对准接液杯。",
+      "objects": [
+        "左臂",
+        "左夹爪",
+        "瓶子",
+        "瓶口",
+        "杯口"
+      ],
+      "start_frame": 46,
+      "end_frame": 69,
+      "order": 2,
+      "keyframes": [
+        46,
+        57,
+        68
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "瓶子已被提起并倾斜，瓶口尚在杯子左上方。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂持瓶向杯子移动，继续转动瓶身，使瓶口朝向杯口并逐步靠近其上方。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "瓶口到达杯口上方附近，瓶身呈倾斜姿态；杯子位置未改变，尚未清楚看到杯内出现蓝色液体。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "加大倾角向杯中倒液",
+      "summary": "保持瓶口对准杯口，转动瓶身使液体进入杯中。",
+      "objects": [
+        "左臂",
+        "左夹爪",
+        "瓶子",
+        "杯子",
+        "蓝色液体"
+      ],
+      "start_frame": 69,
+      "end_frame": 92,
+      "order": 3,
+      "keyframes": [
+        69,
+        80,
+        91
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "瓶口已靠近杯口上方，瓶身仍有继续翻转的空间。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂继续抬高瓶底并转动手腕，使瓶口向下，同时调整位置以维持瓶口与杯口的对准。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "瓶身逐渐接近倒置，杯内出现明显蓝色液体，瓶口仍位于杯口上方。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "保持倒置完成倾倒",
+      "summary": "在杯口上方维持倒液姿态。",
+      "objects": [
+        "左臂",
+        "左夹爪",
+        "瓶子",
+        "杯子",
+        "蓝色液体"
+      ],
+      "start_frame": 92,
+      "end_frame": 115,
+      "order": 4,
+      "keyframes": [
+        92,
+        103,
+        114
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "瓶子已接近倒置，瓶口朝下，杯内可见蓝色液体。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手保持抓持和较大的倾角，仅作小幅位置调整，使瓶口持续朝向杯内。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "瓶子保持倒液姿态至片段末尾，杯内蓝色液体清晰可见；具体流量和液面变化无法可靠分辨。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "扶正瓶子并移开杯口",
+      "summary": "结束倾倒，将瓶子恢复直立并离开杯口。",
+      "objects": [
+        "左臂",
+        "左夹爪",
+        "瓶子",
+        "杯子",
+        "蓝色液体"
+      ],
+      "start_frame": 115,
+      "end_frame": 145,
+      "order": 5,
+      "keyframes": [
+        115,
+        129,
+        144
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "瓶口仍朝下靠近杯口，杯中已有蓝色液体。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手反向转动瓶身，逐步抬起瓶口，同时把瓶子向杯子左侧移开，直至瓶口朝上。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "瓶子恢复直立并悬在杯子左侧，瓶口已离开杯口，杯内仍可见蓝色液体。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "将瓶子降回桌面附近",
+      "summary": "把直立瓶子降低至杯子左侧的桌面位置。",
+      "objects": [
+        "左臂",
+        "左夹爪",
+        "瓶子",
+        "杯子",
+        "桌面"
+      ],
+      "start_frame": 145,
+      "end_frame": 176,
+      "order": 6,
+      "keyframes": [
+        145,
+        160,
+        175
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "瓶子已扶正，仍由左夹爪围住，悬在桌面上方。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂保持瓶口朝上，逐步降低瓶子，并在接近桌面时减小移动幅度。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "瓶子直立停在杯子左侧桌面附近，左夹爪仍围在瓶身旁；瓶底接触情况受遮挡，未见明确张爪释放。",
+      "parent": "p07"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

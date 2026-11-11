@@ -1,0 +1,114 @@
+{
+  "checked_at": "2026-11-05T05:52:23.447407+00:00",
+  "passed": true,
+  "candidate_commit": "8a954e3b8dc01fb99fbe57a60e968fa917ad832d",
+  "root": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools",
+  "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-closure-20261105.json",
+  "closure_sha256": "4cdcaceb918346564b78ed7426373ef26e2f87a2c073a9e52a5f62a1fe4a5061",
+  "frozen_sources_verified": 248,
+  "runtime_and_prompt_files_equal_to_frozen_commit": 60,
+  "static_tests_passed": 126,
+  "static_source_hashes_verified": 61,
+  "other_task_interfaces_and_prompts_unchanged": 10,
+  "interface_report_sha256": "c15af0fa0fd67ec2c5db01eca6f333e46ab0f417a7e2f27d9d251d05b681fc7a",
+  "predecessor_evidence": [
+    {
+      "gate": "toast_supplement_gate",
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/results/make-toast-python-cells-full50-supplement-closure-20261105.json",
+      "closure_sha256": "592720fe86952b8b7b565a05f263d474507569c2abf40dfd3e1eedd8d7d8e602",
+      "candidate_commit": "7b9cec43b0ca38bdeea6c9f738a454c67c6f3938",
+      "native_reports_preserved": 3,
+      "counts": {
+        "attempts_closed": 3,
+        "success": 2,
+        "failure": 1,
+        "unscored": 0,
+        "scored": 3,
+        "success_rate_scored": 0.6666666666666666,
+        "confirmed_success_fraction_closed": 0.6666666666666666
+      }
+    },
+    {
+      "gate": "predecessor_gate",
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-tools-v1-closure-20261105.json",
+      "closure_sha256": "7a695f6ee2aff04db3921635076ba89fb6c150110344db7db5ba02e3c7dcb576",
+      "candidate_commit": "556f718cef8078028bb1dc29c832a9aa7cd7b23e",
+      "native_reports_preserved": 3,
+      "counts": {
+        "attempts_closed": 3,
+        "success": 1,
+        "failure": 2,
+        "unscored": 0,
+        "scored": 3,
+        "success_rate_scored": 0.3333333333333333,
+        "confirmed_success_fraction_closed": 0.3333333333333333
+      }
+    }
+  ],
+  "actual_tool_and_transport_evidence": [
+    {
+      "case": "seed1-random-l3",
+      "hold_calls": 0,
+      "hold_steps": 0,
+      "transport_error_events": [
+        {
+          "type": "error",
+          "message": "Reconnecting... 2/5 (stream disconnected before completion: tls handshake eof)"
+        }
+      ],
+      "event_log_sha256": "8b1feb5a28c2e702e556713bb1fe387e28d8f4a5cf0b048aa50348ac7294ee4e"
+    },
+    {
+      "case": "seed1-standard-l1",
+      "hold_calls": 0,
+      "hold_steps": 0,
+      "transport_error_events": [
+        {
+          "type": "error",
+          "message": "Reconnecting... 2/5 (stream disconnected before completion: tls handshake eof)"
+        }
+      ],
+      "event_log_sha256": "0e53fbba89734af9ff8eaa4991528c8ad64e1f68235de8b3c63dee85740f42ee"
+    },
+    {
+      "case": "seed1-standard-l2",
+      "hold_calls": 2,
+      "hold_steps": 7,
+      "transport_error_events": [
+        {
+          "type": "error",
+          "message": "Reconnecting... 2/5 (stream disconnected before completion: failed to send websocket request: IO error: Connection reset by peer (os error 104))"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 3/5 (stream disconnected before completion: websocket closed by server before response.completed)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 4/5 (stream disconnected before completion: failed to send websocket request: IO error: Connection reset by peer (os error 104))"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 5/5 (stream disconnected before completion: websocket closed by server before response.completed)"
+        }
+      ],
+      "event_log_sha256": "338d0b0386d1a9e37b7fe79f8ef16881539626c5d16bfd47a9bda56827c6a625"
+    }
+  ],
+  "native_outcome": {
+    "attempts_closed": 3,
+    "success": 2,
+    "failure": 1,
+    "unscored": 0,
+    "scored": 3,
+    "success_rate_scored": 0.6666666666666666,
+    "confirmed_success_fraction_closed": 0.6666666666666666
+  },
+  "decision": "Retain v2 as a development candidate with a known standard-l2 regression. Two historical failure scenes now succeed; this is a bounded observed improvement, not proof of general reliability. No further run registered.",
+  "limitations": [
+    "Only three existing development scenes, no heldout or full50 result",
+    "Historical standard-l2 success 100/347 became failure 15/800 in both v1 and v2",
+    "Geometry/feature motion/cells/prompt are a combined adaptation; no single-tool causal claim",
+    "Transport retries recovered; actual billed cost remains unknown; preserve all development attempts"
+  ]
+}

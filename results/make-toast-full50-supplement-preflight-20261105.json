@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-11-05T02:10:42.634798+00:00",
+  "passed": true,
+  "runtime_commit": "b4ace31f1a0b0549db64cc9775be23280628accf",
+  "runtime_files_unchanged": 57,
+  "original_frozen_sources_verified": 282,
+  "original_50_case_audit_passed": true,
+  "native_reports_verified": 47,
+  "old_bug_reproduced_and_fixed_on_actual_records": [
+    {
+      "variant": "random",
+      "layout": 11,
+      "steps": null,
+      "success": null
+    },
+    {
+      "variant": "standard",
+      "layout": 12,
+      "steps": null,
+      "success": null
+    }
+  ],
+  "unknown_counters_and_usage_not_coerced_to_zero": true,
+  "known_1401_step_counter_rejected": true,
+  "eligible_case_count": 3,
+  "parent_counts": {
+    "attempts_closed": 50,
+    "success": 13,
+    "failure": 34,
+    "unscored": 3,
+    "scored": 47,
+    "success_rate_scored": 0.2765957446808511,
+    "confirmed_success_fraction_closed": 0.26
+  },
+  "audit_source_sha256": "cc1c9481fdf133eadec500a759a9205c98d76bfc41e04c7751a92899a03a7f5c",
+  "supplement_driver_sha256": "cb5eb07adc083f5ce8889ea0c119458b01d36a5a1fbb9986cd22d93bcd396023",
+  "native_task_runtime_changed": false
+}

@@ -1,0 +1,510 @@
+{
+  "schema": "linkmind.paper-main-table.v1",
+  "paper_checkout_commit": "f0f352e6b2a908f2d09ea6e5b2f4f835609e442e",
+  "source_data_sha256": "c4e5fed24a2289623a8b44ef3ff3ae7f6c354c81b1b0e3dfe9e2bba02c96a1a9",
+  "source_table_sha256": "5e58bb081ba38459ffc4bd7acb2c5eab5637999ab2c73d098ff5ea7216201bd8",
+  "remote_sync_verified": false,
+  "methods": [
+    "WALL-OSS 1.0-lite",
+    "VPP2",
+    "OpenWAM-alpha",
+    "Pi-05",
+    "PyRUA-Lean",
+    "HexaShell-Preview",
+    "GPT-6-Astra",
+    "LinkMind"
+  ],
+  "zero_policy": "Author requested all blank task Score/SR entries be treated as 0.0/0.0, including in the 12-task mean. Missing splits of an available nonzero task average remain unknown.",
+  "rows": [
+    {
+      "task": "Stack bowls",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "85.9",
+          "success_rate": "84.0"
+        },
+        "VPP2": {
+          "score": "55.6",
+          "success_rate": "48.0"
+        },
+        "OpenWAM-alpha": {
+          "score": "49.9",
+          "success_rate": "45.3"
+        },
+        "Pi-05": {
+          "score": "45.1",
+          "success_rate": "38.0"
+        },
+        "PyRUA-Lean": {
+          "score": "73.9",
+          "success_rate": "70.0"
+        },
+        "HexaShell-Preview": {
+          "score": "86.9",
+          "success_rate": "86.0"
+        },
+        "GPT-6-Astra": {
+          "score": "66.5",
+          "success_rate": "62.0"
+        },
+        "LinkMind": {
+          "score": "94.9",
+          "success_rate": "94.0"
+        }
+      },
+      "linkmind_source_status": "split values retained from appendix table"
+    },
+    {
+      "task": "Push-T",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "3.3",
+          "success_rate": "3.3"
+        },
+        "VPP2": {
+          "score": "1.3",
+          "success_rate": "1.3"
+        },
+        "OpenWAM-alpha": {
+          "score": "0.0",
+          "success_rate": "0.0"
+        },
+        "Pi-05": {
+          "score": "0.0",
+          "success_rate": "0.0"
+        },
+        "PyRUA-Lean": {
+          "score": "86.0",
+          "success_rate": "86.0"
+        },
+        "HexaShell-Preview": {
+          "score": "96.0",
+          "success_rate": "96.0"
+        },
+        "GPT-6-Astra": {
+          "score": "60.0",
+          "success_rate": "60.0"
+        },
+        "LinkMind": {
+          "score": "100.0",
+          "success_rate": "100.0"
+        }
+      },
+      "linkmind_source_status": "author-updated main table; perfect average implies both splits are 100"
+    },
+    {
+      "task": "Pack objects into box",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "33.2",
+          "success_rate": "8.7"
+        },
+        "VPP2": {
+          "score": "30.4",
+          "success_rate": "6.7"
+        },
+        "OpenWAM-alpha": {
+          "score": "22.5",
+          "success_rate": "4.7"
+        },
+        "Pi-05": {
+          "score": "19.1",
+          "success_rate": "2.7"
+        },
+        "PyRUA-Lean": {
+          "score": "46.0",
+          "success_rate": "30.0"
+        },
+        "HexaShell-Preview": {
+          "score": "33.1",
+          "success_rate": "16.0"
+        },
+        "GPT-6-Astra": {
+          "score": "11.6",
+          "success_rate": "0.0"
+        },
+        "LinkMind": {
+          "score": "43.5",
+          "success_rate": "26.0"
+        }
+      },
+      "linkmind_source_status": "Native reports verified on 2026-11-07; work/pack-box-tools/results/pack-box-tools-v1-native-full50-20261107.json; registration 4878cd3871b160bad8548b71172b1d51c44e843a; runtime cd82ce5499c59e6da6c0505e59618f0d73b41a47"
+    },
+    {
+      "task": "Fold clothes",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "87.5",
+          "success_rate": "84.7"
+        },
+        "VPP2": {
+          "score": "70.8",
+          "success_rate": "68.0"
+        },
+        "OpenWAM-alpha": {
+          "score": "57.5",
+          "success_rate": "55.3"
+        },
+        "Pi-05": {
+          "score": "32.3",
+          "success_rate": "24.0"
+        },
+        "PyRUA-Lean": {
+          "score": "59.2",
+          "success_rate": "52.0"
+        },
+        "HexaShell-Preview": {
+          "score": "47.6",
+          "success_rate": "40.0"
+        },
+        "GPT-6-Astra": {
+          "score": "76.4",
+          "success_rate": "72.0"
+        },
+        "LinkMind": {
+          "score": "78.0",
+          "success_rate": "74.0"
+        }
+      },
+      "linkmind_source_status": "split values retained from appendix table"
+    },
+    {
+      "task": "Hang mugs",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "38.8",
+          "success_rate": "22.7"
+        },
+        "VPP2": {
+          "score": "43.9",
+          "success_rate": "32.0"
+        },
+        "OpenWAM-alpha": {
+          "score": "16.3",
+          "success_rate": "5.3"
+        },
+        "Pi-05": {
+          "score": "7.3",
+          "success_rate": "0.0"
+        },
+        "PyRUA-Lean": {
+          "score": "27.7",
+          "success_rate": "12.0"
+        },
+        "HexaShell-Preview": {
+          "score": "19.0",
+          "success_rate": "4.0"
+        },
+        "GPT-6-Astra": {
+          "score": "0.9",
+          "success_rate": "0.0"
+        },
+        "LinkMind": {
+          "score": "44.7",
+          "success_rate": "26.0"
+        }
+      },
+      "linkmind_source_status": "Native reports verified on 2026-11-07; work/hang-mugs-tools/results/hang-mugs-guard-v2-full50-supplement-coverage-20261106.json; runtime 8a954e3b8dc01fb99fbe57a60e968fa917ad832d"
+    },
+    {
+      "task": "Sweep blocks",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "9.3",
+          "success_rate": "9.3"
+        },
+        "VPP2": {
+          "score": "10.7",
+          "success_rate": "10.7"
+        },
+        "OpenWAM-alpha": {
+          "score": "1.3",
+          "success_rate": "1.3"
+        },
+        "Pi-05": {
+          "score": "0.0",
+          "success_rate": "0.0"
+        },
+        "PyRUA-Lean": {
+          "score": "6.0",
+          "success_rate": "6.0"
+        },
+        "HexaShell-Preview": {
+          "score": "8.0",
+          "success_rate": "8.0"
+        },
+        "GPT-6-Astra": {
+          "score": "4.0",
+          "success_rate": "4.0"
+        },
+        "LinkMind": {
+          "score": "24.0",
+          "success_rate": "24.0"
+        }
+      },
+      "linkmind_source_status": "Native reports verified on 2026-11-07; work/sweep-blocks-tools/results/sweep-blocks-tools-v1-full50-supplement-coverage-20261107.json; runtime ca604e59ea87b280b14757c23134bf62701a9cbd"
+    },
+    {
+      "task": "Pour liquid into cup",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "64.0",
+          "success_rate": "64.0"
+        },
+        "VPP2": {
+          "score": "50.0",
+          "success_rate": "50.0"
+        },
+        "OpenWAM-alpha": {
+          "score": "34.7",
+          "success_rate": "34.7"
+        },
+        "Pi-05": {
+          "score": "14.7",
+          "success_rate": "14.7"
+        },
+        "PyRUA-Lean": {
+          "score": "4.0",
+          "success_rate": "4.0"
+        },
+        "HexaShell-Preview": {
+          "score": "2.0",
+          "success_rate": "2.0"
+        },
+        "GPT-6-Astra": {
+          "score": "4.0",
+          "success_rate": "4.0"
+        },
+        "LinkMind": {
+          "score": "0.0",
+          "success_rate": "0.0"
+        }
+      },
+      "linkmind_source_status": "zero-filled per author instruction"
+    },
+    {
+      "task": "Make toast",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "26.0",
+          "success_rate": "13.3"
+        },
+        "VPP2": {
+          "score": "50.0",
+          "success_rate": "39.3"
+        },
+        "OpenWAM-alpha": {
+          "score": "12.5",
+          "success_rate": "2.7"
+        },
+        "Pi-05": {
+          "score": "6.0",
+          "success_rate": "0.7"
+        },
+        "PyRUA-Lean": {
+          "score": "21.5",
+          "success_rate": "14.0"
+        },
+        "HexaShell-Preview": {
+          "score": "1.5",
+          "success_rate": "0.0"
+        },
+        "GPT-6-Astra": {
+          "score": "0.5",
+          "success_rate": "0.0"
+        },
+        "LinkMind": {
+          "score": "37.0",
+          "success_rate": "30.0"
+        }
+      },
+      "linkmind_source_status": "50 scored scenes from b4ace31 plus same-runtime supplement 7b9cec4; only the 3 originally unscored scenes were rerun (53 total attempts; author update 2026-11-05)"
+    },
+    {
+      "task": "Arrange largest number",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "38.2",
+          "success_rate": "24.0"
+        },
+        "VPP2": {
+          "score": "8.3",
+          "success_rate": "2.0"
+        },
+        "OpenWAM-alpha": {
+          "score": "4.9",
+          "success_rate": "0.7"
+        },
+        "Pi-05": {
+          "score": "2.8",
+          "success_rate": "0.7"
+        },
+        "PyRUA-Lean": {
+          "score": "80.1",
+          "success_rate": "74.0"
+        },
+        "HexaShell-Preview": {
+          "score": "30.2",
+          "success_rate": "22.0"
+        },
+        "GPT-6-Astra": {
+          "score": "68.7",
+          "success_rate": "60.0"
+        },
+        "LinkMind": {
+          "score": "65.7",
+          "success_rate": "56.0"
+        }
+      },
+      "linkmind_source_status": "standard/randomized Score/SR supplied by author on 2026-11-04"
+    },
+    {
+      "task": "Sort nesting dolls by size",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "48.0",
+          "success_rate": "48.0"
+        },
+        "VPP2": {
+          "score": "18.7",
+          "success_rate": "18.7"
+        },
+        "OpenWAM-alpha": {
+          "score": "4.7",
+          "success_rate": "4.7"
+        },
+        "Pi-05": {
+          "score": "5.3",
+          "success_rate": "5.3"
+        },
+        "PyRUA-Lean": {
+          "score": "70.0",
+          "success_rate": "70.0"
+        },
+        "HexaShell-Preview": {
+          "score": "52.0",
+          "success_rate": "52.0"
+        },
+        "GPT-6-Astra": {
+          "score": "18.0",
+          "success_rate": "18.0"
+        },
+        "LinkMind": {
+          "score": "82.0",
+          "success_rate": "82.0"
+        }
+      },
+      "linkmind_source_status": "standard/randomized Score/SR supplied by author on 2026-11-04"
+    },
+    {
+      "task": "Store laptop and headphones",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "50.4",
+          "success_rate": "22.0"
+        },
+        "VPP2": {
+          "score": "45.3",
+          "success_rate": "32.7"
+        },
+        "OpenWAM-alpha": {
+          "score": "30.5",
+          "success_rate": "16.0"
+        },
+        "Pi-05": {
+          "score": "16.1",
+          "success_rate": "5.3"
+        },
+        "PyRUA-Lean": {
+          "score": "4.8",
+          "success_rate": "0.0"
+        },
+        "HexaShell-Preview": {
+          "score": "4.8",
+          "success_rate": "0.0"
+        },
+        "GPT-6-Astra": {
+          "score": "1.6",
+          "success_rate": "0.0"
+        },
+        "LinkMind": {
+          "score": "0.0",
+          "success_rate": "0.0"
+        }
+      },
+      "linkmind_source_status": "zero-filled per author instruction"
+    },
+    {
+      "task": "Stack blocks",
+      "cells": {
+        "WALL-OSS 1.0-lite": {
+          "score": "75.2",
+          "success_rate": "71.3"
+        },
+        "VPP2": {
+          "score": "51.7",
+          "success_rate": "44.7"
+        },
+        "OpenWAM-alpha": {
+          "score": "13.7",
+          "success_rate": "7.3"
+        },
+        "Pi-05": {
+          "score": "11.9",
+          "success_rate": "6.7"
+        },
+        "PyRUA-Lean": {
+          "score": "100.0",
+          "success_rate": "100.0"
+        },
+        "HexaShell-Preview": {
+          "score": "89.5",
+          "success_rate": "88.0"
+        },
+        "GPT-6-Astra": {
+          "score": "88.1",
+          "success_rate": "86.0"
+        },
+        "LinkMind": {
+          "score": "93.2",
+          "success_rate": "92.0"
+        }
+      },
+      "linkmind_source_status": "split values retained from appendix table"
+    }
+  ],
+  "mean": {
+    "WALL-OSS 1.0-lite": {
+      "score": "46.7",
+      "success_rate": "37.9"
+    },
+    "VPP2": {
+      "score": "36.4",
+      "success_rate": "29.5"
+    },
+    "OpenWAM-alpha": {
+      "score": "20.7",
+      "success_rate": "14.8"
+    },
+    "Pi-05": {
+      "score": "13.4",
+      "success_rate": "8.2"
+    },
+    "PyRUA-Lean": {
+      "score": "48.3",
+      "success_rate": "43.2"
+    },
+    "HexaShell-Preview": {
+      "score": "39.2",
+      "success_rate": "34.5"
+    },
+    "GPT-6-Astra": {
+      "score": "33.4",
+      "success_rate": "30.5"
+    },
+    "LinkMind": {
+      "score": "55.3",
+      "success_rate": "50.3"
+    }
+  }
+}

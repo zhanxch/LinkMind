@@ -1,0 +1,553 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "fold_clothes-0002",
+  "task": "fold_clothes",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "叠衣",
+  "title": "依次内折双袖，再双手翻折衣身",
+  "summary": "示范先用左、右夹爪分别将两侧袖子折到衣身上，再双手提起衣身下沿向上翻折，松开并撤回。最终衣物形成较紧凑的叠放形状，表面仍可见褶皱；阶段边界为估计值。",
+  "instruction": "Fold the clothes neatly.",
+  "episode": 2,
+  "source": {
+    "path": "runtime-data/fold_clothes/train/episode_0000002.hdf5",
+    "sha256": "56604d1ae7142b2945baf4aa33e061d9f7f464383156d1d074c5f590bbc31cab",
+    "frames": 306,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-24T07:45:24.538140+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "左手接近并夹起左袖口",
+      "summary": "从展开的衣物左侧取得袖口。",
+      "objects": [
+        "左夹爪",
+        "画面左侧袖口",
+        "上衣衣身",
+        "桌面"
+      ],
+      "start_frame": 0,
+      "end_frame": 54,
+      "order": 0,
+      "keyframes": [
+        0,
+        26,
+        53
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "浅蓝色长袖上衣平铺在桌面，领口朝远端，两袖向两侧展开；双臂位于桌面两侧。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪抬起并移向画面左侧袖口，下降合拢后略微提起；右臂保持原位。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "左袖口随左夹爪抬起，衣身仍留在桌面。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "将左袖折向衣身上部",
+      "summary": "收拢左侧伸出的袖子。",
+      "objects": [
+        "左夹爪",
+        "左袖",
+        "衣身上部",
+        "领口"
+      ],
+      "start_frame": 54,
+      "end_frame": 81,
+      "order": 1,
+      "keyframes": [
+        54,
+        67,
+        80
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左袖口已被提起，衣身上部可作为袖子的落放区域。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪携袖口向内、向领口附近移动，降低到衣身上部，使左袖折回覆盖衣身。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "左袖不再向左伸展，折叠布料聚集在领口下方；夹爪遮挡部分折边。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "释放左袖并转向右袖",
+      "summary": "保留左袖折叠，同时准备处理右袖。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "已折左袖",
+        "右袖口"
+      ],
+      "start_frame": 81,
+      "end_frame": 133,
+      "order": 2,
+      "keyframes": [
+        81,
+        106,
+        132
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左夹爪停在已内折的袖子上方，右袖仍向右下方伸出。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪张开，随后抬起撤向左侧；右夹爪开始向右袖口靠近。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "左袖留在衣身上，左臂退出操作区；右夹爪到达右袖口附近。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "右手夹起右袖口",
+      "summary": "取得仍展开的右袖末端。",
+      "objects": [
+        "右夹爪",
+        "右袖口",
+        "衣身",
+        "已折左袖"
+      ],
+      "start_frame": 133,
+      "end_frame": 160,
+      "order": 3,
+      "keyframes": [
+        133,
+        146,
+        159
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右袖平伸在衣身右侧，右夹爪已悬停在袖口附近。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪下降靠近袖口，合拢后抬起袖子末端；左臂停在左侧。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右袖末端随夹爪离开桌面，衣身和已折左袖仍在原区域。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "将右袖折回并释放",
+      "summary": "把右袖叠到衣身上部，收拢两侧外伸布料。",
+      "objects": [
+        "右夹爪",
+        "右袖",
+        "已折左袖",
+        "衣身上部"
+      ],
+      "start_frame": 160,
+      "end_frame": 199,
+      "order": 4,
+      "keyframes": [
+        160,
+        179,
+        198
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右夹爪提着右袖口，左袖已折在衣身上。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪向内、向领口附近搬移袖口，降低并短暂停留，再张开夹爪。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右袖覆盖到衣身上部，两侧袖子均不再向外长距离伸展；局部叠放关系被右夹爪遮挡。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "双手对准衣身下沿",
+      "summary": "为衣身翻折建立双手抓取位置。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "衣身下沿",
+        "桌面"
+      ],
+      "start_frame": 199,
+      "end_frame": 240,
+      "order": 5,
+      "keyframes": [
+        199,
+        219,
+        239
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "两袖已收拢，衣身下半部仍平铺并朝近端延伸。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪离开上部折袖区域，左夹爪同时进入；双夹爪分别对准衣身下沿左右两处，下降并合拢。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "双夹爪停在下沿两侧，接触区域部分被遮挡；后续布料随动支持其取得了下沿。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "双手提起下沿向上翻折",
+      "summary": "缩短衣身长度，形成紧凑叠放。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "衣身下半部",
+        "衣身上半部",
+        "已折双袖"
+      ],
+      "start_frame": 240,
+      "end_frame": 265,
+      "order": 6,
+      "keyframes": [
+        240,
+        252,
+        264
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "双夹爪已位于衣身下沿两侧，上部折好的袖子留在桌面。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "双手协调提起下沿，先略向近端带起，再向远端的衣身上部翻移并降低，将下半部叠到上半部。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "衣身纵向长度明显缩短，形成较紧凑的布料叠层；双手之间可见褶皱和局部隆起。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "松开叠好的衣物并撤回",
+      "summary": "让折叠衣物留在桌面并结束操作。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "折叠后的上衣",
+        "桌面"
+      ],
+      "start_frame": 265,
+      "end_frame": 306,
+      "order": 7,
+      "keyframes": [
+        265,
+        285,
+        305
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "翻折后的衣物集中在桌面中央，双夹爪仍靠近叠层左右两侧。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "双夹爪在落放位置短暂停留，随后张开，抬起并分别向两侧撤回。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "衣物独立留在桌面，呈较紧凑的近矩形叠放，表面仍有褶皱；双臂返回两侧。",
+      "parent": "p08"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

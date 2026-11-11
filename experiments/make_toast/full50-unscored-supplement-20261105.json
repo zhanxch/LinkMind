@@ -1,0 +1,138 @@
+{
+  "schema": "roborag.make-toast-full50-unscored-supplement.v1",
+  "status": "registered_before_launch",
+  "base_commit": "b4ace31f1a0b0549db64cc9775be23280628accf",
+  "planned_native_attempts": 3,
+  "tasks": [
+    {
+      "task": "make_toast",
+      "bank": "artifacts/generalization-v3-full/make_toast",
+      "cases_file": "experiments/make_toast/cases-full50-unscored-supplement-20261105.json",
+      "case_count": 3,
+      "native_step_limits": {
+        "standard": 1400,
+        "random": 1400
+      },
+      "preflight_file": "results/make-toast-cells-bank-preflight-20261104.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Unmodified native 1400 steps; every cell dispatch counts",
+    "context": "Original full TRAIN retrieval and model-owned plan, persistent isolated Python cells for public computation and validated short moves",
+    "feedback": "Current RGB, paired camera calibration, measured robot poses; gripper is command, no holding truth",
+    "execution_guard": {
+      "kind": "native_ik_continuity",
+      "max_joint_increment_rad": 0.25
+    },
+    "gripper_control": "Measured joint hold for 1-24 native steps; no Cartesian IK"
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure",
+    "retests": "One separately registered fresh attempt per unscored scene from the completed full50 batch; no automatic further retries and no rerun of scored failures.",
+    "aggregation": "Preserve first-pass 13 success, 34 native failure and 3 unscored. Report supplemental outcomes separately; any later 50-scene coverage summary must state that only missing outcomes were filled and retain all original attempts and costs.",
+    "early_stopping": "No stopping based on task failures; source drift, explicit user interruption or execution infrastructure failure may stop the batch and must be recorded."
+  },
+  "scope": {
+    "runtime_changes": [],
+    "unchanged": [
+      "All runtime source and prompts exactly match b4ace31f1a0b0549db64cc9775be23280628accf (accepted implementation 1fe3704); report fix only handles missing counters as unknown in a new read-only auditor.",
+      "Original full TRAIN, model-owned planning, native controller/scoring and 1400-step budget",
+      "Model gpt-6-astra/xhigh, per-episode 5400-second wall limit, parallel 2",
+      "Other task sources, prompts and previous run records"
+    ],
+    "reference": {
+      "repository": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+      "commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+      "files": [
+        "src/pyrualean/arms.py",
+        "src/pyrualean/sandbox.py"
+      ],
+      "usage": "Design reference only; no upstream runtime dependency or RSI task program copied"
+    },
+    "interpretation": "Explicitly authorized supplement of three model-capacity-interrupted cases in the full50 first pass, not a new full evaluation or independent samples. No scored failure retried; original interruptions and costs remain preserved."
+  },
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "Paused by explicit user request; do not resume automatically",
+    "frozen_during_run": true
+  },
+  "launch_condition": "Full50 closed; 282 original frozen sources and 47 native reports verified; all related processes exited. Corrected read-only audit and closure pass; original driver needs_review record retained as history. Only the three cases with no native result are eligible.",
+  "authorization": "User: 补测未评分",
+  "parent_batch": {
+    "tag": "make-toast-python-cells-full50-20261104",
+    "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/results/make-toast-python-cells-full50-20261104.json",
+    "report_sha256": "1eac61ff96236774e1fecb8b5dbe3e220099c7b7cbe04ac864c66f8b18d6a620",
+    "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/results/make-toast-python-cells-full50-closure-20261105.json",
+    "closure_sha256": "c728e78b33ce7ab26024aef86f7cc3969c92c23d0924a2b102b31d4d9b938775",
+    "freeze": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104-freeze.json",
+    "freeze_sha256": "9a1b119f2228288b8ecd87ededc903a6ac5f9e81ede50bc7b77f557f5a5a0166",
+    "counts": {
+      "attempts_closed": 50,
+      "success": 13,
+      "failure": 34,
+      "unscored": 3,
+      "scored": 47,
+      "success_rate_scored": 0.2765957446808511,
+      "confirmed_success_fraction_closed": 0.26
+    },
+    "unscored": [
+      {
+        "seed": 1,
+        "variant": "random",
+        "layout": 10,
+        "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-random-l10",
+        "recorded_steps": 752,
+        "steps_complete": false,
+        "cause": "Selected model is at capacity. Please try a different model.",
+        "artifact_sha256": {
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-random-l10/run.json": "671aad29458fba79492984268c900cffbbaded11099407a5243d7ddca200536c",
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-random-l10/exit.json": "f319785965d9d6617a545d83dc72bb3deae13a91cd67ba32851b32de28872a80",
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-random-l10/agent-exit.json": "f5f61a765a104351e8217eedb4a2371bb973fb0149f53cd30c33f2592521b945",
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-random-l10/agent-events.jsonl": "b00536cd20acc085eca2f47fc21d9874982ae7402466199fa6eda114e67a42a6"
+        },
+        "native_result_absent": true
+      },
+      {
+        "seed": 1,
+        "variant": "random",
+        "layout": 11,
+        "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-random-l11",
+        "recorded_steps": null,
+        "steps_complete": false,
+        "cause": "Selected model is at capacity. Please try a different model.",
+        "artifact_sha256": {
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-random-l11/run.json": "4460c5217abd0813b6063153fe05d775e5e5dd51d2df2da66ed0696adc0c7a91",
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-random-l11/exit.json": "8bd919ce74187f4c48b7ed40aefa64762e7a51f6b7512953c9bf241e239426cf",
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-random-l11/agent-exit.json": "69cedcc37fc5f04bc696e41035c333d17b06057cd399e3133121af5afa49b8f5",
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-random-l11/agent-events.jsonl": "f9234e5f370901a45e3b3324a1e96d0a669e1348fbd9b33efaa9186cb2a8e23c"
+        },
+        "native_result_absent": true
+      },
+      {
+        "seed": 1,
+        "variant": "standard",
+        "layout": 12,
+        "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-standard-l12",
+        "recorded_steps": null,
+        "steps_complete": false,
+        "cause": "Selected model is at capacity. Please try a different model.",
+        "artifact_sha256": {
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-standard-l12/run.json": "5097cafc40f2a1e0b382c158fcaf206677386eaf0f8ca4cca9bd3635fc4f251f",
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-standard-l12/exit.json": "59ac71feb89ef66ea06f88f7668cf69725c37b100cf776d71c5043048e5708de",
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-standard-l12/agent-exit.json": "e35a35641880db8f03b88f56dc7bf7b5dec52e7922eafad328713c6af36a1266",
+          "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-20261104/seed1-standard-l12/agent-events.jsonl": "e0d3b05982a807d75d13926cf317205322230e944911b9ddacdf1bb379d6dff7"
+        },
+        "native_result_absent": true
+      }
+    ]
+  }
+}

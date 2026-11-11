@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-11-06T19:13:58.678081+00:00",
+  "passed": true,
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/experiments/pack_objects_into_box/tools-v1-native-full50-20261107.json",
+  "protocol_sha256": "47b2afae5fced21b5ddba12d2bfacf004d9cdfce8f41ded2f42b0969f8ea92f9",
+  "preflight": {
+    "case_count": 50,
+    "original_train_demonstrations": 3,
+    "original_train_phases": 28,
+    "image_references_verified": 672
+  },
+  "native_budget": 1300,
+  "control_step_limit_override": null,
+  "modified_2000_budget_rejected": true,
+  "accepted_runtime_commit": "cd82ce5499c59e6da6c0505e59618f0d73b41a47",
+  "accepted_runtime_files_verified": 66,
+  "development_closed": true,
+  "required_closures_verified": [
+    {
+      "path": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-full50-supplement-closure-20261106.json",
+      "sha256": "7cb8ff86a45665d59c25246846e86bac6f05fde5dad45aa453f2916249756dd1",
+      "attempts": 6
+    },
+    {
+      "path": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/results/sweep-blocks-tools-v1-full50-supplement-closure-20261107.json",
+      "sha256": "5e1bf557561e39ed44eca9f86b159f985f6d0e871a9dc9fcc7e84bbd48ec10ef",
+      "attempts": 2
+    },
+    {
+      "path": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-tools-v1-development-closure-20261107.json",
+      "sha256": "302430c94df746b834a082d4b0e0824e38aa1cba69d14e70dc2a0abd9b41985f",
+      "attempts": 4
+    }
+  ],
+  "actual_native_processes": [],
+  "gpu_free_mib": 23511,
+  "driver_sha256": "31e45805a0f1b5f8b1136466f63b40e6a83c0845512071658cae405441311e9f",
+  "closure_auditor_sha256": "7e3636fa8b79ccfa61d838e317efba724f2e59c13b2547abedf1651a0a4c67f5",
+  "static_tests": 154,
+  "scope": "Prelaunch validation only; all 50 native-budget attempts remain to be run. Development scores are not inherited."
+}

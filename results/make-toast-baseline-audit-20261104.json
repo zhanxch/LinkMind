@@ -1,0 +1,788 @@
+{
+  "base_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "historical_run": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029",
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/experiments/generalization/remaining-v3-20261029.json",
+  "attempts": 50,
+  "counts": {
+    "success": 1,
+    "failure": 3,
+    "unscored": 46
+  },
+  "rows": [
+    {
+      "variant": "standard",
+      "layout": 0,
+      "seed": 1,
+      "returncode": 0,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l0",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "success",
+      "score": 100.0,
+      "steps": 752,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l0/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+      "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6",
+      "wall_seconds": 1614.2919069051277,
+      "usage": {
+        "input_tokens": 5685905,
+        "cached_input_tokens": 5556864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 25474,
+        "reasoning_output_tokens": 12188
+      }
+    },
+    {
+      "variant": "random",
+      "layout": 0,
+      "seed": 1,
+      "returncode": 0,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l0",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "failure",
+      "score": 50.0,
+      "steps": 1400,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l0/native/eval_result/RoboDojo/make_toast_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+      "native_sha256": "81081545f04f0d8d433b4dae9da37a1519b0dfa4e12e26dd6a625e4831b9eb29",
+      "wall_seconds": 3237.4059603570495,
+      "usage": {
+        "input_tokens": 8515458,
+        "cached_input_tokens": 8370048,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 35992,
+        "reasoning_output_tokens": 19343
+      }
+    },
+    {
+      "variant": "standard",
+      "layout": 1,
+      "seed": 1,
+      "returncode": 0,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l1",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "failure",
+      "score": 0.0,
+      "steps": 1400,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l1/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+      "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a",
+      "wall_seconds": 4835.844436004991,
+      "usage": {
+        "input_tokens": 8763795,
+        "cached_input_tokens": 8529152,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 39990,
+        "reasoning_output_tokens": 22457
+      }
+    },
+    {
+      "variant": "random",
+      "layout": 1,
+      "seed": 1,
+      "returncode": 0,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l1",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "failure",
+      "score": 0.0,
+      "steps": 1400,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l1/native/eval_result/RoboDojo/make_toast_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l1/_result.json",
+      "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a",
+      "wall_seconds": 3489.3922488340177,
+      "usage": {
+        "input_tokens": 11722441,
+        "cached_input_tokens": 11386368,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 38846,
+        "reasoning_output_tokens": 19207
+      }
+    },
+    {
+      "variant": "random",
+      "layout": 2,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l2",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 610
+    },
+    {
+      "variant": "standard",
+      "layout": 2,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l2",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 377
+    },
+    {
+      "variant": "standard",
+      "layout": 3,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l3",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 3,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l3",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 4,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l4",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 4,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l4",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 5,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l5",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 5,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l5",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 6,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l6",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 6,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l6",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 7,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l7",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 7,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l7",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 8,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l8",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 8,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l8",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 9,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l9",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 9,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l9",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 10,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l10",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 10,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l10",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 11,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l11",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 11,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l11",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 12,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l12",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 12,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l12",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 13,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l13",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 13,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l13",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 14,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l14",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 14,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l14",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 15,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l15",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 15,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l15",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 16,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l16",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 16,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l16",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 17,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l17",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 17,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l17",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 18,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l18",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 18,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l18",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 19,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l19",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 19,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l19",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 20,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l20",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 20,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l20",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 21,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l21",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 21,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l21",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 22,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l22",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 22,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l22",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 23,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l23",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 23,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l23",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "standard",
+      "layout": 24,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l24",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    },
+    {
+      "variant": "random",
+      "layout": 24,
+      "seed": 1,
+      "returncode": 1,
+      "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l24",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "outcome": "unscored",
+      "errors": [
+        {
+          "message": "You’ve hit your usage limit. Try again at Nov 4th, 2026 2:36 PM."
+        }
+      ],
+      "steps_lower_bound": 0
+    }
+  ],
+  "caveat": "46 unscored attempts are model-service failures, not 46 native task failures; no complete50 success rate."
+}

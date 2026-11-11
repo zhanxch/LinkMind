@@ -1,0 +1,39 @@
+{
+  "task": "push_T",
+  "bank": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/artifacts/generalization-v3-full/push_T",
+  "passed": true,
+  "generated_at": "2026-11-03T09:16:30.766530+00:00",
+  "metadata_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/artifacts/generalization-v3-full/push_T/bank.json": "8ad05d80ca5b97f037bb609c5b93e1016669be5b2de80d4a5eea23060260e2ca",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/artifacts/generalization-v3-full/push_T/search-index.json": "b39d3b543af940dbf6e02fae5310fa6f6bf75912bd67ffc4148f40a68563c0ff",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/artifacts/generalization-v3-full/push_T/execution-index.json": "9be3213792f342739e2384f6d5336075fce8e93a55d43b987e7b4e4b9738c82f",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/artifacts/generalization-v3-full/push_T/graphs/push_T-0002.json": "417970f3a7fc7f3f4f0dd99ade2c5beb20aee930fcb5757caff39efc5b3fdf4c",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/artifacts/generalization-v3-full/push_T/graphs/push_T-0000.json": "aab91c7b9a276f2587081612106cd8948036138598ba189e1274b2affc5edc3b",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/artifacts/generalization-v3-full/push_T/graphs/push_T-0001.json": "f7e9f23d887f72bf064fdd294e87c00aef6362c034445b53928b680d944959bc"
+  },
+  "source_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/push_T/train/episode_0000000.hdf5": "bd4907829ffd6f26c16f099233224282e3f52284023ca7ec11af41a46d623966",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/push_T/train/episode_0000001.hdf5": "3984f2223c4ac57946dd9cbf38c8457ebd9c5f80267583c9b406d1e410bd2a3f",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/push_T/train/episode_0000002.hdf5": "c40012e5fae51ffb84f567ad5303ef40ddf2a26df5fade225f4f16013960b26d"
+  },
+  "demonstrations": [
+    {
+      "id": "push_T-0000",
+      "frames": 359,
+      "phases": 8
+    },
+    {
+      "id": "push_T-0001",
+      "frames": 512,
+      "phases": 9
+    },
+    {
+      "id": "push_T-0002",
+      "frames": 419,
+      "phases": 8
+    }
+  ],
+  "phases": 25,
+  "sections": 100,
+  "images": 600
+}

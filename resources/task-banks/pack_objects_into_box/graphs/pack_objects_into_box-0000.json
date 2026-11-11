@@ -1,0 +1,485 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "pack_objects_into_box-0000",
+  "task": "pack_objects_into_box",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "pack_objects_into_box",
+  "title": "先整理箱位，再由双手分工逐件装箱",
+  "summary": "先把锤子和红鞋移到右侧，再将纸箱移到中央，依次装入红鞋、锤子、蓝白色细长物体和黄色玩具车。搬运中转腕调整朝向，红鞋鞋尖朝左可见，其余物体的最终朝向部分受遮挡。",
+  "instruction": "Place all the objects into the box with their front sides facing left.",
+  "episode": 0,
+  "source": {
+    "path": "runtime-data/pack_objects_into_box/train/episode_0000000.hdf5",
+    "sha256": "170bb151cadea1c235bf78f57a01b695c6f04941a47f9c1ad83868bcb03897aa",
+    "frames": 1156,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-28T16:57:13.672107+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "将锤子挪到右侧",
+      "summary": "先调整锤子在桌面上的位置。",
+      "objects": [
+        "右夹爪",
+        "锤子",
+        "开口纸箱"
+      ],
+      "start_frame": 0,
+      "end_frame": 125,
+      "order": 0,
+      "keyframes": [
+        0,
+        62,
+        124
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "开口纸箱位于桌面左后方，锤子横放在箱子右侧，红鞋位于更靠前的位置。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手伸向锤子，将其短距离移到更靠右的位置，随后离开锤子并转向红鞋。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "锤子的位置向右改变，仍留在桌面上；夹爪遮挡了部分接触过程。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "将红鞋移到右侧暂放",
+      "summary": "把红鞋移出桌面中央区域。",
+      "objects": [
+        "右夹爪",
+        "红鞋",
+        "锤子"
+      ],
+      "start_frame": 125,
+      "end_frame": 260,
+      "order": 1,
+      "keyframes": [
+        125,
+        192,
+        259
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "红鞋仍在箱子前方，右手已从锤子附近转向鞋身。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪靠近鞋身，将红鞋向桌面右侧搬移，随后松开并撤离。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "红鞋留在桌面右前侧，锤子在其后方；纸箱尚未移动，左手开始前伸。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "把开口纸箱移到中央",
+      "summary": "将纸箱调整到便于双手装物的位置。",
+      "objects": [
+        "左夹爪",
+        "开口纸箱"
+      ],
+      "start_frame": 260,
+      "end_frame": 400,
+      "order": 2,
+      "keyframes": [
+        260,
+        329,
+        399
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "纸箱仍在左后方，红鞋和锤子已位于右侧，箱前区域较空。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手伸到纸箱左侧上缘和翻盖附近，带动箱子向中央偏前移动，同时调整箱体方向，随后松开撤手。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "纸箱停在桌面中央，箱口朝上、两侧翻盖展开；箱内仍为空，待装物体分布在左右两侧。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "将红鞋朝左放入箱内",
+      "summary": "先装入体积较大的红鞋。",
+      "objects": [
+        "右夹爪",
+        "红鞋",
+        "开口纸箱"
+      ],
+      "start_frame": 400,
+      "end_frame": 565,
+      "order": 3,
+      "keyframes": [
+        400,
+        482,
+        564
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "纸箱位于中央，红鞋在箱子右侧，箱内有完整的空余空间。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手靠近并夹起红鞋，抬升后移到箱口上方，调整鞋身方向，再下放到箱底并松开。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "红鞋留在箱内，鞋尖朝画面左侧；右夹爪张开并抬离鞋身。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "转动锤子并装入箱内",
+      "summary": "将锤子放入红鞋旁的剩余空间。",
+      "objects": [
+        "右夹爪",
+        "锤子",
+        "红鞋",
+        "开口纸箱"
+      ],
+      "start_frame": 565,
+      "end_frame": 815,
+      "order": 4,
+      "keyframes": [
+        565,
+        689,
+        814
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "红鞋已经入箱，锤子仍横放在箱外右后侧。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手移向锤柄并抓起锤子，转腕使锤头朝画面左侧，再移到箱口上方，下放并松开。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "锤子进入箱内，右手撤离；锤子部分轮廓被红鞋和箱沿遮挡，最终完整朝向不易确认。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "左手装入蓝白色细长物体",
+      "summary": "取走桌面左侧的细长物体并放入箱内。",
+      "objects": [
+        "左夹爪",
+        "蓝白色细长物体",
+        "黄色玩具车",
+        "开口纸箱"
+      ],
+      "start_frame": 815,
+      "end_frame": 975,
+      "order": 5,
+      "keyframes": [
+        815,
+        894,
+        974
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "蓝白色细长物体位于黄色玩具车旁，纸箱内已有红鞋和锤子。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手靠近并夹起蓝白色细长物体，抬升、转腕后移到箱口，将其下放到箱内空隙并松开。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "蓝白色细长物体进入箱内，左夹爪张开撤离；具体落位和前端方向部分被夹爪、已有物体及箱壁遮挡。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "装入玩具车并收回双手",
+      "summary": "装入最后一件物体，结束整理。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "黄色玩具车",
+        "红鞋",
+        "锤子",
+        "蓝白色细长物体",
+        "开口纸箱"
+      ],
+      "start_frame": 975,
+      "end_frame": 1156,
+      "order": 6,
+      "keyframes": [
+        975,
+        1065,
+        1155
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "黄色玩具车仍在桌面左侧，其余三件物体已经移入纸箱。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手夹住玩具车并抬起，转腕调整车身方向，移到箱内靠近前沿的空位，下放松开后撤回。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "黄色玩具车留在箱内，车身大致横向，车头方向细节不够清楚；红鞋仍可见，其余物体部分遮挡，双臂回到起始位置附近。",
+      "parent": "p07"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

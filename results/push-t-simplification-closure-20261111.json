@@ -1,0 +1,70 @@
+{
+  "schema": "push-t-simplification-closure-v1",
+  "generated_at": "2026-11-11T08:50:04.329489+00:00",
+  "passed": true,
+  "candidate_commit": "cd86be4f3b5d3f10ceb578cb2365b10113064be3",
+  "source_files_verified": 236,
+  "attempt_artifacts_verified": 104,
+  "expected_attempts": 10,
+  "native_success": 10,
+  "native_failure": 0,
+  "unscored": 0,
+  "duplicates_or_omissions": false,
+  "all_profile_workflows_verified": true,
+  "fixed_reference_reads": 0,
+  "no_plan_or_fake_plan_in_last_three_profiles": true,
+  "driver_and_runners": [
+    {
+      "pid": 2762106,
+      "state": "absent"
+    },
+    {
+      "pid": 2762885,
+      "state": "absent"
+    },
+    {
+      "pid": 2762117,
+      "state": "absent"
+    },
+    {
+      "pid": 2766883,
+      "state": "absent"
+    },
+    {
+      "pid": 2766036,
+      "state": "absent"
+    },
+    {
+      "pid": 2771088,
+      "state": "absent"
+    },
+    {
+      "pid": 2770273,
+      "state": "absent"
+    },
+    {
+      "pid": 2774904,
+      "state": "absent"
+    },
+    {
+      "pid": 2774182,
+      "state": "absent"
+    },
+    {
+      "pid": 2778158,
+      "state": "absent"
+    },
+    {
+      "pid": 2777434,
+      "state": "absent"
+    }
+  ],
+  "evidence_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-simplify-20261111/results/push-t-simplification-pilot-20261111.json": "22fd34171160f9f96fd14bca8dcbfcf5e933fea6a58b5369ea6744dd82bcd927",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-simplify-20261111/runs/push-t-simplification-pilot-20261111/status.json": "a4b079165995ef341d156f906b4b298eb128de784260191a1aefbaa0784abe7d",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-simplify-20261111/runs/push-t-simplification-pilot-20261111/freeze.json": "237f68c6c6dad137e277f4be50bd3e899de75e0576c51134ea4c236860cbb9ad",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-simplify-20261111/experiments/push_T/simplification-pilot-20261111.json": "e842124ed70270b2d8a14f647254397d69cc1ee02f8a7a63b9f20d1322c5c70f"
+  },
+  "limits": "Ten new development attempts, two scenes per cumulative profile. Existing seed1 l0 scenes; not held-out generalization or a noninferiority test. Historical results are separate context, not substituted for this baseline.",
+  "implementation_scope": "Robot tool surface and workflow simplification. Shared comparison runner still initializes/fingerprints the TRAIN bank before fixed/none drop it; deployment dependency pruning is not claimed."
+}

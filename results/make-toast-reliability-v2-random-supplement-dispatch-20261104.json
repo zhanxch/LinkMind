@@ -1,0 +1,200 @@
+{
+  "checked_at": "2026-11-04T09:40:10.645204+00:00",
+  "candidate_commit": "261b2ed1eff24f2819fb288a8a34d1e9c2a45b63",
+  "rows": [
+    {
+      "case": "seed1-random-l0",
+      "command_count": 65,
+      "verified_through_step": 1156,
+      "joint_holds": [
+        {
+          "start": 112,
+          "end": 120,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 1.4551915228366852e-11,
+            "right": 2.1457672119140625e-06
+          }
+        },
+        {
+          "start": 138,
+          "end": 148,
+          "steps": 10,
+          "joint_tracking_error_rad": {
+            "left": 1.4551915228366852e-11,
+            "right": 0.0007874965667724609
+          }
+        },
+        {
+          "start": 276,
+          "end": 288,
+          "steps": 12,
+          "joint_tracking_error_rad": {
+            "left": 1.8243184740640572e-12,
+            "right": 5.841255187988281e-06
+          }
+        },
+        {
+          "start": 417,
+          "end": 425,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 4.156675004196586e-13,
+            "right": 5.4836273193359375e-06
+          }
+        },
+        {
+          "start": 445,
+          "end": 455,
+          "steps": 10,
+          "joint_tracking_error_rad": {
+            "left": 3.979039320256561e-13,
+            "right": 0.0016437768936157227
+          }
+        },
+        {
+          "start": 565,
+          "end": 579,
+          "steps": 14,
+          "joint_tracking_error_rad": {
+            "left": 3.907985046680551e-13,
+            "right": 3.4570693969726562e-06
+          }
+        },
+        {
+          "start": 599,
+          "end": 611,
+          "steps": 12,
+          "joint_tracking_error_rad": {
+            "left": 4.192202140984591e-13,
+            "right": 4.887580871582031e-06
+          }
+        },
+        {
+          "start": 635,
+          "end": 643,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 3.836930773104541e-13,
+            "right": 2.1457672119140625e-06
+          }
+        },
+        {
+          "start": 803,
+          "end": 811,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 4.121147867408581e-13,
+            "right": 8.106231689453125e-06
+          }
+        },
+        {
+          "start": 865,
+          "end": 871,
+          "steps": 6,
+          "joint_tracking_error_rad": {
+            "left": 1.9904088793820662e-11,
+            "right": 0.005683273077011108
+          }
+        },
+        {
+          "start": 899,
+          "end": 905,
+          "steps": 6,
+          "joint_tracking_error_rad": {
+            "left": 2.1827872842550278e-11,
+            "right": 8.344650268554688e-07
+          }
+        },
+        {
+          "start": 997,
+          "end": 1003,
+          "steps": 6,
+          "joint_tracking_error_rad": {
+            "left": 2.1827872842550278e-10,
+            "right": 1.7285346984863281e-06
+          }
+        },
+        {
+          "start": 1046,
+          "end": 1052,
+          "steps": 6,
+          "joint_tracking_error_rad": {
+            "left": 2.0159717645240605e-11,
+            "right": 0.00037631578743457794
+          }
+        }
+      ],
+      "delta_steps": 969,
+      "rejections": [
+        {
+          "start": 0,
+          "end": 21,
+          "executed_rows": 21,
+          "discarded_rows": 3
+        },
+        {
+          "start": 21,
+          "end": 27,
+          "executed_rows": 6,
+          "discarded_rows": 18
+        },
+        {
+          "start": 51,
+          "end": 64,
+          "executed_rows": 13,
+          "discarded_rows": 11
+        },
+        {
+          "start": 64,
+          "end": 68,
+          "executed_rows": 4,
+          "discarded_rows": 20
+        },
+        {
+          "start": 212,
+          "end": 228,
+          "executed_rows": 16,
+          "discarded_rows": 6
+        },
+        {
+          "start": 360,
+          "end": 378,
+          "executed_rows": 18,
+          "discarded_rows": 6
+        },
+        {
+          "start": 398,
+          "end": 417,
+          "executed_rows": 19,
+          "discarded_rows": 5
+        },
+        {
+          "start": 865,
+          "end": 865,
+          "executed_rows": 0,
+          "discarded_rows": 24
+        },
+        {
+          "start": 871,
+          "end": 873,
+          "executed_rows": 2,
+          "discarded_rows": 22
+        },
+        {
+          "start": 873,
+          "end": 875,
+          "executed_rows": 2,
+          "discarded_rows": 22
+        },
+        {
+          "start": 1076,
+          "end": 1098,
+          "executed_rows": 22,
+          "discarded_rows": 2
+        }
+      ]
+    }
+  ],
+  "note": "Completed command prefix only. Exact action-log validation of both measured joints, preserved inactive gripper, no Cartesian IK for holds, and accepted/rejected IK counts; not task success."
+}

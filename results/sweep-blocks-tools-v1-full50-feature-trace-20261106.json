@@ -1,0 +1,4411 @@
+{
+  "checked_at": "2026-11-06T13:05:33.697185+00:00",
+  "tag": "sweep-blocks-tools-v1-full50-20261106",
+  "candidate_commit": "d5cbac71d47b1265883cd59c9db2a99ba645b164",
+  "native_audit_sha256": "43db414e113600f3262fc6d2758c4616923f0f7c2aa4121176c7006e287f4765",
+  "freeze_sha256": "8e8633cda60dd3e3b147bd1ecda9775a45ab370333131dad9515cbfdd693b901",
+  "auditor_sha256": "a0051768fc772a7cfba1a4e07f79fb1584df8239e11f92dcc80ba9470c33d1dc",
+  "helper_source_sha256": "37bc36617d0c8609e8635e4b5f7a04e961adbf690a43ff42d901020a4d56fe41",
+  "rows": [
+    {
+      "variant": "standard",
+      "layout": 0,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "5929973b77bd2acd08c95177236b2d0f0456651404fadf32576859cd93227a97",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 1,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "f6acf97c7825b37919326474a5a26d9af707f568a0f44e71de4edc39afffb084",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 0,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "d68bfcb2847afb467aea90d3e917b5c0da1a0f0ca3d22732896974d7965fc860",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 7,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 286,
+          "step_after": 310,
+          "action_steps": 24,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state()\nlip=pixel_to_plane(s,'head',[204,320],.843)\nbrush=pixel_to_plane(s,'head',[434,191],.85)\n_,lp=tcp_pose(s,'left'); _,rp=tcp_pose(s,'right')\nql=(Rotation.from_rotvec([0,0,1.0])*lp).as_quat()[[3,0,1,2]]\nqr=(Rotation.from_rotvec([0,0,-1.570796])*rp).as_quat()[[3,0,1,2]]\nprint('features',lip,brush,'quats',ql,qr)\nrobo.move_features({'left':{'source':lip.tolist(),'target':[.015,-.025,.84],'quaternion':ql.tolist()},'right':{'source':brush.tolist(),'target':[.395,-.025,.88],'quaternion':qr.tolist()}},steps=24,subgoal='Align raised pan opening and broom edge to sweep axis',expected_feedback='Pan mouth faces right; brush spans front-back beyond rightmost objects. Both tools remain above table.')",
+          "code_sha256": "045ae487b7875767f2c5e85ccab4108ee6ce194bf657ce25aac6b83a6a8a12f8",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 24,
+            "executed_waypoints": 0,
+            "action_steps": 24,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.22093330324066218,
+                -0.042670792875643945,
+                1.0174341411590577,
+                0.7571427252357216,
+                0.07616657758231006,
+                0.6484426822709426,
+                0.02134558247713671
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.2835861370856904,
+                -0.1745690911342071,
+                1.1072237777709961,
+                0.9160464340436263,
+                0.21304842506909283,
+                0.2666095267221632,
+                0.21068616355261605
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 310,
+              "tracking_error_m": {
+                "left": 0.0013944488771081697,
+                "right": 0.0009743177219403172
+              }
+            },
+            "step": 310,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 12,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 509,
+          "step_after": 532,
+          "action_steps": 23,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "left_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.337188720703125,
+                "current_delta_joint_index": 2,
+                "max_target_delta_rad": 0.2957441806793213,
+                "target_delta_joint_index": 2,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s=robo.state();lp,lr=tcp_pose(s,'left'); lip=pixel_to_plane(s,'head',[359,227],.786)\nq=(Rotation.from_rotvec([0,0,1.570796])*lr).as_quat()[[3,0,1,2]]\nprint(lip,q)\nrobo.move_feature('left',lip.tolist(),[.16,-.19,.82],quaternion=q.tolist(),steps=24,subgoal='Rotate raised pan mouth toward back and place in front of loose targets',expected_feedback='Pan remains upright with receiving lip ahead of group, open toward brush.')",
+          "code_sha256": "7b3a644a06d6861610c5b792e641749a6788593b9c7fe7b9f3ad12b39bec8597",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 23,
+            "executed_waypoints": 0,
+            "action_steps": 23,
+            "discarded_rows": 1,
+            "last_command": {
+              "left_ee_pose": [
+                0.13857405068839332,
+                -0.42193806104306664,
+                1.0053956282933552,
+                0.5385440509570285,
+                -0.38762311121791126,
+                0.5256700008729059,
+                0.5323435723391616
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.08079633116722107,
+                -0.04565531387925148,
+                1.0643234252929688,
+                0.12249065234764772,
+                -0.5831119439190751,
+                0.09271191839064075,
+                0.7977349190894756
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 532,
+              "tracking_error_m": {
+                "left": 0.026672097210956227,
+                "right": 0.00014308867566270733
+              }
+            },
+            "step": 532,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "left_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.337188720703125,
+                  "current_delta_joint_index": 2,
+                  "max_target_delta_rad": 0.2957441806793213,
+                  "target_delta_joint_index": 2,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "unclassified": [
+        {
+          "cell": 10,
+          "reason": "unsupported_source_or_receipt"
+        }
+      ],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 2,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "b53ae1fe2a904ec55ce0c04add6a2098ad86fe84d814b8aee7a89519bff2996d",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 6,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 179,
+          "step_after": 197,
+          "action_steps": 18,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state()\npbrush=pixel_to_plane(s,'head',[444,204],.84)\nqr=tcp_pose(s,'right')[1]\nqs=Rotation.from_rotvec([0,0,-0.90])*qr\nqsw=qs.as_quat()[[3,0,1,2]]\nprint('selected current brush edge',pbrush,'new quaternion',qsw)\nrobo.move_feature('right',source=pbrush.tolist(),target=[.28,.005,.82],quaternion=qsw.tolist(),steps=18,subgoal='在目标右侧将刷边转至沿簸口方向并保持离桌间隙',expected_feedback='检查真实刷边朝向与离桌高度，尚不扫过物体')",
+          "code_sha256": "6f44a9667b9993ba5cc17bbe1f7a4daae0a3ff297378f9a8d3e6b7d4599811c4",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 18,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.1827038675546646,
+                0.003168666735291481,
+                0.9491817355155945,
+                0.7317410747229562,
+                0.08959683064283268,
+                0.6754789939333707,
+                -0.01598550145643593
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.24144630801584546,
+                -0.13240020949356113,
+                1.0281528043746948,
+                0.7176008135509278,
+                -0.253313229504997,
+                0.5319537498883021,
+                0.37135789762514615
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 197,
+              "tracking_error_m": {
+                "left": 0.00014160388926948313,
+                "right": 0.0009157793213692004
+              }
+            },
+            "step": 197,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 10,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 261,
+          "step_after": 279,
+          "action_steps": 18,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state()\nsource=[.344135,-.112916,.848203]\nrobo.move_features({'right':{'source':source,'target':[.265,-.085,.775],'quaternion':[.5,-.5,.5,.5]},'left':{'source':pixel_to_plane(s,'head',[338,210],.775).tolist(),'target':[.0409,-.05355,.760]}},steps=18,subgoal='按当前刷毛点调整平行桌面的刷边，同时降低簸口并覆盖下方白色目标',expected_feedback='检查刷毛真实高度、簸口贴桌及当前目标排列')",
+          "code_sha256": "9da8d270e6d5481c43f687f0a44e9777e811f5a3c91b90dbdc3dc42396b85de1",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 18,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.1835344115143586,
+                -0.026621398420852323,
+                0.9340875601768494,
+                0.7317248114822369,
+                0.08896830813310348,
+                0.6755917144778714,
+                -0.015468540269470256
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.2825706190621234,
+                -0.13794152514252803,
+                1.0546196440078526,
+                0.49999999999999933,
+                -0.5000000000000002,
+                0.49999999999999967,
+                0.5
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 279,
+              "tracking_error_m": {
+                "left": 0.00040886229183388,
+                "right": 0.0010838364135082328
+              }
+            },
+            "step": 279,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 12,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 666,
+          "step_after": 686,
+          "action_steps": 20,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state()\nsource=pixel_to_plane(s,'head',[432,213],.83)\nqr=Rotation.from_rotvec([0,.45,0])*Rotation.from_rotvec([.30,0,0])*Rotation.from_quat([-.5,.5,.5,.5])\nqreach=qr.as_quat()[[3,0,1,2]]\nprint('current visible brush point',source,'reach quaternion',qreach)\nrobo.move_feature('right',source=source.tolist(),target=[.075,.065,.805],quaternion=qreach.tolist(),steps=20,subgoal='在绿色右侧调整倾斜腕姿以扩大可达范围，保持可见刷点离桌',expected_feedback='重新检查刷边真实位置和朝向，尚未接触绿色')",
+          "code_sha256": "d23c16132820c492f8ac9e849cc89ef7f7ff9e6ff69bb3a3888770683aced129",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 20,
+            "executed_waypoints": 0,
+            "action_steps": 20,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.3064427375793457,
+                0.04893432930111886,
+                0.9338551759719849,
+                0.731655719288505,
+                0.08598797006860248,
+                0.6761112786039922,
+                -0.012629979428951069
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.18166298979644313,
+                -0.11109168591940377,
+                0.9783245060757987,
+                0.4611295554197326,
+                -0.2821175464131337,
+                0.5360592626924751,
+                0.6483900754991807
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 686,
+              "tracking_error_m": {
+                "left": 0.0001525594871903726,
+                "right": 0.0011114257313913484
+              }
+            },
+            "step": 686,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 1,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "2ef064f2c7362334de8a954514c12711ca8f8cbbbbde3943457104f995865787",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 2,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "75d158ec718554f197a450f7a1eaac713fd4606f17a818505b2138a7fc49fe6d",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 3,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "13941073d6259e5960f9d8c859c521b65a7fcc2336db8b9444b569fbd2bee0b5",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 3,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "028833d8f264acee7dbb9beca3d92b61a4205aee9b8a0c58eaa327e580788bc5",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 4,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "21c37ebff9ae7dc52beb286b6fb1edd4948d7177f89bd16c169f3a676419c7bf",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 9,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 204,
+          "step_after": 226,
+          "action_steps": 22,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "pan_q=(Rotation.from_euler('z',-40,degrees=True)*lr).as_quat()[[3,0,1,2]]\nprint('pan_q',pan_q)\nrobo.move_feature('left',pan_lip,[.045,-.052,.785],quaternion=np.round(pan_q,6).tolist(),steps=22,subgoal='Rotate pan opening right and position above receiving area',expected_feedback='Pan lip spans target y range, remains above table for final placement inspection')",
+          "code_sha256": "e15fdfa94435b3dc4b7cbb9573112c0c262bb5aed6ad90516f5915df75a27fff",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 22,
+            "executed_rows": 22,
+            "executed_waypoints": 0,
+            "action_steps": 22,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.20585823961597013,
+                -0.022214443427739712,
+                0.9574116169346506,
+                0.7749120238467556,
+                -0.04628800142444353,
+                0.6298580193829361,
+                -0.025449000783154856
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.24508729577064514,
+                -0.19304752349853516,
+                1.0599333047866821,
+                0.4560940162271796,
+                -0.16292577187123403,
+                0.3186496632185267,
+                0.8147980322464232
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 226,
+              "tracking_error_m": {
+                "left": 0.001774853565852751,
+                "right": 8.832595139189821e-05
+              }
+            },
+            "step": 226,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 11,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 226,
+          "step_after": 250,
+          "action_steps": 24,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "brush_now=pixel_plane_normal(s226,'head',[375,121],rp0,rr0.apply([1,0,0]));pan_now=pixel_to_plane(s226,'head',[347,214],.785)\nrobo.move_features({'left':{'source':pan_now.tolist(),'target':[.06,-.043,.759]},'right':{'source':brush_now.tolist(),'target':[.42,-.09,.81],'quaternion':[.463893,-.432727,.28427,.718847]}},steps=24,subgoal='Lower pan lip and bring broom edge above far right target lane',expected_feedback='Pan lip seated near table, broom edge visible above targets with clearance')",
+          "code_sha256": "ccf647fa7791003eea8f52c19a69730bced076fe77806fc2a960a045354031c9",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 24,
+            "executed_waypoints": 0,
+            "action_steps": 24,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.20666250227766622,
+                -0.024911946792344777,
+                0.9316985836029053,
+                0.7750562538810102,
+                -0.04747860945711507,
+                0.6296784370595803,
+                -0.023208853184892922
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.5806035951857551,
+                -0.15471604466395894,
+                0.9075607099354744,
+                0.46389304307548596,
+                -0.4327270401815203,
+                0.28427002639632115,
+                0.7188470667496256
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 250,
+              "tracking_error_m": {
+                "left": 0.00023278988723261557,
+                "right": 0.002159600569538448
+              }
+            },
+            "step": 250,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 18,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 799,
+          "step_after": 809,
+          "action_steps": 10,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "right_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.3912334442138672,
+                "current_delta_joint_index": 2,
+                "max_target_delta_rad": 0.36370134353637695,
+                "target_delta_joint_index": 2,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s799=robo.state();pr799,rr799=tcp_pose(s799,'right');edge799=pixel_to_plane(s799,'head',[434,219],.80);qturn=(Rotation.from_euler('z',90,degrees=True)*rr799).as_quat()[[3,0,1,2]];print(edge799,qturn)\nrobo.move_feature('right',edge799,[.18,-.045,.815],quaternion=np.round(qturn,6).tolist(),steps=22,subgoal='Turn renewed broom grasp to put bristles leftward across remaining three targets',expected_feedback='Brush spans the loose group and remains visibly held after rotation')",
+          "code_sha256": "7ee9a260fd554d6c721211c2d3f26b4f40b85f407aaf9f2dc94d6d1c232cc4ee",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 22,
+            "executed_rows": 10,
+            "executed_waypoints": 0,
+            "action_steps": 10,
+            "discarded_rows": 12,
+            "last_command": {
+              "left_ee_pose": [
+                -0.18712782859802246,
+                -0.07486189901828766,
+                0.9552679061889648,
+                0.780441620001356,
+                -0.035041658042270905,
+                0.6242356006638115,
+                -0.0035881520589783893
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.36003325835642375,
+                0.011091406000386054,
+                0.9550567960543134,
+                0.25124793997960393,
+                0.5296246945005216,
+                0.1723451684069921,
+                -0.7916244681400392
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 809,
+              "tracking_error_m": {
+                "left": 0.00012059970446826411,
+                "right": 0.0020052378078536186
+              }
+            },
+            "step": 809,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "right_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.3912334442138672,
+                  "current_delta_joint_index": 2,
+                  "max_target_delta_rad": 0.36370134353637695,
+                  "target_delta_joint_index": 2,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 19,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 891,
+          "step_after": 907,
+          "action_steps": 16,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s891=robo.state();p891,r891=tcp_pose(s891,'right');edge891=pixel_to_plane(s891,'head',[351,233],.77);qlast=(Rotation.from_euler('z',-90,degrees=True)*r891).as_quat()[[3,0,1,2]]\nrobo.move_feature('right',edge891,[.23,.005,.805],quaternion=np.round(qlast,6).tolist(),steps=16,subgoal='Reorient working edge behind final upper lip purple without dragging contents',expected_feedback='Broom clear of pan and edge behind final purple; pale pink stays contained')",
+          "code_sha256": "d3337788dc13c5ebc5ce6352703aaed4ae2aeb888c1573236e3603e882e76350",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 16,
+            "executed_rows": 16,
+            "executed_waypoints": 0,
+            "action_steps": 16,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.11786589026451111,
+                -0.045092880725860596,
+                0.931163489818573,
+                0.7802675993980898,
+                -0.0360097243542665,
+                0.6244029904948174,
+                -0.002584287638948664
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.29783796195598145,
+                -0.14427602488188085,
+                0.9546377388510336,
+                0.3857980239840995,
+                -0.4951810307841674,
+                0.2549360158487355,
+                0.735502045724325
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 907,
+              "tracking_error_m": {
+                "left": 0.00014384750616336186,
+                "right": 0.0005899852445495393
+              }
+            },
+            "step": 907,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 4,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "2dc0ab0cb73cc7b924b75a1e8bea78e73c5656a450002df00d79ee2e6ba37add",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 5,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "fd603cb295817fe9e4fdf024c74ccdb7ac86f4b987540ace1fcf4088500a0d77",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 5,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "6a565d68f8371f44b23b44280351d2829f0d0b86067e1abe02fa48a858de9872",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 9,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 274,
+          "step_after": 298,
+          "action_steps": 24,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "robo.move_feature('left',source=lip.tolist(),target=[.06,-.04,.80],quaternion=rotp.as_quat()[[3,0,1,2]].tolist(),steps=24,subgoal='将当前可见盘唇移到目标左侧并转向右方',expected_feedback='盘唇朝右、盘底近水平，仍悬空待下放')",
+          "code_sha256": "929e15a90572ead874504f9ad91345a4ba6212f398129a35f5454ce6a43f929b",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 24,
+            "executed_waypoints": 0,
+            "action_steps": 24,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.11798526074026683,
+                -0.11503959058747938,
+                0.9767550826072693,
+                0.5611391496508764,
+                0.168214835727631,
+                0.7847103996277579,
+                0.20262332660940488
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.4355446398258209,
+                -0.339870810508728,
+                1.0168185234069824,
+                0.4802438990228402,
+                -0.03311778284487591,
+                0.5032113273526668,
+                0.7176680081588886
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 298,
+              "tracking_error_m": {
+                "left": 0.002313791769515312,
+                "right": 5.268970529079521e-05
+              }
+            },
+            "step": 298,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 13,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 308,
+          "step_after": 326,
+          "action_steps": 18,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "robo.move_features({'left':{'source':s308['left']['tcp_pos'],'target':[-.1652,-.0774,.8062]},'right':{'source':brush.tolist(),'target':[.40,-.085,.79],'quaternion':rwork.as_quat()[[3,0,1,2]].tolist()}},steps=18,subgoal='对刷缘调平并移到白纸团蓝块右侧，同时将盘口向前对齐',expected_feedback='刷缘近似平行桌面且留有间隙，盘唇低置于目标左侧')\n",
+          "code_sha256": "785358e213c3fcc6a4a1b2ae4bc5a917657f0266bbe975ef0713148d3770e9fe",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 18,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.1201200232805047,
+                -0.1490118861142817,
+                0.9239477535502266,
+                0.5618132294472038,
+                0.17005204977781643,
+                0.7839268960586634,
+                0.20225433795173822
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.4133027603847393,
+                -0.308454505560982,
+                0.9321995418456657,
+                0.6361897829614547,
+                -0.36109888246662863,
+                0.2479914929169419,
+                0.6351144594304524
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 326,
+              "tracking_error_m": {
+                "left": 0.0003371580336939677,
+                "right": 0.0014404680376747237
+              }
+            },
+            "step": 326,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 6,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "fe27aa7a33b60c78ed56b44a5c89372d69289dc29a620bc1481233207558dd9e",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 6,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "b3014bb809e6724eeb82ee581da839d445244fe6762fcf4afa1db2d9c682489a",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 7,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "76b846b494ef5c2fdda2796619d46be7b95d89e68185f1f0961938754b63115c",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 7,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 180,
+          "step_after": 202,
+          "action_steps": 22,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "qr=(Rotation.from_rotvec([0,0,-0.82])*tcp_pose(s4,'right')[1]).as_quat()[[3,0,1,2]].tolist()\nprint('sweep quaternion',qr)\nrobo.move_features({'right':{'source':[0.367,-0.017,0.979],'target':[0.398,-0.100,0.805],'quaternion':qr},'left':{'source':[-0.070095,-0.064894,0.850048],'target':[-0.035,-0.065,0.820]}},steps=22,subgoal='将重新估计的刷毛边缘对齐目标右侧上方，簸箕向左侧接收位置靠近',expected_feedback='刷边近似沿世界Y方向且在物体右侧，簸口向右、接近桌面但需检查高度')",
+          "code_sha256": "ae6b18a709483727fa588484d1669519ce0748dbe2704dae1d5232c64f26d91e",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 22,
+            "executed_rows": 22,
+            "executed_waypoints": 0,
+            "action_steps": 22,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.04751024272918701,
+                -0.0791697955069542,
+                0.9637626536865234,
+                0.731715147973972,
+                0.08792165701007863,
+                0.6757623556155989,
+                -0.014420928780337981
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3272975625284808,
+                -0.26288255333639593,
+                0.9722749242782593,
+                0.7094781450685738,
+                -0.4426584103221752,
+                0.35649869213444996,
+                0.4166569043560033
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 202,
+              "tracking_error_m": {
+                "left": 0.0004481221404106827,
+                "right": 0.001183202736461714
+              }
+            },
+            "step": 202,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 8,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "33e8dd911f9caf72a296d19bd575f3c546691d0063f76ee5be08f245670327d4",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 7,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "87ae42baf206b534218fb379534deef96a5a2b59fdcbc3ecadc761b3b1c61fff",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 10,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 381,
+          "step_after": 399,
+          "action_steps": 18,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "left_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "error": "ik_failed"
+              }
+            ]
+          },
+          "code": "s=robo.state(); lip=pixel_to_plane(s,'head',[240,162],.835)\nprint('estimated current lip center',lip)\nrobo.move_feature('left',source=lip,target=[.09,.025,.775],quaternion=[.707107,0,.707107,0],steps=22,subgoal='Place receiving lip at target lane and turn opening right',expected_feedback='Pan upright close to table, mouth ahead of dark toy and aligned across sweep lane')",
+          "code_sha256": "76d2ebbf2780f92df38574e2bea841971a06fd66cba2485201a930b75431561e",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 22,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 4,
+            "last_command": {
+              "left_ee_pose": [
+                -0.15673462043212993,
+                0.025127058045620494,
+                0.9541771019517384,
+                0.7060287607531962,
+                -0.03896320298041566,
+                0.7060354044856583,
+                0.03897775539440065
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.4270279109477997,
+                -0.08774517476558685,
+                1.0518429279327393,
+                0.6817382014508127,
+                -0.034136705283168506,
+                0.7089946307920394,
+                0.17718443369292072
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 399,
+              "tracking_error_m": {
+                "left": 0.0022885103385189244,
+                "right": 0.00011753548175917217
+              }
+            },
+            "step": 399,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "left_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "error": "ik_failed"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 11,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 399,
+          "step_after": 421,
+          "action_steps": 22,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state(); edge=pixel_to_plane(s,'head',[474,224],.85)\npR,rR=tcp_pose(s,'right'); qR=(Rotation.from_rotvec([0,0,-np.pi/2])*rR).as_quat()[[3,0,1,2]]\npL,rL=tcp_pose(s,'left')\nprint('brush edge',edge,'new quaternion',qR)\nrobo.move_features({'right':{'source':edge,'target':[.40,0,.84],'quaternion':qR},'left':{'source':pL,'target':pL+[0,0,-.024]}},steps=22,subgoal='Align brush edge across pan opening and lower pan to table',expected_feedback='Pan upright with lip at table; brush edge right of all lower-lane targets and aligned along opening')",
+          "code_sha256": "a469fc57c37104f5e8afff125ded626b5d7f088d13b8f857696a0e2e5da517f3",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 22,
+            "executed_rows": 22,
+            "executed_waypoints": 0,
+            "action_steps": 22,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.15890075266361237,
+                0.024945655837655067,
+                0.9308928141593933,
+                0.7060606138721588,
+                -0.040292979742662986,
+                0.7058040158671289,
+                0.04117737859263534
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.4228392439411134,
+                -0.1348999764131974,
+                1.041819920539856,
+                0.6073762252388472,
+                0.4771181230817445,
+                0.5255616644932545,
+                -0.35670345450618035
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 421,
+              "tracking_error_m": {
+                "left": 0.00031585692669402327,
+                "right": 0.0005834536337912324
+              }
+            },
+            "step": 421,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 13,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 454,
+          "step_after": 466,
+          "action_steps": 12,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state(); edge=pixel_to_plane(s,'head',[400,214],.76); _,r=tcp_pose(s,'right'); q=(Rotation.from_rotvec([0,0,.45])*r).as_quat()[[3,0,1,2]]\nprint('current bristle point',edge)\nrobo.move_feature('right',source=edge,target=edge,quaternion=q,steps=12,subgoal='Adjust broom yaw around visible edge to clear wrist joint limit',expected_feedback='Broom remains held and aligned near three loose objects; edge rechecked after turn')",
+          "code_sha256": "4c03aa5c7f73bb042b4253b68179584ad0b8f89868f9f08b40cac7d74b79587f",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 12,
+            "executed_rows": 12,
+            "executed_waypoints": 0,
+            "action_steps": 12,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.15947124361991882,
+                -0.014698854647576809,
+                0.9310038685798645,
+                0.7060520629991078,
+                -0.04065887589776095,
+                0.7057647685878089,
+                0.04163449970434696
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.29596238159163274,
+                -0.15843053852171685,
+                0.9489493966102601,
+                0.6730052233828806,
+                0.34363692197537354,
+                0.6210683787551635,
+                -0.20797044036372792
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 466,
+              "tracking_error_m": {
+                "left": 0.0001357058031959001,
+                "right": 0.0008920138239666692
+              }
+            },
+            "step": 466,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 8,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "1ac2ff54b8396678a635a4003e2976432c559ee0be6994ce8f02fee801921808",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 9,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "ac9d6dd0e7cbc8d9a74413b0f00a37f7a4828d98c88b43a1cb768e6181362f85",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 5,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 160,
+          "step_after": 184,
+          "action_steps": 24,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "pL,rL=tcp_pose(s160,'left')\nqpan=(Rotation.from_rotvec([0,0,.55])*rL).as_quat()[[3,0,1,2]]\npanlip=pixel_to_plane(s160,'head',[224,243],.822)\nrobo.move_features({'left':{'source':panlip.tolist(),'target':[.065,-.065,.80],'quaternion':np.round(qpan,6).tolist()},'right':{'source':[.068,-.125,.93],'target':[.38,-.065,.88],'quaternion':[.549864,-.563261,.389483,.478215]}},steps=24,subgoal='把簸箕唇移到目标左侧，并将扫帚转到目标右上方',expected_feedback='两工具避开目标，开口向右，刷边可重新估计')",
+          "code_sha256": "bbf8c22c1477c4c52e2a00eb1318d7cb0731ff6a73cd39c7ea48f7711de0adc3",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 24,
+            "executed_waypoints": 0,
+            "action_steps": 24,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.16294722803787923,
+                -0.05298589783515568,
+                0.9809337365991059,
+                0.7182980988690713,
+                -0.02584800355781014,
+                0.6948340956394035,
+                -0.02419300333000982
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3352797203884862,
+                -0.1131853538352324,
+                1.1384113314938795,
+                0.549864009311672,
+                -0.5632610095385436,
+                0.3894830065957,
+                0.4782150080983319
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 184,
+              "tracking_error_m": {
+                "left": 0.0016738369420111832,
+                "right": 0.0012403480563035094
+              }
+            },
+            "step": 184,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 6,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 184,
+          "step_after": 202,
+          "action_steps": 18,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s184=robo.state()\npR,rR=tcp_pose(s184,'right')\nedge=pixel_to_plane(s184,'head',[525,197],.88)\nqa=(Rotation.from_rotvec([0,0,1.570796])*rR).as_quat()[[3,0,1,2]]\nprint('visible brush estimate',edge,'new quaternion',qa)\nrobo.move_features({'left':{'source':[-.159764,-.062792,.836527],'target':[-.159764,-.062792,.791527]},'right':{'source':edge.tolist(),'target':[.36,-.072,.795],'quaternion':np.round(qa,6).tolist()}},steps=18,subgoal='降低簸箕接收唇并将当前刷边转为沿前后方向，停在目标右侧上方',expected_feedback='盘唇接近桌面，刷边沿目标扫入方向垂直排列，目标仍未接触')",
+          "code_sha256": "f24906b18a1e1762297f43ae9f6b8f40ffb5e8cec8349c519e655cc5688fca58",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 18,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.16455891728401184,
+                -0.05256050080060959,
+                0.9360861349105835,
+                0.7182781603757097,
+                -0.024731382598547822,
+                0.6948598514297984,
+                -0.025191862039328206
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.4045746007218917,
+                -0.1217401074577544,
+                1.0539516879539845,
+                0.048534017227200785,
+                -0.6725792387327157,
+                -0.12054504278759115,
+                0.7285262585911699
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 202,
+              "tracking_error_m": {
+                "left": 0.0004815648590776185,
+                "right": 0.003033648922290949
+              }
+            },
+            "step": 202,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 8,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 210,
+          "step_after": 219,
+          "action_steps": 9,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "right_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.3882880210876465,
+                "current_delta_joint_index": 2,
+                "max_target_delta_rad": 0.36014270782470703,
+                "target_delta_joint_index": 2,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s210=robo.state()\npR,rR=tcp_pose(s210,'right')\nbrush210=pixel_to_plane(s210,'head',[488,205],.79)\nqroll=(Rotation.from_rotvec([0,0,-1.570796])*Rotation.from_rotvec([-1.570796,0,0])*rR).as_quat()[[3,0,1,2]]\nprint('edge',brush210,'q',qroll)\nrobo.move_feature('right',source=brush210.tolist(),target=[.38,-.07,.86],quaternion=np.round(qroll,6).tolist(),steps=24,subgoal='在目标右侧抬高刷边并转到刷毛向下的侧向夹持姿态',expected_feedback='刷毛朝桌面且长边沿前后方向，转动后检查实际工具姿态')",
+          "code_sha256": "c126cc9efee97decc4f3ac537c6ebc19a0cccbb061069dd5394faf0efd1515d2",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 9,
+            "executed_waypoints": 0,
+            "action_steps": 9,
+            "discarded_rows": 15,
+            "last_command": {
+              "left_ee_pose": [
+                -0.16481289267539978,
+                -0.0524628646671772,
+                0.9365469217300415,
+                0.71833317082979,
+                -0.024824570581651172,
+                0.6948112691558336,
+                -0.024869592580418418
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.4830884445458091,
+                -0.06649481345444296,
+                1.0401401448036232,
+                0.09133613245391156,
+                -0.5025365510114888,
+                0.21149272414472253,
+                0.8332979979813243
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 219,
+              "tracking_error_m": {
+                "left": 0.0001288883468667953,
+                "right": 0.0016141153742058197
+              }
+            },
+            "step": 219,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "right_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.3882880210876465,
+                  "current_delta_joint_index": 2,
+                  "max_target_delta_rad": 0.36014270782470703,
+                  "target_delta_joint_index": 2,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 10,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 296,
+          "step_after": 312,
+          "action_steps": 16,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s296=robo.state()\npR,rR=tcp_pose(s296,'right')\nsource=pixel_to_plane(s296,'head',[346,249],.78)\nqfix=(Rotation.from_rotvec([0,0,-.8])*rR).as_quat()[[3,0,1,2]]\nrobo.move_feature('right',source=source.tolist(),target=[.125,-.19,.85],quaternion=np.round(qfix,6).tolist(),steps=16,subgoal='青色仍在簸箕前角外，抬刷并转向，重新对准从前右往后左的收集方向',expected_feedback='刷边离开盘内，青色与盘唇同时可见；其余三件仍在外')",
+          "code_sha256": "7ddf490ddc97c978c3f78e0b6fb6d44821c06fe0b9a581f2da437aad9ea92029",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 16,
+            "executed_rows": 16,
+            "executed_waypoints": 0,
+            "action_steps": 16,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.1656409353017807,
+                -0.07194601744413376,
+                0.9365736246109009,
+                0.7183718068700625,
+                -0.025463279527982545,
+                0.6947730744024077,
+                -0.02416492448462747
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.2211929103970171,
+                -0.33430218872888295,
+                0.9388046113407345,
+                0.39057517120612484,
+                0.17122407505497683,
+                0.6436362821338425,
+                0.6355042785692304
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 312,
+              "tracking_error_m": {
+                "left": 0.00011798633409300113,
+                "right": 0.0013349741474236614
+              }
+            },
+            "step": 312,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 12,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 329,
+          "step_after": 347,
+          "action_steps": 18,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "pR,rR=tcp_pose(s329,'right')\nqdown=(Rotation.from_rotvec([0,-1.2,0])*rR).as_quat()[[3,0,1,2]]\nrobo.move_features({'right':{'source':[.045,-.157,.787],'target':[.15,-.18,.82],'quaternion':np.round(qdown,6).tolist()},'left':{'source':[-.161115,-.081983,.792016],'target':[-.161115,-.106983,.792016]}},steps=18,subgoal='将刷毛翻向桌面并从青色右前方重接近，簸箕前移覆盖目标',expected_feedback='刷毛工作边向下，青色在唇宽内；观察转动后的实际刷边')",
+          "code_sha256": "d3a1314913b94aaad815a1e6f55cbd904d00eb0f5fca81ef7e01818d6f995c99",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 18,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.16597138345241547,
+                -0.0968265026807785,
+                0.936578094959259,
+                0.7183908234888474,
+                -0.025721900203688135,
+                0.6947538267073063,
+                -0.02387737113841009
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.11094810146930896,
+                -0.3259969881283186,
+                0.9629667005459462,
+                0.6799701016008002,
+                -0.21899803272257895,
+                0.3129290467577053,
+                0.6259040935222836
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 347,
+              "tracking_error_m": {
+                "left": 0.00025013385086931856,
+                "right": 0.0004496712179486624
+              }
+            },
+            "step": 347,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 14,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 495,
+          "step_after": 505,
+          "action_steps": 10,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "pL,rL=tcp_pose(s495,'left')\nqtilt=(Rotation.from_rotvec([0,.10,0])*rL).as_quat()[[3,0,1,2]]\nrobo.move_feature('left',source=[.058838,-.016977,.765879],target=[.058838,.028023,.751],quaternion=np.round(qtilt,6).tolist(),steps=10,subgoal='实测簸箕唇约高出桌面16毫米，降低唇并把入口后移覆盖最后绿色',expected_feedback='入口贴近桌面，青色保留盘内，黄色与中绿仍在唇外等待补扫')",
+          "code_sha256": "f3a2ab10c9b38bade0ce39db896e5aa4c7f7a39844d2713a746d8adb6b3e4dbe",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 10,
+            "executed_rows": 10,
+            "executed_waypoints": 0,
+            "action_steps": 10,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.14976418220877152,
+                -0.050985484984160695,
+                0.9432356610122151,
+                0.6823978170829483,
+                -0.02867799231285091,
+                0.7301168042918518,
+                -0.0209819943757668
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.19628645479679108,
+                -0.16455233097076416,
+                1.0262506008148193,
+                0.6782400679075703,
+                -0.21429668591281534,
+                0.3170143101028733,
+                0.6273509925723539
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 505,
+              "tracking_error_m": {
+                "left": 0.0006454205556223481,
+                "right": 9.687238932570904e-05
+              }
+            },
+            "step": 505,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 9,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "7730dc635f9be41c2e8d62b83983d76ecf358ce0c7617bdb0588aa7f5105521b",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 6,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 275,
+          "step_after": 295,
+          "action_steps": 20,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state()\nbrush=pixel_to_plane(s,'head',[443,231],0.87)\nr0=tcp_pose(s,'right')[1]\nqr=(Rotation.from_rotvec([0,0,-math.pi/2])*r0).as_quat()\nqr=np.roll(qr,1)\nprint('estimated brush',brush,'turned wrist',qr)\nrobo.move_feature('right',source=brush.tolist(),target=[0.38,-0.055,0.87],quaternion=qr.tolist(),steps=20,subgoal='Turn brush edge across receiving lane in clear space',expected_feedback='Broom remains held with bristle edge transverse to sweep direction')",
+          "code_sha256": "be33d5528719efaebf9ad26a7883883cdb6c2f7044f6e6aa440ee239dc4e7ec8",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 20,
+            "executed_waypoints": 0,
+            "action_steps": 20,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.27312251925468445,
+                -0.05997810512781143,
+                1.0036700963974,
+                0.7002573393986962,
+                -0.09794703002015044,
+                0.700350203448209,
+                0.09775290511562107
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.34321927864503576,
+                -0.17007685100186284,
+                1.1190658807754517,
+                0.7422389356371735,
+                -0.0446673153488277,
+                0.6338977195612839,
+                0.21274368262942123
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 295,
+              "tracking_error_m": {
+                "left": 0.00012331201631680721,
+                "right": 0.0008848175321512735
+              }
+            },
+            "step": 295,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 8,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 523,
+          "step_after": 538,
+          "action_steps": 15,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "right_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.2721080780029297,
+                "current_delta_joint_index": 2,
+                "max_target_delta_rad": 0.2502632141113281,
+                "target_delta_joint_index": 2,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s=robo.state()\nsource=pixel_to_plane(s,'head',[550,184],0.90)\nqr=np.roll((Rotation.from_rotvec([0,0,math.radians(110)])*tcp_pose(s,'right')[1]).as_quat(),1)\nprint('current brush estimate',source,'new wrist',qr)\nrobo.move_feature('right',source=source.tolist(),target=[0.32,0.02,0.88],quaternion=qr.tolist(),steps=20,subgoal='Turn broom so brush leads left of hand with clearance',expected_feedback='Brush lies left of receiving fingers and can reach into pan')",
+          "code_sha256": "24376b0289f47ab152898806c43c63ef6dd8975e53ed58f58abdc5dac86f899a",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 15,
+            "executed_waypoints": 0,
+            "action_steps": 15,
+            "discarded_rows": 5,
+            "last_command": {
+              "left_ee_pose": [
+                -0.03427707031369209,
+                -0.04330645874142647,
+                0.9447558522224426,
+                0.6424314390238232,
+                -0.10048069263543244,
+                0.7507528775506325,
+                0.11642849054560722
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.4657385144332948,
+                -0.15690782486629803,
+                1.1503608083724974,
+                0.40680379781297443,
+                -0.4300370814547531,
+                0.4566549801713713,
+                0.6641121951474035
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 538,
+              "tracking_error_m": {
+                "left": 0.00014890908783249426,
+                "right": 0.002637052607408017
+              }
+            },
+            "step": 538,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "right_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.2721080780029297,
+                  "current_delta_joint_index": 2,
+                  "max_target_delta_rad": 0.2502632141113281,
+                  "target_delta_joint_index": 2,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 10,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "321169ba834e36f3f2adb64f70a239af81bf495e225d35b5b1225e25acaaaece",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 10,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "9ba21fbe71e80742ecf22553fc9cd2e63969f1673ddf2444aa766dc5a727589d",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 24,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 475,
+          "step_after": 491,
+          "action_steps": 16,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "ss=robo.state()\npl=pixel_to_plane(ss,'head',[355,258],.785)\nbe=pixel_to_plane(ss,'head',[529,288],.79)\nprint('selected pan lip, brush edge',pl,be)\nrobo.move_features({'left':{'source':pl.tolist(),'target':[.16,-.13,.755]},'right':{'source':be.tolist(),'target':[.365,-.18,.765]}},steps=16,subgoal='Align supported pan lip and brush behind black object',expected_feedback='Pan upright at table, brush just behind black object; stop before sweep')",
+          "code_sha256": "8de899e47b30d902598406d38548f64dc4dca8b5ee10ad492985f87140d44ee3",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 16,
+            "executed_rows": 16,
+            "executed_waypoints": 0,
+            "action_steps": 16,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.0799251450961951,
+                -0.05754777864808653,
+                0.9258721780776977,
+                0.7544597211465115,
+                0.16519866313715584,
+                0.6312076800946496,
+                -0.07125163475145388
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.20051514662410688,
+                -0.1386375300826443,
+                1.058322763442993,
+                0.5244940668806022,
+                -0.5044219041572383,
+                0.1788306287231204,
+                0.6621813366774436
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 491,
+              "tracking_error_m": {
+                "left": 0.0010021713121697842,
+                "right": 0.000435376823758272
+              }
+            },
+            "step": 491,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 28,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 511,
+          "step_after": 531,
+          "action_steps": 20,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "scur=robo.state(); yaw=Rotation.from_euler('z',ang);v=yaw.apply(pb-pa);tilt=Rotation.from_euler('x',-np.arctan2(v[2],v[1]));qsweep=(tilt*yaw*tcp_pose(scur,'right')[1]).as_quat()[[3,0,1,2]];print('sweep orientation',qsweep)\nrobo.move_feature('right',source=((pa+pb)/2).tolist(),target=[.36,-.17,.85],quaternion=qsweep.tolist(),steps=20,subgoal='Level visible brush edge and take position behind black piece',expected_feedback='Brush edge spans target lane horizontally above table, pan unchanged')",
+          "code_sha256": "b4934f8ddaf791a3fb67d94126af527c4035a9c8a3f3d79add142387c0389714",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 20,
+            "executed_waypoints": 0,
+            "action_steps": 20,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.081108458340168,
+                -0.057441551238298416,
+                0.9261757135391235,
+                0.754507167878466,
+                0.1650306975520557,
+                0.63124678194192,
+                -0.07079055567989537
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3298121758730205,
+                0.00017430786579409122,
+                1.0484197543083704,
+                0.646435225251424,
+                -0.5304361057021757,
+                0.4253685542821046,
+                0.3461511669048694
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 531,
+              "tracking_error_m": {
+                "left": 0.0001371349039554242,
+                "right": 0.002634565585299769
+              }
+            },
+            "step": 531,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 29,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 556,
+          "step_after": 568,
+          "action_steps": 12,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "ss=robo.state();edge=pixel_to_plane(ss,'head',[449,256],.755);q=(Rotation.from_euler('y',35,degrees=True)*tcp_pose(ss,'right')[1]).as_quat()[[3,0,1,2]];print(edge,q)\nrobo.move_feature('right',source=edge.tolist(),target=edge.tolist(),quaternion=q.tolist(),steps=12,subgoal='Tilt broom around current edge to restore right wrist reach',expected_feedback='Edge remains near targets while right wrist moves to reachable side; inspect contact')",
+          "code_sha256": "09325903a6d9bb65059e20a8f42d02f1d7d5f38acebf23f48c466bd5489a5be3",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 12,
+            "executed_rows": 12,
+            "executed_waypoints": 0,
+            "action_steps": 12,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.0817062109708786,
+                -0.057125408202409744,
+                0.9261327981948853,
+                0.7545068823179447,
+                0.16456101754349095,
+                0.6314233510629466,
+                -0.07031065191238704
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3207794039103963,
+                0.031361542642116526,
+                0.9610843119379037,
+                0.4850298944740978,
+                -0.40839024794681933,
+                0.5984513602217708,
+                0.48971356556368023
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 568,
+              "tracking_error_m": {
+                "left": 0.00016555031836215382,
+                "right": 0.0018592636610075223
+              }
+            },
+            "step": 568,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 30,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 568,
+          "step_after": 580,
+          "action_steps": 12,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "ss=robo.state();edge=pixel_to_plane(ss,'head',[443,252],.755);q=(Rotation.from_euler('y',25,degrees=True)*tcp_pose(ss,'right')[1]).as_quat()[[3,0,1,2]];print('edge',edge)\nrobo.move_feature('right',source=edge.tolist(),target=(edge+np.array([-.065,.012,0])).tolist(),quaternion=q.tolist(),steps=12,subgoal='Short sweep into pan while keeping wrist on reachable side',expected_feedback='Black and yellow cross the lip or stop at it; verify from RGB')",
+          "code_sha256": "d1a0777109c965ba6cac1ebc9005b860a27736dad964eced6d0ed5bee3539c37",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 12,
+            "executed_rows": 12,
+            "executed_waypoints": 0,
+            "action_steps": 12,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.08185119926929474,
+                -0.057045649737119675,
+                0.9261279106140137,
+                0.7545087355646763,
+                0.16445538441170326,
+                0.631462933152244,
+                -0.0701823236246635
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3362283004376422,
+                0.0433878916203976,
+                0.9197586043085414,
+                0.3463934944347108,
+                -0.29499254991094537,
+                0.6878312806877886,
+                0.5655785284270831
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 580,
+              "tracking_error_m": {
+                "left": 0.00014968358573879689,
+                "right": 0.0009003254256416865
+              }
+            },
+            "step": 580,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 32,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 844,
+          "step_after": 856,
+          "action_steps": 12,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "ss=robo.state();edge=pixel_to_plane(ss,'head',[362,209],.765);q=(Rotation.from_euler('y',20,degrees=True)*tcp_pose(ss,'right')[1]).as_quat()[[3,0,1,2]]\nrobo.move_feature('right',source=edge.tolist(),target=(edge+np.array([-.05,0,.005])).tolist(),quaternion=q.tolist(),steps=12,subgoal='Short finishing stroke past lip with wrist reach correction',expected_feedback='All five targets settle onto pan floor, including two separate paper balls')",
+          "code_sha256": "5f8c85cfee7eac14beb97d61620037dcc21295d5b47c6fade562f2e1efbb99ad",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 12,
+            "executed_rows": 12,
+            "executed_waypoints": 0,
+            "action_steps": 12,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.10935718566179276,
+                -0.016030684113502502,
+                0.9279466867446899,
+                0.7139929975931948,
+                0.1308778049296588,
+                0.6866455526916979,
+                -0.04003604043097567
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.10202313143090054,
+                0.017587995156645757,
+                0.9236990149707802,
+                0.4475980901739975,
+                -0.37444537095857133,
+                0.5787190449736048,
+                0.5696761192336631
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 856,
+              "tracking_error_m": {
+                "left": 0.004250524652065858,
+                "right": 0.003806770339697472
+              }
+            },
+            "step": 856,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 33,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 898,
+          "step_after": 912,
+          "action_steps": 14,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "ss=robo.state();edge=pixel_to_plane(ss,'head',[361,213],.77);q=(Rotation.from_euler('x',30,degrees=True)*tcp_pose(ss,'right')[1]).as_quat()[[3,0,1,2]]\nrobo.move_feature('right',source=edge.tolist(),target=[.16,.115,.81],quaternion=q.tolist(),steps=14,subgoal='Approach small paper at back end of pan opening',expected_feedback='Brush behind small paper, clear above lip, remaining objects stay in pan')",
+          "code_sha256": "705d4d1126583906088a1a3504b4756b90bb3e5d8f3d477c231a50062ab03b1b",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 14,
+            "executed_rows": 14,
+            "executed_waypoints": 0,
+            "action_steps": 14,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.11663411557674408,
+                -0.013726653531193733,
+                0.9278577566146851,
+                0.7127219807034311,
+                0.12413042680440725,
+                0.689461743714425,
+                -0.0355178732161473
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.17912420203185347,
+                0.04977706870252192,
+                0.9495508956328227,
+                0.5368068922699766,
+                -0.23270724682137398,
+                0.4077750199448905,
+                0.7010030176805301
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 912,
+              "tracking_error_m": {
+                "left": 0.0001443918247631668,
+                "right": 0.0012368773385251954
+              }
+            },
+            "step": 912,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 11,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "a0be54dbf14dcf7695ed3bb8bd6b3bf7b294414884da2e4f9d525e00c8fadefb",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 11,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "eb28397a8d9c37bdfac3b83e17d67c4aa38af497a4fef167cab1196d36808dbd",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 10,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 256,
+          "step_after": 274,
+          "action_steps": 18,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state(); p,r=tcp_pose(s,'left'); q=Rotation.from_rotvec([-.63,0,0])*r\nrobo.move_feature('left',source=[.106,-.065,.81],target=[.10,-.04,.77],quaternion=q.as_quat()[[3,0,1,2]].tolist(),steps=18,subgoal='Level visible pan lip and lower it toward table',expected_feedback='Pan bowl becomes upright, lip close to table left of all loose targets')",
+          "code_sha256": "141616a38ad6b233a27fa1501549dd5323829fc5c422cf249627d85083335d21",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 18,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.09775787866115564,
+                -0.005012529529695288,
+                0.9398026568802881,
+                0.603554045448387,
+                0.08317343010643186,
+                0.7905673429959886,
+                -0.061708758985087875
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.45082637667655945,
+                -0.23436465859413147,
+                1.0438275337219238,
+                0.5248621422057634,
+                -0.5013486448684186,
+                0.1802997250597297,
+                0.6638232273061582
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 274,
+              "tracking_error_m": {
+                "left": 0.0012112543700100809,
+                "right": 8.308067022155834e-05
+              }
+            },
+            "step": 274,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 11,
+          "helper": "move_feature",
+          "statement": "Assign",
+          "step_before": 290,
+          "step_after": 308,
+          "action_steps": 18,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state(); pr,rr=tcp_pose(s,'right')\nedge=pixel_to_plane(s,'head',[515,230],.81); print('current estimated brush edge',edge)\nq=Rotation.from_rotvec([0,0,-.72])*rr\nres=robo.move_feature('right',source=edge.tolist(),target=[.405,-.015,.78],quaternion=q.as_quat()[[3,0,1,2]].tolist(),steps=18,subgoal='Align visible brush edge parallel to pan lip at brick row',expected_feedback='Brush edge sits just outside brick, spanning its row near table')\nprint(res.get('execution',{}))",
+          "code_sha256": "84309c4151a9b38d4af2f8a326ab1fd1f39dffa97bda2b3be238cc3ce10c0cf2",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 18,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.1006646230816841,
+                -0.005720838904380798,
+                0.9377654194831848,
+                0.6070675323470172,
+                0.09487307925518615,
+                0.787852236720792,
+                -0.04191614362971829
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3884722897805433,
+                -0.13649900059441525,
+                0.9786548328399658,
+                0.680579333902759,
+                -0.3041915878538294,
+                0.5066729648044611,
+                0.43308400441450196
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 308,
+              "tracking_error_m": {
+                "left": 0.0006565953708811842,
+                "right": 0.0008323418260217837
+              }
+            },
+            "step": 308,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 13,
+          "helper": "move_feature",
+          "statement": "Assign",
+          "step_before": 536,
+          "step_after": 558,
+          "action_steps": 22,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "left_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.39659667015075684,
+                "current_delta_joint_index": 2,
+                "max_target_delta_rad": 0.3749849796295166,
+                "target_delta_joint_index": 2,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s=robo.state(); p,r=tcp_pose(s,'left'); lip=pixel_to_plane(s,'head',[314,207],.75)\nprint('pan lip',lip)\nq=Rotation.from_rotvec([0,0,1.57])*r\nres=robo.move_feature('left',source=lip.tolist(),target=[.045,.075,.81],quaternion=q.as_quat()[[3,0,1,2]].tolist(),steps=24,subgoal='Turn raised pan mouth toward the two rear loose targets',expected_feedback='Pan opening faces rear targets while bowl stays upright')\nprint(res.get('execution',{}))",
+          "code_sha256": "362ea22aff37c38e9f46ee1676adbf13361f007319d419ed09e0d1d56ec14ae6",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 22,
+            "executed_waypoints": 0,
+            "action_steps": 22,
+            "discarded_rows": 2,
+            "last_command": {
+              "left_ee_pose": [
+                0.0022497866138423625,
+                -0.11269515424974716,
+                0.9856412339210511,
+                0.4806570242287541,
+                -0.447915528071987,
+                0.6548907504811315,
+                0.3734415746884816
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.2616845667362213,
+                -0.25981080532073975,
+                1.0871535539627075,
+                0.6798540261005539,
+                -0.30569916546435455,
+                0.50485991742734,
+                0.435273462554891
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 558,
+              "tracking_error_m": {
+                "left": 0.0021795381563758753,
+                "right": 6.044085118505057e-05
+              }
+            },
+            "step": 558,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "left_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.39659667015075684,
+                  "current_delta_joint_index": 2,
+                  "max_target_delta_rad": 0.3749849796295166,
+                  "target_delta_joint_index": 2,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 17,
+          "helper": "move_feature",
+          "statement": "Assign",
+          "step_before": 707,
+          "step_after": 730,
+          "action_steps": 23,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "right_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.37840986251831055,
+                "current_delta_joint_index": 2,
+                "max_target_delta_rad": 0.3430752754211426,
+                "target_delta_joint_index": 2,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s=robo.state(); p,r=tcp_pose(s,'right'); edge=pixel_to_plane(s,'head',[443,172],.95)\nprint('visible edge estimate',edge)\nq=Rotation.from_rotvec([-.5,0,0])*r\nres=robo.move_feature('right',source=edge.tolist(),target=[.065,.185,.78],quaternion=q.as_quat()[[3,0,1,2]].tolist(),steps=24,subgoal='Pitch exposed brush downward and stage its working edge behind rear targets',expected_feedback='Visible bristles now near tabletop behind targets, with handle raised')\nprint(res.get('execution',{}))",
+          "code_sha256": "6ac39318daae0f8cdbeebc204045e4acf407a67a38d629c6169be70e01cd60d4",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 23,
+            "executed_waypoints": 0,
+            "action_steps": 23,
+            "discarded_rows": 1,
+            "last_command": {
+              "left_ee_pose": [
+                -0.24411214888095856,
+                -0.18479131162166595,
+                1.0873221158981323,
+                0.48044415998697976,
+                -0.43054437050258376,
+                0.675290026053453,
+                0.35747494300393373
+              ],
+              "left_ee_joint_state": [
+                1.0
+              ],
+              "right_ee_pose": [
+                0.1397182055690492,
+                0.03185360650302922,
+                0.9734390664174157,
+                0.4269990344975228,
+                -0.5545793287131062,
+                0.22644899778216343,
+                0.6773731941151481
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 730,
+              "tracking_error_m": {
+                "left": 8.108796529547188e-05,
+                "right": 0.002859047205863626
+              }
+            },
+            "step": 730,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "right_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.37840986251831055,
+                  "current_delta_joint_index": 2,
+                  "max_target_delta_rad": 0.3430752754211426,
+                  "target_delta_joint_index": 2,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 19,
+          "helper": "move_feature",
+          "statement": "Assign",
+          "step_before": 792,
+          "step_after": 810,
+          "action_steps": 18,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state(); p,r=tcp_pose(s,'left'); lip=pixel_to_plane(s,'head',[350,194],.78)\nq=Rotation.from_rotvec([0,0,.70])*r\nres=robo.move_feature('left',source=lip.tolist(),target=[.025,.105,.752],quaternion=q.as_quat()[[3,0,1,2]].tolist(),steps=18,subgoal='Align receiving lip directly in front of rear targets at tabletop',expected_feedback='Lip lies just in front of dark object and brick, bowl upright')\nprint(res.get('execution',{}))",
+          "code_sha256": "c918fdb5b5b9cd0d4387248af9243f22bff2c62f40f3648a83e06a7b79563fcf",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 18,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.017249363127024256,
+                -0.08186827811560504,
+                0.93705206823349,
+                0.33449977580625506,
+                -0.6336094829179371,
+                0.4826807984270247,
+                0.5036548123187943
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.20164956152439117,
+                -0.07679522782564163,
+                1.0561821460723877,
+                0.4253473792669105,
+                -0.5568712036241937,
+                0.22733816151650887,
+                0.6762332658507758
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 810,
+              "tracking_error_m": {
+                "left": 0.0008881145336059679,
+                "right": 0.0001235518835628352
+              }
+            },
+            "step": 810,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 20,
+          "helper": "move_feature",
+          "statement": "Assign",
+          "step_before": 816,
+          "step_after": 816,
+          "action_steps": 0,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "left_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.21587324142456055,
+                "current_delta_joint_index": 2,
+                "max_target_delta_rad": 0.2788817882537842,
+                "target_delta_joint_index": 2,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s=robo.state(); p,r=tcp_pose(s,'left'); lip=pixel_to_plane(s,'head',[337,174],.75); q=Rotation.from_rotvec([0,0,-1.57])*r\nres=robo.move_feature('left',source=lip.tolist(),target=[.16,-.085,.755],quaternion=q.as_quat()[[3,0,1,2]].tolist(),steps=24,subgoal='Align pan opening with remaining white ball on right',expected_feedback='Pan mouth faces right beside white ball, upright on table')\nprint(res.get('execution',{}))",
+          "code_sha256": "ddea39a0fac2556465bc1c2f1a6fb67c664d0519026968dbd25ff43ad3e56f82",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 0,
+            "executed_waypoints": 0,
+            "action_steps": 0,
+            "discarded_rows": 24,
+            "last_command": null,
+            "last_tracking": null,
+            "step": 816,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "left_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.21587324142456055,
+                  "current_delta_joint_index": 2,
+                  "max_target_delta_rad": 0.2788817882537842,
+                  "target_delta_joint_index": 2,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 21,
+          "helper": "move_feature",
+          "statement": "Assign",
+          "step_before": 832,
+          "step_after": 852,
+          "action_steps": 20,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state(); p,r=tcp_pose(s,'left'); lip=pixel_to_plane(s,'head',[341,175],.75); q=Rotation.from_rotvec([0,0,-1.3])*r\nres=robo.move_feature('left',source=lip.tolist(),target=[.16,-.09,.755],quaternion=q.as_quat()[[3,0,1,2]].tolist(),steps=20,subgoal='Turn receiving lip toward white ball',expected_feedback='White ball aligned just outside right-facing pan lip')\nprint(res.get('execution',{}))",
+          "code_sha256": "0d9c9bc2fa67920c73284adc2c54b707166c76983ab17b441e39e5a17a079cfa",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 20,
+            "executed_waypoints": 0,
+            "action_steps": 20,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.05071585877490458,
+                -0.07318829933520592,
+                0.956987862586975,
+                0.5612960801867475,
+                -0.20460870225599775,
+                0.7756299322292484,
+                0.20366687889335494
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.37130194902420044,
+                -0.2452562153339386,
+                0.9580731987953186,
+                0.42528191516729286,
+                -0.5570138527471851,
+                0.22774006697020033,
+                0.67602168779987
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 852,
+              "tracking_error_m": {
+                "left": 0.0010038995022521007,
+                "right": 6.52621749250617e-05
+              }
+            },
+            "step": 852,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 12,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "ada45fc61df7ea75684625b03888b78a71e7a5751caa55371020eefc6d6caa3b",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 8,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 162,
+          "step_after": 185,
+          "action_steps": 23,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "left_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "error": "ik_failed"
+              }
+            ]
+          },
+          "code": "s162=robo.state()\npan_lip=pixel_to_plane(s162,'head',[261,177],.805)\nqpl=(Rotation.from_euler('z',-30,degrees=True)*tcp_pose(s162,'left')[1]).as_quat()[[3,0,1,2]]\nprint('lip',pan_lip,'q',qpl)\n# Place the visible mouth above and left of targets, then inspect before lowering.\nrobo.move_features({'left':{'source':pan_lip.tolist(),'target':[.035,-.005,.815],'quaternion':qpl.tolist()},'right':{'source':s162['right']['tcp_pos'],'target':[.30,-.15,.92],'quaternion':[.566113,-.539593,.367018,.503640]}},steps=24,subgoal='空中调整簸口与刷姿态到目标区两侧',expected_feedback='簸口在散物左侧且高于桌，扫帚在右；重测工作沿')",
+          "code_sha256": "a52af9863f9eb7195e3b00a1a2a67dff66cad872f9826861fc636ae0cee031f8",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 23,
+            "executed_waypoints": 0,
+            "action_steps": 23,
+            "discarded_rows": 1,
+            "last_command": {
+              "left_ee_pose": [
+                -0.1914879706233479,
+                0.012774909230786145,
+                0.99794904311498,
+                0.7184179598519268,
+                -0.053200160542197665,
+                0.6935720469457607,
+                0.0017870579024775767
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.2688782916276826,
+                -0.18125305651026152,
+                1.0607751248803348,
+                0.5612054193296963,
+                -0.5241788092650222,
+                0.3750281848291066,
+                0.5192676706827298
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 185,
+              "tracking_error_m": {
+                "left": 0.0014354674691856638,
+                "right": 0.0008222015784019992
+              }
+            },
+            "step": 185,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "left_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "error": "ik_failed"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 15,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 395,
+          "step_after": 410,
+          "action_steps": 15,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "right_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.3691173791885376,
+                "current_delta_joint_index": 3,
+                "max_target_delta_rad": 0.173728346824646,
+                "target_delta_joint_index": 5,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s=robo.state()\na=np.array([.20437,-.022,.94398])-np.array(s['right']['tcp_pos']);a/=np.linalg.norm(a)\nb=np.array([.22340,.0031,.96625])-np.array([.20437,-.022,.94398]);b-=a*np.dot(a,b);b/=np.linalg.norm(b);c=np.cross(a,b)\nat=np.array([0,1,0.]);bt=np.array([-.35,0,-np.sqrt(1-.35**2)]);ct=np.cross(at,bt)\nturn=Rotation.from_matrix(np.column_stack([at,bt,ct])@np.column_stack([a,b,c]).T)\nqr=(turn*tcp_pose(s,'right')[1]).as_quat()[[3,0,1,2]]\nprint('basis',a,b,'q',qr)\nrobo.move_feature('right',source=[.22340,.0031,.96625],target=[.24,.035,.89],quaternion=qr.tolist(),steps=24,subgoal='在空中转扫帚使刷毛朝桌面且工作边沿簸口',expected_feedback='重看刷毛朝下，保持安全离桌高度')",
+          "code_sha256": "126954c80cf1b027c0ed8506e6595c00466765a848dc11ed9f174fab4feedb66",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 15,
+            "executed_waypoints": 0,
+            "action_steps": 15,
+            "discarded_rows": 9,
+            "last_command": {
+              "left_ee_pose": [
+                -0.1956661194562912,
+                -0.030956849455833435,
+                0.9328821897506714,
+                0.7179588191415781,
+                -0.05761826234029743,
+                0.6936739175119686,
+                0.00563613567202291
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3981374625198115,
+                -0.12214989847101068,
+                0.9359035417461148,
+                0.012087184909778875,
+                -0.08504147807640666,
+                0.7127018373681342,
+                0.6961881484050289
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 410,
+              "tracking_error_m": {
+                "left": 0.00013252997287622543,
+                "right": 0.016625548873150535
+              }
+            },
+            "step": 410,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "right_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.3691173791885376,
+                  "current_delta_joint_index": 3,
+                  "max_target_delta_rad": 0.173728346824646,
+                  "target_delta_joint_index": 5,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 21,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 618,
+          "step_after": 638,
+          "action_steps": 20,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s618=robo.state();pedge=pixel_to_plane(s618,'head',[336,190],.77)\nqr=(Rotation.from_euler('z',-45,degrees=True)*tcp_pose(s618,'right')[1]).as_quat()[[3,0,1,2]]\nprint('visible edge',pedge)\nrobo.move_feature('right',source=pedge.tolist(),target=[.16,.01,.84],quaternion=qr.tolist(),steps=20,subgoal='空中转刷使工作边平行簸口，重新从右侧接近',expected_feedback='刷边近纵向，全部目标露出并重新定位')",
+          "code_sha256": "57ae2456fb712f2a59a057f012e9b235961e9be9ee4f8ab0ccdcab98abd7e0d3",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 20,
+            "executed_waypoints": 0,
+            "action_steps": 20,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.16012708842754364,
+                -0.030360965058207515,
+                0.943401575088501,
+                0.6873511233587326,
+                -0.059032955629269815,
+                0.7238468693776396,
+                0.010452418827782318
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.2582570401299442,
+                -0.18051581788328402,
+                0.941272087097168,
+                0.27953878698112766,
+                0.06468316976323743,
+                0.7158083579551104,
+                0.6366259096236255
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 638,
+              "tracking_error_m": {
+                "left": 0.00013663878366518249,
+                "right": 0.0008302323504947199
+              }
+            },
+            "step": 638,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 23,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 638,
+          "step_after": 652,
+          "action_steps": 14,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state();ql=(Rotation.from_euler('y',10,degrees=True)*tcp_pose(s,'left')[1]).as_quat()[[3,0,1,2]]\nrobo.move_feature('left',source=[.077694,-.101127,.774597],target=[.077694,-.101127,.754],quaternion=ql.tolist(),steps=14,subgoal='用当前双目唇沿高度修正簸口，前倾使高出的入口贴桌',expected_feedback='唇沿降低约2厘米，簸底正立稳定，待物可跨唇')",
+          "code_sha256": "a18ba5ff6be7cb11e4ff13d3c963a117d5fc1c46c7ed246c28fb8f234a92fd19",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 14,
+            "executed_rows": 14,
+            "executed_waypoints": 0,
+            "action_steps": 14,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.12732617497451662,
+                -0.03031525015830991,
+                0.9615692326740191,
+                0.6216555955061828,
+                -0.05797504946774813,
+                0.7809849558023662,
+                0.015675236056933335
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.25833022594451904,
+                -0.17984139919281006,
+                0.9407934546470642,
+                0.2776433361268387,
+                0.06237414775401212,
+                0.7159911734063932,
+                0.6374796335573839
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 652,
+              "tracking_error_m": {
+                "left": 0.0005472512947535963,
+                "right": 8.952672209935318e-05
+              }
+            },
+            "step": 652,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 12,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "9a225ccd3bce6f8a5c6e76ba7312eb4a76a46660c6f0798a80afc5b195954f39",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 13,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "e15001e23728bc6cffcd9450b1761a158e1b5a1fb93b98742eebfe6c177b1932",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 13,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "620f70018f4f29d21738940675f0c40bda1b0c92beb09706907c7ebf8a130099",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 14,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "c3e0e284bd9cdd0c1fbf6ed88fa42123594568b0ac71eb0e38755b1331d1552b",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 14,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "4a9e551faaf9c209ad02f854862ac8217a39d0c10342bca17a190a02216d2e32",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 7,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 176,
+          "step_after": 200,
+          "action_steps": 24,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "qbrush=(Rotation.from_euler('z',-14,degrees=True)*Rotation.from_euler('x',20,degrees=True)*tcp_pose(sb,'right')[1]).as_quat()[[3,0,1,2]].round(6).tolist()\nprint('brush orientation',qbrush)\nrobo.move_features({'left':{'source':[-.159,-.211,.854],'target':[.015,-.035,.795],'quaternion':[.669769,-.051378,.740182,-.030008]},'right':{'source':[.194,-.121,.851],'target':[.295,.02,.81],'quaternion':qbrush}},steps=24,subgoal='两工具在目标两侧上方对齐，暂停检查工作边',expected_feedback='簸箕入口在目标左边、刷头在蓝色目标右边，工具尚留有少量高度余量')",
+          "code_sha256": "2101c7b34a70a0d3305fca93b7e0593040cdf36d52b8aae9bbebffb855dac616",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 24,
+            "executed_waypoints": 0,
+            "action_steps": 24,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.2095850163598567,
+                0.016518270044779695,
+                0.9628344346744508,
+                0.6697689713898143,
+                -0.05137799780531179,
+                0.7401819683820176,
+                -0.030007998718163332
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.4130456213278986,
+                -0.26405531958004,
+                0.9008222619210517,
+                0.5765139776456708,
+                -0.06093199763736186,
+                0.1824489929255405,
+                0.7941229692078826
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 200,
+              "tracking_error_m": {
+                "left": 0.0017373468894441798,
+                "right": 0.0008008536187675447
+              }
+            },
+            "step": 200,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 10,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 292,
+          "step_after": 302,
+          "action_steps": 10,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "ql=(Rotation.from_euler('x',6.4,degrees=True)*tcp_pose(s292,'left')[1]).as_quat()[[3,0,1,2]].round(6).tolist()\nrobo.move_feature('left',[.015,-.032,.794],[.015,-.032,.761],quaternion=ql,steps=10,subgoal='按双目测量将簸箕接收唇调平并降至桌面',expected_feedback='整个簸口贴桌，前后端高度差缩小，青绿蓝色仍在唇外')",
+          "code_sha256": "c5076a79de1c0a70613f279064a61119b72f29844162fc2d1d324b6a3c95d6fe",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 10,
+            "executed_rows": 10,
+            "executed_waypoints": 0,
+            "action_steps": 10,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.2117949277207935,
+                -0.033367508091155795,
+                0.901854915918966,
+                0.672047997147492,
+                -0.01382299994132828,
+                0.7402659968579411,
+                0.012909999945203542
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.19704778492450714,
+                -0.26952245831489563,
+                0.9440588355064392,
+                0.5749037253686347,
+                -0.061755765099580244,
+                0.18378938695877212,
+                0.794917224165856
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 302,
+              "tracking_error_m": {
+                "left": 0.021451460811056044,
+                "right": 7.395726573937856e-05
+              }
+            },
+            "step": 302,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 12,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 392,
+          "step_after": 412,
+          "action_steps": 20,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s392=robo.state()\nqstable=(Rotation.from_euler('z',-70,degrees=True)*tcp_pose(s392,'right')[1]).as_quat()[[3,0,1,2]].round(6).tolist()\nprint(qstable)\nrobo.move_feature('right',[.071,.005,.83],[.085,-.065,.815],quaternion=qstable,steps=20,subgoal='用稳定中柄抓持将刷边转到蓝色目标右侧',expected_feedback='刷头长边沿簸口方向，刷毛朝左，青绿在盘内，蓝色在唇外')",
+          "code_sha256": "d362650222e88aee1f6044af6d8a9b6e52214ca351fe3acef1f103f4a5444baf",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 20,
+            "executed_waypoints": 0,
+            "action_steps": 20,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.1893848180770874,
+                -0.033160168677568436,
+                0.9297974109649658,
+                0.6092011286695278,
+                0.0031456183405574258,
+                0.7923757374298528,
+                0.03169827511908935
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.05821676069077394,
+                -0.18742445803039176,
+                0.9788426950903704,
+                0.5570080616761136,
+                -0.43557604823024965,
+                0.5570390616795462,
+                0.4355720482298067
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 412,
+              "tracking_error_m": {
+                "left": 0.00013104728170919047,
+                "right": 0.0008379162805755268
+              }
+            },
+            "step": 412,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 14,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 574,
+          "step_after": 594,
+          "action_steps": 20,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s574=robo.state()\nqtilt=(Rotation.from_euler('x',-30,degrees=True)*tcp_pose(s574,'right')[1]).as_quat()[[3,0,1,2]].round(6).tolist()\nrobo.move_feature('right',[.28,-.04,.89],[.10,-.07,.79],quaternion=qtilt,steps=20,subgoal='降低刷头前缘而抬高夹指，修正未接触物体的刷毛高度',expected_feedback='刷毛向下倾斜，工作边落在两剩余目标右侧，手指不压桌')",
+          "code_sha256": "1f01a35c5a898d058de46a8fdee84734f6342d6cf8c7c15a1e0d781354e29502",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 20,
+            "executed_waypoints": 0,
+            "action_steps": 20,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.19074855744838715,
+                -0.032779958099126816,
+                0.9298275113105774,
+                0.6091656500186631,
+                0.002003069869464208,
+                0.7923688231528003,
+                0.03263198804675559
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.06707587027082534,
+                -0.1360793654266623,
+                0.995532694116974,
+                0.423260918261129,
+                -0.5665428905909474,
+                0.6498078745110649,
+                0.2786199461937573
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 594,
+              "tracking_error_m": {
+                "left": 0.00013053077757707883,
+                "right": 0.0013873721186328876
+              }
+            },
+            "step": 594,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 18,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 760,
+          "step_after": 778,
+          "action_steps": 18,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "qfinal=(Rotation.from_euler('y',-15,degrees=True)*tcp_pose(s760,'right')[1]).as_quat()[[3,0,1,2]].round(6).tolist()\nrobo.move_feature('right',[.205,-.071,.82],[.09,-.066,.77],quaternion=qfinal,steps=18,subgoal='保持刷边朝左，略降左侧刷毛到盘口外两目标右侧',expected_feedback='刷边沿两目标所在行触桌，稳定抓持近刷头柄段，簸箕已自然贴桌')",
+          "code_sha256": "b50b271ad5e600fff3a60e1f228f8f7a2b1c243a75526684385d12f03a4b5597",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 18,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.339374840259552,
+                -0.15895774960517883,
+                1.1234216690063477,
+                0.705959453983934,
+                -0.0012479564434979373,
+                0.7082500605303695,
+                0.0012424548881044344
+              ],
+              "left_ee_joint_state": [
+                1.0
+              ],
+              "right_ee_pose": [
+                0.11615319094408112,
+                -0.13696970665936734,
+                0.9386095913043957,
+                0.39634625859184086,
+                -0.6872614483963188,
+                0.30420719847670485,
+                0.527294344027507
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 778,
+              "tracking_error_m": {
+                "left": 8.846162289639143e-05,
+                "right": 0.0011606409635824418
+              }
+            },
+            "step": 778,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 15,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "9a832c9ae093f7659ffa6c198495d321a3d29afcbe0bc6b7efa8110e851c6eba",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 15,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "f1c00748f02bb47084034a456fddb98750ec90f7610ee96a9359753a16e6e7d3",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 16,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "d0c82090eaf86add120edd2a58aa39ecbede4b9fdb6851ed5bf2d4c85106f002",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 16,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "71ae0ef2d281cb5bc809e6b95f4da1517a5abe9e57bad8353a3d5f07ee021bbf",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 17,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "4cf362499d9f071970f7115d3e203b69777aeb9bd2eaa8addfe6c314cdf4964f",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 11,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 475,
+          "step_after": 491,
+          "action_steps": 16,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "rnow=tcp_pose(robo.state(),'right')[1]\nqnew=(Rotation.from_rotvec([-.25,0,0])*rnow).as_quat()[[3,0,1,2]]\nprint('adapted brush quaternion',qnew)\nrobo.move_feature('right',source=[.2193,-.0144,.8154],target=[.17,-.065,.758],quaternion=qnew.tolist(),steps=16,subgoal='Angle actual brush edge down and place behind remaining yellow and cyan',expected_feedback='Brush edge reaches table with receiving lip aligned; pause at uncertain contact')",
+          "code_sha256": "614dd37c7a8e27ffb32ce66098b8b077908af7c3a8f872a9c7f85660cb8f8973",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 16,
+            "executed_rows": 16,
+            "executed_waypoints": 0,
+            "action_steps": 16,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.15132147073745728,
+                -0.014168677851557732,
+                0.9444207549095154,
+                0.7315077886358418,
+                0.0895532456934818,
+                0.6757201649088832,
+                -0.016698206082524685
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.2438264042854309,
+                -0.19214255203575148,
+                0.9375748827531882,
+                0.4219696142274994,
+                -0.5173950829358364,
+                0.44626202085079614,
+                0.5958977945660466
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 491,
+              "tracking_error_m": {
+                "left": 0.00014352375116102718,
+                "right": 0.00039293789591897296
+              }
+            },
+            "step": 491,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 17,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "f4d457b60a6e37d941ea95eba465528dd45f3d7f1ff12fe830fa804a2ae95eda",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 8,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 288,
+          "step_after": 306,
+          "action_steps": 18,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "sl=robo.state(); pl,rl=robo.tcp_pose(sl,'left')\nqlevel=(Rotation.from_euler('x',85,degrees=True)*rl).as_quat()[[3,0,1,2]].tolist()\nprint('level q',qlevel)\nrobo.move_features({'left':{'source':((pa+pb)/2).tolist(),'target':[.10,-.05,.859],'quaternion':qlevel},'right':{'source':((edgefar+edgenear)/2).tolist(),'target':[.44,-.05,.78]}},steps=18,subgoal='根据当前两帧刚性几何将竖起簸箕转为正立并把刷缘移到目标外侧',expected_feedback='盘内面朝上，唇横跨前后方向；刷缘保持目标右侧，重新观察后接桌')",
+          "code_sha256": "64c386203a0377819bc3ce49cfeb0cc077e975f48f2d380965933a443ad570d9",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 18,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.12256995842983916,
+                -0.17271467268558902,
+                0.9039959766883302,
+                0.5200395284585023,
+                0.4793172020761098,
+                0.5208525699017794,
+                0.4780444634773004
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.4525752316627444,
+                -0.18195011469877034,
+                0.9548155843018253,
+                0.5025031954264852,
+                0.49746141694993223,
+                0.5024325639169778,
+                -0.49757833146967867
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 306,
+              "tracking_error_m": {
+                "left": 0.0015440823482044638,
+                "right": 0.0005764513119050388
+              }
+            },
+            "step": 306,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 10,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 359,
+          "step_after": 373,
+          "action_steps": 14,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s359=robo.state(); pr,rr=robo.tcp_pose(s359,'right')\nq30=(Rotation.from_euler('z',30,degrees=True)*rr).as_quat()[[3,0,1,2]].tolist()\nrobo.move_feature('right',source=[.287,.020,.75],target=[.287,.020,.79],quaternion=q30,steps=14,subgoal='抬高刷缘并转腕三十度，避开腕关节正负π连续性边界',expected_feedback='刷头离开目标后转向，工具仍在右手，目标移动以RGB重核')",
+          "code_sha256": "25a07cdf17533e5ce7c000e6573ebbbd22dca339e8ee8b676a8ac4d548515111",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 14,
+            "executed_rows": 14,
+            "executed_waypoints": 0,
+            "action_steps": 14,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.258615106344223,
+                -0.29324889183044434,
+                0.9604660868644714,
+                0.5193472721636705,
+                0.47804366559647427,
+                0.5178149558917532,
+                0.48334287636631446
+              ],
+              "left_ee_joint_state": [
+                1.0
+              ],
+              "right_ee_pose": [
+                0.3643189718540647,
+                -0.08835631217025743,
+                0.9640673184394837,
+                0.6144126854735696,
+                0.34991769815714713,
+                0.6146591116903527,
+                -0.34964100569239037
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 373,
+              "tracking_error_m": {
+                "left": 4.8330555867172183e-05,
+                "right": 0.0008375217177607347
+              }
+            },
+            "step": 373,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 12,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 574,
+          "step_after": 586,
+          "action_steps": 12,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "ss=robo.state(); pp,rot=robo.tcp_pose(ss,'left'); ax=np.array([-.423,.906,0]); ax/=np.linalg.norm(ax); qpitch=(Rotation.from_rotvec(ax*np.deg2rad(20))*rot).as_quat()[[3,0,1,2]].tolist()\nrobo.move_feature('left',source=[-.047,-.08,.78],target=[-.047,-.08,.752],quaternion=qpitch,gripper=.23,steps=12,subgoal='抬柄并向下倾斜簸口，使盘的接收边压近桌面',expected_feedback='入口薄边贴桌而盘底不翻转；停止观察唇和两件物体')",
+          "code_sha256": "65ca74d6ffbd32a6d36d84d8851203910bdbf09eab532f25a6fd226038c6d589",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 12,
+            "executed_rows": 12,
+            "executed_waypoints": 0,
+            "action_steps": 12,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.19372870860975017,
+                -0.15548170213950077,
+                0.964428063796179,
+                0.5617443650568674,
+                -0.16404986043984635,
+                0.7991737475107312,
+                0.13730343370133638
+              ],
+              "left_ee_joint_state": [
+                0.23
+              ],
+              "right_ee_pose": [
+                0.2113669365644455,
+                -0.17099498212337494,
+                1.0178871154785156,
+                0.6571035783024515,
+                0.2557166373600458,
+                0.6700376081879651,
+                -0.23210664008842138
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 586,
+              "tracking_error_m": {
+                "left": 0.0009141102187030366,
+                "right": 9.033652954008962e-05
+              }
+            },
+            "step": 586,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 16,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 776,
+          "step_after": 776,
+          "action_steps": 0,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "left_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.439736008644104,
+                "current_delta_joint_index": 5,
+                "max_target_delta_rad": 0.4619399309158325,
+                "target_delta_joint_index": 5,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "sz=robo.state(); pz,rz=robo.tcp_pose(sz,'left'); qz=(Rotation.from_euler('z',-60,degrees=True)*rz).as_quat()[[3,0,1,2]].tolist(); robo.move_feature('left',source=[-.23,-.07,.80],target=[-.20,-.12,.755],quaternion=qz,steps=20,subgoal='把簸口转向正右并移到全部目标左侧，入口贴桌',expected_feedback='开口横跨前后、朝右，蓝块也在入口外侧；重新检视后扫入')",
+          "code_sha256": "befe06be2710fbeee3c98f77571002d6fabba8f7a7fb82e32548d0b004b49ec1",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 0,
+            "executed_waypoints": 0,
+            "action_steps": 0,
+            "discarded_rows": 20,
+            "last_command": null,
+            "last_tracking": null,
+            "step": 776,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "left_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.439736008644104,
+                  "current_delta_joint_index": 5,
+                  "max_target_delta_rad": 0.4619399309158325,
+                  "target_delta_joint_index": 5,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 17,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 776,
+          "step_after": 800,
+          "action_steps": 24,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "sm=robo.state(); pm,rm=robo.tcp_pose(sm,'left'); qm=(Rotation.from_euler('z',-10,degrees=True)*rm).as_quat()[[3,0,1,2]].tolist(); robo.move_feature('left',source=[-.23,-.07,.80],target=[-.23,-.07,.80],quaternion=qm,steps=24,subgoal='小角度转盘口，避开左腕连续性限制',expected_feedback='盘口向右转动而不下降撞桌')",
+          "code_sha256": "d82e76aa0411fe61b55ad051f61e7d1f4870cfc38eb7abbce10acd7c5486a397",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 24,
+            "executed_waypoints": 0,
+            "action_steps": 24,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.28087535656497803,
+                -0.35288046233855674,
+                0.8964771628379823,
+                0.2920612699897474,
+                0.4474495266737753,
+                0.7354510693965232,
+                0.4166543653616287
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3971698582172394,
+                -0.1252649873495102,
+                1.0436941385269165,
+                0.6576754776686967,
+                0.25445010212904534,
+                0.6702712498945171,
+                -0.2312024289764531
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 800,
+              "tracking_error_m": {
+                "left": 0.014505967202674127,
+                "right": 0.00010422357896137067
+              }
+            },
+            "step": 800,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 18,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 800,
+          "step_after": 802,
+          "action_steps": 2,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "left_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.2653898298740387,
+                "current_delta_joint_index": 4,
+                "max_target_delta_rad": 0.21259397268295288,
+                "target_delta_joint_index": 4,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "sn=robo.state(); pn,rn=robo.tcp_pose(sn,'left'); qn=(Rotation.from_euler('z',-50,degrees=True)*rn).as_quat()[[3,0,1,2]].tolist(); robo.move_feature('left',source=[-.229,-.066,.826],target=[-.20,-.12,.755],quaternion=qn,steps=20,subgoal='完成入口朝右转向并接桌',expected_feedback='盘唇朝向右侧全体目标，落位后即可短扫')",
+          "code_sha256": "24aa9e303b5fe91cf2892d3dfbe286b3d7d543bff1f70a932cbbd9a05f83c69f",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 2,
+            "executed_waypoints": 0,
+            "action_steps": 2,
+            "discarded_rows": 18,
+            "last_command": {
+              "left_ee_pose": [
+                -0.302512577814772,
+                -0.3526654123482901,
+                0.9038806418418884,
+                0.30794081714829163,
+                0.4800365364224774,
+                0.7047321123342444,
+                0.422007140553887
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.39707428216934204,
+                -0.12523119151592255,
+                1.0436699390411377,
+                0.6577120156207373,
+                0.2543303795695449,
+                0.6703008152501185,
+                -0.23114449941788515
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 802,
+              "tracking_error_m": {
+                "left": 0.007423166746474825,
+                "right": 0.00010222313441645635
+              }
+            },
+            "step": 802,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "left_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.2653898298740387,
+                  "current_delta_joint_index": 4,
+                  "max_target_delta_rad": 0.21259397268295288,
+                  "target_delta_joint_index": 4,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 19,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 818,
+          "step_after": 838,
+          "action_steps": 20,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "sq=robo.state(); pq,rq=robo.tcp_pose(sq,'left'); qq=(Rotation.from_euler('z',-45,degrees=True)*rq).as_quat()[[3,0,1,2]].tolist(); robo.move_feature('left',source=[-.23,.01,.83],target=[-.18,-.12,.755],quaternion=qq,steps=20,subgoal='转正入口并低位落在目标左侧',expected_feedback='盘口朝右且接桌，目标位于开口前侧')",
+          "code_sha256": "b8f1b87c5192c0d7952ac337b9a41a0cdf604d96e8cd585523c603bbb231e47b",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 20,
+            "executed_waypoints": 0,
+            "action_steps": 20,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.4323324436219368,
+                -0.27054120258577674,
+                0.8365196466445923,
+                0.4407946236113236,
+                0.7063893782034913,
+                0.4734718046163221,
+                0.2872953121615451
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3968847393989563,
+                -0.1251641809940338,
+                1.0436222553253174,
+                0.6577843691981105,
+                0.2540931505741319,
+                0.6703593404256193,
+                -0.23102975820028887
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 838,
+              "tracking_error_m": {
+                "left": 0.011506894189498264,
+                "right": 0.00010436024385702317
+              }
+            },
+            "step": 838,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 20,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 876,
+          "step_after": 888,
+          "action_steps": 12,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "sv=robo.state(); pv,rv=robo.tcp_pose(sv,'right'); qv=(Rotation.from_euler('z',40,degrees=True)*rv).as_quat()[[3,0,1,2]].tolist(); robo.move_feature('right',source=[.24,-.127,.75],target=[.24,-.127,.765],quaternion=qv,steps=12,subgoal='调整刷缘角度避开腕关节边界，继续向盘扫',expected_feedback='两黑物留在刷缘左侧，重新核对后继续低位推进')",
+          "code_sha256": "b8bb2e17c72845df4670f218b31b802ab220526162cd05b17d5ccb8bf81f5ea5",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 12,
+            "executed_rows": 12,
+            "executed_waypoints": 0,
+            "action_steps": 12,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.4341912269592285,
+                -0.3143034875392914,
+                0.8703012466430664,
+                0.4300216101928528,
+                0.7078487111579935,
+                0.4799940878077995,
+                0.28920112819398197
+              ],
+              "left_ee_joint_state": [
+                1.0
+              ],
+              "right_ee_pose": [
+                0.3525259976566116,
+                -0.20468522282658716,
+                0.9410538816452027,
+                0.6653109192323635,
+                0.2393014224842287,
+                0.6653880948464949,
+                -0.239488816406454
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 888,
+              "tracking_error_m": {
+                "left": 5.665610392790772e-05,
+                "right": 0.0010550114518258465
+              }
+            },
+            "step": 888,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 18,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "7e31bec23c8b9ccbf1655cbe964c46e1ed4fe2d5cd411127ba6c0cff810e9adb",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 16,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 489,
+          "step_after": 509,
+          "action_steps": 20,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s11=robo.state()\nsource=pixel_to_plane(s11,'head',[383,224],.82)\nrnow=tcp_pose(s11,'right')[1]\nqnew=(rnow*Rotation.from_euler('y',35,degrees=True)).as_quat()[[3,0,1,2]]\nprint('visible brush edge estimate',source,'new wrist',qnew)\nrobo.move_feature('right',source.tolist(),[.205,-.075,.77],quaternion=qnew.tolist(),steps=20,subgoal='倾斜刷头朝下，补偿握柄平移使可见刷缘落到蓝黄右侧',expected_feedback='刷缘而非仅TCP到达桌面工作高度，暂停检查接触')",
+          "code_sha256": "3eb9501c98281ae66df4f06ff506925bb9029da7375c0ce82ea573516ab9f263",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 20,
+            "executed_waypoints": 0,
+            "action_steps": 20,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.4390350878238678,
+                -0.2198459804058075,
+                1.0403333902359009,
+                0.8778531486282508,
+                -0.06243861471775981,
+                0.473367689869275,
+                0.03739383670365963
+              ],
+              "left_ee_joint_state": [
+                1.0
+              ],
+              "right_ee_pose": [
+                0.29286905785709233,
+                -0.011261310840475207,
+                0.9604896252691217,
+                0.24132390052767497,
+                0.7226239124131484,
+                0.3322687051585643,
+                -0.5560350382980145
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 509,
+              "tracking_error_m": {
+                "left": 8.053023171587125e-05,
+                "right": 0.000521000635290908
+              }
+            },
+            "step": 509,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 21,
+          "helper": "move_feature",
+          "statement": "Assign",
+          "step_before": 839,
+          "step_after": 857,
+          "action_steps": 18,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s16=robo.state(); src=pixel_to_plane(s16,'head',[428,193],.77); p,r=tcp_pose(s16,'right'); q=(Rotation.from_euler('z',-20,degrees=True)*r).as_quat()[[3,0,1,2]]\nprint('current brush end',src)\nres=robo.move_feature('right',src.tolist(),[.35,.034,.82],quaternion=q.tolist(),steps=18,subgoal='抬起并重新从绿色右侧摆刷，转腕避开关节极限',expected_feedback='刷端位于绿色右侧且离桌，下一步再下降接触')",
+          "code_sha256": "a68ff40151bac2c93d02283aa1759ceacb9a8dd9eb0e630f161f468a6322a908",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 18,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.3709743916988373,
+                -0.05697723850607872,
+                0.9078026413917542,
+                0.8775346319356822,
+                -0.06273019768639342,
+                0.47371700860540933,
+                0.03987590512672181
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3942439150866975,
+                0.036535840336740705,
+                0.9826789379119873,
+                0.10513281172248619,
+                0.8538757949219856,
+                0.45540555827682305,
+                -0.22901745836561585
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 857,
+              "tracking_error_m": {
+                "left": 0.00012468113994702128,
+                "right": 0.0011261845739637497
+              }
+            },
+            "step": 857,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 18,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "c1f8011190494e9f3378e9f7c70ddb9d915d13b849302bfeef01c09d97881489",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 9,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 353,
+          "step_after": 369,
+          "action_steps": 16,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state(); rp,rr=tcp_pose(s,'right'); edge=pixel_to_plane(s,'head',[475,205],.76)\nprint('estimated edge',edge)\nq=(Rotation.from_rotvec([0,0,.65])*rr).as_quat(); q=[q[3],q[0],q[1],q[2]]\nrobo.move_feature('right',source=edge.tolist(),target=(edge+np.array([.015,0,.055])).tolist(),quaternion=q,steps=16,subgoal='Raise and adjust wrist away from rotation limit around estimated brush edge',expected_feedback='Brush remains held and clear; re-estimate visible edge after turn.')",
+          "code_sha256": "4c86b1214af52429ac84993d9a5c9f965ca2d76412d399151d5473ab356be952",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 16,
+            "executed_rows": 16,
+            "executed_waypoints": 0,
+            "action_steps": 16,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.13947002589702606,
+                -0.01918680965900421,
+                0.963839054107666,
+                0.7316839930916926,
+                0.08858420240426952,
+                0.6756913283794963,
+                -0.015251297995505862
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.4519838275579931,
+                -0.11993063890020617,
+                0.9893811273574831,
+                0.6530133239092037,
+                0.3728007181415088,
+                0.5701683852608187,
+                -0.3309097094364254
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 369,
+              "tracking_error_m": {
+                "left": 0.00013719077743702226,
+                "right": 0.001059141381704829
+              }
+            },
+            "step": 369,
+            "episode_over": false
+          }
+        },
+        {
+          "cell": 11,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 543,
+          "step_after": 561,
+          "action_steps": 18,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "right_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.2702573835849762,
+                "current_delta_joint_index": 3,
+                "max_target_delta_rad": 0.21893310546875,
+                "target_delta_joint_index": 3,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s=robo.state(); rp,rr=tcp_pose(s,'right'); edge=pixel_to_plane(s,'head',[344,181],.785); q=(rr*Rotation.from_rotvec([0,0,np.pi/2])).as_quat(); q=[q[3],q[0],q[1],q[2]];print('brush point',edge,'roll q',q)\nrobo.move_feature('right',source=edge.tolist(),target=[.22,.06,.86],quaternion=q,steps=24,subgoal='Roll broom onto working bristle side away from targets',expected_feedback='Broom remains held; visible bristles point sideways and clear of table.')",
+          "code_sha256": "eff3fd2cc092c0aa1314802b52e2b276d05322f052bde757c49bca612c4bba98",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 18,
+            "executed_waypoints": 0,
+            "action_steps": 18,
+            "discarded_rows": 6,
+            "last_command": {
+              "left_ee_pose": [
+                -0.16268327832221985,
+                0.04480593279004097,
+                0.9420864582061768,
+                0.7301938635708703,
+                0.07686784970769697,
+                0.6785361861530173,
+                -0.022291239662191372
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.20275254214118718,
+                -0.14053976465920115,
+                0.8807924093706483,
+                0.6989040901288879,
+                0.57495875135887,
+                0.3690892069632268,
+                0.21149152309304667
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 561,
+              "tracking_error_m": {
+                "left": 0.0001650435090898259,
+                "right": 0.00145431713329315
+              }
+            },
+            "step": 561,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "right_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.2702573835849762,
+                  "current_delta_joint_index": 3,
+                  "max_target_delta_rad": 0.21893310546875,
+                  "target_delta_joint_index": 3,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 12,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 606,
+          "step_after": 606,
+          "action_steps": 0,
+          "motion_stopped": true,
+          "rejection": {
+            "type": "action_rejected_ik_continuity",
+            "rejected_action_executed": false,
+            "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+            "violations": [
+              {
+                "arm": "left_arm_joint_state",
+                "passed": false,
+                "limit_rad": 0.25,
+                "max_current_delta_rad": 0.4884951114654541,
+                "current_delta_joint_index": 2,
+                "max_target_delta_rad": 0.48851585388183594,
+                "target_delta_joint_index": 2,
+                "error": "joint_target_jump"
+              }
+            ]
+          },
+          "code": "s=robo.state(); lp,lr=tcp_pose(s,'left'); rp,rr=tcp_pose(s,'right')\npl=pixel_to_plane(s,'head',[351,193],.755); br=pixel_to_plane(s,'head',[340,168],.79)\nql=(Rotation.from_rotvec([0,0,np.pi/2])*lr).as_quat(); qr=(Rotation.from_rotvec([0,0,.7])*rr).as_quat()\nprint('lip',pl,'brush',br)\nrobo.move_features({'left':{'source':pl.tolist(),'target':[.12,-.18,.82],'quaternion':[ql[3],ql[0],ql[1],ql[2]]},'right':{'source':br.tolist(),'target':[.15,.15,.88],'quaternion':[qr[3],qr[0],qr[1],qr[2]]}},steps=24,subgoal='Turn empty pan to receive forward sweeps and align brush across X',expected_feedback='Tools remain grasped and clear of four targets; inspect new lip and bristles.')",
+          "code_sha256": "01b7967ac3780addc24616bff64cc59bcaec84152433b03209d1e3af533a994e",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 0,
+            "executed_waypoints": 0,
+            "action_steps": 0,
+            "discarded_rows": 24,
+            "last_command": null,
+            "last_tracking": null,
+            "step": 606,
+            "episode_over": false,
+            "rejection": {
+              "type": "action_rejected_ik_continuity",
+              "rejected_action_executed": false,
+              "reason": "IK targets failed joint continuity checks before dispatch. Neither arm nor gripper executed this action. Replan from the latest observed pose using smaller increments or another approach; do not compensate for the unexecuted suffix.",
+              "violations": [
+                {
+                  "arm": "left_arm_joint_state",
+                  "passed": false,
+                  "limit_rad": 0.25,
+                  "max_current_delta_rad": 0.4884951114654541,
+                  "current_delta_joint_index": 2,
+                  "max_target_delta_rad": 0.48851585388183594,
+                  "target_delta_joint_index": 2,
+                  "error": "joint_target_jump"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cell": 13,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 630,
+          "step_after": 654,
+          "action_steps": 24,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state();lp,lr=tcp_pose(s,'left'); pl=pixel_to_plane(s,'head',[351,211],.755);q=(Rotation.from_rotvec([0,0,np.pi/2])*lr).as_quat()\nrobo.move_feature('left',source=pl.tolist(),target=[.10,-.18,.79],quaternion=[q[3],q[0],q[1],q[2]],steps=24,subgoal='Turn pan opening toward rear and place in front of loose targets',expected_feedback='Pan still upright and empty with receiving lip facing +Y.')",
+          "code_sha256": "31159772eae25245dad8e8ff71b6411528feebdb1e980764a798cfd1083d74cf",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 24,
+            "executed_waypoints": 0,
+            "action_steps": 24,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                0.0930967206603878,
+                -0.4163958999262499,
+                0.9791413879394532,
+                0.53185323113431,
+                -0.42602225004554944,
+                0.533759326419074,
+                0.5007376203749601
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3120887875556946,
+                -0.034358616918325424,
+                0.9488521814346313,
+                0.6581036026864334,
+                0.3020413299985587,
+                0.61322583393407,
+                0.31563390137895975
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 654,
+              "tracking_error_m": {
+                "left": 0.0025168951703078988,
+                "right": 0.0001326130839761532
+              }
+            },
+            "step": 654,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 19,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "982de6f1746e84890ee581db5b50acd561387889b989b5597fad307f8dffb5ad",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 19,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "684db2772a92d74be3215dd30d20a6b70115f0ff004f1f276d4ab698dff351ba",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 20,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "a21570c3bf3407bdfd892f0b98b43f92103d167adad0eb065e1119d7494def57",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 20,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "9c54c1b7a2de68fbbe19f577d84413319c729b4101b392739bdf1f4d477871b9",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 21,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "b86e5d666117ca8ab3117ee74ecab5397c558afc21cadcb0106889e016727a88",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 22,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "d368cf690033c9e9494d453d54e52c06ae830b35e5abd5f270d704310da8e756",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 21,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "ef097c417a5cbb6b28b7481c860e3ecb022d4f760f9c603267429c3947bcc1d9",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 22,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "fefb4d67b6d8b47a770fef2b04be891712e74115dcd2cd595c09765d5f5bff77",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 23,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "59f584e139a1003d5ce9e39fb664da5af8acf5a3ba7c482cbb4768e4f7eb75ca",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 23,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "e2c02b40fb2406bd58d0c71800d656615d56f694422228974f94f1b2bc047fe5",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 9,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 364,
+          "step_after": 388,
+          "action_steps": 24,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "robo.move_features({'left':{'source':[-.182634,-.350189,.8],'target':[.015,-.035,.805],'quaternion':qpan.tolist()},'right':{'source':[.267958,-.085198,.84],'target':[.39,-.07,.805],'quaternion':qbroom.tolist()}},steps=24,subgoal='Orient dustpan mouth right and brush edge across sweep direction above table',expected_feedback='Both tools remain grasped; lip and brush visible above target lanes.')",
+          "code_sha256": "0de73095b50611a6ffb0f47744c29e0e41c0b09f80bf5d602125418eaf74866c",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 24,
+            "executed_rows": 24,
+            "executed_waypoints": 0,
+            "action_steps": 24,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.2079381264937734,
+                -0.08250904705922842,
+                1.0059720325469972,
+                0.7522819986624604,
+                0.01487431304478824,
+                0.652242737748806,
+                0.09181481554630608
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.40348044715929027,
+                -0.28037052602005014,
+                0.9702527189254762,
+                0.5997553613849853,
+                -0.38430368730959097,
+                0.41648290126761733,
+                0.564930239376444
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 388,
+              "tracking_error_m": {
+                "left": 0.0014940876166630156,
+                "right": 0.0010598911291366231
+              }
+            },
+            "step": 388,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "standard",
+      "layout": 24,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "4c123edb1ed76639c1ea6e96a0a4e6f9599958f67247ad131e6bd7edff17af61",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 11,
+          "helper": "move_features",
+          "statement": "Expr",
+          "step_before": 239,
+          "step_after": 259,
+          "action_steps": 20,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state(); pr,rr=tcp_pose(s,'right')\nqrturn=Rotation.from_rotvec([0,0,-.65])*rr\nqwturn=np.roll(qrturn.as_quat(),1).tolist()\n# Free-space tool reposition; estimated visible edge is a geometric anchor, to be rechecked before contact.\nrobo.move_features({'left':{'source':[.0347,-.0823,.818],'target':[.08,-.04,.775]},'right':{'source':[.3252,-.0016,.88],'target':[.405,-.04,.825],'quaternion':qwturn}},steps=20,subgoal='Align pan lip and brush for an initial right-to-left sweep',expected_feedback='Pan lip approaches table left of pieces; brush remains just above and to right of pieces')",
+          "code_sha256": "22d2bae3204d0bdbf029c07026cf207eb4e0e377dc8d34db6a6d6da319ed4492",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 20,
+            "executed_rows": 20,
+            "executed_waypoints": 0,
+            "action_steps": 20,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.12880379648208626,
+                0.003395321923494357,
+                0.9705056972503663,
+                0.7315964373317236,
+                0.09023957288219472,
+                0.6755140077559039,
+                -0.01744413067840491
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.3972633700180457,
+                -0.19701353922970377,
+                1.0232465934753416,
+                0.6654111140745802,
+                -0.3184487703110071,
+                0.49647178502658695,
+                0.4575305417411475
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 259,
+              "tracking_error_m": {
+                "left": 0.000697099712999934,
+                "right": 0.0004938572450402422
+              }
+            },
+            "step": 259,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 24,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "7ce915cc7b496454c624f9d711763d2d2544a71e732768d72b85114af6787209",
+      "incomplete_cell_starts": 0,
+      "confirmed": [
+        {
+          "cell": 15,
+          "helper": "move_feature",
+          "statement": "Expr",
+          "step_before": 753,
+          "step_after": 763,
+          "action_steps": 10,
+          "motion_stopped": false,
+          "rejection": null,
+          "code": "s=robo.state(); r=Rotation.from_quat(np.array(s['right']['tcp_quat'])[[1,2,3,0]])\nq=(Rotation.from_rotvec([-.40,0,0])*r).as_quat()[[3,0,1,2]]\nsource=pixel_to_plane(s,'head',[450,210],.76); target=source.copy();target[2]=.744\nprint('visible brush edge assumed height',source,'quat',np.round(q,6))\nrobo.move_feature('right',source.tolist(),target.tolist(),quaternion=np.round(q,6).tolist(),steps=10,subgoal='Tilt broom head downward while compensating selected visible edge',expected_feedback='Brush lowered to table and gripper lifted clear of nearby targets')",
+          "code_sha256": "c5258dcd35907f897a815e3f927eb033e0fbe97887c0544a18c88578b166fd2e",
+          "parent_receipt": {
+            "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+            "submitted_rows": 10,
+            "executed_rows": 10,
+            "executed_waypoints": 0,
+            "action_steps": 10,
+            "discarded_rows": 0,
+            "last_command": {
+              "left_ee_pose": [
+                -0.16948337852954865,
+                -0.04495266079902649,
+                0.9459240436553955,
+                0.729955593301155,
+                0.09114675714459886,
+                0.6772794492036041,
+                -0.012233076344291561
+              ],
+              "left_ee_joint_state": [
+                0.0
+              ],
+              "right_ee_pose": [
+                0.17532897219675386,
+                -0.16687133533277487,
+                0.9289881124645805,
+                0.6626780262576232,
+                -0.6676680264553445,
+                0.14085300558108926,
+                0.30860601222805073
+              ],
+              "right_ee_joint_state": [
+                0.0
+              ]
+            },
+            "last_tracking": {
+              "step": 763,
+              "tracking_error_m": {
+                "left": 0.00012726078904230054,
+                "right": 0.001082787436750792
+              }
+            },
+            "step": 763,
+            "episode_over": false
+          }
+        }
+      ],
+      "unclassified": [],
+      "robot_binding_changed": false
+    }
+  ],
+  "counts": {
+    "confirmed_simple_calls": 63,
+    "positive_step_calls": 60,
+    "positive_steps": 1058,
+    "zero_step_rejections": 3,
+    "unclassified_mentions": 1
+  },
+  "interpretation": "Only supported unconditional calls with one matching parent receipt and native action prefix are confirmed. Assignment suppresses the cell last-value field but does not mean no invocation. Unsupported source and incomplete cells remain unknown. Counts do not prove physical grasp or causal benefit."
+}

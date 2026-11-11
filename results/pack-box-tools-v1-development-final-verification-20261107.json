@@ -1,0 +1,87 @@
+{
+  "checked_at": "2026-11-06T19:12:13.884607+00:00",
+  "candidate_commit": "cd82ce5499c59e6da6c0505e59618f0d73b41a47",
+  "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-tools-v1-development-closure-20261107.json",
+  "closure_sha256": "302430c94df746b834a082d4b0e0824e38aa1cba69d14e70dc2a0abd9b41985f",
+  "frozen_sources_verified": 267,
+  "native_reports": 4,
+  "counts": {
+    "attempts_closed": 4,
+    "success": 2,
+    "failure": 2,
+    "unscored": 0,
+    "scored": 4,
+    "success_rate_scored": 0.5,
+    "confirmed_success_fraction_closed": 0.5
+  },
+  "registered_pid_count": 58,
+  "registered_process_identities": 56,
+  "policy_workspaces": 4,
+  "live_related_processes": [],
+  "completed_cells": 115,
+  "cell_errors": 1,
+  "moving_cells": 32,
+  "cell_control_steps": 556,
+  "reference_calls": {
+    "inspect_transfer_reference": 30,
+    "match_scene_reference": 58,
+    "prepare_motion_transfer": 60
+  },
+  "accepted_delta_rows": 6885,
+  "rejected_ik_attempts": 93,
+  "control_steps": 7138,
+  "costs": {
+    "steps": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 7138,
+      "known_mean": 1784.5,
+      "partial_lower_bound_cases": 0
+    },
+    "wall_seconds": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 16501.29036271409,
+      "known_mean": 4125.322590678523
+    },
+    "input_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 73161024,
+      "known_mean": 18290256
+    },
+    "cached_input_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 71733632,
+      "known_mean": 17933408
+    },
+    "output_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 215625,
+      "known_mean": 53906.25
+    },
+    "reasoning_output_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 111465,
+      "known_mean": 27866.25
+    },
+    "total_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 73376649,
+      "known_mean": 18344162.25
+    },
+    "uncached_input_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 1427392,
+      "known_mean": 356848
+    }
+  },
+  "batch_wall_seconds": 8531.606464877026,
+  "accepted_runtime_files_verified": 66,
+  "interpretation": "Closed 2000-step development batch only, including its failures. Fresh full50 will use native 1300 with no override; do not inherit any development success."
+}

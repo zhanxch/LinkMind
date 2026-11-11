@@ -1,0 +1,17 @@
+[
+  {
+    "seed": 1,
+    "variant": "random",
+    "layout": 10
+  },
+  {
+    "seed": 1,
+    "variant": "random",
+    "layout": 11
+  },
+  {
+    "seed": 1,
+    "variant": "standard",
+    "layout": 12
+  }
+]

@@ -1,0 +1,101 @@
+{
+  "schema": "roborag.hang-mugs-tools-development.v1",
+  "status": "registered_before_launch",
+  "base_commit": "20be25692ba90dca44ac422835a915821e1740a7",
+  "historical_hang_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "planned_native_attempts": 3,
+  "tasks": [
+    {
+      "task": "hang_mugs",
+      "bank": "artifacts/generalization-v3-full/hang_mugs",
+      "cases_file": "experiments/hang_mugs/cases-tools-v1-development-20261105.json",
+      "case_count": 3,
+      "native_step_limits": {
+        "standard": 800,
+        "random": 800
+      },
+      "preflight_file": "results/hang-mugs-tools-bank-preflight-20261105.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Original native 800 steps, including every cell dispatch and joint hold",
+    "context": "Original full TRAIN retrieval and model-owned record_plan; optional persistent Python cells",
+    "feedback": "Current RGB with paired calibration and measured robot state; no object truth or holding sensor",
+    "execution_guard": null
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure, preserve unknown counters and usage",
+    "retests": "One fresh attempt per registered scene; no automatic retries or full50 expansion",
+    "aggregation": "Three existing development scenes only; historical same-scene results remain separate"
+  },
+  "scope": {
+    "runtime_changes": [
+      "hang_mugs persistent isolated Python cells and measured-joint gripper/hold",
+      "Optional HexaShell RGB surface, stereo correspondence, peg and planar aperture measurements through an observation-only capability",
+      "Feature-relative short TCP interpolation through unchanged execute_chunk validation/compiler",
+      "Brief current-scene grasp and handle/peg alignment prompt"
+    ],
+    "unchanged": [
+      "Other ten task assembled prompts and serialized tool surfaces, including accepted make_toast",
+      "Original full TRAIN and model-owned planning; no phase gates or automatic hanging program",
+      "Native hang IK/delta controller, 800-step budget and scoring; toast guard remains toast-only"
+    ],
+    "interpretation": "First combined hang-mug tools candidate on two prior failures and one prior success regression. Not an independent heldout evaluation or individual-tool causal claim.",
+    "references": [
+      {
+        "repository": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+        "commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+        "usage": "Persistent Python and robot primitive design reference; no upstream task program copied"
+      },
+      {
+        "repository": "https://github.com/HexaFuture/HexaShell",
+        "commit": "d1a2a24dc4c528a652b359fd689398530ef941d8",
+        "files": [
+          "tasks/hang_mugs/tools/precision/tool.py",
+          "tasks/hang_mugs/tools/pegs/tool.py"
+        ],
+        "usage": "Frozen read-only RGB geometry functions; no upstream motion programs, depth fallback or task-stage scheduler"
+      }
+    ]
+  },
+  "development_selection": [
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 1,
+      "reason": "Historical 0/800 failure"
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 3,
+      "reason": "Historical 40/800 failure"
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 2,
+      "reason": "Historical 100/347 success regression"
+    }
+  ],
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "Paused by user; do not resume automatically",
+    "frozen_during_run": true
+  },
+  "toast_supplement_gate": {
+    "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/results/make-toast-python-cells-full50-supplement-closure-20261105.json",
+    "closure_sha256": "592720fe86952b8b7b565a05f263d474507569c2abf40dfd3e1eedd8d7d8e602",
+    "status": "Closed before any hang implementation"
+  },
+  "authorization": "User requested hang mug optimization after the toast supplement, with PyRUA-Lean and HexaShell as design references"
+}

@@ -1,0 +1,623 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "sweep_blocks-0002",
+  "task": "sweep_blocks",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "sweep_blocks",
+  "title": "左手递交扫帚后持簸箕，右手分批扫入方块",
+  "summary": "左手拾起扫帚交给右手，再将簸箕移到方块旁；右手多次从外侧向簸箕入口扫入方块，最后放下工具并撤回双臂。阶段边界为估计值。",
+  "instruction": "Pick up the broom, hand it over to the right hand, then use the dustpan to sweep the blocks.",
+  "episode": 2,
+  "source": {
+    "path": "runtime-data/sweep_blocks/train/episode_0000002.hdf5",
+    "sha256": "b21c7ba5a19b90a6dbe7f9227f25a6cdc074dde85db9c25ccc381754b952cbbb",
+    "frames": 1063,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-28T17:21:12.334315+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "左手拾起扫帚",
+      "summary": "取得扫帚并抬起，为双手交接做准备。",
+      "objects": [
+        "左手夹爪",
+        "扫帚",
+        "桌面"
+      ],
+      "start_frame": 0,
+      "end_frame": 105,
+      "order": 0,
+      "keyframes": [
+        0,
+        52,
+        104
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "扫帚横放在桌面后侧，簸箕位于左前方，彩色方块散落在中间偏右区域。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手伸向扫帚柄，夹住后抬起并调整朝向，将扫帚带到桌面中央上方。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "扫帚离开桌面并随左手移动，右手仍在桌面右侧等待。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "将扫帚交给右手",
+      "summary": "把扫帚从左手转移到右手。",
+      "objects": [
+        "左手夹爪",
+        "右手夹爪",
+        "扫帚"
+      ],
+      "start_frame": 105,
+      "end_frame": 210,
+      "order": 1,
+      "keyframes": [
+        105,
+        157,
+        209
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左手举着扫帚，扫帚柄露出，右手可从右侧接近。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手保持扫帚悬空，右手靠近并夹住柄部；随后左手松开，右手带着扫帚向右侧移开。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "扫帚随右手移动，左手与扫帚分离，交接完成。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "左手抓起簸箕",
+      "summary": "用空出的左手取得簸箕。",
+      "objects": [
+        "左手夹爪",
+        "簸箕",
+        "右手持扫帚"
+      ],
+      "start_frame": 210,
+      "end_frame": 290,
+      "order": 2,
+      "keyframes": [
+        210,
+        249,
+        289
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右手持扫帚停在方块右侧，簸箕仍斜放在桌面左侧。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手移向簸箕手柄，降低夹爪并抓住手柄，随后带动簸箕移动和转向。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "簸箕随左手离开原位置，开口逐渐转向散落方块。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "把簸箕入口对准方块",
+      "summary": "建立左手持簸箕、右手扫入的相对位置。",
+      "objects": [
+        "左手夹爪",
+        "簸箕入口",
+        "右手夹爪",
+        "扫帚刷头",
+        "散落方块"
+      ],
+      "start_frame": 290,
+      "end_frame": 345,
+      "order": 3,
+      "keyframes": [
+        290,
+        317,
+        344
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左手已持住簸箕，方块集中在其右侧，右手扫帚尚在外围。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手将簸箕移到方块左侧，使开口朝右并降低至接近桌面；右手将刷头移向方块外侧。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "簸箕入口面向方块，位置随后基本保持，扫帚已靠近待扫区域。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "先扫入靠近入口的方块",
+      "summary": "通过连续扫动收集簸箕附近的方块。",
+      "objects": [
+        "簸箕",
+        "扫帚刷头",
+        "绿色方块",
+        "左手夹爪",
+        "右手夹爪"
+      ],
+      "start_frame": 345,
+      "end_frame": 575,
+      "order": 4,
+      "keyframes": [
+        345,
+        459,
+        574
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "簸箕保持在左侧，数个绿色方块位于入口右前方，较远处还有黄色和白色方块。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手稳定簸箕，右手降低刷头，从右侧向入口扫动，再向外回撤并重复扫入。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "簸箕内开始出现绿色方块，入口及右侧仍有散落方块；部分刷头接触被右夹爪遮挡。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "向外取位后继续扫入",
+      "summary": "扩大扫动范围，把外侧方块推向簸箕。",
+      "objects": [
+        "右手夹爪",
+        "扫帚",
+        "簸箕",
+        "绿色方块",
+        "黄色方块",
+        "白色方块"
+      ],
+      "start_frame": 575,
+      "end_frame": 715,
+      "order": 5,
+      "keyframes": [
+        575,
+        644,
+        714
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "已有方块进入簸箕，右侧仍有较远的绿色方块以及黄色、白色方块。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手抬起扫帚向右后方移动，在外侧重新降低刷头，再向簸箕入口扫回；左手继续保持簸箕位置。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "更多绿色方块靠近入口或进入簸箕，较远处仍可见黄色和白色方块。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "扫向右侧剩余方块",
+      "summary": "将更远处的散落方块逐步送到簸箕内。",
+      "objects": [
+        "右手夹爪",
+        "扫帚刷头",
+        "黄色方块",
+        "白色方块",
+        "簸箕入口"
+      ],
+      "start_frame": 715,
+      "end_frame": 900,
+      "order": 6,
+      "keyframes": [
+        715,
+        807,
+        899
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "簸箕内已有绿色方块，右后方仍能看到黄色和白色方块。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手再次向右后方伸出扫帚，调整刷头方向后降低，并连续向左侧簸箕入口推进。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "簸箕内可见更多方块，外侧散落范围缩小；方块越过入口的部分过程被扫帚和夹爪遮挡。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "补扫入口附近的方块",
+      "summary": "通过短距离扫动收拢入口外侧的剩余方块。",
+      "objects": [
+        "簸箕",
+        "簸箕入口",
+        "扫帚刷头",
+        "剩余方块",
+        "左手夹爪",
+        "右手夹爪"
+      ],
+      "start_frame": 900,
+      "end_frame": 1030,
+      "order": 7,
+      "keyframes": [
+        900,
+        964,
+        1029
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "多个方块已经聚集在簸箕内，扫帚位于入口右侧，附近仍可见零散方块。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手在入口外侧回撤、调整刷头，再向簸箕内作短距离扫动；左手持续固定簸箕。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "可见方块集中在簸箕内，扫帚仍贴近入口；夹爪遮挡区域是否还有方块无法完全确认。",
+      "parent": "p08"
+    },
+    {
+      "id": "p09",
+      "kind": "phase",
+      "title": "放下工具并撤回双手",
+      "summary": "结束清扫，将收集结果留在桌面上。",
+      "objects": [
+        "左手夹爪",
+        "右手夹爪",
+        "簸箕",
+        "扫帚",
+        "已收集方块",
+        "桌面"
+      ],
+      "start_frame": 1030,
+      "end_frame": 1063,
+      "order": 8,
+      "keyframes": [
+        1030,
+        1046,
+        1062
+      ]
+    },
+    {
+      "id": "p09-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "方块已集中在簸箕中，左手仍持簸箕，右手扫帚位于入口附近。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "双手将簸箕和扫帚留在桌面，松开工具并向两侧撤回。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "簸箕内留有收集的方块，扫帚平放在其右侧，双臂回到两侧，桌面未见明显散落方块。",
+      "parent": "p09"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p08",
+      "target": "p09",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p09",
+      "target": "p09-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p09",
+      "target": "p09-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p09",
+      "target": "p09-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema": "roborag.make-toast-reliability-development.v2",
+  "status": "registered_before_launch",
+  "base_commit": "173e1b43b39226ab3c38abfb3b57967852426e91",
+  "planned_native_attempts": 3,
+  "tasks": [
+    {
+      "task": "make_toast",
+      "bank": "artifacts/generalization-v3-full/make_toast",
+      "cases_file": "experiments/make_toast/cases-reliability-v2-development.json",
+      "case_count": 3,
+      "native_step_limits": {
+        "standard": 1400,
+        "random": 1400
+      },
+      "preflight_file": "results/make-toast-cells-bank-preflight-20261104.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Unmodified native 1400 steps; every cell dispatch counts",
+    "context": "Original full TRAIN retrieval and model-owned plan, persistent isolated Python cells for public computation and validated short moves",
+    "feedback": "Current RGB, paired camera calibration, measured robot poses; gripper is command, no holding truth",
+    "execution_guard": {
+      "kind": "native_ik_continuity",
+      "max_joint_increment_rad": 0.25
+    },
+    "gripper_control": "Measured joint hold for 1-24 native steps; no Cartesian IK"
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure",
+    "retests": "No automatic retry within this batch; preserve all attempts",
+    "aggregation": "Pair with historical same scenes, not independent generalization or causal cell ablation"
+  },
+  "scope": {
+    "runtime_changes": [
+      "make_toast-only measured-joint-hold gripper/settle primitive",
+      "Existing native pre-dispatch IK continuity check at 0.25 rad, with explicit rejected suffix receipts",
+      "Stop subsequent cell motion on final-row >4cm tracking error even if no rows were discarded"
+    ],
+    "unchanged": [
+      "First candidate persistent Python cells, geometry and TCP target sampling",
+      "10 other task prompts/tools and default dispatch",
+      "Original full TRAIN and model-owned planning",
+      "Native task scoring, 1400-step budget and 5400-second wall limit"
+    ],
+    "reference": {
+      "repository": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+      "commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+      "files": [
+        "src/pyrualean/arms.py",
+        "src/pyrualean/sandbox.py"
+      ],
+      "usage": "Design reference only; no upstream runtime dependency or RSI task program copied"
+    },
+    "interpretation": "Three development cases: original standard-l1 failure, first-candidate random-l0 success regression, original standard-l0 success regression. Fresh attempts, no pooling or independent generalization claim."
+  },
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "Paused by explicit user request; do not resume automatically",
+    "frozen_during_run": true
+  },
+  "launch_condition": "First two-case 173e1b4 batch closed and source hashes checked; do not modify its worktree or restart it."
+}

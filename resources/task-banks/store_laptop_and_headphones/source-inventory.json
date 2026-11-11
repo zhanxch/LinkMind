@@ -1,0 +1,25 @@
+{
+  "schema": "roborag.full-train-evidence.v1",
+  "task": "store_laptop_and_headphones",
+  "source_manifest": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/data/runtime-data/store_laptop_and_headphones/train/sources-0-1-2.json",
+  "source_manifest_sha256": "5d8c8ec9f737157c63c828efc800cd8a4bd1237193127cf9afbbb1b76665b619",
+  "train_source_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/store_laptop_and_headphones/train/episode_0000000.hdf5": "3c58e9b07ec0d21ae0ad471484d4565c565fa685b95145dbb4b6c84ad6bbc9dc",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/store_laptop_and_headphones/train/episode_0000001.hdf5": "6efc18249e2e7ca759330555c657037fa4a3eedb2549031fce01b99e515877dd",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/store_laptop_and_headphones/train/episode_0000002.hdf5": "08c0162d701ebbaafeca6e41d5e88fa3927d1af3256082b1d35136dd266099c0"
+  },
+  "metadata_sha256": {
+    "bank.json": "42d967d340dd2dc7d912adce1b0f226f8c8cd3233e707ca6a2d39be38246fb42",
+    "search-index.json": "3e93b0232027057f73cbed0fd9a0831fa542602f6896b24bb3990bd88313abfb",
+    "execution-index.json": "009e1cb78463ea48e5ed6007e1948b097bbba78bbf9c2ea041145b373c580afe",
+    "graphs/store_laptop_and_headphones-0000.json": "2130472556d7cea2244819587b1896cf569cd449529abd7a0e47008d1e4aeee1",
+    "graphs/store_laptop_and_headphones-0001.json": "3ed63a2ee3d33e6fb072167dce5aef756d3d4bbe226b3de0b470b788611f2cb0",
+    "graphs/store_laptop_and_headphones-0002.json": "9aedfeb31edcd5b1d874c6f7c6b5dca94f99b1bd81e233f5b1c3350473ca3d3f"
+  },
+  "counts": {
+    "graphs": 3,
+    "phases": 29,
+    "chunks": 349
+  },
+  "scope": "All preselected TRAIN episodes, complete phase coverage, original actions/states/RGB accessible; no test-usage pruning"
+}

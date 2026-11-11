@@ -1,0 +1,5257 @@
+{
+  "checked_at": "2026-11-06T13:05:23.731745+00:00",
+  "complete": true,
+  "tag": "sweep-blocks-tools-v1-full50-20261106",
+  "root": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools",
+  "candidate_commit": "d5cbac71d47b1265883cd59c9db2a99ba645b164",
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/experiments/sweep_blocks/tools-v1-full50-20261106.json",
+  "protocol_sha256": "f8988cf722f95c6dcb078325d1a0557b40bf23925c22b7b72838720309d37727",
+  "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/results/sweep-blocks-tools-v1-full50-20261106.json",
+  "report_sha256": "43db414e113600f3262fc6d2758c4616923f0f7c2aa4121176c7006e287f4765",
+  "freeze_sha256": "8e8633cda60dd3e3b147bd1ecda9775a45ab370333131dad9515cbfdd693b901",
+  "driver_sha256": "005b60fc0361caf7b7db60caa2eadd9bbd6d71c6314e89157c677985e513b3b1",
+  "frozen_sources_verified": 302,
+  "baseline_native_reports_preserved": 4,
+  "registered_pids": [
+    1458551,
+    1458555,
+    1458562,
+    1458564,
+    1458943,
+    1459073,
+    1459079,
+    1459126,
+    1459202,
+    1459203,
+    1459204,
+    1459206,
+    1459277,
+    1459279,
+    1459693,
+    1459722,
+    1459898,
+    1459904,
+    1459943,
+    1460028,
+    1460032,
+    1460033,
+    1460035,
+    1460108,
+    1460110,
+    1460112,
+    1460180,
+    1460537,
+    1460539,
+    1460541,
+    1463290,
+    1463292,
+    1463661,
+    1463820,
+    1463827,
+    1463864,
+    1463953,
+    1463955,
+    1463956,
+    1463958,
+    1464088,
+    1464235,
+    1464237,
+    1464240,
+    1467798,
+    1467800,
+    1468170,
+    1468295,
+    1468300,
+    1468348,
+    1468424,
+    1468429,
+    1468430,
+    1468431,
+    1468569,
+    1468712,
+    1468715,
+    1469097,
+    1469166,
+    1469168,
+    1469170,
+    1469228,
+    1469229,
+    1469285,
+    1469357,
+    1469358,
+    1469359,
+    1469360,
+    1469515,
+    1469657,
+    1469659,
+    1469661,
+    1472503,
+    1472505,
+    1472879,
+    1473084,
+    1473090,
+    1473137,
+    1473217,
+    1473218,
+    1473219,
+    1473221,
+    1473347,
+    1473515,
+    1473517,
+    1473519,
+    1474629,
+    1474631,
+    1475010,
+    1475147,
+    1475154,
+    1475210,
+    1475276,
+    1475281,
+    1475282,
+    1475284,
+    1475408,
+    1475545,
+    1475547,
+    1475549,
+    1478073,
+    1478075,
+    1478448,
+    1478678,
+    1478686,
+    1478723,
+    1478809,
+    1478814,
+    1478815,
+    1478817,
+    1478961,
+    1479218,
+    1479220,
+    1479222,
+    1479621,
+    1479623,
+    1480003,
+    1480176,
+    1480177,
+    1480244,
+    1480305,
+    1480306,
+    1480307,
+    1480309,
+    1480442,
+    1480590,
+    1480592,
+    1480594,
+    1483516,
+    1483518,
+    1483889,
+    1484061,
+    1484062,
+    1484115,
+    1484190,
+    1484191,
+    1484192,
+    1484195,
+    1484354,
+    1484530,
+    1484532,
+    1484534,
+    1485032,
+    1485034,
+    1485402,
+    1485606,
+    1485607,
+    1485657,
+    1485739,
+    1485740,
+    1485741,
+    1485742,
+    1485907,
+    1486055,
+    1486057,
+    1486060,
+    1488763,
+    1488765,
+    1489168,
+    1489331,
+    1489333,
+    1489375,
+    1489460,
+    1489461,
+    1489462,
+    1489463,
+    1489584,
+    1489765,
+    1489767,
+    1489768,
+    1490652,
+    1490654,
+    1491035,
+    1491196,
+    1491198,
+    1491248,
+    1491325,
+    1491328,
+    1491329,
+    1491331,
+    1491459,
+    1491625,
+    1491627,
+    1491630,
+    1493852,
+    1493854,
+    1494224,
+    1494392,
+    1494394,
+    1494444,
+    1494522,
+    1494547,
+    1494548,
+    1494550,
+    1494684,
+    1494860,
+    1494862,
+    1494864,
+    1496397,
+    1496399,
+    1496780,
+    1496904,
+    1496909,
+    1496955,
+    1497038,
+    1497039,
+    1497040,
+    1497042,
+    1497207,
+    1497396,
+    1497398,
+    1497400,
+    1499571,
+    1499573,
+    1499957,
+    1500103,
+    1500109,
+    1500147,
+    1500232,
+    1500233,
+    1500234,
+    1500236,
+    1500389,
+    1500558,
+    1500560,
+    1500562,
+    1500590,
+    1500592,
+    1500976,
+    1501136,
+    1501149,
+    1501193,
+    1501271,
+    1501273,
+    1501274,
+    1501276,
+    1501433,
+    1501699,
+    1501701,
+    1501702,
+    1504016,
+    1504018,
+    1504395,
+    1504549,
+    1504556,
+    1504601,
+    1504678,
+    1504680,
+    1504681,
+    1504682,
+    1504825,
+    1505015,
+    1505017,
+    1505019,
+    1505071,
+    1505073,
+    1505457,
+    1505653,
+    1505661,
+    1505705,
+    1505786,
+    1505790,
+    1505791,
+    1505792,
+    1505928,
+    1506105,
+    1506107,
+    1506109,
+    1510582,
+    1510584,
+    1510960,
+    1511154,
+    1511159,
+    1511207,
+    1511284,
+    1511285,
+    1511286,
+    1511288,
+    1511416,
+    1511620,
+    1511622,
+    1511624,
+    1512505,
+    1512507,
+    1512871,
+    1513046,
+    1513051,
+    1513096,
+    1513175,
+    1513177,
+    1513178,
+    1513180,
+    1513339,
+    1513512,
+    1513514,
+    1513517,
+    1516586,
+    1516588,
+    1516969,
+    1517169,
+    1517175,
+    1517214,
+    1517304,
+    1517315,
+    1517316,
+    1517318,
+    1517462,
+    1517671,
+    1517673,
+    1517674,
+    1525718,
+    1525720,
+    1526104,
+    1526278,
+    1526286,
+    1526322,
+    1526408,
+    1526413,
+    1526414,
+    1526417,
+    1526679,
+    1526866,
+    1526868,
+    1526870,
+    1527731,
+    1527733,
+    1528110,
+    1528285,
+    1528293,
+    1528336,
+    1528414,
+    1528416,
+    1528417,
+    1528419,
+    1528581,
+    1528831,
+    1528833,
+    1528835,
+    1536468,
+    1536470,
+    1536854,
+    1537033,
+    1537045,
+    1537092,
+    1537163,
+    1537164,
+    1537165,
+    1537167,
+    1537327,
+    1537542,
+    1537544,
+    1537545,
+    1539399,
+    1539401,
+    1539790,
+    1539958,
+    1539967,
+    1540009,
+    1540089,
+    1540090,
+    1540091,
+    1540093,
+    1540233,
+    1540438,
+    1540440,
+    1540442,
+    1547892,
+    1547894,
+    1548284,
+    1548443,
+    1548450,
+    1548498,
+    1548573,
+    1548574,
+    1548575,
+    1548577,
+    1548769,
+    1548973,
+    1548975,
+    1548977,
+    1550060,
+    1550062,
+    1550442,
+    1550601,
+    1550603,
+    1550651,
+    1550730,
+    1550731,
+    1550732,
+    1550733,
+    1550893,
+    1551041,
+    1551043,
+    1551045,
+    1555637,
+    1555639,
+    1556007,
+    1556210,
+    1556216,
+    1556255,
+    1556339,
+    1556340,
+    1556341,
+    1556342,
+    1556501,
+    1556721,
+    1556723,
+    1556724,
+    1558493,
+    1558499,
+    1558870,
+    1559069,
+    1559070,
+    1559114,
+    1559210,
+    1559211,
+    1559212,
+    1559213,
+    1559379,
+    1559676,
+    1559678,
+    1559681,
+    1562622,
+    1562624,
+    1563016,
+    1563158,
+    1563162,
+    1563202,
+    1563287,
+    1563288,
+    1563289,
+    1563290,
+    1563475,
+    1563657,
+    1563659,
+    1563660,
+    1566026,
+    1566028,
+    1566413,
+    1566622,
+    1566623,
+    1566671,
+    1566751,
+    1566752,
+    1566753,
+    1566755,
+    1566954,
+    1567203,
+    1567205,
+    1567208,
+    1574073,
+    1574075,
+    1574517,
+    1575011,
+    1575012,
+    1575060,
+    1575140,
+    1575141,
+    1575142,
+    1575143,
+    1575319,
+    1575735,
+    1575737,
+    1575739,
+    1584871,
+    1584873,
+    1585255,
+    1585463,
+    1585470,
+    1585516,
+    1585595,
+    1585596,
+    1585597,
+    1585599,
+    1585789,
+    1586145,
+    1586147,
+    1586149,
+    1592484,
+    1592488,
+    1592864,
+    1593071,
+    1593078,
+    1593124,
+    1593200,
+    1593201,
+    1593202,
+    1593204,
+    1593362,
+    1593644,
+    1593646,
+    1593647,
+    1594456,
+    1594458,
+    1594838,
+    1595000,
+    1595007,
+    1595045,
+    1595129,
+    1595130,
+    1595131,
+    1595132,
+    1595291,
+    1595639,
+    1595641,
+    1595643,
+    1600734,
+    1600736,
+    1601125,
+    1601274,
+    1601276,
+    1601318,
+    1601403,
+    1601404,
+    1601405,
+    1601407,
+    1601564,
+    1601757,
+    1601759,
+    1601761,
+    1609906,
+    1609908,
+    1610285,
+    1610497,
+    1610501,
+    1610542,
+    1610626,
+    1610627,
+    1610628,
+    1610629,
+    1610815,
+    1611029,
+    1611031,
+    1611033,
+    1615041,
+    1615043,
+    1615432,
+    1615585,
+    1615591,
+    1615635,
+    1615714,
+    1615715,
+    1615716,
+    1615718,
+    1615847,
+    1616085,
+    1616087,
+    1616089,
+    1616766,
+    1616768,
+    1617152,
+    1617542,
+    1617551,
+    1617594,
+    1617679,
+    1617680,
+    1617681,
+    1617683,
+    1617811,
+    1618015,
+    1618017,
+    1618019,
+    1622117,
+    1622119,
+    1622500,
+    1622630,
+    1622632,
+    1622674,
+    1622759,
+    1622760,
+    1622761,
+    1622763,
+    1622921,
+    1623122,
+    1623124,
+    1623126,
+    1625319,
+    1625321,
+    1625685,
+    1625822,
+    1625826,
+    1625873,
+    1625957,
+    1625958,
+    1625959,
+    1625961,
+    1626084,
+    1626283,
+    1626285,
+    1626286,
+    1628716,
+    1628718,
+    1629079,
+    1629276,
+    1629278,
+    1629321,
+    1629406,
+    1629407,
+    1629408,
+    1629410,
+    1629567,
+    1629754,
+    1629756,
+    1629757,
+    1631849,
+    1631851,
+    1632219,
+    1632383,
+    1632384,
+    1632427,
+    1632512,
+    1632513,
+    1632514,
+    1632517,
+    1632694,
+    1632953,
+    1632955,
+    1632956,
+    1633934,
+    1633936,
+    1634300,
+    1634441,
+    1634442,
+    1634485,
+    1634570,
+    1634571,
+    1634572,
+    1634574,
+    1634746,
+    1634947,
+    1634949,
+    1634950,
+    1640155,
+    1640157,
+    1640545,
+    1640746,
+    1640753,
+    1640790,
+    1640879,
+    1640880,
+    1640881,
+    1640883,
+    1641056,
+    1641188,
+    1641190,
+    1641192,
+    1641951,
+    1641953,
+    1642335,
+    1642499,
+    1642505,
+    1642545,
+    1642630,
+    1642631,
+    1642632,
+    1642634,
+    1642793,
+    1642982,
+    1642984,
+    1642986,
+    1646288,
+    1646290,
+    1646677,
+    1646993,
+    1647000,
+    1647045,
+    1647122,
+    1647123,
+    1647124,
+    1647125,
+    1647281,
+    1647441,
+    1647443,
+    1647445,
+    1650018,
+    1650020,
+    1650402,
+    1650602,
+    1650608,
+    1650652,
+    1650731,
+    1650732,
+    1650733,
+    1650735,
+    1650948,
+    1651061,
+    1651063,
+    1651451,
+    1651645,
+    1651647,
+    1651649,
+    1651673,
+    1651679,
+    1651726,
+    1651802,
+    1651803,
+    1651804,
+    1651805,
+    1651992,
+    1652286,
+    1652288,
+    1652289
+  ],
+  "registered_process_identities": 700,
+  "policy_workspaces_checked": [
+    "/tmp/roborag-mcp-bmo3lt1t",
+    "/tmp/roborag-mcp-srduznmt",
+    "/tmp/roborag-mcp-78k6hl95",
+    "/tmp/roborag-mcp-_0gk2ujs",
+    "/tmp/roborag-mcp-m2kgjv64",
+    "/tmp/roborag-mcp-3d_f8_iy",
+    "/tmp/roborag-mcp-y2o3u8rr",
+    "/tmp/roborag-mcp-5kjqqm3m",
+    "/tmp/roborag-mcp-gdk8narm",
+    "/tmp/roborag-mcp-ncl86ha8",
+    "/tmp/roborag-mcp-y0ndf1qo",
+    "/tmp/roborag-mcp-g8ehalms",
+    "/tmp/roborag-mcp-dhsiaytn",
+    "/tmp/roborag-mcp-1j3_w883",
+    "/tmp/roborag-mcp-dqk871vs",
+    "/tmp/roborag-mcp-ot145m2t",
+    "/tmp/roborag-mcp-oyjq61_x",
+    "/tmp/roborag-mcp-2tkcjod4",
+    "/tmp/roborag-mcp-bp410xpz",
+    "/tmp/roborag-mcp-z11_md47",
+    "/tmp/roborag-mcp-5ppd138e",
+    "/tmp/roborag-mcp-w48i0at8",
+    "/tmp/roborag-mcp-kdbp7uxc",
+    "/tmp/roborag-mcp-eim0by_m",
+    "/tmp/roborag-mcp-4mwnymsm",
+    "/tmp/roborag-mcp-d4tmn8tt",
+    "/tmp/roborag-mcp-hz4_i7or",
+    "/tmp/roborag-mcp-qn3tl_uc",
+    "/tmp/roborag-mcp-kei08urz",
+    "/tmp/roborag-mcp-5hx_vj3t",
+    "/tmp/roborag-mcp-5v5rzsq6",
+    "/tmp/roborag-mcp-llvkcon1",
+    "/tmp/roborag-mcp-m0rx6zb9",
+    "/tmp/roborag-mcp-dmnhodw1",
+    "/tmp/roborag-mcp-sdkmwcge",
+    "/tmp/roborag-mcp-rtvmqol9",
+    "/tmp/roborag-mcp-lmo2d61b",
+    "/tmp/roborag-mcp-gnj22rpc",
+    "/tmp/roborag-mcp-h3kwzq83",
+    "/tmp/roborag-mcp-jv91f_rd",
+    "/tmp/roborag-mcp-_6uup5w6",
+    "/tmp/roborag-mcp-uu_rm2u_",
+    "/tmp/roborag-mcp-dk0_j1ds",
+    "/tmp/roborag-mcp-htrgfbwp",
+    "/tmp/roborag-mcp-n6tk9jfx",
+    "/tmp/roborag-mcp-txfpap23",
+    "/tmp/roborag-mcp-eekuu0sl",
+    "/tmp/roborag-mcp-wzpbz1jq",
+    "/tmp/roborag-mcp-qncuedmb",
+    "/tmp/roborag-mcp-2ug_x15l"
+  ],
+  "reused_pid_numbers": [],
+  "live_related_processes": [],
+  "rows": [
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 0,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1215.649218795821,
+      "usage": {
+        "input_tokens": 10194804,
+        "cached_input_tokens": 10027392,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28288,
+        "reasoning_output_tokens": 14030
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l0/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+      "native_sha256": "99b780f4e1842dfa81b413ccd2e5302e5827cc349fea4edf978e1bd847986ed3",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l0/ik-continuity.jsonl",
+        "journal_sha256": "40045ad4e74b6aff5cabc9574a8a9f1a8cfee327628542d7f7e88ee19cb0315d",
+        "accepted_delta_rows": 978,
+        "rejected_attempts": 12,
+        "rejected_receipts_verified": 12,
+        "violation_counts": {
+          "joint_target_jump": 5,
+          "ik_failed": 7
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 18,
+        "python_cell": 18,
+        "record_plan": 2,
+        "execute_chunk": 72
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 18,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 0.0,
+        "steps": 1000,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-standard-l0/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+        "native_sha256": "99b780f4e1842dfa81b413ccd2e5302e5827cc349fea4edf978e1bd847986ed3"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 1,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1375.7125752829015,
+      "usage": {
+        "input_tokens": 9337574,
+        "cached_input_tokens": 9172992,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 31112,
+        "reasoning_output_tokens": 17174
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l1/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+      "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l1/ik-continuity.jsonl",
+        "journal_sha256": "94090a4acf43011eaba7981ee4ee0b43fcb7e283f4c62fcde4555ff0e0b619d0",
+        "accepted_delta_rows": 974,
+        "rejected_attempts": 6,
+        "rejected_receipts_verified": 6,
+        "violation_counts": {
+          "joint_target_jump": 3,
+          "ik_failed": 3
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 16,
+        "python_cell": 16,
+        "record_plan": 2,
+        "execute_chunk": 71
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 16,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 0.0,
+        "steps": 1000,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-standard-l1/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+        "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 0,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2618.8862970040645,
+      "usage": {
+        "input_tokens": 8652950,
+        "cached_input_tokens": 8456704,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28898,
+        "reasoning_output_tokens": 14889
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l0/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+      "native_sha256": "99b780f4e1842dfa81b413ccd2e5302e5827cc349fea4edf978e1bd847986ed3",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l0/ik-continuity.jsonl",
+        "journal_sha256": "122381b796a1e513d62550a1b7df511aae628eb3c7697d9bc1c52e4c1ca08a6a",
+        "accepted_delta_rows": 973,
+        "rejected_attempts": 12,
+        "rejected_receipts_verified": 12,
+        "violation_counts": {
+          "joint_target_jump": 7,
+          "ik_failed": 5
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "record_plan": 3,
+        "python_cell_start": 14,
+        "python_cell": 14,
+        "execute_chunk": 72
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 14,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 2,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 3,
+        "calls": [
+          {
+            "cell": 7,
+            "cell_step_before": 286,
+            "cell_step_after": 310,
+            "step_after": 310,
+            "step_before": 286,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "045ae487b7875767f2c5e85ccab4108ee6ce194bf657ce25aac6b83a6a8a12f8",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.013692106616855049,
+                  -0.026483610553429557,
+                  0.8399235921372802
+                ],
+                "target": [
+                  0.015,
+                  -0.025,
+                  0.84
+                ],
+                "error_m": 0.001979273487269332,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "right": {
+                "xyz": [
+                  0.3937516059357424,
+                  -0.02484382768732238,
+                  0.8797987614926558
+                ],
+                "target": [
+                  0.395,
+                  -0.025,
+                  0.88
+                ],
+                "error_m": 0.0012741171326683099,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 10,
+            "cell_step_before": 403,
+            "cell_step_after": 405,
+            "step_after": 405,
+            "step_before": 403,
+            "action_steps": 2,
+            "motion_stopped": true,
+            "helper": "move_feature",
+            "source_sha256": "95e31d5357da9db3dffd738caacee0c73bac288527fd33550e204f1244f054d9",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.4006455861301917,
+                  -0.200463626929651,
+                  0.8768610614300694
+                ],
+                "target": [
+                  0.38,
+                  -0.025,
+                  0.79
+                ],
+                "error_m": 0.19687195989963932,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 12,
+            "cell_step_before": 509,
+            "cell_step_after": 532,
+            "step_after": 532,
+            "step_before": 509,
+            "action_steps": 23,
+            "motion_stopped": true,
+            "helper": "move_feature",
+            "source_sha256": "7b3a644a06d6861610c5b792e641749a6788593b9c7fe7b9f3ad12b39bec8597",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.14252658174964083,
+                  -0.16430105469419515,
+                  0.8334158717565435
+                ],
+                "target": [
+                  0.16,
+                  -0.19,
+                  0.82
+                ],
+                "error_m": 0.033848807219321,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 3,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 0.0,
+        "steps": 1000,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-random-l0/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+        "native_sha256": "99b780f4e1842dfa81b413ccd2e5302e5827cc349fea4edf978e1bd847986ed3"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 2,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 835,
+      "steps_complete": true,
+      "wall_seconds": 1074.0019151498564,
+      "usage": {
+        "input_tokens": 6669269,
+        "cached_input_tokens": 6530816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 22563,
+        "reasoning_output_tokens": 10182
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l2/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l2/_result.json",
+      "native_sha256": "cc6468b7f7528bd52d7561d2f877115ef92241bd4a3fd3868f48e41f5da17fd0",
+      "independent_action_rows_verified": 835,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l2/ik-continuity.jsonl",
+        "journal_sha256": "40b11d796974e1a7e44f0de3986749cc18cb2f620603e64172184aa19c6cc6c6",
+        "accepted_delta_rows": 788,
+        "rejected_attempts": 2,
+        "rejected_receipts_verified": 2,
+        "violation_counts": {
+          "joint_target_jump": 1,
+          "ik_failed": 1
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 12,
+        "python_cell": 12,
+        "record_plan": 2,
+        "execute_chunk": 59
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 12,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 3,
+        "calls": [
+          {
+            "cell": 6,
+            "cell_step_before": 179,
+            "cell_step_after": 197,
+            "step_after": 197,
+            "step_before": 179,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "6f44a9667b9993ba5cc17bbe1f7a4daae0a3ff297378f9a8d3e6b7d4599811c4",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.27947151113970364,
+                  0.004696458966360964,
+                  0.8202721957445889
+                ],
+                "target": [
+                  0.28,
+                  0.005,
+                  0.82
+                ],
+                "error_m": 0.0006674789569209966,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 10,
+            "cell_step_before": 261,
+            "cell_step_after": 279,
+            "step_after": 279,
+            "step_before": 261,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "9da8d270e6d5481c43f687f0a44e9777e811f5a3c91b90dbdc3dc42396b85de1",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.2655154779518971,
+                  -0.08501393533833101,
+                  0.7756960709159898
+                ],
+                "target": [
+                  0.265,
+                  -0.085,
+                  0.775
+                ],
+                "error_m": 0.0008662715697939527,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "left": {
+                "xyz": [
+                  0.040772876328742436,
+                  -0.05312472295900546,
+                  0.7602642316967991
+                ],
+                "target": [
+                  0.0409,
+                  -0.05355,
+                  0.76
+                ],
+                "error_m": 0.0005165649804084847,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 12,
+            "cell_step_before": 666,
+            "cell_step_after": 686,
+            "step_after": 686,
+            "step_before": 666,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "d23c16132820c492f8ac9e849cc89ef7f7ff9e6ff69bb3a3888770683aced129",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.07583969839755247,
+                  0.06405774235202094,
+                  0.8052038076767543
+                ],
+                "target": [
+                  0.075,
+                  0.065,
+                  0.805
+                ],
+                "error_m": 0.001278468006299406,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 3,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": null,
+        "native_score": null,
+        "steps": 268,
+        "native_result": null,
+        "native_sha256": null
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 1,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1585.250087690074,
+      "usage": {
+        "input_tokens": 11361038,
+        "cached_input_tokens": 11182848,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 34654,
+        "reasoning_output_tokens": 18030
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l1/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l1/_result.json",
+      "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l1/ik-continuity.jsonl",
+        "journal_sha256": "c2729bf0575e7bbc754789c1a70a4353e0e2d8033772be80e79da3b70a1be625",
+        "accepted_delta_rows": 976,
+        "rejected_attempts": 12,
+        "rejected_receipts_verified": 12,
+        "violation_counts": {
+          "joint_target_jump": 10,
+          "ik_failed": 2
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 15,
+        "python_cell": 15,
+        "record_plan": 2,
+        "execute_chunk": 79
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 15,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 0.0,
+        "steps": 1000,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-random-l1/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l1/_result.json",
+        "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 2,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1451.2631651640404,
+      "usage": {
+        "input_tokens": 9999262,
+        "cached_input_tokens": 9829248,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 32678,
+        "reasoning_output_tokens": 17076
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l2/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l2/_result.json",
+      "native_sha256": "7046d2412d1e4cde0c60664ae5a70e1e0e9f31989a426b7893c00433afd7feb5",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l2/ik-continuity.jsonl",
+        "journal_sha256": "2f0a805880dcf26b2a262fa552668bef7f8b96c85f746523be1c219e744eba50",
+        "accepted_delta_rows": 938,
+        "rejected_attempts": 11,
+        "rejected_receipts_verified": 11,
+        "violation_counts": {
+          "joint_target_jump": 9,
+          "ik_failed": 2
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 22,
+        "python_cell": 22,
+        "record_plan": 2,
+        "execute_chunk": 74
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 22,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 5,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": null,
+        "native_score": null,
+        "steps": null,
+        "native_result": null,
+        "native_sha256": null
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 3,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1228.8702034729067,
+      "usage": {
+        "input_tokens": 7853135,
+        "cached_input_tokens": 7705344,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 25833,
+        "reasoning_output_tokens": 11608
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l3/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l3/_result.json",
+      "native_sha256": "e953b1c725f5dcc1b342774f0f89e01409eec6a9814f5fd19c5b4b5b4affc1ef",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l3/ik-continuity.jsonl",
+        "journal_sha256": "ed70077c094f61924b8654ee12669e9a3cb95b6643898d6e7963718f33e2d912",
+        "accepted_delta_rows": 960,
+        "rejected_attempts": 4,
+        "rejected_receipts_verified": 4,
+        "violation_counts": {
+          "joint_target_jump": 2,
+          "ik_failed": 2
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 14,
+        "python_cell": 14,
+        "record_plan": 2,
+        "execute_chunk": 65
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 14,
+      "cells_with_errors": 1,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 3,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1304.4009539489634,
+      "usage": {
+        "input_tokens": 10397954,
+        "cached_input_tokens": 10217984,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 29560,
+        "reasoning_output_tokens": 14511
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l3/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l3/_result.json",
+      "native_sha256": "e953b1c725f5dcc1b342774f0f89e01409eec6a9814f5fd19c5b4b5b4affc1ef",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l3/ik-continuity.jsonl",
+        "journal_sha256": "2fb1af2e3e80f7c9fd7f3b2105ceab942525e4cef1572dec252df10d930a87b9",
+        "accepted_delta_rows": 994,
+        "rejected_attempts": 9,
+        "rejected_receipts_verified": 9,
+        "violation_counts": {
+          "joint_target_jump": 6,
+          "ik_failed": 3
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 2,
+        "read_action_reference": 5,
+        "python_cell_start": 20,
+        "python_cell": 20,
+        "execute_chunk": 75
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 20,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 4,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1319.7122788859997,
+      "usage": {
+        "input_tokens": 9207174,
+        "cached_input_tokens": 9037952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 29125,
+        "reasoning_output_tokens": 15463
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l4/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l4/_result.json",
+      "native_sha256": "394fc192b798dd061440317bf387e76b4b59b1d7d2e95ffa92b46b88daed9375",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l4/ik-continuity.jsonl",
+        "journal_sha256": "60137aa4121fa84afef04f7d8ba3cf674082bbfd706b84019cfc6c0292a8c0df",
+        "accepted_delta_rows": 967,
+        "rejected_attempts": 2,
+        "rejected_receipts_verified": 2,
+        "violation_counts": {
+          "joint_target_jump": 1,
+          "ik_failed": 1
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 19,
+        "python_cell": 19,
+        "record_plan": 1,
+        "execute_chunk": 71
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 19,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 1,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 4,
+        "calls": [
+          {
+            "cell": 9,
+            "cell_step_before": 204,
+            "cell_step_after": 226,
+            "step_after": 226,
+            "step_before": 204,
+            "action_steps": 22,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "e15fdfa94435b3dc4b7cbb9573112c0c262bb5aed6ad90516f5915df75a27fff",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.044074734391859355,
+                  -0.051937310438353056,
+                  0.7853066355668115
+                ],
+                "target": [
+                  0.045,
+                  -0.052,
+                  0.785
+                ],
+                "error_m": 0.0009767659891607241,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 11,
+            "cell_step_before": 226,
+            "cell_step_after": 250,
+            "step_after": 250,
+            "step_before": 226,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "ccf647fa7791003eea8f52c19a69730bced076fe77806fc2a960a045354031c9",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.05987371919865925,
+                  -0.04286973464292833,
+                  0.7591904069582434
+                ],
+                "target": [
+                  0.06,
+                  -0.043,
+                  0.759
+                ],
+                "error_m": 0.000263003258131446,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "right": {
+                "xyz": [
+                  0.4179657771879469,
+                  -0.08975288243925963,
+                  0.811706082369213
+                ],
+                "target": [
+                  0.42,
+                  -0.09,
+                  0.81
+                ],
+                "error_m": 0.002666429558125015,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 18,
+            "cell_step_before": 799,
+            "cell_step_after": 809,
+            "step_after": 809,
+            "step_before": 799,
+            "action_steps": 10,
+            "motion_stopped": true,
+            "helper": "move_feature",
+            "source_sha256": "7ee9a260fd554d6c721211c2d3f26b4f40b85f407aaf9f2dc94d6d1c232cc4ee",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.21431386876855046,
+                  -0.0564027107129695,
+                  0.8062988882730948
+                ],
+                "target": [
+                  0.18,
+                  -0.045,
+                  0.815
+                ],
+                "error_m": 0.03719103046102728,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 19,
+            "cell_step_before": 891,
+            "cell_step_after": 907,
+            "step_after": 907,
+            "step_before": 891,
+            "action_steps": 16,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "d3337788dc13c5ebc5ce6352703aaed4ae2aeb888c1573236e3603e882e76350",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.22822477506668123,
+                  0.0041573160157685335,
+                  0.8045707515656699
+                ],
+                "target": [
+                  0.23,
+                  0.005,
+                  0.805
+                ],
+                "error_m": 0.0020114159389673057,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 4,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 4,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1167.6134739280678,
+      "usage": {
+        "input_tokens": 7849606,
+        "cached_input_tokens": 7690368,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 23901,
+        "reasoning_output_tokens": 11868
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l4/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l4/_result.json",
+      "native_sha256": "394fc192b798dd061440317bf387e76b4b59b1d7d2e95ffa92b46b88daed9375",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l4/ik-continuity.jsonl",
+        "journal_sha256": "2d1e4a83b9abf077f8c96631b1e443559077fa0be52ba09bc72fee0743990859",
+        "accepted_delta_rows": 905,
+        "rejected_attempts": 9,
+        "rejected_receipts_verified": 9,
+        "violation_counts": {
+          "joint_target_jump": 6,
+          "ik_failed": 3
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 6,
+        "record_plan": 1,
+        "python_cell_start": 12,
+        "python_cell": 12,
+        "execute_chunk": 64
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 12,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 5,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1296.4875783049501,
+      "usage": {
+        "input_tokens": 10588039,
+        "cached_input_tokens": 10414592,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 29331,
+        "reasoning_output_tokens": 14884
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l5/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l5/_result.json",
+      "native_sha256": "f0a315db3bb5acdc0177bae9a8df1e5b1db26ce14b043f95539d60bf66a931a4",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l5/ik-continuity.jsonl",
+        "journal_sha256": "a93fe8206e0dff8a4672f3a7d658ecb55e28dfd66c60b1a1086c07df53bc78d9",
+        "accepted_delta_rows": 971,
+        "rejected_attempts": 12,
+        "rejected_receipts_verified": 12,
+        "violation_counts": {
+          "joint_target_jump": 4,
+          "ik_failed": 8
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "record_plan": 3,
+        "python_cell_start": 17,
+        "python_cell": 17,
+        "execute_chunk": 77
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 17,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 5,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1233.4086132880766,
+      "usage": {
+        "input_tokens": 7463861,
+        "cached_input_tokens": 7319936,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 27302,
+        "reasoning_output_tokens": 14020
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l5/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l5/_result.json",
+      "native_sha256": "f0a315db3bb5acdc0177bae9a8df1e5b1db26ce14b043f95539d60bf66a931a4",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l5/ik-continuity.jsonl",
+        "journal_sha256": "5b5facec0504faba61d1ef17bee64bba851a7cb41ec942b89e171e363e02ffed",
+        "accepted_delta_rows": 957,
+        "rejected_attempts": 10,
+        "rejected_receipts_verified": 10,
+        "violation_counts": {
+          "ik_failed": 6,
+          "joint_target_jump": 4
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 7,
+        "python_cell_start": 14,
+        "python_cell": 14,
+        "record_plan": 1,
+        "execute_chunk": 64
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 14,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 2,
+        "calls": [
+          {
+            "cell": 9,
+            "cell_step_before": 274,
+            "cell_step_after": 298,
+            "step_after": 298,
+            "step_before": 274,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "929e15a90572ead874504f9ad91345a4ba6212f398129a35f5454ce6a43f929b",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.058266721388090414,
+                  -0.03972973514218259,
+                  0.8001668132018588
+                ],
+                "target": [
+                  0.06,
+                  -0.04,
+                  0.8
+                ],
+                "error_m": 0.0017621363409761014,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 13,
+            "cell_step_before": 308,
+            "cell_step_after": 326,
+            "step_after": 326,
+            "step_before": 308,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "785358e213c3fcc6a4a1b2ae4bc5a917657f0266bbe975ef0713148d3770e9fe",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  -0.16531058905220394,
+                  -0.07708986848158313,
+                  0.8062787428079714
+                ],
+                "target": [
+                  -0.1652,
+                  -0.0774,
+                  0.8062
+                ],
+                "error_m": 0.0003385438331887529,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "right": {
+                "xyz": [
+                  0.3994754085338909,
+                  -0.08548964701336179,
+                  0.7902479465096811
+                ],
+                "target": [
+                  0.4,
+                  -0.085,
+                  0.79
+                ],
+                "error_m": 0.0007592284739600116,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 2,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 6,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1472.1545297869015,
+      "usage": {
+        "input_tokens": 10901820,
+        "cached_input_tokens": 10713600,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 32749,
+        "reasoning_output_tokens": 16700
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l6/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l6/_result.json",
+      "native_sha256": "c3a30d510a34cca846ba52e3af16b746858d71c1ec8a93d0ba89d8e9d78e7cf8",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l6/ik-continuity.jsonl",
+        "journal_sha256": "2dc5ae64d3cad85de51d573497ce1cbee5e9215769c59920698dad95eaa2f7b7",
+        "accepted_delta_rows": 978,
+        "rejected_attempts": 11,
+        "rejected_receipts_verified": 11,
+        "violation_counts": {
+          "joint_target_jump": 7,
+          "ik_failed": 4
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 12,
+        "python_cell": 12,
+        "record_plan": 2,
+        "execute_chunk": 85
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 12,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 1,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 6,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1539.0716243539937,
+      "usage": {
+        "input_tokens": 10523067,
+        "cached_input_tokens": 10343424,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 38277,
+        "reasoning_output_tokens": 22696
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l6/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l6/_result.json",
+      "native_sha256": "c3a30d510a34cca846ba52e3af16b746858d71c1ec8a93d0ba89d8e9d78e7cf8",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l6/ik-continuity.jsonl",
+        "journal_sha256": "581bbb37ccd9d922080d9c25f441531d0a0e1982d769924d90e29b49bbac5381",
+        "accepted_delta_rows": 960,
+        "rejected_attempts": 16,
+        "rejected_receipts_verified": 16,
+        "violation_counts": {
+          "joint_target_jump": 10,
+          "ik_failed": 6
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 2,
+        "read_action_reference": 5,
+        "python_cell_start": 19,
+        "python_cell": 19,
+        "execute_chunk": 73
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 19,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 7,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 536,
+      "steps_complete": true,
+      "wall_seconds": 1018.4257445149124,
+      "usage": {
+        "input_tokens": 3137863,
+        "cached_input_tokens": 3041536,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14026,
+        "reasoning_output_tokens": 5212
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l7/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l7/_result.json",
+      "native_sha256": "0a6c48e1585d26c3ecfe9911fcb4e59335ae6b75a143789a651b0185fbb61144",
+      "independent_action_rows_verified": 536,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l7/ik-continuity.jsonl",
+        "journal_sha256": "700a50a6533c444d11e2a2db2dc13725fe8baef3a67ea8b260d73a6d44d18ecf",
+        "accepted_delta_rows": 488,
+        "rejected_attempts": 0,
+        "rejected_receipts_verified": 0,
+        "violation_counts": {}
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 9,
+        "python_cell": 9,
+        "record_plan": 1,
+        "execute_chunk": 35
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 9,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 1,
+        "calls": [
+          {
+            "cell": 7,
+            "cell_step_before": 180,
+            "cell_step_after": 202,
+            "step_after": 202,
+            "step_before": 180,
+            "action_steps": 22,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "ae6b18a709483727fa588484d1669519ce0748dbe2704dae1d5232c64f26d91e",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.3975068728317077,
+                  -0.09946284490624606,
+                  0.8059155146269459
+                ],
+                "target": [
+                  0.398,
+                  -0.1,
+                  0.805
+                ],
+                "error_m": 0.001170417460142137,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "left": {
+                "xyz": [
+                  -0.035342045070972654,
+                  -0.06487375377945709,
+                  0.8202601514723133
+                ],
+                "target": [
+                  -0.035,
+                  -0.065,
+                  0.82
+                ],
+                "error_m": 0.0004478970052644733,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 1,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 8,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 659,
+      "steps_complete": true,
+      "wall_seconds": 785.0794488550164,
+      "usage": {
+        "input_tokens": 3894665,
+        "cached_input_tokens": 3779840,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15148,
+        "reasoning_output_tokens": 6290
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l8/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l8/_result.json",
+      "native_sha256": "42dc8b169e10d702acfbea193b5de88aa1be5668cc3b2568a32d5b1839010d52",
+      "independent_action_rows_verified": 659,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l8/ik-continuity.jsonl",
+        "journal_sha256": "11bd02f9d7e63267d7c2f40748c35ee8eaaa2578e2fa0c6ded651c3285720bfa",
+        "accepted_delta_rows": 608,
+        "rejected_attempts": 2,
+        "rejected_receipts_verified": 2,
+        "violation_counts": {
+          "joint_target_jump": 2
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 6,
+        "python_cell": 6,
+        "execute_chunk": 47
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 6,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 1,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 7,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 720,
+      "steps_complete": true,
+      "wall_seconds": 991.6273458010983,
+      "usage": {
+        "input_tokens": 5936237,
+        "cached_input_tokens": 5787392,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 21803,
+        "reasoning_output_tokens": 11177
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l7/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l7/_result.json",
+      "native_sha256": "0a6c48e1585d26c3ecfe9911fcb4e59335ae6b75a143789a651b0185fbb61144",
+      "independent_action_rows_verified": 720,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l7/ik-continuity.jsonl",
+        "journal_sha256": "dc2df26d40082abb0471a62752d8de47398446ea9761a2a623a4cdfdf6da8eea",
+        "accepted_delta_rows": 667,
+        "rejected_attempts": 8,
+        "rejected_receipts_verified": 8,
+        "violation_counts": {
+          "ik_failed": 5,
+          "joint_target_jump": 3
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 1,
+        "read_action_reference": 7,
+        "python_cell_start": 14,
+        "python_cell": 14,
+        "execute_chunk": 55
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 14,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 1,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 3,
+        "calls": [
+          {
+            "cell": 10,
+            "cell_step_before": 381,
+            "cell_step_after": 399,
+            "step_after": 399,
+            "step_before": 381,
+            "action_steps": 18,
+            "motion_stopped": true,
+            "helper": "move_feature",
+            "source_sha256": "76d2ebbf2780f92df38574e2bea841971a06fd66cba2485201a930b75431561e",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.03880283623966013,
+                  0.03336983146585583,
+                  0.7866946689871511
+                ],
+                "target": [
+                  0.09,
+                  0.025,
+                  0.775
+                ],
+                "error_m": 0.05317865115428297,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 11,
+            "cell_step_before": 399,
+            "cell_step_after": 421,
+            "step_after": 421,
+            "step_before": 399,
+            "action_steps": 22,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "a469fc57c37104f5e8afff125ded626b5d7f088d13b8f857696a0e2e5da517f3",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.39896065597398256,
+                  -0.0006073089657688269,
+                  0.8400232091015859
+                ],
+                "target": [
+                  0.4,
+                  0.0,
+                  0.84
+                ],
+                "error_m": 0.0012039928765228713,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "left": {
+                "xyz": [
+                  -0.15901044328496372,
+                  0.02521540722620156,
+                  0.7861586059604309
+                ],
+                "target": [
+                  -0.15885866940697138,
+                  0.025129741542665084,
+                  0.7858929371199532
+                ],
+                "error_m": 0.00031773235934876525,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 13,
+            "cell_step_before": 454,
+            "cell_step_after": 466,
+            "step_after": 466,
+            "step_before": 454,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "4c03aa5c7f73bb042b4253b68179584ad0b8f89868f9f08b40cac7d74b79587f",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.18536234610887686,
+                  -0.023922661884040297,
+                  0.760015961132457
+                ],
+                "target": [
+                  0.18534638984650348,
+                  -0.024055612842683205,
+                  0.76
+                ],
+                "error_m": 0.00013485294754770678,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 3,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 8,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1703.515811237041,
+      "usage": {
+        "input_tokens": 10931322,
+        "cached_input_tokens": 10753536,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 32915,
+        "reasoning_output_tokens": 17560
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l8/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l8/_result.json",
+      "native_sha256": "cd57c40cae492011ecdd2461b6d1e747ef13e40caf2d6afd8ed61cd60dec5383",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l8/ik-continuity.jsonl",
+        "journal_sha256": "a12561a56ebd82fc868e6bccf017ceb8a5fcf8e39f55dc8b7898d16d628ff890",
+        "accepted_delta_rows": 970,
+        "rejected_attempts": 15,
+        "rejected_receipts_verified": 15,
+        "violation_counts": {
+          "joint_target_jump": 8,
+          "ik_failed": 7
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 2,
+        "read_action_reference": 4,
+        "python_cell_start": 16,
+        "python_cell": 16,
+        "execute_chunk": 79
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 16,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 9,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1970.5318567459472,
+      "usage": {
+        "input_tokens": 7888081,
+        "cached_input_tokens": 7590528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 27929,
+        "reasoning_output_tokens": 14437
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l9/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l9/_result.json",
+      "native_sha256": "31a63b5121de2bb286b59e10624f26b02a91262397d8849f4601553c8f27f332",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l9/ik-continuity.jsonl",
+        "journal_sha256": "4e48673eb6a24924ac7e74a3c39c82619451c0c957b4db8e073618a175f8e401",
+        "accepted_delta_rows": 936,
+        "rejected_attempts": 3,
+        "rejected_receipts_verified": 3,
+        "violation_counts": {
+          "joint_target_jump": 2,
+          "ik_failed": 1
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 7,
+        "python_cell_start": 21,
+        "python_cell": 21,
+        "record_plan": 1,
+        "execute_chunk": 66
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 21,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 2,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 6,
+        "calls": [
+          {
+            "cell": 5,
+            "cell_step_before": 160,
+            "cell_step_after": 184,
+            "step_after": 184,
+            "step_before": 160,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "bbf8c22c1477c4c52e2a00eb1318d7cb0731ff6a73cd39c7ea48f7711de0adc3",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.06335885145927145,
+                  -0.06521676138576159,
+                  0.8001590661237966
+                ],
+                "target": [
+                  0.065,
+                  -0.065,
+                  0.8
+                ],
+                "error_m": 0.001663026176231875,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "right": {
+                "xyz": [
+                  0.37804613435929624,
+                  -0.06518333121395822,
+                  0.8804209324249851
+                ],
+                "target": [
+                  0.38,
+                  -0.065,
+                  0.88
+                ],
+                "error_m": 0.0020070838005270143,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 6,
+            "cell_step_before": 184,
+            "cell_step_after": 202,
+            "step_after": 202,
+            "step_before": 184,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "f24906b18a1e1762297f43ae9f6b8f40ffb5e8cec8349c519e655cc5688fca58",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  -0.15987657763228494,
+                  -0.06269361455342684,
+                  0.791984196374383
+                ],
+                "target": [
+                  -0.159764,
+                  -0.062792,
+                  0.791527
+                ],
+                "error_m": 0.0004810217709597579,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "right": {
+                "xyz": [
+                  0.36144940383354135,
+                  -0.07051163115842862,
+                  0.7980893039818073
+                ],
+                "target": [
+                  0.36,
+                  -0.072,
+                  0.795
+                ],
+                "error_m": 0.0037228768947220486,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 8,
+            "cell_step_before": 210,
+            "cell_step_after": 219,
+            "step_after": 219,
+            "step_before": 210,
+            "action_steps": 9,
+            "motion_stopped": true,
+            "helper": "move_feature",
+            "source_sha256": "c126cc9efee97decc4f3ac537c6ebc19a0cccbb061069dd5394faf0efd1515d2",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.37647966584821013,
+                  -0.03934385989001271,
+                  0.8152531018095083
+                ],
+                "target": [
+                  0.38,
+                  -0.07,
+                  0.86
+                ],
+                "error_m": 0.054355097062314776,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 10,
+            "cell_step_before": 296,
+            "cell_step_after": 312,
+            "step_after": 312,
+            "step_before": 296,
+            "action_steps": 16,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "7ddf490ddc97c978c3f78e0b6fb6d44821c06fe0b9a581f2da437aad9ea92029",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.12400186777741191,
+                  -0.18957054572006815,
+                  0.8495194213385494
+                ],
+                "target": [
+                  0.125,
+                  -0.19,
+                  0.85
+                ],
+                "error_m": 0.0011881307849567902,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 12,
+            "cell_step_before": 329,
+            "cell_step_after": 347,
+            "step_after": 347,
+            "step_before": 329,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "d3a1314913b94aaad815a1e6f55cbd904d00eb0f5fca81ef7e01818d6f995c99",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.14901752770077092,
+                  -0.17990423321859367,
+                  0.8195690961366315
+                ],
+                "target": [
+                  0.15,
+                  -0.18,
+                  0.82
+                ],
+                "error_m": 0.0010770799574029814,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "left": {
+                "xyz": [
+                  -0.16122693479941558,
+                  -0.10676404812142784,
+                  0.7920217519453778
+                ],
+                "target": [
+                  -0.161115,
+                  -0.106983,
+                  0.792016
+                ],
+                "error_m": 0.00024597237512799714,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 14,
+            "cell_step_before": 495,
+            "cell_step_after": 505,
+            "step_after": 505,
+            "step_before": 495,
+            "action_steps": 10,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "f3a2ab10c9b38bade0ce39db896e5aa4c7f7a39844d2713a746d8adb6b3e4dbe",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.058787086068840255,
+                  0.0275910525584855,
+                  0.7513218555486274
+                ],
+                "target": [
+                  0.058838,
+                  0.028023,
+                  0.751
+                ],
+                "error_m": 0.0005410746850475533,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 6,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 9,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1505.6105377108324,
+      "usage": {
+        "input_tokens": 10121266,
+        "cached_input_tokens": 9937152,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 27444,
+        "reasoning_output_tokens": 14080
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l9/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l9/_result.json",
+      "native_sha256": "31a63b5121de2bb286b59e10624f26b02a91262397d8849f4601553c8f27f332",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l9/ik-continuity.jsonl",
+        "journal_sha256": "471b03529b0aafecd0a13bab38d63d9d20f22eef109bcb152d6ad8969e1f0764",
+        "accepted_delta_rows": 986,
+        "rejected_attempts": 5,
+        "rejected_receipts_verified": 5,
+        "violation_counts": {
+          "ik_failed": 2,
+          "joint_target_jump": 3
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "record_plan": 1,
+        "python_cell_start": 10,
+        "python_cell": 10,
+        "execute_chunk": 84
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 10,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 1,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 2,
+        "calls": [
+          {
+            "cell": 6,
+            "cell_step_before": 275,
+            "cell_step_after": 295,
+            "step_after": 295,
+            "step_before": 275,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "be33d5528719efaebf9ad26a7883883cdb6c2f7044f6e6aa440ee239dc4e7ec8",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.37866022761349993,
+                  -0.055398296875105335,
+                  0.8700932957848267
+                ],
+                "target": [
+                  0.38,
+                  -0.055,
+                  0.87
+                ],
+                "error_m": 0.0014008335203774965,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 8,
+            "cell_step_before": 523,
+            "cell_step_after": 538,
+            "step_after": 538,
+            "step_before": 523,
+            "action_steps": 15,
+            "motion_stopped": true,
+            "helper": "move_feature",
+            "source_sha256": "24376b0289f47ab152898806c43c63ef6dd8975e53ed58f58abdc5dac86f899a",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.3466932192532167,
+                  0.001057170824005249,
+                  0.8856541548302722
+                ],
+                "target": [
+                  0.32,
+                  0.02,
+                  0.88
+                ],
+                "error_m": 0.033216384483202084,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 2,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 10,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 3858.5559321709443,
+      "usage": {
+        "input_tokens": 9942202,
+        "cached_input_tokens": 9769344,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 34287,
+        "reasoning_output_tokens": 19860
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l10/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l10/_result.json",
+      "native_sha256": "c5974d4b4246bc31ba26e09420d6cfa4bdf9d4385e64ef777005adbdd18c0d6a",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l10/ik-continuity.jsonl",
+        "journal_sha256": "00d6f1a58a56049f89cc4f194d6d6d990cce3d7fc57989d64576558fad74d510",
+        "accepted_delta_rows": 946,
+        "rejected_attempts": 13,
+        "rejected_receipts_verified": 13,
+        "violation_counts": {
+          "joint_target_jump": 13
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 19,
+        "python_cell": 19,
+        "execute_chunk": 75
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 19,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 1,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 10,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 3141.6582170829643,
+      "usage": {
+        "input_tokens": 12549469,
+        "cached_input_tokens": 12349312,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 33580,
+        "reasoning_output_tokens": 17039
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l10/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l10/_result.json",
+      "native_sha256": "c5974d4b4246bc31ba26e09420d6cfa4bdf9d4385e64ef777005adbdd18c0d6a",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l10/ik-continuity.jsonl",
+        "journal_sha256": "00d91dadbc526d909ceff6f417282da448ce3ae66a0bbd76b3fc45ce5a5bf278",
+        "accepted_delta_rows": 974,
+        "rejected_attempts": 10,
+        "rejected_receipts_verified": 10,
+        "violation_counts": {
+          "joint_target_jump": 2,
+          "ik_failed": 8
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 4,
+        "record_plan": 1,
+        "python_cell_start": 33,
+        "python_cell": 33,
+        "execute_chunk": 80
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 33,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 6,
+        "calls": [
+          {
+            "cell": 24,
+            "cell_step_before": 475,
+            "cell_step_after": 491,
+            "step_after": 491,
+            "step_before": 475,
+            "action_steps": 16,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "8de899e47b30d902598406d38548f64dc4dca8b5ee10ad492985f87140d44ee3",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.15911484631922895,
+                  -0.1298687215402764,
+                  0.7553513953110161
+                ],
+                "target": [
+                  0.16,
+                  -0.13,
+                  0.755
+                ],
+                "error_m": 0.0009613582772172225,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "right": {
+                "xyz": [
+                  0.36514830090042905,
+                  -0.18023165731056418,
+                  0.765229154224406
+                ],
+                "target": [
+                  0.365,
+                  -0.18,
+                  0.765
+                ],
+                "error_m": 0.00035800827528004083,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 28,
+            "cell_step_before": 511,
+            "cell_step_after": 531,
+            "step_after": 531,
+            "step_before": 511,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "b4934f8ddaf791a3fb67d94126af527c4035a9c8a3f3d79add142387c0389714",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.35822747816678807,
+                  -0.1694866013825006,
+                  0.8496572339660531
+                ],
+                "target": [
+                  0.36,
+                  -0.17,
+                  0.85
+                ],
+                "error_m": 0.0018769390889666396,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 29,
+            "cell_step_before": 556,
+            "cell_step_after": 568,
+            "step_after": 568,
+            "step_before": 556,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "09325903a6d9bb65059e20a8f42d02f1d7d5f38acebf23f48c466bd5489a5be3",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.27679723338802603,
+                  -0.13042165452500779,
+                  0.7550091928164642
+                ],
+                "target": [
+                  0.27700450816212546,
+                  -0.13039744811150356,
+                  0.755
+                ],
+                "error_m": 0.00020888583079580006,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 30,
+            "cell_step_before": 568,
+            "cell_step_after": 580,
+            "step_after": 580,
+            "step_before": 568,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "d1a0777109c965ba6cac1ebc9005b860a27736dad964eced6d0ed5bee3539c37",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.20186805880558423,
+                  -0.10880685702993106,
+                  0.7550722799486853
+                ],
+                "target": [
+                  0.20118781458245472,
+                  -0.10871227495799408,
+                  0.755
+                ],
+                "error_m": 0.0006905811772810745,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 32,
+            "cell_step_before": 844,
+            "cell_step_after": 856,
+            "step_after": 856,
+            "step_before": 844,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "5f8c85cfee7eac14beb97d61620037dcc21295d5b47c6fade562f2e1efbb99ad",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.05123339595014759,
+                  -0.01174713005036171,
+                  0.7715237852965859
+                ],
+                "target": [
+                  0.04744900385901439,
+                  -0.013444989780621919,
+                  0.77
+                ],
+                "error_m": 0.004418854239863791,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 33,
+            "cell_step_before": 898,
+            "cell_step_after": 912,
+            "step_after": 912,
+            "step_before": 898,
+            "action_steps": 14,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "705d4d1126583906088a1a3504b4756b90bb3e5d8f3d477c231a50062ab03b1b",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.15896761183357036,
+                  0.11349404317598703,
+                  0.8094830422971793
+                ],
+                "target": [
+                  0.16,
+                  0.115,
+                  0.81
+                ],
+                "error_m": 0.0018976239217718934,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 6,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 11,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2431.73321569385,
+      "usage": {
+        "input_tokens": 8357126,
+        "cached_input_tokens": 8056320,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 27823,
+        "reasoning_output_tokens": 14623
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l11/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l11/_result.json",
+      "native_sha256": "f9548b7553b154a1fa09515fa64bfbe1ca7d70e83d3b839c54daa130678fb366",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l11/ik-continuity.jsonl",
+        "journal_sha256": "68441522130c96e0f7ff4ed267d9af8334c712c0cf1125785a21f515fbe0e38e",
+        "accepted_delta_rows": 961,
+        "rejected_attempts": 5,
+        "rejected_receipts_verified": 5,
+        "violation_counts": {
+          "joint_target_jump": 5
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 16,
+        "python_cell": 16,
+        "execute_chunk": 65
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 16,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 11,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2587.260655716993,
+      "usage": {
+        "input_tokens": 9105625,
+        "cached_input_tokens": 8916608,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 31203,
+        "reasoning_output_tokens": 17147
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l11/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l11/_result.json",
+      "native_sha256": "f9548b7553b154a1fa09515fa64bfbe1ca7d70e83d3b839c54daa130678fb366",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l11/ik-continuity.jsonl",
+        "journal_sha256": "baa921863a1470d749e7060b9a6057f3b5092bfc11cfc03d84da0bd0e6a2ddd9",
+        "accepted_delta_rows": 943,
+        "rejected_attempts": 12,
+        "rejected_receipts_verified": 12,
+        "violation_counts": {
+          "ik_failed": 7,
+          "joint_target_jump": 5
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 2,
+        "read_action_reference": 6,
+        "python_cell_start": 21,
+        "python_cell": 21,
+        "execute_chunk": 70
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 21,
+      "cells_with_errors": 1,
+      "truncated_or_stopped_cells": 3,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 1,
+        "calls": [
+          {
+            "cell": 10,
+            "cell_step_before": 256,
+            "cell_step_after": 274,
+            "step_after": 274,
+            "step_before": 256,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "141616a38ad6b233a27fa1501549dd5323829fc5c422cf249627d85083335d21",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.10014552514154035,
+                  -0.03979765541952483,
+                  0.7707112030986379
+                ],
+                "target": [
+                  0.1,
+                  -0.04,
+                  0.77
+                ],
+                "error_m": 0.0007536117989921564,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [
+          11,
+          13,
+          17,
+          19,
+          20,
+          21
+        ],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 7,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 12,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2992.6387724091765,
+      "usage": {
+        "input_tokens": 12327229,
+        "cached_input_tokens": 12094720,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 32296,
+        "reasoning_output_tokens": 15617
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l12/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l12/_result.json",
+      "native_sha256": "d8c45f399544bb76dfd7955165d4b56b1c364380eb1bfb3d4e86e5317d71b6f0",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l12/ik-continuity.jsonl",
+        "journal_sha256": "0d712af46e56e01820ffbd69810f36e24247b6f268707dcf534e4c793fd2d1c1",
+        "accepted_delta_rows": 938,
+        "rejected_attempts": 9,
+        "rejected_receipts_verified": 9,
+        "violation_counts": {
+          "ik_failed": 3,
+          "joint_target_jump": 6
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 8,
+        "python_cell_start": 26,
+        "python_cell": 26,
+        "record_plan": 2,
+        "execute_chunk": 83
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 26,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 2,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 4,
+        "calls": [
+          {
+            "cell": 8,
+            "cell_step_before": 162,
+            "cell_step_after": 185,
+            "step_after": 185,
+            "step_before": 162,
+            "action_steps": 23,
+            "motion_stopped": true,
+            "helper": "move_features",
+            "source_sha256": "a52af9863f9eb7195e3b00a1a2a67dff66cad872f9826861fc636ae0cee031f8",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.026499554639715622,
+                  -0.002395293437408042,
+                  0.8139489766834972
+                ],
+                "target": [
+                  0.035,
+                  -0.005,
+                  0.815
+                ],
+                "error_m": 0.008952469916856595,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "right": {
+                "xyz": [
+                  0.29403976045065217,
+                  -0.1541701197622646,
+                  0.9209383801825302
+                ],
+                "target": [
+                  0.3,
+                  -0.15,
+                  0.92
+                ],
+                "error_m": 0.0073345014611904645,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 15,
+            "cell_step_before": 395,
+            "cell_step_after": 410,
+            "step_after": 410,
+            "step_before": 395,
+            "action_steps": 15,
+            "motion_stopped": true,
+            "helper": "move_feature",
+            "source_sha256": "126954c80cf1b027c0ed8506e6595c00466765a848dc11ed9f174fab4feedb66",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.23496726797341602,
+                  0.029169909961807017,
+                  0.9176637996948723
+                ],
+                "target": [
+                  0.24,
+                  0.035,
+                  0.89
+                ],
+                "error_m": 0.02871592163004452,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 21,
+            "cell_step_before": 618,
+            "cell_step_after": 638,
+            "step_after": 638,
+            "step_before": 618,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "57ae2456fb712f2a59a057f012e9b235961e9be9ee4f8ab0ccdcab98abd7e0d3",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.1589138740962935,
+                  0.01005395401758967,
+                  0.8394874714173565
+                ],
+                "target": [
+                  0.16,
+                  0.01,
+                  0.84
+                ],
+                "error_m": 0.0012021921904349846,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 23,
+            "cell_step_before": 638,
+            "cell_step_after": 652,
+            "step_after": 652,
+            "step_before": 638,
+            "action_steps": 14,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "a18ba5ff6be7cb11e4ff13d3c963a117d5fc1c46c7ed246c28fb8f234a92fd19",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.07757722315134133,
+                  -0.10097682809201305,
+                  0.7542077647190863
+                ],
+                "target": [
+                  0.077694,
+                  -0.101127,
+                  0.754
+                ],
+                "error_m": 0.0002816995080366948,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 4,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 12,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2841.1290134859737,
+      "usage": {
+        "input_tokens": 10286886,
+        "cached_input_tokens": 10106112,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28248,
+        "reasoning_output_tokens": 13826
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l12/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l12/_result.json",
+      "native_sha256": "d8c45f399544bb76dfd7955165d4b56b1c364380eb1bfb3d4e86e5317d71b6f0",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l12/ik-continuity.jsonl",
+        "journal_sha256": "4f097311af1ff9b243ae4ee0059be95ed7abada21d4872812716efaec83fe2f6",
+        "accepted_delta_rows": 990,
+        "rejected_attempts": 22,
+        "rejected_receipts_verified": 22,
+        "violation_counts": {
+          "joint_target_jump": 9,
+          "ik_failed": 13
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 4,
+        "python_cell_start": 17,
+        "python_cell": 17,
+        "record_plan": 1,
+        "execute_chunk": 76
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 17,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 13,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1636.1682272278704,
+      "usage": {
+        "input_tokens": 9636535,
+        "cached_input_tokens": 9467648,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 32329,
+        "reasoning_output_tokens": 18048
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l13/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l13/_result.json",
+      "native_sha256": "5010d6a282216fe01eba42aabe292d5af8a179440d6cc123f26e3cb9af67af4e",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l13/ik-continuity.jsonl",
+        "journal_sha256": "8304f1c09a728d77689d6b8f22bd3ba6803eab805737bac14027899367d6e846",
+        "accepted_delta_rows": 954,
+        "rejected_attempts": 6,
+        "rejected_receipts_verified": 6,
+        "violation_counts": {
+          "joint_target_jump": 1,
+          "ik_failed": 5
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 2,
+        "read_action_reference": 5,
+        "python_cell_start": 28,
+        "python_cell": 28,
+        "execute_chunk": 60
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 28,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 13,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1853.6911144701298,
+      "usage": {
+        "input_tokens": 11887201,
+        "cached_input_tokens": 11704704,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 37703,
+        "reasoning_output_tokens": 19985
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l13/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l13/_result.json",
+      "native_sha256": "5010d6a282216fe01eba42aabe292d5af8a179440d6cc123f26e3cb9af67af4e",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l13/ik-continuity.jsonl",
+        "journal_sha256": "23166150b36230adc600b4a292a1a56b1683e82c2a80d625a7f87a078eae85c9",
+        "accepted_delta_rows": 966,
+        "rejected_attempts": 15,
+        "rejected_receipts_verified": 15,
+        "violation_counts": {
+          "joint_target_jump": 10,
+          "ik_failed": 5
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 4,
+        "python_cell_start": 25,
+        "python_cell": 25,
+        "record_plan": 3,
+        "execute_chunk": 76
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 25,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 14,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 815,
+      "steps_complete": true,
+      "wall_seconds": 1118.9241922239307,
+      "usage": {
+        "input_tokens": 5005993,
+        "cached_input_tokens": 4872576,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19923,
+        "reasoning_output_tokens": 10439
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l14/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l14/_result.json",
+      "native_sha256": "bc39ec9c577a01cbf37d599656e4048b66a01cf73c6dd0b860f0b42aee379d80",
+      "independent_action_rows_verified": 815,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l14/ik-continuity.jsonl",
+        "journal_sha256": "a528b759569ad800c38fb837ddaf1ccf815230f931e4094d7980b894982ebde0",
+        "accepted_delta_rows": 770,
+        "rejected_attempts": 4,
+        "rejected_receipts_verified": 4,
+        "violation_counts": {
+          "joint_target_jump": 2,
+          "ik_failed": 2
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 9,
+        "python_cell": 9,
+        "execute_chunk": 53
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 9,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 14,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2756.5066120689735,
+      "usage": {
+        "input_tokens": 9230500,
+        "cached_input_tokens": 9029248,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 30777,
+        "reasoning_output_tokens": 15809
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l14/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l14/_result.json",
+      "native_sha256": "e13b610683e828d30b404a327a31d444b2f5f9c11744966b606f929ebe2f6805",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l14/ik-continuity.jsonl",
+        "journal_sha256": "e8f219d19de1c75ecd8c3421e00466300d40e2a3f0c1d2578642ab936001bb2e",
+        "accepted_delta_rows": 987,
+        "rejected_attempts": 1,
+        "rejected_receipts_verified": 1,
+        "violation_counts": {
+          "joint_target_jump": 1
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 18,
+        "python_cell": 18,
+        "record_plan": 2,
+        "execute_chunk": 69
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 18,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 5,
+        "calls": [
+          {
+            "cell": 7,
+            "cell_step_before": 176,
+            "cell_step_after": 200,
+            "step_after": 200,
+            "step_before": 176,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "2101c7b34a70a0d3305fca93b7e0593040cdf36d52b8aae9bbebffb855dac616",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.013768320957821212,
+                  -0.03541748989547659,
+                  0.7956861970359376
+                ],
+                "target": [
+                  0.015,
+                  -0.035,
+                  0.795
+                ],
+                "error_m": 0.0014704412425856944,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "right": {
+                "xyz": [
+                  0.29427496820310733,
+                  0.01916456644818415,
+                  0.809976143876082
+                ],
+                "target": [
+                  0.295,
+                  0.02,
+                  0.81
+                ],
+                "error_m": 0.0011064309470786807,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 10,
+            "cell_step_before": 292,
+            "cell_step_after": 302,
+            "step_after": 302,
+            "step_before": 292,
+            "action_steps": 10,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "c5076a79de1c0a70613f279064a61119b72f29844162fc2d1d324b6a3c95d6fe",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.014448175035263022,
+                  -0.025001782484254116,
+                  0.784380436046905
+                ],
+                "target": [
+                  0.015,
+                  -0.032,
+                  0.761
+                ],
+                "error_m": 0.024411561788071107,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 12,
+            "cell_step_before": 392,
+            "cell_step_after": 412,
+            "step_after": 412,
+            "step_before": 392,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "d362650222e88aee1f6044af6d8a9b6e52214ca351fe3acef1f103f4a5444baf",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.08462502299316242,
+                  -0.06452399560638865,
+                  0.8150997676955599
+                ],
+                "target": [
+                  0.085,
+                  -0.065,
+                  0.815
+                ],
+                "error_m": 0.0006141184995353371,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 14,
+            "cell_step_before": 574,
+            "cell_step_after": 594,
+            "step_after": 594,
+            "step_before": 574,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "1f01a35c5a898d058de46a8fdee84734f6342d6cf8c7c15a1e0d781354e29502",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.10101805190919666,
+                  -0.06964357674833668,
+                  0.7908458616501062
+                ],
+                "target": [
+                  0.1,
+                  -0.07,
+                  0.79
+                ],
+                "error_m": 0.0013707476628707015,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 18,
+            "cell_step_before": 760,
+            "cell_step_after": 778,
+            "step_after": 778,
+            "step_before": 760,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "b50b271ad5e600fff3a60e1f228f8f7a2b1c243a75526684385d12f03a4b5597",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.09065005659844488,
+                  -0.0659709287215867,
+                  0.7705150547951931
+                ],
+                "target": [
+                  0.09,
+                  -0.066,
+                  0.77
+                ],
+                "error_m": 0.000829879607209214,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 5,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 15,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 937,
+      "steps_complete": true,
+      "wall_seconds": 3364.4756255610846,
+      "usage": {
+        "input_tokens": 8808001,
+        "cached_input_tokens": 8645504,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28997,
+        "reasoning_output_tokens": 16101
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l15/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l15/_result.json",
+      "native_sha256": "c05f0ced10f4402b26683d761ebeedc814fd73127e0317cc7cbb1ca60f2dec12",
+      "independent_action_rows_verified": 937,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l15/ik-continuity.jsonl",
+        "journal_sha256": "d124c976db6a9e78e925537441abc026b728ab4cace7f9832954acc6d67091c8",
+        "accepted_delta_rows": 894,
+        "rejected_attempts": 5,
+        "rejected_receipts_verified": 5,
+        "violation_counts": {
+          "joint_target_jump": 2,
+          "ik_failed": 3
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 7,
+        "python_cell_start": 11,
+        "python_cell": 11,
+        "record_plan": 2,
+        "execute_chunk": 74
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 11,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 2,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 15,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 5400.313310162863,
+      "usage": null,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l15/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l15/_result.json",
+      "native_sha256": "79ec03ddae0d1160214fc8ebabdfd0929a0390314c37255275234fc4cdc47870",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l15/ik-continuity.jsonl",
+        "journal_sha256": "b9c8ceb6a3548e3e425ff17e950ef9736ef002a4803f3022702e0e5c26276d15",
+        "accepted_delta_rows": 980,
+        "rejected_attempts": 6,
+        "rejected_receipts_verified": 6,
+        "violation_counts": {
+          "joint_target_jump": 4,
+          "ik_failed": 2
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "record_plan": 1,
+        "python_cell_start": 24,
+        "python_cell": 24,
+        "execute_chunk": 88
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 24,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 16,
+      "success": null,
+      "native_score": null,
+      "steps": 812,
+      "steps_complete": false,
+      "wall_seconds": 5400.342576651834,
+      "usage": null,
+      "native_result": null,
+      "native_sha256": null,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 7,
+        "record_plan": 3,
+        "python_cell_start": 21,
+        "python_cell": 21,
+        "execute_chunk": 70
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 21,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 16,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 824,
+      "steps_complete": true,
+      "wall_seconds": 2768.160780448001,
+      "usage": {
+        "input_tokens": 6208350,
+        "cached_input_tokens": 6065920,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 20937,
+        "reasoning_output_tokens": 10210
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l16/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l16/_result.json",
+      "native_sha256": "2ed2c1d65535064cc242e519fd876d834920106809190ee89a7305170edb84ae",
+      "independent_action_rows_verified": 824,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l16/ik-continuity.jsonl",
+        "journal_sha256": "1caf188d7cb02047a6496aee1b2ecc4a4e4ecf43ad3d52372172426aa831d8fd",
+        "accepted_delta_rows": 775,
+        "rejected_attempts": 7,
+        "rejected_receipts_verified": 7,
+        "violation_counts": {
+          "joint_target_jump": 6,
+          "ik_failed": 1
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 7,
+        "python_cell": 7,
+        "execute_chunk": 60
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 7,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 17,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 709,
+      "steps_complete": true,
+      "wall_seconds": 2282.9582013750914,
+      "usage": {
+        "input_tokens": 5291156,
+        "cached_input_tokens": 5158784,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19982,
+        "reasoning_output_tokens": 9636
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l17/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l17/_result.json",
+      "native_sha256": "665a8d51e96dd69593c59397ad78fffecc357909170b69ce1c417aae7d71c6cf",
+      "independent_action_rows_verified": 709,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l17/ik-continuity.jsonl",
+        "journal_sha256": "c7e856a00be6661278e2fb2fc26b81d8346d6f45f4d00563266db0e6594f242e",
+        "accepted_delta_rows": 663,
+        "rejected_attempts": 3,
+        "rejected_receipts_verified": 3,
+        "violation_counts": {
+          "joint_target_jump": 3
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 6,
+        "python_cell_start": 11,
+        "python_cell": 11,
+        "record_plan": 1,
+        "execute_chunk": 50
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 11,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 1,
+        "calls": [
+          {
+            "cell": 11,
+            "cell_step_before": 475,
+            "cell_step_after": 491,
+            "step_after": 491,
+            "step_before": 475,
+            "action_steps": 16,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "614dd37c7a8e27ffb32ce66098b8b077908af7c3a8f872a9c7f85660cb8f8973",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.1702319756831709,
+                  -0.0645622158758487,
+                  0.7585428478529535
+                ],
+                "target": [
+                  0.17,
+                  -0.065,
+                  0.758
+                ],
+                "error_m": 0.0007349499631931931,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 1,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 17,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 4451.668232760858,
+      "usage": {
+        "input_tokens": 12101217,
+        "cached_input_tokens": 11909120,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 44691,
+        "reasoning_output_tokens": 26477
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l17/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l17/_result.json",
+      "native_sha256": "09ed78a032ff16ccea32c149ce710ac1b3dbd601c6201b36e19501e5f26e9fb4",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l17/ik-continuity.jsonl",
+        "journal_sha256": "c75a9fdaf69bdfddb4766afddf32fee2a6580125bf6999637540e81d643cece8",
+        "accepted_delta_rows": 949,
+        "rejected_attempts": 17,
+        "rejected_receipts_verified": 17,
+        "violation_counts": {
+          "joint_target_jump": 14,
+          "ik_failed": 3
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 3,
+        "read_action_reference": 6,
+        "python_cell_start": 20,
+        "python_cell": 20,
+        "execute_chunk": 85
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 20,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 3,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 7,
+        "calls": [
+          {
+            "cell": 8,
+            "cell_step_before": 288,
+            "cell_step_after": 306,
+            "step_after": 306,
+            "step_before": 288,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "64c386203a0377819bc3ce49cfeb0cc077e975f48f2d380965933a443ad570d9",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.09897108292842266,
+                  -0.05140499076183955,
+                  0.849835940775195
+                ],
+                "target": [
+                  0.1,
+                  -0.05,
+                  0.859
+                ],
+                "error_m": 0.009328057185543599,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "right": {
+                "xyz": [
+                  0.43972698028926716,
+                  -0.049955758698855296,
+                  0.7805038621193446
+                ],
+                "target": [
+                  0.44,
+                  -0.05,
+                  0.78
+                ],
+                "error_m": 0.0005747817764039388,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 10,
+            "cell_step_before": 359,
+            "cell_step_after": 373,
+            "step_after": 373,
+            "step_before": 359,
+            "action_steps": 14,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "25a07cdf17533e5ce7c000e6573ebbbd22dca339e8ee8b676a8ac4d548515111",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.28693996031620794,
+                  0.020116454691934696,
+                  0.7895936479349506
+                ],
+                "target": [
+                  0.287,
+                  0.02,
+                  0.79
+                ],
+                "error_m": 0.0004269525262525291,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 12,
+            "cell_step_before": 574,
+            "cell_step_after": 586,
+            "step_after": 586,
+            "step_before": 574,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "65ca74d6ffbd32a6d36d84d8851203910bdbf09eab532f25a6fd226038c6d589",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  -0.046957375666460965,
+                  -0.07985804230990695,
+                  0.7523813657817668
+                ],
+                "target": [
+                  -0.047,
+                  -0.08,
+                  0.752
+                ],
+                "error_m": 0.00040915605713325894,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 17,
+            "cell_step_before": 776,
+            "cell_step_after": 800,
+            "step_after": 800,
+            "step_before": 776,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "d82e76aa0411fe61b55ad051f61e7d1f4870cfc38eb7abbce10acd7c5486a397",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  -0.228653608213222,
+                  -0.06635061085356417,
+                  0.8265203585300783
+                ],
+                "target": [
+                  -0.23,
+                  -0.07,
+                  0.8
+                ],
+                "error_m": 0.02680410842668569,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 18,
+            "cell_step_before": 800,
+            "cell_step_after": 802,
+            "step_after": 802,
+            "step_before": 800,
+            "action_steps": 2,
+            "motion_stopped": true,
+            "helper": "move_feature",
+            "source_sha256": "24aa9e303b5fe91cf2892d3dfbe286b3d7d543bff1f70a932cbbd9a05f83c69f",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  -0.23414121892529383,
+                  -0.06858969694620831,
+                  0.8320735550595253
+                ],
+                "target": [
+                  -0.2,
+                  -0.12,
+                  0.755
+                ],
+                "error_m": 0.09873689776016471,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 19,
+            "cell_step_before": 818,
+            "cell_step_after": 838,
+            "step_after": 838,
+            "step_before": 818,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "b8f1b87c5192c0d7952ac337b9a41a0cdf604d96e8cd585523c603bbb231e47b",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  -0.1847739225765752,
+                  -0.115294937495234,
+                  0.7650986109621682
+                ],
+                "target": [
+                  -0.18,
+                  -0.12,
+                  0.755
+                ],
+                "error_m": 0.012120639145940859,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 20,
+            "cell_step_before": 876,
+            "cell_step_after": 888,
+            "step_after": 888,
+            "step_before": 876,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "b8bb2e17c72845df4670f218b31b802ab220526162cd05b17d5ccb8bf81f5ea5",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.23999152207217742,
+                  -0.12679811054488854,
+                  0.7648363142630661
+                ],
+                "target": [
+                  0.24,
+                  -0.127,
+                  0.765
+                ],
+                "error_m": 0.0002600466262441594,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [
+          16
+        ],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 8,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 18,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 4268.004463949939,
+      "usage": {
+        "input_tokens": 10404169,
+        "cached_input_tokens": 10228224,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 39052,
+        "reasoning_output_tokens": 23066
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l18/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l18/_result.json",
+      "native_sha256": "1095df25ec677e3db821b32b2a65ac78ae9b742db2441859b1cab2dd51f30a20",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l18/ik-continuity.jsonl",
+        "journal_sha256": "27f80149da64302b36654638d61a5fab43495c4766baca9cf831a3330287c12d",
+        "accepted_delta_rows": 982,
+        "rejected_attempts": 13,
+        "rejected_receipts_verified": 13,
+        "violation_counts": {
+          "joint_target_jump": 8,
+          "ik_failed": 5
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 23,
+        "python_cell": 23,
+        "record_plan": 2,
+        "execute_chunk": 73
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 23,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 1,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 1,
+        "calls": [
+          {
+            "cell": 16,
+            "cell_step_before": 489,
+            "cell_step_after": 509,
+            "step_after": 509,
+            "step_before": 489,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "3eb9501c98281ae66df4f06ff506925bb9029da7375c0ce82ea573516ab9f263",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.20429290688272958,
+                  -0.07524681060897417,
+                  0.7703572106754374
+                ],
+                "target": [
+                  0.205,
+                  -0.075,
+                  0.77
+                ],
+                "error_m": 0.0008297563617350627,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [
+          21
+        ],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 2,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 18,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2070.2577576490585,
+      "usage": {
+        "input_tokens": 9382328,
+        "cached_input_tokens": 9204096,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 31053,
+        "reasoning_output_tokens": 16961
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l18/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l18/_result.json",
+      "native_sha256": "1095df25ec677e3db821b32b2a65ac78ae9b742db2441859b1cab2dd51f30a20",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l18/ik-continuity.jsonl",
+        "journal_sha256": "ba306df4a0eef94e0363cd1aa5e42ec7e4b106bba4fe973f25fd88023953a797",
+        "accepted_delta_rows": 981,
+        "rejected_attempts": 15,
+        "rejected_receipts_verified": 15,
+        "violation_counts": {
+          "joint_target_jump": 10,
+          "ik_failed": 5
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 3,
+        "read_action_reference": 5,
+        "python_cell_start": 16,
+        "python_cell": 16,
+        "execute_chunk": 76
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 16,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 3,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 3,
+        "calls": [
+          {
+            "cell": 9,
+            "cell_step_before": 353,
+            "cell_step_after": 369,
+            "step_after": 369,
+            "step_before": 353,
+            "action_steps": 16,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "4c86b1214af52429ac84993d9a5c9f965ca2d76412d399151d5473ab356be952",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.38092409635197666,
+                  0.001991806822330286,
+                  0.8144787485309128
+                ],
+                "target": [
+                  0.38107319775346343,
+                  0.0018375244281316205,
+                  0.8150000000000001
+                ],
+                "error_m": 0.0005636819840216387,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 11,
+            "cell_step_before": 543,
+            "cell_step_after": 561,
+            "step_after": 561,
+            "step_before": 543,
+            "action_steps": 18,
+            "motion_stopped": true,
+            "helper": "move_feature",
+            "source_sha256": "eff3fd2cc092c0aa1314802b52e2b276d05322f052bde757c49bca612c4bba98",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.17898121635090442,
+                  0.05651010990660352,
+                  0.8342297405307691
+                ],
+                "target": [
+                  0.22,
+                  0.06,
+                  0.86
+                ],
+                "error_m": 0.04856774874365478,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          },
+          {
+            "cell": 13,
+            "cell_step_before": 630,
+            "cell_step_after": 654,
+            "step_after": 654,
+            "step_before": 630,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "31159772eae25245dad8e8ff71b6411528feebdb1e980764a798cfd1083d74cf",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.10027755451684335,
+                  -0.17868101209904247,
+                  0.7898838584099226
+                ],
+                "target": [
+                  0.1,
+                  -0.18,
+                  0.79
+                ],
+                "error_m": 0.001352868974305419,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [
+          12
+        ],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 4,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 19,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2001.081329169916,
+      "usage": {
+        "input_tokens": 12087510,
+        "cached_input_tokens": 11889920,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 31632,
+        "reasoning_output_tokens": 15689
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l19/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l19/_result.json",
+      "native_sha256": "8a819348c951a625805a2a07bb7e43c35c05e646df4a66b56ccd84a16fc095d9",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l19/ik-continuity.jsonl",
+        "journal_sha256": "c90ff8a6545c6a4885e6b0354d84d4fd8a2b9a513fff0b1729bcd77c037bb7d2",
+        "accepted_delta_rows": 954,
+        "rejected_attempts": 6,
+        "rejected_receipts_verified": 6,
+        "violation_counts": {
+          "joint_target_jump": 4,
+          "ik_failed": 2
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 21,
+        "python_cell": 21,
+        "record_plan": 2,
+        "execute_chunk": 82
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 21,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 2,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 19,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2585.453654106008,
+      "usage": {
+        "input_tokens": 11550195,
+        "cached_input_tokens": 11355520,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 31343,
+        "reasoning_output_tokens": 14790
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l19/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l19/_result.json",
+      "native_sha256": "8a819348c951a625805a2a07bb7e43c35c05e646df4a66b56ccd84a16fc095d9",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l19/ik-continuity.jsonl",
+        "journal_sha256": "60f4b3d72400991982286714f68d2f8095e1597aba81922e002d3f3af665d00e",
+        "accepted_delta_rows": 937,
+        "rejected_attempts": 21,
+        "rejected_receipts_verified": 21,
+        "violation_counts": {
+          "joint_target_jump": 13,
+          "ik_failed": 8
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 2,
+        "read_action_reference": 5,
+        "python_cell_start": 17,
+        "python_cell": 17,
+        "execute_chunk": 84
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 17,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 20,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1933.518308347091,
+      "usage": {
+        "input_tokens": 9007275,
+        "cached_input_tokens": 8836608,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 34622,
+        "reasoning_output_tokens": 20134
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l20/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l20/_result.json",
+      "native_sha256": "b389ed71b42e9faff00510db10f15f0d68ab1d4eb00d39c0637bd1c0abe499a1",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l20/ik-continuity.jsonl",
+        "journal_sha256": "7aab44521ed80eec947c906c7722dd6e40ba62d442b579b203ba142b1df95c6b",
+        "accepted_delta_rows": 984,
+        "rejected_attempts": 15,
+        "rejected_receipts_verified": 15,
+        "violation_counts": {
+          "joint_target_jump": 9,
+          "ik_failed": 7
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 2,
+        "read_action_reference": 5,
+        "python_cell_start": 22,
+        "python_cell": 22,
+        "execute_chunk": 72
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 22,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 5,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 20,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1852.4979552451987,
+      "usage": {
+        "input_tokens": 11179114,
+        "cached_input_tokens": 10960384,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 32633,
+        "reasoning_output_tokens": 17306
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l20/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l20/_result.json",
+      "native_sha256": "b389ed71b42e9faff00510db10f15f0d68ab1d4eb00d39c0637bd1c0abe499a1",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l20/ik-continuity.jsonl",
+        "journal_sha256": "d9bcd235fc5cb3f8ba96ad8337fd8129800bc3709288f3fcc3eacafe12fbe44d",
+        "accepted_delta_rows": 957,
+        "rejected_attempts": 10,
+        "rejected_receipts_verified": 10,
+        "violation_counts": {
+          "joint_target_jump": 4,
+          "ik_failed": 6
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 22,
+        "python_cell": 22,
+        "execute_chunk": 81
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 22,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 1,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 21,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 769,
+      "steps_complete": true,
+      "wall_seconds": 1305.6367123848759,
+      "usage": {
+        "input_tokens": 6040607,
+        "cached_input_tokens": 5911936,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 17897,
+        "reasoning_output_tokens": 6830
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l21/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l21/_result.json",
+      "native_sha256": "b2a537f7c1c3bdbb0e3adf933c4c260648d7876175be4aac1f7b86b9cd05398a",
+      "independent_action_rows_verified": 769,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l21/ik-continuity.jsonl",
+        "journal_sha256": "77d15c3b6656ff65457c9715de5baf1e09aaa07f2389fc51199b0d08087ebd46",
+        "accepted_delta_rows": 726,
+        "rejected_attempts": 3,
+        "rejected_receipts_verified": 3,
+        "violation_counts": {
+          "joint_target_jump": 3
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 17,
+        "python_cell": 17,
+        "record_plan": 1,
+        "execute_chunk": 51
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 17,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 22,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2012.8770136048552,
+      "usage": {
+        "input_tokens": 9618990,
+        "cached_input_tokens": 9450368,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 35720,
+        "reasoning_output_tokens": 20714
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l22/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l22/_result.json",
+      "native_sha256": "63c2b69f82c685f7b72e68dc1479aa99f860e33c2dedb41a2a8322571a4dd35d",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l22/ik-continuity.jsonl",
+        "journal_sha256": "28ebd719e742b9cfd6676de6bac463d22816df28656bb9991e79c15a1bb48e59",
+        "accepted_delta_rows": 929,
+        "rejected_attempts": 18,
+        "rejected_receipts_verified": 18,
+        "violation_counts": {
+          "ik_failed": 8,
+          "joint_target_jump": 10
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "record_plan": 3,
+        "python_cell_start": 13,
+        "python_cell": 13,
+        "execute_chunk": 72
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 13,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 21,
+      "success": null,
+      "native_score": null,
+      "steps": 750,
+      "steps_complete": false,
+      "wall_seconds": 2817.3493672930636,
+      "usage": null,
+      "native_result": null,
+      "native_sha256": null,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 23,
+        "python_cell": 23,
+        "record_plan": 1,
+        "execute_chunk": 65
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 23,
+      "cells_with_errors": 1,
+      "truncated_or_stopped_cells": 5,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 22,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1559.9226908117998,
+      "usage": {
+        "input_tokens": 9632499,
+        "cached_input_tokens": 9459456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 27869,
+        "reasoning_output_tokens": 13597
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l22/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l22/_result.json",
+      "native_sha256": "63c2b69f82c685f7b72e68dc1479aa99f860e33c2dedb41a2a8322571a4dd35d",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l22/ik-continuity.jsonl",
+        "journal_sha256": "e93a80c849eec4cb2ac879625a2942a38d56afd34447e6556b51fc7718739cbf",
+        "accepted_delta_rows": 978,
+        "rejected_attempts": 9,
+        "rejected_receipts_verified": 9,
+        "violation_counts": {
+          "ik_failed": 6,
+          "joint_target_jump": 3
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 23,
+        "python_cell": 23,
+        "record_plan": 1,
+        "execute_chunk": 72
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 23,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 1,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 23,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2010.1832406369504,
+      "usage": {
+        "input_tokens": 11033505,
+        "cached_input_tokens": 10757376,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 37015,
+        "reasoning_output_tokens": 18169
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l23/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l23/_result.json",
+      "native_sha256": "2ef4c052697e8add57a00d23b985fcfd41203c5544c7029307b95ef3e7a5f9e3",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l23/ik-continuity.jsonl",
+        "journal_sha256": "6b24815895cf60ea98e4c7a4cd018550a6e4b40df32a20d15af256560f9b7ada",
+        "accepted_delta_rows": 998,
+        "rejected_attempts": 14,
+        "rejected_receipts_verified": 14,
+        "violation_counts": {
+          "joint_target_jump": 7,
+          "ik_failed": 7
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 14,
+        "python_cell": 14,
+        "record_plan": 1,
+        "execute_chunk": 89
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 14,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 23,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 580,
+      "steps_complete": true,
+      "wall_seconds": 901.7968038560357,
+      "usage": {
+        "input_tokens": 4640355,
+        "cached_input_tokens": 4517760,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14601,
+        "reasoning_output_tokens": 5178
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l23/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l23/_result.json",
+      "native_sha256": "195b05fd00819b01099166e71cf4c65a5257de40103a8a7f0e5f96100f614028",
+      "independent_action_rows_verified": 580,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l23/ik-continuity.jsonl",
+        "journal_sha256": "a3bfad382ebe5992d621e16a233c45be25a26fc4d091835964de03c6b499fafb",
+        "accepted_delta_rows": 539,
+        "rejected_attempts": 9,
+        "rejected_receipts_verified": 9,
+        "violation_counts": {
+          "joint_target_jump": 6,
+          "ik_failed": 4
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 9,
+        "python_cell": 9,
+        "record_plan": 1,
+        "execute_chunk": 49
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 9,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 1,
+        "calls": [
+          {
+            "cell": 9,
+            "cell_step_before": 364,
+            "cell_step_after": 388,
+            "step_after": 388,
+            "step_before": 364,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "0de73095b50611a6ffb0f47744c29e0e41c0b09f80bf5d602125418eaf74866c",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.013842715633307467,
+                  -0.03677135600174611,
+                  0.8049338992165733
+                ],
+                "target": [
+                  0.015,
+                  -0.035,
+                  0.805
+                ],
+                "error_m": 0.002116926664738887,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "right": {
+                "xyz": [
+                  0.38882549387555937,
+                  -0.0700661989893189,
+                  0.8051324412942885
+                ],
+                "target": [
+                  0.39,
+                  -0.07,
+                  0.805
+                ],
+                "error_m": 0.001183802195879121,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 1,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 24,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 952,
+      "steps_complete": true,
+      "wall_seconds": 1577.02876422205,
+      "usage": {
+        "input_tokens": 8055194,
+        "cached_input_tokens": 7877120,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28304,
+        "reasoning_output_tokens": 14649
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l24/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l24/_result.json",
+      "native_sha256": "6df02cc60901c6463022478208a8d470e44097e690d51958c41c92647f94ddd9",
+      "independent_action_rows_verified": 952,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-standard-l24/ik-continuity.jsonl",
+        "journal_sha256": "0a55fa889992396ff01c3213af39834d60899dae10b2acf9b6b4c0ff9c128a96",
+        "accepted_delta_rows": 907,
+        "rejected_attempts": 5,
+        "rejected_receipts_verified": 5,
+        "violation_counts": {
+          "joint_target_jump": 4,
+          "ik_failed": 1
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 2,
+        "read_action_reference": 7,
+        "python_cell_start": 24,
+        "python_cell": 24,
+        "execute_chunk": 61
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 24,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 3,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 1,
+        "calls": [
+          {
+            "cell": 11,
+            "cell_step_before": 239,
+            "cell_step_after": 259,
+            "step_after": 259,
+            "step_before": 239,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "helper": "move_features",
+            "source_sha256": "22d2bae3204d0bdbf029c07026cf207eb4e0e377dc8d34db6a6d6da319ed4492",
+            "feature_predictions": {
+              "left": {
+                "xyz": [
+                  0.0795625424021296,
+                  -0.04006663100451283,
+                  0.7754614420935191
+                ],
+                "target": [
+                  0.08,
+                  -0.04,
+                  0.775
+                ],
+                "error_m": 0.0006393259312496167,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              },
+              "right": {
+                "xyz": [
+                  0.40424783178588625,
+                  -0.03970330822165499,
+                  0.8254269902215094
+                ],
+                "target": [
+                  0.405,
+                  -0.04,
+                  0.825
+                ],
+                "error_m": 0.0009143870531264988,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 1,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 24,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 2717.8131711590104,
+      "usage": {
+        "input_tokens": 10631441,
+        "cached_input_tokens": 10439168,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 30437,
+        "reasoning_output_tokens": 14962
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l24/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l24/_result.json",
+      "native_sha256": "cc7eea7f4e6ed34a110039381352fd819f1ccd91df4e8ee89bbdb0285d0eb213",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-20261106/seed1-random-l24/ik-continuity.jsonl",
+        "journal_sha256": "26859d89aef7f5ff27a019c390884dedea9c9acf44ec78582b5672ddec7740a8",
+        "accepted_delta_rows": 862,
+        "rejected_attempts": 19,
+        "rejected_receipts_verified": 19,
+        "violation_counts": {
+          "joint_target_jump": 12,
+          "ik_failed": 7
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "record_plan": 2,
+        "python_cell_start": 16,
+        "python_cell": 16,
+        "execute_chunk": 77
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 16,
+      "cells_with_errors": 1,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 1,
+        "calls": [
+          {
+            "cell": 15,
+            "cell_step_before": 753,
+            "cell_step_after": 763,
+            "step_after": 763,
+            "step_before": 753,
+            "action_steps": 10,
+            "motion_stopped": false,
+            "helper": "move_feature",
+            "source_sha256": "c5258dcd35907f897a815e3f927eb033e0fbe97887c0544a18c88578b166fd2e",
+            "feature_predictions": {
+              "right": {
+                "xyz": [
+                  0.30367045617301275,
+                  -0.012372222324586568,
+                  0.7444459107968564
+                ],
+                "target": [
+                  0.30375632110919676,
+                  -0.012670223338154707,
+                  0.744
+                ],
+                "error_m": 0.0005431517560559287,
+                "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+              }
+            }
+          }
+        ],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 1,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    }
+  ],
+  "counts": {
+    "attempts_closed": 50,
+    "success": 11,
+    "failure": 37,
+    "unscored": 2,
+    "scored": 48,
+    "success_rate_scored": 0.22916666666666666,
+    "confirmed_success_fraction_closed": 0.22
+  },
+  "costs": {
+    "steps": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 46898,
+      "known_mean": 937.96,
+      "partial_lower_bound_cases": 2
+    },
+    "wall_seconds": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 106356.87917186785,
+      "known_mean": 2127.137583437357
+    },
+    "input_tokens": {
+      "known_count": 47,
+      "unknown_count": 3,
+      "known_sum": 426909659,
+      "known_mean": 9083184.234042553
+    },
+    "cached_input_tokens": {
+      "known_count": 47,
+      "unknown_count": 3,
+      "known_sum": 418567040,
+      "known_mean": 8905681.70212766
+    },
+    "output_tokens": {
+      "known_count": 47,
+      "unknown_count": 3,
+      "known_sum": 1368490,
+      "known_mean": 29116.808510638297
+    },
+    "reasoning_output_tokens": {
+      "known_count": 47,
+      "unknown_count": 3,
+      "known_sum": 708749,
+      "known_mean": 15079.765957446809
+    },
+    "total_tokens": {
+      "known_count": 47,
+      "unknown_count": 3,
+      "known_sum": 428278149,
+      "known_mean": 9112301.042553192
+    },
+    "uncached_input_tokens": {
+      "known_count": 47,
+      "unknown_count": 3,
+      "known_sum": 8342619,
+      "known_mean": 177502.53191489363
+    }
+  },
+  "batch_wall_seconds": 53908.80665616994,
+  "actual_billed_usd": null,
+  "interpretation": "Fresh seed1 standard/random layouts 0-24, 25 per variant. Runtime is byte-identical to development candidate ca604e5, which scored 1/4 versus historical 0/4 on the four development scenes. This includes known layouts and is not an independent heldout or cross-seed result. Tool additions form a combined candidate, not a single-component causal test."
+}

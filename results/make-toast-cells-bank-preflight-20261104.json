@@ -1,0 +1,40 @@
+{
+  "task": "make_toast",
+  "bank": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/make_toast",
+  "passed": true,
+  "generated_at": "2026-11-04T07:00:55.847638+00:00",
+  "metadata_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/make_toast/bank.json": "d0e359d8dfc03f481929ad63edd4e54a54523f36d66d2a7327124ed60eedc4c9",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/make_toast/search-index.json": "18e6998e78fc7ec6f5043c5c8f93054a9f210fd75ff37e75a0fc58b940f43fd7",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/make_toast/source-inventory.json": "865f41f082b75bbfad946b803501f4b0d8108f29f88f1f9e821988007cf09d70",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/make_toast/execution-index.json": "2749e91e14f61dce428d229f9a4a6ccb52b08d642ef0faaea62f1c403617180b",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/make_toast/graphs/make_toast-0002.json": "c3f7f1564c1dab981133576d2ecd16fde11ea3556fc82ac75095418d69fc6fbf",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/make_toast/graphs/make_toast-0000.json": "c272b282b5104afb646fc3e82aa430f58a217adad1244f5d92a4ea6bc98576a6",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/make_toast/graphs/make_toast-0001.json": "79bb0ce04b2393ec8df4382e5d7d335ec5a73f7e1ccfc6f21ccdf5ae297bb8ad"
+  },
+  "source_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/make_toast/train/episode_0000000.hdf5": "24694890c7a5057022fd250064121a835371691a3025274d4eaa393ef3554410",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/make_toast/train/episode_0000001.hdf5": "65e7b32c0b4bf1eec02e01857b8b1b7fc29ef1627f7814bad6efe4fd78066a58",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/make_toast/train/episode_0000002.hdf5": "d816142a5becaf7b500b68583a56407c869cf2dacc345880e1a583d40b5c53ef"
+  },
+  "demonstrations": [
+    {
+      "id": "make_toast-0000",
+      "frames": 583,
+      "phases": 10
+    },
+    {
+      "id": "make_toast-0001",
+      "frames": 501,
+      "phases": 9
+    },
+    {
+      "id": "make_toast-0002",
+      "frames": 559,
+      "phases": 8
+    }
+  ],
+  "phases": 27,
+  "sections": 108,
+  "images": 648
+}

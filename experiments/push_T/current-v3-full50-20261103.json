@@ -1,0 +1,80 @@
+{
+  "schema": "roborag.push-t-current-evaluation-plan.v1",
+  "status": "registered_before_launch",
+  "base_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "remaining_base_tasks": 1,
+  "planned_native_attempts": 50,
+  "tasks": [
+    {
+      "task": "push_T",
+      "bank": "artifacts/generalization-v3-full/push_T",
+      "cases_file": "experiments/generalization/cases-seed1-50.json",
+      "case_count": 50,
+      "native_step_limits": {
+        "standard": 600,
+        "random": 600
+      }
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Task-specific native limit; never overridden",
+    "train_episodes_for_new_tasks": [
+      0,
+      1,
+      2
+    ],
+    "stack_blocks_bank": "All six existing TRAIN demonstrations and unchanged original full-bank metadata",
+    "context": "Single persistent native agent per episode; full original TRAIN state/action/RGB access; no stage gating"
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from failure",
+    "retests": "No automatic retry or best-of selection; missing native scoring is reported separately and reviewed after the first pass.",
+    "aggregation": "Per-variant/task results; same-scene pairing when a verified baseline exists; do not relabel mixed historical versions as one candidate sweep"
+  },
+  "completed_references": {
+    "push_T_historical_only": "../v3-generalization/results/push_T-existing-generalization-reference-audit.json"
+  },
+  "gates": [
+    "All selected TRAIN hashes match pinned public source manifests",
+    "Full-bank annotation coverage and raw actions/state/images accessible",
+    "No fold policy/controller regressions",
+    "Freeze source, prompt, TRAIN, layouts, native task configs and CLI before native batch launch",
+    "Verify native outcomes and trajectory evidence before reporting"
+  ],
+  "launch_order": "seed1 layouts0-24 interleaved standard/random, exactly as the existing 50-case list; no performance-based early stopping",
+  "scope": {
+    "user_request": "Current general method, full 50 scenes: standard/random 25 each",
+    "runtime_changes": [
+      "Register push_T and map it to the unchanged general delta protocol and full-bank path",
+      "Add public task goal and no-lifting requirement"
+    ],
+    "unchanged": [
+      "All 11 existing assembled task prompts",
+      "Shared observation/retrieval/reference/plan/action tools",
+      "Controller and action limits",
+      "Native task and 600-step scoring rules"
+    ],
+    "excluded_legacy_additions": [
+      "push_T planar measurement and registration tools",
+      "push_T-only IK continuity guard",
+      "push_T-only whole-phase context extension",
+      "interaction-annotated alternative bank"
+    ],
+    "bank": "Three original TRAIN graph annotations copied unchanged from v3-basic-suite; full index rebuilt by current code, no evaluation trajectories",
+    "interpretation": "New minimally integrated candidate derived from 7fa895e, not a byte-identical run of 7fa895e; public seed1 scenes already used historically, not new heldout data"
+  },
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "wait_for_existing_gpu_work": "User explicitly stopped the existing replay pipeline and prioritized this test; retain the existing 11000 MiB launch guard",
+    "policy_and_sources_frozen_while_running": true
+  }
+}

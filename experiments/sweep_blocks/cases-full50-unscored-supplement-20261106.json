@@ -1,0 +1,12 @@
+[
+  {
+    "seed": 1,
+    "variant": "standard",
+    "layout": 16
+  },
+  {
+    "seed": 1,
+    "variant": "random",
+    "layout": 21
+  }
+]

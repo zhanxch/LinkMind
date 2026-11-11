@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "base_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "runtime_changed_files": [
+    "src/roborag/rag_tasks.py",
+    "src/roborag/sop_store.py"
+  ],
+  "unchanged_existing_task_prompts": {
+    "arrange_largest_number": "0c58b2bbe31faf696330b04c648bfb85d5a7fcbfddf43ffbdec130699ed529f1",
+    "fold_clothes": "26aa5ab01f3a0b78546089a84fdebf04c428ded0f2bb5fbf3945f4e95df8796b",
+    "hang_mugs": "ebebe53768f28057f6f27ac1dfebeae1a5624bceb898230b41809636ca30fe8f",
+    "make_toast": "581ccf997eb3bef5850bc94618c5261a759480078ac36fc58110b53fa525c718",
+    "pack_objects_into_box": "01b5fe1bce7a9d2b3b11a9b11ef781f527b19c01d8a49b6dc3a8503b524a43c7",
+    "pour_liquid_into_cup": "aeaebf8d8f7dd4092e6eb9a21129e228df1c6c0f329e44e41dbc71d2ad43b05e",
+    "sort_nesting_dolls_by_size": "c51eb69297a46f273c157766a6ffea5268a3b4aa25c41e18f1cc893f00c1632b",
+    "stack_blocks": "9fdb9bfa0c7a1bd973b6451b0b3c0d745f892cb78a47abffecda84f567aeadb6",
+    "stack_bowls": "0eeea71381a7734bf9f1ad6e95219cb44faa0731eab8d1a6383e79d9b226352b",
+    "store_laptop_and_headphones": "275478d3a0f1595e1a59260ab93f8d57300d7c64f678387a6244fb77bcaa7519",
+    "sweep_blocks": "052a752d793fa2f9ab0cadbdd98ea4fa55296e60dad01099ff6949c0c88f88c2"
+  },
+  "new_task_prompt_sha256": "34a4db3bd6d97d3aa9c7d29e71f76c60cfa0c520e3f5a16e2ad3fc90705fdb18",
+  "cli_matches_generalization": true,
+  "tests": {
+    "passed": 10,
+    "command": "PYTHONPATH=.runtime/mcp:src <policy_python> -m unittest tests.test_generalization_tasks tests.test_rag_tasks tests.test_v3_contract"
+  },
+  "bank_preflight": "results/generalization-push_T-bank-preflight.json"
+}

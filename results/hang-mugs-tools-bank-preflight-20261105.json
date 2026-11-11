@@ -1,0 +1,40 @@
+{
+  "task": "hang_mugs",
+  "bank": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/hang_mugs",
+  "passed": true,
+  "generated_at": "2026-11-05T04:01:24.228820+00:00",
+  "metadata_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/hang_mugs/bank.json": "b4710276135efcbe5c4acd3dafa9621b6f666bf8244ab1c2e2f74d781cd97677",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/hang_mugs/search-index.json": "d2d395694f6ec9fdc9cd575950caaae43f950f75031e9008299731e27b02f521",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/hang_mugs/source-inventory.json": "7e0d714e6feaf1889e83bd2e588688a10f7150af4136da49ab294b1da06888b0",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/hang_mugs/execution-index.json": "ce2d5d24f56ed2af329fff3885143751b1decdccb890b1c4d757ef0b3eb18acb",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/hang_mugs/graphs/hang_mugs-0001.json": "736eb71b4d058ae823e556fd49b86fa3a8a5e420a581bad904c4c8d750a41da5",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/hang_mugs/graphs/hang_mugs-0002.json": "44d1ad2cc722f028c465a7a18088d73a5f05a146bb8982555857f15fc2a99185",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/artifacts/generalization-v3-full/hang_mugs/graphs/hang_mugs-0000.json": "e133f06b7657e6618b0df7e6383aa70dd789adb8872c1844f87825fb716e642f"
+  },
+  "source_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/hang_mugs/train/episode_0000000.hdf5": "99518ec85ba0551f205bb34053454eb06a6c0a030d228c1ed40e0f22b4d329b6",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/hang_mugs/train/episode_0000001.hdf5": "92040a25d2d17f43d4e488d963306f17bf93367c0bad469a5adbdd29291de0c6",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/hang_mugs/train/episode_0000002.hdf5": "daeb2a8ec3b8ad23b5e4a2caf2f72868a7dceb1fb1bf4a47de3404e92f970557"
+  },
+  "demonstrations": [
+    {
+      "id": "hang_mugs-0000",
+      "frames": 512,
+      "phases": 10
+    },
+    {
+      "id": "hang_mugs-0001",
+      "frames": 524,
+      "phases": 10
+    },
+    {
+      "id": "hang_mugs-0002",
+      "frames": 829,
+      "phases": 9
+    }
+  ],
+  "phases": 29,
+  "sections": 116,
+  "images": 696
+}

@@ -1,0 +1,105 @@
+task,method,score,success_rate
+Stack bowls,WALL-OSS 1.0-lite,85.9,84.0
+Stack bowls,VPP2,55.6,48.0
+Stack bowls,OpenWAM-alpha,49.9,45.3
+Stack bowls,Pi-05,45.1,38.0
+Stack bowls,PyRUA-Lean,73.9,70.0
+Stack bowls,HexaShell-Preview,86.9,86.0
+Stack bowls,GPT-6-Astra,66.5,62.0
+Stack bowls,LinkMind,94.9,94.0
+Push-T,WALL-OSS 1.0-lite,3.3,3.3
+Push-T,VPP2,1.3,1.3
+Push-T,OpenWAM-alpha,0.0,0.0
+Push-T,Pi-05,0.0,0.0
+Push-T,PyRUA-Lean,86.0,86.0
+Push-T,HexaShell-Preview,96.0,96.0
+Push-T,GPT-6-Astra,60.0,60.0
+Push-T,LinkMind,100.0,100.0
+Pack objects into box,WALL-OSS 1.0-lite,33.2,8.7
+Pack objects into box,VPP2,30.4,6.7
+Pack objects into box,OpenWAM-alpha,22.5,4.7
+Pack objects into box,Pi-05,19.1,2.7
+Pack objects into box,PyRUA-Lean,46.0,30.0
+Pack objects into box,HexaShell-Preview,33.1,16.0
+Pack objects into box,GPT-6-Astra,11.6,0.0
+Pack objects into box,LinkMind,43.5,26.0
+Fold clothes,WALL-OSS 1.0-lite,87.5,84.7
+Fold clothes,VPP2,70.8,68.0
+Fold clothes,OpenWAM-alpha,57.5,55.3
+Fold clothes,Pi-05,32.3,24.0
+Fold clothes,PyRUA-Lean,59.2,52.0
+Fold clothes,HexaShell-Preview,47.6,40.0
+Fold clothes,GPT-6-Astra,76.4,72.0
+Fold clothes,LinkMind,78.0,74.0
+Hang mugs,WALL-OSS 1.0-lite,38.8,22.7
+Hang mugs,VPP2,43.9,32.0
+Hang mugs,OpenWAM-alpha,16.3,5.3
+Hang mugs,Pi-05,7.3,0.0
+Hang mugs,PyRUA-Lean,27.7,12.0
+Hang mugs,HexaShell-Preview,19.0,4.0
+Hang mugs,GPT-6-Astra,0.9,0.0
+Hang mugs,LinkMind,44.7,26.0
+Sweep blocks,WALL-OSS 1.0-lite,9.3,9.3
+Sweep blocks,VPP2,10.7,10.7
+Sweep blocks,OpenWAM-alpha,1.3,1.3
+Sweep blocks,Pi-05,0.0,0.0
+Sweep blocks,PyRUA-Lean,6.0,6.0
+Sweep blocks,HexaShell-Preview,8.0,8.0
+Sweep blocks,GPT-6-Astra,4.0,4.0
+Sweep blocks,LinkMind,24.0,24.0
+Pour liquid into cup,WALL-OSS 1.0-lite,64.0,64.0
+Pour liquid into cup,VPP2,50.0,50.0
+Pour liquid into cup,OpenWAM-alpha,34.7,34.7
+Pour liquid into cup,Pi-05,14.7,14.7
+Pour liquid into cup,PyRUA-Lean,4.0,4.0
+Pour liquid into cup,HexaShell-Preview,2.0,2.0
+Pour liquid into cup,GPT-6-Astra,4.0,4.0
+Pour liquid into cup,LinkMind,0.0,0.0
+Make toast,WALL-OSS 1.0-lite,26.0,13.3
+Make toast,VPP2,50.0,39.3
+Make toast,OpenWAM-alpha,12.5,2.7
+Make toast,Pi-05,6.0,0.7
+Make toast,PyRUA-Lean,21.5,14.0
+Make toast,HexaShell-Preview,1.5,0.0
+Make toast,GPT-6-Astra,0.5,0.0
+Make toast,LinkMind,37.0,30.0
+Arrange largest number,WALL-OSS 1.0-lite,38.2,24.0
+Arrange largest number,VPP2,8.3,2.0
+Arrange largest number,OpenWAM-alpha,4.9,0.7
+Arrange largest number,Pi-05,2.8,0.7
+Arrange largest number,PyRUA-Lean,80.1,74.0
+Arrange largest number,HexaShell-Preview,30.2,22.0
+Arrange largest number,GPT-6-Astra,68.7,60.0
+Arrange largest number,LinkMind,65.7,56.0
+Sort nesting dolls by size,WALL-OSS 1.0-lite,48.0,48.0
+Sort nesting dolls by size,VPP2,18.7,18.7
+Sort nesting dolls by size,OpenWAM-alpha,4.7,4.7
+Sort nesting dolls by size,Pi-05,5.3,5.3
+Sort nesting dolls by size,PyRUA-Lean,70.0,70.0
+Sort nesting dolls by size,HexaShell-Preview,52.0,52.0
+Sort nesting dolls by size,GPT-6-Astra,18.0,18.0
+Sort nesting dolls by size,LinkMind,82.0,82.0
+Store laptop and headphones,WALL-OSS 1.0-lite,50.4,22.0
+Store laptop and headphones,VPP2,45.3,32.7
+Store laptop and headphones,OpenWAM-alpha,30.5,16.0
+Store laptop and headphones,Pi-05,16.1,5.3
+Store laptop and headphones,PyRUA-Lean,4.8,0.0
+Store laptop and headphones,HexaShell-Preview,4.8,0.0
+Store laptop and headphones,GPT-6-Astra,1.6,0.0
+Store laptop and headphones,LinkMind,0.0,0.0
+Stack blocks,WALL-OSS 1.0-lite,75.2,71.3
+Stack blocks,VPP2,51.7,44.7
+Stack blocks,OpenWAM-alpha,13.7,7.3
+Stack blocks,Pi-05,11.9,6.7
+Stack blocks,PyRUA-Lean,100.0,100.0
+Stack blocks,HexaShell-Preview,89.5,88.0
+Stack blocks,GPT-6-Astra,88.1,86.0
+Stack blocks,LinkMind,93.2,92.0
+Mean (12 tasks),WALL-OSS 1.0-lite,46.7,37.9
+Mean (12 tasks),VPP2,36.4,29.5
+Mean (12 tasks),OpenWAM-alpha,20.7,14.8
+Mean (12 tasks),Pi-05,13.4,8.2
+Mean (12 tasks),PyRUA-Lean,48.3,43.2
+Mean (12 tasks),HexaShell-Preview,39.2,34.5
+Mean (12 tasks),GPT-6-Astra,33.4,30.5
+Mean (12 tasks),LinkMind,55.3,50.3

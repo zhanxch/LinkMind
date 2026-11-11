@@ -1,0 +1,681 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "hang_mugs-0000",
+  "task": "hang_mugs",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "hang_mugs",
+  "title": "右手先挂黄杯和白杯，再用左手挂紫杯",
+  "summary": "右手依次将黄杯挂到杯架右侧低位、红柄白杯挂到右侧高位，随后左手将紫杯挂到左侧空挂杆。末帧可见三只杯均留在杯架上，两臂撤回；阶段边界为估计值。",
+  "instruction": "Hang all the mugs on the mug rack.",
+  "episode": 0,
+  "source": {
+    "path": "runtime-data/hang_mugs/train/episode_0000000.hdf5",
+    "sha256": "99518ec85ba0551f205bb34053454eb06a6c0a030d228c1ed40e0f22b4d329b6",
+    "frames": 512,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-28T17:07:06.646652+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "右手接近桌面黄杯",
+      "summary": "将右夹爪移到黄杯上方，准备抓取。",
+      "objects": [
+        "右夹爪",
+        "黄色马克杯",
+        "桌面"
+      ],
+      "start_frame": 0,
+      "end_frame": 67,
+      "order": 0,
+      "keyframes": [
+        0,
+        33,
+        66
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "木质杯架位于桌面中央，黄杯在右侧，红柄白杯在中间偏前，紫杯在左侧。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂抬起并移向黄杯，再从上方降低夹爪；左臂保持原位。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右夹爪已靠近黄杯杯口，黄杯仍在桌面上，尚未见随夹爪抬起。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "抓起黄杯并送向低位挂杆",
+      "summary": "将黄杯从桌面搬到杯架右侧低位。",
+      "objects": [
+        "右夹爪",
+        "黄色马克杯",
+        "杯架右侧低位挂杆"
+      ],
+      "start_frame": 67,
+      "end_frame": 134,
+      "order": 1,
+      "keyframes": [
+        67,
+        100,
+        133
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右夹爪位于黄杯附近，杯架右侧低位挂杆空着。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪合拢，随后抬起黄杯并向杯架移动，调整杯子的朝向，使杯把接近低位挂杆。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "黄杯随右手离开桌面并来到杯架旁；夹爪遮挡部分杯体，杯把尚未清晰显示为独立悬挂。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "挂稳黄杯并松手",
+      "summary": "让黄杯由低位挂杆承托，释放右手。",
+      "objects": [
+        "右夹爪",
+        "黄色马克杯",
+        "杯架右侧低位挂杆"
+      ],
+      "start_frame": 134,
+      "end_frame": 190,
+      "order": 2,
+      "keyframes": [
+        134,
+        161,
+        189
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "黄杯已靠近右侧低位挂杆，右夹爪仍夹持杯子。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手小幅调整黄杯与挂杆的相对位置，将杯把送到挂杆上，然后张开夹爪并撤离。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "黄杯留在右侧低位挂杆上，杯口朝外；右夹爪已与杯子分离。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "右手转向红柄白杯",
+      "summary": "接近桌面上的第二只杯。",
+      "objects": [
+        "右夹爪",
+        "红柄白色马克杯",
+        "桌面"
+      ],
+      "start_frame": 190,
+      "end_frame": 223,
+      "order": 3,
+      "keyframes": [
+        190,
+        206,
+        222
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "黄杯已经挂好，红柄白杯仍在杯架前方的桌面上。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂从杯架旁移向白杯上方，保持夹爪张开并降低到杯口附近。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右夹爪到达白杯附近，白杯仍在桌面上，红色杯把可见。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "提起白杯送向高位挂杆",
+      "summary": "将白杯抬到杯架右侧上方。",
+      "objects": [
+        "右夹爪",
+        "红柄白色马克杯",
+        "杯架右侧高位挂杆",
+        "黄色马克杯"
+      ],
+      "start_frame": 223,
+      "end_frame": 289,
+      "order": 4,
+      "keyframes": [
+        223,
+        255,
+        288
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右夹爪靠近白杯杯口，杯架右侧上方挂杆空着，黄杯悬挂在下方。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪合拢后抬起白杯，向杯架上方移动，并调整姿态使红色杯把接近高位挂杆。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "白杯已离开桌面，红色杯把来到上方挂杆附近；杯体与挂杆之间的局部关系被右手遮挡。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "挂好白杯并撤出右手",
+      "summary": "将白杯挂在黄杯上方，完成右手的两次挂杯。",
+      "objects": [
+        "右夹爪",
+        "红柄白色马克杯",
+        "杯架右侧高位挂杆",
+        "黄色马克杯",
+        "左臂"
+      ],
+      "start_frame": 289,
+      "end_frame": 334,
+      "order": 5,
+      "keyframes": [
+        289,
+        311,
+        333
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "白杯位于杯架上部，红色杯把靠近右侧高位挂杆，右手仍在杯旁。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手继续微调并把红色杯把送上挂杆，随后松开夹爪并向右后方撤离。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "白杯脱离右夹爪后仍挂在高位挂杆上，黄杯保持在下方；左臂开始移动。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "左手接近剩余紫杯",
+      "summary": "换用左手抓取桌面左侧的紫杯。",
+      "objects": [
+        "左夹爪",
+        "紫色马克杯",
+        "右臂",
+        "桌面"
+      ],
+      "start_frame": 334,
+      "end_frame": 378,
+      "order": 6,
+      "keyframes": [
+        334,
+        355,
+        377
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "白杯和黄杯已挂好，紫杯仍在桌面左侧，右臂正在撤回。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂移向紫杯上方，张开的夹爪逐步下降；右臂回到桌前待机位置。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "左夹爪已靠近紫杯杯口，紫杯仍由桌面支撑。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "提起紫杯移向左侧挂杆",
+      "summary": "将最后一只杯搬到杯架左侧空位。",
+      "objects": [
+        "左夹爪",
+        "紫色马克杯",
+        "杯架左侧挂杆",
+        "红柄白色马克杯",
+        "黄色马克杯"
+      ],
+      "start_frame": 378,
+      "end_frame": 444,
+      "order": 7,
+      "keyframes": [
+        378,
+        410,
+        443
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左夹爪位于紫杯旁，杯架左侧挂杆空着。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪合拢并抬起紫杯，向杯架左侧移动，调整杯把朝向并逐渐靠近空挂杆。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "紫杯随左手离开桌面，来到左侧挂杆附近；白杯和黄杯仍留在原挂位。",
+      "parent": "p08"
+    },
+    {
+      "id": "p09",
+      "kind": "phase",
+      "title": "对准左侧挂杆释放紫杯",
+      "summary": "将紫杯杯把挂上左侧挂杆。",
+      "objects": [
+        "左夹爪",
+        "紫色马克杯",
+        "杯架左侧挂杆"
+      ],
+      "start_frame": 444,
+      "end_frame": 493,
+      "order": 8,
+      "keyframes": [
+        444,
+        468,
+        492
+      ]
+    },
+    {
+      "id": "p09-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "紫杯已靠近左侧挂杆，左夹爪仍夹持杯子，杯把位于杯体上方。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手小幅移动紫杯，使杯把对准并套入挂杆，随后逐渐张开夹爪并开始撤出。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "左夹爪已张开，紫杯位于左侧挂杆处；杯把与挂杆的衔接仍被手部部分遮挡。",
+      "parent": "p09"
+    },
+    {
+      "id": "p10",
+      "kind": "phase",
+      "title": "撤回左手并显露全部挂杯",
+      "summary": "结束操作，确认三只杯均留在杯架上。",
+      "objects": [
+        "左臂",
+        "右臂",
+        "紫色马克杯",
+        "红柄白色马克杯",
+        "黄色马克杯",
+        "木质杯架"
+      ],
+      "start_frame": 493,
+      "end_frame": 512,
+      "order": 9,
+      "keyframes": [
+        493,
+        502,
+        511
+      ]
+    },
+    {
+      "id": "p10-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左手正在离开紫杯，白杯和黄杯已清晰悬挂在杯架右侧。",
+      "parent": "p10"
+    },
+    {
+      "id": "p10-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂继续远离杯架并返回桌前，右臂保持待机。",
+      "parent": "p10"
+    },
+    {
+      "id": "p10-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "遮挡消除后，可见紫杯独立挂在左侧，白杯和黄杯分别挂在右侧高位与低位；两只夹爪均已离开杯子。",
+      "parent": "p10"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p08",
+      "target": "p09",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p09",
+      "target": "p09-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p09",
+      "target": "p09-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p09",
+      "target": "p09-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p09",
+      "target": "p10",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p10",
+      "target": "p10-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p10",
+      "target": "p10-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p10",
+      "target": "p10-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

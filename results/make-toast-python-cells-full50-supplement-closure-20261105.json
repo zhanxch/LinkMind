@@ -1,0 +1,196 @@
+{
+  "checked_at": "2026-11-05T03:52:57.029981+00:00",
+  "complete": true,
+  "tag": "make-toast-python-cells-full50-supplement-20261105",
+  "candidate_commit": "7b9cec43b0ca38bdeea6c9f738a454c67c6f3938",
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/experiments/make_toast/full50-unscored-supplement-20261105.json",
+  "protocol_sha256": "65df9d1e95e61d47b7541a50e841f642a74e7f8258e40e6a3773037f07b72402",
+  "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/results/make-toast-python-cells-full50-supplement-20261105.json",
+  "report_sha256": "7968bf482a7246fd78c2a709d35871b6db5821ffebaff8feefa5036bb36bc9e4",
+  "freeze_sha256": "3ed0ba6106bd94ce70ebbf816577d0454ed9fc0da147795faa8523551faaa2df",
+  "frozen_sources_verified": 237,
+  "parent_frozen_sources_verified": 282,
+  "parent_original_attempts_preserved": 50,
+  "registered_pids": [
+    1209558,
+    1209563,
+    1209723,
+    1209725,
+    1210290,
+    1210487,
+    1210494,
+    1210537,
+    1210658,
+    1210659,
+    1210660,
+    1210662,
+    1210776,
+    1210778,
+    1211155,
+    1211184,
+    1211335,
+    1211337,
+    1211338,
+    1211529,
+    1211544,
+    1211578,
+    1211658,
+    1211659,
+    1211660,
+    1211661,
+    1212164,
+    1212298,
+    1212300,
+    1212301,
+    1224268,
+    1224270,
+    1224652,
+    1224828,
+    1224835,
+    1224878,
+    1224958,
+    1224959,
+    1224960,
+    1224963,
+    1225116,
+    1225335,
+    1225337,
+    1225340
+  ],
+  "registered_process_identities": 42,
+  "policy_workspaces_checked": [
+    "/tmp/roborag-mcp-x5_s1apk",
+    "/tmp/roborag-mcp-185tpwc_",
+    "/tmp/roborag-mcp-p5z9xwkk"
+  ],
+  "live_related_processes": [],
+  "reused_pid_numbers": [],
+  "rows": [
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 11,
+      "success": false,
+      "score": 0.0,
+      "steps": 1400,
+      "steps_complete": true,
+      "usage": {
+        "input_tokens": 5624351,
+        "cached_input_tokens": 5452160,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 24090,
+        "reasoning_output_tokens": 12806
+      },
+      "wall_seconds": 2648.1882864220534,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-supplement-20261105/seed1-random-l11/native/eval_result/RoboDojo/make_toast_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l11/_result.json",
+      "native_sha256": "f9548b7553b154a1fa09515fa64bfbe1ca7d70e83d3b839c54daa130678fb366",
+      "action_log_rows": 1400,
+      "receipt_steps": 1400
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 10,
+      "success": true,
+      "score": 100.0,
+      "steps": 927,
+      "steps_complete": true,
+      "usage": {
+        "input_tokens": 5174297,
+        "cached_input_tokens": 5046912,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 23466,
+        "reasoning_output_tokens": 13442
+      },
+      "wall_seconds": 2838.7037151269615,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-supplement-20261105/seed1-random-l10/native/eval_result/RoboDojo/make_toast_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l10/_result.json",
+      "native_sha256": "362097c722449728e0294af1d7ce9ab51d85cbcd1b8a9f35c3c425320ede9b6a",
+      "action_log_rows": 927,
+      "receipt_steps": 927
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 12,
+      "success": true,
+      "score": 100.0,
+      "steps": 1331,
+      "steps_complete": true,
+      "usage": {
+        "input_tokens": 9872732,
+        "cached_input_tokens": 9669632,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 20547,
+        "reasoning_output_tokens": 7446
+      },
+      "wall_seconds": 1349.035645417869,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-python-cells-full50-supplement-20261105/seed1-standard-l12/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l12/_result.json",
+      "native_sha256": "34960f3b1f9cfe0884ff1356e3ff890febcc4dab731f230c8adfcb1cceb61e78",
+      "action_log_rows": 1331,
+      "receipt_steps": 1331
+    }
+  ],
+  "counts": {
+    "attempts_closed": 3,
+    "success": 2,
+    "failure": 1,
+    "unscored": 0,
+    "scored": 3,
+    "success_rate_scored": 0.6666666666666666,
+    "confirmed_success_fraction_closed": 0.6666666666666666
+  },
+  "costs": {
+    "steps": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 3658,
+      "known_mean": 1219.3333333333333,
+      "partial_lower_bound_cases": 0
+    },
+    "wall_seconds": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 6835.927646966884,
+      "known_mean": 2278.642548988961
+    },
+    "input_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 20671380,
+      "known_mean": 6890460
+    },
+    "cached_input_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 20168704,
+      "known_mean": 6722901.333333333
+    },
+    "output_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 68103,
+      "known_mean": 22701
+    },
+    "reasoning_output_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 33694,
+      "known_mean": 11231.333333333334
+    },
+    "total_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 20739483,
+      "known_mean": 6913161
+    },
+    "uncached_input_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 502676,
+      "known_mean": 167558.66666666666
+    }
+  },
+  "batch_wall_seconds": 4056.749143775087,
+  "actual_billed_usd": null,
+  "interpretation": "Three separately registered missing-outcome attempts only; first-pass 13/34/3 and all original costs remain unchanged."
+}

@@ -1,0 +1,484 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "arrange_largest_number-0001",
+  "task": "arrange_largest_number",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "arrange_largest_number",
+  "title": "双臂借助桌面暂放，依次摆出最大数8653",
+  "summary": "按8、6、5、3的顺序填满四个圆垫，其中6和3先在垫前方桌面暂放，再由另一只手接续搬运。最终数字从左到右组成8653，双臂撤回。",
+  "instruction": "Arrange the numbers from left to right to form the largest possible number, and place them on the pad.",
+  "episode": 1,
+  "source": {
+    "path": "runtime-data/arrange_largest_number/train/episode_0000001.hdf5",
+    "sha256": "e35c83509f1a86d48c6b53cb6a0440707c8992310c67dc63dc73008d90632c86",
+    "frames": 561,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-28T17:38:32.085494+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "左手取8放到最左圆垫",
+      "summary": "将最大的数字8放入第一位。",
+      "objects": [
+        "数字8",
+        "最左圆垫",
+        "左夹爪"
+      ],
+      "start_frame": 0,
+      "end_frame": 98,
+      "order": 0,
+      "keyframes": [
+        0,
+        48,
+        97
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "四个圆垫横向排列且均为空；8位于圆垫左侧，3在左前方，6和5在右侧。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪靠近8，夹取后抬起，向右搬至最左圆垫上方，下降并松开，随后抬离。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "8留在最左圆垫上，其余三个圆垫仍为空；左手撤离，右手开始向右侧数字区域移动。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "右手将6搬到垫前暂放",
+      "summary": "把右侧的6移到便于左手接取的桌面位置。",
+      "objects": [
+        "数字6",
+        "垫前方中央桌面",
+        "右夹爪",
+        "左夹爪"
+      ],
+      "start_frame": 98,
+      "end_frame": 195,
+      "order": 1,
+      "keyframes": [
+        98,
+        146,
+        194
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "8已占据第一位，6仍在圆垫右侧，垫前方中央桌面空着。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪靠近并夹取6，抬起后向左搬到圆垫前方中央，下降、松开，再抬离。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "6可见地留在圆垫前方桌面，尚未进入第二个圆垫；右手撤开，左手开始靠近。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "左手接取6放到第二位",
+      "summary": "将暂放的6移到8右侧。",
+      "objects": [
+        "数字6",
+        "数字8",
+        "从左数第二个圆垫",
+        "左夹爪"
+      ],
+      "start_frame": 195,
+      "end_frame": 268,
+      "order": 2,
+      "keyframes": [
+        195,
+        231,
+        267
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "6位于圆垫前方中央，8右侧的第二个圆垫为空。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪下降到暂放的6两侧，夹取并抬起，向第二个圆垫移动，对齐后下降、松开并抬离。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "6留在第二个圆垫上，与第一位的8形成86；右侧两个圆垫仍为空。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "右手取5放到第三位",
+      "summary": "在86右侧补上5。",
+      "objects": [
+        "数字5",
+        "从左数第三个圆垫",
+        "右夹爪"
+      ],
+      "start_frame": 268,
+      "end_frame": 366,
+      "order": 3,
+      "keyframes": [
+        268,
+        316,
+        365
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "前两个圆垫已摆好8和6；5仍在右侧桌面，第三个圆垫为空。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪移到5上方并下降夹取，将5抬起搬至第三个圆垫，下降后松开，再向上撤离。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "5留在第三个圆垫，前三位形成865；最右圆垫仍为空，3仍在左前方桌面。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "左手将3搬到垫前暂放",
+      "summary": "把左前方的3移到右手可接取的位置。",
+      "objects": [
+        "数字3",
+        "垫前方中央桌面",
+        "左夹爪",
+        "右夹爪"
+      ],
+      "start_frame": 366,
+      "end_frame": 463,
+      "order": 4,
+      "keyframes": [
+        366,
+        414,
+        462
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "圆垫上已有865，最右位置空缺；3位于左前方桌面。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪靠近3，下降夹取并抬起，将其向右搬到圆垫前方中央桌面，下降、松开后抬离。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "3可见地留在垫前方中央桌面，前三位数字保持原位；左手撤开，右手开始接近。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "右手接取3补齐最右一位",
+      "summary": "将3放入第四个圆垫，完成8653。",
+      "objects": [
+        "数字3",
+        "最右圆垫",
+        "右夹爪"
+      ],
+      "start_frame": 463,
+      "end_frame": 536,
+      "order": 5,
+      "keyframes": [
+        463,
+        499,
+        535
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "3暂放在圆垫前方中央，最右圆垫为空，左侧三个圆垫依次为8、6、5。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪靠近暂放的3，夹取后抬起并向右后方搬运，移至最右圆垫上方，下降、松开，再抬离。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右夹爪抬起后，3留在最右圆垫；四个圆垫上的数字从左到右为8、6、5、3。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "双臂撤回并露出完整排列",
+      "summary": "退出操作区域，呈现完成的最大数。",
+      "objects": [
+        "数字8、6、5、3",
+        "四个圆垫",
+        "左机械臂",
+        "右机械臂"
+      ],
+      "start_frame": 536,
+      "end_frame": 561,
+      "order": 6,
+      "keyframes": [
+        536,
+        548,
+        560
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "四个数字均已放到圆垫上，右夹爪仍在末位数字附近上方，左臂已撤回。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂从最右圆垫上方撤回右侧待机位置，左臂保持在左侧。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "双臂离开数字排列区域，四个数字清晰可见，并保持从左到右8653的顺序。",
+      "parent": "p07"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "checked_at": "2026-11-04T08:50:25.110885+00:00",
+  "root": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability",
+  "tag": "make-toast-reliability-v2-dev-20261104",
+  "candidate_commit": "99ed5582f3e21da357dcd9fa9a91207d60801b3b",
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/experiments/make_toast/reliability-v2-development-20261104.json",
+  "protocol_sha256": "c60de260157a56d7c5130e4c88ccbcc0d718c7d659630b24bae3e0f949c2e1f4",
+  "frozen_sources_checked": 232,
+  "registered_pids": [
+    1012545,
+    1012547,
+    1012556,
+    1012558,
+    1013238,
+    1013385,
+    1013387,
+    1014130,
+    1019840,
+    1019842,
+    1020511
+  ],
+  "live_related_processes": {},
+  "counts": {
+    "failure": 1,
+    "success": 1,
+    "unscored": 1
+  },
+  "rows": [
+    {
+      "variant": "standard",
+      "layout": 1,
+      "seed": 1,
+      "action_log_rows": 1400,
+      "dispatched_steps": 1400,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "python_cell_start": 77,
+        "python_cell": 77,
+        "read_action_reference": 2,
+        "record_plan": 3,
+        "execute_chunk": 67,
+        "hold_joints": 20
+      },
+      "outcome": "failure",
+      "score": 0.0,
+      "steps": 1400,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+      "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a",
+      "wall_seconds": 2067.845131949056,
+      "usage": {
+        "input_tokens": 9061851,
+        "cached_input_tokens": 8861952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 31172,
+        "reasoning_output_tokens": 17084
+      },
+      "observed_service_log_events": {
+        "stream_retry": 0,
+        "http_fallback": 0,
+        "model_list_refresh_timeout": 3,
+        "model_at_capacity": 0
+      },
+      "service_log_note": "Log event counts are diagnostic, not API request counts or measured causal delay."
+    },
+    {
+      "variant": "standard",
+      "layout": 0,
+      "seed": 1,
+      "action_log_rows": 884,
+      "dispatched_steps": 884,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 4,
+        "python_cell_start": 44,
+        "python_cell": 44,
+        "record_plan": 1,
+        "execute_chunk": 40,
+        "hold_joints": 9
+      },
+      "outcome": "success",
+      "score": 100.0,
+      "steps": 884,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l0/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+      "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6",
+      "wall_seconds": 1326.203130704118,
+      "usage": {
+        "input_tokens": 3869975,
+        "cached_input_tokens": 3677824,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 16841,
+        "reasoning_output_tokens": 8491
+      },
+      "observed_service_log_events": {
+        "stream_retry": 0,
+        "http_fallback": 0,
+        "model_list_refresh_timeout": 3,
+        "model_at_capacity": 0
+      },
+      "service_log_note": "Log event counts are diagnostic, not API request counts or measured causal delay."
+    },
+    {
+      "variant": "random",
+      "layout": 0,
+      "seed": 1,
+      "action_log_rows": 871,
+      "dispatched_steps": 871,
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "python_cell_start": 69,
+        "python_cell": 69,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "execute_chunk": 46,
+        "hold_joints": 10
+      },
+      "outcome": "unscored",
+      "exit": {
+        "complete": false,
+        "error": "RuntimeError",
+        "detail": "Persistent Codex agent failed; see agent-events.jsonl and agent-stderr.log",
+        "wall_seconds": 3751.6619779728353
+      },
+      "returncode": 1,
+      "observed_service_log_events": {
+        "stream_retry": 10,
+        "http_fallback": 1,
+        "model_list_refresh_timeout": 12,
+        "model_at_capacity": 0
+      },
+      "service_log_note": "Log event counts are diagnostic, not API request counts or measured causal delay."
+    }
+  ],
+  "batch_wall_seconds": 3810.6425774930976,
+  "actual_billed_usd": null,
+  "interpretation": "Fresh development attempts only. Different candidates and historical batches remain separate; no heldout or component causality claim."
+}

@@ -1,0 +1,5715 @@
+{
+  "schema": "roborag.push-t-toolkit-full50-closure.v1",
+  "generated_at": "2026-11-03T21:47:42.202856+00:00",
+  "batch_ended_at": "2026-11-03T20:58:52.486616+00:00",
+  "passed": true,
+  "candidate_commit": "50fcf826cb410629f1e9c532bd01906abcda3fe5",
+  "runtime_equivalent_commit": "ead91e45e24b845ef5ba8bfc2057d8b9e243fb6b",
+  "tag": "push-t-toolkit-v1-full50-20261104",
+  "scope": "One new full 50-case run, seed1 standard/random 25 each. Excludes all prior development, interrupted minimal-candidate, and historical legacy outcomes. These are existing evaluation layouts, not new held-out generalization.",
+  "counts": {
+    "attempts_closed": 50,
+    "success": 48,
+    "failure": 0,
+    "unscored": 2,
+    "scored": 48,
+    "success_rate_scored": 1.0,
+    "confirmed_success_fraction_closed": 0.96
+  },
+  "variants": {
+    "standard": {
+      "attempts_closed": 25,
+      "success": 23,
+      "failure": 0,
+      "unscored": 2,
+      "scored": 23,
+      "success_rate_scored": 1.0,
+      "confirmed_success_fraction_closed": 0.92,
+      "mean_native_score_scored": 100.0
+    },
+    "random": {
+      "attempts_closed": 25,
+      "success": 25,
+      "failure": 0,
+      "unscored": 0,
+      "scored": 25,
+      "success_rate_scored": 1.0,
+      "confirmed_success_fraction_closed": 1.0,
+      "mean_native_score_scored": 100.0
+    }
+  },
+  "mean_native_score_scored": 100.0,
+  "all_attempt_costs": {
+    "steps": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 16070,
+      "known_mean": 321.4,
+      "partial_lower_bound_cases": 2
+    },
+    "wall_seconds": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 22682.168020506157,
+      "known_mean": 453.64336041012314
+    },
+    "input_tokens": {
+      "known_count": 48,
+      "unknown_count": 2,
+      "known_sum": 78028259,
+      "known_mean": 1625588.7291666667
+    },
+    "cached_input_tokens": {
+      "known_count": 48,
+      "unknown_count": 2,
+      "known_sum": 74407424,
+      "known_mean": 1550154.6666666667
+    },
+    "output_tokens": {
+      "known_count": 48,
+      "unknown_count": 2,
+      "known_sum": 456433,
+      "known_mean": 9509.020833333334
+    },
+    "reasoning_output_tokens": {
+      "known_count": 48,
+      "unknown_count": 2,
+      "known_sum": 162630,
+      "known_mean": 3388.125
+    },
+    "total_tokens": {
+      "known_count": 48,
+      "unknown_count": 2,
+      "known_sum": 78484692,
+      "known_mean": 1635097.75
+    },
+    "uncached_input_tokens": {
+      "known_count": 48,
+      "unknown_count": 2,
+      "known_sum": 3620835,
+      "known_mean": 75434.0625
+    }
+  },
+  "scored_step_statistics": {
+    "standard": {
+      "scored_cases": 23,
+      "scored_mean_steps": 321.2173913043478,
+      "scored_sum_steps": 7388,
+      "max_scored_steps": 504
+    },
+    "random": {
+      "scored_cases": 25,
+      "scored_mean_steps": 337.36,
+      "scored_sum_steps": 8434,
+      "max_scored_steps": 535
+    },
+    "all": {
+      "scored_cases": 48,
+      "scored_mean_steps": 329.625,
+      "scored_sum_steps": 15822,
+      "max_scored_steps": 535
+    }
+  },
+  "batch_wall_seconds": 11661.129276677966,
+  "actual_billed_usd": null,
+  "cases": [
+    {
+      "case": "seed1-random-l0",
+      "variant": "random",
+      "layout": 0,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 263,
+      "steps_complete": true,
+      "wall_seconds": 564.0158896329813,
+      "tool_counts": {
+        "execute_chunk": 19,
+        "measure_planar": 11,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 3,
+        "planar_height": 3,
+        "planar_match": 1,
+        "planar_check": 4
+      },
+      "planar_calls": 11,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 3,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 248,
+      "ik_rejected": 2,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l0/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+      "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l0",
+      "variant": "standard",
+      "layout": 0,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 367,
+      "steps_complete": true,
+      "wall_seconds": 710.9158276601229,
+      "tool_counts": {
+        "execute_chunk": 27,
+        "measure_planar": 9,
+        "observe": 1,
+        "read_action_reference": 3,
+        "record_plan": 2,
+        "retrieve_evidence": 4
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 2,
+        "planar_match": 1,
+        "planar_check": 5
+      },
+      "planar_calls": 9,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 4,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 351,
+      "ik_rejected": 3,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l0/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+      "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l1",
+      "variant": "random",
+      "layout": 1,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 281,
+      "steps_complete": true,
+      "wall_seconds": 446.0705558799673,
+      "tool_counts": {
+        "execute_chunk": 18,
+        "measure_planar": 8,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 3,
+        "planar_height": 2,
+        "planar_match": 2,
+        "planar_check": 1
+      },
+      "planar_calls": 8,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 233,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l1/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l1/_result.json",
+      "native_sha256": "8ae6a937232fc1b8c6d1e3b297a60df76889c266a3fa45274dc4e42ae609b509",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l1",
+      "variant": "standard",
+      "layout": 1,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 395,
+      "steps_complete": true,
+      "wall_seconds": 596.1405853019096,
+      "tool_counts": {
+        "execute_chunk": 23,
+        "measure_planar": 11,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 4
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 5,
+        "planar_match": 2,
+        "planar_check": 3
+      },
+      "planar_calls": 11,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 5,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 350,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l1/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+      "native_sha256": "8ae6a937232fc1b8c6d1e3b297a60df76889c266a3fa45274dc4e42ae609b509",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l2",
+      "variant": "standard",
+      "layout": 2,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 259,
+      "steps_complete": true,
+      "wall_seconds": 362.62890725792386,
+      "tool_counts": {
+        "execute_chunk": 18,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 243,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l2/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l2/_result.json",
+      "native_sha256": "cc6468b7f7528bd52d7561d2f877115ef92241bd4a3fd3868f48e41f5da17fd0",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l3",
+      "variant": "standard",
+      "layout": 3,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 245,
+      "steps_complete": true,
+      "wall_seconds": 353.7194860151503,
+      "tool_counts": {
+        "execute_chunk": 16,
+        "measure_planar": 7,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 2,
+        "planar_match": 1,
+        "planar_check": 3
+      },
+      "planar_calls": 7,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 4,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 230,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l3/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l3/_result.json",
+      "native_sha256": "da320cac65f46500da326a25e3b5f36a433d844b25f08c9dff59c323ba942bdc",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l2",
+      "variant": "random",
+      "layout": 2,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 535,
+      "steps_complete": true,
+      "wall_seconds": 764.8750806229655,
+      "tool_counts": {
+        "execute_chunk": 27,
+        "measure_planar": 10,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 4
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 2,
+        "planar_match": 1,
+        "planar_check": 6
+      },
+      "planar_calls": 10,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 6,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 460,
+      "ik_rejected": 4,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l2/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l2/_result.json",
+      "native_sha256": "cc6468b7f7528bd52d7561d2f877115ef92241bd4a3fd3868f48e41f5da17fd0",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l3",
+      "variant": "random",
+      "layout": 3,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 413,
+      "steps_complete": true,
+      "wall_seconds": 512.8601902939845,
+      "tool_counts": {
+        "execute_chunk": 22,
+        "measure_planar": 6,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 2,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 6,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 368,
+      "ik_rejected": 3,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l3/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l3/_result.json",
+      "native_sha256": "da320cac65f46500da326a25e3b5f36a433d844b25f08c9dff59c323ba942bdc",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l4",
+      "variant": "standard",
+      "layout": 4,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 432,
+      "steps_complete": true,
+      "wall_seconds": 721.4044345789589,
+      "tool_counts": {
+        "execute_chunk": 26,
+        "measure_planar": 10,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 4
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 7
+      },
+      "planar_calls": 10,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 7,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 352,
+      "ik_rejected": 2,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l4/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l4/_result.json",
+      "native_sha256": "ea87682a5ef1824a77f04e22e412b395f7fe5087366e664618da42c5a80b599e",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l4",
+      "variant": "random",
+      "layout": 4,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 299,
+      "steps_complete": true,
+      "wall_seconds": 532.5776558739599,
+      "tool_counts": {
+        "execute_chunk": 21,
+        "measure_planar": 7,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 3,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 2,
+        "planar_check": 3
+      },
+      "planar_calls": 7,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 254,
+      "ik_rejected": 3,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l4/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l4/_result.json",
+      "native_sha256": "ea87682a5ef1824a77f04e22e412b395f7fe5087366e664618da42c5a80b599e",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l5",
+      "variant": "standard",
+      "layout": 5,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 382,
+      "steps_complete": true,
+      "wall_seconds": 615.9197043420281,
+      "tool_counts": {
+        "execute_chunk": 26,
+        "measure_planar": 10,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 4,
+        "planar_match": 2,
+        "planar_check": 3
+      },
+      "planar_calls": 10,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 5,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 338,
+      "ik_rejected": 2,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l5/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l5/_result.json",
+      "native_sha256": "337d6321d7ef110d2646d798766a26a47fdae428e7d373aee7c29f2a8e2653a5",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l5",
+      "variant": "random",
+      "layout": 5,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 410,
+      "steps_complete": true,
+      "wall_seconds": 599.4221447040327,
+      "tool_counts": {
+        "execute_chunk": 24,
+        "measure_planar": 12,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 3,
+        "planar_match": 3,
+        "planar_check": 5
+      },
+      "planar_calls": 12,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 5,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 365,
+      "ik_rejected": 3,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l5/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l5/_result.json",
+      "native_sha256": "337d6321d7ef110d2646d798766a26a47fdae428e7d373aee7c29f2a8e2653a5",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l6",
+      "variant": "standard",
+      "layout": 6,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 367,
+      "steps_complete": true,
+      "wall_seconds": 543.7450771101285,
+      "tool_counts": {
+        "execute_chunk": 24,
+        "measure_planar": 7,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 4
+      },
+      "planar_calls": 7,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 4,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 294,
+      "ik_rejected": 3,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l6/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l6/_result.json",
+      "native_sha256": "0d4366d03be196625243688d60cdd43a116e7150f009b1d930401dd64dcbd215",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l6",
+      "variant": "random",
+      "layout": 6,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 230,
+      "steps_complete": true,
+      "wall_seconds": 375.4537282078527,
+      "tool_counts": {
+        "execute_chunk": 16,
+        "measure_planar": 6,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 2,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 6,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 204,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l6/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l6/_result.json",
+      "native_sha256": "0d4366d03be196625243688d60cdd43a116e7150f009b1d930401dd64dcbd215",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l7",
+      "variant": "standard",
+      "layout": 7,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 313,
+      "steps_complete": true,
+      "wall_seconds": 340.7719475920312,
+      "tool_counts": {
+        "execute_chunk": 17,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 283,
+      "ik_rejected": 0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l7/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l7/_result.json",
+      "native_sha256": "0a6c48e1585d26c3ecfe9911fcb4e59335ae6b75a143789a651b0185fbb61144",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l7",
+      "variant": "random",
+      "layout": 7,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 216,
+      "steps_complete": true,
+      "wall_seconds": 334.8082916890271,
+      "tool_counts": {
+        "execute_chunk": 13,
+        "measure_planar": 7,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 4,
+        "planar_match": 1,
+        "planar_check": 1
+      },
+      "planar_calls": 7,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 3,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 200,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l7/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l7/_result.json",
+      "native_sha256": "0a6c48e1585d26c3ecfe9911fcb4e59335ae6b75a143789a651b0185fbb61144",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l8",
+      "variant": "standard",
+      "layout": 8,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 235,
+      "steps_complete": true,
+      "wall_seconds": 350.4828920799773,
+      "tool_counts": {
+        "execute_chunk": 14,
+        "measure_planar": 12,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 2,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 9,
+        "planar_match": 1,
+        "planar_check": 1
+      },
+      "planar_calls": 12,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 8,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 205,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l8/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l8/_result.json",
+      "native_sha256": "42dc8b169e10d702acfbea193b5de88aa1be5668cc3b2568a32d5b1839010d52",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l8",
+      "variant": "random",
+      "layout": 8,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 440,
+      "steps_complete": true,
+      "wall_seconds": 650.3041025109123,
+      "tool_counts": {
+        "execute_chunk": 29,
+        "measure_planar": 10,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 3,
+        "planar_height": 2,
+        "planar_match": 2,
+        "planar_check": 3
+      },
+      "planar_calls": 10,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 3,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 374,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l8/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l8/_result.json",
+      "native_sha256": "42dc8b169e10d702acfbea193b5de88aa1be5668cc3b2568a32d5b1839010d52",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l9",
+      "variant": "standard",
+      "layout": 9,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 350,
+      "steps_complete": true,
+      "wall_seconds": 393.90454872488044,
+      "tool_counts": {
+        "execute_chunk": 20,
+        "measure_planar": 8,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 4,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 8,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 4,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 323,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l9/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l9/_result.json",
+      "native_sha256": "c002ab3a8deb34e7e3e50f9d40562d50064e254081210811610a980af176ae2c",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l10",
+      "variant": "standard",
+      "layout": 10,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 302,
+      "steps_complete": true,
+      "wall_seconds": 329.9393137409352,
+      "tool_counts": {
+        "execute_chunk": 18,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 272,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l10/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l10/_result.json",
+      "native_sha256": "362097c722449728e0294af1d7ce9ab51d85cbcd1b8a9f35c3c425320ede9b6a",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l9",
+      "variant": "random",
+      "layout": 9,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 309,
+      "steps_complete": true,
+      "wall_seconds": 423.78177454904653,
+      "tool_counts": {
+        "execute_chunk": 22,
+        "measure_planar": 8,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 2,
+        "planar_check": 4
+      },
+      "planar_calls": 8,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 3,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 293,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l9/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l9/_result.json",
+      "native_sha256": "c002ab3a8deb34e7e3e50f9d40562d50064e254081210811610a980af176ae2c",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l11",
+      "variant": "standard",
+      "layout": 11,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 233,
+      "steps_complete": true,
+      "wall_seconds": 375.8619571789168,
+      "tool_counts": {
+        "execute_chunk": 16,
+        "measure_planar": 7,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 3,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 7,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 218,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l11/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l11/_result.json",
+      "native_sha256": "ca7098523fb70ced5242a7968ec532d81adea112985fd90562a0d0f06de36776",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l10",
+      "variant": "random",
+      "layout": 10,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 440,
+      "steps_complete": true,
+      "wall_seconds": 494.5941404029727,
+      "tool_counts": {
+        "execute_chunk": 25,
+        "measure_planar": 11,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 2,
+        "planar_height": 3,
+        "planar_match": 2,
+        "planar_check": 4
+      },
+      "planar_calls": 11,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 4,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 397,
+      "ik_rejected": 2,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l10/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l10/_result.json",
+      "native_sha256": "362097c722449728e0294af1d7ce9ab51d85cbcd1b8a9f35c3c425320ede9b6a",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l12",
+      "variant": "standard",
+      "layout": 12,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 237,
+      "steps_complete": true,
+      "wall_seconds": 366.5847355679143,
+      "tool_counts": {
+        "execute_chunk": 18,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 1,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 223,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l12/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l12/_result.json",
+      "native_sha256": "34960f3b1f9cfe0884ff1356e3ff890febcc4dab731f230c8adfcb1cceb61e78",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l11",
+      "variant": "random",
+      "layout": 11,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 459,
+      "steps_complete": true,
+      "wall_seconds": 457.69451645808294,
+      "tool_counts": {
+        "execute_chunk": 22,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 3,
+        "record_plan": 3,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 416,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l11/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l11/_result.json",
+      "native_sha256": "ca7098523fb70ced5242a7968ec532d81adea112985fd90562a0d0f06de36776",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l13",
+      "variant": "standard",
+      "layout": 13,
+      "success": null,
+      "native_score": null,
+      "steps": 24,
+      "steps_complete": false,
+      "wall_seconds": 166.4407278939616,
+      "tool_counts": {
+        "execute_chunk": 1,
+        "measure_planar": 4,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 2
+      },
+      "planar_calls": 4,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 0,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 24,
+      "ik_rejected": 0,
+      "native_result": null,
+      "native_sha256": null,
+      "terminal_errors": [
+        "Selected model is at capacity. Please try a different model."
+      ]
+    },
+    {
+      "case": "seed1-random-l12",
+      "variant": "random",
+      "layout": 12,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 429,
+      "steps_complete": true,
+      "wall_seconds": 497.52631281502545,
+      "tool_counts": {
+        "execute_chunk": 27,
+        "measure_planar": 6,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 3
+      },
+      "planar_calls": 6,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 383,
+      "ik_rejected": 2,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l12/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l12/_result.json",
+      "native_sha256": "34960f3b1f9cfe0884ff1356e3ff890febcc4dab731f230c8adfcb1cceb61e78",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l13",
+      "variant": "random",
+      "layout": 13,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 211,
+      "steps_complete": true,
+      "wall_seconds": 316.00094027793966,
+      "tool_counts": {
+        "execute_chunk": 16,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 1,
+        "retrieve_evidence": 1
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 185,
+      "ik_rejected": 0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l13/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l13/_result.json",
+      "native_sha256": "13b1079b646db550d54c76ae498e32c531a767c88f9147c9cf7aee17982a34bd",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l14",
+      "variant": "standard",
+      "layout": 14,
+      "success": null,
+      "native_score": null,
+      "steps": 224,
+      "steps_complete": false,
+      "wall_seconds": 412.6021506441757,
+      "tool_counts": {
+        "execute_chunk": 16,
+        "measure_planar": 6,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_match": 2,
+        "planar_height": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 6,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 224,
+      "ik_rejected": 1,
+      "native_result": null,
+      "native_sha256": null,
+      "terminal_errors": [
+        "Selected model is at capacity. Please try a different model."
+      ]
+    },
+    {
+      "case": "seed1-random-l14",
+      "variant": "random",
+      "layout": 14,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 319,
+      "steps_complete": true,
+      "wall_seconds": 486.78319810098037,
+      "tool_counts": {
+        "execute_chunk": 19,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 275,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l14/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l14/_result.json",
+      "native_sha256": "bc39ec9c577a01cbf37d599656e4048b66a01cf73c6dd0b860f0b42aee379d80",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l15",
+      "variant": "standard",
+      "layout": 15,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 278,
+      "steps_complete": true,
+      "wall_seconds": 354.0798059189692,
+      "tool_counts": {
+        "execute_chunk": 19,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 252,
+      "ik_rejected": 2,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l15/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l15/_result.json",
+      "native_sha256": "c05f0ced10f4402b26683d761ebeedc814fd73127e0317cc7cbb1ca60f2dec12",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l15",
+      "variant": "random",
+      "layout": 15,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 283,
+      "steps_complete": true,
+      "wall_seconds": 310.8153342450969,
+      "tool_counts": {
+        "execute_chunk": 17,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 268,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l15/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l15/_result.json",
+      "native_sha256": "c05f0ced10f4402b26683d761ebeedc814fd73127e0317cc7cbb1ca60f2dec12",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l16",
+      "variant": "standard",
+      "layout": 16,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 344,
+      "steps_complete": true,
+      "wall_seconds": 431.3517454639077,
+      "tool_counts": {
+        "execute_chunk": 21,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 319,
+      "ik_rejected": 3,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l16/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l16/_result.json",
+      "native_sha256": "2ed2c1d65535064cc242e519fd876d834920106809190ee89a7305170edb84ae",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l16",
+      "variant": "random",
+      "layout": 16,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 344,
+      "steps_complete": true,
+      "wall_seconds": 454.106614649063,
+      "tool_counts": {
+        "execute_chunk": 22,
+        "measure_planar": 12,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 3,
+        "planar_height": 3,
+        "planar_match": 3,
+        "planar_check": 3
+      },
+      "planar_calls": 12,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 4,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 298,
+      "ik_rejected": 3,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l16/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l16/_result.json",
+      "native_sha256": "2ed2c1d65535064cc242e519fd876d834920106809190ee89a7305170edb84ae",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l17",
+      "variant": "standard",
+      "layout": 17,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 504,
+      "steps_complete": true,
+      "wall_seconds": 570.0698391771875,
+      "tool_counts": {
+        "execute_chunk": 34,
+        "measure_planar": 13,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 4,
+        "planar_match": 5,
+        "planar_check": 3
+      },
+      "planar_calls": 13,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 3,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 459,
+      "ik_rejected": 3,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l17/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l17/_result.json",
+      "native_sha256": "665a8d51e96dd69593c59397ad78fffecc357909170b69ce1c417aae7d71c6cf",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l17",
+      "variant": "random",
+      "layout": 17,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 428,
+      "steps_complete": true,
+      "wall_seconds": 656.941775053041,
+      "tool_counts": {
+        "execute_chunk": 32,
+        "measure_planar": 8,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 4
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 2,
+        "planar_check": 4
+      },
+      "planar_calls": 8,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 3,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 415,
+      "ik_rejected": 3,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l17/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l17/_result.json",
+      "native_sha256": "665a8d51e96dd69593c59397ad78fffecc357909170b69ce1c417aae7d71c6cf",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l18",
+      "variant": "standard",
+      "layout": 18,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 442,
+      "steps_complete": true,
+      "wall_seconds": 564.0828466410749,
+      "tool_counts": {
+        "execute_chunk": 28,
+        "measure_planar": 9,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 2,
+        "planar_match": 3,
+        "planar_check": 3
+      },
+      "planar_calls": 9,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 3,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 394,
+      "ik_rejected": 3,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l18/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l18/_result.json",
+      "native_sha256": "60078173b45acc9943a05a2da7f49d0148e8b62d5a5321fc658cc7e3634ee41b",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l18",
+      "variant": "random",
+      "layout": 18,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 286,
+      "steps_complete": true,
+      "wall_seconds": 432.4236650890671,
+      "tool_counts": {
+        "execute_chunk": 19,
+        "measure_planar": 8,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 4,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 8,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 5,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 269,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l18/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l18/_result.json",
+      "native_sha256": "60078173b45acc9943a05a2da7f49d0148e8b62d5a5321fc658cc7e3634ee41b",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l19",
+      "variant": "standard",
+      "layout": 19,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 270,
+      "steps_complete": true,
+      "wall_seconds": 353.78730171197094,
+      "tool_counts": {
+        "execute_chunk": 17,
+        "measure_planar": 6,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 2,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 6,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 252,
+      "ik_rejected": 0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l19/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l19/_result.json",
+      "native_sha256": "22e688bdbfc97f01d5c0f947210df8136e6a85b19a201b7a7f0f5733e6eff976",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l19",
+      "variant": "random",
+      "layout": 19,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 249,
+      "steps_complete": true,
+      "wall_seconds": 399.92800113908015,
+      "tool_counts": {
+        "execute_chunk": 18,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 205,
+      "ik_rejected": 2,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l19/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l19/_result.json",
+      "native_sha256": "22e688bdbfc97f01d5c0f947210df8136e6a85b19a201b7a7f0f5733e6eff976",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l20",
+      "variant": "standard",
+      "layout": 20,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 273,
+      "steps_complete": true,
+      "wall_seconds": 357.8046767869964,
+      "tool_counts": {
+        "execute_chunk": 17,
+        "measure_planar": 9,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 5,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 9,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 3,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 246,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l20/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l20/_result.json",
+      "native_sha256": "56db59c75454944d882ef1c5117519f8d76431576f9f2a90e66a3b31a9cea2be",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l20",
+      "variant": "random",
+      "layout": 20,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 229,
+      "steps_complete": true,
+      "wall_seconds": 408.6324546299875,
+      "tool_counts": {
+        "execute_chunk": 15,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 212,
+      "ik_rejected": 0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l20/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l20/_result.json",
+      "native_sha256": "56db59c75454944d882ef1c5117519f8d76431576f9f2a90e66a3b31a9cea2be",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l21",
+      "variant": "standard",
+      "layout": 21,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 277,
+      "steps_complete": true,
+      "wall_seconds": 328.89097825903445,
+      "tool_counts": {
+        "execute_chunk": 17,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 1,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 1,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 251,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l21/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l21/_result.json",
+      "native_sha256": "b2a537f7c1c3bdbb0e3adf933c4c260648d7876175be4aac1f7b86b9cd05398a",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l21",
+      "variant": "random",
+      "layout": 21,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 391,
+      "steps_complete": true,
+      "wall_seconds": 433.24791504908353,
+      "tool_counts": {
+        "execute_chunk": 22,
+        "measure_planar": 6,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 3
+      },
+      "planar_calls": 6,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 376,
+      "ik_rejected": 2,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l21/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l21/_result.json",
+      "native_sha256": "b2a537f7c1c3bdbb0e3adf933c4c260648d7876175be4aac1f7b86b9cd05398a",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l22",
+      "variant": "standard",
+      "layout": 22,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 359,
+      "steps_complete": true,
+      "wall_seconds": 478.7058938778937,
+      "tool_counts": {
+        "execute_chunk": 25,
+        "measure_planar": 8,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 2,
+        "planar_check": 4
+      },
+      "planar_calls": 8,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 3,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 299,
+      "ik_rejected": 4,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l22/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l22/_result.json",
+      "native_sha256": "7ce50bfff06c7f66661a62979085b751bcce94384cad7dbc213c1d7c4043d16d",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l22",
+      "variant": "random",
+      "layout": 22,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 357,
+      "steps_complete": true,
+      "wall_seconds": 377.03154113003984,
+      "tool_counts": {
+        "execute_chunk": 21,
+        "measure_planar": 5,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 2
+      },
+      "planar_calls": 5,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 338,
+      "ik_rejected": 2,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l22/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l22/_result.json",
+      "native_sha256": "7ce50bfff06c7f66661a62979085b751bcce94384cad7dbc213c1d7c4043d16d",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l23",
+      "variant": "standard",
+      "layout": 23,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 312,
+      "steps_complete": true,
+      "wall_seconds": 433.55032486096025,
+      "tool_counts": {
+        "execute_chunk": 25,
+        "measure_planar": 6,
+        "observe": 1,
+        "read_action_reference": 3,
+        "record_plan": 2,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 3
+      },
+      "planar_calls": 6,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 266,
+      "ik_rejected": 2,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l23/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l23/_result.json",
+      "native_sha256": "195b05fd00819b01099166e71cf4c65a5257de40103a8a7f0e5f96100f614028",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l23",
+      "variant": "random",
+      "layout": 23,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 310,
+      "steps_complete": true,
+      "wall_seconds": 416.87774440203793,
+      "tool_counts": {
+        "execute_chunk": 20,
+        "measure_planar": 8,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 2,
+        "planar_height": 2,
+        "planar_match": 1,
+        "planar_check": 3
+      },
+      "planar_calls": 8,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 2,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 265,
+      "ik_rejected": 2,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l23/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l23/_result.json",
+      "native_sha256": "195b05fd00819b01099166e71cf4c65a5257de40103a8a7f0e5f96100f614028",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-standard-l24",
+      "variant": "standard",
+      "layout": 24,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 212,
+      "steps_complete": true,
+      "wall_seconds": 269.1377388900146,
+      "tool_counts": {
+        "execute_chunk": 14,
+        "measure_planar": 4,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 2
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 1,
+        "planar_match": 1,
+        "planar_check": 1
+      },
+      "planar_calls": 4,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 0,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 192,
+      "ik_rejected": 1,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l24/native/eval_result/RoboDojo/push_T/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l24/_result.json",
+      "native_sha256": "6df02cc60901c6463022478208a8d470e44097e690d51958c41c92647f94ddd9",
+      "terminal_errors": []
+    },
+    {
+      "case": "seed1-random-l24",
+      "variant": "random",
+      "layout": 24,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 303,
+      "steps_complete": true,
+      "wall_seconds": 552.8710058229044,
+      "tool_counts": {
+        "execute_chunk": 20,
+        "measure_planar": 10,
+        "observe": 1,
+        "read_action_reference": 2,
+        "record_plan": 1,
+        "retrieve_evidence": 3
+      },
+      "planar_measure_commands": {
+        "table_plane": 1,
+        "planar_height": 3,
+        "planar_match": 1,
+        "planar_check": 5
+      },
+      "planar_calls": 10,
+      "measurement_control_steps": 0,
+      "measurement_error_count": 4,
+      "ik_limit_rad": 0.25,
+      "ik_accepted": 238,
+      "ik_rejected": 0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-random-l24/native/eval_result/RoboDojo/push_T_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l24/_result.json",
+      "native_sha256": "6df02cc60901c6463022478208a8d470e44097e690d51958c41c92647f94ddd9",
+      "terminal_errors": []
+    }
+  ],
+  "closure_checks": {
+    "independent_audit_matches_automatic_report": true,
+    "candidate_head_matches": true,
+    "tracked_diff_empty": true,
+    "frozen_sources_verified": 282,
+    "development_sources_preserved": 237,
+    "stopped_minimal_candidate_sources_preserved": 275,
+    "unchanged_current_core_modules": [
+      "mcp/server.py",
+      "mcp/session.py",
+      "mcp/planning.py",
+      "mcp/motion.py",
+      "mcp/schemas.py",
+      "graph_retrieval.py",
+      "graph_chunks.py",
+      "action_targets.py",
+      "hexashell_agent.py",
+      "sop_store.py"
+    ],
+    "native_reports_verified": 48,
+    "unscored_cases_verified": 2,
+    "registered_scenes_verified": 50,
+    "native_step_limit": 600,
+    "max_recorded_steps": 535,
+    "push_T_only_ik_guard_source_reviewed": true,
+    "guard_limit_rad": 0.25,
+    "episodes_using_measure_planar": 50,
+    "measurement_calls": 370,
+    "measurement_control_steps": 0,
+    "registered_process_count": 555,
+    "all_registered_processes_exited": true,
+    "matching_live_processes": [],
+    "pending": 0,
+    "active": []
+  },
+  "processes": [
+    {
+      "pid": 752598,
+      "observed_start_epochs": [
+        1793727868.45
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 752599,
+      "observed_start_epochs": [
+        1793727868.47
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 752607,
+      "observed_start_epochs": [
+        1793727870.59
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 752609,
+      "observed_start_epochs": [
+        1793727870.62
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 752984,
+      "observed_start_epochs": [
+        1793727875.27
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753128,
+      "observed_start_epochs": [
+        1793727907.68
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753135,
+      "observed_start_epochs": [
+        1793727907.7
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753180,
+      "observed_start_epochs": [
+        1793727907.72
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753257,
+      "observed_start_epochs": [
+        1793727908.05
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753258,
+      "observed_start_epochs": [
+        1793727908.46
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753259,
+      "observed_start_epochs": [
+        1793727908.46
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753262,
+      "observed_start_epochs": [
+        1793727908.47
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753334,
+      "observed_start_epochs": [
+        1793727912.44
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753336,
+      "observed_start_epochs": [
+        1793727912.47
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753774,
+      "observed_start_epochs": [
+        1793727916.69
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753858,
+      "observed_start_epochs": [
+        1793727926.92
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753970,
+      "observed_start_epochs": [
+        1793727953.38
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 753971,
+      "observed_start_epochs": [
+        1793727953.41
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 754014,
+      "observed_start_epochs": [
+        1793727953.43
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 754099,
+      "observed_start_epochs": [
+        1793727953.71
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 754100,
+      "observed_start_epochs": [
+        1793727954.11
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 754101,
+      "observed_start_epochs": [
+        1793727954.11
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 754102,
+      "observed_start_epochs": [
+        1793727954.12
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 754281,
+      "observed_start_epochs": [
+        1793727963.52
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 755804,
+      "observed_start_epochs": [
+        1793728477.8
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 755806,
+      "observed_start_epochs": [
+        1793728477.83
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 756183,
+      "observed_start_epochs": [
+        1793728481.83
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 756305,
+      "observed_start_epochs": [
+        1793728511.89
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 756311,
+      "observed_start_epochs": [
+        1793728511.92
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 756356,
+      "observed_start_epochs": [
+        1793728511.94
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 756434,
+      "observed_start_epochs": [
+        1793728512.25
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 756435,
+      "observed_start_epochs": [
+        1793728512.56
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 756436,
+      "observed_start_epochs": [
+        1793728512.56
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 756438,
+      "observed_start_epochs": [
+        1793728512.57
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 756569,
+      "observed_start_epochs": [
+        1793728522.92
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 756805,
+      "observed_start_epochs": [
+        1793728583.92
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 756807,
+      "observed_start_epochs": [
+        1793728583.95
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 757178,
+      "observed_start_epochs": [
+        1793728588.02
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 757383,
+      "observed_start_epochs": [
+        1793728620.77
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 757388,
+      "observed_start_epochs": [
+        1793728620.79
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 757432,
+      "observed_start_epochs": [
+        1793728620.81
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 757512,
+      "observed_start_epochs": [
+        1793728621.19
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 757513,
+      "observed_start_epochs": [
+        1793728621.59
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 757515,
+      "observed_start_epochs": [
+        1793728621.6
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 757517,
+      "observed_start_epochs": [
+        1793728621.61
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 757682,
+      "observed_start_epochs": [
+        1793728640.83
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 758903,
+      "observed_start_epochs": [
+        1793729032.68
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 758905,
+      "observed_start_epochs": [
+        1793729032.71
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 759286,
+      "observed_start_epochs": [
+        1793729036.98
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 759403,
+      "observed_start_epochs": [
+        1793729065.4
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 759410,
+      "observed_start_epochs": [
+        1793729065.42
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 759455,
+      "observed_start_epochs": [
+        1793729065.45
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 759532,
+      "observed_start_epochs": [
+        1793729065.93
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 759533,
+      "observed_start_epochs": [
+        1793729066.23
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 759534,
+      "observed_start_epochs": [
+        1793729066.23
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 759535,
+      "observed_start_epochs": [
+        1793729066.24
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 759683,
+      "observed_start_epochs": [
+        1793729074.67
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 759708,
+      "observed_start_epochs": [
+        1793729075.38
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 759710,
+      "observed_start_epochs": [
+        1793729075.41
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 760086,
+      "observed_start_epochs": [
+        1793729079.38
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 760199,
+      "observed_start_epochs": [
+        1793729110.28
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 760205,
+      "observed_start_epochs": [
+        1793729110.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 760253,
+      "observed_start_epochs": [
+        1793729110.33
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 760328,
+      "observed_start_epochs": [
+        1793729110.64
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 760329,
+      "observed_start_epochs": [
+        1793729111.04
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 760330,
+      "observed_start_epochs": [
+        1793729111.04
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 760332,
+      "observed_start_epochs": [
+        1793729111.05
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 760452,
+      "observed_start_epochs": [
+        1793729117.96
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 761429,
+      "observed_start_epochs": [
+        1793729397.7
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 761431,
+      "observed_start_epochs": [
+        1793729397.73
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 761808,
+      "observed_start_epochs": [
+        1793729401.79
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 761929,
+      "observed_start_epochs": [
+        1793729430.02
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 761930,
+      "observed_start_epochs": [
+        1793729430.04
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 761973,
+      "observed_start_epochs": [
+        1793729430.06
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 762058,
+      "observed_start_epochs": [
+        1793729430.36
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 762059,
+      "observed_start_epochs": [
+        1793729430.76
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 762060,
+      "observed_start_epochs": [
+        1793729430.76
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 762061,
+      "observed_start_epochs": [
+        1793729430.77
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 762174,
+      "observed_start_epochs": [
+        1793729437.44
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 763548,
+      "observed_start_epochs": [
+        1793729757.0
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 763550,
+      "observed_start_epochs": [
+        1793729757.03
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 763909,
+      "observed_start_epochs": [
+        1793729761.16
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 764042,
+      "observed_start_epochs": [
+        1793729793.2
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 764048,
+      "observed_start_epochs": [
+        1793729793.23
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 764092,
+      "observed_start_epochs": [
+        1793729793.25
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 764171,
+      "observed_start_epochs": [
+        1793729793.67
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 764177,
+      "observed_start_epochs": [
+        1793729794.07
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 764178,
+      "observed_start_epochs": [
+        1793729794.07
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 764179,
+      "observed_start_epochs": [
+        1793729794.08
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 764309,
+      "observed_start_epochs": [
+        1793729801.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 764505,
+      "observed_start_epochs": [
+        1793729841.89
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 764507,
+      "observed_start_epochs": [
+        1793729841.92
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 764902,
+      "observed_start_epochs": [
+        1793729846.26
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 765050,
+      "observed_start_epochs": [
+        1793729875.64
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 765056,
+      "observed_start_epochs": [
+        1793729875.67
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 765099,
+      "observed_start_epochs": [
+        1793729875.69
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 765179,
+      "observed_start_epochs": [
+        1793729876.15
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 765180,
+      "observed_start_epochs": [
+        1793729876.46
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 765181,
+      "observed_start_epochs": [
+        1793729876.46
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 765182,
+      "observed_start_epochs": [
+        1793729876.47
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 765343,
+      "observed_start_epochs": [
+        1793729888.99
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 766622,
+      "observed_start_epochs": [
+        1793730275.24
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 766624,
+      "observed_start_epochs": [
+        1793730275.26
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 766996,
+      "observed_start_epochs": [
+        1793730279.43
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 767114,
+      "observed_start_epochs": [
+        1793730311.55
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 767120,
+      "observed_start_epochs": [
+        1793730311.57
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 767165,
+      "observed_start_epochs": [
+        1793730311.6
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 767243,
+      "observed_start_epochs": [
+        1793730311.89
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 767248,
+      "observed_start_epochs": [
+        1793730312.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 767249,
+      "observed_start_epochs": [
+        1793730312.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 767250,
+      "observed_start_epochs": [
+        1793730312.31
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 767564,
+      "observed_start_epochs": [
+        1793730331.78
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 768408,
+      "observed_start_epochs": [
+        1793730565.99
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 768410,
+      "observed_start_epochs": [
+        1793730566.02
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 768775,
+      "observed_start_epochs": [
+        1793730570.05
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 768910,
+      "observed_start_epochs": [
+        1793730598.95
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 768919,
+      "observed_start_epochs": [
+        1793730598.97
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 768960,
+      "observed_start_epochs": [
+        1793730599.0
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 769039,
+      "observed_start_epochs": [
+        1793730599.45
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 769040,
+      "observed_start_epochs": [
+        1793730599.86
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 769041,
+      "observed_start_epochs": [
+        1793730599.86
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 769042,
+      "observed_start_epochs": [
+        1793730599.87
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 769190,
+      "observed_start_epochs": [
+        1793730610.12
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 769964,
+      "observed_start_epochs": [
+        1793730809.15
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 769966,
+      "observed_start_epochs": [
+        1793730809.18
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 770344,
+      "observed_start_epochs": [
+        1793730813.28
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 770502,
+      "observed_start_epochs": [
+        1793730846.27
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 770510,
+      "observed_start_epochs": [
+        1793730846.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 770554,
+      "observed_start_epochs": [
+        1793730846.33
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 770631,
+      "observed_start_epochs": [
+        1793730846.62
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 770632,
+      "observed_start_epochs": [
+        1793730847.02
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 770633,
+      "observed_start_epochs": [
+        1793730847.02
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 770634,
+      "observed_start_epochs": [
+        1793730847.03
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 770747,
+      "observed_start_epochs": [
+        1793730854.63
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 771680,
+      "observed_start_epochs": [
+        1793731184.34
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 771682,
+      "observed_start_epochs": [
+        1793731184.37
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 772058,
+      "observed_start_epochs": [
+        1793731188.49
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 772173,
+      "observed_start_epochs": [
+        1793731217.54
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 772179,
+      "observed_start_epochs": [
+        1793731217.57
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 772223,
+      "observed_start_epochs": [
+        1793731217.6
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 772302,
+      "observed_start_epochs": [
+        1793731218.01
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 772304,
+      "observed_start_epochs": [
+        1793731218.41
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 772305,
+      "observed_start_epochs": [
+        1793731218.41
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 772307,
+      "observed_start_epochs": [
+        1793731218.42
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 772421,
+      "observed_start_epochs": [
+        1793731226.15
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 773049,
+      "observed_start_epochs": [
+        1793731411.77
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 773051,
+      "observed_start_epochs": [
+        1793731411.81
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 773423,
+      "observed_start_epochs": [
+        1793731415.94
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 773540,
+      "observed_start_epochs": [
+        1793731447.72
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 773543,
+      "observed_start_epochs": [
+        1793731447.74
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 773590,
+      "observed_start_epochs": [
+        1793731447.76
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 773675,
+      "observed_start_epochs": [
+        1793731448.03
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 773677,
+      "observed_start_epochs": [
+        1793731448.44
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 773678,
+      "observed_start_epochs": [
+        1793731448.44
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 773679,
+      "observed_start_epochs": [
+        1793731448.45
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 773817,
+      "observed_start_epochs": [
+        1793731456.31
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 774659,
+      "observed_start_epochs": [
+        1793731728.99
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 774661,
+      "observed_start_epochs": [
+        1793731729.02
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775040,
+      "observed_start_epochs": [
+        1793731733.11
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775162,
+      "observed_start_epochs": [
+        1793731761.1
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775165,
+      "observed_start_epochs": [
+        1793731761.12
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775207,
+      "observed_start_epochs": [
+        1793731761.15
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775291,
+      "observed_start_epochs": [
+        1793731761.65
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775292,
+      "observed_start_epochs": [
+        1793731761.95
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775293,
+      "observed_start_epochs": [
+        1793731761.96
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775295,
+      "observed_start_epochs": [
+        1793731761.97
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775413,
+      "observed_start_epochs": [
+        1793731769.94
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775569,
+      "observed_start_epochs": [
+        1793731792.82
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775571,
+      "observed_start_epochs": [
+        1793731792.86
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 775941,
+      "observed_start_epochs": [
+        1793731797.02
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 776141,
+      "observed_start_epochs": [
+        1793731830.78
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 776149,
+      "observed_start_epochs": [
+        1793731830.81
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 776193,
+      "observed_start_epochs": [
+        1793731830.84
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 776270,
+      "observed_start_epochs": [
+        1793731831.29
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 776272,
+      "observed_start_epochs": [
+        1793731831.7
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 776273,
+      "observed_start_epochs": [
+        1793731831.7
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 776274,
+      "observed_start_epochs": [
+        1793731831.71
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 776408,
+      "observed_start_epochs": [
+        1793731839.22
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777102,
+      "observed_start_epochs": [
+        1793732073.13
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777104,
+      "observed_start_epochs": [
+        1793732073.16
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777473,
+      "observed_start_epochs": [
+        1793732077.2
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777601,
+      "observed_start_epochs": [
+        1793732105.47
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777603,
+      "observed_start_epochs": [
+        1793732105.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777645,
+      "observed_start_epochs": [
+        1793732105.52
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777730,
+      "observed_start_epochs": [
+        1793732105.98
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777732,
+      "observed_start_epochs": [
+        1793732106.39
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777733,
+      "observed_start_epochs": [
+        1793732106.39
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777734,
+      "observed_start_epochs": [
+        1793732106.4
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777866,
+      "observed_start_epochs": [
+        1793732112.93
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777941,
+      "observed_start_epochs": [
+        1793732131.67
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 777943,
+      "observed_start_epochs": [
+        1793732131.7
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 778315,
+      "observed_start_epochs": [
+        1793732135.77
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 778540,
+      "observed_start_epochs": [
+        1793732168.91
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 778563,
+      "observed_start_epochs": [
+        1793732168.94
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 778584,
+      "observed_start_epochs": [
+        1793732168.97
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 778668,
+      "observed_start_epochs": [
+        1793732169.33
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 778670,
+      "observed_start_epochs": [
+        1793732169.74
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 778671,
+      "observed_start_epochs": [
+        1793732169.74
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 778673,
+      "observed_start_epochs": [
+        1793732169.75
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 778807,
+      "observed_start_epochs": [
+        1793732176.26
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 779808,
+      "observed_start_epochs": [
+        1793732427.9
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 779810,
+      "observed_start_epochs": [
+        1793732427.93
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 780211,
+      "observed_start_epochs": [
+        1793732431.99
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 780342,
+      "observed_start_epochs": [
+        1793732460.51
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 780343,
+      "observed_start_epochs": [
+        1793732460.54
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 780386,
+      "observed_start_epochs": [
+        1793732460.56
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 780471,
+      "observed_start_epochs": [
+        1793732460.96
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 780472,
+      "observed_start_epochs": [
+        1793732461.26
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 780473,
+      "observed_start_epochs": [
+        1793732461.26
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 780474,
+      "observed_start_epochs": [
+        1793732461.27
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 780606,
+      "observed_start_epochs": [
+        1793732469.97
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 781717,
+      "observed_start_epochs": [
+        1793732787.24
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 781719,
+      "observed_start_epochs": [
+        1793732787.27
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782095,
+      "observed_start_epochs": [
+        1793732791.39
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782250,
+      "observed_start_epochs": [
+        1793732825.11
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782258,
+      "observed_start_epochs": [
+        1793732825.14
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782301,
+      "observed_start_epochs": [
+        1793732825.16
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782379,
+      "observed_start_epochs": [
+        1793732825.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782380,
+      "observed_start_epochs": [
+        1793732825.9
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782381,
+      "observed_start_epochs": [
+        1793732825.9
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782382,
+      "observed_start_epochs": [
+        1793732825.91
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782518,
+      "observed_start_epochs": [
+        1793732829.91
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782520,
+      "observed_start_epochs": [
+        1793732829.94
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782868,
+      "observed_start_epochs": [
+        1793732833.93
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 782921,
+      "observed_start_epochs": [
+        1793732834.29
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 783183,
+      "observed_start_epochs": [
+        1793732862.28
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 783191,
+      "observed_start_epochs": [
+        1793732862.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 783228,
+      "observed_start_epochs": [
+        1793732862.33
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 783313,
+      "observed_start_epochs": [
+        1793732862.77
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 783314,
+      "observed_start_epochs": [
+        1793732863.17
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 783315,
+      "observed_start_epochs": [
+        1793732863.17
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 783316,
+      "observed_start_epochs": [
+        1793732863.18
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 783451,
+      "observed_start_epochs": [
+        1793732869.82
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 784444,
+      "observed_start_epochs": [
+        1793733162.94
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 784446,
+      "observed_start_epochs": [
+        1793733162.97
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 784818,
+      "observed_start_epochs": [
+        1793733166.94
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 784999,
+      "observed_start_epochs": [
+        1793733199.69
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785006,
+      "observed_start_epochs": [
+        1793733199.72
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785053,
+      "observed_start_epochs": [
+        1793733199.75
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785130,
+      "observed_start_epochs": [
+        1793733200.0
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785147,
+      "observed_start_epochs": [
+        1793733200.41
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785148,
+      "observed_start_epochs": [
+        1793733200.41
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785150,
+      "observed_start_epochs": [
+        1793733200.42
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785265,
+      "observed_start_epochs": [
+        1793733207.39
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785307,
+      "observed_start_epochs": [
+        1793733216.2
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785309,
+      "observed_start_epochs": [
+        1793733216.23
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785685,
+      "observed_start_epochs": [
+        1793733220.22
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785897,
+      "observed_start_epochs": [
+        1793733248.17
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785902,
+      "observed_start_epochs": [
+        1793733248.19
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 785949,
+      "observed_start_epochs": [
+        1793733248.21
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 786026,
+      "observed_start_epochs": [
+        1793733248.66
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 786027,
+      "observed_start_epochs": [
+        1793733248.96
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 786028,
+      "observed_start_epochs": [
+        1793733248.96
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 786030,
+      "observed_start_epochs": [
+        1793733248.97
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 786178,
+      "observed_start_epochs": [
+        1793733259.64
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787032,
+      "observed_start_epochs": [
+        1793733522.33
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787037,
+      "observed_start_epochs": [
+        1793733522.35
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787038,
+      "observed_start_epochs": [
+        1793733522.35
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787268,
+      "observed_start_epochs": [
+        1793733596.75
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787270,
+      "observed_start_epochs": [
+        1793733596.78
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787644,
+      "observed_start_epochs": [
+        1793733600.79
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787774,
+      "observed_start_epochs": [
+        1793733630.8
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787782,
+      "observed_start_epochs": [
+        1793733630.82
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787818,
+      "observed_start_epochs": [
+        1793733630.85
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787903,
+      "observed_start_epochs": [
+        1793733631.2
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787904,
+      "observed_start_epochs": [
+        1793733631.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787905,
+      "observed_start_epochs": [
+        1793733631.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 787906,
+      "observed_start_epochs": [
+        1793733631.51
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 788055,
+      "observed_start_epochs": [
+        1793733640.17
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 788152,
+      "observed_start_epochs": [
+        1793733660.59
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 788156,
+      "observed_start_epochs": [
+        1793733660.62
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 788549,
+      "observed_start_epochs": [
+        1793733664.76
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 788699,
+      "observed_start_epochs": [
+        1793733692.45
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 788700,
+      "observed_start_epochs": [
+        1793733692.48
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 788752,
+      "observed_start_epochs": [
+        1793733692.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 788827,
+      "observed_start_epochs": [
+        1793733692.85
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 788829,
+      "observed_start_epochs": [
+        1793733693.25
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 788830,
+      "observed_start_epochs": [
+        1793733693.25
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 788831,
+      "observed_start_epochs": [
+        1793733693.26
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 789002,
+      "observed_start_epochs": [
+        1793733702.98
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 789970,
+      "observed_start_epochs": [
+        1793734030.43
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 789972,
+      "observed_start_epochs": [
+        1793734030.46
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 790345,
+      "observed_start_epochs": [
+        1793734034.63
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 790540,
+      "observed_start_epochs": [
+        1793734068.2
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 790541,
+      "observed_start_epochs": [
+        1793734068.22
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 790584,
+      "observed_start_epochs": [
+        1793734068.24
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 790669,
+      "observed_start_epochs": [
+        1793734068.7
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 790670,
+      "observed_start_epochs": [
+        1793734069.1
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 790671,
+      "observed_start_epochs": [
+        1793734069.1
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 790672,
+      "observed_start_epochs": [
+        1793734069.11
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 790785,
+      "observed_start_epochs": [
+        1793734072.83
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 790787,
+      "observed_start_epochs": [
+        1793734072.86
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 791119,
+      "observed_start_epochs": [
+        1793734075.99
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 791177,
+      "observed_start_epochs": [
+        1793734076.77
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 791414,
+      "observed_start_epochs": [
+        1793734104.62
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 791420,
+      "observed_start_epochs": [
+        1793734104.65
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 791458,
+      "observed_start_epochs": [
+        1793734104.67
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 791543,
+      "observed_start_epochs": [
+        1793734105.09
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 791544,
+      "observed_start_epochs": [
+        1793734105.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 791545,
+      "observed_start_epochs": [
+        1793734105.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 791546,
+      "observed_start_epochs": [
+        1793734105.51
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 791685,
+      "observed_start_epochs": [
+        1793734114.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 792215,
+      "observed_start_epochs": [
+        1793734252.83
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 792217,
+      "observed_start_epochs": [
+        1793734252.86
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 792589,
+      "observed_start_epochs": [
+        1793734256.81
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 792714,
+      "observed_start_epochs": [
+        1793734290.44
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 792721,
+      "observed_start_epochs": [
+        1793734290.49
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 792764,
+      "observed_start_epochs": [
+        1793734290.51
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 792843,
+      "observed_start_epochs": [
+        1793734290.89
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 792845,
+      "observed_start_epochs": [
+        1793734291.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 792846,
+      "observed_start_epochs": [
+        1793734291.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 792847,
+      "observed_start_epochs": [
+        1793734291.31
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 792967,
+      "observed_start_epochs": [
+        1793734297.94
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 793656,
+      "observed_start_epochs": [
+        1793734532.99
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 793658,
+      "observed_start_epochs": [
+        1793734533.02
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794038,
+      "observed_start_epochs": [
+        1793734537.25
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794178,
+      "observed_start_epochs": [
+        1793734565.87
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794180,
+      "observed_start_epochs": [
+        1793734565.89
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794229,
+      "observed_start_epochs": [
+        1793734565.92
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794307,
+      "observed_start_epochs": [
+        1793734566.25
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794312,
+      "observed_start_epochs": [
+        1793734566.65
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794313,
+      "observed_start_epochs": [
+        1793734566.65
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794315,
+      "observed_start_epochs": [
+        1793734566.66
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794435,
+      "observed_start_epochs": [
+        1793734570.74
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794437,
+      "observed_start_epochs": [
+        1793734570.77
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794780,
+      "observed_start_epochs": [
+        1793734574.37
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 794835,
+      "observed_start_epochs": [
+        1793734574.78
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 795040,
+      "observed_start_epochs": [
+        1793734605.67
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 795046,
+      "observed_start_epochs": [
+        1793734605.7
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 795092,
+      "observed_start_epochs": [
+        1793734605.72
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 795169,
+      "observed_start_epochs": [
+        1793734605.99
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 795170,
+      "observed_start_epochs": [
+        1793734606.29
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 795171,
+      "observed_start_epochs": [
+        1793734606.29
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 795172,
+      "observed_start_epochs": [
+        1793734606.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 795316,
+      "observed_start_epochs": [
+        1793734613.34
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 796614,
+      "observed_start_epochs": [
+        1793734961.86
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 796616,
+      "observed_start_epochs": [
+        1793734961.89
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 796998,
+      "observed_start_epochs": [
+        1793734965.97
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 797145,
+      "observed_start_epochs": [
+        1793734994.47
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 797156,
+      "observed_start_epochs": [
+        1793734994.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 797191,
+      "observed_start_epochs": [
+        1793734994.53
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 797274,
+      "observed_start_epochs": [
+        1793734994.92
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 797284,
+      "observed_start_epochs": [
+        1793734995.32
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 797285,
+      "observed_start_epochs": [
+        1793734995.32
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 797286,
+      "observed_start_epochs": [
+        1793734995.33
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 797425,
+      "observed_start_epochs": [
+        1793735003.6
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 797654,
+      "observed_start_epochs": [
+        1793735062.57
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 797656,
+      "observed_start_epochs": [
+        1793735062.6
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 798030,
+      "observed_start_epochs": [
+        1793735066.62
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 798209,
+      "observed_start_epochs": [
+        1793735098.38
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 798216,
+      "observed_start_epochs": [
+        1793735098.4
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 798254,
+      "observed_start_epochs": [
+        1793735098.42
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 798344,
+      "observed_start_epochs": [
+        1793735098.83
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 798345,
+      "observed_start_epochs": [
+        1793735099.13
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 798346,
+      "observed_start_epochs": [
+        1793735099.13
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 798347,
+      "observed_start_epochs": [
+        1793735099.14
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 798478,
+      "observed_start_epochs": [
+        1793735105.27
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 799177,
+      "observed_start_epochs": [
+        1793735316.72
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 799179,
+      "observed_start_epochs": [
+        1793735316.75
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 799556,
+      "observed_start_epochs": [
+        1793735320.85
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 799690,
+      "observed_start_epochs": [
+        1793735349.15
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 799697,
+      "observed_start_epochs": [
+        1793735349.17
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 799741,
+      "observed_start_epochs": [
+        1793735349.19
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 799819,
+      "observed_start_epochs": [
+        1793735349.57
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 799820,
+      "observed_start_epochs": [
+        1793735349.88
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 799821,
+      "observed_start_epochs": [
+        1793735349.88
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 799822,
+      "observed_start_epochs": [
+        1793735349.89
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 799956,
+      "observed_start_epochs": [
+        1793735357.92
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 800050,
+      "observed_start_epochs": [
+        1793735375.27
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 800052,
+      "observed_start_epochs": [
+        1793735375.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 800425,
+      "observed_start_epochs": [
+        1793735379.32
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 800601,
+      "observed_start_epochs": [
+        1793735411.68
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 800605,
+      "observed_start_epochs": [
+        1793735411.71
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 800647,
+      "observed_start_epochs": [
+        1793735411.74
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 800734,
+      "observed_start_epochs": [
+        1793735412.13
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 800735,
+      "observed_start_epochs": [
+        1793735412.53
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 800736,
+      "observed_start_epochs": [
+        1793735412.54
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 800737,
+      "observed_start_epochs": [
+        1793735412.55
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 800862,
+      "observed_start_epochs": [
+        1793735418.99
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802036,
+      "observed_start_epochs": [
+        1793735750.66
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802038,
+      "observed_start_epochs": [
+        1793735750.69
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802420,
+      "observed_start_epochs": [
+        1793735754.81
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802556,
+      "observed_start_epochs": [
+        1793735783.31
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802560,
+      "observed_start_epochs": [
+        1793735783.34
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802601,
+      "observed_start_epochs": [
+        1793735783.36
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802685,
+      "observed_start_epochs": [
+        1793735783.71
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802686,
+      "observed_start_epochs": [
+        1793735784.11
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802687,
+      "observed_start_epochs": [
+        1793735784.11
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802689,
+      "observed_start_epochs": [
+        1793735784.12
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802821,
+      "observed_start_epochs": [
+        1793735791.21
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802984,
+      "observed_start_epochs": [
+        1793735830.45
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 802986,
+      "observed_start_epochs": [
+        1793735830.47
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 803352,
+      "observed_start_epochs": [
+        1793735834.51
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 803596,
+      "observed_start_epochs": [
+        1793735865.62
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 803602,
+      "observed_start_epochs": [
+        1793735865.64
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 803648,
+      "observed_start_epochs": [
+        1793735865.67
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 803725,
+      "observed_start_epochs": [
+        1793735865.91
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 803726,
+      "observed_start_epochs": [
+        1793735866.21
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 803727,
+      "observed_start_epochs": [
+        1793735866.21
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 803729,
+      "observed_start_epochs": [
+        1793735866.22
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 803921,
+      "observed_start_epochs": [
+        1793735872.62
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 805391,
+      "observed_start_epochs": [
+        1793736322.08
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 805393,
+      "observed_start_epochs": [
+        1793736322.11
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 805777,
+      "observed_start_epochs": [
+        1793736326.29
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 805901,
+      "observed_start_epochs": [
+        1793736354.66
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 805907,
+      "observed_start_epochs": [
+        1793736354.69
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 805945,
+      "observed_start_epochs": [
+        1793736354.71
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 806030,
+      "observed_start_epochs": [
+        1793736355.14
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 806031,
+      "observed_start_epochs": [
+        1793736355.54
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 806032,
+      "observed_start_epochs": [
+        1793736355.54
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 806034,
+      "observed_start_epochs": [
+        1793736355.55
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 806162,
+      "observed_start_epochs": [
+        1793736363.27
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 806754,
+      "observed_start_epochs": [
+        1793736491.63
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 806756,
+      "observed_start_epochs": [
+        1793736491.66
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 807152,
+      "observed_start_epochs": [
+        1793736495.81
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 807296,
+      "observed_start_epochs": [
+        1793736526.83
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 807303,
+      "observed_start_epochs": [
+        1793736526.85
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 807340,
+      "observed_start_epochs": [
+        1793736526.87
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 807425,
+      "observed_start_epochs": [
+        1793736527.29
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 807426,
+      "observed_start_epochs": [
+        1793736527.59
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 807427,
+      "observed_start_epochs": [
+        1793736527.6
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 807428,
+      "observed_start_epochs": [
+        1793736527.6
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 807541,
+      "observed_start_epochs": [
+        1793736535.0
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 808718,
+      "observed_start_epochs": [
+        1793736888.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 808720,
+      "observed_start_epochs": [
+        1793736888.33
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809088,
+      "observed_start_epochs": [
+        1793736892.4
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809198,
+      "observed_start_epochs": [
+        1793736921.05
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809200,
+      "observed_start_epochs": [
+        1793736921.08
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809248,
+      "observed_start_epochs": [
+        1793736921.1
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809333,
+      "observed_start_epochs": [
+        1793736921.56
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809334,
+      "observed_start_epochs": [
+        1793736921.86
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809335,
+      "observed_start_epochs": [
+        1793736921.86
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809337,
+      "observed_start_epochs": [
+        1793736921.87
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809470,
+      "observed_start_epochs": [
+        1793736925.72
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809472,
+      "observed_start_epochs": [
+        1793736925.75
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809788,
+      "observed_start_epochs": [
+        1793736928.77
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 809865,
+      "observed_start_epochs": [
+        1793736929.72
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 810055,
+      "observed_start_epochs": [
+        1793736961.57
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 810063,
+      "observed_start_epochs": [
+        1793736961.59
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 810099,
+      "observed_start_epochs": [
+        1793736961.62
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 810184,
+      "observed_start_epochs": [
+        1793736961.97
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 810185,
+      "observed_start_epochs": [
+        1793736962.27
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 810186,
+      "observed_start_epochs": [
+        1793736962.28
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 810187,
+      "observed_start_epochs": [
+        1793736962.28
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 810336,
+      "observed_start_epochs": [
+        1793736969.36
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 811209,
+      "observed_start_epochs": [
+        1793737243.1
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 811211,
+      "observed_start_epochs": [
+        1793737243.13
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 811587,
+      "observed_start_epochs": [
+        1793737247.28
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 811713,
+      "observed_start_epochs": [
+        1793737275.92
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 811716,
+      "observed_start_epochs": [
+        1793737275.95
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 811763,
+      "observed_start_epochs": [
+        1793737275.97
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 811842,
+      "observed_start_epochs": [
+        1793737276.35
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 811843,
+      "observed_start_epochs": [
+        1793737276.65
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 811844,
+      "observed_start_epochs": [
+        1793737276.65
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 811845,
+      "observed_start_epochs": [
+        1793737276.66
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 811983,
+      "observed_start_epochs": [
+        1793737283.13
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 812152,
+      "observed_start_epochs": [
+        1793737328.09
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 812155,
+      "observed_start_epochs": [
+        1793737328.12
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 812558,
+      "observed_start_epochs": [
+        1793737332.19
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 812782,
+      "observed_start_epochs": [
+        1793737363.75
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 812788,
+      "observed_start_epochs": [
+        1793737363.77
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 812826,
+      "observed_start_epochs": [
+        1793737363.8
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 812913,
+      "observed_start_epochs": [
+        1793737364.15
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 812914,
+      "observed_start_epochs": [
+        1793737364.55
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 812915,
+      "observed_start_epochs": [
+        1793737364.55
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 812916,
+      "observed_start_epochs": [
+        1793737364.56
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 813040,
+      "observed_start_epochs": [
+        1793737373.77
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 813832,
+      "observed_start_epochs": [
+        1793737603.32
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 813834,
+      "observed_start_epochs": [
+        1793737603.35
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 814198,
+      "observed_start_epochs": [
+        1793737607.4
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 814335,
+      "observed_start_epochs": [
+        1793737636.77
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 814340,
+      "observed_start_epochs": [
+        1793737636.8
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 814384,
+      "observed_start_epochs": [
+        1793737636.82
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 814464,
+      "observed_start_epochs": [
+        1793737637.17
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 814465,
+      "observed_start_epochs": [
+        1793737637.58
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 814466,
+      "observed_start_epochs": [
+        1793737637.58
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 814467,
+      "observed_start_epochs": [
+        1793737637.59
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 814600,
+      "observed_start_epochs": [
+        1793737643.94
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 815083,
+      "observed_start_epochs": [
+        1793737741.13
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 815085,
+      "observed_start_epochs": [
+        1793737741.15
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 815456,
+      "observed_start_epochs": [
+        1793737745.16
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 815611,
+      "observed_start_epochs": [
+        1793737779.82
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 815612,
+      "observed_start_epochs": [
+        1793737779.84
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 815655,
+      "observed_start_epochs": [
+        1793737779.87
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 815740,
+      "observed_start_epochs": [
+        1793737780.19
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 815742,
+      "observed_start_epochs": [
+        1793737780.59
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 815743,
+      "observed_start_epochs": [
+        1793737780.59
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 815744,
+      "observed_start_epochs": [
+        1793737780.6
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 815873,
+      "observed_start_epochs": [
+        1793737788.28
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 816366,
+      "observed_start_epochs": [
+        1793737937.27
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 816368,
+      "observed_start_epochs": [
+        1793737937.3
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 816742,
+      "observed_start_epochs": [
+        1793737941.44
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 816909,
+      "observed_start_epochs": [
+        1793737970.29
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 816914,
+      "observed_start_epochs": [
+        1793737970.31
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 816959,
+      "observed_start_epochs": [
+        1793737970.34
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 817038,
+      "observed_start_epochs": [
+        1793737970.73
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 817039,
+      "observed_start_epochs": [
+        1793737971.14
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 817040,
+      "observed_start_epochs": [
+        1793737971.14
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 817042,
+      "observed_start_epochs": [
+        1793737971.15
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 817163,
+      "observed_start_epochs": [
+        1793737979.35
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 817719,
+      "observed_start_epochs": [
+        1793738175.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 817721,
+      "observed_start_epochs": [
+        1793738175.53
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 818094,
+      "observed_start_epochs": [
+        1793738179.69
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 818228,
+      "observed_start_epochs": [
+        1793738210.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 818232,
+      "observed_start_epochs": [
+        1793738210.53
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 818279,
+      "observed_start_epochs": [
+        1793738210.55
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 818357,
+      "observed_start_epochs": [
+        1793738210.96
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 818359,
+      "observed_start_epochs": [
+        1793738211.36
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 818360,
+      "observed_start_epochs": [
+        1793738211.36
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 818361,
+      "observed_start_epochs": [
+        1793738211.37
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 818549,
+      "observed_start_epochs": [
+        1793738217.73
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 819257,
+      "observed_start_epochs": [
+        1793738418.97
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 819259,
+      "observed_start_epochs": [
+        1793738419.0
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 819632,
+      "observed_start_epochs": [
+        1793738423.15
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 819773,
+      "observed_start_epochs": [
+        1793738453.49
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 819781,
+      "observed_start_epochs": [
+        1793738453.51
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 819818,
+      "observed_start_epochs": [
+        1793738453.54
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 819902,
+      "observed_start_epochs": [
+        1793738453.83
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 819903,
+      "observed_start_epochs": [
+        1793738454.24
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 819904,
+      "observed_start_epochs": [
+        1793738454.24
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 819905,
+      "observed_start_epochs": [
+        1793738454.25
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 820046,
+      "observed_start_epochs": [
+        1793738460.63
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 820458,
+      "observed_start_epochs": [
+        1793738556.92
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 820460,
+      "observed_start_epochs": [
+        1793738556.96
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 820839,
+      "observed_start_epochs": [
+        1793738561.03
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 820990,
+      "observed_start_epochs": [
+        1793738592.67
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 820995,
+      "observed_start_epochs": [
+        1793738592.7
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 821044,
+      "observed_start_epochs": [
+        1793738592.72
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 821119,
+      "observed_start_epochs": [
+        1793738593.19
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 821121,
+      "observed_start_epochs": [
+        1793738593.49
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 821122,
+      "observed_start_epochs": [
+        1793738593.49
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 821123,
+      "observed_start_epochs": [
+        1793738593.5
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 821300,
+      "observed_start_epochs": [
+        1793738600.71
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 822017,
+      "observed_start_epochs": [
+        1793738853.43
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 822019,
+      "observed_start_epochs": [
+        1793738853.46
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 822393,
+      "observed_start_epochs": [
+        1793738857.53
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 822522,
+      "observed_start_epochs": [
+        1793738885.93
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 822524,
+      "observed_start_epochs": [
+        1793738885.96
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 822566,
+      "observed_start_epochs": [
+        1793738885.98
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 822651,
+      "observed_start_epochs": [
+        1793738886.29
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 822652,
+      "observed_start_epochs": [
+        1793738886.69
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 822653,
+      "observed_start_epochs": [
+        1793738886.69
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 822655,
+      "observed_start_epochs": [
+        1793738886.7
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 822806,
+      "observed_start_epochs": [
+        1793738893.83
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 823102,
+      "observed_start_epochs": [
+        1793738975.4
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 823104,
+      "observed_start_epochs": [
+        1793738975.43
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 823510,
+      "observed_start_epochs": [
+        1793738979.53
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 823706,
+      "observed_start_epochs": [
+        1793739011.46
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 823707,
+      "observed_start_epochs": [
+        1793739011.48
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 823756,
+      "observed_start_epochs": [
+        1793739011.51
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 823835,
+      "observed_start_epochs": [
+        1793739011.85
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 823840,
+      "observed_start_epochs": [
+        1793739012.26
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 823841,
+      "observed_start_epochs": [
+        1793739012.26
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 823842,
+      "observed_start_epochs": [
+        1793739012.27
+      ],
+      "state": "absent"
+    },
+    {
+      "pid": 823964,
+      "observed_start_epochs": [
+        1793739019.94
+      ],
+      "state": "absent"
+    }
+  ],
+  "evidence_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/results/push-t-toolkit-v1-full50-20261104.json": "349bf3deecc62fb91ff132c173b202eb36d59696a38e0cbd7d6f5ded92d92441",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/results/push-t-toolkit-v1-full50-independent-audit-20261104.json": "d44ebec61290831118b22805ddcaa0276c1da8122616106207f639ce79e7609a",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104-freeze.json": "f243aca442bd698b8aff891c323d6def4ecd3267ec971ee2e632de0d5b57b5d0",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/status.json": "69564db9cfee55a0cc54ce520c9c2c9928374dccc8876e6685186ac2857505c1",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104-driver.json": "ae92241276ccab012b37be38cf4b5535f81c7a2826c450744eb76330ca786fb2",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/results/push-t-toolkit-static-verification-20261103.json": "2cffa03e640a574488d431565a90c41055dec065bdf2aa34220ece734f672612",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/resources.jsonl": "240082736137581bc31415954f02decfde9a83ee3ad8fe625d24e9cd9a27b2cf",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/results/push-t-toolkit-v1-full50-20261104-launch-verification.json": "c344a05eea902149286128a7467aaff7a840808879cb3256b89185999580594f",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l13/agent-events.jsonl": "9bade09ac014295c4f5b2113b83a5da8825a15014a5ccce258e97d7cadcae2fe",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l13/agent-exit.json": "4da1838f9fa164fd553c88eefa070240811be7074c77c1623186552121e4178d",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l13/exit.json": "0bcc23cb5df2e5be5636fe6b51a4c691365170a77c76f4ce0af6f763d0d2039e",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l14/agent-events.jsonl": "2c7869672ab108310c8a3087452e528b50af5d3097899a89e44bfbf248dbe1ad",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l14/agent-exit.json": "ba358b138ef3ba4694a20bab9e9a0fab0d50f526c1013d62e37bdad782dcc0ff",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/push-t-toolkit-20261103/runs/push-t-toolkit-v1-full50-20261104/seed1-standard-l14/exit.json": "6238d8b5b9ebc5155cbd276c639fb5af5e45415b61ad55a2eb52c6a21b53e56b"
+  },
+  "limitations": [
+    "48 native successes and two unscored capacity-related interruptions; not 50/50.",
+    "Existing seed1 layouts do not establish held-out generalization.",
+    "Historical legacy, development, and stopped minimal-candidate results are excluded.",
+    "Two interrupted episodes have partial step lower bounds and unknown token usage; actual billed cost unavailable.",
+    "No automatic retries, additional native attempts, or dataset replay started."
+  ]
+}

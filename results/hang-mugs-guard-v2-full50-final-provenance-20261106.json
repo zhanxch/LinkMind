@@ -1,0 +1,439 @@
+{
+  "checked_at": "2026-11-05T20:41:05.840448+00:00",
+  "passed": true,
+  "root": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools",
+  "tag": "hang-mugs-guard-v2-full50-20261105",
+  "candidate_commit": "230c3897f573fe44045c3b1cf13e8bdfda21366d",
+  "accepted_runtime_commit": "8a954e3b8dc01fb99fbe57a60e968fa917ad832d",
+  "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-full50-closure-20261106.json",
+  "closure_sha256": "0fdff350c9ce8873ca3fa940d75be93d0204f67382b81472eb7fdca79bde58f5",
+  "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-full50-20261105.json",
+  "report_sha256": "f350c201749c2b8fe39880c27a810cfaaad9067983cd160d812aeb50272bfe8c",
+  "frozen_sources_verified": 296,
+  "runtime_and_prompt_files_equal_to_accepted_commit": 60,
+  "previously_passed_static_tests": 126,
+  "static_source_hashes_rechecked": 61,
+  "static_report_sha256": "c3766f5d3fac81b1a1ccb2edb01b7ce7d93054e14f5fe4717968f4d3d8b0e17b",
+  "interface_report_sha256": "c15af0fa0fd67ec2c5db01eca6f333e46ab0f417a7e2f27d9d251d05b681fc7a",
+  "other_task_interfaces_and_prompts_unchanged": [
+    "arrange_largest_number",
+    "fold_clothes",
+    "make_toast",
+    "pack_objects_into_box",
+    "pour_liquid_into_cup",
+    "sort_nesting_dolls_by_size",
+    "stack_blocks",
+    "stack_bowls",
+    "store_laptop_and_headphones",
+    "sweep_blocks"
+  ],
+  "accepted_development_sources_verified": 248,
+  "predecessors_preserved": [
+    {
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-closure-20261105.json",
+      "closure_sha256": "4cdcaceb918346564b78ed7426373ef26e2f87a2c073a9e52a5f62a1fe4a5061",
+      "native_reports_preserved": 3,
+      "counts": {
+        "attempts_closed": 3,
+        "success": 2,
+        "failure": 1,
+        "unscored": 0,
+        "scored": 3,
+        "success_rate_scored": 0.6666666666666666,
+        "confirmed_success_fraction_closed": 0.6666666666666666
+      }
+    },
+    {
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/results/make-toast-python-cells-full50-supplement-closure-20261105.json",
+      "closure_sha256": "592720fe86952b8b7b565a05f263d474507569c2abf40dfd3e1eedd8d7d8e602",
+      "native_reports_preserved": 3,
+      "counts": {
+        "attempts_closed": 3,
+        "success": 2,
+        "failure": 1,
+        "unscored": 0,
+        "scored": 3,
+        "success_rate_scored": 0.6666666666666666,
+        "confirmed_success_fraction_closed": 0.6666666666666666
+      }
+    },
+    {
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-tools-v1-closure-20261105.json",
+      "closure_sha256": "7a695f6ee2aff04db3921635076ba89fb6c150110344db7db5ba02e3c7dcb576",
+      "native_reports_preserved": 3,
+      "counts": {
+        "attempts_closed": 3,
+        "success": 1,
+        "failure": 2,
+        "unscored": 0,
+        "scored": 3,
+        "success_rate_scored": 0.3333333333333333,
+        "confirmed_success_fraction_closed": 0.3333333333333333
+      }
+    }
+  ],
+  "counts": {
+    "attempts_closed": 50,
+    "success": 12,
+    "failure": 32,
+    "unscored": 6,
+    "scored": 44,
+    "success_rate_scored": 0.2727272727272727,
+    "confirmed_success_fraction_closed": 0.24
+  },
+  "variants": {
+    "standard": {
+      "attempts_closed": 25,
+      "success": 9,
+      "failure": 14,
+      "unscored": 2,
+      "scored": 23,
+      "success_rate_scored": 0.391304347826087,
+      "confirmed_success_fraction_closed": 0.36,
+      "mean_native_score_scored": 55.21739130434783
+    },
+    "random": {
+      "attempts_closed": 25,
+      "success": 3,
+      "failure": 18,
+      "unscored": 4,
+      "scored": 21,
+      "success_rate_scored": 0.14285714285714285,
+      "confirmed_success_fraction_closed": 0.12,
+      "mean_native_score_scored": 35.23809523809524
+    }
+  },
+  "costs": {
+    "steps": {
+      "known_count": 47,
+      "unknown_count": 3,
+      "known_sum": 34771,
+      "known_mean": 739.8085106382979,
+      "partial_lower_bound_cases": 6
+    },
+    "wall_seconds": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 104538.65855796519,
+      "known_mean": 2090.7731711593037
+    },
+    "input_tokens": {
+      "known_count": 44,
+      "unknown_count": 6,
+      "known_sum": 386657717,
+      "known_mean": 8787675.386363637
+    },
+    "cached_input_tokens": {
+      "known_count": 44,
+      "unknown_count": 6,
+      "known_sum": 378255616,
+      "known_mean": 8596718.545454545
+    },
+    "output_tokens": {
+      "known_count": 44,
+      "unknown_count": 6,
+      "known_sum": 1251374,
+      "known_mean": 28440.31818181818
+    },
+    "reasoning_output_tokens": {
+      "known_count": 44,
+      "unknown_count": 6,
+      "known_sum": 597301,
+      "known_mean": 13575.022727272728
+    },
+    "total_tokens": {
+      "known_count": 44,
+      "unknown_count": 6,
+      "known_sum": 387909091,
+      "known_mean": 8816115.704545455
+    },
+    "uncached_input_tokens": {
+      "known_count": 44,
+      "unknown_count": 6,
+      "known_sum": 8402101,
+      "known_mean": 190956.8409090909
+    }
+  },
+  "batch_wall_seconds": 52730.2571735729,
+  "all_attempt_tools": {
+    "observe": 47,
+    "retrieve_evidence": 49,
+    "read_action_reference": 153,
+    "python_cell_start": 1600,
+    "python_cell": 1600,
+    "record_plan": 119,
+    "execute_chunk": 2639,
+    "measure_mug_geometry": 140,
+    "hold_joints": 3
+  },
+  "measurement_commands": {
+    "aperture": 64,
+    "peg_measure": 22,
+    "surface": 3,
+    "stereo_guide": 51
+  },
+  "measurement_errors": 68,
+  "completed_cells": 1600,
+  "cells_with_errors": 13,
+  "stopped_cells": 213,
+  "confirmed_positive_direct_feature_calls": 327,
+  "feature_count_note": "Conservative count of positive-motion direct final expressions with matching receipts; excludes unclassified mentions and is not proof of physical grasp or total helper invocations.",
+  "native_guard_scored_attempts_only": {
+    "accepted_delta_rows": 30650,
+    "rejected_attempts": 440,
+    "rejected_receipts_verified": 440
+  },
+  "hold_calls": [
+    {
+      "case": "seed1-random-l3",
+      "action_steps": 4
+    },
+    {
+      "case": "seed1-random-l3",
+      "action_steps": 2
+    },
+    {
+      "case": "seed1-standard-l9",
+      "action_steps": 4
+    }
+  ],
+  "unscored": [
+    {
+      "case": "seed1-standard-l9",
+      "reason": "bad_request",
+      "recorded_steps": 658,
+      "steps_complete": false,
+      "terminal_usage": null,
+      "terminal_events": [
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "{\"detail\":\"Bad Request\"}"
+          }
+        }
+      ],
+      "preceding_error_events": [
+        {
+          "type": "error",
+          "message": "Reconnecting... 2/5 (stream disconnected before completion: failed to send websocket request: IO error: Broken pipe (os error 32))"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 3/5 (stream disconnected before completion: failed to send websocket request: IO error: Connection reset by peer (os error 104))"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 4/5 (stream disconnected before completion: websocket closed by server before response.completed)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 5/5 (stream disconnected before completion: websocket closed by server before response.completed)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... waiting for network (Connection failed: error sending request)"
+        },
+        {
+          "type": "error",
+          "message": "{\"detail\":\"Bad Request\"}"
+        },
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "{\"detail\":\"Bad Request\"}"
+          }
+        }
+      ],
+      "event_log_sha256": "a29f9f88365de173b5b16bb8994a68d8a988dc786959ede8074d65957df669c2",
+      "stderr_sha256": "0a5d25b92c08aa3242305ae92e1210c40252daac2e50c92772784f13d13d2bde"
+    },
+    {
+      "case": "seed1-random-l12",
+      "reason": "model_capacity",
+      "recorded_steps": 374,
+      "steps_complete": false,
+      "terminal_usage": null,
+      "terminal_events": [
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "Selected model is at capacity. Please try a different model."
+          }
+        }
+      ],
+      "preceding_error_events": [
+        {
+          "type": "error",
+          "message": "Reconnecting... 2/5 (stream disconnected before completion: websocket closed by server before response.completed)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 3/5 (stream disconnected before completion: websocket closed by server before response.completed)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 4/5 (stream disconnected before completion: websocket closed by server before response.completed)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 5/5 (stream disconnected before completion: failed to send websocket request: IO error: Broken pipe (os error 32))"
+        },
+        {
+          "type": "error",
+          "message": "Selected model is at capacity. Please try a different model."
+        },
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "Selected model is at capacity. Please try a different model."
+          }
+        }
+      ],
+      "event_log_sha256": "38ea96c106fe723c8b36625268bcd17c2604e77198aec19f541dcbc30f23392d",
+      "stderr_sha256": "037ddbf109b6393bdb284ebd91d4e97524a31009b02ecbdc0d0b18be86990213"
+    },
+    {
+      "case": "seed1-standard-l13",
+      "reason": "model_capacity",
+      "recorded_steps": null,
+      "steps_complete": false,
+      "terminal_usage": null,
+      "terminal_events": [
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "Selected model is at capacity. Please try a different model."
+          }
+        }
+      ],
+      "preceding_error_events": [
+        {
+          "type": "error",
+          "message": "Selected model is at capacity. Please try a different model."
+        },
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "Selected model is at capacity. Please try a different model."
+          }
+        }
+      ],
+      "event_log_sha256": "2393b104b738beadb9fc1190e2382fca470841bd3ec684fcc2e7736a1e8eb0d3",
+      "stderr_sha256": "1be218c5b47c0ccb0667b234a7ea30e12f9047538b93f5cad8c16bcdb3f64311"
+    },
+    {
+      "case": "seed1-random-l13",
+      "reason": "model_capacity",
+      "recorded_steps": null,
+      "steps_complete": false,
+      "terminal_usage": null,
+      "terminal_events": [
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "Selected model is at capacity. Please try a different model."
+          }
+        }
+      ],
+      "preceding_error_events": [
+        {
+          "type": "error",
+          "message": "Selected model is at capacity. Please try a different model."
+        },
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "Selected model is at capacity. Please try a different model."
+          }
+        }
+      ],
+      "event_log_sha256": "d5bff3cdde0950d7d568a564504c96d27accf135462c1198a9445ae21fdc1b8b",
+      "stderr_sha256": "99f7178b2b7090d137b9dc00118a74726ac1f4fc88cf2a9d91c14f962b7efcc0"
+    },
+    {
+      "case": "seed1-random-l14",
+      "reason": "model_capacity",
+      "recorded_steps": null,
+      "steps_complete": false,
+      "terminal_usage": null,
+      "terminal_events": [
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "Selected model is at capacity. Please try a different model."
+          }
+        }
+      ],
+      "preceding_error_events": [
+        {
+          "type": "error",
+          "message": "Selected model is at capacity. Please try a different model."
+        },
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "Selected model is at capacity. Please try a different model."
+          }
+        }
+      ],
+      "event_log_sha256": "7855d16ea690d6e350a89ca8293a1a2287f1bf4cd12f176c793d18c2c25e6c91",
+      "stderr_sha256": "b5665dc11212b8c0676e6d2ea073a9d1c24cc9d84a31dc66b29a8312c5bb59b5"
+    },
+    {
+      "case": "seed1-random-l20",
+      "reason": "bad_request",
+      "recorded_steps": 667,
+      "steps_complete": false,
+      "terminal_usage": null,
+      "terminal_events": [
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "{\"detail\":\"Bad Request\"}"
+          }
+        }
+      ],
+      "preceding_error_events": [
+        {
+          "type": "error",
+          "message": "Reconnecting... 2/5 (stream disconnected before completion: tls handshake eof)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 3/5 (stream disconnected before completion: tls handshake eof)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 4/5 (stream disconnected before completion: websocket closed by server before response.completed)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 5/5 (stream disconnected before completion: websocket closed by server before response.completed)"
+        },
+        {
+          "type": "error",
+          "message": "{\"detail\":\"Bad Request\"}"
+        },
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "{\"detail\":\"Bad Request\"}"
+          }
+        }
+      ],
+      "event_log_sha256": "4c3b801295c365fd0cec403306bbbfbaf36bbe59d5e593a61b7884f2ad3fe7b4",
+      "stderr_sha256": "8e2347aebc14433bd9cf5afc5723aa85645617ff56a516966b54b1c774538226"
+    }
+  ],
+  "registered_process_identities": 693,
+  "unique_registered_pids": 695,
+  "policy_workspaces_checked": 50,
+  "live_related_processes": [],
+  "actual_billed_usd": null,
+  "limitations": [
+    "50 fresh first-pass attempts; six unscored service interruptions remain, with no automatic retry.",
+    "Existing seed1 layouts include development scenes; not heldout or cross-seed generalization.",
+    "Cells, geometry, feature motion and IK checks are a combined adaptation; no single-component causal claim.",
+    "Six terminal token totals and actual billed cost are unknown; known steps include partial interrupted trajectories."
+  ]
+}

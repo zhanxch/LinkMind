@@ -1,0 +1,38 @@
+{
+  "candidate_commit": "c9f7a99daf125068ce2881b4feac1b514f8b0bd1",
+  "branch": "refactor/v3-evidence-context",
+  "registered_at": "2026-10-28T10:23:55.244151+00:00",
+  "bank": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-evidence-context/artifacts/fold-v3-full",
+  "cases_file": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-evidence-context/experiments/fold_clothes/v3-clean-cases.json",
+  "output": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-evidence-context/runs/v3-evidence-context-fold-20261028",
+  "conditions": {
+    "seed": 1,
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "parallel": 2,
+    "wall_seconds": 1800,
+    "native_steps": 500
+  },
+  "baseline_original": "/home/zxc/文档/ChatGPT/RoboRAG/results/selected-evidence.json",
+  "baseline_preoptimization": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-clean-refactor/results/v3-clean-fold-20261027.json",
+  "baseline_execution_aligned": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-clean-refactor/results/v3-execution-aligned-fold-20261028-final.json",
+  "attempt_policy": "All 50 cases once; no retries or substitutions, including unscored attempts. Do not change policy or evidence during the run. Original batch unscored retest was cancelled by the user.",
+  "notification_policy": "User: 改完了就静默测试直到出结果. Remain silent until all 50 attempts and final audit complete, except new source drift, process failure or resource blockage requiring attention; no five-case updates.",
+  "scope": "Restore complete v3 evidence and original tool/prompt guidance. SOP means historical scene, operation directory, before/action/feedback and on-demand windows. No evaluation-usage filtering, no stage gating, no changes to record_plan or execution from 70b8ae0.",
+  "evidence_counts": {
+    "demonstrations": 3,
+    "phases": 24,
+    "indexed_windows": 189
+  },
+  "preflight": {
+    "unit_tests_passed": 11,
+    "history_retrievals_exact": 53,
+    "history_references_exact": 241,
+    "all_phase_section_probes": 96,
+    "replay": "results/v3-full-evidence-replay-20261028.json",
+    "full_access": "results/v3-full-evidence-preflight-20261028.json"
+  },
+  "native_cli": "/home/zxc/.codex/packages/standalone/recovered-0.155.0-alpha.16.3/bin/codex",
+  "native_cli_sha256": "a969c7c42b842c759d157d2500bbf33a562ff95f22dcb7112aa4d8f9e68833d3",
+  "interpretation": "Development comparison on previously observed layouts; no causal proof or heldout generalization claim."
+}

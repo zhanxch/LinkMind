@@ -1,0 +1,7880 @@
+{
+  "schema": "roborag.execution-index.v1",
+  "built_at": "2026-10-28T16:52:28.418695+00:00",
+  "method": "field BM25 + explicit conditions + optional start-state distance + diversity",
+  "horizon": 10,
+  "stride": 5,
+  "graphs": [
+    {
+      "id": "stack_bowls-0000",
+      "graph_id": "stack_bowls-0000",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "title": "以中间碗为底，双臂依次叠入两侧碗",
+      "instruction": "Stack the three bowls together.",
+      "initial_cue": "三个碗分开放在桌面上，碗口朝上；两侧夹爪均离碗较远。",
+      "reported_outcome": "示范结束时，三个碗保持叠放在桌面中间，未见散开或倾倒，两臂均已撤离。",
+      "episode_trace": [
+        {
+          "id": "p01",
+          "recorded_step": "右夹爪靠近右侧碗沿"
+        },
+        {
+          "id": "p02",
+          "recorded_step": "夹住右侧碗并提离桌面"
+        },
+        {
+          "id": "p03",
+          "recorded_step": "将右侧碗移到中间碗上方"
+        },
+        {
+          "id": "p04",
+          "recorded_step": "放下右侧碗形成两碗叠放"
+        },
+        {
+          "id": "p05",
+          "recorded_step": "右臂撤回，左夹爪靠近剩余碗"
+        },
+        {
+          "id": "p06",
+          "recorded_step": "左夹爪抓住并提起左侧碗"
+        },
+        {
+          "id": "p07",
+          "recorded_step": "将左侧碗移到叠放体上方"
+        },
+        {
+          "id": "p08",
+          "recorded_step": "放下最后一只碗并松开"
+        },
+        {
+          "id": "p09",
+          "recorded_step": "左臂撤回并保持完成状态"
+        }
+      ]
+    },
+    {
+      "id": "stack_bowls-0001",
+      "graph_id": "stack_bowls-0001",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "title": "右手内移底碗，左手依次套叠另外两碗",
+      "instruction": "Stack the three bowls together.",
+      "initial_cue": "三只碗分开放在桌面上，左右夹爪位于桌边；右侧碗周围有接近空间。",
+      "reported_outcome": "两臂回到桌边，桌面中部偏右只见一组叠碗，未见另外单独放置的碗。",
+      "episode_trace": [
+        {
+          "id": "p01",
+          "recorded_step": "右手接近右侧碗"
+        },
+        {
+          "id": "p02",
+          "recorded_step": "将右碗移到便于叠放的位置"
+        },
+        {
+          "id": "p03",
+          "recorded_step": "右手撤回，左手对准左碗"
+        },
+        {
+          "id": "p04",
+          "recorded_step": "提起左碗并移向底碗"
+        },
+        {
+          "id": "p05",
+          "recorded_step": "把左碗放入底碗"
+        },
+        {
+          "id": "p06",
+          "recorded_step": "转向剩余的中后方碗"
+        },
+        {
+          "id": "p07",
+          "recorded_step": "抓起最后一碗并送向碗堆"
+        },
+        {
+          "id": "p08",
+          "recorded_step": "放入最后一碗并松开"
+        },
+        {
+          "id": "p09",
+          "recorded_step": "左臂归位，留下叠碗"
+        }
+      ]
+    },
+    {
+      "id": "stack_bowls-0002",
+      "graph_id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "title": "右臂先建立底碗落点，再依次套叠前侧碗和后侧碗",
+      "instruction": "Stack the three bowls together.",
+      "initial_cue": "三只碗开口朝上、彼此分离；右夹爪位于桌面右前方，右侧碗的外侧边缘可接近。",
+      "reported_outcome": "右夹爪空手离开，桌面中央偏左清楚可见三碗叠层；直到示范结束，碗保持套叠，未见散落。",
+      "episode_trace": [
+        {
+          "id": "p01",
+          "recorded_step": "靠近并抓取右侧碗"
+        },
+        {
+          "id": "p02",
+          "recorded_step": "将底碗移到中部偏左"
+        },
+        {
+          "id": "p03",
+          "recorded_step": "释放底碗并撤开夹爪"
+        },
+        {
+          "id": "p04",
+          "recorded_step": "转向前侧碗并收拢夹爪"
+        },
+        {
+          "id": "p05",
+          "recorded_step": "抬起前侧碗并移到底碗上方"
+        },
+        {
+          "id": "p06",
+          "recorded_step": "放入第二只碗并松爪"
+        },
+        {
+          "id": "p07",
+          "recorded_step": "靠近并抓取剩余后侧碗"
+        },
+        {
+          "id": "p08",
+          "recorded_step": "将后侧碗搬到双碗叠层上方"
+        },
+        {
+          "id": "p09",
+          "recorded_step": "落下顶碗并张开夹爪"
+        },
+        {
+          "id": "p10",
+          "recorded_step": "空手撤回并露出完整叠层"
+        }
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "stack_bowls-0000:p01",
+      "graph_id": "stack_bowls-0000",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p01",
+      "title": "右夹爪靠近右侧碗沿",
+      "summary": "为搬运右侧碗建立抓取位置。",
+      "start": 0,
+      "end": 51,
+      "cue": "三个碗分开放在桌面上，碗口朝上；两侧夹爪均离碗较远。",
+      "action": "右臂抬起并伸向初始右侧碗，从其右侧逐渐降低夹爪，使夹指靠近碗沿；左臂保持原位。",
+      "feedback": "右夹爪到达右侧碗沿附近，碗仍位于桌面，尚未看到随夹爪抬起。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left",
+        "right"
+      ],
+      "previous": null,
+      "next": {
+        "id": "p02",
+        "title": "夹住右侧碗并提离桌面"
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p02",
+      "graph_id": "stack_bowls-0000",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p02",
+      "title": "夹住右侧碗并提离桌面",
+      "summary": "抓住右侧碗，为横向搬运腾出高度。",
+      "start": 51,
+      "end": 73,
+      "cue": "右夹指已靠近碗沿，中间碗与左侧碗仍分开放置。",
+      "action": "右夹爪在碗沿处收拢，随后向上提起，并略向中间碗方向移动。",
+      "feedback": "右侧碗随夹爪上升并离开原来的桌面位置，画面支持已抓住该碗。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p01",
+        "title": "右夹爪靠近右侧碗沿"
+      },
+      "next": {
+        "id": "p03",
+        "title": "将右侧碗移到中间碗上方"
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p03",
+      "graph_id": "stack_bowls-0000",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p03",
+      "title": "将右侧碗移到中间碗上方",
+      "summary": "让被提起的碗与作为底碗的中间碗对齐。",
+      "start": 73,
+      "end": 94,
+      "cue": "右夹爪持碗悬在桌面上方，中间碗仍静置在原处。",
+      "action": "右臂将所持碗向左搬运到中间碗上方，并逐渐降低高度，使两个碗口在俯视画面中靠近重合。",
+      "feedback": "所持碗已覆盖中间碗上方，右夹爪仍位于其碗沿；是否完全落座尚不能确定。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p02",
+        "title": "夹住右侧碗并提离桌面"
+      },
+      "next": {
+        "id": "p04",
+        "title": "放下右侧碗形成两碗叠放"
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p04",
+      "graph_id": "stack_bowls-0000",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p04",
+      "title": "放下右侧碗形成两碗叠放",
+      "summary": "将第一只搬运碗留在中间碗上。",
+      "start": 94,
+      "end": 117,
+      "cue": "右侧碗已与中间碗上下重叠，夹爪仍贴近上方碗沿。",
+      "action": "右夹爪继续小幅下降，将所持碗放入中间碗，随后张开夹指并向上离开。",
+      "feedback": "中间位置出现两层碗沿，夹爪离开时两碗保持叠放；内部接触细节被碗体遮挡。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p03",
+        "title": "将右侧碗移到中间碗上方"
+      },
+      "next": {
+        "id": "p05",
+        "title": "右臂撤回，左夹爪靠近剩余碗"
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p05",
+      "graph_id": "stack_bowls-0000",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p05",
+      "title": "右臂撤回，左夹爪靠近剩余碗",
+      "summary": "切换到左臂搬运初始左侧碗。",
+      "start": 117,
+      "end": 148,
+      "cue": "中间已有两只叠放的碗，左侧还剩一只独立碗，右夹爪已松开。",
+      "action": "右臂向右后方撤回；左臂抬起并伸向左侧碗，逐渐下降，使夹指靠近其左侧碗沿。",
+      "feedback": "右臂基本回到待机位置，左夹爪已到达剩余碗的碗沿附近，两碗叠放体保持原位。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left",
+        "right"
+      ],
+      "previous": {
+        "id": "p04",
+        "title": "放下右侧碗形成两碗叠放"
+      },
+      "next": {
+        "id": "p06",
+        "title": "左夹爪抓住并提起左侧碗"
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p06",
+      "graph_id": "stack_bowls-0000",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p06",
+      "title": "左夹爪抓住并提起左侧碗",
+      "summary": "将最后一只独立碗提离桌面。",
+      "start": 148,
+      "end": 167,
+      "cue": "左夹指位于左侧碗沿附近，目标叠放体在其右方。",
+      "action": "左夹爪收拢夹住碗沿，随后提起该碗，开始向叠放体方向移动。",
+      "feedback": "左侧碗随左夹爪升起并离开桌面，原来的左侧位置空出。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p05",
+        "title": "右臂撤回，左夹爪靠近剩余碗"
+      },
+      "next": {
+        "id": "p07",
+        "title": "将左侧碗移到叠放体上方"
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p07",
+      "graph_id": "stack_bowls-0000",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p07",
+      "title": "将左侧碗移到叠放体上方",
+      "summary": "把最后一只碗送到两碗叠放体顶部。",
+      "start": 167,
+      "end": 191,
+      "cue": "左夹爪已持碗离桌，两碗叠放体位于中间。",
+      "action": "左臂继续抬高并向右搬运，使所持碗越过桌面间隔，接近叠放体上方并开始下降。",
+      "feedback": "所持碗与叠放体在俯视画面中明显重叠，左夹爪仍抓着碗沿，尚未释放。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p06",
+        "title": "左夹爪抓住并提起左侧碗"
+      },
+      "next": {
+        "id": "p08",
+        "title": "放下最后一只碗并松开"
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p08",
+      "graph_id": "stack_bowls-0000",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p08",
+      "title": "放下最后一只碗并松开",
+      "summary": "完成三碗叠放并解除左夹爪抓持。",
+      "start": 191,
+      "end": 220,
+      "cue": "最后一只碗已接近叠放体顶部，夹爪仍位于碗沿处。",
+      "action": "左臂降低所持碗，使其落入顶部碗中；随后逐渐张开夹指，并略微抬起、后移。",
+      "feedback": "中间形成三层碗沿，最上方碗在夹爪松开后仍留在叠放体上；具体嵌套接触位置被遮挡。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p07",
+        "title": "将左侧碗移到叠放体上方"
+      },
+      "next": {
+        "id": "p09",
+        "title": "左臂撤回并保持完成状态"
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p09",
+      "graph_id": "stack_bowls-0000",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p09",
+      "title": "左臂撤回并保持完成状态",
+      "summary": "让夹爪离开叠好的碗，结束示范。",
+      "start": 220,
+      "end": 240,
+      "cue": "三个碗已叠在中间位置，左夹爪刚松开并开始离开，右臂已在待机位置。",
+      "action": "左臂继续向左后方撤回并降低到待机位置，两只夹爪均远离碗堆。",
+      "feedback": "示范结束时，三个碗保持叠放在桌面中间，未见散开或倾倒，两臂均已撤离。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p08",
+        "title": "放下最后一只碗并松开"
+      },
+      "next": null
+    },
+    {
+      "id": "stack_bowls-0001:p01",
+      "graph_id": "stack_bowls-0001",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p01",
+      "title": "右手接近右侧碗",
+      "summary": "对准准备作为底座的右侧碗。",
+      "start": 0,
+      "end": 49,
+      "cue": "三只碗分开放在桌面上，左右夹爪位于桌边；右侧碗周围有接近空间。",
+      "action": "右臂抬起并向右侧碗伸出，张开的夹爪下降到碗沿附近，左臂保持原位。",
+      "feedback": "右夹爪靠近右侧碗边缘，三只碗仍保持分开，尚未见碗随夹爪移动。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left",
+        "right"
+      ],
+      "previous": null,
+      "next": {
+        "id": "p02",
+        "title": "将右碗移到便于叠放的位置"
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p02",
+      "graph_id": "stack_bowls-0001",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p02",
+      "title": "将右碗移到便于叠放的位置",
+      "summary": "把底碗移到另外两碗右前方。",
+      "start": 49,
+      "end": 99,
+      "cue": "右夹爪已对准右侧碗边缘，另外两只碗位于其左侧。",
+      "action": "右夹爪闭合，带动右碗在桌面附近向左、略向机器人方向移动，随后松开夹爪。",
+      "feedback": "右碗停在桌面中部偏右，位于中后方碗的右前方；右夹爪已张开，三只碗仍分别放置。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p01",
+        "title": "右手接近右侧碗"
+      },
+      "next": {
+        "id": "p03",
+        "title": "右手撤回，左手对准左碗"
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03",
+      "graph_id": "stack_bowls-0001",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p03",
+      "title": "右手撤回，左手对准左碗",
+      "summary": "切换到左手拾取第一只待叠碗。",
+      "start": 99,
+      "end": 160,
+      "cue": "底碗已经内移，初始左侧碗仍单独放置，左夹爪尚在桌边。",
+      "action": "右臂向待机位置收回；左臂抬起并前伸，使张开的夹爪逐渐下降到左碗边缘。",
+      "feedback": "右臂已回到桌边，左夹爪对准左碗侧缘，左碗尚未明显离开桌面。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left",
+        "right"
+      ],
+      "previous": {
+        "id": "p02",
+        "title": "将右碗移到便于叠放的位置"
+      },
+      "next": {
+        "id": "p04",
+        "title": "提起左碗并移向底碗"
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p04",
+      "graph_id": "stack_bowls-0001",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p04",
+      "title": "提起左碗并移向底碗",
+      "summary": "将左碗送至底碗上方附近。",
+      "start": 160,
+      "end": 194,
+      "cue": "左夹爪已靠近左碗边缘，底碗位于其右侧。",
+      "action": "左夹爪闭合后抬起，带动左碗离开原位置，并向右侧的底碗移动。",
+      "feedback": "左碗随夹爪抬起并来到底碗左上方附近；夹爪遮挡了部分碗沿，但碗的随动清晰可见。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p03",
+        "title": "右手撤回，左手对准左碗"
+      },
+      "next": {
+        "id": "p05",
+        "title": "把左碗放入底碗"
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p05",
+      "graph_id": "stack_bowls-0001",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p05",
+      "title": "把左碗放入底碗",
+      "summary": "完成第一次套叠并释放左碗。",
+      "start": 194,
+      "end": 240,
+      "cue": "左手持碗靠近底碗上方，两只碗的碗口尚未完全重合。",
+      "action": "左臂继续调整横向位置并下降，将所持左碗对准底碗内侧放下，随后张开夹爪并开始抬离。",
+      "feedback": "左碗与底碗在同一位置呈套叠状态，左夹爪已张开；具体嵌套深度及内部接触被碗壁和夹爪遮挡。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p04",
+        "title": "提起左碗并移向底碗"
+      },
+      "next": {
+        "id": "p06",
+        "title": "转向剩余的中后方碗"
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p06",
+      "graph_id": "stack_bowls-0001",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p06",
+      "title": "转向剩余的中后方碗",
+      "summary": "为拾取最后一只独立碗对准夹爪。",
+      "start": 240,
+      "end": 286,
+      "cue": "两只碗已经叠在中部偏右，初始中后方碗仍单独放在其左后方。",
+      "action": "左夹爪从叠碗上方抬离，向左后方移动，再下降到剩余碗的边缘附近。",
+      "feedback": "左夹爪已靠近中后方碗的碗沿；该碗仍在桌面原位置，两碗叠组保持在右前方。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p05",
+        "title": "把左碗放入底碗"
+      },
+      "next": {
+        "id": "p07",
+        "title": "抓起最后一碗并送向碗堆"
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p07",
+      "graph_id": "stack_bowls-0001",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p07",
+      "title": "抓起最后一碗并送向碗堆",
+      "summary": "将中后方碗搬到两碗叠组附近。",
+      "start": 286,
+      "end": 318,
+      "cue": "左夹爪对准剩余碗的边缘，右前方已有两碗叠组。",
+      "action": "左夹爪闭合，随后抬起并向右前方移动，带着中后方碗接近叠碗上方。",
+      "feedback": "中后方碗随左夹爪离开桌面，来到两碗叠组左上方；仍能辨认所持碗与下方叠碗的轮廓。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p06",
+        "title": "转向剩余的中后方碗"
+      },
+      "next": {
+        "id": "p08",
+        "title": "放入最后一碗并松开"
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p08",
+      "graph_id": "stack_bowls-0001",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p08",
+      "title": "放入最后一碗并松开",
+      "summary": "把第三只碗套入现有叠碗组。",
+      "start": 318,
+      "end": 350,
+      "cue": "最后一只碗已被送到叠碗附近，左夹爪仍夹持其边缘。",
+      "action": "左臂小幅调整位置并下降，使所持碗与下方叠碗对齐，放下后张开夹爪，向左上方撤离。",
+      "feedback": "最后一只碗留在叠碗位置，左夹爪已离开碗沿；三碗集中成一组，内部嵌套和接触细节不可见。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p07",
+        "title": "抓起最后一碗并送向碗堆"
+      },
+      "next": {
+        "id": "p09",
+        "title": "左臂归位，留下叠碗"
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p09",
+      "graph_id": "stack_bowls-0001",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p09",
+      "title": "左臂归位，留下叠碗",
+      "summary": "结束操作并露出最终叠放状态。",
+      "start": 350,
+      "end": 366,
+      "cue": "左夹爪已经松开并离开叠碗，左臂仍伸在桌面上方，右臂处于待机位置。",
+      "action": "左臂继续向桌边收回并下降到待机位置，右臂保持不动。",
+      "feedback": "两臂回到桌边，桌面中部偏右只见一组叠碗，未见另外单独放置的碗。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left",
+        "right"
+      ],
+      "previous": {
+        "id": "p08",
+        "title": "放入最后一碗并松开"
+      },
+      "next": null
+    },
+    {
+      "id": "stack_bowls-0002:p01",
+      "graph_id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p01",
+      "title": "靠近并抓取右侧碗",
+      "summary": "选择初始右侧碗，准备搬到叠放位置。",
+      "start": 0,
+      "end": 45,
+      "cue": "三只碗开口朝上、彼此分离；右夹爪位于桌面右前方，右侧碗的外侧边缘可接近。",
+      "action": "右臂伸向右侧碗，降低夹爪并对准碗沿，随后收拢夹爪并开始抬起。",
+      "feedback": "夹爪收拢在碗沿附近，右侧碗开始随右手移动；另外两只碗仍留在原处。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": null,
+      "next": {
+        "id": "p02",
+        "title": "将底碗移到中部偏左"
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p02",
+      "graph_id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p02",
+      "title": "将底碗移到中部偏左",
+      "summary": "为后续套叠建立独立的底碗落点。",
+      "start": 45,
+      "end": 74,
+      "cue": "右侧碗已随右夹爪抬起，另外两只碗左侧有空桌面。",
+      "action": "右臂持碗向画面左侧搬运，保持碗口朝上，在其余两只碗左侧的空位降低。",
+      "feedback": "碗已降到新落点附近，右夹爪仍贴近碗沿；落桌接触细节不可完全辨认。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p01",
+        "title": "靠近并抓取右侧碗"
+      },
+      "next": {
+        "id": "p03",
+        "title": "释放底碗并撤开夹爪"
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p03",
+      "graph_id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p03",
+      "title": "释放底碗并撤开夹爪",
+      "summary": "让底碗独立留在新位置。",
+      "start": 74,
+      "end": 104,
+      "cue": "底碗处于新落点低位，夹爪仍在碗沿附近。",
+      "action": "右夹爪张开释放碗，随后向上并向右前方撤离。",
+      "feedback": "空夹爪离开后，底碗开口朝上留在桌面；三只碗仍相互分离。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p02",
+        "title": "将底碗移到中部偏左"
+      },
+      "next": {
+        "id": "p04",
+        "title": "转向前侧碗并收拢夹爪"
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p04",
+      "graph_id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p04",
+      "title": "转向前侧碗并收拢夹爪",
+      "summary": "抓取将要叠入底碗的前侧碗。",
+      "start": 104,
+      "end": 148,
+      "cue": "底碗已放稳，前侧碗位于其右前方，右夹爪处于张开状态。",
+      "action": "右臂移向前侧碗，从右侧靠近碗沿，下降调整后收拢夹爪。",
+      "feedback": "夹爪在前侧碗沿处收拢，碗仍处于接近桌面的低位；碗沿局部被遮挡，尚未出现明显抬升。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p03",
+        "title": "释放底碗并撤开夹爪"
+      },
+      "next": {
+        "id": "p05",
+        "title": "抬起前侧碗并移到底碗上方"
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p05",
+      "graph_id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p05",
+      "title": "抬起前侧碗并移到底碗上方",
+      "summary": "将第二只碗运到套叠位置。",
+      "start": 148,
+      "end": 178,
+      "cue": "右夹爪已在前侧碗边缘收拢，底碗位于其左后方。",
+      "action": "右臂抬起前侧碗，再向左后方搬运，将其碗口中心大致对齐底碗。",
+      "feedback": "前侧碗明显离桌并随右手移动，到达底碗上方；底碗仍留在桌面，后侧碗未被移动。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p04",
+        "title": "转向前侧碗并收拢夹爪"
+      },
+      "next": {
+        "id": "p06",
+        "title": "放入第二只碗并松爪"
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p06",
+      "graph_id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p06",
+      "title": "放入第二只碗并松爪",
+      "summary": "形成双碗叠层并释放右手。",
+      "start": 178,
+      "end": 222,
+      "cue": "前侧碗位于底碗上方，两只碗均开口朝上。",
+      "action": "右臂降低所持碗，使其进入底碗，短暂停留后张开夹爪，再向上撤开。",
+      "feedback": "两只碗在同一落点套叠，右夹爪已抬离；后侧碗仍独立放在叠层右后方。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p05",
+        "title": "抬起前侧碗并移到底碗上方"
+      },
+      "next": {
+        "id": "p07",
+        "title": "靠近并抓取剩余后侧碗"
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p07",
+      "graph_id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p07",
+      "title": "靠近并抓取剩余后侧碗",
+      "summary": "准备搬运最后一只独立的碗。",
+      "start": 222,
+      "end": 267,
+      "cue": "双碗叠层留在桌面，后侧碗位于其右后方，右夹爪已空手撤开。",
+      "action": "右臂绕到后侧碗附近，张开的夹爪下降至碗沿，再收拢夹爪。",
+      "feedback": "夹爪已在后侧碗沿处收拢，碗仍接近桌面；抓取部位部分遮挡，双碗叠层位置未变。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p06",
+        "title": "放入第二只碗并松爪"
+      },
+      "next": {
+        "id": "p08",
+        "title": "将后侧碗搬到双碗叠层上方"
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p08",
+      "graph_id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p08",
+      "title": "将后侧碗搬到双碗叠层上方",
+      "summary": "把第三只碗运到最终叠放位置。",
+      "start": 267,
+      "end": 296,
+      "cue": "右夹爪收拢在后侧碗沿，双碗叠层位于其左前方。",
+      "action": "右臂抬起后侧碗，向左前方搬运，保持碗口朝上并降低至双碗叠层上方。",
+      "feedback": "后侧碗已离开原位置，随夹爪到达叠层顶部附近；碗之间的接触区域部分被夹爪遮挡。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p07",
+        "title": "靠近并抓取剩余后侧碗"
+      },
+      "next": {
+        "id": "p09",
+        "title": "落下顶碗并张开夹爪"
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p09",
+      "graph_id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p09",
+      "title": "落下顶碗并张开夹爪",
+      "summary": "完成第三只碗的套叠。",
+      "start": 296,
+      "end": 317,
+      "cue": "最后一只碗已对准双碗叠层，夹爪仍靠在其碗沿。",
+      "action": "右臂小幅降低所持碗，使其落入叠层顶部，随后张开夹爪并略微抬起。",
+      "feedback": "顶碗留在叠层上，三只碗的轮廓集中于同一摞；夹爪已张开，但仍靠近顶部，局部接触细节被遮挡。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "right"
+      ],
+      "previous": {
+        "id": "p08",
+        "title": "将后侧碗搬到双碗叠层上方"
+      },
+      "next": {
+        "id": "p10",
+        "title": "空手撤回并露出完整叠层"
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p10",
+      "graph_id": "stack_bowls-0002",
+      "task": "stack_bowls",
+      "task_name": "stack_bowls",
+      "node_id": "p10",
+      "title": "空手撤回并露出完整叠层",
+      "summary": "结束操作，观察三碗保持套叠。",
+      "start": 317,
+      "end": 341,
+      "cue": "三只碗已叠在一起，张开的右夹爪仍停在叠层上方附近。",
+      "action": "右臂向上、向右撤离，再回到右侧初始位置附近；左臂保持原位。",
+      "feedback": "右夹爪空手离开，桌面中央偏左清楚可见三碗叠层；直到示范结束，碗保持套叠，未见散落。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left",
+        "right"
+      ],
+      "previous": {
+        "id": "p09",
+        "title": "落下顶碗并张开夹爪"
+      },
+      "next": null
+    }
+  ],
+  "chunks": [
+    {
+      "id": "stack_bowls-0000:p01:0:10",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p01",
+      "start": 0,
+      "end": 10,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p01:5:15",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p01",
+      "start": 5,
+      "end": 15,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.316218,
+          -0.339414,
+          0.956103,
+          0.709714,
+          -0.014903,
+          0.004083,
+          0.70432
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p01:10:20",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p01",
+      "start": 10,
+      "end": 20,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.364466,
+          -0.261129,
+          1.020959,
+          0.636549,
+          -0.100776,
+          0.137395,
+          0.752178
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p01:15:25",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p01",
+      "start": 15,
+      "end": 25,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.389132,
+          -0.169497,
+          1.049483,
+          0.535021,
+          -0.139305,
+          0.289618,
+          0.781325
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p01:20:30",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p01",
+      "start": 20,
+      "end": 30,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.40555,
+          -0.107468,
+          1.039292,
+          0.480916,
+          -0.111244,
+          0.404283,
+          0.77
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p01:25:35",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p01",
+      "start": 25,
+      "end": 35,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.414915,
+          -0.077721,
+          1.007279,
+          0.453659,
+          -0.0939,
+          0.478376,
+          0.746011
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p01:30:40",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p01",
+      "start": 30,
+      "end": 40,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.418326,
+          -0.070094,
+          0.98046,
+          0.454054,
+          -0.104744,
+          0.513437,
+          0.720587
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p01:35:45",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p01",
+      "start": 35,
+      "end": 45,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.414239,
+          -0.084008,
+          0.992129,
+          0.475078,
+          -0.134641,
+          0.499968,
+          0.71148
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p01:40:50",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p01",
+      "start": 40,
+      "end": 50,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.418215,
+          -0.086896,
+          0.978497,
+          0.484219,
+          -0.151384,
+          0.501817,
+          0.700567
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p01:45:51",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p01",
+      "start": 45,
+      "end": 51,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.423629,
+          -0.084464,
+          0.956084,
+          0.477472,
+          -0.155976,
+          0.513412,
+          0.695773
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p01:50:51",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p01",
+      "start": 50,
+      "end": 51,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.417281,
+          -0.075212,
+          0.933174,
+          0.459255,
+          -0.159301,
+          0.523302,
+          0.699902
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p02:51:61",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p02",
+      "start": 51,
+      "end": 61,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.415996,
+          -0.072995,
+          0.927643,
+          0.454904,
+          -0.159128,
+          0.525287,
+          0.701295
+        ],
+        "right_ee_joint_state": [
+          0.93
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p02:56:66",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p02",
+      "start": 56,
+      "end": 66,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.402813,
+          -0.064567,
+          0.912096,
+          0.432707,
+          -0.159695,
+          0.523084,
+          0.716691
+        ],
+        "right_ee_joint_state": [
+          0.43
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p02:61:71",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p02",
+      "start": 61,
+      "end": 71,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.392171,
+          -0.062334,
+          0.912052,
+          0.427388,
+          -0.171141,
+          0.506404,
+          0.729113
+        ],
+        "right_ee_joint_state": [
+          0.093606
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p02:66:73",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p02",
+      "start": 66,
+      "end": 73,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.385911,
+          -0.068883,
+          0.91983,
+          0.4225,
+          -0.174956,
+          0.492385,
+          0.740568
+        ],
+        "right_ee_joint_state": [
+          0.085078
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p02:71:73",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p02",
+      "start": 71,
+      "end": 73,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.367412,
+          -0.085251,
+          0.960646,
+          0.40148,
+          -0.187524,
+          0.466864,
+          0.765302
+        ],
+        "right_ee_joint_state": [
+          0.08384
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p03:73:83",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p03",
+      "start": 73,
+      "end": 83,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.350935,
+          -0.087095,
+          0.984551,
+          0.389226,
+          -0.209853,
+          0.450743,
+          0.775432
+        ],
+        "right_ee_joint_state": [
+          0.084816
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p03:78:88",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p03",
+      "start": 78,
+      "end": 88,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.296976,
+          -0.083527,
+          1.035498,
+          0.356542,
+          -0.26485,
+          0.409808,
+          0.796737
+        ],
+        "right_ee_joint_state": [
+          0.087683
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p03:83:93",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p03",
+      "start": 83,
+      "end": 93,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.247017,
+          -0.060378,
+          1.03493,
+          0.323144,
+          -0.299298,
+          0.397112,
+          0.805171
+        ],
+        "right_ee_joint_state": [
+          0.088217
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p03:88:94",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p03",
+      "start": 88,
+      "end": 94,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.219276,
+          -0.036384,
+          1.009022,
+          0.291981,
+          -0.307368,
+          0.406434,
+          0.809372
+        ],
+        "right_ee_joint_state": [
+          0.087428
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p03:93:94",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p03",
+      "start": 93,
+      "end": 94,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.210566,
+          -0.020003,
+          0.976315,
+          0.264847,
+          -0.304374,
+          0.42512,
+          0.810238
+        ],
+        "right_ee_joint_state": [
+          0.085951
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p04:94:104",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p04",
+      "start": 94,
+      "end": 104,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.210179,
+          -0.018239,
+          0.971552,
+          0.261419,
+          -0.304148,
+          0.427282,
+          0.810299
+        ],
+        "right_ee_joint_state": [
+          0.085891
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p04:99:109",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p04",
+      "start": 99,
+      "end": 109,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.211902,
+          -0.014094,
+          0.956113,
+          0.250509,
+          -0.306808,
+          0.430514,
+          0.811032
+        ],
+        "right_ee_joint_state": [
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p04:104:114",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p04",
+      "start": 104,
+      "end": 114,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.208738,
+          -0.016102,
+          0.959475,
+          0.24577,
+          -0.322074,
+          0.413939,
+          0.815181
+        ],
+        "right_ee_joint_state": [
+          0.62
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p04:109:117",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p04",
+      "start": 109,
+      "end": 117,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.198567,
+          -0.024111,
+          0.975004,
+          0.259169,
+          -0.353339,
+          0.380304,
+          0.814464
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p04:114:117",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p04",
+      "start": 114,
+      "end": 117,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.181314,
+          -0.043033,
+          0.991247,
+          0.333418,
+          -0.427126,
+          0.303191,
+          0.783882
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p05:117:127",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p05",
+      "start": 117,
+      "end": 127,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.29558,
+          -0.356458,
+          0.947549,
+          0.710111,
+          0.009352,
+          -0.007624,
+          0.703986
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.181155,
+          -0.045402,
+          0.99311,
+          0.340529,
+          -0.429661,
+          0.297551,
+          0.781597
+        ],
+        "right_ee_joint_state": [
+          0.911729
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p05:122:132",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p05",
+      "start": 122,
+      "end": 132,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.300212,
+          -0.343154,
+          1.005245,
+          0.73607,
+          -0.007913,
+          -0.000301,
+          0.676859
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.200561,
+          -0.07694,
+          1.021039,
+          0.3831,
+          -0.399682,
+          0.272649,
+          0.786862
+        ],
+        "right_ee_joint_state": [
+          0.936106
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p05:127:137",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p05",
+      "start": 127,
+      "end": 137,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.345801,
+          -0.251222,
+          1.001786,
+          0.796156,
+          -0.162056,
+          0.093265,
+          0.575479
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.243431,
+          -0.168598,
+          1.058263,
+          0.485018,
+          -0.314486,
+          0.207789,
+          0.7891
+        ],
+        "right_ee_joint_state": [
+          0.960482
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p05:132:142",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p05",
+      "start": 132,
+      "end": 142,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.366101,
+          -0.186963,
+          0.973063,
+          0.799864,
+          -0.255499,
+          0.160382,
+          0.51886
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.279767,
+          -0.281064,
+          1.035797,
+          0.598488,
+          -0.188734,
+          0.121107,
+          0.769107
+        ],
+        "right_ee_joint_state": [
+          0.984859
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p05:137:147",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p05",
+      "start": 137,
+      "end": 147,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.370417,
+          -0.153044,
+          0.945082,
+          0.794922,
+          -0.305965,
+          0.196869,
+          0.485516
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.294466,
+          -0.338372,
+          0.974414,
+          0.66984,
+          -0.078762,
+          0.049733,
+          0.736639
+        ],
+        "right_ee_joint_state": [
+          0.999973
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p05:142:148",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p05",
+      "start": 142,
+      "end": 148,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.372936,
+          -0.133058,
+          0.921547,
+          0.786669,
+          -0.33273,
+          0.209169,
+          0.476121
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.298437,
+          -0.349752,
+          0.941312,
+          0.694503,
+          -0.02935,
+          0.018478,
+          0.718653
+        ],
+        "right_ee_joint_state": [
+          0.999973
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p05:147:148",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p05",
+      "start": 147,
+      "end": 148,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.373586,
+          -0.117843,
+          0.898874,
+          0.775934,
+          -0.346795,
+          0.210606,
+          0.483015
+        ],
+        "left_ee_joint_state": [
+          0.886581
+        ],
+        "right_ee_pose": [
+          0.299735,
+          -0.351711,
+          0.928773,
+          0.70257,
+          -0.010877,
+          0.006855,
+          0.711499
+        ],
+        "right_ee_joint_state": [
+          0.999973
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p06:148:158",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p06",
+      "start": 148,
+      "end": 158,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.373459,
+          -0.115634,
+          0.894854,
+          0.775691,
+          -0.349108,
+          0.210141,
+          0.481941
+        ],
+        "left_ee_joint_state": [
+          0.786581
+        ],
+        "right_ee_pose": [
+          0.299869,
+          -0.351847,
+          0.92745,
+          0.703388,
+          -0.008916,
+          0.005621,
+          0.710728
+        ],
+        "right_ee_joint_state": [
+          0.999973
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p06:153:163",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p06",
+      "start": 153,
+      "end": 163,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.373303,
+          -0.109911,
+          0.885326,
+          0.78226,
+          -0.35935,
+          0.197971,
+          0.468769
+        ],
+        "left_ee_joint_state": [
+          0.286581
+        ],
+        "right_ee_pose": [
+          0.300228,
+          -0.352146,
+          0.923894,
+          0.70555,
+          -0.003656,
+          0.002314,
+          0.708647
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p06:158:167",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p06",
+      "start": 158,
+      "end": 167,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.370697,
+          -0.117911,
+          0.89802,
+          0.789055,
+          -0.354709,
+          0.190232,
+          0.464097
+        ],
+        "left_ee_joint_state": [
+          0.103829
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923903,
+          0.705549,
+          -0.003647,
+          0.002306,
+          0.708648
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p06:163:167",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p06",
+      "start": 163,
+      "end": 167,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.355057,
+          -0.136904,
+          0.9356,
+          0.804103,
+          -0.345921,
+          0.172272,
+          0.45175
+        ],
+        "left_ee_joint_state": [
+          0.100002
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923906,
+          0.705549,
+          -0.003644,
+          0.002303,
+          0.708648
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p07:167:177",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p07",
+      "start": 167,
+      "end": 177,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.327564,
+          -0.138278,
+          0.975026,
+          0.819799,
+          -0.335492,
+          0.157561,
+          0.436519
+        ],
+        "left_ee_joint_state": [
+          0.092373
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923907,
+          0.705548,
+          -0.003643,
+          0.002302,
+          0.708649
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p07:172:182",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p07",
+      "start": 172,
+      "end": 182,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.281522,
+          -0.124516,
+          1.016398,
+          0.837973,
+          -0.326676,
+          0.146675,
+          0.41179
+        ],
+        "left_ee_joint_state": [
+          0.092167
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923908,
+          0.705548,
+          -0.003643,
+          0.002301,
+          0.708649
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p07:177:187",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p07",
+      "start": 177,
+      "end": 187,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.224139,
+          -0.109594,
+          1.041343,
+          0.853985,
+          -0.31565,
+          0.156889,
+          0.382701
+        ],
+        "left_ee_joint_state": [
+          0.092016
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923908,
+          0.705548,
+          -0.003643,
+          0.002301,
+          0.708649
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p07:182:191",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p07",
+      "start": 182,
+      "end": 191,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.167393,
+          -0.10072,
+          1.049099,
+          0.864732,
+          -0.305385,
+          0.176297,
+          0.357627
+        ],
+        "left_ee_joint_state": [
+          0.091154
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923908,
+          0.705548,
+          -0.003643,
+          0.002301,
+          0.708649
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p07:187:191",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p07",
+      "start": 187,
+      "end": 191,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.120917,
+          -0.087987,
+          1.034853,
+          0.866303,
+          -0.304266,
+          0.19669,
+          0.343882
+        ],
+        "left_ee_joint_state": [
+          0.090487
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923908,
+          0.705548,
+          -0.003643,
+          0.002301,
+          0.708649
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p08:191:201",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p08",
+      "start": 191,
+      "end": 201,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.101682,
+          -0.075153,
+          1.015242,
+          0.862164,
+          -0.306113,
+          0.208458,
+          0.345706
+        ],
+        "left_ee_joint_state": [
+          0.090587
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923908,
+          0.705548,
+          -0.003643,
+          0.002301,
+          0.708649
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p08:196:206",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p08",
+      "start": 196,
+      "end": 206,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.086232,
+          -0.060476,
+          0.98791,
+          0.85436,
+          -0.304802,
+          0.221593,
+          0.357857
+        ],
+        "left_ee_joint_state": [
+          0.091525
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923908,
+          0.705548,
+          -0.003643,
+          0.002301,
+          0.708649
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p08:201:211",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p08",
+      "start": 201,
+      "end": 211,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.080474,
+          -0.051754,
+          0.96588,
+          0.849251,
+          -0.308829,
+          0.229229,
+          0.361734
+        ],
+        "left_ee_joint_state": [
+          0.088858
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923908,
+          0.705548,
+          -0.003643,
+          0.002301,
+          0.708649
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p08:206:216",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p08",
+      "start": 206,
+      "end": 216,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.078704,
+          -0.053064,
+          0.959972,
+          0.852855,
+          -0.305221,
+          0.234398,
+          0.352897
+        ],
+        "left_ee_joint_state": [
+          0.279768
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923908,
+          0.705548,
+          -0.003643,
+          0.002301,
+          0.708649
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p08:211:220",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p08",
+      "start": 211,
+      "end": 220,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.080494,
+          -0.071541,
+          0.977039,
+          0.863078,
+          -0.263547,
+          0.246919,
+          0.353086
+        ],
+        "left_ee_joint_state": [
+          0.779768
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923908,
+          0.705548,
+          -0.003643,
+          0.002301,
+          0.708649
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p08:216:220",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p08",
+      "start": 216,
+      "end": 220,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.075736,
+          -0.088014,
+          0.982882,
+          0.857007,
+          -0.188393,
+          0.275016,
+          0.392954
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300227,
+          -0.352147,
+          0.923908,
+          0.705548,
+          -0.003643,
+          0.002301,
+          0.708649
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p09:220:230",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p09",
+      "start": 220,
+      "end": 230,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.091623,
+          -0.101718,
+          0.995929,
+          0.850365,
+          -0.163781,
+          0.267441,
+          0.422527
+        ],
+        "left_ee_joint_state": [
+          0.881012
+        ],
+        "right_ee_pose": [
+          0.300349,
+          -0.35223,
+          0.922714,
+          0.706274,
+          -0.001817,
+          0.001145,
+          0.707935
+        ],
+        "right_ee_joint_state": [
+          0.999982
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p09:225:235",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p09",
+      "start": 225,
+      "end": 235,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.184685,
+          -0.177538,
+          1.043389,
+          0.829977,
+          -0.130825,
+          0.191175,
+          0.50742
+        ],
+        "left_ee_joint_state": [
+          0.983588
+        ],
+        "right_ee_pose": [
+          0.300468,
+          -0.352297,
+          0.921524,
+          0.706983,
+          -5.1e-05,
+          3.5e-05,
+          0.70723
+        ],
+        "right_ee_joint_state": [
+          0.999998
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p09:230:239",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p09",
+      "start": 230,
+      "end": 239,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.266997,
+          -0.290885,
+          1.021792,
+          0.781243,
+          -0.07831,
+          0.0879,
+          0.613026
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300464,
+          -0.352296,
+          0.921565,
+          0.70696,
+          -0.000103,
+          6.6e-05,
+          0.707253
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0000:p09:235:239",
+      "graph_id": "stack_bowls-0000",
+      "node_id": "p09",
+      "start": 235,
+      "end": 239,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.295087,
+          -0.347334,
+          0.947427,
+          0.725097,
+          -0.019354,
+          0.01677,
+          0.68817
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300463,
+          -0.352295,
+          0.92158,
+          0.706952,
+          -0.000122,
+          7.8e-05,
+          0.707262
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p01:0:10",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p01",
+      "start": 0,
+      "end": 10,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p01:5:15",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p01",
+      "start": 5,
+      "end": 15,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.328362,
+          -0.345771,
+          0.983943,
+          0.684575,
+          0.029992,
+          0.074642,
+          0.724491
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p01:10:20",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p01",
+      "start": 10,
+      "end": 20,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.380645,
+          -0.308712,
+          1.038074,
+          0.5968,
+          0.075064,
+          0.280506,
+          0.748005
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p01:15:25",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p01",
+      "start": 15,
+      "end": 25,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.389442,
+          -0.257502,
+          1.018992,
+          0.538496,
+          0.067817,
+          0.421462,
+          0.726493
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p01:20:30",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p01",
+      "start": 20,
+      "end": 30,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.385569,
+          -0.224642,
+          0.992015,
+          0.542344,
+          0.027123,
+          0.490157,
+          0.681817
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p01:25:35",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p01",
+      "start": 25,
+      "end": 35,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.37799,
+          -0.209818,
+          0.98247,
+          0.58317,
+          -0.028055,
+          0.496755,
+          0.642153
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p01:30:40",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p01",
+      "start": 30,
+      "end": 40,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.372614,
+          -0.191182,
+          0.976377,
+          0.60643,
+          -0.073006,
+          0.495532,
+          0.617543
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p01:35:45",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p01",
+      "start": 35,
+      "end": 45,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.369265,
+          -0.173261,
+          0.961612,
+          0.607547,
+          -0.095357,
+          0.502639,
+          0.607575
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p01:40:49",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p01",
+      "start": 40,
+      "end": 49,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.37161,
+          -0.157453,
+          0.938946,
+          0.602687,
+          -0.102219,
+          0.516616,
+          0.599523
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p01:45:49",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p01",
+      "start": 45,
+      "end": 49,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.373076,
+          -0.144787,
+          0.913759,
+          0.597616,
+          -0.101084,
+          0.52341,
+          0.598898
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p02:49:59",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p02",
+      "start": 49,
+      "end": 59,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.371857,
+          -0.132416,
+          0.898695,
+          0.583152,
+          -0.082732,
+          0.512122,
+          0.625156
+        ],
+        "right_ee_joint_state": [
+          0.83
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p02:54:64",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p02",
+      "start": 54,
+      "end": 64,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.364185,
+          -0.120752,
+          0.88573,
+          0.547226,
+          -0.067316,
+          0.499747,
+          0.668031
+        ],
+        "right_ee_joint_state": [
+          0.33
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p02:59:69",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p02",
+      "start": 59,
+      "end": 69,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.349831,
+          -0.12151,
+          0.888065,
+          0.520645,
+          -0.066615,
+          0.4869,
+          0.698154
+        ],
+        "right_ee_joint_state": [
+          0.145009
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p02:64:74",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p02",
+      "start": 64,
+      "end": 74,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.32731,
+          -0.136063,
+          0.922881,
+          0.498837,
+          -0.069929,
+          0.458978,
+          0.731855
+        ],
+        "right_ee_joint_state": [
+          0.142781
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p02:69:79",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p02",
+      "start": 69,
+      "end": 79,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.281767,
+          -0.138404,
+          0.936278,
+          0.435636,
+          -0.094624,
+          0.444308,
+          0.777083
+        ],
+        "right_ee_joint_state": [
+          0.143088
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p02:74:84",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p02",
+      "start": 74,
+      "end": 84,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.237391,
+          -0.134305,
+          0.918018,
+          0.359904,
+          -0.132358,
+          0.444158,
+          0.809737
+        ],
+        "right_ee_joint_state": [
+          0.14144
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p02:79:89",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p02",
+      "start": 79,
+      "end": 89,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.213429,
+          -0.134681,
+          0.906506,
+          0.30659,
+          -0.155772,
+          0.440514,
+          0.829268
+        ],
+        "right_ee_joint_state": [
+          0.139529
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p02:84:94",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p02",
+      "start": 84,
+      "end": 94,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.199813,
+          -0.137287,
+          0.90144,
+          0.279971,
+          -0.173092,
+          0.434734,
+          0.838249
+        ],
+        "right_ee_joint_state": [
+          0.21
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p02:89:99",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p02",
+      "start": 89,
+      "end": 99,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.190531,
+          -0.137439,
+          0.89889,
+          0.268354,
+          -0.187646,
+          0.428916,
+          0.841906
+        ],
+        "right_ee_joint_state": [
+          0.71
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p02:94:99",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p02",
+      "start": 94,
+      "end": 99,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.188721,
+          -0.140538,
+          0.903428,
+          0.285286,
+          -0.211841,
+          0.404585,
+          0.842643
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:99:109",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 99,
+      "end": 109,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299039,
+          -0.35307,
+          0.92245,
+          0.707185,
+          -0.000478,
+          -0.000403,
+          0.707028
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.190924,
+          -0.143765,
+          0.908698,
+          0.332755,
+          -0.251935,
+          0.36172,
+          0.833643
+        ],
+        "right_ee_joint_state": [
+          0.896391
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:104:114",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 104,
+      "end": 114,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.286377,
+          -0.392173,
+          0.990654,
+          0.724769,
+          0.001818,
+          -0.030913,
+          0.688296
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.202663,
+          -0.158272,
+          0.925309,
+          0.359121,
+          -0.23909,
+          0.339372,
+          0.835879
+        ],
+        "right_ee_joint_state": [
+          0.925325
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:109:119",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 109,
+      "end": 119,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.290611,
+          -0.411337,
+          1.049302,
+          0.747776,
+          -0.016626,
+          -0.061924,
+          0.660847
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.238987,
+          -0.214803,
+          0.964213,
+          0.449295,
+          -0.190416,
+          0.259552,
+          0.833371
+        ],
+        "right_ee_joint_state": [
+          0.954258
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:114:124",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 114,
+      "end": 124,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.297145,
+          -0.378007,
+          1.064273,
+          0.779677,
+          -0.16157,
+          -0.017266,
+          0.604732
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.275272,
+          -0.293298,
+          0.971335,
+          0.569294,
+          -0.114124,
+          0.146278,
+          0.800926
+        ],
+        "right_ee_joint_state": [
+          0.983191
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:119:129",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 119,
+      "end": 129,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.329788,
+          -0.321112,
+          1.040485,
+          0.757746,
+          -0.240317,
+          0.035856,
+          0.605627
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.292548,
+          -0.337682,
+          0.946442,
+          0.655832,
+          -0.047072,
+          0.057132,
+          0.751269
+        ],
+        "right_ee_joint_state": [
+          0.999973
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:124:134",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 124,
+      "end": 134,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.333927,
+          -0.298924,
+          1.019957,
+          0.755429,
+          -0.277339,
+          0.075605,
+          0.588808
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.297751,
+          -0.348476,
+          0.931037,
+          0.688895,
+          -0.017521,
+          0.020749,
+          0.724352
+        ],
+        "right_ee_joint_state": [
+          0.999973
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:129:139",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 129,
+      "end": 139,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.330072,
+          -0.283487,
+          1.001749,
+          0.754738,
+          -0.30585,
+          0.090063,
+          0.573336
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.299489,
+          -0.351105,
+          0.925024,
+          0.700445,
+          -0.006483,
+          0.007605,
+          0.713637
+        ],
+        "right_ee_joint_state": [
+          0.999973
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:134:144",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 134,
+      "end": 144,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.326793,
+          -0.260871,
+          0.974801,
+          0.743925,
+          -0.326526,
+          0.09851,
+          0.574675
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300112,
+          -0.351889,
+          0.922793,
+          0.704604,
+          -0.002394,
+          0.002797,
+          0.709591
+        ],
+        "right_ee_joint_state": [
+          0.999973
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:139:149",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 139,
+      "end": 149,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.326236,
+          -0.256644,
+          0.967784,
+          0.741637,
+          -0.331895,
+          0.099389,
+          0.574406
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922765,
+          0.704653,
+          -0.002348,
+          0.002744,
+          0.709543
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:144:154",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 144,
+      "end": 154,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.325968,
+          -0.244306,
+          0.950268,
+          0.734053,
+          -0.341472,
+          0.089613,
+          0.580115
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922767,
+          0.704652,
+          -0.002347,
+          0.002743,
+          0.709543
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:149:159",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 149,
+      "end": 159,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.320576,
+          -0.229169,
+          0.924027,
+          0.711879,
+          -0.323866,
+          0.086149,
+          0.617185
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922767,
+          0.704652,
+          -0.002347,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:154:160",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 154,
+      "end": 160,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.307517,
+          -0.220772,
+          0.905557,
+          0.707024,
+          -0.314555,
+          0.092587,
+          0.626578
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p03:159:160",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p03",
+      "start": 159,
+      "end": 160,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.303684,
+          -0.215761,
+          0.892154,
+          0.702047,
+          -0.314894,
+          0.095307,
+          0.631577
+        ],
+        "left_ee_joint_state": [
+          0.88
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p04:160:170",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p04",
+      "start": 160,
+      "end": 170,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.303149,
+          -0.215263,
+          0.889895,
+          0.701881,
+          -0.314857,
+          0.095811,
+          0.631702
+        ],
+        "left_ee_joint_state": [
+          0.78
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p04:165:175",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p04",
+      "start": 165,
+      "end": 175,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.302855,
+          -0.2144,
+          0.880833,
+          0.704732,
+          -0.30981,
+          0.101987,
+          0.630055
+        ],
+        "left_ee_joint_state": [
+          0.28
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p04:170:180",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p04",
+      "start": 170,
+      "end": 180,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.30501,
+          -0.215182,
+          0.879895,
+          0.708625,
+          -0.307432,
+          0.098304,
+          0.627434
+        ],
+        "left_ee_joint_state": [
+          0.09988
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p04:175:185",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p04",
+      "start": 175,
+      "end": 185,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.301234,
+          -0.235478,
+          0.925495,
+          0.72574,
+          -0.296063,
+          0.080171,
+          0.615809
+        ],
+        "left_ee_joint_state": [
+          0.094502
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p04:180:190",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p04",
+      "start": 180,
+      "end": 190,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.258834,
+          -0.263681,
+          0.983921,
+          0.772343,
+          -0.254913,
+          0.086199,
+          0.575391
+        ],
+        "left_ee_joint_state": [
+          0.092614
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p04:185:194",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p04",
+      "start": 185,
+      "end": 194,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.183814,
+          -0.270635,
+          1.012636,
+          0.811373,
+          -0.195002,
+          0.123104,
+          0.537116
+        ],
+        "left_ee_joint_state": [
+          0.08765
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p04:190:194",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p04",
+      "start": 190,
+      "end": 194,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.130708,
+          -0.259663,
+          1.011358,
+          0.825507,
+          -0.154956,
+          0.15128,
+          0.521192
+        ],
+        "left_ee_joint_state": [
+          0.085774
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p05:194:204",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p05",
+      "start": 194,
+      "end": 204,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.106198,
+          -0.249482,
+          1.00441,
+          0.829506,
+          -0.137793,
+          0.160755,
+          0.516809
+        ],
+        "left_ee_joint_state": [
+          0.085374
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p05:199:209",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p05",
+      "start": 199,
+      "end": 209,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.093139,
+          -0.234311,
+          0.99202,
+          0.835909,
+          -0.157992,
+          0.156757,
+          0.501719
+        ],
+        "left_ee_joint_state": [
+          0.086438
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p05:204:214",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p05",
+      "start": 204,
+      "end": 214,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.083345,
+          -0.225381,
+          0.980068,
+          0.843131,
+          -0.186231,
+          0.150613,
+          0.481418
+        ],
+        "left_ee_joint_state": [
+          0.086992
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p05:209:219",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p05",
+      "start": 209,
+      "end": 219,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.071041,
+          -0.219898,
+          0.96658,
+          0.848409,
+          -0.208578,
+          0.14832,
+          0.463356
+        ],
+        "left_ee_joint_state": [
+          0.087269
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p05:214:224",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p05",
+      "start": 214,
+      "end": 224,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.061875,
+          -0.215889,
+          0.952462,
+          0.849978,
+          -0.220128,
+          0.146799,
+          0.455555
+        ],
+        "left_ee_joint_state": [
+          0.087176
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p05:219:229",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p05",
+      "start": 219,
+      "end": 229,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.055939,
+          -0.209767,
+          0.939024,
+          0.849765,
+          -0.226467,
+          0.144521,
+          0.45357
+        ],
+        "left_ee_joint_state": [
+          0.087244
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p05:224:234",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p05",
+      "start": 224,
+      "end": 234,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.051236,
+          -0.204667,
+          0.927117,
+          0.848216,
+          -0.230903,
+          0.144586,
+          0.454211
+        ],
+        "left_ee_joint_state": [
+          0.09
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p05:229:239",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p05",
+      "start": 229,
+      "end": 239,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.049016,
+          -0.202049,
+          0.925866,
+          0.846993,
+          -0.225687,
+          0.144524,
+          0.459109
+        ],
+        "left_ee_joint_state": [
+          0.59
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p05:234:240",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p05",
+      "start": 234,
+      "end": 240,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.050421,
+          -0.204318,
+          0.934088,
+          0.848915,
+          -0.207245,
+          0.140562,
+          0.465441
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p05:239:240",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p05",
+      "start": 239,
+      "end": 240,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.064445,
+          -0.213763,
+          0.957373,
+          0.846163,
+          -0.133182,
+          0.130784,
+          0.499165
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p06:240:250",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p06",
+      "start": 240,
+      "end": 250,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.071419,
+          -0.216415,
+          0.965526,
+          0.843241,
+          -0.115194,
+          0.12631,
+          0.509628
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p06:245:255",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p06",
+      "start": 245,
+      "end": 255,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.12474,
+          -0.221436,
+          1.000555,
+          0.830709,
+          -0.086647,
+          0.106431,
+          0.539526
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p06:250:260",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p06",
+      "start": 250,
+      "end": 260,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.184398,
+          -0.21603,
+          1.015267,
+          0.848149,
+          -0.172251,
+          0.109738,
+          0.488804
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p06:255:265",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p06",
+      "start": 255,
+      "end": 265,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.21186,
+          -0.196267,
+          1.018309,
+          0.851949,
+          -0.248615,
+          0.110413,
+          0.447418
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p06:260:270",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p06",
+      "start": 260,
+      "end": 270,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.21244,
+          -0.164456,
+          0.995552,
+          0.840137,
+          -0.291647,
+          0.119092,
+          0.441508
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p06:265:275",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p06",
+      "start": 265,
+      "end": 275,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.203815,
+          -0.133185,
+          0.961589,
+          0.825591,
+          -0.320381,
+          0.13436,
+          0.444637
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p06:270:280",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p06",
+      "start": 270,
+      "end": 280,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.199238,
+          -0.111732,
+          0.932653,
+          0.813783,
+          -0.338716,
+          0.146073,
+          0.4491
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p06:275:285",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p06",
+      "start": 275,
+      "end": 285,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.195005,
+          -0.099998,
+          0.909019,
+          0.802665,
+          -0.353412,
+          0.156628,
+          0.454199
+        ],
+        "left_ee_joint_state": [
+          0.88
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p06:280:286",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p06",
+      "start": 280,
+      "end": 286,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.193903,
+          -0.099682,
+          0.902999,
+          0.801987,
+          -0.352187,
+          0.148596,
+          0.459021
+        ],
+        "left_ee_joint_state": [
+          0.38
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p06:285:286",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p06",
+      "start": 285,
+      "end": 286,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.197427,
+          -0.103029,
+          0.894414,
+          0.807478,
+          -0.329399,
+          0.170861,
+          0.458565
+        ],
+        "left_ee_joint_state": [
+          0.719658
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p07:286:296",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p07",
+      "start": 286,
+      "end": 296,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.197034,
+          -0.103095,
+          0.89217,
+          0.807836,
+          -0.326721,
+          0.175699,
+          0.458021
+        ],
+        "left_ee_joint_state": [
+          0.819658
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p07:291:301",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p07",
+      "start": 291,
+      "end": 301,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.191856,
+          -0.103359,
+          0.882911,
+          0.810613,
+          -0.322338,
+          0.181042,
+          0.454124
+        ],
+        "left_ee_joint_state": [
+          0.539658
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p07:296:306",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p07",
+      "start": 296,
+      "end": 306,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.18744,
+          -0.104474,
+          0.880153,
+          0.813378,
+          -0.327843,
+          0.173262,
+          0.448236
+        ],
+        "left_ee_joint_state": [
+          0.133784
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p07:301:311",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p07",
+      "start": 301,
+      "end": 311,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.19309,
+          -0.108582,
+          0.892589,
+          0.810402,
+          -0.337188,
+          0.156554,
+          0.452818
+        ],
+        "left_ee_joint_state": [
+          0.104643
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p07:306:316",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p07",
+      "start": 306,
+      "end": 316,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.198532,
+          -0.126499,
+          0.947751,
+          0.821319,
+          -0.336724,
+          0.125282,
+          0.443122
+        ],
+        "left_ee_joint_state": [
+          0.105606
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p07:311:318",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p07",
+      "start": 311,
+      "end": 318,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.174282,
+          -0.140013,
+          0.977535,
+          0.837794,
+          -0.330523,
+          0.129587,
+          0.414806
+        ],
+        "left_ee_joint_state": [
+          0.102854
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p07:316:318",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p07",
+      "start": 316,
+      "end": 318,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.130626,
+          -0.145032,
+          0.979876,
+          0.84907,
+          -0.322386,
+          0.15314,
+          0.389481
+        ],
+        "left_ee_joint_state": [
+          0.103067
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p08:318:328",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p08",
+      "start": 318,
+      "end": 328,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.110337,
+          -0.146163,
+          0.975846,
+          0.85256,
+          -0.320177,
+          0.163699,
+          0.37925
+        ],
+        "left_ee_joint_state": [
+          0.102688
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p08:323:333",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p08",
+      "start": 323,
+      "end": 333,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.071199,
+          -0.150979,
+          0.958386,
+          0.856796,
+          -0.319782,
+          0.187473,
+          0.35846
+        ],
+        "left_ee_joint_state": [
+          0.102246
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p08:328:338",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p08",
+      "start": 328,
+      "end": 338,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.054227,
+          -0.154618,
+          0.945724,
+          0.858185,
+          -0.320034,
+          0.200716,
+          0.347577
+        ],
+        "left_ee_joint_state": [
+          0.102425
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p08:333:343",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p08",
+      "start": 333,
+      "end": 343,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.04749,
+          -0.160013,
+          0.947422,
+          0.864233,
+          -0.305297,
+          0.208941,
+          0.340938
+        ],
+        "left_ee_joint_state": [
+          0.52
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p08:338:348",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p08",
+      "start": 338,
+      "end": 348,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.053136,
+          -0.172111,
+          0.965598,
+          0.870822,
+          -0.272973,
+          0.205372,
+          0.35352
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p08:343:350",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p08",
+      "start": 343,
+      "end": 350,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.0626,
+          -0.182885,
+          0.987124,
+          0.871525,
+          -0.19069,
+          0.189183,
+          0.410233
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922768,
+          0.704652,
+          -0.002346,
+          0.002742,
+          0.709544
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p08:348:350",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p08",
+      "start": 348,
+      "end": 350,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.089579,
+          -0.191896,
+          1.004035,
+          0.857962,
+          -0.135024,
+          0.164462,
+          0.46757
+        ],
+        "left_ee_joint_state": [
+          0.942127
+        ],
+        "right_ee_pose": [
+          0.30012,
+          -0.351898,
+          0.922764,
+          0.704659,
+          -0.002339,
+          0.002734,
+          0.709537
+        ],
+        "right_ee_joint_state": [
+          0.99998
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p09:350:360",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p09",
+      "start": 350,
+      "end": 360,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.122532,
+          -0.203966,
+          1.01414,
+          0.849588,
+          -0.128849,
+          0.148884,
+          0.489318
+        ],
+        "left_ee_joint_state": [
+          0.959934
+        ],
+        "right_ee_pose": [
+          0.30012,
+          -0.351898,
+          0.922765,
+          0.704657,
+          -0.002342,
+          0.002736,
+          0.709539
+        ],
+        "right_ee_joint_state": [
+          0.999986
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p09:355:365",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p09",
+      "start": 355,
+      "end": 365,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.232503,
+          -0.276381,
+          1.013235,
+          0.804078,
+          -0.091799,
+          0.083686,
+          0.581401
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.30012,
+          -0.351898,
+          0.922767,
+          0.704654,
+          -0.002345,
+          0.00274,
+          0.709542
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0001:p09:360:365",
+      "graph_id": "stack_bowls-0001",
+      "node_id": "p09",
+      "start": 360,
+      "end": 365,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.28825,
+          -0.341547,
+          0.954549,
+          0.73862,
+          -0.030416,
+          0.019596,
+          0.673151
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300119,
+          -0.351897,
+          0.922767,
+          0.704653,
+          -0.002345,
+          0.002741,
+          0.709543
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p01:0:10",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p01",
+      "start": 0,
+      "end": 10,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p01:5:15",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p01",
+      "start": 5,
+      "end": 15,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.329636,
+          -0.347788,
+          0.958844,
+          0.705318,
+          -0.002221,
+          0.035179,
+          0.708014
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p01:10:20",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p01",
+      "start": 10,
+      "end": 20,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.373255,
+          -0.30376,
+          0.990922,
+          0.647776,
+          -0.040308,
+          0.179238,
+          0.739348
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p01:15:25",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p01",
+      "start": 15,
+      "end": 25,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.397134,
+          -0.244216,
+          0.974045,
+          0.6011,
+          -0.080492,
+          0.316832,
+          0.729257
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p01:20:30",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p01",
+      "start": 20,
+      "end": 30,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.420124,
+          -0.209732,
+          0.943265,
+          0.58228,
+          -0.149081,
+          0.427317,
+          0.67537
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p01:25:35",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p01",
+      "start": 25,
+      "end": 35,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.417421,
+          -0.193845,
+          0.933699,
+          0.568852,
+          -0.200262,
+          0.459681,
+          0.651917
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p01:30:40",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p01",
+      "start": 30,
+      "end": 40,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.408407,
+          -0.177777,
+          0.915957,
+          0.553751,
+          -0.21835,
+          0.475323,
+          0.647882
+        ],
+        "right_ee_joint_state": [
+          0.93
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p01:35:45",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p01",
+      "start": 35,
+      "end": 45,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.404999,
+          -0.169422,
+          0.903497,
+          0.546727,
+          -0.216519,
+          0.469775,
+          0.658423
+        ],
+        "right_ee_joint_state": [
+          0.43
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p01:40:45",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p01",
+      "start": 40,
+      "end": 45,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.389164,
+          -0.165917,
+          0.915197,
+          0.537367,
+          -0.209281,
+          0.443977,
+          0.685801
+        ],
+        "right_ee_joint_state": [
+          0.082272
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p02:45:55",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p02",
+      "start": 45,
+      "end": 55,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.369033,
+          -0.176091,
+          0.952271,
+          0.521743,
+          -0.189549,
+          0.408236,
+          0.724706
+        ],
+        "right_ee_joint_state": [
+          0.073042
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p02:50:60",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p02",
+      "start": 50,
+      "end": 60,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.297234,
+          -0.174252,
+          1.01376,
+          0.420449,
+          -0.197473,
+          0.368821,
+          0.805107
+        ],
+        "right_ee_joint_state": [
+          0.077891
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p02:55:65",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p02",
+      "start": 55,
+      "end": 65,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.213696,
+          -0.13394,
+          1.039604,
+          0.314957,
+          -0.269329,
+          0.349634,
+          0.84025
+        ],
+        "right_ee_joint_state": [
+          0.078357
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p02:60:70",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p02",
+      "start": 60,
+      "end": 70,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.138693,
+          -0.090018,
+          1.027238,
+          0.264257,
+          -0.312004,
+          0.342211,
+          0.845999
+        ],
+        "right_ee_joint_state": [
+          0.079122
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p02:65:74",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p02",
+      "start": 65,
+      "end": 74,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.106426,
+          -0.064406,
+          0.992456,
+          0.277438,
+          -0.341448,
+          0.343308,
+          0.829808
+        ],
+        "right_ee_joint_state": [
+          0.078041
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p02:70:74",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p02",
+      "start": 70,
+      "end": 74,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.105462,
+          -0.048153,
+          0.957788,
+          0.287859,
+          -0.355261,
+          0.354751,
+          0.815524
+        ],
+        "right_ee_joint_state": [
+          0.077439
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p03:74:84",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p03",
+      "start": 74,
+      "end": 84,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.114189,
+          -0.037532,
+          0.933379,
+          0.29334,
+          -0.357115,
+          0.364395,
+          0.808478
+        ],
+        "right_ee_joint_state": [
+          0.07731
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p03:79:89",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p03",
+      "start": 79,
+      "end": 89,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.12409,
+          -0.028331,
+          0.915042,
+          0.296384,
+          -0.358882,
+          0.370146,
+          0.803961
+        ],
+        "right_ee_joint_state": [
+          0.17
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p03:84:94",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p03",
+      "start": 84,
+      "end": 94,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.122219,
+          -0.02545,
+          0.914859,
+          0.293353,
+          -0.37074,
+          0.360369,
+          0.804133
+        ],
+        "right_ee_joint_state": [
+          0.67
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p03:89:99",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p03",
+      "start": 89,
+      "end": 99,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.109023,
+          -0.041652,
+          0.941292,
+          0.291433,
+          -0.384135,
+          0.328866,
+          0.812006
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p03:94:104",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p03",
+      "start": 94,
+      "end": 104,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.126037,
+          -0.080537,
+          0.982185,
+          0.294863,
+          -0.35622,
+          0.303668,
+          0.833036
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p03:99:104",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p03",
+      "start": 99,
+      "end": 104,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.16355,
+          -0.142515,
+          1.015575,
+          0.328472,
+          -0.297988,
+          0.294904,
+          0.846369
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p04:104:114",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p04",
+      "start": 104,
+      "end": 114,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.196869,
+          -0.208758,
+          1.00874,
+          0.393642,
+          -0.241981,
+          0.318038,
+          0.827854
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p04:109:119",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p04",
+      "start": 109,
+      "end": 119,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.212224,
+          -0.26058,
+          0.986292,
+          0.451922,
+          -0.181101,
+          0.355893,
+          0.79769
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p04:114:124",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p04",
+      "start": 114,
+      "end": 124,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.20536,
+          -0.288243,
+          0.971152,
+          0.480781,
+          -0.144333,
+          0.384768,
+          0.774578
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p04:119:129",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p04",
+      "start": 119,
+      "end": 129,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.204002,
+          -0.298899,
+          0.945689,
+          0.495919,
+          -0.111182,
+          0.428121,
+          0.747272
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p04:124:134",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p04",
+      "start": 124,
+      "end": 134,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.191575,
+          -0.299225,
+          0.933202,
+          0.538431,
+          -0.111322,
+          0.427452,
+          0.717624
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p04:129:139",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p04",
+      "start": 129,
+      "end": 139,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.182712,
+          -0.292976,
+          0.913174,
+          0.574482,
+          -0.137479,
+          0.408305,
+          0.695957
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p04:134:144",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p04",
+      "start": 134,
+      "end": 144,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.170893,
+          -0.283025,
+          0.889983,
+          0.582017,
+          -0.14436,
+          0.406557,
+          0.689296
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p04:139:148",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p04",
+      "start": 139,
+      "end": 148,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.166174,
+          -0.27581,
+          0.878824,
+          0.581557,
+          -0.122907,
+          0.401994,
+          0.696481
+        ],
+        "right_ee_joint_state": [
+          0.62
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p04:144:148",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p04",
+      "start": 144,
+      "end": 148,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.161803,
+          -0.281043,
+          0.876723,
+          0.572391,
+          -0.124916,
+          0.396223,
+          0.706945
+        ],
+        "right_ee_joint_state": [
+          0.186192
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p05:148:158",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p05",
+      "start": 148,
+      "end": 158,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.1655,
+          -0.294456,
+          0.897557,
+          0.561535,
+          -0.125745,
+          0.383693,
+          0.722251
+        ],
+        "right_ee_joint_state": [
+          0.099897
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p05:153:163",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p05",
+      "start": 153,
+      "end": 163,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.181801,
+          -0.304128,
+          0.962522,
+          0.522988,
+          -0.13072,
+          0.351105,
+          0.765585
+        ],
+        "right_ee_joint_state": [
+          0.089311
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p05:158:168",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p05",
+      "start": 158,
+      "end": 168,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.179707,
+          -0.276495,
+          1.027851,
+          0.441713,
+          -0.15394,
+          0.335282,
+          0.817789
+        ],
+        "right_ee_joint_state": [
+          0.090718
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p05:163:173",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p05",
+      "start": 163,
+      "end": 173,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.170696,
+          -0.208106,
+          1.067061,
+          0.37106,
+          -0.166515,
+          0.339829,
+          0.848
+        ],
+        "right_ee_joint_state": [
+          0.09116
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p05:168:178",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p05",
+      "start": 168,
+      "end": 178,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.160819,
+          -0.144762,
+          1.067594,
+          0.331455,
+          -0.183851,
+          0.349345,
+          0.85691
+        ],
+        "right_ee_joint_state": [
+          0.089876
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p05:173:178",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p05",
+      "start": 173,
+      "end": 178,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.155314,
+          -0.106348,
+          1.042308,
+          0.299927,
+          -0.181527,
+          0.372064,
+          0.859453
+        ],
+        "right_ee_joint_state": [
+          0.088901
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p06:178:188",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p06",
+      "start": 178,
+      "end": 188,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.153139,
+          -0.088682,
+          1.011257,
+          0.285898,
+          -0.174738,
+          0.392497,
+          0.856548
+        ],
+        "right_ee_joint_state": [
+          0.088744
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p06:183:193",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p06",
+      "start": 183,
+      "end": 193,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.152812,
+          -0.075075,
+          0.979715,
+          0.285748,
+          -0.175509,
+          0.407249,
+          0.849525
+        ],
+        "right_ee_joint_state": [
+          0.088296
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p06:188:198",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p06",
+      "start": 188,
+      "end": 198,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.151839,
+          -0.06019,
+          0.948563,
+          0.287293,
+          -0.176117,
+          0.423892,
+          0.840691
+        ],
+        "right_ee_joint_state": [
+          0.087498
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p06:193:203",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p06",
+      "start": 193,
+      "end": 203,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.149174,
+          -0.052754,
+          0.927122,
+          0.284707,
+          -0.174728,
+          0.442714,
+          0.832116
+        ],
+        "right_ee_joint_state": [
+          0.08741
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p06:198:208",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p06",
+      "start": 198,
+      "end": 208,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.147901,
+          -0.052716,
+          0.923989,
+          0.306671,
+          -0.200266,
+          0.439113,
+          0.820382
+        ],
+        "right_ee_joint_state": [
+          0.095044
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p06:203:213",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p06",
+      "start": 203,
+      "end": 213,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.144452,
+          -0.052327,
+          0.924423,
+          0.325052,
+          -0.224376,
+          0.423514,
+          0.81525
+        ],
+        "right_ee_joint_state": [
+          0.108292
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p06:208:218",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p06",
+      "start": 208,
+      "end": 218,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.133242,
+          -0.060162,
+          0.936301,
+          0.343666,
+          -0.250576,
+          0.385438,
+          0.818867
+        ],
+        "right_ee_joint_state": [
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p06:213:222",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p06",
+      "start": 213,
+      "end": 222,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.116769,
+          -0.072433,
+          0.955279,
+          0.369946,
+          -0.291996,
+          0.32548,
+          0.81972
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p06:218:222",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p06",
+      "start": 218,
+      "end": 222,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.112814,
+          -0.087764,
+          0.985303,
+          0.408965,
+          -0.320206,
+          0.260625,
+          0.813812
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p07:222:232",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p07",
+      "start": 222,
+      "end": 232,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.136396,
+          -0.10602,
+          1.028579,
+          0.456029,
+          -0.2944,
+          0.22659,
+          0.808717
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p07:227:237",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p07",
+      "start": 227,
+      "end": 237,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.21554,
+          -0.129872,
+          1.072272,
+          0.539585,
+          -0.209088,
+          0.233133,
+          0.781523
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p07:232:242",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p07",
+      "start": 232,
+      "end": 242,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.282209,
+          -0.132693,
+          1.069777,
+          0.587956,
+          -0.150962,
+          0.277414,
+          0.744687
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p07:237:247",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p07",
+      "start": 237,
+      "end": 247,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.30261,
+          -0.101429,
+          1.043056,
+          0.546188,
+          -0.178795,
+          0.352895,
+          0.73836
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p07:242:252",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p07",
+      "start": 242,
+      "end": 252,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.292641,
+          -0.064076,
+          1.016729,
+          0.47732,
+          -0.218697,
+          0.416635,
+          0.742127
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p07:247:257",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p07",
+      "start": 247,
+      "end": 257,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.282318,
+          -0.039889,
+          0.972886,
+          0.461669,
+          -0.25218,
+          0.454862,
+          0.718587
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p07:252:262",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p07",
+      "start": 252,
+      "end": 262,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.272285,
+          -0.028313,
+          0.942625,
+          0.485802,
+          -0.298532,
+          0.450428,
+          0.687015
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p07:257:267",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p07",
+      "start": 257,
+      "end": 267,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.270895,
+          -0.022553,
+          0.924786,
+          0.512367,
+          -0.310282,
+          0.438867,
+          0.669777
+        ],
+        "right_ee_joint_state": [
+          0.73
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p07:262:267",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p07",
+      "start": 262,
+      "end": 267,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.267175,
+          -0.01753,
+          0.914793,
+          0.525556,
+          -0.289322,
+          0.424579,
+          0.678097
+        ],
+        "right_ee_joint_state": [
+          0.23
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p08:267:277",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p08",
+      "start": 267,
+      "end": 277,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.268113,
+          -0.022294,
+          0.92512,
+          0.533514,
+          -0.263838,
+          0.404996,
+          0.694068
+        ],
+        "right_ee_joint_state": [
+          0.082417
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p08:272:282",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p08",
+      "start": 272,
+      "end": 282,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.270576,
+          -0.03241,
+          0.937546,
+          0.535346,
+          -0.23977,
+          0.392422,
+          0.708464
+        ],
+        "right_ee_joint_state": [
+          0.063023
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p08:277:287",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p08",
+      "start": 277,
+      "end": 287,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.26021,
+          -0.056344,
+          0.987621,
+          0.510759,
+          -0.19911,
+          0.366663,
+          0.751691
+        ],
+        "right_ee_joint_state": [
+          0.062049
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p08:282:292",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p08",
+      "start": 282,
+      "end": 292,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.213934,
+          -0.068956,
+          1.021812,
+          0.471783,
+          -0.192734,
+          0.335324,
+          0.792359
+        ],
+        "right_ee_joint_state": [
+          0.063586
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p08:287:296",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p08",
+      "start": 287,
+      "end": 296,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.159468,
+          -0.071538,
+          1.024382,
+          0.422687,
+          -0.220978,
+          0.324235,
+          0.816931
+        ],
+        "right_ee_joint_state": [
+          0.065139
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p08:292:296",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p08",
+      "start": 292,
+      "end": 296,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.127599,
+          -0.067531,
+          1.01233,
+          0.388603,
+          -0.270571,
+          0.325362,
+          0.818485
+        ],
+        "right_ee_joint_state": [
+          0.064906
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p09:296:306",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p09",
+      "start": 296,
+      "end": 306,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.119899,
+          -0.064577,
+          0.999032,
+          0.37474,
+          -0.290602,
+          0.332372,
+          0.81526
+        ],
+        "right_ee_joint_state": [
+          0.06448
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p09:301:311",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p09",
+      "start": 301,
+      "end": 311,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.121486,
+          -0.063167,
+          0.987942,
+          0.370198,
+          -0.302894,
+          0.337334,
+          0.810811
+        ],
+        "right_ee_joint_state": [
+          0.066601
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p09:306:316",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p09",
+      "start": 306,
+      "end": 316,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.124357,
+          -0.063594,
+          0.985344,
+          0.368079,
+          -0.307022,
+          0.342516,
+          0.808046
+        ],
+        "right_ee_joint_state": [
+          0.27
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p09:311:317",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p09",
+      "start": 311,
+      "end": 317,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.125731,
+          -0.064418,
+          0.993899,
+          0.369919,
+          -0.311927,
+          0.33981,
+          0.806468
+        ],
+        "right_ee_joint_state": [
+          0.77
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p09:316:317",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p09",
+      "start": 316,
+      "end": 317,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.131255,
+          -0.067247,
+          1.005627,
+          0.377749,
+          -0.310742,
+          0.332824,
+          0.806209
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p10:317:327",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p10",
+      "start": 317,
+      "end": 327,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.134628,
+          -0.069354,
+          1.01115,
+          0.384508,
+          -0.309045,
+          0.326576,
+          0.806221
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p10:322:332",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p10",
+      "start": 322,
+      "end": 332,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          0.999983
+        ],
+        "right_ee_pose": [
+          0.157185,
+          -0.093681,
+          1.036597,
+          0.41617,
+          -0.286675,
+          0.295426,
+          0.810767
+        ],
+        "right_ee_joint_state": [
+          0.915939
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p10:327:337",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p10",
+      "start": 327,
+      "end": 337,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          0.999999
+        ],
+        "right_ee_pose": [
+          0.22491,
+          -0.194948,
+          1.066599,
+          0.50433,
+          -0.202426,
+          0.210758,
+          0.812562
+        ],
+        "right_ee_joint_state": [
+          0.993773
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p10:332:340",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p10",
+      "start": 332,
+      "end": 340,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.279509,
+          -0.310546,
+          1.016345,
+          0.617486,
+          -0.09241,
+          0.098996,
+          0.774836
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "stack_bowls-0002:p10:337:340",
+      "graph_id": "stack_bowls-0002",
+      "node_id": "p10",
+      "start": 337,
+      "end": 340,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.298147,
+          -0.35074,
+          0.936647,
+          0.694825,
+          -0.013109,
+          0.01456,
+          0.718912
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "phases": 28,
+    "chunks": 199
+  },
+  "limitations": [
+    "自由文本与词汇归一化检索；尚未使用学习型语义或图像嵌入。",
+    "阶段边界与文字来自自动标注；短窗口不是人工验证的技能单元。",
+    "关节/末端状态不等于物体状态；历史反馈不等于当前执行结果。"
+  ]
+}

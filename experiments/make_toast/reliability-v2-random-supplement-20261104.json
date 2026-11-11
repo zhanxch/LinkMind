@@ -1,0 +1,79 @@
+{
+  "schema": "roborag.make-toast-reliability-random-supplement.v1",
+  "status": "registered_before_launch",
+  "base_commit": "99ed5582f3e21da357dcd9fa9a91207d60801b3b",
+  "planned_native_attempts": 1,
+  "tasks": [
+    {
+      "task": "make_toast",
+      "bank": "artifacts/generalization-v3-full/make_toast",
+      "cases_file": "experiments/make_toast/cases-reliability-v2-random-supplement.json",
+      "case_count": 1,
+      "native_step_limits": {
+        "standard": 1400,
+        "random": 1400
+      },
+      "preflight_file": "results/make-toast-cells-bank-preflight-20261104.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 1,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Unmodified native 1400 steps; every cell dispatch counts",
+    "context": "Original full TRAIN retrieval and model-owned plan, persistent isolated Python cells for public computation and validated short moves",
+    "feedback": "Current RGB, paired camera calibration, measured robot poses; gripper is command, no holding truth",
+    "execution_guard": {
+      "kind": "native_ik_continuity",
+      "max_joint_increment_rad": 0.25
+    },
+    "gripper_control": "Measured joint hold for 1-24 native steps; no Cartesian IK"
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure",
+    "retests": "This single supplementary attempt only; no further automatic repeats, no full50 expansion.",
+    "aggregation": "Pair with historical same scenes, not independent generalization or causal cell ablation"
+  },
+  "scope": {
+    "runtime_changes": [],
+    "unchanged": [
+      "All runtime source and assembled prompt identical to 99ed558; supplementary registration/driver/report files only",
+      "First candidate persistent Python cells, geometry and TCP target sampling",
+      "10 other task prompts/tools and default dispatch",
+      "Original full TRAIN and model-owned planning",
+      "Native task scoring, 1400-step budget and 5400-second wall limit"
+    ],
+    "reference": {
+      "repository": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+      "commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+      "files": [
+        "src/pyrualean/arms.py",
+        "src/pyrualean/sandbox.py"
+      ],
+      "usage": "Design reference only; no upstream runtime dependency or RSI task program copied"
+    },
+    "interpretation": "One separately registered repeat of the service-interrupted random-l0. Prior three-case batch remains 1 success, 1 native failure, 1 unscored; do not replace the unscored attempt or pool versions as independent samples."
+  },
+  "resource_policy": {
+    "parallel": 1,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "Paused by explicit user request; do not resume automatically",
+    "frozen_during_run": true
+  },
+  "launch_condition": "Original three-case batch and audit complete, all registered processes exited, all 232 prior frozen source hashes match. Preserve original interruption and cost.",
+  "prior_attempt": {
+    "tag": "make-toast-reliability-v2-dev-20261104",
+    "case": "seed1-random-l0",
+    "path": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-random-l0",
+    "outcome": "unscored",
+    "recorded_steps": 871,
+    "exit_file": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-random-l0/exit.json",
+    "exit_sha256": "b9caf77d608a330e3ab57b16fc8f9d91b2dc25c83833ff195e801fc4506da017",
+    "cause": "turn.failed: request timed out after stream reconnection retries; no native result"
+  }
+}

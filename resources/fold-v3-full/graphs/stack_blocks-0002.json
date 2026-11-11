@@ -1,0 +1,549 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "stack_blocks-0002",
+  "task": "stack_blocks",
+  "task_name": "积木堆叠",
+  "title": "左臂摆好木纹底块，右臂依次叠放白块和紫块",
+  "summary": "示范先将木纹块移到桌面中央偏前的位置作为底座，再依次把白色块和紫色块叠到上方。双臂最后退回，留下木纹、白色、紫色自下而上的三层堆叠；阶段边界为估计值。",
+  "instruction": "Stack the three blocks with different textures.",
+  "episode": 2,
+  "source": {
+    "path": "runtime-data/stack_blocks/train/episode_0000002.hdf5",
+    "sha256": "32b3dbeeaca73706baaa1a55a873103d94b306334ca7a59a08808d324b5e044c",
+    "frames": 266,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-24T05:43:07.150414+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "左爪靠近木纹块",
+      "summary": "为搬移底座块对准抓取位置。",
+      "objects": [
+        "左臂夹爪",
+        "木纹块",
+        "桌面"
+      ],
+      "start_frame": 0,
+      "end_frame": 37,
+      "order": 0,
+      "keyframes": [
+        0,
+        18,
+        36
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "三个块分散在桌上，木纹块位于左侧偏后，白色块和紫色块位于右侧。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂抬起并伸向木纹块，张开的夹爪从上方下降至块的两侧。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "左爪停在木纹块周围，木纹块仍在桌面上；右臂保持原位。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "夹住并搬移木纹块",
+      "summary": "把木纹块搬到中央偏前的堆叠位置。",
+      "objects": [
+        "左臂夹爪",
+        "木纹块",
+        "底座放置位置"
+      ],
+      "start_frame": 37,
+      "end_frame": 68,
+      "order": 1,
+      "keyframes": [
+        37,
+        52,
+        67
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "木纹块已位于左爪两指之间。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左爪收拢，随后抬起木纹块并向桌面中央偏前移动，再向桌面降低。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "木纹块随左爪移动，到达新的放置位置；此时仍处在夹爪之间。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "放稳底块并交接右臂",
+      "summary": "释放木纹底块，同时让右臂接近白色块。",
+      "objects": [
+        "左臂夹爪",
+        "右臂夹爪",
+        "木纹底块",
+        "白色块"
+      ],
+      "start_frame": 68,
+      "end_frame": 116,
+      "order": 2,
+      "keyframes": [
+        68,
+        91,
+        115
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左爪已将木纹块带到桌面中央偏前的低位，白色块仍在右后方。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左爪张开、抬起并撤回；右臂随后伸向白色块，张爪下降至其两侧。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "木纹块独立留在桌面上，左臂退回；右爪已围住白色块，尚未显示搬起。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "抓起白块移向底座",
+      "summary": "把白色块运到木纹底块上方。",
+      "objects": [
+        "右臂夹爪",
+        "白色块",
+        "木纹底块"
+      ],
+      "start_frame": 116,
+      "end_frame": 152,
+      "order": 3,
+      "keyframes": [
+        116,
+        133,
+        151
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右爪位于白色块两侧，木纹底块在中央偏前位置保持不动。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右爪收拢，抬起白色块并向木纹底块移动，在底块上方对齐后下降。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "白色块随右爪移动到木纹块上方；末段两块接近上下叠合，接触区域被夹爪部分遮挡。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "释放白块形成两层",
+      "summary": "让白色块留在木纹底块上。",
+      "objects": [
+        "右臂夹爪",
+        "白色块",
+        "木纹底块",
+        "两层堆叠"
+      ],
+      "start_frame": 152,
+      "end_frame": 173,
+      "order": 4,
+      "keyframes": [
+        152,
+        162,
+        172
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "白色块已下降到木纹底块上方，右爪仍夹在其两侧。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右爪张开，短暂停留后向上离开堆叠。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "夹爪离开后，白色块保持在木纹块上，两层堆叠可见。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "右爪转向紫块",
+      "summary": "对准最后一个待堆叠块。",
+      "objects": [
+        "右臂夹爪",
+        "紫色块",
+        "两层堆叠"
+      ],
+      "start_frame": 173,
+      "end_frame": 191,
+      "order": 5,
+      "keyframes": [
+        173,
+        181,
+        190
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "两层堆叠留在中央，紫色块仍单独位于右侧桌面。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂从堆叠上方移向紫色块，保持夹爪张开并下降至块的两侧。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右爪到达紫色块周围，两层堆叠保持原状。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "搬起紫块对准顶层",
+      "summary": "将紫色块移至白色块上方。",
+      "objects": [
+        "右臂夹爪",
+        "紫色块",
+        "白色块",
+        "木纹底块"
+      ],
+      "start_frame": 191,
+      "end_frame": 226,
+      "order": 6,
+      "keyframes": [
+        191,
+        208,
+        225
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "紫色块位于右爪两指之间，中央两层堆叠的顶部为白色块。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右爪收拢并抬起紫色块，向中央堆叠移动，在白色块上方对齐后下降。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "紫色块随夹爪到达白色块上方并降低，形成三层排列；最终接触位置部分被夹爪遮挡。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "释放顶块并撤回",
+      "summary": "完成三层堆叠并让机械臂离开。",
+      "objects": [
+        "右臂夹爪",
+        "紫色顶块",
+        "白色中层块",
+        "木纹底块",
+        "三层堆叠"
+      ],
+      "start_frame": 226,
+      "end_frame": 266,
+      "order": 7,
+      "keyframes": [
+        226,
+        245,
+        265
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "紫色块已下降到白色块上方，右爪仍位于顶块两侧。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右爪张开，向上抬离顶块，再撤回右侧初始区域。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "紫色块留在白色块上，木纹块位于最底层；双臂退回后，三层堆叠保持直立。",
+      "parent": "p08"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ],
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  }
+}

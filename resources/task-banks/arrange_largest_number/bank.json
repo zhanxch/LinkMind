@@ -1,0 +1,59 @@
+{
+  "schema": "roborag.graph-bank.v1",
+  "name": "RoboRAG · 交互经验图库",
+  "updated_at": "2026-10-28T17:41:19.983934+00:00",
+  "graphs": [
+    {
+      "id": "arrange_largest_number-0000",
+      "task": "arrange_largest_number",
+      "task_name": "arrange_largest_number",
+      "title": "双臂通过桌面中转，依次摆出最大数6520",
+      "summary": "示范将6、5、2、0从左到右放到四个圆垫上。6和2直接搬到目标垫，5和0先放到中央桌面，再由另一只机械臂接取；阶段边界为估计值。",
+      "episode": 0,
+      "instruction": "Arrange the numbers from left to right to form the largest possible number, and place them on the pad.",
+      "phase_count": 7,
+      "node_count": 28,
+      "edge_count": 27,
+      "frames": 578,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "arrange_largest_number-0001",
+      "task": "arrange_largest_number",
+      "task_name": "arrange_largest_number",
+      "title": "双臂借助桌面暂放，依次摆出最大数8653",
+      "summary": "按8、6、5、3的顺序填满四个圆垫，其中6和3先在垫前方桌面暂放，再由另一只手接续搬运。最终数字从左到右组成8653，双臂撤回。",
+      "episode": 1,
+      "instruction": "Arrange the numbers from left to right to form the largest possible number, and place them on the pad.",
+      "phase_count": 7,
+      "node_count": 28,
+      "edge_count": 27,
+      "frames": 561,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "arrange_largest_number-0002",
+      "task": "arrange_largest_number",
+      "task_name": "arrange_largest_number",
+      "title": "双臂借助桌面中转，依次摆出最大数9432",
+      "summary": "将9、4、3、2按降序放到从左到右的四个圆垫上。9和4由右臂移至桌面中央后交由左臂摆放，3由右臂直接摆放，2由左臂中转后交由右臂完成。",
+      "episode": 2,
+      "instruction": "Arrange the numbers from left to right to form the largest possible number, and place them on the pad.",
+      "phase_count": 8,
+      "node_count": 32,
+      "edge_count": 31,
+      "frames": 650,
+      "frequency": 25.0,
+      "preview_frame": 0
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "phases": 22,
+    "nodes": 88,
+    "edges": 85,
+    "tasks": 1
+  }
+}

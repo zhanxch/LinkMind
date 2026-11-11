@@ -1,0 +1,59 @@
+{
+  "schema": "roborag.graph-bank.v1",
+  "name": "RoboRAG · 交互经验图库",
+  "updated_at": "2026-10-28T17:50:31.770479+00:00",
+  "graphs": [
+    {
+      "id": "sort_nesting_dolls_by_size-0000",
+      "task": "sort_nesting_dolls_by_size",
+      "task_name": "sort_nesting_dolls_by_size",
+      "title": "双臂借助桌面暂放区，依次排出从小到大的套娃横排",
+      "summary": "示范将最小、第二小和第二大套娃经桌面中部暂放后由另一臂接续搬运，中号与最大套娃由右臂直接放入横排。结束时五枚套娃从左到右由小到大排列，双臂撤回；阶段边界为估计值。",
+      "episode": 0,
+      "instruction": "Arrange the five nesting dolls in a row from left to right, from smallest to largest.",
+      "phase_count": 8,
+      "node_count": 32,
+      "edge_count": 31,
+      "frames": 748,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "sort_nesting_dolls_by_size-0001",
+      "task": "sort_nesting_dolls_by_size",
+      "task_name": "sort_nesting_dolls_by_size",
+      "title": "通过桌面中转和双臂接力，将套娃从小到大排成一行",
+      "summary": "示范利用桌面中央暂放区转运套娃，先摆出最左侧的最小套娃，再依次向右增加更大的套娃。中等和最大套娃直接入列，最后双臂退回，露出完整的递增队列。",
+      "episode": 1,
+      "instruction": "Arrange the five nesting dolls in a row from left to right, from smallest to largest.",
+      "phase_count": 8,
+      "node_count": 32,
+      "edge_count": 31,
+      "frames": 724,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "sort_nesting_dolls_by_size-0002",
+      "task": "sort_nesting_dolls_by_size",
+      "task_name": "sort_nesting_dolls_by_size",
+      "title": "左手先排小套娃，右手向右续排大套娃",
+      "summary": "以最小套娃确定队列左端，逐只向右放置更大的套娃。左手完成前两只，右手完成后三只，最后退开，形成从左到右由小到大的五只套娃队列。",
+      "episode": 2,
+      "instruction": "Arrange the five nesting dolls in a row from left to right, from smallest to largest.",
+      "phase_count": 6,
+      "node_count": 24,
+      "edge_count": 23,
+      "frames": 449,
+      "frequency": 25.0,
+      "preview_frame": 0
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "phases": 22,
+    "nodes": 88,
+    "edges": 85,
+    "tasks": 1
+  }
+}

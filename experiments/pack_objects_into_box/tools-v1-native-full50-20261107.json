@@ -1,0 +1,176 @@
+{
+  "schema": "roborag.pack-box-tools-native-full50.v1",
+  "status": "registered_before_launch",
+  "registered_at": "2026-11-06T19:12:13.881141+00:00",
+  "base_commit": "cd82ce5499c59e6da6c0505e59618f0d73b41a47",
+  "calibration_reference_commit": "1f9d4cd55a040a3f597b9118b9a5be59035369c8",
+  "historical_pack_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "planned_native_attempts": 50,
+  "tasks": [
+    {
+      "task": "pack_objects_into_box",
+      "bank": "artifacts/pack-box-tools/pack_objects_into_box",
+      "cases_file": "experiments/pack_objects_into_box/cases-tools-v1-native-full50-20261107.json",
+      "case_count": 50,
+      "native_step_limits": {
+        "standard": 1300,
+        "random": 1300
+      },
+      "preflight_file": "results/pack-box-tools-bank-preflight-20261107.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 9000,
+    "budget_mode": "native",
+    "native_step_budget": "Original native 1300-step limit; no override. Includes cells, grip holds and home actions.",
+    "context": "Original full TRAIN retrieval, model-owned record_plan, read-only calibrated references and optional persistent Python cells",
+    "feedback": "Current RGB with paired calibration and measured robot state; no object truth or holding sensor",
+    "execution_guard": {
+      "kind": "native_ik_continuity",
+      "max_joint_increment_rad": 0.25
+    }
+  },
+  "verification": {
+    "static": "results/pack-box-tools-v1-static-tests-20261107.json",
+    "static_sha256": "a6de251ebffba6d46694f9fdd8aa2caa9ad947cda75ee94264de060d97a7c292",
+    "interfaces": "results/pack-box-tools-v1-interface-verification-20261107.json",
+    "interfaces_sha256": "eacb1eb9fa5b17c9564c61d89c295a4585c287751576cfe268614107e58cf880"
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure; preserve unknown counters and terminal usage",
+    "retests": "No automatic repeats or best-of selection",
+    "early_stopping": "No failure-rate skipping within this registered batch"
+  },
+  "scope": {
+    "runtime_changes": [
+      "Enable existing isolated persistent cells and measured-joint gripper holds only for pack",
+      "Reuse exact v6 read-only RGB calibration/pose-reference functions; expose the same public values and labelled images inside cells",
+      "Enable existing task-scoped 0.25rad native IK continuity guard",
+      "Retain v6 box approach/rematching guidance and user-requested object order; add cell usage guidance",
+      "Use existing native-budget default with no --control-step-limit override; accepted source, tools, prompt and TRAIN bytes remain unchanged"
+    ],
+    "unchanged": [
+      "Original full TRAIN graphs, action/state/RGB",
+      "Current model-owned plan, original motion compiler, native task scoring and controller",
+      "Ten other tasks assembled prompts and tool interfaces",
+      "Original native 1300-step defaults when no override is supplied"
+    ],
+    "interpretation": "Fresh native-budget seed1 standard/random layout0-24, 50 new attempts at 1300 control steps. Modified-2000-step development results are separate; no development score is inherited. Previously used layouts, not heldout generalization or single-tool causal evidence. No failure-rate skipping, automatic repeats or best-of selection."
+  },
+  "required_closed_batches": [
+    {
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-full50-supplement-closure-20261106.json",
+      "closure_sha256": "7cb8ff86a45665d59c25246846e86bac6f05fde5dad45aa453f2916249756dd1",
+      "freeze": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-guard-v2-full50-supplement-20261106-freeze.json",
+      "candidate_commit": "bfd1e1698ad6b73c1179961c5e93d0c22ac4455b",
+      "attempts_closed": 6
+    },
+    {
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/results/sweep-blocks-tools-v1-full50-supplement-closure-20261107.json",
+      "closure_sha256": "5e1bf557561e39ed44eca9f86b159f985f6d0e871a9dc9fcc7e84bbd48ec10ef",
+      "freeze": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-supplement-20261106-freeze.json",
+      "candidate_commit": "5cae5770d687f601a4abdbfa1911d785f69fc4cb",
+      "attempts_closed": 2
+    },
+    {
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-tools-v1-development-closure-20261107.json",
+      "closure_sha256": "302430c94df746b834a082d4b0e0824e38aa1cba69d14e70dc2a0abd9b41985f",
+      "freeze": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/runs/pack-box-tools-v1-dev-20261107-freeze.json",
+      "candidate_commit": "cd82ce5499c59e6da6c0505e59618f0d73b41a47",
+      "attempts_closed": 4
+    }
+  ],
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "User-paused; do not resume automatically",
+    "frozen_during_run": true
+  },
+  "authorization": "Current user goal requests complete testing. After the user questioned the 2000-step development budget, the agent confirmed both native variants use 1300 and committed to a fresh full50 at the native 1300-step limit. Preserve the separate modified-budget development batch and do not inherit its success.",
+  "baseline_evidence": {
+    "path": "results/pack-box-baseline-and-references-20261107.json",
+    "sha256": "6cd8e3bfb2e3187443c4e0b4ead80636bda41e9755c80d917177654a15809560"
+  },
+  "prepared_at": "2026-11-06T18:28:43.917413+00:00",
+  "accepted_runtime_commit": "cd82ce5499c59e6da6c0505e59618f0d73b41a47",
+  "accepted_runtime_sha256": {
+    "prompts/arrange_largest_number.txt": "f7c202d9725c04e9b8c1aa6ac0ac5cc80571598cdd6fa25936f3f72b7eca659d",
+    "prompts/fold_clothes.txt": "0ed23a529486e40d59846b4b51fbcd0103ddb252c80258c20f9c7c39ede98b38",
+    "prompts/hang_mugs.txt": "d6ea6404add061859341ec0c28ce06cd0145f15b3aaabc4fc9a205b94862e6f1",
+    "prompts/make_toast.delta.txt": "05f5591caaaa581f8a69d110bb3e18877a55a15d97dfc49a069434078da55a64",
+    "prompts/make_toast.txt": "7e521c92c24c08048e7f12c70bc84e3de02ca133207338af736ed06a9352fd1b",
+    "prompts/pack_objects_into_box.txt": "c986b8739fa01e6740d28ae0a9fcac92a22374e8c92495527f181104f44b6e77",
+    "prompts/pour_liquid_into_cup.txt": "fc9074f9674ab4fab87fbae042045486f9efd4c6f7062bc2512e98416fff486f",
+    "prompts/robot.delta.txt": "bb93a8e9835bf5e972b91a8050f2bef996332fcaa83cc7d4bd74a9da101734ef",
+    "prompts/robot.generalization.delta.txt": "181f305990ecd661278a2c29d32b7785cff0f2b5b3cbf1030ed126ce4e37e42e",
+    "prompts/sort_nesting_dolls_by_size.txt": "b9b65cc6103df0989a1bdcdf669b4aa87b2fcab21bd82f4607d08f7229d236f5",
+    "prompts/stack_blocks.delta.txt": "9fdb9bfa0c7a1bd973b6451b0b3c0d745f892cb78a47abffecda84f567aeadb6",
+    "prompts/stack_blocks.tcp.txt": "81e0b21730b4acfaee512c98f525da2beddec0cf78bbdc2929c8b3e3ad043e89",
+    "prompts/stack_bowls.txt": "51579a1df6117b2579b13b0f1f4749c964c511b0a9b6eda16ebdef735bc386b4",
+    "prompts/store_laptop_and_headphones.txt": "1627519dc9151a46de4721e98e1fe7d3c3fff0690b5737af8aabecf87cd979de",
+    "prompts/sweep_blocks.txt": "9081baa574fc3daaebdfa23942e32abb11272ec0f6827c95cc89a44c29236ba3",
+    "src/roborag/__init__.py": "9c1209b76965c67132f160422642d52c9456e7c86dbb7bdb3e1158f68ab77583",
+    "src/roborag/action_targets.py": "3a77e94663ec2ab66d81822bda6f14f0c8ec88bf71620e9a40e8d39a458a18ba",
+    "src/roborag/demo.py": "fb3175289bff206a6302892059bc53ca9b1a314c3ead803bbcfaa9eb8601c1ab",
+    "src/roborag/episode_batch.py": "6b5c5e2f319b3740bc1942d9ab512f5d6be2e93a783bf31908ddc19127403f4a",
+    "src/roborag/episode_budget.py": "2f71396e4ebd4ae5abfbf35fac63ca3839cbff7e9187c9dd6015eec5ce314f84",
+    "src/roborag/episode_files.py": "835b4bf94b32a95d116700823e1c317ddce0a172d6e2065e4ac317b110dcb8aa",
+    "src/roborag/fold_comparison.py": "e2e34e6ca2495b340d4ed9aeae965a8036d15e40542d64734f1a703c5769495b",
+    "src/roborag/graph_bank.py": "39e8d4b9bbd64e1b73f7a0bbac5cf65d68ae1a4bd497d179624a39ff7ebe54d5",
+    "src/roborag/graph_chunks.py": "80de94ff01d4bb0e3f1bbf54eaea9921278a297ff635d482a9078883a95c8a9f",
+    "src/roborag/graph_retrieval.py": "95af746a95244930cb1408a14ef13f8889a78a82612b0f43d9d5d31f099a61a4",
+    "src/roborag/graph_server.py": "7d95ce7975198e14527f257c92460e43fe167a22a71cf334faf57f07ac8a70b5",
+    "src/roborag/hang_measurements.py": "ad1587bc020d60155feac0f300a3494bc95d08a0f394ddf4d043f7fc1818316e",
+    "src/roborag/hexashell_accounting.py": "5ea92555a254848eeb458a3ff4f2c0226396dd6f345ffc332e892f89abbb870a",
+    "src/roborag/hexashell_adapter.py": "480e136d129a18e027708ea0312014519909672401bf305951f693448846e7e9",
+    "src/roborag/hexashell_agent.py": "5287846c2f075864fd6a80eba25e6f2068fd34bf6891f79aee7187d84a01732a",
+    "src/roborag/interaction_monitor.py": "65cf86b4676cd8bbf7d1cbe1fb1cfb1d624b8faa6679d234186a8f99895e6f86",
+    "src/roborag/mcp/__init__.py": "1348302e4a3081c8a70f1be0dc1ccb788a2c722a7c7adadcd81d6e52e93852a9",
+    "src/roborag/mcp/evidence.py": "52d673689034a377eec8b56afade069a5378721fb7ea7c31f78c0c745cfef684",
+    "src/roborag/mcp/hang_tools.py": "11463489398311b8e4a02b068de695ee430aff08015e39a8cc8f6849831b1e01",
+    "src/roborag/mcp/hang_worker.py": "e303f13bd2c202ab7a2df772edab0c82b5a863f40b00349120815a8d1713a53f",
+    "src/roborag/mcp/motion.py": "525c9dd7ee186d030ff94e36375d48d8405ab099d5298c8802d394a6e7ac83af",
+    "src/roborag/mcp/observations.py": "a8273f16314fe1f0614e3409a93b943b71480820dea8f1ce1fc8e817e3c3af48",
+    "src/roborag/mcp/pack_worker.py": "5421858e459c6bbb1c2e221e5fd1d2c60393a0488a2eae3c96d0929916b89149",
+    "src/roborag/mcp/planning.py": "053a98c84bcaa41a02fa2009889db1665048bb5149fce02ca05998ffcd45a095",
+    "src/roborag/mcp/python_cells.py": "835acd1ca6aa83e7542251edea26f1bd16b5df8c441e38989b4de21617a3bc54",
+    "src/roborag/mcp/python_worker.py": "9dd10c2d377d74b4421d97be3b2037317580d9ed3b8438032a8f1e6b0ca7eb96",
+    "src/roborag/mcp/schemas.py": "bd78937b6ed951b71214b4ad034b4601a45f7e72d7397ccb5ee3001bb3137b9c",
+    "src/roborag/mcp/server.py": "67b5c840d29c2e443a9a7b3f406a2599a42d42b37fbfb0a819fce040e467d6ec",
+    "src/roborag/mcp/session.py": "f4054ed25c0c63a31a8617464a561412cc98b0806bc57b099d2096021e3861f2",
+    "src/roborag/mcp/sweep_worker.py": "37bc36617d0c8609e8635e4b5f7a04e961adbf690a43ff42d901020a4d56fe41",
+    "src/roborag/mcp/transfer.py": "706d2469f644508d71f9636f4dc947b67c2d08cc9fec1c8e06a50c920ed9d2ae",
+    "src/roborag/memory.py": "698653293df1ee710086cd1cd2d5e02beda69cec46785fff147d799c45401308",
+    "src/roborag/rag_accounting.py": "97394cc270ffe4563e7363bd42d104b447c28eef7b8d1f1107c7534ff2fb9be6",
+    "src/roborag/rag_execution.py": "b0acfcd0b54aef091bd6d6263f22a8e277c43581fa83936f3876a505128766ba",
+    "src/roborag/rag_mcp.py": "13b38b14c4f3008e6db16453029289b09f7111621e976a6fed20064d82202900",
+    "src/roborag/rag_runner.py": "8c3d1d25b2805c6d570c1e6e3d20b71f939dc14b4802cc4f71de60def157720e",
+    "src/roborag/rag_sim.py": "60b5a3396b14b8bfe8f6db2e4a6c5efcfcbd16b624754943cd7cb25080d69766",
+    "src/roborag/rag_tasks.py": "6d7bcbb5f1d53328318753830c8413491a954708585fc9aa62986ff3fd63499c",
+    "src/roborag/retrieval.py": "d7fcd1920fa7d1d43820f83b0183d3ae062fb61b57a9ed0f5bd57fd2657966da",
+    "src/roborag/robodojo_policy.py": "987497ef49737e584118cda4c6ec450e307e3ca1c52e246212c183131dc4026a",
+    "src/roborag/robot_memory.py": "d95ce363d656d8f4546e19966c78c3a60252dbf9d3221b3ab8c96e0953163558",
+    "src/roborag/scene_measurements.py": "2ca2e08df80c023483e14a6946be834e58d075d88a6abfb437c7e5e1f9d32ee0",
+    "src/roborag/scene_registration.py": "59c790a4a7e786c92ee091e8383962c4897e390272ceeab5368961fd48fae052",
+    "src/roborag/scene_transfer.py": "2cf847b674019bf01df555d42ded77ef2d661ad9b5e2f183d93b061797c32b66",
+    "src/roborag/schema.py": "3b741853b4c1134bf939665ce4aa718e0ac698a1273ee09a5cc8c019d7f0ac16",
+    "src/roborag/sop_store.py": "a48ab3695a55cafa4583af2eb7af09f5320e7a4ecf05bad5aa2f39484dfa5806",
+    "src/roborag/toast_motion.py": "7c56076442e928f5971783f54f4944eb4c252ddb1a6ca62c08be7d3db13dfa6d",
+    "src/roborag/transports/__init__.py": "256cddee3d9ea5afd76357cc23b1b81d240b07b54fa75537373dce4aa75f09ae",
+    "src/roborag/transports/codex_cli.py": "a8a16aa1b7d645ccb22fff41ea737221afcc5d1394ceaf1fcb65ab1361e8d99e",
+    "src/roborag/transports/responses_bridge.py": "40ccdc6e044ff6768a66cc78f2920b73458404d7d6c0f279cb0ae0f126c8d505",
+    "src/roborag/vision.py": "fe7f21db7920cb0f0f5e06222a55106947c6ed483f9cb192cf4e126377692365"
+  },
+  "native_budget_clarification": {
+    "path": "/home/zxc/文档/ChatGPT/RoboRAG/results/pack-box-native-budget-clarification-20261107.json",
+    "sha256": "becc8d2976c0f25b1c16819276a8c6d235ce842aedd3510b12d72e02426a6916"
+  },
+  "full50_tag": "pack-box-tools-v1-native-full50-20261107"
+}

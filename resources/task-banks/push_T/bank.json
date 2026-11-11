@@ -1,0 +1,59 @@
+{
+  "schema": "roborag.graph-bank.v1",
+  "name": "RoboRAG · 交互经验图库",
+  "updated_at": "2026-10-25T10:48:58.801088+00:00",
+  "graphs": [
+    {
+      "id": "push_T-0000",
+      "task": "push_T",
+      "task_name": "push_T",
+      "title": "右夹爪分次推移并微调红色T形块对齐灰色垫",
+      "summary": "右臂靠近红色T形块，通过多次低位推移、抬起换位和短程修正，使其逐步接近灰色T形垫的位置与朝向，随后撤回。左臂基本静止；末段灰垫大部分被遮盖，精确重合程度无法完全确认，阶段边界为估计。",
+      "episode": 0,
+      "instruction": "Push the T-shaped block to align it precisely with the gray T-shaped pad.",
+      "phase_count": 8,
+      "node_count": 32,
+      "edge_count": 31,
+      "frames": 359,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "push_T-0001",
+      "task": "push_T",
+      "task_name": "push_T",
+      "title": "左臂推近目标，右臂换边微调T形块",
+      "summary": "示范先由左臂将红色T形块向桌面右侧推移，再由右臂多次调整接触位置，使其逐步靠近灰色T形垫。末尾双臂撤回；局部画面可见红灰轮廓仍有错开，不能确认已精确对齐。阶段边界为估计值。",
+      "episode": 1,
+      "instruction": "Push the T-shaped block to align it precisely with the gray T-shaped pad.",
+      "phase_count": 9,
+      "node_count": 36,
+      "edge_count": 35,
+      "frames": 512,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "push_T-0002",
+      "task": "push_T",
+      "task_name": "push_T",
+      "title": "右臂先推近、左臂接续调向并微推对齐",
+      "summary": "示范先用右夹爪推动红色T形块靠近灰色T形垫，再换左夹爪多次调整位置和朝向，最后撤回双臂。末段块与目标区域基本重合，但图像不足以确认精确贴合；阶段边界为估计值。",
+      "episode": 2,
+      "instruction": "Push the T-shaped block to align it precisely with the gray T-shaped pad.",
+      "phase_count": 8,
+      "node_count": 32,
+      "edge_count": 31,
+      "frames": 419,
+      "frequency": 25.0,
+      "preview_frame": 0
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "nodes": 100,
+    "edges": 97,
+    "tasks": 1,
+    "phases": 25
+  }
+}

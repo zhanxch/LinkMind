@@ -1,0 +1,677 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "stack_bowls-0002",
+  "task": "stack_bowls",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "stack_bowls",
+  "title": "右臂先建立底碗落点，再依次套叠前侧碗和后侧碗",
+  "summary": "右臂先将初始右侧碗移到桌面中部偏左作为底碗，再依次将前侧碗和后侧碗叠入，最终形成三碗叠层。左臂保持原位，右臂完成放置后空手撤回；阶段边界为估计值。",
+  "instruction": "Stack the three bowls together.",
+  "episode": 2,
+  "source": {
+    "path": "runtime-data/stack_bowls/train/episode_0000002.hdf5",
+    "sha256": "2cf510a961759efb2e10c11368cd604fe8d30969fad2617714348474e5161b4b",
+    "frames": 341,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-28T16:52:28.377213+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "靠近并抓取右侧碗",
+      "summary": "选择初始右侧碗，准备搬到叠放位置。",
+      "objects": [
+        "右夹爪",
+        "初始右侧碗（底碗）",
+        "初始前侧碗",
+        "初始后侧碗"
+      ],
+      "start_frame": 0,
+      "end_frame": 45,
+      "order": 0,
+      "keyframes": [
+        0,
+        22,
+        44
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "三只碗开口朝上、彼此分离；右夹爪位于桌面右前方，右侧碗的外侧边缘可接近。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂伸向右侧碗，降低夹爪并对准碗沿，随后收拢夹爪并开始抬起。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "夹爪收拢在碗沿附近，右侧碗开始随右手移动；另外两只碗仍留在原处。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "将底碗移到中部偏左",
+      "summary": "为后续套叠建立独立的底碗落点。",
+      "objects": [
+        "右夹爪",
+        "初始右侧碗（底碗）",
+        "桌面中部偏左空位"
+      ],
+      "start_frame": 45,
+      "end_frame": 74,
+      "order": 1,
+      "keyframes": [
+        45,
+        59,
+        73
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右侧碗已随右夹爪抬起，另外两只碗左侧有空桌面。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂持碗向画面左侧搬运，保持碗口朝上，在其余两只碗左侧的空位降低。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "碗已降到新落点附近，右夹爪仍贴近碗沿；落桌接触细节不可完全辨认。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "释放底碗并撤开夹爪",
+      "summary": "让底碗独立留在新位置。",
+      "objects": [
+        "右夹爪",
+        "初始右侧碗（底碗）",
+        "桌面"
+      ],
+      "start_frame": 74,
+      "end_frame": 104,
+      "order": 2,
+      "keyframes": [
+        74,
+        88,
+        103
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "底碗处于新落点低位，夹爪仍在碗沿附近。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪张开释放碗，随后向上并向右前方撤离。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "空夹爪离开后，底碗开口朝上留在桌面；三只碗仍相互分离。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "转向前侧碗并收拢夹爪",
+      "summary": "抓取将要叠入底碗的前侧碗。",
+      "objects": [
+        "右夹爪",
+        "初始前侧碗",
+        "初始右侧碗（底碗）"
+      ],
+      "start_frame": 104,
+      "end_frame": 148,
+      "order": 3,
+      "keyframes": [
+        104,
+        125,
+        147
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "底碗已放稳，前侧碗位于其右前方，右夹爪处于张开状态。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂移向前侧碗，从右侧靠近碗沿，下降调整后收拢夹爪。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "夹爪在前侧碗沿处收拢，碗仍处于接近桌面的低位；碗沿局部被遮挡，尚未出现明显抬升。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "抬起前侧碗并移到底碗上方",
+      "summary": "将第二只碗运到套叠位置。",
+      "objects": [
+        "右夹爪",
+        "初始前侧碗",
+        "初始右侧碗（底碗）",
+        "初始后侧碗"
+      ],
+      "start_frame": 148,
+      "end_frame": 178,
+      "order": 4,
+      "keyframes": [
+        148,
+        162,
+        177
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右夹爪已在前侧碗边缘收拢，底碗位于其左后方。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂抬起前侧碗，再向左后方搬运，将其碗口中心大致对齐底碗。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "前侧碗明显离桌并随右手移动，到达底碗上方；底碗仍留在桌面，后侧碗未被移动。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "放入第二只碗并松爪",
+      "summary": "形成双碗叠层并释放右手。",
+      "objects": [
+        "右夹爪",
+        "初始前侧碗",
+        "初始右侧碗（底碗）",
+        "双碗叠层",
+        "初始后侧碗"
+      ],
+      "start_frame": 178,
+      "end_frame": 222,
+      "order": 5,
+      "keyframes": [
+        178,
+        199,
+        221
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "前侧碗位于底碗上方，两只碗均开口朝上。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂降低所持碗，使其进入底碗，短暂停留后张开夹爪，再向上撤开。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "两只碗在同一落点套叠，右夹爪已抬离；后侧碗仍独立放在叠层右后方。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "靠近并抓取剩余后侧碗",
+      "summary": "准备搬运最后一只独立的碗。",
+      "objects": [
+        "右夹爪",
+        "初始后侧碗",
+        "双碗叠层"
+      ],
+      "start_frame": 222,
+      "end_frame": 267,
+      "order": 6,
+      "keyframes": [
+        222,
+        244,
+        266
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "双碗叠层留在桌面，后侧碗位于其右后方，右夹爪已空手撤开。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂绕到后侧碗附近，张开的夹爪下降至碗沿，再收拢夹爪。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "夹爪已在后侧碗沿处收拢，碗仍接近桌面；抓取部位部分遮挡，双碗叠层位置未变。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "将后侧碗搬到双碗叠层上方",
+      "summary": "把第三只碗运到最终叠放位置。",
+      "objects": [
+        "右夹爪",
+        "初始后侧碗",
+        "双碗叠层"
+      ],
+      "start_frame": 267,
+      "end_frame": 296,
+      "order": 7,
+      "keyframes": [
+        267,
+        281,
+        295
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右夹爪收拢在后侧碗沿，双碗叠层位于其左前方。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂抬起后侧碗，向左前方搬运，保持碗口朝上并降低至双碗叠层上方。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "后侧碗已离开原位置，随夹爪到达叠层顶部附近；碗之间的接触区域部分被夹爪遮挡。",
+      "parent": "p08"
+    },
+    {
+      "id": "p09",
+      "kind": "phase",
+      "title": "落下顶碗并张开夹爪",
+      "summary": "完成第三只碗的套叠。",
+      "objects": [
+        "右夹爪",
+        "初始后侧碗（顶碗）",
+        "三碗叠层"
+      ],
+      "start_frame": 296,
+      "end_frame": 317,
+      "order": 8,
+      "keyframes": [
+        296,
+        306,
+        316
+      ]
+    },
+    {
+      "id": "p09-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "最后一只碗已对准双碗叠层，夹爪仍靠在其碗沿。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂小幅降低所持碗，使其落入叠层顶部，随后张开夹爪并略微抬起。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "顶碗留在叠层上，三只碗的轮廓集中于同一摞；夹爪已张开，但仍靠近顶部，局部接触细节被遮挡。",
+      "parent": "p09"
+    },
+    {
+      "id": "p10",
+      "kind": "phase",
+      "title": "空手撤回并露出完整叠层",
+      "summary": "结束操作，观察三碗保持套叠。",
+      "objects": [
+        "右臂及夹爪",
+        "左臂及夹爪",
+        "三碗叠层",
+        "桌面"
+      ],
+      "start_frame": 317,
+      "end_frame": 341,
+      "order": 9,
+      "keyframes": [
+        317,
+        328,
+        340
+      ]
+    },
+    {
+      "id": "p10-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "三只碗已叠在一起，张开的右夹爪仍停在叠层上方附近。",
+      "parent": "p10"
+    },
+    {
+      "id": "p10-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂向上、向右撤离，再回到右侧初始位置附近；左臂保持原位。",
+      "parent": "p10"
+    },
+    {
+      "id": "p10-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右夹爪空手离开，桌面中央偏左清楚可见三碗叠层；直到示范结束，碗保持套叠，未见散落。",
+      "parent": "p10"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p08",
+      "target": "p09",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p09",
+      "target": "p09-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p09",
+      "target": "p09-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p09",
+      "target": "p09-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p09",
+      "target": "p10",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p10",
+      "target": "p10-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p10",
+      "target": "p10-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p10",
+      "target": "p10-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

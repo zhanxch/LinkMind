@@ -1,0 +1,59 @@
+{
+  "schema": "roborag.graph-bank.v1",
+  "name": "RoboRAG · 交互经验图库",
+  "updated_at": "2026-10-28T17:34:35.596218+00:00",
+  "graphs": [
+    {
+      "id": "make_toast-0000",
+      "task": "make_toast",
+      "task_name": "make_toast",
+      "title": "右手取片交接，左手逐片装槽并下压拨杆",
+      "summary": "右手两次从面包架取出面包，分别交给左手送入烤面包机的两个槽，随后左手在拨杆处下压并收回。阶段边界为估计；末尾画面不能确认拨杆锁定或加热启动。",
+      "episode": 0,
+      "instruction": "Pick up two slices of bread, place them into the toaster, and press the lever down.",
+      "phase_count": 10,
+      "node_count": 40,
+      "edge_count": 39,
+      "frames": 583,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "make_toast-0001",
+      "task": "make_toast",
+      "task_name": "make_toast",
+      "title": "左手逐片取面包，交给右手装槽后下压拨杆",
+      "summary": "左手先后从面包架取出两片面包，分别交给右手放入烤面包机的两个槽口。装入后，右手移到正面下压拨杆。",
+      "episode": 1,
+      "instruction": "Pick up two slices of bread, place them into the toaster, and press the lever down.",
+      "phase_count": 9,
+      "node_count": 36,
+      "edge_count": 35,
+      "frames": 501,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "make_toast-0002",
+      "task": "make_toast",
+      "task_name": "make_toast",
+      "title": "右手取片、左手接力装槽，再下压拨杆",
+      "summary": "右手依次从面包架取出两片面包，交给左手调整方向并分别放入烤面包机的两个插槽，随后由左手下压拨杆并撤回。阶段边界为估计值；画面未确认加热是否启动。",
+      "episode": 2,
+      "instruction": "Pick up two slices of bread, place them into the toaster, and press the lever down.",
+      "phase_count": 8,
+      "node_count": 32,
+      "edge_count": 31,
+      "frames": 559,
+      "frequency": 25.0,
+      "preview_frame": 0
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "phases": 27,
+    "nodes": 108,
+    "edges": 105,
+    "tasks": 1
+  }
+}

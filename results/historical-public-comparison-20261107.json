@@ -1,0 +1,1801 @@
+{
+  "schema": "roborag.public-baseline-comparison.v1",
+  "name": "Generalization 四个公开方法与 LinkMind 对照",
+  "category": "Generalization",
+  "base_task_count": 12,
+  "configuration_count_per_model": 24,
+  "model_count": 5,
+  "model_order": [
+    "HexaShell-preview",
+    "VPP2",
+    "WorldScape-R²SI",
+    "PyRUA_Lean",
+    "LinkMind"
+  ],
+  "source": {
+    "asset_url": "https://robodojo-benchmark.com/assets/index-CjJl8yvH.js",
+    "asset_sha256": "cae0073551be66a36687556c4c0f60a652167a9ecdc750613c394c9c0f405bfc",
+    "data_generated_at": "2026-10-26T00:00:00.000Z",
+    "retrieved_at_utc": "2026-10-28T03:07:59.268888+00:00",
+    "model_urls": {
+      "HexaShell-preview": "https://robodojo-benchmark.com/leaderboard/rollouts/HexaShell-preview?bench=sim",
+      "VPP2": "https://robodojo-benchmark.com/leaderboard/rollouts/VPP2?bench=sim",
+      "WorldScape-R²SI": "https://robodojo-benchmark.com/leaderboard/rollouts/WorldScape-R%C2%B2SI?bench=sim",
+      "PyRUA_Lean": "https://robodojo-benchmark.com/leaderboard/rollouts/PyRUA_Lean?bench=sim"
+    },
+    "metric_field": "successRate",
+    "progress_field_excluded_from_comparison": "score"
+  },
+  "summary": {
+    "HexaShell-preview": {
+      "official_category_standard_success_rate_pct": 38.0,
+      "official_category_random_success_rate_pct": 31.0,
+      "mean_of_official_category_rates_pct": 34.5,
+      "official_random_minus_standard_pp": -7.0,
+      "recomputed_from_displayed_task_rates": {
+        "standard_success_rate_pct": 38.0,
+        "random_success_rate_pct": 31.0,
+        "mean_success_rate_pct": 34.5,
+        "random_minus_standard_pp": -7.0
+      }
+    },
+    "VPP2": {
+      "official_category_standard_success_rate_pct": 46.44,
+      "official_category_random_success_rate_pct": 12.56,
+      "mean_of_official_category_rates_pct": 29.5,
+      "official_random_minus_standard_pp": -33.88,
+      "recomputed_from_displayed_task_rates": {
+        "standard_success_rate_pct": 46.44583333333333,
+        "random_success_rate_pct": 12.555833333333334,
+        "mean_success_rate_pct": 29.500833333333333,
+        "random_minus_standard_pp": -33.89
+      }
+    },
+    "WorldScape-R²SI": {
+      "official_category_standard_success_rate_pct": 40.33,
+      "official_category_random_success_rate_pct": 31.33,
+      "mean_of_official_category_rates_pct": 35.83,
+      "official_random_minus_standard_pp": -9.0,
+      "recomputed_from_displayed_task_rates": {
+        "standard_success_rate_pct": 40.333333333333336,
+        "random_success_rate_pct": 31.333333333333332,
+        "mean_success_rate_pct": 35.833333333333336,
+        "random_minus_standard_pp": -9.0
+      }
+    },
+    "PyRUA_Lean": {
+      "official_category_standard_success_rate_pct": 45.333333333333336,
+      "official_category_random_success_rate_pct": 41.0,
+      "mean_of_official_category_rates_pct": 43.166666666666664,
+      "official_random_minus_standard_pp": -4.333333333333333,
+      "recomputed_from_displayed_task_rates": {
+        "standard_success_rate_pct": 45.333333333333336,
+        "random_success_rate_pct": 41.0,
+        "mean_success_rate_pct": 43.166666666666664,
+        "random_minus_standard_pp": -4.333333333333333
+      }
+    },
+    "LinkMind": {
+      "official_category_standard_success_rate_pct": null,
+      "official_category_random_success_rate_pct": null,
+      "mean_of_official_category_rates_pct": null,
+      "official_random_minus_standard_pp": null,
+      "status": "incomplete",
+      "completed_tasks": 6,
+      "historical_reference_tasks": 0
+    }
+  },
+  "tasks": [
+    {
+      "task": "stack_bowls",
+      "name_zh": "叠碗",
+      "in_basic_suite": false,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 92.0,
+          "random_success_rate_pct": 80.0,
+          "mean_success_rate_pct": 86.0,
+          "mean_success_rate_pct_rounded": 86.0,
+          "random_minus_standard_pp": -12.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 90.67,
+          "random_success_rate_pct": 5.33,
+          "mean_success_rate_pct": 48.0,
+          "mean_success_rate_pct_rounded": 48.0,
+          "random_minus_standard_pp": -85.34
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 76.0,
+          "random_success_rate_pct": 76.0,
+          "mean_success_rate_pct": 76.0,
+          "mean_success_rate_pct_rounded": 76.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 80.0,
+          "random_success_rate_pct": 60.0,
+          "mean_success_rate_pct": 70.0,
+          "mean_success_rate_pct_rounded": 70.0,
+          "random_minus_standard_pp": -20.0
+        },
+        "LinkMind": {
+          "standard_success_rate_pct": 92.0,
+          "random_success_rate_pct": 96.0,
+          "mean_success_rate_pct": 94.0,
+          "mean_success_rate_pct_rounded": 94.0,
+          "random_minus_standard_pp": 4.0,
+          "status": "completed",
+          "status_label": "已完成",
+          "eligible_for_highlight": true,
+          "complete_current_task": true,
+          "candidate_commit": "7fa895e6df692877269246198b87202b1e834873",
+          "variants": {
+            "standard": {
+              "success": 23,
+              "failure": 2,
+              "scored": 25,
+              "unscored": 0,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "success": 24,
+              "failure": 1,
+              "scored": 25,
+              "unscored": 0,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "note": "当前扩展版 7fa895e，seed 1，每版布局 0–24，首轮 50/50 均有原生评分。",
+          "source_report": "work/v3-generalization/results/generalization-stack_bowls-first-pass-final-20261029.json",
+          "source_report_sha256": "7dc6f2e3541cda8822293cf60b08c2cfb2aea9f1e65a51557b088b5c1bd56ad4"
+        }
+      },
+      "highest_mean_models": [
+        "LinkMind"
+      ]
+    },
+    {
+      "task": "push_T",
+      "name_zh": "推 T 形块",
+      "in_basic_suite": true,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 100.0,
+          "random_success_rate_pct": 92.0,
+          "mean_success_rate_pct": 96.0,
+          "mean_success_rate_pct_rounded": 96.0,
+          "random_minus_standard_pp": -8.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 2.67,
+          "random_success_rate_pct": 0.0,
+          "mean_success_rate_pct": 1.335,
+          "mean_success_rate_pct_rounded": 1.34,
+          "random_minus_standard_pp": -2.67
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 84.0,
+          "random_success_rate_pct": 80.0,
+          "mean_success_rate_pct": 82.0,
+          "mean_success_rate_pct_rounded": 82.0,
+          "random_minus_standard_pp": -4.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 80.0,
+          "random_success_rate_pct": 92.0,
+          "mean_success_rate_pct": 86.0,
+          "mean_success_rate_pct_rounded": 86.0,
+          "random_minus_standard_pp": 12.0
+        },
+        "LinkMind": {
+          "status": "ended_incomplete",
+          "status_label": "已结束·评分不全",
+          "eligible_for_highlight": false,
+          "complete_current_task": false,
+          "candidate_commit": "50fcf826cb410629f1e9c532bd01906abcda3fe5",
+          "source_report": "work/push-t-toolkit-20261103/results/push-t-toolkit-v1-full50-independent-audit-20261104.json",
+          "source_report_sha256": "d44ebec61290831118b22805ddcaa0276c1da8122616106207f639ce79e7609a",
+          "note": "新一轮完整50次尝试：48成功、0原生失败、2未评分。标准版23成功、2例因模型服务容量中断而未评分；random 25例全部成功。标准版完整成功率及两版平均留空；旧版100% / 100%只保留为历史参考，不并入本轮。",
+          "variants": {
+            "standard": {
+              "attempts_closed": 25,
+              "success": 23,
+              "failure": 0,
+              "unscored": 2,
+              "scored": 23,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "attempts_closed": 25,
+              "success": 25,
+              "failure": 0,
+              "unscored": 0,
+              "scored": 25,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "counts": {
+            "attempts_closed": 50,
+            "success": 48,
+            "failure": 0,
+            "unscored": 2,
+            "scored": 48
+          },
+          "active_count": 0,
+          "pending_count": 0,
+          "standard_success_rate_pct": null,
+          "random_success_rate_pct": 100.0,
+          "mean_success_rate_pct": null,
+          "mean_success_rate_pct_rounded": null,
+          "random_minus_standard_pp": null,
+          "runtime_commit": "ead91e45e24b845ef5ba8bfc2057d8b9e243fb6b",
+          "protocol_sha256": "05d53fa5e7e701fab588306704fd95c03a951cd2333b0da73335588ee395fd09",
+          "all_attempt_counts": {
+            "attempts_closed": 50,
+            "success": 48,
+            "failure": 0,
+            "unscored": 2,
+            "scored": 48,
+            "success_rate_scored": 1.0,
+            "confirmed_success_fraction_closed": 0.96
+          },
+          "all_attempt_costs": {
+            "steps": {
+              "known_count": 50,
+              "unknown_count": 0,
+              "known_sum": 16070,
+              "known_mean": 321.4,
+              "partial_lower_bound_cases": 2
+            },
+            "wall_seconds": {
+              "known_count": 50,
+              "unknown_count": 0,
+              "known_sum": 22682.168020506157,
+              "known_mean": 453.64336041012314
+            },
+            "input_tokens": {
+              "known_count": 48,
+              "unknown_count": 2,
+              "known_sum": 78028259,
+              "known_mean": 1625588.7291666667
+            },
+            "cached_input_tokens": {
+              "known_count": 48,
+              "unknown_count": 2,
+              "known_sum": 74407424,
+              "known_mean": 1550154.6666666667
+            },
+            "output_tokens": {
+              "known_count": 48,
+              "unknown_count": 2,
+              "known_sum": 456433,
+              "known_mean": 9509.020833333334
+            },
+            "reasoning_output_tokens": {
+              "known_count": 48,
+              "unknown_count": 2,
+              "known_sum": 162630,
+              "known_mean": 3388.125
+            },
+            "total_tokens": {
+              "known_count": 48,
+              "unknown_count": 2,
+              "known_sum": 78484692,
+              "known_mean": 1635097.75
+            },
+            "uncached_input_tokens": {
+              "known_count": 48,
+              "unknown_count": 2,
+              "known_sum": 3620835,
+              "known_mean": 75434.0625
+            }
+          },
+          "variant_status_labels": {
+            "standard": "2例未评分",
+            "random": "已完成"
+          }
+        }
+      },
+      "highest_mean_models": [
+        "HexaShell-preview"
+      ]
+    },
+    {
+      "task": "pack_objects_into_box",
+      "name_zh": "物品装箱",
+      "in_basic_suite": false,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 20.0,
+          "random_success_rate_pct": 12.0,
+          "mean_success_rate_pct": 16.0,
+          "mean_success_rate_pct_rounded": 16.0,
+          "random_minus_standard_pp": -8.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 10.67,
+          "random_success_rate_pct": 2.67,
+          "mean_success_rate_pct": 6.67,
+          "mean_success_rate_pct_rounded": 6.67,
+          "random_minus_standard_pp": -8.0
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 0.0,
+          "random_success_rate_pct": 8.0,
+          "mean_success_rate_pct": 4.0,
+          "mean_success_rate_pct_rounded": 4.0,
+          "random_minus_standard_pp": 8.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 40.0,
+          "random_success_rate_pct": 20.0,
+          "mean_success_rate_pct": 30.0,
+          "mean_success_rate_pct_rounded": 30.0,
+          "random_minus_standard_pp": -20.0
+        },
+        "LinkMind": {
+          "status": "stopped_incomplete",
+          "status_label": "已停止·未完成",
+          "eligible_for_highlight": false,
+          "complete_current_task": false,
+          "candidate_commit": "3f956eb3186ad9fde8bad97b7c2c959521e8a4a6",
+          "source_report": "work/scene-motion-transfer/results/scene-transfer-v3-full50-user-stop-closure-20261031.json",
+          "source_report_sha256": "4189cad12f738873ec07f078c4ee01b81ded623fdc3cf6db372b6e7a210b189a",
+          "note": "后续登记的完整评测按用户要求停止：5次尝试中0成功、3原生失败、2中断未评分，45个场景未启动。后续少量开发验证不作为完整任务成绩，也不与此前批次拼接。",
+          "variants": {
+            "standard": {
+              "attempts_closed": 3,
+              "success": 0,
+              "failure": 2,
+              "unscored": 1,
+              "scored": 2,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "attempts_closed": 2,
+              "success": 0,
+              "failure": 1,
+              "unscored": 1,
+              "scored": 1,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "counts": {
+            "attempts_closed": 5,
+            "success": 0,
+            "failure": 3,
+            "unscored": 2,
+            "scored": 3
+          },
+          "active_count": 0,
+          "pending_count": 45,
+          "standard_success_rate_pct": null,
+          "random_success_rate_pct": null,
+          "mean_success_rate_pct": null,
+          "mean_success_rate_pct_rounded": null,
+          "random_minus_standard_pp": null
+        }
+      },
+      "highest_mean_models": [
+        "PyRUA_Lean"
+      ]
+    },
+    {
+      "task": "fold_clothes",
+      "name_zh": "叠衣服",
+      "in_basic_suite": true,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 56.0,
+          "random_success_rate_pct": 24.0,
+          "mean_success_rate_pct": 40.0,
+          "mean_success_rate_pct_rounded": 40.0,
+          "random_minus_standard_pp": -32.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 74.67,
+          "random_success_rate_pct": 61.33,
+          "mean_success_rate_pct": 68.0,
+          "mean_success_rate_pct_rounded": 68.0,
+          "random_minus_standard_pp": -13.34
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 68.0,
+          "random_success_rate_pct": 56.0,
+          "mean_success_rate_pct": 62.0,
+          "mean_success_rate_pct_rounded": 62.0,
+          "random_minus_standard_pp": -12.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 52.0,
+          "random_success_rate_pct": 52.0,
+          "mean_success_rate_pct": 52.0,
+          "mean_success_rate_pct_rounded": 52.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "LinkMind": {
+          "standard_success_rate_pct": 80.0,
+          "random_success_rate_pct": 68.0,
+          "mean_success_rate_pct": 74.0,
+          "mean_success_rate_pct_rounded": 74.0,
+          "random_minus_standard_pp": -12.0,
+          "status": "completed_parent_version",
+          "status_label": "已完成",
+          "eligible_for_highlight": true,
+          "complete_current_task": true,
+          "candidate_commit": "c9f7a99daf125068ce2881b4feac1b514f8b0bd1",
+          "variants": {
+            "standard": {
+              "success": 20,
+              "failure": 5,
+              "scored": 25,
+              "unscored": 0,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "success": 17,
+              "failure": 8,
+              "scored": 25,
+              "unscored": 0,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "note": "LinkMind 在较早冻结提交 c9f7a99 完成的 50 个场景；后续扩展保留其提示词与核心执行逻辑。两次缺失评分各补一次，共 52 次尝试，原有成功与失败保留。",
+          "source_report": "work/v3-evidence-context/results/v3-evidence-context-fold-20261029-merged-final.json",
+          "source_report_sha256": "d256b6febcb77616279f4e1c7b82b233463e6f34e52a17d3f499ac44c22206d9"
+        }
+      },
+      "highest_mean_models": [
+        "LinkMind"
+      ]
+    },
+    {
+      "task": "hang_mugs",
+      "name_zh": "挂杯子",
+      "in_basic_suite": false,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 4.0,
+          "random_success_rate_pct": 4.0,
+          "mean_success_rate_pct": 4.0,
+          "mean_success_rate_pct_rounded": 4.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 64.0,
+          "random_success_rate_pct": 0.0,
+          "mean_success_rate_pct": 32.0,
+          "mean_success_rate_pct_rounded": 32.0,
+          "random_minus_standard_pp": -64.0
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 0.0,
+          "random_success_rate_pct": 0.0,
+          "mean_success_rate_pct": 0.0,
+          "mean_success_rate_pct_rounded": 0.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 4.0,
+          "random_success_rate_pct": 20.0,
+          "mean_success_rate_pct": 12.0,
+          "mean_success_rate_pct_rounded": 12.0,
+          "random_minus_standard_pp": 16.0
+        },
+        "LinkMind": {
+          "status": "completed",
+          "status_label": "已完成",
+          "eligible_for_highlight": true,
+          "complete_current_task": true,
+          "candidate_commit": "230c3897f573fe44045c3b1cf13e8bdfda21366d",
+          "source_report": "work/hang-mugs-tools/results/hang-mugs-guard-v2-full50-supplement-coverage-20261106.json",
+          "source_report_sha256": "a7a8befffde8d2646d34e983e382e618a1ca64c37726ada87b9ad79fe1ff1e51",
+          "note": "最新登记完整评测及仅缺失评分补测：首轮 12 成功、32 失败、6 未评分；补测 1 成功、5 失败。最终覆盖 50 个场景，实际 56 次尝试；原失败不重跑，原未评分及全部成本保留。",
+          "variants": {
+            "standard": {
+              "attempts_closed": 25,
+              "success": 9,
+              "failure": 16,
+              "unscored": 0,
+              "scored": 25,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "attempts_closed": 25,
+              "success": 4,
+              "failure": 21,
+              "unscored": 0,
+              "scored": 25,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "counts": {
+            "attempts_closed": 50,
+            "success": 13,
+            "failure": 37,
+            "unscored": 0,
+            "scored": 50
+          },
+          "active_count": 0,
+          "pending_count": 0,
+          "standard_success_rate_pct": 36.0,
+          "random_success_rate_pct": 16.0,
+          "mean_success_rate_pct": 26.0,
+          "mean_success_rate_pct_rounded": 26.0,
+          "random_minus_standard_pp": -20.0,
+          "runtime_commit": "8a954e3b8dc01fb99fbe57a60e968fa917ad832d",
+          "supplement_commit": "bfd1e1698ad6b73c1179961c5e93d0c22ac4455b",
+          "first_pass_counts": {
+            "attempts_closed": 50,
+            "success": 12,
+            "failure": 32,
+            "unscored": 6,
+            "scored": 44,
+            "success_rate_scored": 0.2727272727272727,
+            "confirmed_success_fraction_closed": 0.24
+          },
+          "supplement_counts": {
+            "attempts_closed": 6,
+            "success": 1,
+            "failure": 5,
+            "unscored": 0,
+            "scored": 6,
+            "success_rate_scored": 0.16666666666666666,
+            "confirmed_success_fraction_closed": 0.16666666666666666
+          },
+          "all_attempt_counts": {
+            "attempts_closed": 56,
+            "success": 13,
+            "failure": 37,
+            "unscored": 6,
+            "scored": 50,
+            "success_rate_scored": 0.26,
+            "confirmed_success_fraction_closed": 0.23214285714285715
+          },
+          "all_attempt_costs": {
+            "steps": {
+              "known_count": 53,
+              "unknown_count": 3,
+              "known_sum": 39529,
+              "known_mean": 745.8301886792453,
+              "partial_lower_bound_cases": 6
+            },
+            "wall_seconds": {
+              "known_count": 56,
+              "unknown_count": 0,
+              "known_sum": 120631.16306484933,
+              "known_mean": 2154.1279118723096
+            },
+            "input_tokens": {
+              "known_count": 50,
+              "unknown_count": 6,
+              "known_sum": 445706324,
+              "known_mean": 8914126.48
+            },
+            "cached_input_tokens": {
+              "known_count": 50,
+              "unknown_count": 6,
+              "known_sum": 435954816,
+              "known_mean": 8719096.32
+            },
+            "output_tokens": {
+              "known_count": 50,
+              "unknown_count": 6,
+              "known_sum": 1444132,
+              "known_mean": 28882.64
+            },
+            "reasoning_output_tokens": {
+              "known_count": 50,
+              "unknown_count": 6,
+              "known_sum": 695156,
+              "known_mean": 13903.12
+            },
+            "total_tokens": {
+              "known_count": 50,
+              "unknown_count": 6,
+              "known_sum": 447150456,
+              "known_mean": 8943009.12
+            },
+            "uncached_input_tokens": {
+              "known_count": 50,
+              "unknown_count": 6,
+              "known_sum": 9751508,
+              "known_mean": 195030.16
+            }
+          },
+          "scoring_scope": "50-scene coverage after missing-score-only supplements",
+          "protocol_sha256": "878f985dee835a89719681c34088fa2de5447182ecb7a1c1896fefb886c91180",
+          "supplement_protocol_sha256": "9cbf386dd484cfe29d9b679d81fcf91a04ae5d368ca9c8f1137a998abc0f8739"
+        }
+      },
+      "highest_mean_models": [
+        "VPP2"
+      ]
+    },
+    {
+      "task": "sweep_blocks",
+      "name_zh": "扫积木",
+      "in_basic_suite": false,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 8.0,
+          "random_success_rate_pct": 8.0,
+          "mean_success_rate_pct": 8.0,
+          "mean_success_rate_pct_rounded": 8.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 20.0,
+          "random_success_rate_pct": 1.33,
+          "mean_success_rate_pct": 10.665,
+          "mean_success_rate_pct_rounded": 10.67,
+          "random_minus_standard_pp": -18.67
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 0.0,
+          "random_success_rate_pct": 0.0,
+          "mean_success_rate_pct": 0.0,
+          "mean_success_rate_pct_rounded": 0.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 4.0,
+          "random_success_rate_pct": 8.0,
+          "mean_success_rate_pct": 6.0,
+          "mean_success_rate_pct_rounded": 6.0,
+          "random_minus_standard_pp": 4.0
+        },
+        "LinkMind": {
+          "status": "completed",
+          "status_label": "已完成",
+          "eligible_for_highlight": true,
+          "complete_current_task": true,
+          "candidate_commit": "d5cbac71d47b1265883cd59c9db2a99ba645b164",
+          "source_report": "work/sweep-blocks-tools/results/sweep-blocks-tools-v1-full50-supplement-coverage-20261107.json",
+          "source_report_sha256": "398d0c3ddc9b991550e5d5042b639f2619eabca66610556f557fa45173e0d297",
+          "note": "最新登记完整评测及仅缺失评分补测：首轮 11 成功、37 失败、2 未评分；补测 1 成功、1 失败。最终覆盖 50 个场景，实际 52 次尝试；原失败不重跑，原未评分及全部成本保留。",
+          "variants": {
+            "standard": {
+              "attempts_closed": 25,
+              "success": 8,
+              "failure": 17,
+              "unscored": 0,
+              "scored": 25,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "attempts_closed": 25,
+              "success": 4,
+              "failure": 21,
+              "unscored": 0,
+              "scored": 25,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "counts": {
+            "attempts_closed": 50,
+            "success": 12,
+            "failure": 38,
+            "unscored": 0,
+            "scored": 50
+          },
+          "active_count": 0,
+          "pending_count": 0,
+          "standard_success_rate_pct": 32.0,
+          "random_success_rate_pct": 16.0,
+          "mean_success_rate_pct": 24.0,
+          "mean_success_rate_pct_rounded": 24.0,
+          "random_minus_standard_pp": -16.0,
+          "runtime_commit": "ca604e59ea87b280b14757c23134bf62701a9cbd",
+          "supplement_commit": "5cae5770d687f601a4abdbfa1911d785f69fc4cb",
+          "first_pass_counts": {
+            "attempts_closed": 50,
+            "success": 11,
+            "failure": 37,
+            "unscored": 2,
+            "scored": 48,
+            "success_rate_scored": 0.22916666666666666,
+            "confirmed_success_fraction_closed": 0.22
+          },
+          "supplement_counts": {
+            "attempts_closed": 2,
+            "success": 1,
+            "failure": 1,
+            "unscored": 0,
+            "scored": 2,
+            "success_rate_scored": 0.5,
+            "confirmed_success_fraction_closed": 0.5
+          },
+          "all_attempt_counts": {
+            "attempts_closed": 52,
+            "success": 12,
+            "failure": 38,
+            "unscored": 2,
+            "scored": 50,
+            "success_rate_scored": 0.24,
+            "confirmed_success_fraction_closed": 0.23076923076923078
+          },
+          "all_attempt_costs": {
+            "steps": {
+              "known_count": 52,
+              "unknown_count": 0,
+              "known_sum": 48674,
+              "known_mean": 936.0384615384615,
+              "partial_lower_bound_cases": 2
+            },
+            "wall_seconds": {
+              "known_count": 52,
+              "unknown_count": 0,
+              "known_sum": 109575.14173337095,
+              "known_mean": 2107.2142641032874
+            },
+            "input_tokens": {
+              "known_count": 49,
+              "unknown_count": 3,
+              "known_sum": 441096605,
+              "known_mean": 9001971.530612245
+            },
+            "cached_input_tokens": {
+              "known_count": 49,
+              "unknown_count": 3,
+              "known_sum": 432480256,
+              "known_mean": 8826127.673469387
+            },
+            "output_tokens": {
+              "known_count": 49,
+              "unknown_count": 3,
+              "known_sum": 1414054,
+              "known_mean": 28858.244897959183
+            },
+            "reasoning_output_tokens": {
+              "known_count": 49,
+              "unknown_count": 3,
+              "known_sum": 730724,
+              "known_mean": 14912.734693877552
+            },
+            "total_tokens": {
+              "known_count": 49,
+              "unknown_count": 3,
+              "known_sum": 442510659,
+              "known_mean": 9030829.775510205
+            },
+            "uncached_input_tokens": {
+              "known_count": 49,
+              "unknown_count": 3,
+              "known_sum": 8616349,
+              "known_mean": 175843.85714285713
+            }
+          },
+          "scoring_scope": "50-scene coverage after missing-score-only supplements",
+          "protocol_sha256": "f8988cf722f95c6dcb078325d1a0557b40bf23925c22b7b72838720309d37727",
+          "supplement_protocol_sha256": "dd87e3f92236836f999115509309b992821e78dd449e85bf8e6d768b72c55b64"
+        }
+      },
+      "highest_mean_models": [
+        "LinkMind"
+      ]
+    },
+    {
+      "task": "pour_liquid_into_cup",
+      "name_zh": "向杯中倒液体",
+      "in_basic_suite": false,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 4.0,
+          "random_success_rate_pct": 0.0,
+          "mean_success_rate_pct": 2.0,
+          "mean_success_rate_pct_rounded": 2.0,
+          "random_minus_standard_pp": -4.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 68.0,
+          "random_success_rate_pct": 32.0,
+          "mean_success_rate_pct": 50.0,
+          "mean_success_rate_pct_rounded": 50.0,
+          "random_minus_standard_pp": -36.0
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 8.0,
+          "random_success_rate_pct": 0.0,
+          "mean_success_rate_pct": 4.0,
+          "mean_success_rate_pct_rounded": 4.0,
+          "random_minus_standard_pp": -8.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 4.0,
+          "random_success_rate_pct": 4.0,
+          "mean_success_rate_pct": 4.0,
+          "mean_success_rate_pct_rounded": 4.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "LinkMind": {
+          "standard_success_rate_pct": null,
+          "random_success_rate_pct": null,
+          "mean_success_rate_pct": null,
+          "mean_success_rate_pct_rounded": null,
+          "random_minus_standard_pp": null,
+          "status": "skipped",
+          "status_label": "已跳过",
+          "eligible_for_highlight": false,
+          "complete_current_task": false,
+          "candidate_commit": "7fa895e6df692877269246198b87202b1e834873",
+          "variants": {
+            "standard": {
+              "attempts_closed": 3,
+              "success": 0,
+              "failure": 2,
+              "unscored": 1,
+              "scored": 2,
+              "success_rate_scored": 0.0,
+              "confirmed_success_fraction_closed": 0.0,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "attempts_closed": 3,
+              "success": 0,
+              "failure": 2,
+              "unscored": 1,
+              "scored": 2,
+              "success_rate_scored": 0.0,
+              "confirmed_success_fraction_closed": 0.0,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "note": "连续 4 例原生评分失败后按规则跳过。已关闭 6 次尝试：0 成功、4 失败、2 未评分；0 次进行中，44 个场景未启动。尚无完整任务成功率。",
+          "counts": {
+            "attempts_closed": 6,
+            "success": 0,
+            "failure": 4,
+            "unscored": 2,
+            "scored": 4
+          },
+          "active_count": 0,
+          "pending_count": 44,
+          "source_report": "work/v3-generalization/results/generalization-pour_liquid_into_cup-skipped-20261029.json",
+          "source_report_sha256": "120307fda9f4661d5248a2c15a84c3f405fd719be4e90206035910d838abf7f3",
+          "progress_as_of_utc": "2026-10-29T11:15:19.743146+00:00",
+          "skip_reason": "4_consecutive_native_failures"
+        }
+      },
+      "highest_mean_models": [
+        "VPP2"
+      ]
+    },
+    {
+      "task": "make_toast",
+      "name_zh": "制作吐司",
+      "in_basic_suite": false,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 0.0,
+          "random_success_rate_pct": 0.0,
+          "mean_success_rate_pct": 0.0,
+          "mean_success_rate_pct_rounded": 0.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 56.0,
+          "random_success_rate_pct": 22.67,
+          "mean_success_rate_pct": 39.335,
+          "mean_success_rate_pct_rounded": 39.34,
+          "random_minus_standard_pp": -33.33
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 44.0,
+          "random_success_rate_pct": 8.0,
+          "mean_success_rate_pct": 26.0,
+          "mean_success_rate_pct_rounded": 26.0,
+          "random_minus_standard_pp": -36.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 16.0,
+          "random_success_rate_pct": 12.0,
+          "mean_success_rate_pct": 14.0,
+          "mean_success_rate_pct_rounded": 14.0,
+          "random_minus_standard_pp": -4.0
+        },
+        "LinkMind": {
+          "status": "completed",
+          "status_label": "已完成",
+          "eligible_for_highlight": true,
+          "complete_current_task": true,
+          "candidate_commit": "b4ace31f1a0b0549db64cc9775be23280628accf",
+          "source_report": "work/make-toast-reliability/results/make-toast-python-cells-full50-coverage-20261105.json",
+          "source_report_sha256": "8b72c6f94fc5c9eef5f201080575abf133ebf85c7c6fac6336dee89d56d1062d",
+          "note": "最新登记完整评测及仅缺失评分补测：首轮 13 成功、34 失败、3 未评分；补测 2 成功、1 失败。最终覆盖 50 个场景，实际 53 次尝试；原失败不重跑，原未评分及全部成本保留。",
+          "variants": {
+            "standard": {
+              "attempts_closed": 25,
+              "success": 10,
+              "failure": 15,
+              "unscored": 0,
+              "scored": 25,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "attempts_closed": 25,
+              "success": 5,
+              "failure": 20,
+              "unscored": 0,
+              "scored": 25,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "counts": {
+            "attempts_closed": 50,
+            "success": 15,
+            "failure": 35,
+            "unscored": 0,
+            "scored": 50
+          },
+          "active_count": 0,
+          "pending_count": 0,
+          "standard_success_rate_pct": 40.0,
+          "random_success_rate_pct": 20.0,
+          "mean_success_rate_pct": 30.0,
+          "mean_success_rate_pct_rounded": 30.0,
+          "random_minus_standard_pp": -20.0,
+          "runtime_commit": "1fe37046809b3816d4c70a74c41abbe3bff3e243",
+          "supplement_commit": "7b9cec43b0ca38bdeea6c9f738a454c67c6f3938",
+          "first_pass_counts": {
+            "attempts_closed": 50,
+            "success": 13,
+            "failure": 34,
+            "unscored": 3,
+            "scored": 47,
+            "success_rate_scored": 0.2765957446808511,
+            "confirmed_success_fraction_closed": 0.26
+          },
+          "supplement_counts": {
+            "attempts_closed": 3,
+            "success": 2,
+            "failure": 1,
+            "unscored": 0,
+            "scored": 3,
+            "success_rate_scored": 0.6666666666666666,
+            "confirmed_success_fraction_closed": 0.6666666666666666
+          },
+          "all_attempt_counts": {
+            "attempts_closed": 53,
+            "success": 15,
+            "failure": 35,
+            "unscored": 3,
+            "scored": 50,
+            "success_rate_scored": 0.3,
+            "confirmed_success_fraction_closed": 0.2830188679245283
+          },
+          "all_attempt_costs": {
+            "steps": {
+              "known_count": 51,
+              "unknown_count": 2,
+              "known_sum": 65193,
+              "known_mean": 1278.2941176470588,
+              "partial_lower_bound_cases": 3
+            },
+            "wall_seconds": {
+              "known_count": 53,
+              "unknown_count": 0,
+              "known_sum": 98456.2874566135,
+              "known_mean": 1857.6658010681792
+            },
+            "input_tokens": {
+              "known_count": 50,
+              "unknown_count": 3,
+              "known_sum": 416784939,
+              "known_mean": 8335698.78
+            },
+            "cached_input_tokens": {
+              "known_count": 50,
+              "unknown_count": 3,
+              "known_sum": 407304960,
+              "known_mean": 8146099.2
+            },
+            "output_tokens": {
+              "known_count": 50,
+              "unknown_count": 3,
+              "known_sum": 1431930,
+              "known_mean": 28638.6
+            },
+            "reasoning_output_tokens": {
+              "known_count": 50,
+              "unknown_count": 3,
+              "known_sum": 734929,
+              "known_mean": 14698.58
+            },
+            "total_tokens": {
+              "known_count": 50,
+              "unknown_count": 3,
+              "known_sum": 418216869,
+              "known_mean": 8364337.38
+            },
+            "uncached_input_tokens": {
+              "known_count": 50,
+              "unknown_count": 3,
+              "known_sum": 9479979,
+              "known_mean": 189599.58
+            }
+          },
+          "scoring_scope": "50-scene coverage after missing-score-only supplements",
+          "protocol_sha256": "7878fb6540ec721f53e571e6925f0160c22f076b4ba93f1d8d0e64e2c58c5258",
+          "supplement_protocol_sha256": "65df9d1e95e61d47b7541a50e841f642a74e7f8258e40e6a3773037f07b72402"
+        }
+      },
+      "highest_mean_models": [
+        "VPP2"
+      ]
+    },
+    {
+      "task": "arrange_largest_number",
+      "name_zh": "排列最大数字",
+      "in_basic_suite": false,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 12.0,
+          "random_success_rate_pct": 32.0,
+          "mean_success_rate_pct": 22.0,
+          "mean_success_rate_pct_rounded": 22.0,
+          "random_minus_standard_pp": 20.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 4.0,
+          "random_success_rate_pct": 0.0,
+          "mean_success_rate_pct": 2.0,
+          "mean_success_rate_pct_rounded": 2.0,
+          "random_minus_standard_pp": -4.0
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 72.0,
+          "random_success_rate_pct": 52.0,
+          "mean_success_rate_pct": 62.0,
+          "mean_success_rate_pct_rounded": 62.0,
+          "random_minus_standard_pp": -20.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 80.0,
+          "random_success_rate_pct": 68.0,
+          "mean_success_rate_pct": 74.0,
+          "mean_success_rate_pct_rounded": 74.0,
+          "random_minus_standard_pp": -12.0
+        },
+        "LinkMind": {
+          "standard_success_rate_pct": null,
+          "random_success_rate_pct": null,
+          "mean_success_rate_pct": null,
+          "mean_success_rate_pct_rounded": null,
+          "random_minus_standard_pp": null,
+          "status": "ended_incomplete",
+          "status_label": "已结束·无评分",
+          "eligible_for_highlight": false,
+          "complete_current_task": false,
+          "candidate_commit": "7fa895e6df692877269246198b87202b1e834873",
+          "variants": {
+            "standard": {
+              "attempts_closed": 25,
+              "success": 0,
+              "failure": 0,
+              "unscored": 25,
+              "scored": 0,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "attempts_closed": 25,
+              "success": 0,
+              "failure": 0,
+              "unscored": 25,
+              "scored": 0,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "note": "本轮尝试已结束，其中 50 次因模型调用达到使用限额未取得原生评分。已关闭 50 次尝试：0 成功、0 失败、50 未评分；0 次进行中，0 个场景未启动。尚无完整任务成功率。",
+          "counts": {
+            "attempts_closed": 50,
+            "success": 0,
+            "failure": 0,
+            "unscored": 50,
+            "scored": 0
+          },
+          "active_count": 0,
+          "pending_count": 0,
+          "source_report": "work/v3-generalization/runs/v3-generalization-arrange_largest_number-20261029/status.json",
+          "source_report_sha256": "36a0247780c380db8f0fd28f7103cf0f57471bfa939f9140022486e56e941280",
+          "progress_as_of_utc": "2026-10-30T02:31:05.404547+00:00"
+        }
+      },
+      "highest_mean_models": [
+        "PyRUA_Lean"
+      ]
+    },
+    {
+      "task": "sort_nesting_dolls_by_size",
+      "name_zh": "按大小排列套娃",
+      "in_basic_suite": false,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 72.0,
+          "random_success_rate_pct": 32.0,
+          "mean_success_rate_pct": 52.0,
+          "mean_success_rate_pct_rounded": 52.0,
+          "random_minus_standard_pp": -40.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 34.67,
+          "random_success_rate_pct": 2.67,
+          "mean_success_rate_pct": 18.67,
+          "mean_success_rate_pct_rounded": 18.67,
+          "random_minus_standard_pp": -32.0
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 16.0,
+          "random_success_rate_pct": 0.0,
+          "mean_success_rate_pct": 8.0,
+          "mean_success_rate_pct_rounded": 8.0,
+          "random_minus_standard_pp": -16.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 84.0,
+          "random_success_rate_pct": 56.0,
+          "mean_success_rate_pct": 70.0,
+          "mean_success_rate_pct_rounded": 70.0,
+          "random_minus_standard_pp": -28.0
+        },
+        "LinkMind": {
+          "standard_success_rate_pct": null,
+          "random_success_rate_pct": null,
+          "mean_success_rate_pct": null,
+          "mean_success_rate_pct_rounded": null,
+          "random_minus_standard_pp": null,
+          "status": "ended_incomplete",
+          "status_label": "已结束·无评分",
+          "eligible_for_highlight": false,
+          "complete_current_task": false,
+          "candidate_commit": "7fa895e6df692877269246198b87202b1e834873",
+          "variants": {
+            "standard": {
+              "attempts_closed": 25,
+              "success": 0,
+              "failure": 0,
+              "unscored": 25,
+              "scored": 0,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "attempts_closed": 25,
+              "success": 0,
+              "failure": 0,
+              "unscored": 25,
+              "scored": 0,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "note": "本轮尝试已结束，其中 50 次因模型调用达到使用限额未取得原生评分。已关闭 50 次尝试：0 成功、0 失败、50 未评分；0 次进行中，0 个场景未启动。尚无完整任务成功率。",
+          "counts": {
+            "attempts_closed": 50,
+            "success": 0,
+            "failure": 0,
+            "unscored": 50,
+            "scored": 0
+          },
+          "active_count": 0,
+          "pending_count": 0,
+          "source_report": "work/v3-generalization/runs/v3-generalization-sort_nesting_dolls_by_size-20261029/status.json",
+          "source_report_sha256": "475d13c2bbc80d10cdd8352e2ff9301fd895d5ad81533746c18ead774d02afd6",
+          "progress_as_of_utc": "2026-10-30T02:31:05.404547+00:00"
+        }
+      },
+      "highest_mean_models": [
+        "PyRUA_Lean"
+      ]
+    },
+    {
+      "task": "store_laptop_and_headphones",
+      "name_zh": "收纳笔记本和耳机",
+      "in_basic_suite": false,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 0.0,
+          "random_success_rate_pct": 0.0,
+          "mean_success_rate_pct": 0.0,
+          "mean_success_rate_pct_rounded": 0.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 45.33,
+          "random_success_rate_pct": 20.0,
+          "mean_success_rate_pct": 32.665,
+          "mean_success_rate_pct_rounded": 32.67,
+          "random_minus_standard_pp": -25.33
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 32.0,
+          "random_success_rate_pct": 28.0,
+          "mean_success_rate_pct": 30.0,
+          "mean_success_rate_pct_rounded": 30.0,
+          "random_minus_standard_pp": -4.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 0.0,
+          "random_success_rate_pct": 0.0,
+          "mean_success_rate_pct": 0.0,
+          "mean_success_rate_pct_rounded": 0.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "LinkMind": {
+          "standard_success_rate_pct": null,
+          "random_success_rate_pct": null,
+          "mean_success_rate_pct": null,
+          "mean_success_rate_pct_rounded": null,
+          "random_minus_standard_pp": null,
+          "status": "ended_incomplete",
+          "status_label": "已结束·无评分",
+          "eligible_for_highlight": false,
+          "complete_current_task": false,
+          "candidate_commit": "7fa895e6df692877269246198b87202b1e834873",
+          "variants": {
+            "standard": {
+              "attempts_closed": 25,
+              "success": 0,
+              "failure": 0,
+              "unscored": 25,
+              "scored": 0,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "attempts_closed": 25,
+              "success": 0,
+              "failure": 0,
+              "unscored": 25,
+              "scored": 0,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "note": "本轮尝试已结束，其中 50 次因模型调用达到使用限额未取得原生评分。已关闭 50 次尝试：0 成功、0 失败、50 未评分；0 次进行中，0 个场景未启动。尚无完整任务成功率。",
+          "counts": {
+            "attempts_closed": 50,
+            "success": 0,
+            "failure": 0,
+            "unscored": 50,
+            "scored": 0
+          },
+          "active_count": 0,
+          "pending_count": 0,
+          "source_report": "work/v3-generalization/runs/v3-generalization-store_laptop_and_headphones-20261029/status.json",
+          "source_report_sha256": "5f3235d5bce95feff2a5b89dbdd2aedcd93950371b323442c8927a802fbee583",
+          "progress_as_of_utc": "2026-10-30T02:31:05.404547+00:00"
+        }
+      },
+      "highest_mean_models": [
+        "VPP2"
+      ]
+    },
+    {
+      "task": "stack_blocks",
+      "name_zh": "叠积木",
+      "in_basic_suite": false,
+      "models": {
+        "HexaShell-preview": {
+          "standard_success_rate_pct": 88.0,
+          "random_success_rate_pct": 88.0,
+          "mean_success_rate_pct": 88.0,
+          "mean_success_rate_pct_rounded": 88.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "VPP2": {
+          "standard_success_rate_pct": 86.67,
+          "random_success_rate_pct": 2.67,
+          "mean_success_rate_pct": 44.67,
+          "mean_success_rate_pct_rounded": 44.67,
+          "random_minus_standard_pp": -84.0
+        },
+        "WorldScape-R²SI": {
+          "standard_success_rate_pct": 84.0,
+          "random_success_rate_pct": 68.0,
+          "mean_success_rate_pct": 76.0,
+          "mean_success_rate_pct_rounded": 76.0,
+          "random_minus_standard_pp": -16.0
+        },
+        "PyRUA_Lean": {
+          "standard_success_rate_pct": 100.0,
+          "random_success_rate_pct": 100.0,
+          "mean_success_rate_pct": 100.0,
+          "mean_success_rate_pct_rounded": 100.0,
+          "random_minus_standard_pp": 0.0
+        },
+        "LinkMind": {
+          "standard_success_rate_pct": 92.0,
+          "random_success_rate_pct": 92.0,
+          "mean_success_rate_pct": 92.0,
+          "mean_success_rate_pct_rounded": 92.0,
+          "random_minus_standard_pp": 0.0,
+          "status": "completed",
+          "status_label": "已完成",
+          "eligible_for_highlight": true,
+          "complete_current_task": true,
+          "candidate_commit": "7fa895e6df692877269246198b87202b1e834873",
+          "variants": {
+            "standard": {
+              "success": 23,
+              "failure": 2,
+              "scored": 25,
+              "unscored": 0,
+              "planned": 25,
+              "active": 0
+            },
+            "random": {
+              "success": 23,
+              "failure": 2,
+              "scored": 25,
+              "unscored": 0,
+              "planned": 25,
+              "active": 0
+            }
+          },
+          "note": "当前扩展版 7fa895e，seed 1，每版布局 0–24，首轮 50/50 均有原生评分。",
+          "source_report": "work/v3-generalization/results/generalization-stack_blocks-first-pass-final-20261029.json",
+          "source_report_sha256": "294982ddd7d9cf807cfd0d903b2af8c9430dc7fb5249ce00a0434676845b4acc"
+        }
+      },
+      "highest_mean_models": [
+        "PyRUA_Lean"
+      ]
+    }
+  ],
+  "raw_task_records": {
+    "HexaShell-preview": {
+      "stack_bowls": {
+        "score": 92,
+        "successRate": 92
+      },
+      "stack_bowls_random": {
+        "score": 81.8,
+        "successRate": 80
+      },
+      "push_T": {
+        "score": 100,
+        "successRate": 100
+      },
+      "push_T_random": {
+        "score": 92,
+        "successRate": 92
+      },
+      "pack_objects_into_box": {
+        "score": 38.4,
+        "successRate": 20
+      },
+      "pack_objects_into_box_random": {
+        "score": 27.8,
+        "successRate": 12
+      },
+      "fold_clothes": {
+        "score": 64,
+        "successRate": 56
+      },
+      "fold_clothes_random": {
+        "score": 31.2,
+        "successRate": 24
+      },
+      "hang_mugs": {
+        "score": 22.4,
+        "successRate": 4
+      },
+      "hang_mugs_random": {
+        "score": 15.6,
+        "successRate": 4
+      },
+      "sweep_blocks": {
+        "score": 8,
+        "successRate": 8
+      },
+      "sweep_blocks_random": {
+        "score": 8,
+        "successRate": 8
+      },
+      "pour_liquid_into_cup": {
+        "score": 4,
+        "successRate": 4
+      },
+      "pour_liquid_into_cup_random": {
+        "score": 0,
+        "successRate": 0
+      },
+      "make_toast": {
+        "score": 3,
+        "successRate": 0
+      },
+      "make_toast_random": {
+        "score": 0,
+        "successRate": 0
+      },
+      "arrange_largest_number": {
+        "score": 17.8,
+        "successRate": 12
+      },
+      "arrange_largest_number_random": {
+        "score": 42.6,
+        "successRate": 32
+      },
+      "sort_nesting_dolls_by_size": {
+        "score": 72,
+        "successRate": 72
+      },
+      "sort_nesting_dolls_by_size_random": {
+        "score": 32,
+        "successRate": 32
+      },
+      "store_laptop_and_headphones": {
+        "score": 8,
+        "successRate": 0
+      },
+      "store_laptop_and_headphones_random": {
+        "score": 1.6,
+        "successRate": 0
+      },
+      "stack_blocks": {
+        "score": 89.8,
+        "successRate": 88
+      },
+      "stack_blocks_random": {
+        "score": 89.2,
+        "successRate": 88
+      }
+    },
+    "VPP2": {
+      "stack_bowls": {
+        "score": 91.87,
+        "successRate": 90.67
+      },
+      "stack_bowls_random": {
+        "score": 19.33,
+        "successRate": 5.33
+      },
+      "push_T": {
+        "score": 2.67,
+        "successRate": 2.67
+      },
+      "push_T_random": {
+        "score": 0,
+        "successRate": 0
+      },
+      "pack_objects_into_box": {
+        "score": 37.53,
+        "successRate": 10.67
+      },
+      "pack_objects_into_box_random": {
+        "score": 23.33,
+        "successRate": 2.67
+      },
+      "fold_clothes": {
+        "score": 77.6,
+        "successRate": 74.67
+      },
+      "fold_clothes_random": {
+        "score": 64,
+        "successRate": 61.33
+      },
+      "hang_mugs": {
+        "score": 74.2,
+        "successRate": 64
+      },
+      "hang_mugs_random": {
+        "score": 13.53,
+        "successRate": 0
+      },
+      "sweep_blocks": {
+        "score": 20,
+        "successRate": 20
+      },
+      "sweep_blocks_random": {
+        "score": 1.33,
+        "successRate": 1.33
+      },
+      "pour_liquid_into_cup": {
+        "score": 68,
+        "successRate": 68
+      },
+      "pour_liquid_into_cup_random": {
+        "score": 32,
+        "successRate": 32
+      },
+      "make_toast": {
+        "score": 62,
+        "successRate": 56
+      },
+      "make_toast_random": {
+        "score": 38,
+        "successRate": 22.67
+      },
+      "arrange_largest_number": {
+        "score": 11.67,
+        "successRate": 4
+      },
+      "arrange_largest_number_random": {
+        "score": 4.93,
+        "successRate": 0
+      },
+      "sort_nesting_dolls_by_size": {
+        "score": 34.67,
+        "successRate": 34.67
+      },
+      "sort_nesting_dolls_by_size_random": {
+        "score": 2.67,
+        "successRate": 2.67
+      },
+      "store_laptop_and_headphones": {
+        "score": 57.07,
+        "successRate": 45.33
+      },
+      "store_laptop_and_headphones_random": {
+        "score": 33.6,
+        "successRate": 20
+      },
+      "stack_blocks": {
+        "score": 88.47,
+        "successRate": 86.67
+      },
+      "stack_blocks_random": {
+        "score": 14.87,
+        "successRate": 2.67
+      }
+    },
+    "WorldScape-R²SI": {
+      "stack_bowls": {
+        "score": 79,
+        "successRate": 76
+      },
+      "stack_bowls_random": {
+        "score": 78.4,
+        "successRate": 76
+      },
+      "push_T": {
+        "score": 84,
+        "successRate": 84
+      },
+      "push_T_random": {
+        "score": 80,
+        "successRate": 80
+      },
+      "pack_objects_into_box": {
+        "score": 27.4,
+        "successRate": 0
+      },
+      "pack_objects_into_box_random": {
+        "score": 35.6,
+        "successRate": 8
+      },
+      "fold_clothes": {
+        "score": 68.8,
+        "successRate": 68
+      },
+      "fold_clothes_random": {
+        "score": 62.4,
+        "successRate": 56
+      },
+      "hang_mugs": {
+        "score": 6.4,
+        "successRate": 0
+      },
+      "hang_mugs_random": {
+        "score": 3.4,
+        "successRate": 0
+      },
+      "sweep_blocks": {
+        "score": 0,
+        "successRate": 0
+      },
+      "sweep_blocks_random": {
+        "score": 0,
+        "successRate": 0
+      },
+      "pour_liquid_into_cup": {
+        "score": 8,
+        "successRate": 8
+      },
+      "pour_liquid_into_cup_random": {
+        "score": 0,
+        "successRate": 0
+      },
+      "make_toast": {
+        "score": 50,
+        "successRate": 44
+      },
+      "make_toast_random": {
+        "score": 25,
+        "successRate": 8
+      },
+      "arrange_largest_number": {
+        "score": 77.4,
+        "successRate": 72
+      },
+      "arrange_largest_number_random": {
+        "score": 64.6,
+        "successRate": 52
+      },
+      "sort_nesting_dolls_by_size": {
+        "score": 16,
+        "successRate": 16
+      },
+      "sort_nesting_dolls_by_size_random": {
+        "score": 0,
+        "successRate": 0
+      },
+      "store_laptop_and_headphones": {
+        "score": 56,
+        "successRate": 32
+      },
+      "store_laptop_and_headphones_random": {
+        "score": 50.4,
+        "successRate": 28
+      },
+      "stack_blocks": {
+        "score": 86.4,
+        "successRate": 84
+      },
+      "stack_blocks_random": {
+        "score": 71.6,
+        "successRate": 68
+      }
+    },
+    "PyRUA_Lean": {
+      "stack_bowls": {
+        "score": 82.4,
+        "successRate": 80
+      },
+      "stack_bowls_random": {
+        "score": 65.4,
+        "successRate": 60
+      },
+      "push_T": {
+        "score": 80,
+        "successRate": 80
+      },
+      "push_T_random": {
+        "score": 92,
+        "successRate": 92
+      },
+      "pack_objects_into_box": {
+        "score": 52.8,
+        "successRate": 40
+      },
+      "pack_objects_into_box_random": {
+        "score": 39.2,
+        "successRate": 20
+      },
+      "fold_clothes": {
+        "score": 58.4,
+        "successRate": 52
+      },
+      "fold_clothes_random": {
+        "score": 60,
+        "successRate": 52
+      },
+      "hang_mugs": {
+        "score": 27,
+        "successRate": 4
+      },
+      "hang_mugs_random": {
+        "score": 28.4,
+        "successRate": 20
+      },
+      "sweep_blocks": {
+        "score": 4,
+        "successRate": 4
+      },
+      "sweep_blocks_random": {
+        "score": 8,
+        "successRate": 8
+      },
+      "pour_liquid_into_cup": {
+        "score": 4,
+        "successRate": 4
+      },
+      "pour_liquid_into_cup_random": {
+        "score": 4,
+        "successRate": 4
+      },
+      "make_toast": {
+        "score": 26,
+        "successRate": 16
+      },
+      "make_toast_random": {
+        "score": 17,
+        "successRate": 12
+      },
+      "arrange_largest_number": {
+        "score": 83.8,
+        "successRate": 80
+      },
+      "arrange_largest_number_random": {
+        "score": 76.4,
+        "successRate": 68
+      },
+      "sort_nesting_dolls_by_size": {
+        "score": 84,
+        "successRate": 84
+      },
+      "sort_nesting_dolls_by_size_random": {
+        "score": 56,
+        "successRate": 56
+      },
+      "store_laptop_and_headphones": {
+        "score": 3.2,
+        "successRate": 0
+      },
+      "store_laptop_and_headphones_random": {
+        "score": 6.4,
+        "successRate": 0
+      },
+      "stack_blocks": {
+        "score": 100,
+        "successRate": 100
+      },
+      "stack_blocks_random": {
+        "score": 100,
+        "successRate": 100
+      }
+    }
+  },
+  "aggregation": "Within each base task average standard and random equally; category averages all 12 base tasks equally.",
+  "notes": [
+    "Official category summaries are preserved separately from recomputation using displayed per-task percentages.",
+    "VPP2 is exactly the requested VPP2 entry, not VPP2_preview.",
+    "Small differences between category summaries and per-task recomputation can arise from published decimal rounding.",
+    "The rollout gallery is not used as the success-rate denominator.",
+    "These are public reported results; model training data, tool access, and inference budgets are not normalized by this comparison.",
+    "Incomplete tasks have null full-task success rates; native partial counts are retained separately.",
+    "LinkMind aggregates task-specific registered configurations, not one common frozen commit.",
+    "Missing outcomes are not failures or zero rates.",
+    "Only originally unscored scenarios are supplemented; original failed outcomes and all costs are retained.",
+    "Historical push_T 50/50 is superseded in the current column; its record remains in the previous snapshot."
+  ],
+  "comparison_cells": 120,
+  "public_scored_configuration_records": 96,
+  "local_completed_configuration_records": 13,
+  "local_historical_configuration_records": 0,
+  "local_method": {
+    "schema": "roborag.local-method-snapshot.v2",
+    "display_name": "LinkMind",
+    "snapshot_at_utc": "2026-11-06T16:29:07.094237+00:00",
+    "snapshot_at_local": "2026-11-07 00:29:07 CST",
+    "current_worktree": null,
+    "current_commit": null,
+    "selection_scope": "Latest registered full-suite outcomes per task; task-specific candidates and missing-only supplements recorded separately.",
+    "previous_snapshot": "results/linkmind-generalization-snapshot-20261030.json",
+    "complete_current_task_count": 6,
+    "historical_reference_task_count": 0,
+    "category_success_rate_pct": null,
+    "category_status": "incomplete",
+    "category_note": "完整类别均值留空；未评分、跳过和停止的配置不填零。",
+    "configuration_note": "LinkMind 列汇总各任务最新登记评测，使用按任务记录的配置与冻结提交，并非同一提交的一次全类别测试。fold 保留衣物测量；push_T 使用平面测量与专用IK检查；吐司、挂杯和扫块采用各自已验证的工具配置。只补原未评分场景，原失败、中断与全部尝试成本保留；开发小样本不混入。",
+    "status_counts": {
+      "stopped_incomplete": 1,
+      "skipped": 1,
+      "completed_parent_version": 1,
+      "ended_incomplete": 4,
+      "completed": 5
+    },
+    "snapshot_path": "results/linkmind-generalization-snapshot-20261107.json",
+    "snapshot_sha256": "c8946367744aa70cbecc3804afaf494c0d6ba4bbf72f334eef220bf03fc04899"
+  }
+}

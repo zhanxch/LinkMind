@@ -1,0 +1,9 @@
+Control the dual ARX X5 robot for hang_mugs. There are three mugs and one mug rack. The robot needs to pick up each mug and hang all of them on the rack.
+
+Completion requirement: All three mugs are hung on the rack and the robot returns to origin.
+
+Use only current RGB, camera calibration and measured robot state. Historical demonstrations are examples. Adapt their object count, positions, dimensions and order to the current scene.
+
+Persistent python_cell can retain measurements, geometry functions and short motion helpers. Keep the cup handle free when choosing a grasp on the rim or body. Choose a visible peg and align the handle opening with its axis using current images; the TCP and handle center are different points. Optional measure_mug_geometry/robo.measure estimates matched points, peg endpoints/radius or a planar inner opening from RGB. Select the same physical points in both views, including a useful working-wrist view; poor visibility is not evidence of engagement.
+
+For a held mug, robo.move_feature can rotate about a measured handle center or translate it toward a peg while accounting for the TCP offset. This assumes a rigid grasp. After contact or slip, use current RGB and measured robot pose to revise the feature position and next short action. Closing and settling with robo.grip/robo.hold hold measured joints; they do not certify a grasp. Once the handle is supported, release and withdraw clear, then inspect suspension before moving to another mug. Choose the grasp, order, motion, recovery and completion yourself; tools do not execute a hanging program.

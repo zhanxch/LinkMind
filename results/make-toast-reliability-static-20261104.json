@@ -1,0 +1,42 @@
+{
+  "base_commit": "173e1b43b39226ab3c38abfb3b57967852426e91",
+  "tests": {
+    "count": 115,
+    "passed": true,
+    "log": "/tmp/make-toast-reliability-all-tests-20261104.log",
+    "additional_adapter_test": {
+      "passed": true,
+      "targeted_suite_count": 6,
+      "log": "/tmp/make-toast-native-hold-tests-20261104.log",
+      "note": "Adds one real EpisodeAPI.run dispatch test after the full 115-test run; five targeted tests repeat existing coverage."
+    },
+    "distinct_tests_passed": 116
+  },
+  "other_task_prompts": {
+    "arrange_largest_number": true,
+    "fold_clothes": true,
+    "hang_mugs": true,
+    "pack_objects_into_box": true,
+    "pour_liquid_into_cup": true,
+    "sort_nesting_dolls_by_size": true,
+    "stack_blocks": true,
+    "stack_bowls": true,
+    "store_laptop_and_headphones": true,
+    "sweep_blocks": true
+  },
+  "untouched_shared_sources": {
+    "rag_execution.py": "b0acfcd0b54aef091bd6d6263f22a8e277c43581fa83936f3876a505128766ba",
+    "action_targets.py": "3a77e94663ec2ab66d81822bda6f14f0c8ec88bf71620e9a40e8d39a458a18ba",
+    "hexashell_adapter.py": "480e136d129a18e027708ea0312014519909672401bf305951f693448846e7e9",
+    "hexashell_agent.py": "5287846c2f075864fd6a80eba25e6f2068fd34bf6891f79aee7187d84a01732a",
+    "rag_tasks.py": "1b456d58efec377fdf1b1edaf9265dd69cba26618ceda3740d9f11038ae8743c",
+    "rag_accounting.py": "97394cc270ffe4563e7363bd42d104b447c28eef7b8d1f1107c7534ff2fb9be6",
+    "episode_batch.py": "9835a206a2ceb3efe14a49bc4ab5eb04052a7dfcda539ec83896dab0b4fb6b9e",
+    "graph_retrieval.py": "95af746a95244930cb1408a14ef13f8889a78a82612b0f43d9d5d31f099a61a4",
+    "sop_store.py": "a48ab3695a55cafa4583af2eb7af09f5320e7a4ecf05bad5aa2f39484dfa5806",
+    "mcp/motion.py": "525c9dd7ee186d030ff94e36375d48d8405ab099d5298c8802d394a6e7ac83af",
+    "mcp/session.py": "f4054ed25c0c63a31a8617464a561412cc98b0806bc57b099d2096021e3861f2",
+    "mcp/evidence.py": "52d673689034a377eec8b56afade069a5378721fb7ea7c31f78c0c745cfef684"
+  },
+  "native_outcomes": "not_run_yet"
+}

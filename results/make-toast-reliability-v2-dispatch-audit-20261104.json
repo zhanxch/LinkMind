@@ -1,0 +1,604 @@
+{
+  "checked_at": "2026-11-04T08:50:23.633267+00:00",
+  "candidate_commit": "99ed5582f3e21da357dcd9fa9a91207d60801b3b",
+  "rows": [
+    {
+      "case": "seed1-random-l0",
+      "command_count": 56,
+      "verified_through_step": 871,
+      "joint_holds": [
+        {
+          "start": 90,
+          "end": 98,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 5.820766091346741e-11,
+            "right": 2.1457672119140625e-06
+          }
+        },
+        {
+          "start": 116,
+          "end": 126,
+          "steps": 10,
+          "joint_tracking_error_rad": {
+            "left": 5.820766091346741e-11,
+            "right": 0.0039910078048706055
+          }
+        },
+        {
+          "start": 246,
+          "end": 258,
+          "steps": 12,
+          "joint_tracking_error_rad": {
+            "left": 4.889443516731262e-09,
+            "right": 3.337860107421875e-06
+          }
+        },
+        {
+          "start": 402,
+          "end": 408,
+          "steps": 6,
+          "joint_tracking_error_rad": {
+            "left": 3.979039320256561e-13,
+            "right": 7.62939453125e-06
+          }
+        },
+        {
+          "start": 428,
+          "end": 438,
+          "steps": 10,
+          "joint_tracking_error_rad": {
+            "left": 4.263256414560601e-13,
+            "right": 0.004857301712036133
+          }
+        },
+        {
+          "start": 573,
+          "end": 587,
+          "steps": 14,
+          "joint_tracking_error_rad": {
+            "left": 3.979039320256561e-13,
+            "right": 3.814697265625e-06
+          }
+        },
+        {
+          "start": 627,
+          "end": 633,
+          "steps": 6,
+          "joint_tracking_error_rad": {
+            "left": 3.943512183468556e-13,
+            "right": 6.9141387939453125e-06
+          }
+        },
+        {
+          "start": 651,
+          "end": 661,
+          "steps": 10,
+          "joint_tracking_error_rad": {
+            "left": 3.907985046680551e-13,
+            "right": 4.291534423828125e-06
+          }
+        },
+        {
+          "start": 791,
+          "end": 797,
+          "steps": 6,
+          "joint_tracking_error_rad": {
+            "left": 3.7481129311345285e-13,
+            "right": 2.1457672119140625e-06
+          }
+        },
+        {
+          "start": 815,
+          "end": 825,
+          "steps": 10,
+          "joint_tracking_error_rad": {
+            "left": 4.076738946423575e-13,
+            "right": 0.001561276614665985
+          }
+        }
+      ],
+      "delta_steps": 779,
+      "rejections": [
+        {
+          "start": 0,
+          "end": 19,
+          "executed_rows": 19,
+          "discarded_rows": 5
+        },
+        {
+          "start": 43,
+          "end": 60,
+          "executed_rows": 17,
+          "discarded_rows": 3
+        },
+        {
+          "start": 126,
+          "end": 142,
+          "executed_rows": 16,
+          "discarded_rows": 6
+        },
+        {
+          "start": 142,
+          "end": 142,
+          "executed_rows": 0,
+          "discarded_rows": 24
+        },
+        {
+          "start": 166,
+          "end": 187,
+          "executed_rows": 21,
+          "discarded_rows": 3
+        },
+        {
+          "start": 235,
+          "end": 245,
+          "executed_rows": 10,
+          "discarded_rows": 10
+        },
+        {
+          "start": 245,
+          "end": 246,
+          "executed_rows": 1,
+          "discarded_rows": 23
+        },
+        {
+          "start": 258,
+          "end": 258,
+          "executed_rows": 0,
+          "discarded_rows": 24
+        },
+        {
+          "start": 278,
+          "end": 287,
+          "executed_rows": 9,
+          "discarded_rows": 15
+        },
+        {
+          "start": 287,
+          "end": 299,
+          "executed_rows": 12,
+          "discarded_rows": 8
+        },
+        {
+          "start": 341,
+          "end": 362,
+          "executed_rows": 21,
+          "discarded_rows": 3
+        },
+        {
+          "start": 362,
+          "end": 371,
+          "executed_rows": 9,
+          "discarded_rows": 15
+        },
+        {
+          "start": 389,
+          "end": 402,
+          "executed_rows": 13,
+          "discarded_rows": 7
+        },
+        {
+          "start": 438,
+          "end": 454,
+          "executed_rows": 16,
+          "discarded_rows": 2
+        },
+        {
+          "start": 502,
+          "end": 513,
+          "executed_rows": 11,
+          "discarded_rows": 13
+        }
+      ]
+    },
+    {
+      "case": "seed1-standard-l0",
+      "command_count": 49,
+      "verified_through_step": 884,
+      "joint_holds": [
+        {
+          "start": 80,
+          "end": 88,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 9.5367431640625e-07,
+            "right": 5.820766091346741e-11
+          }
+        },
+        {
+          "start": 106,
+          "end": 116,
+          "steps": 10,
+          "joint_tracking_error_rad": {
+            "left": 0.003354668617248535,
+            "right": 5.820766091346741e-11
+          }
+        },
+        {
+          "start": 308,
+          "end": 320,
+          "steps": 12,
+          "joint_tracking_error_rad": {
+            "left": 1.7881393432617188e-06,
+            "right": 2.1457672119140625e-06
+          }
+        },
+        {
+          "start": 388,
+          "end": 396,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 3.337860107421875e-06,
+            "right": 7.958078640513122e-13
+          }
+        },
+        {
+          "start": 416,
+          "end": 426,
+          "steps": 10,
+          "joint_tracking_error_rad": {
+            "left": 0.0016002655029296875,
+            "right": 7.958078640513122e-13
+          }
+        },
+        {
+          "start": 542,
+          "end": 554,
+          "steps": 12,
+          "joint_tracking_error_rad": {
+            "left": 2.384185791015625e-06,
+            "right": 1.3869794202037156e-11
+          }
+        },
+        {
+          "start": 598,
+          "end": 606,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 4.0531158447265625e-06,
+            "right": 5.513429641723633e-07
+          }
+        },
+        {
+          "start": 719,
+          "end": 727,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 5.093170329928398e-11,
+            "right": 1.9073486328125e-06
+          }
+        },
+        {
+          "start": 776,
+          "end": 784,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 2.062373015421226e-11,
+            "right": 5.371552606360519e-09
+          }
+        }
+      ],
+      "delta_steps": 751,
+      "rejections": [
+        {
+          "start": 0,
+          "end": 22,
+          "executed_rows": 22,
+          "discarded_rows": 2
+        },
+        {
+          "start": 340,
+          "end": 340,
+          "executed_rows": 0,
+          "discarded_rows": 24
+        },
+        {
+          "start": 676,
+          "end": 679,
+          "executed_rows": 3,
+          "discarded_rows": 13
+        },
+        {
+          "start": 808,
+          "end": 828,
+          "executed_rows": 20,
+          "discarded_rows": 4
+        }
+      ]
+    },
+    {
+      "case": "seed1-standard-l1",
+      "command_count": 87,
+      "verified_through_step": 1400,
+      "joint_holds": [
+        {
+          "start": 80,
+          "end": 88,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 5.820766091346741e-11,
+            "right": 2.6226043701171875e-06
+          }
+        },
+        {
+          "start": 102,
+          "end": 112,
+          "steps": 10,
+          "joint_tracking_error_rad": {
+            "left": 5.820766091346741e-11,
+            "right": 0.0028939247131347656
+          }
+        },
+        {
+          "start": 256,
+          "end": 264,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 2.1827872842550278e-10,
+            "right": 5.0067901611328125e-06
+          }
+        },
+        {
+          "start": 288,
+          "end": 304,
+          "steps": 16,
+          "joint_tracking_error_rad": {
+            "left": 3.872457909892546e-13,
+            "right": 2.5033950805664062e-06
+          }
+        },
+        {
+          "start": 424,
+          "end": 432,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 4.050093593832571e-13,
+            "right": 1.9669532775878906e-06
+          }
+        },
+        {
+          "start": 456,
+          "end": 464,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 3.9035441545820504e-13,
+            "right": 0.0004532337188720703
+          }
+        },
+        {
+          "start": 498,
+          "end": 508,
+          "steps": 10,
+          "joint_tracking_error_rad": {
+            "left": 3.9612757518625585e-13,
+            "right": 0.0006170570850372314
+          }
+        },
+        {
+          "start": 552,
+          "end": 560,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 4.1744385725905886e-13,
+            "right": 5.4836273193359375e-06
+          }
+        },
+        {
+          "start": 620,
+          "end": 628,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 3.836930773104541e-13,
+            "right": 0.00025416910648345947
+          }
+        },
+        {
+          "start": 666,
+          "end": 674,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 3.89910326248355e-13,
+            "right": 2.7418136596679688e-06
+          }
+        },
+        {
+          "start": 802,
+          "end": 810,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 5.9604644775390625e-06,
+            "right": 0.0
+          }
+        },
+        {
+          "start": 914,
+          "end": 924,
+          "steps": 10,
+          "joint_tracking_error_rad": {
+            "left": 0.0,
+            "right": 2.086162567138672e-06
+          }
+        },
+        {
+          "start": 944,
+          "end": 952,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 0.0,
+            "right": 3.337860107421875e-06
+          }
+        },
+        {
+          "start": 988,
+          "end": 996,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 0.0,
+            "right": 3.6954879760742188e-06
+          }
+        },
+        {
+          "start": 1106,
+          "end": 1114,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 0.0,
+            "right": 4.0531158447265625e-06
+          }
+        },
+        {
+          "start": 1144,
+          "end": 1152,
+          "steps": 8,
+          "joint_tracking_error_rad": {
+            "left": 0.0,
+            "right": 0.0011153221130371094
+          }
+        },
+        {
+          "start": 1294,
+          "end": 1298,
+          "steps": 4,
+          "joint_tracking_error_rad": {
+            "left": 1.8189894035458565e-11,
+            "right": 3.4570693969726562e-06
+          }
+        },
+        {
+          "start": 1308,
+          "end": 1314,
+          "steps": 6,
+          "joint_tracking_error_rad": {
+            "left": 8.731149137020111e-11,
+            "right": 7.152557373046875e-06
+          }
+        },
+        {
+          "start": 1326,
+          "end": 1330,
+          "steps": 4,
+          "joint_tracking_error_rad": {
+            "left": 8.731149137020111e-11,
+            "right": 3.814697265625e-06
+          }
+        },
+        {
+          "start": 1381,
+          "end": 1400,
+          "steps": 19,
+          "joint_tracking_error_rad": {
+            "left": 2.015263129984124e-11,
+            "right": 1.978382041523119e-11
+          }
+        }
+      ],
+      "delta_steps": 1117,
+      "rejections": [
+        {
+          "start": 0,
+          "end": 22,
+          "executed_rows": 22,
+          "discarded_rows": 2
+        },
+        {
+          "start": 22,
+          "end": 38,
+          "executed_rows": 16,
+          "discarded_rows": 8
+        },
+        {
+          "start": 154,
+          "end": 164,
+          "executed_rows": 10,
+          "discarded_rows": 14
+        },
+        {
+          "start": 188,
+          "end": 196,
+          "executed_rows": 8,
+          "discarded_rows": 12
+        },
+        {
+          "start": 328,
+          "end": 328,
+          "executed_rows": 0,
+          "discarded_rows": 24
+        },
+        {
+          "start": 352,
+          "end": 371,
+          "executed_rows": 19,
+          "discarded_rows": 5
+        },
+        {
+          "start": 464,
+          "end": 480,
+          "executed_rows": 16,
+          "discarded_rows": 4
+        },
+        {
+          "start": 674,
+          "end": 687,
+          "executed_rows": 13,
+          "discarded_rows": 11
+        },
+        {
+          "start": 687,
+          "end": 694,
+          "executed_rows": 7,
+          "discarded_rows": 17
+        },
+        {
+          "start": 694,
+          "end": 694,
+          "executed_rows": 0,
+          "discarded_rows": 24
+        },
+        {
+          "start": 822,
+          "end": 832,
+          "executed_rows": 10,
+          "discarded_rows": 14
+        },
+        {
+          "start": 832,
+          "end": 836,
+          "executed_rows": 4,
+          "discarded_rows": 20
+        },
+        {
+          "start": 836,
+          "end": 846,
+          "executed_rows": 10,
+          "discarded_rows": 14
+        },
+        {
+          "start": 1020,
+          "end": 1038,
+          "executed_rows": 18,
+          "discarded_rows": 6
+        },
+        {
+          "start": 1239,
+          "end": 1240,
+          "executed_rows": 1,
+          "discarded_rows": 23
+        },
+        {
+          "start": 1240,
+          "end": 1252,
+          "executed_rows": 12,
+          "discarded_rows": 12
+        },
+        {
+          "start": 1252,
+          "end": 1252,
+          "executed_rows": 0,
+          "discarded_rows": 24
+        }
+      ]
+    }
+  ],
+  "note": "Completed command prefix only. Exact action-log validation of both measured joints, preserved inactive gripper, no Cartesian IK for holds, and accepted/rejected IK counts; not task success."
+}

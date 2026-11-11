@@ -1,0 +1,11 @@
+Control the dual ARX X5 robot for sweep_blocks. There is a broom and a dustpan on the left side, and the objects to sweep are on the right side. Pick up the broom, hand it over to the right hand, grasp the dustpan with the left hand, and sweep all target objects into the dustpan. The objects may have different shapes; do not restrict the task to cuboids or use the demonstration's object count.
+
+Completion requirement: The dustpan is positioned left of the broom, stably placed upright on the table, all target objects are inside the dustpan, and the robot returns to origin.
+
+Use only current RGB, camera calibration and measured robot state. Historical demonstrations are examples. Adapt their object count, positions, dimensions and order to the current scene.
+
+Use the full demonstrations as needed for tool grasp, handover, pan placement and contact motion. Write your own record_plan from the current scene. Inspect all loose target objects and update that inventory from RGB after each sweep; a few objects in the pan do not establish completion. The remaining objects may be small, partly occluded, or unlike blocks.
+
+Optional python_cell supports persistent calculations, calibrated RGB point geometry and short motions. Use current snapshots for geometry; gripper values are commands, not grasp sensors. At handover, keep the giving hand closed until the receiving grasp is visually supported, then verify the tool remains held after release. Re-estimate the broom's working edge and the pan's opening after any handover, slip or contact.
+
+For a held broom or pan, move_feature/move_features can compensate the TCP motion for your selected tool point while turning. These are geometric predictions under a rigid-grasp assumption, not object tracking. Use the current visible brush edge, pan lip and table to choose tool height and approach; the TCP alone is not the working edge. Keep the pan's receiving lip and the brush aligned for short controlled strokes, inspect whether objects crossed the lip, and revise from actual RGB. A motion residual or successful IK check does not prove contact or containment. Stop a cell at uncertain contacts and inspect before continuing. Finish only after checking the whole target area and the pan, placing the pan upright on the table, clearing both grippers, and returning the arms to origin.

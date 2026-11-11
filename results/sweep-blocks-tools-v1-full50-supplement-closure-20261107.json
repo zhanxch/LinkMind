@@ -1,0 +1,223 @@
+{
+  "checked_at": "2026-11-06T16:07:59.997880+00:00",
+  "complete": true,
+  "tag": "sweep-blocks-tools-v1-full50-supplement-20261106",
+  "root": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools",
+  "candidate_commit": "5cae5770d687f601a4abdbfa1911d785f69fc4cb",
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/experiments/sweep_blocks/full50-unscored-supplement-20261106.json",
+  "protocol_sha256": "dd87e3f92236836f999115509309b992821e78dd449e85bf8e6d768b72c55b64",
+  "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/results/sweep-blocks-tools-v1-full50-supplement-20261106.json",
+  "report_sha256": "0f32d2efe8c9d5b611ea8ec44544fe3090dbe466ae3912259dffe2752cdbf176",
+  "freeze_sha256": "e8b684da12719ec5db492935a187c4c82ae76a8d0002c8bff55ab8c1c2bf07b5",
+  "driver_sha256": "a154c132db24024fd4af0db268dc8f9b5c3c74fa612b2e6956b7485765a8534f",
+  "frozen_sources_verified": 256,
+  "baseline_native_reports_preserved": 4,
+  "registered_pids": [
+    1706124,
+    1706132,
+    1706139,
+    1706141,
+    1706540,
+    1706677,
+    1706678,
+    1706728,
+    1706811,
+    1706812,
+    1706813,
+    1706814,
+    1706887,
+    1706889,
+    1707306,
+    1707389,
+    1707546,
+    1707553,
+    1707598,
+    1707675,
+    1707676,
+    1707677,
+    1707679,
+    1707879,
+    1707881,
+    1707882,
+    1707968,
+    1708339,
+    1708341,
+    1708343
+  ],
+  "registered_process_identities": 28,
+  "policy_workspaces_checked": [
+    "/tmp/roborag-mcp-n4gu98c7",
+    "/tmp/roborag-mcp-473jbmrf"
+  ],
+  "reused_pid_numbers": [],
+  "live_related_processes": [],
+  "rows": [
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 16,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 776,
+      "steps_complete": true,
+      "wall_seconds": 1362.6574915871024,
+      "usage": {
+        "input_tokens": 6239810,
+        "cached_input_tokens": 6098048,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 20201,
+        "reasoning_output_tokens": 8626
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-supplement-20261106/seed1-standard-l16/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l16/_result.json",
+      "native_sha256": "2ed2c1d65535064cc242e519fd876d834920106809190ee89a7305170edb84ae",
+      "independent_action_rows_verified": 776,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-supplement-20261106/seed1-standard-l16/ik-continuity.jsonl",
+        "journal_sha256": "087927d2a37035d5ea91eafa9ee3623f56c04dc872a4132ec2f6b7c9829de970",
+        "accepted_delta_rows": 726,
+        "rejected_attempts": 0,
+        "rejected_receipts_verified": 0,
+        "violation_counts": {}
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 7,
+        "python_cell_start": 13,
+        "python_cell": 13,
+        "record_plan": 1,
+        "execute_chunk": 53
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 13,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 21,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "wall_seconds": 1855.6050699159969,
+      "usage": {
+        "input_tokens": 7947136,
+        "cached_input_tokens": 7815168,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 25363,
+        "reasoning_output_tokens": 13349
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-supplement-20261106/seed1-random-l21/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l21/_result.json",
+      "native_sha256": "379cd7f333d36605593341bb4f78c5cbfa60a5bff80d7578556e0554d597f506",
+      "independent_action_rows_verified": 1000,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-full50-supplement-20261106/seed1-random-l21/ik-continuity.jsonl",
+        "journal_sha256": "60bf46496851de65337996ecfab8aef0849b733edc8f26aca2f734196283a855",
+        "accepted_delta_rows": 969,
+        "rejected_attempts": 3,
+        "rejected_receipts_verified": 3,
+        "violation_counts": {
+          "joint_target_jump": 3
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 5,
+        "python_cell_start": 15,
+        "python_cell": 15,
+        "record_plan": 1,
+        "execute_chunk": 72
+      },
+      "joint_hold_calls": 0,
+      "joint_hold_steps": 0,
+      "completed_cells": 15,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 0,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 0,
+        "calls": [],
+        "incomplete_cell_starts": 0,
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 0,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes."
+    }
+  ],
+  "counts": {
+    "attempts_closed": 2,
+    "success": 1,
+    "failure": 1,
+    "unscored": 0,
+    "scored": 2,
+    "success_rate_scored": 0.5,
+    "confirmed_success_fraction_closed": 0.5
+  },
+  "costs": {
+    "steps": {
+      "known_count": 2,
+      "unknown_count": 0,
+      "known_sum": 1776,
+      "known_mean": 888,
+      "partial_lower_bound_cases": 0
+    },
+    "wall_seconds": {
+      "known_count": 2,
+      "unknown_count": 0,
+      "known_sum": 3218.2625615030993,
+      "known_mean": 1609.1312807515496
+    },
+    "input_tokens": {
+      "known_count": 2,
+      "unknown_count": 0,
+      "known_sum": 14186946,
+      "known_mean": 7093473
+    },
+    "cached_input_tokens": {
+      "known_count": 2,
+      "unknown_count": 0,
+      "known_sum": 13913216,
+      "known_mean": 6956608
+    },
+    "output_tokens": {
+      "known_count": 2,
+      "unknown_count": 0,
+      "known_sum": 45564,
+      "known_mean": 22782
+    },
+    "reasoning_output_tokens": {
+      "known_count": 2,
+      "unknown_count": 0,
+      "known_sum": 21975,
+      "known_mean": 10987.5
+    },
+    "total_tokens": {
+      "known_count": 2,
+      "unknown_count": 0,
+      "known_sum": 14232510,
+      "known_mean": 7116255
+    },
+    "uncached_input_tokens": {
+      "known_count": 2,
+      "unknown_count": 0,
+      "known_sum": 273730,
+      "known_mean": 136865
+    }
+  },
+  "batch_wall_seconds": 1902.051139469957,
+  "actual_billed_usd": null,
+  "interpretation": "Explicitly authorized supplement after both original full50 batches closed. Runtime, prompts, original TRAIN, model, effort, controller, native guard and per-episode budgets match the parent first pass. This fills missing outcomes only; original attempts, failures, interruptions and costs remain intact. No heldout, cross-seed or single-component causal claim."
+}

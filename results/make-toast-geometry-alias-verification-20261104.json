@@ -1,0 +1,65 @@
+{
+  "checked_at": "2026-11-04T09:44:31.662586+00:00",
+  "base_commit": "261b2ed1eff24f2819fb288a8a34d1e9c2a45b63",
+  "change": "Add three pure-function aliases under robo and explain both supported spellings; preserve global functions",
+  "tests": {
+    "count": 117,
+    "passed": true,
+    "log": "/tmp/make-toast-cells-audit-20261104/final-alias-tests-20261104.log",
+    "log_sha256": "d388f9414711db2d78a4de2d86a7d48a55fddab68db93a797c99c3a66af4d4b0",
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 117 tests in 2.971s",
+      "",
+      "OK"
+    ]
+  },
+  "worker_ast_identical_after_removing_three_alias_assignments": true,
+  "tool_server_ast_identical_excluding_python_cell_docstring": true,
+  "assembled_toast_prompt_sha256": "05f5591caaaa581f8a69d110bb3e18877a55a15d97dfc49a069434078da55a64",
+  "previous_freezes": [
+    {
+      "tag": "make-toast-reliability-v2-dev-20261104",
+      "unchanged_sources": 230,
+      "post_run_changes": [
+        {
+          "path": "src/roborag/mcp/python_cells.py",
+          "frozen_sha256": "3c5211596558996e64b742a492dc91b03f419158517655af6db5c7b4763d839e",
+          "current_sha256": "602f2a80b029fcacd3ad3c2b89d2a567633422c2e0365500ee9df94b07ec2835",
+          "frozen_content_preserved_in_commit": "261b2ed1eff24f2819fb288a8a34d1e9c2a45b63"
+        },
+        {
+          "path": "src/roborag/mcp/python_worker.py",
+          "frozen_sha256": "d3401d7d04086df88273181561bfac016c1bad97e94c59e0a35e7ee020bbb4ec",
+          "current_sha256": "9dd10c2d377d74b4421d97be3b2037317580d9ed3b8438032a8f1e6b0ca7eb96",
+          "frozen_content_preserved_in_commit": "261b2ed1eff24f2819fb288a8a34d1e9c2a45b63"
+        }
+      ]
+    },
+    {
+      "tag": "make-toast-reliability-v2-random-supplement-20261104",
+      "unchanged_sources": 229,
+      "post_run_changes": [
+        {
+          "path": "src/roborag/mcp/python_cells.py",
+          "frozen_sha256": "3c5211596558996e64b742a492dc91b03f419158517655af6db5c7b4763d839e",
+          "current_sha256": "602f2a80b029fcacd3ad3c2b89d2a567633422c2e0365500ee9df94b07ec2835",
+          "frozen_content_preserved_in_commit": "261b2ed1eff24f2819fb288a8a34d1e9c2a45b63"
+        },
+        {
+          "path": "src/roborag/mcp/python_worker.py",
+          "frozen_sha256": "d3401d7d04086df88273181561bfac016c1bad97e94c59e0a35e7ee020bbb4ec",
+          "current_sha256": "9dd10c2d377d74b4421d97be3b2037317580d9ed3b8438032a8f1e6b0ca7eb96",
+          "frozen_content_preserved_in_commit": "261b2ed1eff24f2819fb288a8a34d1e9c2a45b63"
+        }
+      ]
+    }
+  ],
+  "scope": "Applied only after both native batches completed and processes exited. Native outcomes remain attributed to their recorded commits; final alias compatibility verified by real sandbox/MCP tests, not a new native episode.",
+  "current_source_sha256": {
+    "src/roborag/mcp/python_worker.py": "9dd10c2d377d74b4421d97be3b2037317580d9ed3b8438032a8f1e6b0ca7eb96",
+    "src/roborag/mcp/python_cells.py": "602f2a80b029fcacd3ad3c2b89d2a567633422c2e0365500ee9df94b07ec2835",
+    "tests/test_python_cells.py": "f9b4b11a4d6ea45e7ebfbd4af0bb3abe2f0b650d70b973bed2fa5e929cca1892"
+  }
+}

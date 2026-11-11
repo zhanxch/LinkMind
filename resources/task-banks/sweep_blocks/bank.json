@@ -1,0 +1,59 @@
+{
+  "schema": "roborag.graph-bank.v1",
+  "name": "RoboRAG · 交互经验图库",
+  "updated_at": "2026-10-28T17:21:12.340396+00:00",
+  "graphs": [
+    {
+      "id": "sweep_blocks-0000",
+      "task": "sweep_blocks",
+      "task_name": "sweep_blocks",
+      "title": "左手交接扫帚后持簸箕，配合右手分次扫入方块",
+      "summary": "左手拾起扫帚交给右手，再抓取簸箕放到方块左侧；右手分次向簸箕扫拢方块，最后放下工具并退回。青色、绿色方块入箕可见，黄色方块是否完全入箕因遮挡不确定；阶段边界为估计值。",
+      "episode": 0,
+      "instruction": "Pick up the broom, hand it over to the right hand, then use the dustpan to sweep the blocks.",
+      "phase_count": 10,
+      "node_count": 40,
+      "edge_count": 39,
+      "frames": 702,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "sweep_blocks-0001",
+      "task": "sweep_blocks",
+      "task_name": "sweep_blocks",
+      "title": "左手递帚并持簸箕，右手分批扫入方块",
+      "summary": "左手先拾起扫帚并交给右手，再抓住簸箕移到方块旁。右手分批扫入彩色和白色方块，随后整理簸口、放下工具并收回双臂；阶段边界为估计。",
+      "episode": 1,
+      "instruction": "Pick up the broom, hand it over to the right hand, then use the dustpan to sweep the blocks.",
+      "phase_count": 9,
+      "node_count": 36,
+      "edge_count": 35,
+      "frames": 985,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "sweep_blocks-0002",
+      "task": "sweep_blocks",
+      "task_name": "sweep_blocks",
+      "title": "左手递交扫帚后持簸箕，右手分批扫入方块",
+      "summary": "左手拾起扫帚交给右手，再将簸箕移到方块旁；右手多次从外侧向簸箕入口扫入方块，最后放下工具并撤回双臂。阶段边界为估计值。",
+      "episode": 2,
+      "instruction": "Pick up the broom, hand it over to the right hand, then use the dustpan to sweep the blocks.",
+      "phase_count": 9,
+      "node_count": 36,
+      "edge_count": 35,
+      "frames": 1063,
+      "frequency": 25.0,
+      "preview_frame": 0
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "phases": 28,
+    "nodes": 112,
+    "edges": 109,
+    "tasks": 1
+  }
+}

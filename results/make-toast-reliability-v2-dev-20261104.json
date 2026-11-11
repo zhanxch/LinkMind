@@ -1,0 +1,118 @@
+{
+  "complete": true,
+  "generated_at": "2026-11-04T08:48:57.948017+00:00",
+  "tag": "make-toast-reliability-v2-dev-20261104",
+  "candidate_commit": "99ed5582f3e21da357dcd9fa9a91207d60801b3b",
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/experiments/make_toast/reliability-v2-development-20261104.json",
+  "protocol_sha256": "c60de260157a56d7c5130e4c88ccbcc0d718c7d659630b24bae3e0f949c2e1f4",
+  "frozen_sources_checked": 232,
+  "counts": {
+    "failure": 1,
+    "success": 1,
+    "unscored": 1
+  },
+  "rows": [
+    {
+      "variant": "standard",
+      "layout": 1,
+      "seed": 1,
+      "path": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1",
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "python_cell_start": 77,
+        "python_cell": 77,
+        "read_action_reference": 2,
+        "record_plan": 3,
+        "execute_chunk": 67,
+        "hold_joints": 20
+      },
+      "cell_count": 77,
+      "cell_action_steps": 1400,
+      "cell_errors": 4,
+      "outcome": "failure",
+      "score": 0.0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+      "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a",
+      "steps": 1400,
+      "wall_seconds": 2067.845131949056,
+      "usage": {
+        "input_tokens": 9061851,
+        "cached_input_tokens": 8861952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 31172,
+        "reasoning_output_tokens": 17084
+      },
+      "joint_hold_steps": 175,
+      "native_ik_accepted_rows": 1117,
+      "native_ik_rejected_rows": 17
+    },
+    {
+      "variant": "standard",
+      "layout": 0,
+      "seed": 1,
+      "path": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l0",
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 4,
+        "python_cell_start": 44,
+        "python_cell": 44,
+        "record_plan": 1,
+        "execute_chunk": 40,
+        "hold_joints": 9
+      },
+      "cell_count": 44,
+      "cell_action_steps": 884,
+      "cell_errors": 4,
+      "outcome": "success",
+      "score": 100.0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l0/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+      "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6",
+      "steps": 884,
+      "wall_seconds": 1326.203130704118,
+      "usage": {
+        "input_tokens": 3869975,
+        "cached_input_tokens": 3677824,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 16841,
+        "reasoning_output_tokens": 8491
+      },
+      "joint_hold_steps": 84,
+      "native_ik_accepted_rows": 751,
+      "native_ik_rejected_rows": 4
+    },
+    {
+      "variant": "random",
+      "layout": 0,
+      "seed": 1,
+      "path": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-random-l0",
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "python_cell_start": 69,
+        "python_cell": 69,
+        "read_action_reference": 2,
+        "record_plan": 2,
+        "execute_chunk": 46,
+        "hold_joints": 10
+      },
+      "cell_count": 69,
+      "cell_action_steps": 871,
+      "cell_errors": 4,
+      "outcome": "unscored",
+      "exit": {
+        "complete": false,
+        "error": "RuntimeError",
+        "detail": "Persistent Codex agent failed; see agent-events.jsonl and agent-stderr.log",
+        "wall_seconds": 3751.6619779728353
+      },
+      "joint_hold_steps": 92,
+      "native_ik_accepted_rows": 779,
+      "native_ik_rejected_rows": 15
+    }
+  ],
+  "batch_wall_seconds": 3810.6425774930976,
+  "actual_billed_usd": null,
+  "interpretation": "Previously analysed development scenes; no held-out generalization, statistical or single-component causal claim. Unscored attempts remain separate."
+}

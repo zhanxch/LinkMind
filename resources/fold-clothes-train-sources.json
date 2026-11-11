@@ -1,0 +1,31 @@
+{
+  "task": "fold_clothes",
+  "repository": "RoboDojo-Benchmark/RoboDojo",
+  "revision": "269457a3b42d8d0ae69898a601f2c1487c2f826e",
+  "records": [
+    {
+      "episode": 0,
+      "path": "runtime-data/fold_clothes/train/episode_0000000.hdf5",
+      "sha256": "5a1fbba99a9f13900ec4439ba503674627335e28aeba6840223beb3e17cc93ac",
+      "bytes": 625657616,
+      "split": "train",
+      "repository_path": "data/RoboDojo/fold_clothes/arx_x5/data/episode_0000000.hdf5"
+    },
+    {
+      "episode": 1,
+      "path": "runtime-data/fold_clothes/train/episode_0000001.hdf5",
+      "sha256": "9c7ada4f69becfdd82e73f122fa3c2fa6aedf1a5c5031ec4fff550e0a1ee754a",
+      "bytes": 394604856,
+      "split": "train",
+      "repository_path": "data/RoboDojo/fold_clothes/arx_x5/data/episode_0000001.hdf5"
+    },
+    {
+      "episode": 2,
+      "path": "runtime-data/fold_clothes/train/episode_0000002.hdf5",
+      "sha256": "56604d1ae7142b2945baf4aa33e061d9f7f464383156d1d074c5f590bbc31cab",
+      "bytes": 270551221,
+      "split": "train",
+      "repository_path": "data/RoboDojo/fold_clothes/arx_x5/data/episode_0000002.hdf5"
+    }
+  ]
+}

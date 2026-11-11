@@ -1,0 +1,52 @@
+{
+  "complete": true,
+  "generated_at": "2026-11-04T09:28:22.910243+00:00",
+  "tag": "make-toast-reliability-v2-random-supplement-20261104",
+  "candidate_commit": "261b2ed1eff24f2819fb288a8a34d1e9c2a45b63",
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/experiments/make_toast/reliability-v2-random-supplement-20261104.json",
+  "protocol_sha256": "07315b5157e2e1002c7058613d21f9963a06e13e5781e84a54134a65f26895cb",
+  "frozen_sources_checked": 231,
+  "counts": {
+    "success": 1
+  },
+  "rows": [
+    {
+      "variant": "random",
+      "layout": 0,
+      "seed": 1,
+      "path": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-random-supplement-20261104/seed1-random-l0",
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 3,
+        "python_cell_start": 55,
+        "python_cell": 55,
+        "record_plan": 1,
+        "execute_chunk": 52,
+        "hold_joints": 13
+      },
+      "cell_count": 55,
+      "cell_action_steps": 1156,
+      "cell_errors": 3,
+      "outcome": "success",
+      "score": 100.0,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-random-supplement-20261104/seed1-random-l0/native/eval_result/RoboDojo/make_toast_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+      "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6",
+      "steps": 1156,
+      "wall_seconds": 2019.363603184931,
+      "usage": {
+        "input_tokens": 4877367,
+        "cached_input_tokens": 4722944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 18284,
+        "reasoning_output_tokens": 8012
+      },
+      "joint_hold_steps": 114,
+      "native_ik_accepted_rows": 969,
+      "native_ik_rejected_rows": 11
+    }
+  ],
+  "batch_wall_seconds": 2021.962352077011,
+  "actual_billed_usd": null,
+  "interpretation": "Previously analysed development scenes; no held-out generalization, statistical or single-component causal claim. Unscored attempts remain separate."
+}

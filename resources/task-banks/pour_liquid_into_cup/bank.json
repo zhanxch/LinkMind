@@ -1,0 +1,59 @@
+{
+  "schema": "roborag.graph-bank.v1",
+  "name": "RoboRAG · 交互经验图库",
+  "updated_at": "2026-10-28T17:27:06.580121+00:00",
+  "graphs": [
+    {
+      "id": "pour_liquid_into_cup-0000",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "title": "左手取瓶，对准杯口倾倒后扶正降回",
+      "summary": "左臂靠近并抓起瓶子，将瓶口移到杯口上方，逐渐倒置瓶身完成倾倒，再扶正并降回杯子左侧桌面附近。右臂全程保持原位，末尾未见明确松爪。",
+      "episode": 0,
+      "instruction": "Pour the liquid from the bottle into the cup.",
+      "phase_count": 7,
+      "node_count": 28,
+      "edge_count": 27,
+      "frames": 176,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "pour_liquid_into_cup-0001",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "title": "左手抓瓶对准杯口倾倒，再扶正降下",
+      "summary": "左夹爪抓住瓶身，抬起并将瓶口移至杯口上方，逐步倾斜瓶子倒入液体，再扶正并降至杯子左侧的桌面附近。右臂保持不动，末尾未见明确松爪释放。",
+      "episode": 1,
+      "instruction": "Pour the liquid from the bottle into the cup.",
+      "phase_count": 7,
+      "node_count": 28,
+      "edge_count": 27,
+      "frames": 199,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "pour_liquid_into_cup-0002",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "title": "左手持瓶对杯倾倒，再回正降低",
+      "summary": "左臂抓起瓶子，逐步侧倾并将瓶口对准杯口，持续倾倒至杯内可见蓝色液面，再回正瓶身并降低至杯旁。右臂全程保持原位，末尾未见明确松爪。",
+      "episode": 2,
+      "instruction": "Pour the liquid from the bottle into the cup.",
+      "phase_count": 7,
+      "node_count": 28,
+      "edge_count": 27,
+      "frames": 209,
+      "frequency": 25.0,
+      "preview_frame": 0
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "phases": 21,
+    "nodes": 84,
+    "edges": 81,
+    "tasks": 1
+  }
+}

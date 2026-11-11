@@ -1,0 +1,5032 @@
+{
+  "schema": "roborag.execution-index.v1",
+  "built_at": "2026-10-28T17:27:06.605891+00:00",
+  "method": "field BM25 + explicit conditions + optional start-state distance + diversity",
+  "horizon": 10,
+  "stride": 5,
+  "graphs": [
+    {
+      "id": "pour_liquid_into_cup-0000",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "title": "左手取瓶，对准杯口倾倒后扶正降回",
+      "instruction": "Pour the liquid from the bottle into the cup.",
+      "initial_cue": "瓶子直立在桌面上，杯子位于其右侧；左夹爪张开，与瓶子尚有距离。",
+      "reported_outcome": "瓶子直立停在杯子左侧桌面附近，左夹爪仍围在瓶身旁；瓶底接触情况受遮挡，未见明确张爪释放。",
+      "episode_trace": [
+        {
+          "id": "p01",
+          "recorded_step": "张开夹爪靠近瓶身"
+        },
+        {
+          "id": "p02",
+          "recorded_step": "夹住瓶身并提起"
+        },
+        {
+          "id": "p03",
+          "recorded_step": "把瓶口移向杯口"
+        },
+        {
+          "id": "p04",
+          "recorded_step": "加大倾角向杯中倒液"
+        },
+        {
+          "id": "p05",
+          "recorded_step": "保持倒置完成倾倒"
+        },
+        {
+          "id": "p06",
+          "recorded_step": "扶正瓶子并移开杯口"
+        },
+        {
+          "id": "p07",
+          "recorded_step": "将瓶子降回桌面附近"
+        }
+      ]
+    },
+    {
+      "id": "pour_liquid_into_cup-0001",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "title": "左手抓瓶对准杯口倾倒，再扶正降下",
+      "instruction": "Pour the liquid from the bottle into the cup.",
+      "initial_cue": "瓶子直立在桌上，白色杯子位于瓶子的右后方；左夹爪张开，与瓶子有一段距离。",
+      "reported_outcome": "瓶子降至桌面附近并保持直立，杯子仍在原处；瓶底接触处受遮挡，不能确认是否完全由桌面支撑，也未见明确松爪释放。",
+      "episode_trace": [
+        {
+          "id": "p01",
+          "recorded_step": "张开夹爪接近瓶身"
+        },
+        {
+          "id": "p02",
+          "recorded_step": "合拢夹爪包住瓶身"
+        },
+        {
+          "id": "p03",
+          "recorded_step": "抬起瓶子并转向杯子"
+        },
+        {
+          "id": "p04",
+          "recorded_step": "将瓶口移至杯口上方"
+        },
+        {
+          "id": "p05",
+          "recorded_step": "逐步加大倾角持续倒液"
+        },
+        {
+          "id": "p06",
+          "recorded_step": "回正瓶身并移离杯口"
+        },
+        {
+          "id": "p07",
+          "recorded_step": "保持瓶身直立并降至桌面附近"
+        }
+      ]
+    },
+    {
+      "id": "pour_liquid_into_cup-0002",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "title": "左手持瓶对杯倾倒，再回正降低",
+      "instruction": "Pour the liquid from the bottle into the cup.",
+      "initial_cue": "瓶子直立在桌面上，杯子位于瓶子右侧且杯口朝上，左夹爪与瓶身仍有距离。",
+      "reported_outcome": "瓶子停在杯子左侧，左夹爪仍围住瓶身。瓶底是否稳定接触桌面受遮挡，未见明确松爪或撤离。",
+      "episode_trace": [
+        {
+          "id": "p01",
+          "recorded_step": "伸手接近直立瓶"
+        },
+        {
+          "id": "p02",
+          "recorded_step": "夹住瓶身并开始提起"
+        },
+        {
+          "id": "p03",
+          "recorded_step": "侧倾瓶子朝向杯口"
+        },
+        {
+          "id": "p04",
+          "recorded_step": "对准杯口并加大倾角"
+        },
+        {
+          "id": "p05",
+          "recorded_step": "保持倾倒向杯内注液"
+        },
+        {
+          "id": "p06",
+          "recorded_step": "移开瓶口并回正瓶身"
+        },
+        {
+          "id": "p07",
+          "recorded_step": "降低瓶子并握持收尾"
+        }
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "pour_liquid_into_cup-0000:p01",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p01",
+      "title": "张开夹爪靠近瓶身",
+      "summary": "将左夹爪移到直立瓶子的抓取位置。",
+      "start": 0,
+      "end": 32,
+      "cue": "瓶子直立在桌面上，杯子位于其右侧；左夹爪张开，与瓶子尚有距离。",
+      "action": "左臂向前伸出并调整高度，从瓶子左侧靠近，使夹爪对准瓶身。",
+      "feedback": "左夹爪到达瓶身附近，瓶子仍直立在桌面上，尚未见明确提起。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": null,
+      "next": {
+        "id": "p02",
+        "title": "夹住瓶身并提起"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p02",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p02",
+      "title": "夹住瓶身并提起",
+      "summary": "建立抓持，使瓶子离开桌面。",
+      "start": 32,
+      "end": 46,
+      "cue": "左夹爪已靠近瓶身，瓶口朝上，杯子保持不动。",
+      "action": "左夹爪围住瓶身并合拢，随后左臂抬升，同时开始转动瓶子。",
+      "feedback": "瓶子随左手抬起并发生倾斜，支持已形成抓持；夹爪与瓶身的具体接触处受到遮挡。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p01",
+        "title": "张开夹爪靠近瓶身"
+      },
+      "next": {
+        "id": "p03",
+        "title": "把瓶口移向杯口"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p03",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p03",
+      "title": "把瓶口移向杯口",
+      "summary": "将悬空瓶子的出口对准接液杯。",
+      "start": 46,
+      "end": 69,
+      "cue": "瓶子已被提起并倾斜，瓶口尚在杯子左上方。",
+      "action": "左臂持瓶向杯子移动，继续转动瓶身，使瓶口朝向杯口并逐步靠近其上方。",
+      "feedback": "瓶口到达杯口上方附近，瓶身呈倾斜姿态；杯子位置未改变，尚未清楚看到杯内出现蓝色液体。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p02",
+        "title": "夹住瓶身并提起"
+      },
+      "next": {
+        "id": "p04",
+        "title": "加大倾角向杯中倒液"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p04",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p04",
+      "title": "加大倾角向杯中倒液",
+      "summary": "保持瓶口对准杯口，转动瓶身使液体进入杯中。",
+      "start": 69,
+      "end": 92,
+      "cue": "瓶口已靠近杯口上方，瓶身仍有继续翻转的空间。",
+      "action": "左臂继续抬高瓶底并转动手腕，使瓶口向下，同时调整位置以维持瓶口与杯口的对准。",
+      "feedback": "瓶身逐渐接近倒置，杯内出现明显蓝色液体，瓶口仍位于杯口上方。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p03",
+        "title": "把瓶口移向杯口"
+      },
+      "next": {
+        "id": "p05",
+        "title": "保持倒置完成倾倒"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p05",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p05",
+      "title": "保持倒置完成倾倒",
+      "summary": "在杯口上方维持倒液姿态。",
+      "start": 92,
+      "end": 115,
+      "cue": "瓶子已接近倒置，瓶口朝下，杯内可见蓝色液体。",
+      "action": "左手保持抓持和较大的倾角，仅作小幅位置调整，使瓶口持续朝向杯内。",
+      "feedback": "瓶子保持倒液姿态至片段末尾，杯内蓝色液体清晰可见；具体流量和液面变化无法可靠分辨。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p04",
+        "title": "加大倾角向杯中倒液"
+      },
+      "next": {
+        "id": "p06",
+        "title": "扶正瓶子并移开杯口"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p06",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p06",
+      "title": "扶正瓶子并移开杯口",
+      "summary": "结束倾倒，将瓶子恢复直立并离开杯口。",
+      "start": 115,
+      "end": 145,
+      "cue": "瓶口仍朝下靠近杯口，杯中已有蓝色液体。",
+      "action": "左手反向转动瓶身，逐步抬起瓶口，同时把瓶子向杯子左侧移开，直至瓶口朝上。",
+      "feedback": "瓶子恢复直立并悬在杯子左侧，瓶口已离开杯口，杯内仍可见蓝色液体。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p05",
+        "title": "保持倒置完成倾倒"
+      },
+      "next": {
+        "id": "p07",
+        "title": "将瓶子降回桌面附近"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p07",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p07",
+      "title": "将瓶子降回桌面附近",
+      "summary": "把直立瓶子降低至杯子左侧的桌面位置。",
+      "start": 145,
+      "end": 176,
+      "cue": "瓶子已扶正，仍由左夹爪围住，悬在桌面上方。",
+      "action": "左臂保持瓶口朝上，逐步降低瓶子，并在接近桌面时减小移动幅度。",
+      "feedback": "瓶子直立停在杯子左侧桌面附近，左夹爪仍围在瓶身旁；瓶底接触情况受遮挡，未见明确张爪释放。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p06",
+        "title": "扶正瓶子并移开杯口"
+      },
+      "next": null
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p01",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p01",
+      "title": "张开夹爪接近瓶身",
+      "summary": "将左夹爪移至瓶身两侧，为抓取做准备。",
+      "start": 0,
+      "end": 28,
+      "cue": "瓶子直立在桌上，白色杯子位于瓶子的右后方；左夹爪张开，与瓶子有一段距离。",
+      "action": "左臂向瓶子伸出，调整夹爪方向并逐渐降低，使两侧夹指对准瓶身。",
+      "feedback": "左夹爪靠近瓶身两侧，瓶子和杯子仍保持原位。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": null,
+      "next": {
+        "id": "p02",
+        "title": "合拢夹爪包住瓶身"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p02",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p02",
+      "title": "合拢夹爪包住瓶身",
+      "summary": "在瓶身附近完成夹爪闭合。",
+      "start": 28,
+      "end": 35,
+      "cue": "张开的左夹爪已对准瓶身，瓶子仍直立在桌面上。",
+      "action": "左手小幅靠近瓶身并合拢夹指，使夹爪贴合瓶身。",
+      "feedback": "夹爪包住瓶身，瓶子尚未明显离开桌面；仅凭此段闭合不能确认稳定抓持。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p01",
+        "title": "张开夹爪接近瓶身"
+      },
+      "next": {
+        "id": "p03",
+        "title": "抬起瓶子并转向杯子"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p03",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p03",
+      "title": "抬起瓶子并转向杯子",
+      "summary": "将瓶子提离桌面，并使瓶口朝向杯子。",
+      "start": 35,
+      "end": 52,
+      "cue": "左夹爪围住瓶身，杯子位于其右侧，瓶口仍朝上。",
+      "action": "左臂抬升，同时转动手腕，将瓶子从直立逐渐转为接近水平，瓶口朝向杯子。",
+      "feedback": "瓶子随左夹爪一起离开桌面，支持已抓持住瓶子；瓶口朝右，但仍位于杯口左侧。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p02",
+        "title": "合拢夹爪包住瓶身"
+      },
+      "next": {
+        "id": "p04",
+        "title": "将瓶口移至杯口上方"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p04",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p04",
+      "title": "将瓶口移至杯口上方",
+      "summary": "缩小瓶口与杯口的偏差，开始向杯内倾倒。",
+      "start": 52,
+      "end": 69,
+      "cue": "瓶子已悬空且接近水平，瓶口朝向杯子，但两者之间仍有横向距离。",
+      "action": "左手持瓶向杯子靠近并略微降低，调整瓶身倾角，使瓶口来到杯口上方。",
+      "feedback": "末段可见蓝色液流从瓶口落入杯口，瓶口与杯子形成有效对准。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p03",
+        "title": "抬起瓶子并转向杯子"
+      },
+      "next": {
+        "id": "p05",
+        "title": "逐步加大倾角持续倒液"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p05",
+      "title": "逐步加大倾角持续倒液",
+      "summary": "保持瓶口对着杯口，通过继续翻转瓶身完成倾倒。",
+      "start": 69,
+      "end": 134,
+      "cue": "瓶口已对准杯口，蓝色液流可见，杯子保持直立。",
+      "action": "左手继续转动瓶子，抬高瓶底并使瓶口进一步朝下，同时小幅调整位置，让瓶口维持在杯口附近。",
+      "feedback": "瓶子转为更大的倒置倾角，杯内可见蓝色液体；后段瓶口与液流受夹爪遮挡，具体流量和液位变化不确定。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p04",
+        "title": "将瓶口移至杯口上方"
+      },
+      "next": {
+        "id": "p06",
+        "title": "回正瓶身并移离杯口"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p06",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p06",
+      "title": "回正瓶身并移离杯口",
+      "summary": "结束倾倒，将瓶口从杯子上方撤开。",
+      "start": 134,
+      "end": 155,
+      "cue": "瓶子仍以较大倾角悬在杯口附近，瓶口区域部分被遮挡。",
+      "action": "左手反向转动瓶身，同时向左上方移开，使瓶口离开杯口并逐渐转为朝上。",
+      "feedback": "瓶子与杯口明显分离，瓶身接近直立；不再见到连接瓶口与杯子的液流，杯内仍可见蓝色液体。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p05",
+        "title": "逐步加大倾角持续倒液"
+      },
+      "next": {
+        "id": "p07",
+        "title": "保持瓶身直立并降至桌面附近"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p07",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p07",
+      "title": "保持瓶身直立并降至桌面附近",
+      "summary": "将瓶子降回杯子左侧的低位。",
+      "start": 155,
+      "end": 199,
+      "cue": "瓶子已离开杯口，接近直立且仍由左夹爪夹持。",
+      "action": "左臂保持瓶口朝上，逐步下降，并小幅调整瓶子在杯子左侧的位置。",
+      "feedback": "瓶子降至桌面附近并保持直立，杯子仍在原处；瓶底接触处受遮挡，不能确认是否完全由桌面支撑，也未见明确松爪释放。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p06",
+        "title": "回正瓶身并移离杯口"
+      },
+      "next": null
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p01",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p01",
+      "title": "伸手接近直立瓶",
+      "summary": "将左夹爪送到瓶身附近。",
+      "start": 0,
+      "end": 28,
+      "cue": "瓶子直立在桌面上，杯子位于瓶子右侧且杯口朝上，左夹爪与瓶身仍有距离。",
+      "action": "左臂向前伸出并降低夹爪，以张开的夹爪接近瓶身两侧。",
+      "feedback": "左夹爪到达瓶身附近，瓶子仍保持直立，杯子没有移动。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": null,
+      "next": {
+        "id": "p02",
+        "title": "夹住瓶身并开始提起"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p02",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p02",
+      "title": "夹住瓶身并开始提起",
+      "summary": "建立抓持，使瓶子随左手运动。",
+      "start": 28,
+      "end": 42,
+      "cue": "左夹爪已靠近瓶身，瓶子仍接近直立。",
+      "action": "左夹爪在瓶身处合拢，随后左臂开始抬起瓶子。",
+      "feedback": "瓶子随左夹爪上移，直立姿态开始改变；夹持处部分被瓶身遮挡。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p01",
+        "title": "伸手接近直立瓶"
+      },
+      "next": {
+        "id": "p03",
+        "title": "侧倾瓶子朝向杯口"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p03",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p03",
+      "title": "侧倾瓶子朝向杯口",
+      "summary": "将瓶颈转向杯子，为倾倒建立方向。",
+      "start": 42,
+      "end": 64,
+      "cue": "瓶子已随左手提起，杯子仍在其右侧桌面上。",
+      "action": "左臂保持夹持并转动瓶身，使瓶颈朝右侧杯子倾斜。",
+      "feedback": "瓶身接近横向，瓶口朝向杯口附近，杯子保持原位。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p02",
+        "title": "夹住瓶身并开始提起"
+      },
+      "next": {
+        "id": "p04",
+        "title": "对准杯口并加大倾角"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p04",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p04",
+      "title": "对准杯口并加大倾角",
+      "summary": "让瓶口进入杯口上方的倾倒位置。",
+      "start": 64,
+      "end": 91,
+      "cue": "瓶子已经侧倾，瓶口位于杯子的左上方。",
+      "action": "左臂将瓶口向杯口上方移动，同时继续抬高瓶底，使瓶颈向下倾斜。",
+      "feedback": "瓶口靠近杯口上方，瓶底明显升高，形成向杯内倾倒的姿态。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p03",
+        "title": "侧倾瓶子朝向杯口"
+      },
+      "next": {
+        "id": "p05",
+        "title": "保持倾倒向杯内注液"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p05",
+      "title": "保持倾倒向杯内注液",
+      "summary": "维持瓶口与杯口的对准，使液体进入杯中。",
+      "start": 91,
+      "end": 145,
+      "cue": "瓶子呈明显向下倾倒姿态，瓶口靠近杯子开口。",
+      "action": "左臂继续抬高瓶底并小幅调整位置，随后保持瓶口朝向杯内的姿态。",
+      "feedback": "杯内出现明显蓝色液面，并在后续画面中持续可见；液流细节不清晰。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p04",
+        "title": "对准杯口并加大倾角"
+      },
+      "next": {
+        "id": "p06",
+        "title": "移开瓶口并回正瓶身"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p06",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p06",
+      "title": "移开瓶口并回正瓶身",
+      "summary": "结束倾倒，将瓶子恢复近直立姿态。",
+      "start": 145,
+      "end": 173,
+      "cue": "杯内已有蓝色液面，瓶子仍倾斜在杯口上方。",
+      "action": "左臂将瓶口从杯口上方移开，同时反向转动瓶身，逐步使瓶颈朝上。",
+      "feedback": "瓶子恢复近直立姿态并移至杯子左侧，杯内蓝色液面仍可见。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p05",
+        "title": "保持倾倒向杯内注液"
+      },
+      "next": {
+        "id": "p07",
+        "title": "降低瓶子并握持收尾"
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p07",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "task": "pour_liquid_into_cup",
+      "task_name": "pour_liquid_into_cup",
+      "node_id": "p07",
+      "title": "降低瓶子并握持收尾",
+      "summary": "将直立瓶降低至杯旁桌面附近。",
+      "start": 173,
+      "end": 209,
+      "cue": "瓶子已回正，仍由左夹爪握持，位于杯子左侧上方。",
+      "action": "左臂降低瓶子，在桌面附近小幅调整高度和位置，保持瓶身近直立。",
+      "feedback": "瓶子停在杯子左侧，左夹爪仍围住瓶身。瓶底是否稳定接触桌面受遮挡，未见明确松爪或撤离。",
+      "held_object": null,
+      "support_object": null,
+      "arms": [
+        "left"
+      ],
+      "previous": {
+        "id": "p06",
+        "title": "移开瓶口并回正瓶身"
+      },
+      "next": null
+    }
+  ],
+  "chunks": [
+    {
+      "id": "pour_liquid_into_cup-0000:p01:0:10",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p01",
+      "start": 0,
+      "end": 10,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p01:5:15",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p01",
+      "start": 5,
+      "end": 15,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.268361,
+          -0.304038,
+          0.944424,
+          0.800685,
+          -0.004227,
+          0.105944,
+          0.589629
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p01:10:20",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p01",
+      "start": 10,
+      "end": 20,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.252824,
+          -0.252487,
+          0.957429,
+          0.829082,
+          0.015319,
+          0.113094,
+          0.547356
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p01:15:25",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p01",
+      "start": 15,
+      "end": 25,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.238941,
+          -0.199522,
+          0.953273,
+          0.863504,
+          -0.018915,
+          0.113171,
+          0.491116
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p01:20:30",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p01",
+      "start": 20,
+      "end": 30,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.243065,
+          -0.150287,
+          0.928666,
+          0.888599,
+          -0.056825,
+          0.114029,
+          0.440637
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p01:25:32",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p01",
+      "start": 25,
+      "end": 32,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.222273,
+          -0.129296,
+          0.904515,
+          0.883816,
+          -0.034343,
+          0.118343,
+          0.451314
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p01:30:32",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p01",
+      "start": 30,
+      "end": 32,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.195446,
+          -0.119701,
+          0.892212,
+          0.872289,
+          -0.036154,
+          0.127909,
+          0.470578
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p02:32:42",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p02",
+      "start": 32,
+      "end": 42,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.185878,
+          -0.113788,
+          0.885308,
+          0.876727,
+          -0.046824,
+          0.131522,
+          0.460281
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p02:37:46",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p02",
+      "start": 37,
+      "end": 46,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.187519,
+          -0.083555,
+          0.880328,
+          0.890684,
+          -0.055372,
+          0.113151,
+          0.436821
+        ],
+        "left_ee_joint_state": [
+          0.695931
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p02:42:46",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p02",
+      "start": 42,
+      "end": 46,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.209593,
+          -0.103933,
+          0.929753,
+          0.850808,
+          0.119363,
+          0.215269,
+          0.46426
+        ],
+        "left_ee_joint_state": [
+          0.689317
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p03:46:56",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p03",
+      "start": 46,
+      "end": 56,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.205788,
+          -0.113803,
+          0.943741,
+          0.784222,
+          0.242856,
+          0.324541,
+          0.469776
+        ],
+        "left_ee_joint_state": [
+          0.689313
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p03:51:61",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p03",
+      "start": 51,
+      "end": 61,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.177409,
+          -0.131439,
+          0.965233,
+          0.685926,
+          0.405172,
+          0.438513,
+          0.415988
+        ],
+        "left_ee_joint_state": [
+          0.682131
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p03:56:66",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p03",
+      "start": 56,
+      "end": 66,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.155947,
+          -0.135646,
+          0.96803,
+          0.560472,
+          0.535071,
+          0.532418,
+          0.340737
+        ],
+        "left_ee_joint_state": [
+          0.683771
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p03:61:69",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p03",
+      "start": 61,
+      "end": 69,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.143553,
+          -0.13547,
+          0.954182,
+          0.536605,
+          0.554209,
+          0.552842,
+          0.315074
+        ],
+        "left_ee_joint_state": [
+          0.686968
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p03:66:69",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p03",
+      "start": 66,
+      "end": 69,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.133631,
+          -0.138408,
+          0.950281,
+          0.519129,
+          0.571804,
+          0.563408,
+          0.293457
+        ],
+        "left_ee_joint_state": [
+          0.685397
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p04:69:79",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p04",
+      "start": 69,
+      "end": 79,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.124645,
+          -0.144547,
+          0.956405,
+          0.486078,
+          0.60229,
+          0.573739,
+          0.267954
+        ],
+        "left_ee_joint_state": [
+          0.687572
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p04:74:84",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p04",
+      "start": 74,
+      "end": 84,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.113166,
+          -0.150111,
+          0.965417,
+          0.425446,
+          0.634465,
+          0.596915,
+          0.24524
+        ],
+        "left_ee_joint_state": [
+          0.687641
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p04:79:89",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p04",
+      "start": 79,
+      "end": 89,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.094542,
+          -0.156601,
+          0.979721,
+          0.322645,
+          0.676085,
+          0.628656,
+          0.20881
+        ],
+        "left_ee_joint_state": [
+          0.68528
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p04:84:92",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p04",
+      "start": 84,
+      "end": 92,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.072288,
+          -0.16638,
+          0.998392,
+          0.21195,
+          0.716088,
+          0.643061,
+          0.16961
+        ],
+        "left_ee_joint_state": [
+          0.689032
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p04:89:92",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p04",
+      "start": 89,
+      "end": 92,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.059304,
+          -0.171937,
+          1.004441,
+          0.164044,
+          0.734069,
+          0.641601,
+          0.150267
+        ],
+        "left_ee_joint_state": [
+          0.692227
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p05:92:102",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p05",
+      "start": 92,
+      "end": 102,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.054403,
+          -0.173395,
+          1.006436,
+          0.148003,
+          0.740128,
+          0.640112,
+          0.143392
+        ],
+        "left_ee_joint_state": [
+          0.692758
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p05:97:107",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p05",
+      "start": 97,
+      "end": 107,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.049302,
+          -0.173482,
+          1.007726,
+          0.130499,
+          0.746049,
+          0.638877,
+          0.134966
+        ],
+        "left_ee_joint_state": [
+          0.693054
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p05:102:112",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p05",
+      "start": 102,
+      "end": 112,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.039839,
+          -0.172945,
+          1.005251,
+          0.111325,
+          0.754894,
+          0.635507,
+          0.117783
+        ],
+        "left_ee_joint_state": [
+          0.693631
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p05:107:115",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p05",
+      "start": 107,
+      "end": 115,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.03464,
+          -0.17292,
+          1.004049,
+          0.099647,
+          0.760319,
+          0.632623,
+          0.108506
+        ],
+        "left_ee_joint_state": [
+          0.693955
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p05:112:115",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p05",
+      "start": 112,
+      "end": 115,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.032759,
+          -0.173169,
+          1.002993,
+          0.095444,
+          0.762663,
+          0.631025,
+          0.105085
+        ],
+        "left_ee_joint_state": [
+          0.694214
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p06:115:125",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p06",
+      "start": 115,
+      "end": 125,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.032705,
+          -0.173769,
+          1.00287,
+          0.09668,
+          0.761996,
+          0.631464,
+          0.106152
+        ],
+        "left_ee_joint_state": [
+          0.694674
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p06:120:130",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p06",
+      "start": 120,
+      "end": 130,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.055748,
+          -0.167188,
+          1.007397,
+          0.217088,
+          0.721046,
+          0.632821,
+          0.180287
+        ],
+        "left_ee_joint_state": [
+          0.69144
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p06:125:135",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p06",
+      "start": 125,
+      "end": 135,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.072399,
+          -0.168751,
+          1.014192,
+          0.413092,
+          0.65013,
+          0.58606,
+          0.251436
+        ],
+        "left_ee_joint_state": [
+          0.691696
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p06:130:140",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p06",
+      "start": 130,
+      "end": 140,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.108574,
+          -0.163058,
+          1.036186,
+          0.620263,
+          0.527109,
+          0.497041,
+          0.300632
+        ],
+        "left_ee_joint_state": [
+          0.691875
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p06:135:145",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p06",
+      "start": 135,
+      "end": 145,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.15234,
+          -0.148287,
+          1.028974,
+          0.819917,
+          0.378889,
+          0.313278,
+          0.293319
+        ],
+        "left_ee_joint_state": [
+          0.687478
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p06:140:145",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p06",
+      "start": 140,
+      "end": 145,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.176707,
+          -0.134287,
+          1.023162,
+          0.926217,
+          0.211164,
+          0.173841,
+          0.259444
+        ],
+        "left_ee_joint_state": [
+          0.690422
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p07:145:155",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p07",
+      "start": 145,
+      "end": 155,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.19111,
+          -0.11927,
+          0.986921,
+          0.971184,
+          0.057593,
+          0.067265,
+          0.221268
+        ],
+        "left_ee_joint_state": [
+          0.6933
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p07:150:160",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p07",
+      "start": 150,
+      "end": 160,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.183032,
+          -0.114515,
+          0.95172,
+          0.967291,
+          0.008144,
+          0.086703,
+          0.238253
+        ],
+        "left_ee_joint_state": [
+          0.69419
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p07:155:165",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p07",
+      "start": 155,
+      "end": 165,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.181301,
+          -0.10948,
+          0.926648,
+          0.956452,
+          -0.001889,
+          0.122237,
+          0.265056
+        ],
+        "left_ee_joint_state": [
+          0.694171
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p07:160:170",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p07",
+      "start": 160,
+      "end": 170,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.185097,
+          -0.102071,
+          0.901625,
+          0.949521,
+          -0.010644,
+          0.135145,
+          0.282901
+        ],
+        "left_ee_joint_state": [
+          0.694824
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p07:165:175",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p07",
+      "start": 165,
+      "end": 175,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.186187,
+          -0.099502,
+          0.888903,
+          0.944775,
+          -0.010375,
+          0.150121,
+          0.291129
+        ],
+        "left_ee_joint_state": [
+          0.694968
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0000:p07:170:175",
+      "graph_id": "pour_liquid_into_cup-0000",
+      "node_id": "p07",
+      "start": 170,
+      "end": 175,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.186068,
+          -0.098789,
+          0.882199,
+          0.94333,
+          -0.012306,
+          0.160146,
+          0.290397
+        ],
+        "left_ee_joint_state": [
+          0.700661
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p01:0:10",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p01",
+      "start": 0,
+      "end": 10,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p01:5:15",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p01",
+      "start": 5,
+      "end": 15,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.286153,
+          -0.368059,
+          0.934713,
+          0.793893,
+          0.046976,
+          0.014121,
+          0.606076
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p01:10:20",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p01",
+      "start": 10,
+      "end": 20,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.263347,
+          -0.374848,
+          0.936595,
+          0.871099,
+          0.058471,
+          0.046794,
+          0.485363
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p01:15:25",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p01",
+      "start": 15,
+      "end": 25,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.247244,
+          -0.358115,
+          0.929085,
+          0.885052,
+          -0.008519,
+          0.048487,
+          0.462882
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p01:20:28",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p01",
+      "start": 20,
+      "end": 28,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.235272,
+          -0.339045,
+          0.918831,
+          0.877699,
+          -0.052123,
+          0.08166,
+          0.469317
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p01:25:28",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p01",
+      "start": 25,
+      "end": 28,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.223724,
+          -0.31181,
+          0.90117,
+          0.877794,
+          -0.103043,
+          0.097352,
+          0.457584
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p02:28:35",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p02",
+      "start": 28,
+      "end": 35,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.211027,
+          -0.30029,
+          0.888004,
+          0.87398,
+          -0.102401,
+          0.120437,
+          0.459529
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p02:33:35",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p02",
+      "start": 33,
+      "end": 35,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.191499,
+          -0.28565,
+          0.877412,
+          0.87299,
+          -0.075347,
+          0.149638,
+          0.45806
+        ],
+        "left_ee_joint_state": [
+          0.73
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p03:35:45",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p03",
+      "start": 35,
+      "end": 45,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.193647,
+          -0.283252,
+          0.890981,
+          0.871771,
+          -0.057207,
+          0.165923,
+          0.457398
+        ],
+        "left_ee_joint_state": [
+          0.692806
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p03:40:50",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p03",
+      "start": 40,
+      "end": 50,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.210948,
+          -0.268927,
+          0.939397,
+          0.800247,
+          0.052498,
+          0.336393,
+          0.493648
+        ],
+        "left_ee_joint_state": [
+          0.680605
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p03:45:52",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p03",
+      "start": 45,
+      "end": 52,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.214042,
+          -0.222667,
+          1.006709,
+          0.641216,
+          0.182374,
+          0.543879,
+          0.509684
+        ],
+        "left_ee_joint_state": [
+          0.701337
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p03:50:52",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p03",
+      "start": 50,
+      "end": 52,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.188953,
+          -0.212027,
+          1.045709,
+          0.534083,
+          0.27508,
+          0.622559,
+          0.501505
+        ],
+        "left_ee_joint_state": [
+          0.688766
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p04:52:62",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p04",
+      "start": 52,
+      "end": 62,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.175364,
+          -0.203134,
+          1.051569,
+          0.496397,
+          0.305199,
+          0.649003,
+          0.489121
+        ],
+        "left_ee_joint_state": [
+          0.689862
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p04:57:67",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p04",
+      "start": 57,
+      "end": 67,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.15064,
+          -0.178359,
+          1.036457,
+          0.394439,
+          0.359891,
+          0.719064,
+          0.444796
+        ],
+        "left_ee_joint_state": [
+          0.684633
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p04:62:69",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p04",
+      "start": 62,
+      "end": 69,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.133988,
+          -0.154925,
+          1.017555,
+          0.328096,
+          0.391545,
+          0.760033,
+          0.401741
+        ],
+        "left_ee_joint_state": [
+          0.688477
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p04:67:69",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p04",
+      "start": 67,
+      "end": 69,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.11597,
+          -0.142108,
+          1.013877,
+          0.316159,
+          0.409023,
+          0.767357,
+          0.37935
+        ],
+        "left_ee_joint_state": [
+          0.690521
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:69:79",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 69,
+      "end": 79,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.10965,
+          -0.138663,
+          1.012337,
+          0.316535,
+          0.414598,
+          0.76756,
+          0.372513
+        ],
+        "left_ee_joint_state": [
+          0.6903
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:74:84",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 74,
+      "end": 84,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.107914,
+          -0.136796,
+          1.013291,
+          0.295699,
+          0.428793,
+          0.774766,
+          0.358379
+        ],
+        "left_ee_joint_state": [
+          0.689546
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:79:89",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 79,
+      "end": 89,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.100319,
+          -0.139525,
+          1.027292,
+          0.280139,
+          0.446404,
+          0.774125,
+          0.350678
+        ],
+        "left_ee_joint_state": [
+          0.694462
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:84:94",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 84,
+      "end": 94,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.096788,
+          -0.141015,
+          1.026059,
+          0.240586,
+          0.459896,
+          0.788537,
+          0.329883
+        ],
+        "left_ee_joint_state": [
+          0.691905
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:89:99",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 89,
+      "end": 99,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.083602,
+          -0.136397,
+          1.023309,
+          0.202798,
+          0.480857,
+          0.795081,
+          0.309024
+        ],
+        "left_ee_joint_state": [
+          0.692728
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:94:104",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 94,
+      "end": 104,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.072341,
+          -0.134342,
+          1.018307,
+          0.169982,
+          0.500151,
+          0.798362,
+          0.28909
+        ],
+        "left_ee_joint_state": [
+          0.694056
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:99:109",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 99,
+      "end": 109,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.06182,
+          -0.135206,
+          1.015891,
+          0.144852,
+          0.518413,
+          0.798061,
+          0.27086
+        ],
+        "left_ee_joint_state": [
+          0.69427
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:104:114",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 104,
+      "end": 114,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.056249,
+          -0.134662,
+          1.018225,
+          0.116162,
+          0.540581,
+          0.794565,
+          0.250887
+        ],
+        "left_ee_joint_state": [
+          0.694542
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:109:119",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 109,
+      "end": 119,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.048103,
+          -0.136707,
+          1.014565,
+          0.08419,
+          0.563458,
+          0.790203,
+          0.225846
+        ],
+        "left_ee_joint_state": [
+          0.694834
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:114:124",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 114,
+      "end": 124,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.040767,
+          -0.138863,
+          1.010038,
+          0.068036,
+          0.576007,
+          0.786606,
+          0.211747
+        ],
+        "left_ee_joint_state": [
+          0.695778
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:119:129",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 119,
+      "end": 129,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.047144,
+          -0.132564,
+          1.012118,
+          0.045539,
+          0.589591,
+          0.78267,
+          0.194259
+        ],
+        "left_ee_joint_state": [
+          0.696011
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:124:134",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 124,
+      "end": 134,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.042532,
+          -0.129847,
+          1.02204,
+          0.033318,
+          0.601687,
+          0.775285,
+          0.189198
+        ],
+        "left_ee_joint_state": [
+          0.696593
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p05:129:134",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p05",
+      "start": 129,
+      "end": 134,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.028282,
+          -0.139611,
+          1.010912,
+          0.040872,
+          0.605407,
+          0.773728,
+          0.18209
+        ],
+        "left_ee_joint_state": [
+          0.697422
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p06:134:144",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p06",
+      "start": 134,
+      "end": 144,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.040493,
+          -0.144897,
+          1.018536,
+          0.07841,
+          0.580121,
+          0.778108,
+          0.227727
+        ],
+        "left_ee_joint_state": [
+          0.698712
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p06:139:149",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p06",
+      "start": 139,
+      "end": 149,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.066781,
+          -0.159419,
+          1.031509,
+          0.235951,
+          0.513489,
+          0.761655,
+          0.317077
+        ],
+        "left_ee_joint_state": [
+          0.695945
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p06:144:154",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p06",
+      "start": 144,
+      "end": 154,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.122935,
+          -0.145965,
+          1.05013,
+          0.423253,
+          0.430483,
+          0.695373,
+          0.38987
+        ],
+        "left_ee_joint_state": [
+          0.697072
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p06:149:155",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p06",
+      "start": 149,
+      "end": 155,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.167838,
+          -0.150967,
+          1.063356,
+          0.646281,
+          0.290621,
+          0.549113,
+          0.443098
+        ],
+        "left_ee_joint_state": [
+          0.692767
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p06:154:155",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p06",
+      "start": 154,
+      "end": 155,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.18729,
+          -0.166046,
+          1.057513,
+          0.813537,
+          0.105993,
+          0.318808,
+          0.474641
+        ],
+        "left_ee_joint_state": [
+          0.693417
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p07:155:165",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p07",
+      "start": 155,
+      "end": 165,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.19165,
+          -0.167931,
+          1.051347,
+          0.829237,
+          0.074167,
+          0.282909,
+          0.476265
+        ],
+        "left_ee_joint_state": [
+          0.694414
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p07:160:170",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p07",
+      "start": 160,
+      "end": 170,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.206427,
+          -0.16613,
+          1.034763,
+          0.869171,
+          -0.038313,
+          0.187905,
+          0.455812
+        ],
+        "left_ee_joint_state": [
+          0.697008
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p07:165:175",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p07",
+      "start": 165,
+      "end": 175,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.214859,
+          -0.157238,
+          0.995592,
+          0.877254,
+          -0.112045,
+          0.123103,
+          0.45024
+        ],
+        "left_ee_joint_state": [
+          0.698224
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p07:170:180",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p07",
+      "start": 170,
+      "end": 180,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.213236,
+          -0.156857,
+          0.96563,
+          0.856558,
+          -0.091681,
+          0.115972,
+          0.494423
+        ],
+        "left_ee_joint_state": [
+          0.698398
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p07:175:185",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p07",
+      "start": 175,
+      "end": 185,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.200295,
+          -0.163775,
+          0.940421,
+          0.817193,
+          -0.051212,
+          0.14081,
+          0.556547
+        ],
+        "left_ee_joint_state": [
+          0.69809
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p07:180:190",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p07",
+      "start": 180,
+      "end": 190,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.199201,
+          -0.161306,
+          0.920985,
+          0.803164,
+          -0.058944,
+          0.153197,
+          0.572699
+        ],
+        "left_ee_joint_state": [
+          0.698419
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p07:185:195",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p07",
+      "start": 185,
+      "end": 195,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.196447,
+          -0.164427,
+          0.907465,
+          0.801669,
+          -0.07752,
+          0.164353,
+          0.569478
+        ],
+        "left_ee_joint_state": [
+          0.698349
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p07:190:198",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p07",
+      "start": 190,
+      "end": 198,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.191584,
+          -0.167815,
+          0.891444,
+          0.800096,
+          -0.090811,
+          0.170733,
+          0.567847
+        ],
+        "left_ee_joint_state": [
+          0.698267
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0001:p07:195:198",
+      "graph_id": "pour_liquid_into_cup-0001",
+      "node_id": "p07",
+      "start": 195,
+      "end": 198,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.189808,
+          -0.16923,
+          0.881115,
+          0.798636,
+          -0.096548,
+          0.168503,
+          0.569618
+        ],
+        "left_ee_joint_state": [
+          0.720368
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p01:0:10",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p01",
+      "start": 0,
+      "end": 10,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.299529,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p01:5:15",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p01",
+      "start": 5,
+      "end": 15,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.28569,
+          -0.335539,
+          0.921118,
+          0.751482,
+          0.001248,
+          0.024601,
+          0.659293
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p01:10:20",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p01",
+      "start": 10,
+      "end": 20,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.273746,
+          -0.305121,
+          0.920116,
+          0.810064,
+          0.002438,
+          0.030477,
+          0.585544
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p01:15:25",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p01",
+      "start": 15,
+      "end": 25,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.264892,
+          -0.263607,
+          0.911392,
+          0.855768,
+          -0.030258,
+          0.006813,
+          0.51643
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p01:20:28",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p01",
+      "start": 20,
+      "end": 28,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.229937,
+          -0.224708,
+          0.883342,
+          0.860356,
+          -0.06134,
+          0.029506,
+          0.505128
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p01:25:28",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p01",
+      "start": 25,
+      "end": 28,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.212094,
+          -0.18802,
+          0.869124,
+          0.848752,
+          -0.085913,
+          0.017663,
+          0.521466
+        ],
+        "left_ee_joint_state": [
+          1.0
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p02:28:38",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p02",
+      "start": 28,
+      "end": 38,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.200133,
+          -0.166608,
+          0.859959,
+          0.844601,
+          -0.095599,
+          0.017546,
+          0.5265
+        ],
+        "left_ee_joint_state": [
+          0.96
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p02:33:42",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p02",
+      "start": 33,
+      "end": 42,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.195247,
+          -0.155227,
+          0.863207,
+          0.834117,
+          -0.031808,
+          0.05423,
+          0.547993
+        ],
+        "left_ee_joint_state": [
+          0.712985
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p02:38:42",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p02",
+      "start": 38,
+      "end": 42,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.190389,
+          -0.161716,
+          0.892913,
+          0.809819,
+          0.104476,
+          0.136619,
+          0.560904
+        ],
+        "left_ee_joint_state": [
+          0.710539
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p03:42:52",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p03",
+      "start": 42,
+      "end": 52,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.186073,
+          -0.153568,
+          0.892223,
+          0.775898,
+          0.197887,
+          0.230648,
+          0.552834
+        ],
+        "left_ee_joint_state": [
+          0.705495
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p03:47:57",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p03",
+      "start": 47,
+      "end": 57,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.179325,
+          -0.157342,
+          0.896732,
+          0.758275,
+          0.269649,
+          0.263283,
+          0.531968
+        ],
+        "left_ee_joint_state": [
+          0.70479
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p03:52:62",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p03",
+      "start": 52,
+      "end": 62,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.18452,
+          -0.166769,
+          0.896659,
+          0.743097,
+          0.337047,
+          0.272061,
+          0.510088
+        ],
+        "left_ee_joint_state": [
+          0.701195
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p03:57:64",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p03",
+      "start": 57,
+      "end": 64,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.183316,
+          -0.163983,
+          0.891388,
+          0.722074,
+          0.422704,
+          0.298859,
+          0.458926
+        ],
+        "left_ee_joint_state": [
+          0.700241
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p03:62:64",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p03",
+      "start": 62,
+      "end": 64,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.186652,
+          -0.16147,
+          0.89517,
+          0.682216,
+          0.496664,
+          0.33438,
+          0.419639
+        ],
+        "left_ee_joint_state": [
+          0.696173
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p04:64:74",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p04",
+      "start": 64,
+      "end": 74,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.186951,
+          -0.161937,
+          0.905591,
+          0.6556,
+          0.523536,
+          0.355928,
+          0.411599
+        ],
+        "left_ee_joint_state": [
+          0.697571
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p04:69:79",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p04",
+      "start": 69,
+      "end": 79,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.183855,
+          -0.15893,
+          0.912335,
+          0.591248,
+          0.574519,
+          0.415913,
+          0.383887
+        ],
+        "left_ee_joint_state": [
+          0.69801
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p04:74:84",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p04",
+      "start": 74,
+      "end": 84,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.182735,
+          -0.156295,
+          0.909101,
+          0.554152,
+          0.59644,
+          0.454278,
+          0.361672
+        ],
+        "left_ee_joint_state": [
+          0.698354
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p04:79:89",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p04",
+      "start": 79,
+      "end": 89,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.179575,
+          -0.155931,
+          0.91204,
+          0.54335,
+          0.605742,
+          0.463131,
+          0.351223
+        ],
+        "left_ee_joint_state": [
+          0.698724
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p04:84:91",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p04",
+      "start": 84,
+      "end": 91,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.172267,
+          -0.156535,
+          0.914865,
+          0.533834,
+          0.613885,
+          0.468618,
+          0.34433
+        ],
+        "left_ee_joint_state": [
+          0.699657
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p04:89:91",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p04",
+      "start": 89,
+      "end": 91,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.159897,
+          -0.15966,
+          0.920906,
+          0.493837,
+          0.641236,
+          0.49074,
+          0.322669
+        ],
+        "left_ee_joint_state": [
+          0.698701
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05:91:101",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p05",
+      "start": 91,
+      "end": 101,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.154089,
+          -0.164183,
+          0.929271,
+          0.458051,
+          0.661297,
+          0.504563,
+          0.313514
+        ],
+        "left_ee_joint_state": [
+          0.698512
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05:96:106",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p05",
+      "start": 96,
+      "end": 106,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.135163,
+          -0.172509,
+          0.940188,
+          0.364984,
+          0.707682,
+          0.534676,
+          0.283009
+        ],
+        "left_ee_joint_state": [
+          0.703493
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05:101:111",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p05",
+      "start": 101,
+      "end": 111,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.118978,
+          -0.174056,
+          0.938632,
+          0.300337,
+          0.737171,
+          0.553799,
+          0.244302
+        ],
+        "left_ee_joint_state": [
+          0.720721
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05:106:116",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p05",
+      "start": 106,
+      "end": 116,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.11195,
+          -0.191043,
+          0.962299,
+          0.280396,
+          0.753037,
+          0.544483,
+          0.240525
+        ],
+        "left_ee_joint_state": [
+          0.703164
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05:111:121",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p05",
+      "start": 111,
+      "end": 121,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.109136,
+          -0.197408,
+          0.972079,
+          0.263417,
+          0.761071,
+          0.543742,
+          0.236065
+        ],
+        "left_ee_joint_state": [
+          0.703134
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05:116:126",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p05",
+      "start": 116,
+      "end": 126,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.104084,
+          -0.201619,
+          0.979929,
+          0.244875,
+          0.769221,
+          0.543259,
+          0.230662
+        ],
+        "left_ee_joint_state": [
+          0.704042
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05:121:131",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p05",
+      "start": 121,
+      "end": 131,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.097557,
+          -0.203932,
+          0.981861,
+          0.203668,
+          0.77977,
+          0.549116,
+          0.221245
+        ],
+        "left_ee_joint_state": [
+          0.704279
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05:126:136",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p05",
+      "start": 126,
+      "end": 136,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.089809,
+          -0.20812,
+          0.982137,
+          0.173488,
+          0.789683,
+          0.550041,
+          0.209186
+        ],
+        "left_ee_joint_state": [
+          0.704941
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05:131:141",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p05",
+      "start": 131,
+      "end": 141,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.086664,
+          -0.211478,
+          0.987913,
+          0.142193,
+          0.796236,
+          0.551844,
+          0.203118
+        ],
+        "left_ee_joint_state": [
+          0.705417
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05:136:145",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p05",
+      "start": 136,
+      "end": 145,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.087755,
+          -0.211733,
+          0.993197,
+          0.124565,
+          0.798314,
+          0.553281,
+          0.202629
+        ],
+        "left_ee_joint_state": [
+          0.705726
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p05:141:145",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p05",
+      "start": 141,
+      "end": 145,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.089735,
+          -0.210869,
+          0.99343,
+          0.116318,
+          0.797656,
+          0.556188,
+          0.202164
+        ],
+        "left_ee_joint_state": [
+          0.705498
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p06:145:155",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p06",
+      "start": 145,
+      "end": 155,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.088296,
+          -0.21056,
+          0.990762,
+          0.111479,
+          0.798555,
+          0.557836,
+          0.196726
+        ],
+        "left_ee_joint_state": [
+          0.705794
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p06:150:160",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p06",
+      "start": 150,
+      "end": 160,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.11239,
+          -0.209788,
+          0.995104,
+          0.209702,
+          0.770624,
+          0.543292,
+          0.258838
+        ],
+        "left_ee_joint_state": [
+          0.70617
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p06:155:165",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p06",
+      "start": 155,
+      "end": 165,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.134419,
+          -0.206519,
+          0.997457,
+          0.399933,
+          0.69969,
+          0.487175,
+          0.336375
+        ],
+        "left_ee_joint_state": [
+          0.702958
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p06:160:170",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p06",
+      "start": 160,
+      "end": 170,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.150942,
+          -0.196653,
+          0.981251,
+          0.62957,
+          0.568375,
+          0.375323,
+          0.373797
+        ],
+        "left_ee_joint_state": [
+          0.694981
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p06:165:173",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p06",
+      "start": 165,
+      "end": 173,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.176025,
+          -0.177069,
+          0.969074,
+          0.780599,
+          0.394291,
+          0.277326,
+          0.397858
+        ],
+        "left_ee_joint_state": [
+          0.70118
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p06:170:173",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p06",
+      "start": 170,
+      "end": 173,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.195212,
+          -0.161356,
+          0.936713,
+          0.902716,
+          0.175578,
+          0.128119,
+          0.371298
+        ],
+        "left_ee_joint_state": [
+          0.702733
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p07:173:183",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p07",
+      "start": 173,
+      "end": 183,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.19523,
+          -0.158757,
+          0.919373,
+          0.927073,
+          0.100139,
+          0.071306,
+          0.354153
+        ],
+        "left_ee_joint_state": [
+          0.704463
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p07:178:188",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p07",
+      "start": 178,
+      "end": 188,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.174881,
+          -0.157677,
+          0.88464,
+          0.918842,
+          0.078178,
+          0.041943,
+          0.384524
+        ],
+        "left_ee_joint_state": [
+          0.705275
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p07:183:193",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p07",
+      "start": 183,
+      "end": 193,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.15946,
+          -0.157664,
+          0.854394,
+          0.898775,
+          0.099541,
+          0.066694,
+          0.421719
+        ],
+        "left_ee_joint_state": [
+          0.705213
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p07:188:198",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p07",
+      "start": 188,
+      "end": 198,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.153098,
+          -0.154635,
+          0.854271,
+          0.889762,
+          0.10949,
+          0.108154,
+          0.429695
+        ],
+        "left_ee_joint_state": [
+          0.734164
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p07:193:203",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p07",
+      "start": 193,
+      "end": 203,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.158412,
+          -0.151356,
+          0.861755,
+          0.890069,
+          0.093078,
+          0.132903,
+          0.42597
+        ],
+        "left_ee_joint_state": [
+          0.715902
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p07:198:208",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p07",
+      "start": 198,
+      "end": 208,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.167208,
+          -0.154595,
+          0.875377,
+          0.89487,
+          0.07805,
+          0.120826,
+          0.422512
+        ],
+        "left_ee_joint_state": [
+          0.713966
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "pour_liquid_into_cup-0002:p07:203:208",
+      "graph_id": "pour_liquid_into_cup-0002",
+      "node_id": "p07",
+      "start": 203,
+      "end": 208,
+      "frequency": 25.0,
+      "action_space": "dual-arx-x5/link6/ee_delta/world/m/rotvec-rad/25hz",
+      "before_state": {
+        "left_ee_pose": [
+          -0.167989,
+          -0.161985,
+          0.862227,
+          0.901203,
+          0.055559,
+          0.097841,
+          0.418537
+        ],
+        "left_ee_joint_state": [
+          0.711063
+        ],
+        "right_ee_pose": [
+          0.300471,
+          -0.3523,
+          0.9215,
+          0.707,
+          -0.0,
+          -0.0,
+          0.707214
+        ],
+        "right_ee_joint_state": [
+          1.0
+        ]
+      }
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "phases": 21,
+    "chunks": 124
+  },
+  "limitations": [
+    "自由文本与词汇归一化检索；尚未使用学习型语义或图像嵌入。",
+    "阶段边界与文字来自自动标注；短窗口不是人工验证的技能单元。",
+    "关节/末端状态不等于物体状态；历史反馈不等于当前执行结果。"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "roborag.graph-bank.v1",
+  "name": "RoboRAG · 交互经验图库",
+  "updated_at": "2026-10-28T17:11:55.529972+00:00",
+  "graphs": [
+    {
+      "id": "hang_mugs-0000",
+      "task": "hang_mugs",
+      "task_name": "hang_mugs",
+      "title": "右手先挂黄杯和白杯，再用左手挂紫杯",
+      "summary": "右手依次将黄杯挂到杯架右侧低位、红柄白杯挂到右侧高位，随后左手将紫杯挂到左侧空挂杆。末帧可见三只杯均留在杯架上，两臂撤回；阶段边界为估计值。",
+      "episode": 0,
+      "instruction": "Hang all the mugs on the mug rack.",
+      "phase_count": 10,
+      "node_count": 40,
+      "edge_count": 39,
+      "frames": 512,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "hang_mugs-0001",
+      "task": "hang_mugs",
+      "task_name": "hang_mugs",
+      "title": "先右手挂棕杯，再左手依次挂白杯和黄杯",
+      "summary": "依次抓起三只杯，调整杯柄朝向并挂入杯架：棕杯和白杯挂在较低挂杆，黄杯挂在上层挂杆。全部释放后双臂退回，三只杯留在架上。阶段边界为估计值。",
+      "episode": 1,
+      "instruction": "Hang all the mugs on the mug rack.",
+      "phase_count": 10,
+      "node_count": 40,
+      "edge_count": 39,
+      "frames": 524,
+      "frequency": 25.0,
+      "preview_frame": 0
+    },
+    {
+      "id": "hang_mugs-0002",
+      "task": "hang_mugs",
+      "task_name": "hang_mugs",
+      "title": "左臂依次挂两杯，右臂挂最后一杯",
+      "summary": "左臂先将左侧和前方的杯子挂到杯架左侧下层、上层，随后右臂将右侧杯子挂到右侧下层。末帧可见三只杯子均悬挂，双臂撤回；阶段边界为估计值。",
+      "episode": 2,
+      "instruction": "Hang all the mugs on the mug rack.",
+      "phase_count": 9,
+      "node_count": 36,
+      "edge_count": 35,
+      "frames": 829,
+      "frequency": 25.0,
+      "preview_frame": 0
+    }
+  ],
+  "counts": {
+    "graphs": 3,
+    "phases": 29,
+    "nodes": 116,
+    "edges": 113,
+    "tasks": 1
+  }
+}

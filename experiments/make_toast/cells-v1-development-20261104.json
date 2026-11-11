@@ -1,0 +1,64 @@
+{
+  "schema": "roborag.make-toast-cells-development.v1",
+  "status": "registered_before_launch",
+  "base_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "planned_native_attempts": 2,
+  "tasks": [
+    {
+      "task": "make_toast",
+      "bank": "artifacts/generalization-v3-full/make_toast",
+      "cases_file": "experiments/make_toast/cases-cells-v1-development.json",
+      "case_count": 2,
+      "native_step_limits": {
+        "standard": 1400,
+        "random": 1400
+      },
+      "preflight_file": "results/make-toast-cells-bank-preflight-20261104.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Unmodified native 1400 steps; every cell dispatch counts",
+    "context": "Original full TRAIN retrieval and model-owned plan, persistent isolated Python cells for public computation and validated short moves",
+    "feedback": "Current RGB, paired camera calibration, measured robot poses; gripper is command, no holding truth"
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure",
+    "retests": "No automatic retry within this batch; preserve all attempts",
+    "aggregation": "Pair with historical same scenes, not independent generalization or causal cell ablation"
+  },
+  "scope": {
+    "runtime_changes": [
+      "make_toast only: persistent isolated python_cell tool",
+      "Public camera geometry and reusable TCP sample builder through existing execute_chunk",
+      "Task-scoped cell usage prompt"
+    ],
+    "unchanged": [
+      "10 other task prompts and original tool surfaces",
+      "TRAIN demonstrations and retrieval",
+      "Native simulator, IK, delta row limits, scoring and 1400-step limit"
+    ],
+    "reference": {
+      "repository": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+      "commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+      "files": [
+        "src/pyrualean/arms.py",
+        "src/pyrualean/sandbox.py"
+      ],
+      "usage": "Design reference only; no upstream runtime dependency or RSI task program copied"
+    }
+  },
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "Paused by explicit user request; do not resume automatically",
+    "frozen_during_run": true
+  }
+}

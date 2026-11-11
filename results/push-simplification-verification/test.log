@@ -1,0 +1,35 @@
+[11/11/26 15:46:42] INFO     Tool 'execute_chunk' rejected         server.py:450
+                             arguments: ['segments.0.repeat']                   
+                    INFO     Tool 'execute_chunk' rejected         server.py:450
+                             arguments: ['segments.0.repeat']                   
+                    INFO     Tool 'execute_chunk' rejected         server.py:450
+                             arguments: ['segments.0.repeat']                   
+                    INFO     Tool 'execute_chunk' rejected         server.py:450
+                             arguments: ['segments.0.repeat']                   
+                    INFO     Tool 'execute_chunk' rejected         server.py:450
+                             arguments: ['segments.0.repeat']                   
+...[11/11/26 15:46:43] INFO     Tool 'execute_chunk' failed: 'Error   server.py:453
+                             executing tool execute_chunk:                      
+                             record_plan must precede execution'                
+                    INFO     Tool 'execute_chunk' failed: 'Error   server.py:453
+                             executing tool execute_chunk:                      
+                             record_plan must precede execution'                
+....                    INFO     Tool 'execute_chunk' failed: 'Error   server.py:453
+                             executing tool execute_chunk: Total                
+                             expanded rows must be <=24'                        
+.                    INFO     Tool 'execute_chunk' failed: 'Error   server.py:453
+                             executing tool execute_chunk:                      
+                             record_plan must precede execution'                
+..                    INFO     Tool 'execute_chunk' failed: 'Error   server.py:453
+                             executing tool execute_chunk:                      
+                             record_plan must precede execution'                
+......                    INFO     Tool 'measure_planar' failed: 'Error  server.py:453
+                             executing tool measure_planar:                     
+                             Missing required measurement                       
+                             arguments: u, v, ref_u, ref_v,                     
+                             surface_z, reference_z'                            
+................
+----------------------------------------------------------------------
+Ran 32 tests in 0.683s
+
+OK

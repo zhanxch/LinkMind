@@ -1,0 +1,284 @@
+{
+  "checked_at": "2026-11-05T20:50:20.547221+00:00",
+  "preparation_only": false,
+  "implementation_started": true,
+  "baseline_root": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization",
+  "baseline_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "sealed_audit": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/results/generalization-sweep_blocks-skipped-20261029.json",
+  "sealed_audit_sha256": "5641c9f1d5722c960e54f410ffe6098d105b09a9acad72c7ab6e4c4569392fbd",
+  "freeze_sha256": "54a3a2e02bc6f82c29363db4c10c9fcb423d8c980ddf1c15bfdd964ef58692b7",
+  "counts": {
+    "attempts_closed": 6,
+    "success": 0,
+    "failure": 4,
+    "unscored": 2,
+    "scored": 4,
+    "success_rate_scored": 0.0,
+    "confirmed_success_fraction_closed": 0.0
+  },
+  "unstarted": 44,
+  "native_step_limits": {
+    "standard": 1000,
+    "random": 1000
+  },
+  "rows": [
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 0,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-random-l0/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+      "native_sha256": "99b780f4e1842dfa81b413ccd2e5302e5827cc349fea4edf978e1bd847986ed3",
+      "usage": {
+        "input_tokens": 6166816,
+        "cached_input_tokens": 6029696,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 25069,
+        "reasoning_output_tokens": 11880
+      },
+      "wall_seconds": 1610.5300735710189,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-random-l0",
+      "verified_artifact_count": 11,
+      "last_subgoals": [
+        {
+          "step": 899,
+          "subgoal": "按当前腕图位置夹住蓝色块"
+        },
+        {
+          "step": 907,
+          "subgoal": "小抬验证蓝色块抓取"
+        },
+        {
+          "step": 921,
+          "subgoal": "将蓝色块移动到簸箕内部上方"
+        },
+        {
+          "step": 933,
+          "subgoal": "释放蓝块和簸箕并抬开双指"
+        },
+        {
+          "step": 1000,
+          "subgoal": "工具已释放且手指清离，双臂返回原点并检查最终结果"
+        }
+      ],
+      "agent_final": "Both colored blocks are inside the upright dustpan, left of the broom, and both arms returned home. The blue block required direct placement after broom slips.\n\nThe episode timed out with four other loose items outside; full success was not confirmed."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 0,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-standard-l0/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+      "native_sha256": "99b780f4e1842dfa81b413ccd2e5302e5827cc349fea4edf978e1bd847986ed3",
+      "usage": {
+        "input_tokens": 8266825,
+        "cached_input_tokens": 8094208,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 30663,
+        "reasoning_output_tokens": 15433
+      },
+      "wall_seconds": 2078.2006726369727,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-standard-l0",
+      "verified_artifact_count": 11,
+      "last_subgoals": [
+        {
+          "step": 896,
+          "subgoal": "释放平放簸箕并抬起工具退出接触"
+        },
+        {
+          "step": 906,
+          "subgoal": "把扫帚放到簸箕右侧桌面"
+        },
+        {
+          "step": 919,
+          "subgoal": "释放扫帚并抬指清空工具"
+        },
+        {
+          "step": 978,
+          "subgoal": "工具释放且手指清空后双臂回原点"
+        },
+        {
+          "step": 1000,
+          "subgoal": "在原点观察最终放置稳定性至回合结束"
+        }
+      ],
+      "agent_final": "The episode ended without completing the task. Only the yellow block is inside the dustpan; green and white remain outside.\n\nThe dustpan is upright and stable left of the broom, both tools are released, and both arms returned to origin. Final observations and evidence IDs were recorded."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 1,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-standard-l1/native/eval_result/RoboDojo/sweep_blocks/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+      "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a",
+      "usage": {
+        "input_tokens": 9374315,
+        "cached_input_tokens": 9217920,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 32207,
+        "reasoning_output_tokens": 15781
+      },
+      "wall_seconds": 2249.612559072906,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-standard-l1",
+      "verified_artifact_count": 11,
+      "last_subgoals": [
+        {
+          "step": 901,
+          "subgoal": "抬刷检查后方两块收集结果"
+        },
+        {
+          "step": 917,
+          "subgoal": "将簸箕和其右侧扫帚稳定放桌并松夹爪"
+        },
+        {
+          "step": 924,
+          "subgoal": "双手张开抬离工具确保回原位通道清空"
+        },
+        {
+          "step": 991,
+          "subgoal": "工具释放且指尖已离开，双臂返回初始原位"
+        },
+        {
+          "step": 1000,
+          "subgoal": "在原位保持，完成终局稳定性检查"
+        }
+      ],
+      "agent_final": "The episode ended at the time limit without completing the task. Blocks remain outside the dustpan, and the handover did not hold reliably.\n\nBoth arms returned to origin. The tools are released, with the dustpan upright and stable to the broom’s left. Final observations and adopted evidence IDs were recorded."
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 1,
+      "success": false,
+      "native_score": 0.0,
+      "steps": 1000,
+      "steps_complete": true,
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-random-l1/native/eval_result/RoboDojo/sweep_blocks_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l1/_result.json",
+      "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a",
+      "usage": {
+        "input_tokens": 7456018,
+        "cached_input_tokens": 7311360,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 29956,
+        "reasoning_output_tokens": 14955
+      },
+      "wall_seconds": 2614.731691678986,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-random-l1",
+      "verified_artifact_count": 11,
+      "last_subgoals": [
+        {
+          "step": 896,
+          "subgoal": "Release broom on table to right of dustpan"
+        },
+        {
+          "step": 910,
+          "subgoal": "Withdraw open fingers clear of both released tools"
+        },
+        {
+          "step": 972,
+          "subgoal": "Return both arms to origin after tools are released and fingers clear"
+        },
+        {
+          "step": 996,
+          "subgoal": "Hold origin and let released tools settle during final episode interval"
+        },
+        {
+          "step": 1000,
+          "subgoal": "Maintain origin through episode end"
+        }
+      ],
+      "agent_final": "The episode ended without success. The dustpan is upright to the left of the broom, and both arms returned to origin. Objects remain outside the dustpan after it tipped and spilled during repositioning."
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 2,
+      "success": null,
+      "native_score": null,
+      "steps": 268,
+      "steps_complete": false,
+      "native_result": null,
+      "native_sha256": null,
+      "usage": null,
+      "wall_seconds": 795.4524841220118,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-standard-l2",
+      "verified_artifact_count": 9,
+      "last_subgoals": [
+        {
+          "step": 217,
+          "subgoal": "右手深入柄侧夹持区并静止闭合"
+        },
+        {
+          "step": 230,
+          "subgoal": "左手松开退开，验证扫把由右手单独接持"
+        },
+        {
+          "step": 245,
+          "subgoal": "右手抬扫把移至右侧，确认独立夹持"
+        },
+        {
+          "step": 261,
+          "subgoal": "右手向下接近当前平放扫把的外露柄，夹爪横跨柄轴"
+        },
+        {
+          "step": 268,
+          "subgoal": "右手按当前腕相机定位下降到硬柄夹取高度"
+        }
+      ],
+      "agent_final": null
+    },
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 2,
+      "success": null,
+      "native_score": null,
+      "steps": null,
+      "steps_complete": false,
+      "native_result": null,
+      "native_sha256": null,
+      "usage": null,
+      "wall_seconds": 4.15835481393151,
+      "directory": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-sweep_blocks-20261029/seed1-random-l2",
+      "verified_artifact_count": 2,
+      "last_subgoals": [],
+      "agent_final": null
+    }
+  ],
+  "reference": {
+    "root": "/tmp/roborag-make-toast-pyrua-20261104",
+    "commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+    "files": {
+      "src/pyrualean/arms.py": "30e5cac55389bb49b8b81c695d315301fc46b9beb0ece69604586d5d656d1315",
+      "src/pyrualean/sandbox.py": "22f679b8e2dbea75b1a0bccef59808e1aadeb25a03eb6ec9b3e72ff67a3aad66"
+    }
+  },
+  "note": "Historical baseline and offline diagnosis retained after hang full50 closure. No candidate native result yet. Hidden layout labels, counts, coordinates and reward internals are not policy inputs.",
+  "source_preparation": "/home/zxc/文档/ChatGPT/RoboRAG/results/sweep-blocks-baseline-preparation-20261105.json",
+  "source_preparation_sha256": "d0b86ae22c002e27e99bbfde03681866c708efec1532aa5e0f062fa759cecd4a",
+  "candidate_base_commit": "e05fff8c3518658c12f2ed26b95f04dfc123a18f",
+  "candidate_root": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools",
+  "diagnosis_records": [
+    {
+      "path": "/home/zxc/文档/ChatGPT/RoboRAG/results/sweep-blocks-object-scope-observation-20261105.json",
+      "sha256": "548d1e2a6dc9bdc55c48d151b19b13bb95b5a35f0e2ff47cf843fb6034c39b4c"
+    },
+    {
+      "path": "/home/zxc/文档/ChatGPT/RoboRAG/results/sweep-blocks-stationary-motion-observation-20261105.json",
+      "sha256": "b47a236323868fe472038a8bcec8e49723b83dab404f42018f806a34e8918fd3"
+    },
+    {
+      "path": "/home/zxc/文档/ChatGPT/RoboRAG/results/sweep-blocks-motion-diagnosis-20261105.json",
+      "sha256": "294581f48249385b43f05d321a62c3ae6755ba14c64a4bf6c20dbd16f98c3d5d"
+    }
+  ]
+}

@@ -1,0 +1,611 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "make_toast-0001",
+  "task": "make_toast",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "make_toast",
+  "title": "左手逐片取面包，交给右手装槽后下压拨杆",
+  "summary": "左手先后从面包架取出两片面包，分别交给右手放入烤面包机的两个槽口。装入后，右手移到正面下压拨杆。",
+  "instruction": "Pick up two slices of bread, place them into the toaster, and press the lever down.",
+  "episode": 1,
+  "source": {
+    "path": "runtime-data/make_toast/train/episode_0000001.hdf5",
+    "sha256": "65e7b32c0b4bf1eec02e01857b8b1b7fc29ef1627f7814bad6efe4fd78066a58",
+    "frames": 501,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-28T17:32:05.400875+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "取出第一片面包",
+      "summary": "左手从面包架取出第一片并抬起。",
+      "objects": [
+        "左夹爪",
+        "第一片面包",
+        "面包架"
+      ],
+      "start_frame": 0,
+      "end_frame": 70,
+      "order": 0,
+      "keyframes": [
+        0,
+        34,
+        69
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "面包架位于桌面左侧，烤面包机位于右侧，两个槽口为空；双手尚未接触面包。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手抬起并移到面包架上方，下降夹住一片面包的边缘，再将其向上提离面包架。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "第一片面包随左夹爪离架并悬起，右手仍停在原处。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "将第一片交给右手",
+      "summary": "通过双手交接，让右手接管第一片面包。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "第一片面包"
+      ],
+      "start_frame": 70,
+      "end_frame": 140,
+      "order": 1,
+      "keyframes": [
+        70,
+        104,
+        139
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左手持有第一片面包，面包另一侧边缘露出，右手可从烤面包机一侧接近。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手将面包移到双手之间并保持，右夹爪靠近并夹住另一侧边缘，随后左夹爪张开并撤离。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "面包转由右手持有，左手与面包分离；交接时的具体接触位置被夹爪局部遮挡。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "将第一片对准槽口",
+      "summary": "右手把面包搬到烤面包机上方并调整方向。",
+      "objects": [
+        "右夹爪",
+        "第一片面包",
+        "烤面包机左侧槽口"
+      ],
+      "start_frame": 140,
+      "end_frame": 190,
+      "order": 2,
+      "keyframes": [
+        140,
+        164,
+        189
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "第一片面包由右手持有，烤面包机的两个槽口仍为空。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手抬高面包并向烤面包机上方移动，调整方向，使面包薄边对准头部视角中左侧的槽口，再向槽口靠近。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "面包到达选定槽口上方，下边缘接近入口，仍由右夹爪保持。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "放入第一片并退出",
+      "summary": "将第一片送入槽内并释放。",
+      "objects": [
+        "右夹爪",
+        "第一片面包",
+        "烤面包机左侧槽口"
+      ],
+      "start_frame": 190,
+      "end_frame": 232,
+      "order": 3,
+      "keyframes": [
+        190,
+        210,
+        231
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "面包已对准左侧槽口，右手位于烤面包机上方。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手沿槽口方向降低面包，将其送入槽内，随后张开夹爪并向外撤离。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "第一片留在槽中，上缘仍可见，右手已释放；面包在槽内的具体深度被外壳遮挡。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "取出第二片面包",
+      "summary": "左手再次从面包架取片并移向交接位置。",
+      "objects": [
+        "左夹爪",
+        "第二片面包",
+        "面包架",
+        "烤面包机"
+      ],
+      "start_frame": 232,
+      "end_frame": 313,
+      "order": 4,
+      "keyframes": [
+        232,
+        272,
+        312
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "第一片已留在烤面包机内，面包架上还有面包，左手空闲。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手再次靠近面包架，下降夹住另一片面包，随后提起并将其移到面包架与烤面包机之间。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "第二片面包已离架并随左手移动，第一片仍可见于烤面包机槽内。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "将第二片交给右手",
+      "summary": "右手接过第二片，准备装入剩余空槽。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "第二片面包"
+      ],
+      "start_frame": 313,
+      "end_frame": 365,
+      "order": 5,
+      "keyframes": [
+        313,
+        338,
+        364
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左手悬持第二片面包，右手空闲并开始向露出的面包边缘靠近。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手保持面包位置，右夹爪靠近并夹住另一侧边缘，随后左手松开并退回。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "第二片随右手抬起，左手退出交接区域，面包不再由左手支撑。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "将第二片对准另一槽口",
+      "summary": "把第二片搬到剩余空槽上方。",
+      "objects": [
+        "右夹爪",
+        "第二片面包",
+        "第一片面包",
+        "烤面包机右侧槽口"
+      ],
+      "start_frame": 365,
+      "end_frame": 405,
+      "order": 6,
+      "keyframes": [
+        365,
+        384,
+        404
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右手持有第二片面包，烤面包机左侧槽内已有第一片，另一槽口为空。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手抬高并搬运第二片，从烤面包机右侧上方接近，调整面包方向，使其薄边对准剩余槽口。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "第二片到达右侧槽口附近并准备下降，第一片仍留在相邻槽中。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "放入第二片并松手",
+      "summary": "将第二片送入另一槽口，完成两槽装片。",
+      "objects": [
+        "右夹爪",
+        "第二片面包",
+        "烤面包机右侧槽口"
+      ],
+      "start_frame": 405,
+      "end_frame": 442,
+      "order": 7,
+      "keyframes": [
+        405,
+        423,
+        441
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "第二片已靠近右侧槽口，右夹爪仍夹持面包边缘。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手降低面包，将其送入空槽，随后张开夹爪并撤离烤面包机顶部。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "两个槽口内均可见面包上缘，右手已与第二片分离；槽内具体落位被外壳遮挡。",
+      "parent": "p08"
+    },
+    {
+      "id": "p09",
+      "kind": "phase",
+      "title": "下压烤面包机拨杆",
+      "summary": "右手移到正面操作拨杆。",
+      "objects": [
+        "右夹爪",
+        "烤面包机拨杆",
+        "烤面包机",
+        "两片面包"
+      ],
+      "start_frame": 442,
+      "end_frame": 501,
+      "order": 8,
+      "keyframes": [
+        442,
+        471,
+        500
+      ]
+    },
+    {
+      "id": "p09-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "两片面包已分别留在两个槽内，烤面包机正面的拨杆可见，右手空闲。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手移到烤面包机正面，收拢夹爪后靠近拨杆，向下运动将拨杆压低，随后张开夹爪并退开。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "末帧拨杆位于竖向导槽较低处，右夹爪已张开，两片面包仍在槽中；实际加热状态无法从画面确认。",
+      "parent": "p09"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p08",
+      "target": "p09",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p09",
+      "target": "p09-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p09",
+      "target": "p09-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p09",
+      "target": "p09-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

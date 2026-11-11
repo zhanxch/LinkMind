@@ -1,0 +1,14 @@
+{
+  "case_count": 4,
+  "original_train_demonstrations": 3,
+  "original_train_phases": 28,
+  "image_references_verified": 672,
+  "checked_at": "2026-11-05T20:53:40.530975+00:00",
+  "passed": true,
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/experiments/sweep_blocks/tools-v1-development-20261106.json",
+  "protocol_sha256": "b58ef7014740c40703e3307664a47f06d5bf4abe22e76ab1993ad8bd2054f036",
+  "no_related_native_processes": true,
+  "gpu_csv": "index, memory.used [MiB], memory.free [MiB]\n0, 571 MiB, 23511 MiB",
+  "static_report_sha256": "5bc8b89edc9d27fd964ff31220cdae9f77a651288733c4c42efa7dfdc1ca462d",
+  "interfaces_report_sha256": "9c6c5961ab818a1b668740c2283b2f39efcb6dc923c39cd6fc40aa0481777412"
+}

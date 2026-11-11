@@ -1,0 +1,89 @@
+{
+  "schema": "roborag.push-t-toolkit-development.v1",
+  "status": "registered_before_launch",
+  "base_commit": "6cbb378436207200fe50884d9eaf6869deef9621",
+  "remaining_base_tasks": 1,
+  "planned_native_attempts": 6,
+  "tasks": [
+    {
+      "task": "push_T",
+      "bank": "artifacts/generalization-v3-full/push_T",
+      "cases_file": "experiments/push_T/cases-development-seed1-six.json",
+      "case_count": 6,
+      "native_step_limits": {
+        "standard": 600,
+        "random": 600
+      },
+      "preflight_file": "results/push-t-toolkit-bank-preflight-20261103.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Task-specific native limit; never overridden",
+    "train_episodes_for_new_tasks": [
+      0,
+      1,
+      2
+    ],
+    "context": "Single persistent native agent per episode; full original TRAIN state/action/RGB access; no stage gating",
+    "ik_guard": {
+      "kind": "native_ik_continuity",
+      "max_joint_increment_rad": 0.25,
+      "scope": "push_T only"
+    }
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from failure",
+    "retests": "No automatic retry or best-of selection; missing native scoring is reported separately and reviewed after the first pass.",
+    "aggregation": "Per-variant/task results; same-scene pairing when a verified baseline exists; do not relabel mixed historical versions as one candidate sweep"
+  },
+  "completed_references": {
+    "push_T_historical_only": "../v3-generalization/results/push_T-existing-generalization-reference-audit.json"
+  },
+  "gates": [
+    "All selected TRAIN hashes match pinned public source manifests",
+    "Full-bank annotation coverage and raw actions/state/images accessible",
+    "No fold policy/controller regressions",
+    "Freeze source, prompt, TRAIN, layouts, native task configs and CLI before native batch launch",
+    "Verify native outcomes and trajectory evidence before reporting"
+  ],
+  "launch_order": "seed1 standard/random layout0, then layout1, then layout2. No retries, no automatic expansion after these six cases.",
+  "scope": {
+    "user_request": "Stop the simplified batch; restore validated legacy task tools and prompts inside the current general architecture",
+    "runtime_changes": [
+      "Exact legacy push_T assembled prompt",
+      "RGB-only planar plane/height/match/check measurements with saved visual goal",
+      "Whole-phase historical reference states and sparse head/wrist images",
+      "Opt-in native IK continuity rejection and unchanged action prefix feedback",
+      "Native public task language for push_T"
+    ],
+    "unchanged": [
+      "Current modular MCP architecture, model-owned planning and short action execution",
+      "Existing 11 task prompts and tool interfaces",
+      "Lexical retriever, source data, action compilation, transport and budgets",
+      "Native scoring and 600 control steps"
+    ],
+    "not_added": [
+      "Automatic trajectory replay or planar_transfer motor program",
+      "Stage gating or graph-plan scheduling",
+      "Alternative interaction-annotated TRAIN bank",
+      "Native object truth or reward access by the policy"
+    ],
+    "interpretation": "Six previously used development scenes, one attempt each on a new frozen candidate; do not inherit historical 50/50 or pool with the stopped minimal batch"
+  },
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "wait_for_existing_gpu_work": "Original dataset pipeline remains stopped by user; current development validation only.",
+    "policy_and_sources_frozen_while_running": true
+  },
+  "general_method_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "legacy_capability_commit": "62f538d1897820fa112e1fd1d921ea6c1a485163"
+}

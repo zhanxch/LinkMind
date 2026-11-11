@@ -1,0 +1,614 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "deposit_coin-0000",
+  "task": "deposit_coin",
+  "task_name": "硬币投放",
+  "title": "右手取币、双手交接后由左手对槽投币",
+  "summary": "示范先由右夹爪从支架取出硬币，在两臂之间交给左夹爪，再由左手将硬币对准粉色存钱罐的投币槽并释放，最后双臂复位。阶段边界为结合画面与状态变化的估计。",
+  "instruction": "Pick up the coin from the holder and insert it precisely into the coin bank.",
+  "episode": 0,
+  "source": {
+    "path": "runtime-data/deposit_coin/train/episode_0000000.hdf5",
+    "sha256": "b9093beb1142f1e15ad38003a82abdc85f96417425193b0b5c7d9128ae90cd29",
+    "frames": 191,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-24T05:45:56.383975+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "右手接近支架中的硬币",
+      "summary": "将右夹爪移至硬币处，为夹取做准备。",
+      "objects": [
+        "右夹爪",
+        "硬币",
+        "硬币支架",
+        "左臂"
+      ],
+      "start_frame": 0,
+      "end_frame": 24,
+      "order": 0,
+      "keyframes": [
+        0,
+        11,
+        23
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "硬币位于桌面右侧支架处，粉色存钱罐位于左侧，两夹爪初始张开。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂抬起并向支架移动，调整夹爪方向，使两指接近硬币两侧；左臂保持原位。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右夹爪到达支架上方并靠近硬币，尚未看到硬币脱离支架。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "夹住硬币并提离支架",
+      "summary": "完成取币并建立可见的持币状态。",
+      "objects": [
+        "右夹爪",
+        "硬币",
+        "硬币支架"
+      ],
+      "start_frame": 24,
+      "end_frame": 57,
+      "order": 1,
+      "keyframes": [
+        24,
+        40,
+        56
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右夹爪已靠近硬币，腕部视角可见硬币边缘与支架。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪在硬币两侧逐渐合拢，随后向上提起。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "硬币随右夹爪离开支架，后续腕部画面可见金色币缘位于指间，支持已取起硬币的判断。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "右手将硬币送到交接位置",
+      "summary": "把硬币移至左手可接近的中央区域。",
+      "objects": [
+        "右夹爪",
+        "硬币",
+        "左夹爪"
+      ],
+      "start_frame": 57,
+      "end_frame": 82,
+      "order": 2,
+      "keyframes": [
+        57,
+        69,
+        81
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右手已提起硬币，左手仍停在存钱罐前方。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂持币向桌面中央移动并转动夹爪，使硬币边缘朝向左手的接近方向。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右手停在中央偏右位置，硬币露出于夹爪前端，为另一只夹爪留出接近空间。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "左手靠近并夹住交接硬币",
+      "summary": "让左夹爪接住右手提供的硬币。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "硬币"
+      ],
+      "start_frame": 82,
+      "end_frame": 114,
+      "order": 3,
+      "keyframes": [
+        82,
+        97,
+        113
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右手持币停稳，左夹爪张开，硬币位于两手之间的目标交接区域。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂抬起并向右手靠近，两夹爪相向对齐；左夹爪围住硬币露出的部分并逐渐闭合。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "两夹爪在硬币处汇合，腕部画面可见币缘处于交接区域；此时右手尚未完全松开，不能仅凭左夹爪闭合判定交接完成。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "右手松开并完成交接",
+      "summary": "将硬币的持握转移到左手。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "硬币"
+      ],
+      "start_frame": 114,
+      "end_frame": 133,
+      "order": 4,
+      "keyframes": [
+        114,
+        123,
+        132
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左夹爪已闭合在硬币处，两手仍相向靠近。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手保持位置和夹持，右夹爪逐渐张开，随后两臂开始分离。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右夹爪张开并离开硬币，硬币仍可见于左夹爪指间；分离后的画面支持交接已完成。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "左手持币移到投币槽上方",
+      "summary": "将硬币送至存钱罐并调整插入方向。",
+      "objects": [
+        "左夹爪",
+        "硬币",
+        "粉色存钱罐",
+        "投币槽",
+        "右臂"
+      ],
+      "start_frame": 133,
+      "end_frame": 149,
+      "order": 5,
+      "keyframes": [
+        133,
+        140,
+        148
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "硬币由左手持有，粉色存钱罐顶部的狭长投币槽可见。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂持币向存钱罐移动并调整腕部姿态，使硬币边缘与投币槽方向一致；右臂退回初始位置。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "左夹爪到达存钱罐上方，硬币靠近投币槽，右手已基本退出操作区域。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "沿投币槽送入硬币",
+      "summary": "保持币缘对槽，将硬币向槽内送进。",
+      "objects": [
+        "左夹爪",
+        "硬币",
+        "投币槽",
+        "粉色存钱罐"
+      ],
+      "start_frame": 149,
+      "end_frame": 159,
+      "order": 6,
+      "keyframes": [
+        149,
+        153,
+        158
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左手位于投币槽上方，腕部视角可见金色币缘对着狭长槽口。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手保持夹持，小幅下降并调整位置，让硬币沿槽口方向进入。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "硬币币缘与槽口重合并接近槽内；夹爪及罐体遮挡了部分硬币，具体插入深度不确定。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "在槽口释放硬币",
+      "summary": "松开硬币，完成投币动作。",
+      "objects": [
+        "左夹爪",
+        "硬币",
+        "投币槽",
+        "粉色存钱罐"
+      ],
+      "start_frame": 159,
+      "end_frame": 169,
+      "order": 7,
+      "keyframes": [
+        159,
+        163,
+        168
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左夹爪停在投币槽处，硬币已沿槽口送入。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手保持在槽口附近，逐渐张开夹爪释放硬币。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "腕部画面中投币槽重新显露，夹爪间不再见金色硬币；画面支持硬币已释放入槽，罐内落币过程不可见。",
+      "parent": "p08"
+    },
+    {
+      "id": "p09",
+      "kind": "phase",
+      "title": "左手撤离并复位",
+      "summary": "撤出投币区域，结束示范。",
+      "objects": [
+        "左臂",
+        "左夹爪",
+        "右臂",
+        "粉色存钱罐"
+      ],
+      "start_frame": 169,
+      "end_frame": 191,
+      "order": 8,
+      "keyframes": [
+        169,
+        179,
+        190
+      ]
+    },
+    {
+      "id": "p09-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左夹爪已张开，槽口处不再见硬币，右臂已复位。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂从存钱罐上方撤离，沿返回轨迹下降至初始位置。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "两臂均回到初始附近且夹爪张开，存钱罐留在桌面原处，硬币未再出现在夹爪中。",
+      "parent": "p09"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p08",
+      "target": "p09",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p09",
+      "target": "p09-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p09",
+      "target": "p09-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p09",
+      "target": "p09-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ],
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  }
+}

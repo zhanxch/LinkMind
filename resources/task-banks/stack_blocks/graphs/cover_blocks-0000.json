@@ -1,0 +1,551 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "cover_blocks-0000",
+  "task": "cover_blocks",
+  "task_name": "覆盖积木",
+  "title": "从左到右盖住绿蓝红方块，再按红绿蓝顺序揭盖",
+  "summary": "示范中方块从左到右为绿色、蓝色、红色，机器人依次将前方黄色杯移到对应方块上。随后按红、绿、蓝顺序将杯移回前方，最终三个方块全部露出，双臂撤回。",
+  "instruction": "Cover the blocks from left to right, remember their colors, then uncover them in the order: red, green, and blue.",
+  "episode": 0,
+  "source": {
+    "path": "runtime-data/cover_blocks/train/episode_0000000.hdf5",
+    "sha256": "2fa920f75e3d126c811ea3eb0145325ce504d3d4b2ba08488a61531576bad74a",
+    "frames": 555,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-24T05:44:03.166899+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "左手盖住绿色方块",
+      "summary": "建立颜色与位置对应关系，首先覆盖最左侧绿色方块。",
+      "objects": [
+        "左机械臂",
+        "左侧黄色杯",
+        "绿色方块"
+      ],
+      "start_frame": 0,
+      "end_frame": 73,
+      "order": 0,
+      "keyframes": [
+        0,
+        36,
+        72
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "桌面上绿、蓝、红方块从左到右排列，每个方块前方各有一个黄色杯，双臂位于两侧。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手靠近最左侧黄色杯，夹住并抬起，将杯向后移到绿色方块所在位置，下降后松开。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "左侧黄色杯停在原绿色方块位置，绿色方块不再可见；中间蓝色和右侧红色方块仍露出。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "左手盖住蓝色方块",
+      "summary": "继续从左到右的覆盖顺序，将中间蓝色方块盖住。",
+      "objects": [
+        "左机械臂",
+        "中间黄色杯",
+        "蓝色方块",
+        "左侧黄色杯"
+      ],
+      "start_frame": 73,
+      "end_frame": 158,
+      "order": 1,
+      "keyframes": [
+        73,
+        115,
+        157
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左侧绿色方块已被杯遮住，中间蓝色方块及其前方黄色杯仍可见。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手离开左侧杯，移动到中间杯上方，下降夹取，抬起后移向蓝色方块，下降放杯并松开。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "中间黄色杯移到蓝色方块位置，蓝色方块不再可见；右侧红色方块仍露出。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "右手盖住红色方块",
+      "summary": "完成最右侧红色方块的覆盖。",
+      "objects": [
+        "右机械臂",
+        "左机械臂",
+        "右侧黄色杯",
+        "红色方块"
+      ],
+      "start_frame": 158,
+      "end_frame": 241,
+      "order": 2,
+      "keyframes": [
+        158,
+        199,
+        240
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左、中两个方块已被黄色杯遮住，右侧红色方块及其前方黄色杯仍可见。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂撤回，右手靠近右侧黄色杯，夹取并抬起，将杯向后移动到红色方块上方，下降松开。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "三个黄色杯排列在原方块位置，红色方块也不再可见；杯内方块的具体状态被遮挡。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "从覆盖转向右侧揭盖",
+      "summary": "依据此前的颜色位置对应关系，先选择覆盖红色方块的右侧杯。",
+      "objects": [
+        "右机械臂",
+        "右侧黄色杯",
+        "被覆盖的红色方块"
+      ],
+      "start_frame": 241,
+      "end_frame": 300,
+      "order": 3,
+      "keyframes": [
+        241,
+        270,
+        299
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "三个方块均被杯遮住，右手位于最右侧杯附近。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手松开后抬离杯体，随后再次靠近右侧杯并下降，为揭开红色方块做准备。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右手到达右侧杯的夹取位置，三个杯仍保持覆盖状态。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "右手揭开红色方块",
+      "summary": "首先揭开右侧红色方块，将杯放到其前方。",
+      "objects": [
+        "右机械臂",
+        "右侧黄色杯",
+        "红色方块"
+      ],
+      "start_frame": 300,
+      "end_frame": 362,
+      "order": 4,
+      "keyframes": [
+        300,
+        330,
+        361
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右手已靠近最右侧杯，该杯对应先前看到的红色方块。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手夹住右侧杯并抬起，将其向前移离方块位置，下降放置并松开，随后撤离。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "红色方块重新露出，右侧黄色杯位于其前方；左侧绿色和中间蓝色方块仍被杯遮住。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "左手揭开绿色方块",
+      "summary": "按指定顺序第二个揭开左侧绿色方块。",
+      "objects": [
+        "左机械臂",
+        "右机械臂",
+        "左侧黄色杯",
+        "绿色方块"
+      ],
+      "start_frame": 362,
+      "end_frame": 444,
+      "order": 5,
+      "keyframes": [
+        362,
+        402,
+        443
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "红色方块已经露出，左侧杯仍覆盖绿色方块，中间杯仍覆盖蓝色方块。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右臂撤回，左手靠近左侧杯，下降夹住并抬起，将杯向前移到绿色方块前方，下降松开并离开。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "绿色方块重新露出，左侧杯放在其前方；红色方块保持可见，中间蓝色方块仍被覆盖。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "右手揭开蓝色方块",
+      "summary": "最后揭开中间蓝色方块，完成红绿蓝的揭盖顺序。",
+      "objects": [
+        "右机械臂",
+        "左机械臂",
+        "中间黄色杯",
+        "蓝色方块"
+      ],
+      "start_frame": 444,
+      "end_frame": 520,
+      "order": 6,
+      "keyframes": [
+        444,
+        481,
+        519
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左侧绿色和右侧红色方块均已露出，仅中间黄色杯仍覆盖方块。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂撤回，右手移到中间杯上方，下降夹取并抬起，将杯向前移离蓝色方块，下降放置后松开。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "中间杯已移到前方；放杯末段机械臂遮挡部分视野，蓝色方块是否完全露出需在撤臂后确认。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "撤回双臂并显露最终布局",
+      "summary": "结束操作，确认三个方块均已揭开。",
+      "objects": [
+        "左机械臂",
+        "右机械臂",
+        "绿色方块",
+        "蓝色方块",
+        "红色方块",
+        "三个黄色杯"
+      ],
+      "start_frame": 520,
+      "end_frame": 555,
+      "order": 7,
+      "keyframes": [
+        520,
+        537,
+        554
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "三个杯均已移到对应方块前方，右手仍靠近刚放下的中间杯。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手抬离中间杯并撤回右侧，左臂保持撤回位置。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "最终画面清楚显示绿、蓝、红方块从左到右全部露出，三个黄色杯位于前方，双臂回到两侧。",
+      "parent": "p08"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ],
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  }
+}

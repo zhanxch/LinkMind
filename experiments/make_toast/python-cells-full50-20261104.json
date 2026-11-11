@@ -1,0 +1,70 @@
+{
+  "schema": "roborag.make-toast-python-cells-full50.v1",
+  "status": "registered_before_launch",
+  "base_commit": "1fe37046809b3816d4c70a74c41abbe3bff3e243",
+  "planned_native_attempts": 50,
+  "tasks": [
+    {
+      "task": "make_toast",
+      "bank": "artifacts/generalization-v3-full/make_toast",
+      "cases_file": "experiments/make_toast/cases-python-cells-full50-seed1.json",
+      "case_count": 50,
+      "native_step_limits": {
+        "standard": 1400,
+        "random": 1400
+      },
+      "preflight_file": "results/make-toast-cells-bank-preflight-20261104.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Unmodified native 1400 steps; every cell dispatch counts",
+    "context": "Original full TRAIN retrieval and model-owned plan, persistent isolated Python cells for public computation and validated short moves",
+    "feedback": "Current RGB, paired camera calibration, measured robot poses; gripper is command, no holding truth",
+    "execution_guard": {
+      "kind": "native_ik_continuity",
+      "max_joint_increment_rad": 0.25
+    },
+    "gripper_control": "Measured joint hold for 1-24 native steps; no Cartesian IK"
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure",
+    "retests": "Exactly one fresh attempt per registered scene; no automatic retries or replacement of unscored episodes.",
+    "aggregation": "Report standard and random separately, native success/failure/unscored separately; do not pool development or supplementary runs. Full existing seed1 layout set, not a new held-out or cross-seed claim.",
+    "early_stopping": "No stopping based on task failures; source drift, explicit user interruption or execution infrastructure failure may stop the batch and must be recorded."
+  },
+  "scope": {
+    "runtime_changes": [],
+    "unchanged": [
+      "Runtime source, tools, assembled prompt and pure geometry aliases exactly match 1fe37046809b3816d4c70a74c41abbe3bff3e243",
+      "Original full TRAIN, model-owned planning, native controller/scoring and 1400-step budget",
+      "Model gpt-6-astra/xhigh, per-episode 5400-second wall limit, parallel 2",
+      "Other task sources, prompts and previous run records"
+    ],
+    "reference": {
+      "repository": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+      "commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+      "files": [
+        "src/pyrualean/arms.py",
+        "src/pyrualean/sandbox.py"
+      ],
+      "usage": "Design reference only; no upstream runtime dependency or RSI task program copied"
+    },
+    "interpretation": "Full first pass of seed1 standard/random layouts 0-24, freshly run once each with the accepted candidate. Prior development, historical and supplementary results remain separate; existing development layouts are included, so this is not an independent held-out or component causal evaluation."
+  },
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "Paused by explicit user request; do not resume automatically",
+    "frozen_during_run": true
+  },
+  "launch_condition": "Prior development and supplement batches closed; accepted 1fe3704 runtime and prompt unchanged; current worktree committed; GPU available; LeRobot replay remains paused under prior user authorization.",
+  "authorization": "User: 听起来没什么问题，就按这个版本完整评测吧"
+}

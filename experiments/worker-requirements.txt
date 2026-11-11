@@ -1,0 +1,7 @@
+# Isolated cells use /usr/bin/python3, independently of policy/simulator Python.
+# Versions recorded from the evaluated worker environment.
+numpy==1.26.4
+scipy==1.15.3
+pillow==12.3.0
+opencv-python-headless==4.11.0.86
+transforms3d==0.4.2

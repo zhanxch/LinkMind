@@ -1,0 +1,22 @@
+{
+  "schema": "push-t-cumulative-simplification-pilot-v1",
+  "tag": "push-t-simplification-pilot-20261111",
+  "base_commit": "50fcf826cb410629f1e9c532bd01906abcda3fe5",
+  "profiles": ["baseline", "summaries", "no_plan", "fixed", "none"],
+  "cases": [{"seed": 1, "variant": "standard", "layout": 0}, {"seed": 1, "variant": "random", "layout": 0}],
+  "conditions": {"model": "gpt-6-astra", "effort": "xhigh", "controller": "delta", "max_wall_seconds": 5400, "parallel": 2, "ik_guard": {"kind": "native_ik_continuity", "max_joint_increment_rad": 0.25}},
+  "task": {"task": "push_T", "bank": "artifacts/generalization-v3-full/push_T", "native_step_limits": {"standard": 600, "random": 600}},
+  "scope": "Ten new development attempts, two scenes per cumulative profile. Existing seed1 l0 scenes; not held-out generalization or a noninferiority test. Historical results are separate context, not substituted for this baseline.",
+  "changes": {
+    "baseline": "Original assembled prompt, tool schemas and plan prerequisite.",
+    "summaries": "Remove raw-action-array option; preserve dynamic retrieval and original reference summaries/images.",
+    "no_plan": "Additionally remove record_plan and its execution prerequisite. No fake plan or empty retrieval prerequisite.",
+    "fixed": "Additionally replace retrieval and graph expansion with two fixed TRAIN preparation references: right push_T-0000:p01/close and left push_T-0001:p01/close, preserving original payloads and images. Read by arm when useful.",
+    "none": "Additionally remove the fixed reference tool; retain only observe, measure_planar, execute_chunk. No history is sent."
+  },
+  "unchanged": ["RGB calibration and proprioception", "planar measurement and saved goal/residual semantics", "planar contact guidance", "0.25rad IK continuity guard", "delta/targets/segments compilation", "24-row action limit", "600-step native evaluation", "persistent model session and transport"],
+  "dispatch": "In profile order, standard/random pair per profile, at most two simultaneous episodes, at least 11000MiB free before each launch and previous cold start ready. Do not cancel another experiment to obtain resources.",
+  "stopping": "Run all declared cases despite native failures. An unscored attempt or provenance/workflow problem pauses new dispatch; allow the already active paired episode to finish. Preserve every attempt; no automatic retries, substitutions, version changes or full50 expansion.",
+  "metrics": ["native success/failure/unscored", "control steps", "wall seconds", "tokens including unknowns", "reference and planning calls", "IK rejections", "planar checks", "return-home attempts"],
+  "interpretation": "A passing two-case pilot permits further evaluation, not a claim that the removed mechanisms are causally unnecessary. The fixed-reference step changes selection and available content together; it is a simplification candidate, not a pure representation ablation."
+}

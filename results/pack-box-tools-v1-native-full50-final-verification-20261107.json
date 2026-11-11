@@ -1,0 +1,501 @@
+{
+  "checked_at": "2026-11-07T10:49:00.192779+00:00",
+  "passed": true,
+  "experiment_complete": true,
+  "tag": "pack-box-tools-v1-native-full50-20261107",
+  "candidate_commit": "4878cd3871b160bad8548b71172b1d51c44e843a",
+  "accepted_runtime_commit": "cd82ce5499c59e6da6c0505e59618f0d73b41a47",
+  "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-tools-v1-native-full50-closure-20261107.json",
+  "closure_sha256": "88ccb4e9a22194922cdb14c3d2bde1d5e1f2416d24f973a3d57c6ca36f20e8d3",
+  "evidence_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-tools-v1-native-full50-20261107.json": "da00dc91e93ba53c64757a855676536f8972861b360b2ae01c07111ed2b7d4c8",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-tools-v1-native-full50-closure-20261107.json": "88ccb4e9a22194922cdb14c3d2bde1d5e1f2416d24f973a3d57c6ca36f20e8d3",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/runs/pack-box-tools-v1-native-full50-20261107-freeze.json": "40157e2eb62e9ed21f75b74fbd841bf44812640027866cc34496b5f572fda50f",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/experiments/pack_objects_into_box/tools-v1-native-full50-20261107.json": "47b2afae5fced21b5ddba12d2bfacf004d9cdfce8f41ded2f42b0969f8ea92f9",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-tools-v1-dev-20261107.json": "1d8b59137e4907281a15bb8d612c7e5467019db8517b60d90127f8a4e3969cad",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-tools-v1-static-tests-20261107.json": "a6de251ebffba6d46694f9fdd8aa2caa9ad947cda75ee94264de060d97a7c292",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-tools-v1-interface-verification-20261107.json": "eacb1eb9fa5b17c9564c61d89c295a4585c287751576cfe268614107e58cf880",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-tools-bank-preflight-20261107.json": "e7e611066166c2f7f0dce0eb7dcec0f658f0d1054d8d2f2c0be0a12d43362915",
+    "/home/zxc/文档/ChatGPT/RoboRAG/work/pack-box-tools/results/pack-box-baseline-and-references-20261107.json": "6cd8e3bfb2e3187443c4e0b4ead80636bda41e9755c80d917177654a15809560"
+  },
+  "frozen_sources_verified": 315,
+  "accepted_runtime_files_verified": 66,
+  "static_tests_verified": 154,
+  "static_source_files_verified": 83,
+  "other_task_interfaces_and_prompts_verified": [
+    "arrange_largest_number",
+    "fold_clothes",
+    "hang_mugs",
+    "make_toast",
+    "pour_liquid_into_cup",
+    "sort_nesting_dolls_by_size",
+    "stack_blocks",
+    "stack_bowls",
+    "store_laptop_and_headphones",
+    "sweep_blocks"
+  ],
+  "pack_tool_names": [
+    "retrieve_evidence",
+    "read_action_reference",
+    "observe",
+    "record_plan",
+    "execute_chunk",
+    "inspect_transfer_reference",
+    "match_scene_reference",
+    "prepare_motion_transfer",
+    "hold_joints",
+    "python_cell"
+  ],
+  "preflight_reverification": {
+    "case_count": 50,
+    "original_train_demonstrations": 3,
+    "original_train_phases": 28,
+    "image_references_verified": 672
+  },
+  "pyrua_reference_commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+  "counts": {
+    "attempts_closed": 50,
+    "success": 13,
+    "failure": 37,
+    "unscored": 0,
+    "scored": 50,
+    "success_rate_scored": 0.26,
+    "confirmed_success_fraction_closed": 0.26
+  },
+  "variants": {
+    "standard": {
+      "attempts_closed": 25,
+      "success": 8,
+      "failure": 17,
+      "unscored": 0,
+      "scored": 25,
+      "success_rate_scored": 0.32,
+      "confirmed_success_fraction_closed": 0.32,
+      "mean_native_score_scored": 49.2
+    },
+    "random": {
+      "attempts_closed": 25,
+      "success": 5,
+      "failure": 20,
+      "unscored": 0,
+      "scored": 25,
+      "success_rate_scored": 0.2,
+      "confirmed_success_fraction_closed": 0.2,
+      "mean_native_score_scored": 37.8
+    }
+  },
+  "native_budget": 1300,
+  "control_step_limit_override": null,
+  "native_reports_verified": 50,
+  "trajectories_verified": 50,
+  "registered_pid_count": 702,
+  "registered_process_identities": 700,
+  "policy_workspaces_checked": 50,
+  "live_related_processes": [],
+  "other_native_processes_at_verification": [],
+  "stats": {
+    "completed_cells": 1056,
+    "cells_with_errors": 30,
+    "moving_cells": 271,
+    "cell_control_steps": 5049,
+    "joint_hold_calls": 0,
+    "joint_hold_steps": 0,
+    "accepted_delta_rows": 60184,
+    "rejected_ik_attempts": 984,
+    "cell_errors_with_control_steps": 0,
+    "tool_counts": {
+      "observe": 50,
+      "retrieve_evidence": 69,
+      "read_action_reference": 527,
+      "inspect_transfer_reference": 301,
+      "python_cell_start": 1056,
+      "python_cell": 1056,
+      "match_scene_reference": 578,
+      "prepare_motion_transfer": 570,
+      "record_plan": 166,
+      "execute_chunk": 4140
+    }
+  },
+  "cell_errors": [
+    {
+      "case": "seed1-random-l0",
+      "cell": 11,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.1996m; inspect correspondences/shape/height\n",
+      "step_before": 542,
+      "step_after": 542,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l0",
+      "cell": 12,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.0301m; inspect correspondences/shape/height\n",
+      "step_before": 542,
+      "step_after": 542,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l1",
+      "cell": 18,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 6, in <module>\nTypeError: Robot.execute() got an unexpected keyword argument 'cameras'\n",
+      "step_before": 1116,
+      "step_after": 1116,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l6",
+      "cell": 12,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 3, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.0495m; inspect correspondences/shape/height\n",
+      "step_before": 805,
+      "step_after": 805,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l6",
+      "cell": 13,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Inconsistent multi-view landmark: reprojection error 7.02px\n",
+      "step_before": 625,
+      "step_after": 625,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l6",
+      "cell": 15,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Inconsistent multi-view landmark: reprojection error 7.02px\n",
+      "step_before": 625,
+      "step_after": 625,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l7",
+      "cell": 16,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 3, in <module>\n  File \"/base_worker.py\", line 112, in show\n    display(self.image(camera))\n  File \"/base_worker.py\", line 109, in image\n    return Image.open(io.BytesIO(base64.b64decode(rpc('image', camera=camera)))).copy()\n  File \"/base_worker.py\", line 29, in rpc\n    send(dict(kind='call', method=method, arguments=arguments))\n  File \"/base_worker.py\", line 24, in send\n    WIRE.write(json.dumps(value, allow_nan=False) + '\\n')\nTypeError: Object of type Image is not JSON serializable\n",
+      "step_before": 1199,
+      "step_after": 1199,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l7",
+      "cell": 17,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 201, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 7, in <module>\nTypeError: Robot.execute() got an unexpected keyword argument 'cameras'\n",
+      "step_before": 1199,
+      "step_after": 1199,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l7",
+      "cell": 7,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 199, in worker_main\n    value = repr(eval(compile(ast.Expression(last.value), '<robot-cell>', 'eval'), namespace))[:8000]\n  File \"<robot-cell>\", line 11, in <module>\nTypeError: Robot.execute() got an unexpected keyword argument 'cameras'\n",
+      "step_before": 317,
+      "step_after": 317,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l8",
+      "cell": 1,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 4, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.0294m; inspect correspondences/shape/height\n",
+      "step_before": 0,
+      "step_after": 0,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l9",
+      "cell": 17,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.0313m; inspect correspondences/shape/height\n",
+      "step_before": 831,
+      "step_after": 831,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l9",
+      "cell": 18,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Inconsistent multi-view landmark: reprojection error 15.44px\n",
+      "step_before": 831,
+      "step_after": 831,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l10",
+      "cell": 4,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 201, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 2, in <module>\n  File \"/base_worker.py\", line 124, in execute\n    return rpc('execute', **args)\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool execute_chunk: Per-arm translation norm must be <=0.035 m per row\n",
+      "step_before": 160,
+      "step_after": 160,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l11",
+      "cell": 12,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 201, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 2, in <module>\n  File \"/base_worker.py\", line 85, in triangulate\n    raise ValueError('Triangulation is behind a camera')\nValueError: Triangulation is behind a camera\n",
+      "step_before": 861,
+      "step_after": 861,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l11",
+      "cell": 13,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 199, in worker_main\n    value = repr(eval(compile(ast.Expression(last.value), '<robot-cell>', 'eval'), namespace))[:8000]\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/base_worker.py\", line 85, in triangulate\n    raise ValueError('Triangulation is behind a camera')\nValueError: Triangulation is behind a camera\n",
+      "step_before": 861,
+      "step_after": 861,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l11",
+      "cell": 22,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 201, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 5, in <module>\nTypeError: Robot.execute() got an unexpected keyword argument 'cameras'\n",
+      "step_before": 1166,
+      "step_after": 1166,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l12",
+      "cell": 16,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 2, in <module>\n  File \"/base_worker.py\", line 112, in show\n    display(self.image(camera))\n  File \"/base_worker.py\", line 109, in image\n    return Image.open(io.BytesIO(base64.b64decode(rpc('image', camera=camera)))).copy()\n  File \"/base_worker.py\", line 29, in rpc\n    send(dict(kind='call', method=method, arguments=arguments))\n  File \"/base_worker.py\", line 24, in send\n    WIRE.write(json.dumps(value, allow_nan=False) + '\\n')\nTypeError: Object of type Image is not JSON serializable\n",
+      "step_before": 1025,
+      "step_after": 1025,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l13",
+      "cell": 12,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 199, in worker_main\n    value = repr(eval(compile(ast.Expression(last.value), '<robot-cell>', 'eval'), namespace))[:8000]\n  File \"<robot-cell>\", line 4, in <module>\nTypeError: Robot.execute() got an unexpected keyword argument 'cameras'\n",
+      "step_before": 841,
+      "step_after": 841,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l14",
+      "cell": 21,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 199, in worker_main\n    value = repr(eval(compile(ast.Expression(last.value), '<robot-cell>', 'eval'), namespace))[:8000]\n  File \"<robot-cell>\", line 5, in <module>\nTypeError: Robot.execute() got an unexpected keyword argument 'cameras'\n",
+      "step_before": 1097,
+      "step_after": 1097,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l15",
+      "cell": 15,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 6, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.0404m; inspect correspondences/shape/height\n",
+      "step_before": 391,
+      "step_after": 391,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l15",
+      "cell": 33,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 201, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 4, in <module>\nTypeError: Robot.execute() got an unexpected keyword argument 'cameras'\n",
+      "step_before": 1276,
+      "step_after": 1276,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l15",
+      "cell": 20,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 201, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.1765m; inspect correspondences/shape/height\n",
+      "step_before": 1160,
+      "step_after": 1160,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l16",
+      "cell": 3,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 2, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.0302m; inspect correspondences/shape/height\n",
+      "step_before": 190,
+      "step_after": 190,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l18",
+      "cell": 11,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.0435m; inspect correspondences/shape/height\n",
+      "step_before": 753,
+      "step_after": 753,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l18",
+      "cell": 13,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.0332m; inspect correspondences/shape/height\n",
+      "step_before": 753,
+      "step_after": 753,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-standard-l18",
+      "cell": 25,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.0301m; inspect correspondences/shape/height\n",
+      "step_before": 1118,
+      "step_after": 1118,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l18",
+      "cell": 19,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.0411m; inspect correspondences/shape/height\n",
+      "step_before": 1054,
+      "step_after": 1054,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l21",
+      "cell": 3,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Rigid fit inconsistent: max residual 0.0437m; inspect correspondences/shape/height\n",
+      "step_before": 125,
+      "step_after": 125,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l21",
+      "cell": 12,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 198, in worker_main\n    exec(compile(tree, '<robot-cell>', 'exec'), namespace)\n  File \"<robot-cell>\", line 1, in <module>\n  File \"/worker.py\", line 16, in match_reference\n    return base.rpc('match_scene_reference', source=source, reference_frame=reference_frame,\n  File \"/base_worker.py\", line 32, in rpc\n    raise RuntimeError(reply['error'])\nRuntimeError: ToolError: Error executing tool match_scene_reference: Inconsistent multi-view landmark: reprojection error 5.00px\n",
+      "step_before": 589,
+      "step_after": 589,
+      "action_steps": 0
+    },
+    {
+      "case": "seed1-random-l24",
+      "cell": 2,
+      "error": "Traceback (most recent call last):\n  File \"/base_worker.py\", line 199, in worker_main\n    value = repr(eval(compile(ast.Expression(last.value), '<robot-cell>', 'eval'), namespace))[:8000]\n  File \"<robot-cell>\", line 3, in <module>\nTypeError: Robot.execute() got an unexpected keyword argument 'cameras'\n",
+      "step_before": 272,
+      "step_after": 272,
+      "action_steps": 0
+    }
+  ],
+  "formal_costs": {
+    "steps": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 62518,
+      "known_mean": 1250.36,
+      "partial_lower_bound_cases": 0
+    },
+    "wall_seconds": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 108507.25348768057,
+      "known_mean": 2170.1450697536116
+    },
+    "input_tokens": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 690519478,
+      "known_mean": 13810389.56
+    },
+    "cached_input_tokens": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 676450560,
+      "known_mean": 13529011.2
+    },
+    "output_tokens": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 1966743,
+      "known_mean": 39334.86
+    },
+    "reasoning_output_tokens": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 982304,
+      "known_mean": 19646.08
+    },
+    "total_tokens": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 692486221,
+      "known_mean": 13849724.42
+    },
+    "uncached_input_tokens": {
+      "known_count": 50,
+      "unknown_count": 0,
+      "known_sum": 14068918,
+      "known_mean": 281378.36
+    }
+  },
+  "batch_wall_seconds": 55917.39325777511,
+  "development_costs": {
+    "steps": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 7138,
+      "known_mean": 1784.5,
+      "partial_lower_bound_cases": 0
+    },
+    "wall_seconds": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 16501.29036271409,
+      "known_mean": 4125.322590678523
+    },
+    "input_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 73161024,
+      "known_mean": 18290256
+    },
+    "cached_input_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 71733632,
+      "known_mean": 17933408
+    },
+    "output_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 215625,
+      "known_mean": 53906.25
+    },
+    "reasoning_output_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 111465,
+      "known_mean": 27866.25
+    },
+    "total_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 73376649,
+      "known_mean": 18344162.25
+    },
+    "uncached_input_tokens": {
+      "known_count": 4,
+      "unknown_count": 0,
+      "known_sum": 1427392,
+      "known_mean": 356848
+    }
+  },
+  "development_batch_wall_seconds": 8531.606464877026,
+  "known_candidate_54_attempt_costs": {
+    "steps": {
+      "known_count": 54,
+      "unknown_count": 0,
+      "known_sum": 69656
+    },
+    "wall_seconds": {
+      "known_count": 54,
+      "unknown_count": 0,
+      "known_sum": 125008.54385039466
+    },
+    "input_tokens": {
+      "known_count": 54,
+      "unknown_count": 0,
+      "known_sum": 763680502
+    },
+    "cached_input_tokens": {
+      "known_count": 54,
+      "unknown_count": 0,
+      "known_sum": 748184192
+    },
+    "output_tokens": {
+      "known_count": 54,
+      "unknown_count": 0,
+      "known_sum": 2182368
+    },
+    "reasoning_output_tokens": {
+      "known_count": 54,
+      "unknown_count": 0,
+      "known_sum": 1093769
+    }
+  },
+  "actual_billed_usd": null,
+  "cost_scope": "These54 native attempts cover this candidate4-case modified2000 development and fresh50 native1300 evaluation only. Historical attempts, engineering/adaptation time and current-chat orchestration tokens are not included. Cached input is included in input; reasoning output is included in output. Cell/hold steps are subsets of control steps. No score merging across budgets.",
+  "interpretation": "Fresh native-budget seed1 standard/random layout0-24, 50 new attempts at 1300 control steps. Modified-2000-step development results are separate; no development score is inherited. Previously used layouts, not heldout generalization or single-tool causal evidence. No failure-rate skipping, automatic repeats or best-of selection.",
+  "auditor_sha256": "5d653609a33b896567d119086561d79c61b7ff11e3bed5aafc76be08d5707500"
+}

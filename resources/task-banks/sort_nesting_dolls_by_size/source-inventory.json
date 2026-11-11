@@ -1,0 +1,25 @@
+{
+  "schema": "roborag.full-train-evidence.v1",
+  "task": "sort_nesting_dolls_by_size",
+  "source_manifest": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/data/runtime-data/sort_nesting_dolls_by_size/train/sources-0-1-2.json",
+  "source_manifest_sha256": "3e949d83347636883dfd114dab6eaacf84ad2c73fef0503698bf81e365f3e847",
+  "train_source_sha256": {
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/sort_nesting_dolls_by_size/train/episode_0000000.hdf5": "38150185f44f8bc4505fbbcc9c66975070a257099c5cf70c39b2494205e93e2e",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/sort_nesting_dolls_by_size/train/episode_0000001.hdf5": "8d215ba2edf3d63ace72963edaa1af743d53d812563bc103ba938e418b80a887",
+    "/home/zxc/文档/ChatGPT/RoboRAG/data/runtime-data/sort_nesting_dolls_by_size/train/episode_0000002.hdf5": "b58ceb0dd5d1063f44c16531eaeaeb8ef1f35bbb3194703ddb21c702c908de05"
+  },
+  "metadata_sha256": {
+    "bank.json": "5d4f6ade71d6bd94fc54b7972cf9d77d3ed379d87fa96c82fe807228c76c5a3b",
+    "search-index.json": "85e442477ff1777e27e5afa0fc9dddf51ef74812fdccb4e839176eeaa0b47369",
+    "execution-index.json": "6033d493e18befb043a024147d1a3ce5851715608d17605ecdae1ab10f5ac39f",
+    "graphs/sort_nesting_dolls_by_size-0001.json": "007b2f68fc5e3b533ba30b1f836c0723a505b11f6057a98b3257d527d9d48110",
+    "graphs/sort_nesting_dolls_by_size-0002.json": "58601da42c43708e930173665e3b26c7bf500ff1cb5cf162718771a0f640ed06",
+    "graphs/sort_nesting_dolls_by_size-0000.json": "62131a81e147629bd9b82a71c91be6b2af3be65de2a504d6e279b5598830db30"
+  },
+  "counts": {
+    "graphs": 3,
+    "phases": 22,
+    "chunks": 390
+  },
+  "scope": "All preselected TRAIN episodes, complete phase coverage, original actions/states/RGB accessible; no test-usage pruning"
+}

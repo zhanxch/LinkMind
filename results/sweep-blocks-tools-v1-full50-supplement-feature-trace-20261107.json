@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-11-06T16:08:00.988487+00:00",
+  "tag": "sweep-blocks-tools-v1-full50-supplement-20261106",
+  "candidate_commit": "5cae5770d687f601a4abdbfa1911d785f69fc4cb",
+  "native_audit_sha256": "0f32d2efe8c9d5b611ea8ec44544fe3090dbe466ae3912259dffe2752cdbf176",
+  "freeze_sha256": "e8b684da12719ec5db492935a187c4c82ae76a8d0002c8bff55ab8c1c2bf07b5",
+  "auditor_sha256": "a0051768fc772a7cfba1a4e07f79fb1584df8239e11f92dcc80ba9470c33d1dc",
+  "helper_source_sha256": "37bc36617d0c8609e8635e4b5f7a04e961adbf690a43ff42d901020a4d56fe41",
+  "rows": [
+    {
+      "variant": "standard",
+      "layout": 16,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "1cc13a369c5d93f1a87cd43148f8b4456a580bfad357ace7d569099d074d2d73",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    },
+    {
+      "variant": "random",
+      "layout": 21,
+      "seed": 1,
+      "tool_trace_available": true,
+      "mcp_log_sha256": "5c43334962b56c830ae0ac1da05a73d1740613691e4ce16272bf6ba5ebca6358",
+      "incomplete_cell_starts": 0,
+      "confirmed": [],
+      "unclassified": [],
+      "robot_binding_changed": false
+    }
+  ],
+  "counts": {
+    "confirmed_simple_calls": 0,
+    "positive_step_calls": 0,
+    "positive_steps": 0,
+    "zero_step_rejections": 0,
+    "unclassified_mentions": 0
+  },
+  "interpretation": "Only supported unconditional calls with one matching parent receipt and native action prefix are confirmed. Assignment suppresses the cell last-value field but does not mean no invocation. Unsupported source and incomplete cells remain unknown. Counts do not prove physical grasp or causal benefit."
+}

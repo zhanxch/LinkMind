@@ -1,0 +1,9 @@
+task,success,failure,unscored,scenarios,attempts,retained_unscored_attempts,confirmed_success_pct,mean_native_score_scored,native_steps,max_wall_seconds,runtime_commit
+fold_clothes,37,13,0,50,52,2,74.0,78.0,500,1800,c9f7a99daf125068ce2881b4feac1b514f8b0bd1
+stack_blocks,46,4,0,50,50,0,92.0,93.2,550,5400,7fa895e6df692877269246198b87202b1e834873
+stack_bowls,47,3,0,50,50,0,94.0,94.9,800,5400,7fa895e6df692877269246198b87202b1e834873
+push_T,48,0,2,50,50,2,96.0,100.0,600,5400,ead91e45e24b845ef5ba8bfc2057d8b9e243fb6b
+make_toast,15,35,0,50,53,3,30.0,37.0,1400,5400,1fe37046809b3816d4c70a74c41abbe3bff3e243
+hang_mugs,13,37,0,50,56,6,26.0,44.7,800,5400,8a954e3b8dc01fb99fbe57a60e968fa917ad832d
+sweep_blocks,12,38,0,50,52,2,24.0,24.0,1000,5400,ca604e59ea87b280b14757c23134bf62701a9cbd
+pack_objects_into_box,13,37,0,50,50,0,26.0,43.5,1300,9000,cd82ce5499c59e6da6c0505e59618f0d73b41a47

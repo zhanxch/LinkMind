@@ -1,0 +1,131 @@
+{
+  "schema": "roborag.sweep-blocks-tools-full50.v1",
+  "status": "registered_before_launch",
+  "base_commit": "ca604e59ea87b280b14757c23134bf62701a9cbd",
+  "historical_sweep_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "planned_native_attempts": 50,
+  "tasks": [
+    {
+      "task": "sweep_blocks",
+      "bank": "artifacts/sweep-blocks-tools/sweep_blocks",
+      "cases_file": "experiments/sweep_blocks/cases-tools-v1-full50-seed1.json",
+      "case_count": 50,
+      "native_step_limits": {
+        "standard": 1000,
+        "random": 1000
+      },
+      "preflight_file": "results/sweep-blocks-tools-bank-preflight-20261106.json"
+    }
+  ],
+  "conditions": {
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "seed": 1,
+    "parallel": 2,
+    "controller": "delta",
+    "max_rows_per_call": 24,
+    "max_wall_seconds": 5400,
+    "native_step_budget": "Original native 1000 steps, including every cell dispatch and joint hold",
+    "context": "Original full TRAIN retrieval and model-owned record_plan; optional persistent Python cells",
+    "feedback": "Current public RGB/calibration and measured robot state; no object truth, reward or holding sensor",
+    "execution_guard": {
+      "kind": "native_ik_continuity",
+      "max_joint_increment_rad": 0.25
+    }
+  },
+  "verification": {
+    "static": "results/sweep-blocks-tools-v1-static-tests-20261106.json",
+    "static_sha256": "5bc8b89edc9d27fd964ff31220cdae9f77a651288733c4c42efa7dfdc1ca462d",
+    "interfaces": "results/sweep-blocks-tools-v1-interface-verification-20261106.json",
+    "interfaces_sha256": "9c6c5961ab818a1b668740c2283b2f39efcb6dc923c39cd6fc40aa0481777412"
+  },
+  "scoring": {
+    "source": "Native _result.json only",
+    "unscored": "Separate from native failure; preserve unknown counters and usage",
+    "retests": "Every registered scene receives one fresh first-pass attempt, including all four development scenes; no automatic unchanged-version supplements",
+    "aggregation": "Report these 50 attempts alone and preserve all development and historical outcomes separately; never select the best result across attempts",
+    "early_stopping": "No stopping by task failure rate; infrastructure faults and unscored attempts remain explicit"
+  },
+  "scope": {
+    "runtime_changes": [
+      "Opt-in persistent cells and measured-joint grip/hold for sweep_blocks",
+      "Caller-selected one/two-arm held-feature interpolation through the same short action compiler",
+      "Existing proprioception-only native IK continuity check at 0.25rad",
+      "Public task wording covers all target objects and requires current RGB verification of handover and containment"
+    ],
+    "unchanged": [
+      "Other ten task prompts and serialized tools, including accepted toast and hang",
+      "Original full TRAIN, model-owned planning, native IK solver, 1000-step scoring and 5400-second wall limit",
+      "No fixed task program, fixed scene object count or coordinates, object-state access or phase gate"
+    ],
+    "interpretation": "Fresh seed1 standard/random layouts 0-24, 25 per variant. Runtime is byte-identical to development candidate ca604e5, which scored 1/4 versus historical 0/4 on the four development scenes. This includes known layouts and is not an independent heldout or cross-seed result. Tool additions form a combined candidate, not a single-component causal test.",
+    "references": [
+      {
+        "repository": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+        "commit": "e8f01dca744421d70684adbbc1713fd4d92f8aca",
+        "usage": "Persistent cells, stdout/error feedback and public robot primitives as design reference; no task program copied"
+      }
+    ]
+  },
+  "required_closed_batches": [
+    {
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-full50-closure-20261106.json",
+      "closure_sha256": "0fdff350c9ce8873ca3fa940d75be93d0204f67382b81472eb7fdca79bde58f5",
+      "candidate_commit": "230c3897f573fe44045c3b1cf13e8bdfda21366d",
+      "attempts_closed": 50,
+      "freeze": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-guard-v2-full50-20261105-freeze.json"
+    },
+    {
+      "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/results/sweep-blocks-tools-v1-closure-20261106.json",
+      "closure_sha256": "6626f248047b2ee64e066efcd9b3637a0a5c5973b0b27350dcb3fdcc7056570f",
+      "candidate_commit": "ca604e59ea87b280b14757c23134bf62701a9cbd",
+      "attempts_closed": 4,
+      "freeze": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/runs/sweep-blocks-tools-v1-dev-20261106-freeze.json"
+    }
+  ],
+  "resource_policy": {
+    "parallel": 2,
+    "minimum_free_gpu_mib": 11000,
+    "replay": "Paused by user; do not resume automatically",
+    "frozen_during_run": true
+  },
+  "authorization": "User goal: wait for hang completion, optimize sweep_blocks using PyRUA-Lean-style tools, then conduct a complete test. Hang and sweep development have closed; this is the requested fresh full50.",
+  "accepted_runtime_commit": "ca604e59ea87b280b14757c23134bf62701a9cbd",
+  "development_record_commit": "55547dedae7ea3b66d605585103549c21393f97e",
+  "development_evidence": {
+    "native_report": "results/sweep-blocks-tools-v1-dev-20261106.json",
+    "native_report_sha256": "664fa26c368c79fb2d952d0a180d9a1970764048eeda0f2f526d4a8e9d68c8d3",
+    "closure": "/home/zxc/文档/ChatGPT/RoboRAG/work/sweep-blocks-tools/results/sweep-blocks-tools-v1-closure-20261106.json",
+    "closure_sha256": "6626f248047b2ee64e066efcd9b3637a0a5c5973b0b27350dcb3fdcc7056570f",
+    "counts": {
+      "attempts_closed": 4,
+      "success": 1,
+      "failure": 3,
+      "unscored": 0,
+      "scored": 4,
+      "success_rate_scored": 0.25,
+      "confirmed_success_fraction_closed": 0.25
+    },
+    "known_failures": [
+      {
+        "variant": "standard",
+        "layout": 0,
+        "native_score": 0.0
+      },
+      {
+        "variant": "random",
+        "layout": 0,
+        "native_score": 0.0
+      },
+      {
+        "variant": "random",
+        "layout": 1,
+        "native_score": 0.0
+      }
+    ],
+    "final_provenance": "results/sweep-blocks-tools-v1-final-provenance-20261106.json",
+    "final_provenance_sha256": "fdaa8c9518025b690d9264e021ec7c1dd86b51d0afaef920179934a79bb39b27",
+    "feature_trace": "results/sweep-blocks-tools-v1-feature-trace-20261106.json",
+    "feature_trace_sha256": "fa13fa54b8763fa59bc201336a6b8f2967f9025961d6140f799e76834d6e8574"
+  }
+}

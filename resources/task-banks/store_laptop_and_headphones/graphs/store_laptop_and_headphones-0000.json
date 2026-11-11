@@ -1,0 +1,679 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "store_laptop_and_headphones-0000",
+  "task": "store_laptop_and_headphones",
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  },
+  "task_name": "store_laptop_and_headphones",
+  "title": "先挂好耳机，再合上笔记本并交接入架",
+  "summary": "左手将耳机挂到耳机架，右手随后合上笔记本。左手抬起并调整笔记本姿态，交给右手放入竖直支架，最后松手撤回；阶段边界为估计值。",
+  "instruction": "Hang the headphones on the headphone stand, close the laptop, then place it into the vertical laptop stand.",
+  "episode": 0,
+  "source": {
+    "path": "runtime-data/store_laptop_and_headphones/train/episode_0000000.hdf5",
+    "sha256": "3c58e9b07ec0d21ae0ad471484d4565c565fa685b95145dbb4b6c84ad6bbc9dc",
+    "frames": 550,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-28T17:52:52.527811+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "靠近并夹起耳机",
+      "summary": "从桌面取起耳机，为悬挂做准备。",
+      "objects": [
+        "左夹爪",
+        "耳机",
+        "耳机架",
+        "桌面"
+      ],
+      "start_frame": 0,
+      "end_frame": 52,
+      "order": 0,
+      "keyframes": [
+        0,
+        25,
+        51
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "耳机放在桌面左侧，后方耳机架空置；笔记本打开并放在中央黑色支架上。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪从侧面靠近耳机，调整夹取位置后合拢，并开始抬起耳机。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "耳机随左手离开原来的桌面位置，右手保持在桌面前方。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "将耳机挂上支架",
+      "summary": "让耳机头梁落到耳机架顶部并释放。",
+      "objects": [
+        "左夹爪",
+        "耳机",
+        "耳机架"
+      ],
+      "start_frame": 52,
+      "end_frame": 108,
+      "order": 1,
+      "keyframes": [
+        52,
+        79,
+        107
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左手已抬起耳机，耳机架顶部位于其后上方。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手将耳机抬向架顶，使头梁跨过顶部支撑，再降低耳机、张开夹爪并撤离。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "耳机头梁搭在架顶，两侧耳罩悬垂；左手退出后耳机仍留在架上。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "右手靠近屏幕上沿",
+      "summary": "将右手移到能够推动屏幕闭合的位置。",
+      "objects": [
+        "右夹爪",
+        "左夹爪",
+        "笔记本屏幕",
+        "黑色笔记本支架"
+      ],
+      "start_frame": 108,
+      "end_frame": 156,
+      "order": 2,
+      "keyframes": [
+        108,
+        131,
+        155
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "耳机已经挂好，笔记本屏幕仍打开，底座由黑色支架承托。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手回撤，右手从右侧向笔记本屏幕上沿靠近，调整末端朝向。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "右手到达屏幕上方附近，屏幕仍保持打开；具体接触位置有局部遮挡。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "向下合上笔记本",
+      "summary": "将屏幕压向键盘面，闭合笔记本。",
+      "objects": [
+        "右夹爪",
+        "笔记本屏幕",
+        "笔记本底座",
+        "黑色笔记本支架"
+      ],
+      "start_frame": 156,
+      "end_frame": 220,
+      "order": 3,
+      "keyframes": [
+        156,
+        187,
+        219
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右手位于屏幕上沿附近，笔记本底座仍在黑色支架上。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手向下、向前推动屏幕，使其绕铰链逐渐闭合，随后离开机身。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "屏幕与底座合拢，银色外盖朝上；笔记本仍放在黑色支架上。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "左手对准笔记本边缘",
+      "summary": "建立用于抬起闭合笔记本的夹持。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "闭合的笔记本",
+        "黑色笔记本支架"
+      ],
+      "start_frame": 220,
+      "end_frame": 310,
+      "order": 4,
+      "keyframes": [
+        220,
+        264,
+        309
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "闭合的笔记本平放在黑色支架上，右手正在撤回。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手从桌面前方向笔记本近侧边缘伸入，降低夹爪并调整位置，随后合拢夹爪。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "左夹爪围住笔记本边缘并开始上抬；夹持位置被夹爪局部遮挡，后续离架运动才能确认抓持效果。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "抬起并转动笔记本",
+      "summary": "将笔记本移出原支架并调整为便于交接的姿态。",
+      "objects": [
+        "左夹爪",
+        "闭合的笔记本",
+        "黑色笔记本支架"
+      ],
+      "start_frame": 310,
+      "end_frame": 346,
+      "order": 5,
+      "keyframes": [
+        310,
+        327,
+        345
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左夹爪已经合拢在笔记本边缘，右手位于右前方。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手抬起笔记本，同时转动机身，使银色外盖立起并朝向前方，停在双手之间。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "笔记本随左手离开黑色支架，呈近竖直姿态，右侧边缘留出接取空间。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "双手交接笔记本",
+      "summary": "将笔记本从左手转交给右手。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "闭合的笔记本"
+      ],
+      "start_frame": 346,
+      "end_frame": 438,
+      "order": 6,
+      "keyframes": [
+        346,
+        391,
+        437
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左手在桌面中央前方持住近竖直的笔记本，右手尚未夹住机身。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手维持机身位置，右夹爪从右侧靠近另一侧边缘并合拢；随后左夹爪张开、退出。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "笔记本开始随右手向右移动，左手脱离机身，交接完成。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "移向竖直支架并对槽",
+      "summary": "将笔记本下缘对准右侧支架的槽口。",
+      "objects": [
+        "右夹爪",
+        "闭合的笔记本",
+        "竖直笔记本支架"
+      ],
+      "start_frame": 438,
+      "end_frame": 478,
+      "order": 7,
+      "keyframes": [
+        438,
+        457,
+        477
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "右手已接住笔记本，桌面右侧的竖直笔记本支架空置。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手将笔记本抬向右侧支架上方，调整倾斜角度和横向位置，再向槽口降低。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "笔记本下缘接近支架槽口，机身保持近竖直，右手继续夹持。",
+      "parent": "p08"
+    },
+    {
+      "id": "p09",
+      "kind": "phase",
+      "title": "将笔记本落入槽内",
+      "summary": "让支架承托笔记本下缘。",
+      "objects": [
+        "右夹爪",
+        "闭合的笔记本",
+        "竖直笔记本支架"
+      ],
+      "start_frame": 478,
+      "end_frame": 514,
+      "order": 8,
+      "keyframes": [
+        478,
+        495,
+        513
+      ]
+    },
+    {
+      "id": "p09-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "笔记本已位于竖直支架上方，下缘与槽口接近。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右手继续缓慢下放，并小幅调整机身位置，使下缘进入支架两侧支撑之间。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "笔记本下缘进入支架区域，机身呈竖直放置姿态；槽内接触被遮挡，右手仍在扶持。",
+      "parent": "p09"
+    },
+    {
+      "id": "p10",
+      "kind": "phase",
+      "title": "松手撤回完成收纳",
+      "summary": "释放笔记本，确认两件物品留在各自支架上。",
+      "objects": [
+        "右夹爪",
+        "闭合的笔记本",
+        "竖直笔记本支架",
+        "耳机",
+        "耳机架",
+        "黑色笔记本支架"
+      ],
+      "start_frame": 514,
+      "end_frame": 550,
+      "order": 9,
+      "keyframes": [
+        514,
+        531,
+        549
+      ]
+    },
+    {
+      "id": "p10-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "笔记本已落入竖直支架，右夹爪仍贴近机身上部。",
+      "parent": "p10"
+    },
+    {
+      "id": "p10-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "右夹爪张开并向上离开笔记本，随后撤回桌面前方。",
+      "parent": "p10"
+    },
+    {
+      "id": "p10-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "双手撤离后，笔记本仍竖立在右侧支架中，耳机仍悬挂在左侧耳机架上，中央黑色支架空置。",
+      "parent": "p10"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p08",
+      "target": "p09",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p09",
+      "target": "p09-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p09",
+      "target": "p09-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p09",
+      "target": "p09-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p09",
+      "target": "p10",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p10",
+      "target": "p10-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p10",
+      "target": "p10-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p10",
+      "target": "p10-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ]
+}

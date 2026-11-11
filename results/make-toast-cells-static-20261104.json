@@ -1,0 +1,32 @@
+{
+  "base_commit": "7fa895e6df692877269246198b87202b1e834873",
+  "tests": {
+    "count": 108,
+    "passed": true,
+    "log": "/tmp/make-toast-tests-20261104.log"
+  },
+  "other_task_prompt_equality": {
+    "arrange_largest_number": true,
+    "fold_clothes": true,
+    "hang_mugs": true,
+    "pack_objects_into_box": true,
+    "pour_liquid_into_cup": true,
+    "sort_nesting_dolls_by_size": true,
+    "stack_blocks": true,
+    "stack_bowls": true,
+    "store_laptop_and_headphones": true,
+    "sweep_blocks": true
+  },
+  "unchanged_shared_files": [
+    "src/roborag/mcp/motion.py",
+    "src/roborag/mcp/session.py",
+    "src/roborag/mcp/evidence.py",
+    "src/roborag/rag_sim.py",
+    "src/roborag/rag_execution.py",
+    "src/roborag/action_targets.py",
+    "src/roborag/hexashell_agent.py",
+    "src/roborag/episode_batch.py"
+  ],
+  "bank_preflight": "results/make-toast-cells-bank-preflight-20261104.json",
+  "native_outcomes": "not_run_yet"
+}

@@ -1,0 +1,674 @@
+{
+  "schema": "roborag.graph.v1",
+  "id": "put_bottles_into_dustbin-0000",
+  "task": "put_bottles_into_dustbin",
+  "task_name": "瓶子收纳",
+  "title": "左手依次抓取四个瓶子并投入左侧垃圾桶",
+  "summary": "示范中左手依次处理绿色瓶、黄色瓶、细长白瓶和米白色瓶，将它们从桌面移至左侧垃圾桶后松开。右手始终停留在原位，未出现双手交接；末尾桌面清空，左手返回。",
+  "instruction": "Pick up the bottles and throw them into the dustbin, using handover when needed.",
+  "episode": 0,
+  "source": {
+    "path": "runtime-data/put_bottles_into_dustbin/train/episode_0000000.hdf5",
+    "sha256": "e110130f137a2006939c47707ceee2cac489658436823555cce560545d2086b0",
+    "frames": 362,
+    "frequency": 25.0,
+    "cameras": [
+      "cam_head",
+      "cam_left_wrist",
+      "cam_right_wrist"
+    ]
+  },
+  "construction": {
+    "method": "codex_multimodal",
+    "model": "gpt-6-astra",
+    "annotation": "自动提取",
+    "frame_interval": "[start_frame, end_frame)",
+    "created_at": "2026-10-24T05:45:02.704130+00:00"
+  },
+  "nodes": [
+    {
+      "id": "p01",
+      "kind": "phase",
+      "title": "靠近并抓起绿色瓶",
+      "summary": "抓取桌面左侧靠近垃圾桶的绿色瓶。",
+      "objects": [
+        "左夹爪",
+        "绿色瓶",
+        "桌面",
+        "左侧垃圾桶"
+      ],
+      "start_frame": 0,
+      "end_frame": 21,
+      "order": 0,
+      "keyframes": [
+        0,
+        10,
+        20
+      ]
+    },
+    {
+      "id": "p01-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "绿色瓶位于桌面左缘，左夹爪张开并朝向瓶身；其余三个瓶子仍在桌上。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手向绿色瓶靠近，使夹爪包围瓶身，闭合后抬起并向左移动。",
+      "parent": "p01"
+    },
+    {
+      "id": "p01-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "绿色瓶随左手离开原位置，移向垃圾桶一侧，显示已形成抓持。",
+      "parent": "p01"
+    },
+    {
+      "id": "p02",
+      "kind": "phase",
+      "title": "将绿色瓶移入桶口并松开",
+      "summary": "完成第一个瓶子的投放。",
+      "objects": [
+        "左夹爪",
+        "绿色瓶",
+        "左侧垃圾桶"
+      ],
+      "start_frame": 21,
+      "end_frame": 40,
+      "order": 1,
+      "keyframes": [
+        21,
+        30,
+        39
+      ]
+    },
+    {
+      "id": "p02-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "绿色瓶由左夹爪携带，垃圾桶开口位于桌面左侧。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手将绿色瓶移至桶口内侧，张开夹爪释放，随后离开桶口。",
+      "parent": "p02"
+    },
+    {
+      "id": "p02-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "绿色瓶在桶内区域可见，桌面原位置已空；瓶子最终落稳情况被桶壁遮挡。",
+      "parent": "p02"
+    },
+    {
+      "id": "p03",
+      "kind": "phase",
+      "title": "返回桌边抓取黄色瓶",
+      "summary": "抓起桌面左前方的黄色瓶。",
+      "objects": [
+        "左夹爪",
+        "黄色瓶",
+        "桌面"
+      ],
+      "start_frame": 40,
+      "end_frame": 86,
+      "order": 2,
+      "keyframes": [
+        40,
+        62,
+        85
+      ]
+    },
+    {
+      "id": "p03-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左夹爪释放绿色瓶后张开，黄色瓶仍位于桌面左前方。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手从垃圾桶返回，调整夹爪与黄色瓶身的相对位置，闭合夹爪并抬起瓶子。",
+      "parent": "p03"
+    },
+    {
+      "id": "p03-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "黄色瓶随夹爪上升并离开桌面，两个白色瓶子仍留在原处。",
+      "parent": "p03"
+    },
+    {
+      "id": "p04",
+      "kind": "phase",
+      "title": "把黄色瓶送至垃圾桶释放",
+      "summary": "完成第二个瓶子的投放。",
+      "objects": [
+        "左夹爪",
+        "黄色瓶",
+        "左侧垃圾桶"
+      ],
+      "start_frame": 86,
+      "end_frame": 110,
+      "order": 3,
+      "keyframes": [
+        86,
+        97,
+        109
+      ]
+    },
+    {
+      "id": "p04-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "黄色瓶已被左手抓起，左侧桶口可供投放。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手携瓶向左上方移动至垃圾桶开口，张开夹爪放下瓶子。",
+      "parent": "p04"
+    },
+    {
+      "id": "p04-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "黄色瓶从夹爪间脱离并进入桶口区域，随后不再出现在桌面或夹爪间；桶内落点不可见。",
+      "parent": "p04"
+    },
+    {
+      "id": "p05",
+      "kind": "phase",
+      "title": "伸向细长白瓶并夹持",
+      "summary": "抓取桌面较后方的细长白瓶。",
+      "objects": [
+        "左夹爪",
+        "细长白瓶",
+        "桌面"
+      ],
+      "start_frame": 110,
+      "end_frame": 150,
+      "order": 4,
+      "keyframes": [
+        110,
+        129,
+        149
+      ]
+    },
+    {
+      "id": "p05-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "桌面剩下细长白瓶和米白色瓶，左夹爪在桶口附近张开。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂抬高并向桌面后方伸出，下降到细长白瓶两侧，闭合夹爪夹住瓶身。",
+      "parent": "p05"
+    },
+    {
+      "id": "p05-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "腕部画面显示白瓶位于夹爪之间；后续搬运画面确认瓶子随左手离开桌面。",
+      "parent": "p05"
+    },
+    {
+      "id": "p06",
+      "kind": "phase",
+      "title": "抬起细长白瓶并投入桶内",
+      "summary": "将第三个瓶子从较高位置释放到垃圾桶。",
+      "objects": [
+        "左夹爪",
+        "细长白瓶",
+        "左侧垃圾桶"
+      ],
+      "start_frame": 150,
+      "end_frame": 189,
+      "order": 5,
+      "keyframes": [
+        150,
+        169,
+        188
+      ]
+    },
+    {
+      "id": "p06-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "细长白瓶位于左夹爪间，米白色瓶仍独自留在桌上。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手抬起白瓶并向左搬运，在垃圾桶上方张开夹爪，让瓶子下落。",
+      "parent": "p06"
+    },
+    {
+      "id": "p06-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "白瓶脱离夹爪并向桶内下落，随后消失在桶壁遮挡区域；左夹爪空置并开始返回。",
+      "parent": "p06"
+    },
+    {
+      "id": "p07",
+      "kind": "phase",
+      "title": "围绕最后一个瓶子调整抓取位置",
+      "summary": "将张开的左夹爪对准米白色瓶身。",
+      "objects": [
+        "左夹爪",
+        "米白色瓶",
+        "桌面"
+      ],
+      "start_frame": 189,
+      "end_frame": 298,
+      "order": 6,
+      "keyframes": [
+        189,
+        243,
+        297
+      ]
+    },
+    {
+      "id": "p07-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "桌面只剩中右侧的米白色瓶，左手正从垃圾桶方向返回。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手靠近瓶子，在瓶身周围持续调整夹爪高度、朝向和横向位置，最后下降至适合包围瓶身的位置。",
+      "parent": "p07"
+    },
+    {
+      "id": "p07-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "夹爪已位于瓶身两侧附近，瓶子仍在桌面；此段尚无明确抬起证据。",
+      "parent": "p07"
+    },
+    {
+      "id": "p08",
+      "kind": "phase",
+      "title": "夹紧并抬起米白色瓶",
+      "summary": "建立最后一个瓶子的稳定抓持。",
+      "objects": [
+        "左夹爪",
+        "米白色瓶",
+        "桌面"
+      ],
+      "start_frame": 298,
+      "end_frame": 314,
+      "order": 7,
+      "keyframes": [
+        298,
+        305,
+        313
+      ]
+    },
+    {
+      "id": "p08-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "左夹爪已对准米白色瓶身，瓶子仍由桌面支撑。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左夹爪闭合包住瓶身，随后抬起瓶子并开始向左移动。",
+      "parent": "p08"
+    },
+    {
+      "id": "p08-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "米白色瓶随左手明显升离桌面，桌面不再留有瓶子。",
+      "parent": "p08"
+    },
+    {
+      "id": "p09",
+      "kind": "phase",
+      "title": "搬运并释放最后一个瓶子",
+      "summary": "将米白色瓶投入左侧垃圾桶。",
+      "objects": [
+        "左夹爪",
+        "米白色瓶",
+        "左侧垃圾桶"
+      ],
+      "start_frame": 314,
+      "end_frame": 346,
+      "order": 8,
+      "keyframes": [
+        314,
+        329,
+        345
+      ]
+    },
+    {
+      "id": "p09-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "米白色瓶已离桌并由左手携带，左侧垃圾桶开口可见。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左手持瓶向左移动，将瓶子送至桶口上方，张开夹爪使其下落。",
+      "parent": "p09"
+    },
+    {
+      "id": "p09-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "米白色瓶从夹爪间脱离并落向桶内，随后被遮挡；桌面保持清空。",
+      "parent": "p09"
+    },
+    {
+      "id": "p10",
+      "kind": "phase",
+      "title": "空手撤回结束示范",
+      "summary": "投放结束后恢复待机姿态。",
+      "objects": [
+        "左夹爪",
+        "右夹爪",
+        "桌面",
+        "左侧垃圾桶"
+      ],
+      "start_frame": 346,
+      "end_frame": 362,
+      "order": 9,
+      "keyframes": [
+        346,
+        353,
+        361
+      ]
+    },
+    {
+      "id": "p10-cue",
+      "kind": "cue",
+      "title": "场景线索",
+      "text": "最后一个瓶子已离开夹爪，左手停在垃圾桶附近，桌面无瓶子。",
+      "parent": "p10"
+    },
+    {
+      "id": "p10-action",
+      "kind": "action",
+      "title": "操作",
+      "text": "左臂从桶口撤回到桌面前方的初始位置，夹爪保持张开；右臂继续原位停留。",
+      "parent": "p10"
+    },
+    {
+      "id": "p10-feedback",
+      "kind": "feedback",
+      "title": "反馈",
+      "text": "两只夹爪均空置，左手回到起始附近，桌面清空；桶内瓶子的最终堆放状态不可见。",
+      "parent": "p10"
+    }
+  ],
+  "edges": [
+    {
+      "source": "p01",
+      "target": "p01-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p01",
+      "target": "p01-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p01",
+      "target": "p01-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p01",
+      "target": "p02",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p02",
+      "target": "p02-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p02",
+      "target": "p02-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p02",
+      "target": "p02-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p02",
+      "target": "p03",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p03",
+      "target": "p03-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p03",
+      "target": "p03-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p03",
+      "target": "p03-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p03",
+      "target": "p04",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p04",
+      "target": "p04-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p04",
+      "target": "p04-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p04",
+      "target": "p04-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p04",
+      "target": "p05",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p05",
+      "target": "p05-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p05",
+      "target": "p05-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p05",
+      "target": "p05-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p05",
+      "target": "p06",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p06",
+      "target": "p06-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p06",
+      "target": "p06-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p06",
+      "target": "p06-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p06",
+      "target": "p07",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p07",
+      "target": "p07-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p07",
+      "target": "p07-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p07",
+      "target": "p07-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p07",
+      "target": "p08",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p08",
+      "target": "p08-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p08",
+      "target": "p08-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p08",
+      "target": "p08-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p08",
+      "target": "p09",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p09",
+      "target": "p09-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p09",
+      "target": "p09-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p09",
+      "target": "p09-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    },
+    {
+      "source": "p09",
+      "target": "p10",
+      "kind": "next",
+      "label": "下一阶段"
+    },
+    {
+      "source": "p10",
+      "target": "p10-cue",
+      "kind": "detail",
+      "label": "场景线索"
+    },
+    {
+      "source": "p10",
+      "target": "p10-action",
+      "kind": "detail",
+      "label": "操作"
+    },
+    {
+      "source": "p10",
+      "target": "p10-feedback",
+      "kind": "detail",
+      "label": "反馈"
+    }
+  ],
+  "semantics": {
+    "role": "recorded_experience",
+    "next_edges": "observed temporal order, not mandatory planning dependencies",
+    "guidance": "automatically extracted descriptions of a demonstration, not executable instructions",
+    "planner": "GPT generates a new plan from the current goal and observations; this graph is reference evidence"
+  }
+}

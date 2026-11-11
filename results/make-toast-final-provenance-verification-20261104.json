@@ -1,0 +1,151 @@
+{
+  "checked_at": "2026-11-04T09:48:48.692801+00:00",
+  "pre_final_commit": "261b2ed1eff24f2819fb288a8a34d1e9c2a45b63",
+  "batches": [
+    {
+      "label": "baseline",
+      "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-tools/results/make-toast-baseline-audit-20261104.json",
+      "report_sha256": "076e34ca571f5648e0a842a02aebcfb8a4ef69a8e5cc29faa5c1571af6abd040",
+      "commit": "7fa895e6df692877269246198b87202b1e834873",
+      "counts": {
+        "success": 1,
+        "failure": 3,
+        "unscored": 46
+      },
+      "verified_scored_rows": [
+        {
+          "variant": "standard",
+          "layout": 0,
+          "outcome": "success",
+          "score": 100.0,
+          "steps": 752,
+          "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l0/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+          "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6"
+        },
+        {
+          "variant": "random",
+          "layout": 0,
+          "outcome": "failure",
+          "score": 50.0,
+          "steps": 1400,
+          "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l0/native/eval_result/RoboDojo/make_toast_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+          "native_sha256": "81081545f04f0d8d433b4dae9da37a1519b0dfa4e12e26dd6a625e4831b9eb29"
+        },
+        {
+          "variant": "standard",
+          "layout": 1,
+          "outcome": "failure",
+          "score": 0.0,
+          "steps": 1400,
+          "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-standard-l1/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+          "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a"
+        },
+        {
+          "variant": "random",
+          "layout": 1,
+          "outcome": "failure",
+          "score": 0.0,
+          "steps": 1400,
+          "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-make_toast-20261029/seed1-random-l1/native/eval_result/RoboDojo/make_toast_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l1/_result.json",
+          "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a"
+        }
+      ]
+    },
+    {
+      "label": "cells_v1",
+      "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-tools/results/make-toast-cells-v1-closure-20261104.json",
+      "report_sha256": "a3228e019c004a2f3de78e900ba64e68773aa990ac64ecdb23c717e0cad9f809",
+      "commit": "173e1b43b39226ab3c38abfb3b57967852426e91",
+      "counts": {
+        "success": 1,
+        "failure": 1
+      },
+      "verified_scored_rows": [
+        {
+          "variant": "random",
+          "layout": 0,
+          "outcome": "success",
+          "score": 100.0,
+          "steps": 1130,
+          "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-tools/runs/make-toast-cells-v1-dev-20261104/seed1-random-l0/native/eval_result/RoboDojo/make_toast_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+          "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6"
+        },
+        {
+          "variant": "standard",
+          "layout": 1,
+          "outcome": "failure",
+          "score": 0.0,
+          "steps": 1400,
+          "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-tools/runs/make-toast-cells-v1-dev-20261104/seed1-standard-l1/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+          "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a"
+        }
+      ]
+    },
+    {
+      "label": "reliability_v2",
+      "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/results/make-toast-reliability-v2-closure-20261104.json",
+      "report_sha256": "ef9f6293938c6700d03f49f9ba942959a6f9ead75db8e564322008b24b69cd32",
+      "commit": "99ed5582f3e21da357dcd9fa9a91207d60801b3b",
+      "counts": {
+        "failure": 1,
+        "success": 1,
+        "unscored": 1
+      },
+      "verified_scored_rows": [
+        {
+          "variant": "standard",
+          "layout": 1,
+          "outcome": "failure",
+          "score": 0.0,
+          "steps": 1400,
+          "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l1/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+          "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a"
+        },
+        {
+          "variant": "standard",
+          "layout": 0,
+          "outcome": "success",
+          "score": 100.0,
+          "steps": 884,
+          "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-standard-l0/native/eval_result/RoboDojo/make_toast/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l0/_result.json",
+          "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6"
+        }
+      ]
+    },
+    {
+      "label": "random_supplement",
+      "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/results/make-toast-reliability-v2-random-supplement-closure-20261104.json",
+      "report_sha256": "30fd355d6cce4f040a7b366189c678ae3d872dcfd55e0ce46a5205948ad6ea61",
+      "commit": "261b2ed1eff24f2819fb288a8a34d1e9c2a45b63",
+      "counts": {
+        "success": 1
+      },
+      "verified_scored_rows": [
+        {
+          "variant": "random",
+          "layout": 0,
+          "outcome": "success",
+          "score": 100.0,
+          "steps": 1156,
+          "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-random-supplement-20261104/seed1-random-l0/native/eval_result/RoboDojo/make_toast_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l0/_result.json",
+          "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6"
+        }
+      ]
+    }
+  ],
+  "original_service_interruption": {
+    "path": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/runs/make-toast-reliability-v2-dev-20261104/seed1-random-l0/agent-exit.json",
+    "sha256": "e95920acffe1868ced0589caad32f1f2ebadee73cc36d91afd9949a128c7d834",
+    "native_result_still_absent": true
+  },
+  "final_alias_verification": {
+    "path": "/home/zxc/文档/ChatGPT/RoboRAG/work/make-toast-reliability/results/make-toast-geometry-alias-verification-20261104.json",
+    "sha256": "433ddacb9a7ce9645aa97fc6f06b048c8331664c36e8a271fcfdc3e928069b7e",
+    "tests": 117,
+    "source_hashes_match": true
+  },
+  "live_related_processes": [],
+  "lerobot_service": "MainPID=0\nActiveState=inactive\nSubState=dead\n",
+  "automatic_replay_resume": false,
+  "native_results_attributed_only_to_recorded_run_commits": true
+}

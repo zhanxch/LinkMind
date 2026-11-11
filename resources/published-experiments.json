@@ -1,0 +1,185 @@
+{
+  "schema": "linkmind.public-evidence.v1",
+  "tasks": [
+    {
+      "task": "fold_clothes",
+      "runtime_commit": "c9f7a99daf125068ce2881b4feac1b514f8b0bd1",
+      "native_steps": 500,
+      "max_wall_seconds": 1800,
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "protocol": "experiments/fold_clothes/v3-evidence-context-20261028.json",
+      "protocol_sha256": "68916071609e4adab716393b90bd12c178ebbc434a1bba0e9d5823b55ba50a5b",
+      "reports": [
+        {
+          "path": "results/v3-evidence-context-fold-20261028-final.json",
+          "sha256": "06e49c20a4759015f967d519cd3c363cb2fbb82240fb0e2d9b81b1596d762186",
+          "rows": "cases",
+          "phase": "first",
+          "candidate_commit": "c9f7a99daf125068ce2881b4feac1b514f8b0bd1"
+        },
+        {
+          "path": "results/v3-evidence-context-fold-20261029-merged-final.json",
+          "sha256": "d256b6febcb77616279f4e1c7b82b233463e6f34e52a17d3f499ac44c22206d9",
+          "rows": "supplemental_attempts",
+          "phase": "supplement",
+          "candidate_commit": "c9f7a99daf125068ce2881b4feac1b514f8b0bd1"
+        }
+      ]
+    },
+    {
+      "task": "stack_blocks",
+      "runtime_commit": "7fa895e6df692877269246198b87202b1e834873",
+      "native_steps": 550,
+      "max_wall_seconds": 5400,
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "protocol": "experiments/generalization/remaining-v3-20261029.json",
+      "protocol_sha256": "30cff0aaaee70f754f11fbe5697bd430a2643a817f2b9b6e6400e42cea50e211",
+      "reports": [
+        {
+          "path": "results/generalization-stack_blocks-first-pass-final-20261029.json",
+          "sha256": "294982ddd7d9cf807cfd0d903b2af8c9430dc7fb5249ce00a0434676845b4acc",
+          "rows": "cases",
+          "phase": "first",
+          "candidate_commit": "7fa895e6df692877269246198b87202b1e834873"
+        }
+      ]
+    },
+    {
+      "task": "stack_bowls",
+      "runtime_commit": "7fa895e6df692877269246198b87202b1e834873",
+      "native_steps": 800,
+      "max_wall_seconds": 5400,
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "protocol": "experiments/generalization/remaining-v3-20261029.json",
+      "protocol_sha256": "30cff0aaaee70f754f11fbe5697bd430a2643a817f2b9b6e6400e42cea50e211",
+      "reports": [
+        {
+          "path": "results/generalization-stack_bowls-first-pass-final-20261029.json",
+          "sha256": "7dc6f2e3541cda8822293cf60b08c2cfb2aea9f1e65a51557b088b5c1bd56ad4",
+          "rows": "cases",
+          "phase": "first",
+          "candidate_commit": "7fa895e6df692877269246198b87202b1e834873"
+        }
+      ]
+    },
+    {
+      "task": "push_T",
+      "runtime_commit": "ead91e45e24b845ef5ba8bfc2057d8b9e243fb6b",
+      "native_steps": 600,
+      "max_wall_seconds": 5400,
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "protocol": "experiments/push_T/toolkit-v1-full50-20261104.json",
+      "protocol_sha256": "05d53fa5e7e701fab588306704fd95c03a951cd2333b0da73335588ee395fd09",
+      "reports": [
+        {
+          "path": "results/push-t-toolkit-v1-full50-20261104.json",
+          "sha256": "349bf3deecc62fb91ff132c173b202eb36d59696a38e0cbd7d6f5ded92d92441",
+          "rows": "cases",
+          "phase": "first",
+          "candidate_commit": "50fcf826cb410629f1e9c532bd01906abcda3fe5"
+        }
+      ]
+    },
+    {
+      "task": "make_toast",
+      "runtime_commit": "1fe37046809b3816d4c70a74c41abbe3bff3e243",
+      "native_steps": 1400,
+      "max_wall_seconds": 5400,
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "protocol": "experiments/make_toast/python-cells-full50-20261104.json",
+      "protocol_sha256": "7878fb6540ec721f53e571e6925f0160c22f076b4ba93f1d8d0e64e2c58c5258",
+      "reports": [
+        {
+          "path": "results/make-toast-python-cells-full50-20261104.json",
+          "sha256": "1eac61ff96236774e1fecb8b5dbe3e220099c7b7cbe04ac864c66f8b18d6a620",
+          "rows": "cases",
+          "phase": "first",
+          "candidate_commit": "b4ace31f1a0b0549db64cc9775be23280628accf"
+        },
+        {
+          "path": "results/make-toast-python-cells-full50-supplement-20261105.json",
+          "sha256": "7968bf482a7246fd78c2a709d35871b6db5821ffebaff8feefa5036bb36bc9e4",
+          "rows": "cases",
+          "phase": "supplement",
+          "candidate_commit": "7b9cec43b0ca38bdeea6c9f738a454c67c6f3938"
+        }
+      ]
+    },
+    {
+      "task": "hang_mugs",
+      "runtime_commit": "8a954e3b8dc01fb99fbe57a60e968fa917ad832d",
+      "native_steps": 800,
+      "max_wall_seconds": 5400,
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "protocol": "experiments/hang_mugs/guard-v2-full50-20261105.json",
+      "protocol_sha256": "878f985dee835a89719681c34088fa2de5447182ecb7a1c1896fefb886c91180",
+      "reports": [
+        {
+          "path": "results/hang-mugs-guard-v2-full50-20261105.json",
+          "sha256": "f350c201749c2b8fe39880c27a810cfaaad9067983cd160d812aeb50272bfe8c",
+          "rows": "cases",
+          "phase": "first",
+          "candidate_commit": "230c3897f573fe44045c3b1cf13e8bdfda21366d"
+        },
+        {
+          "path": "results/hang-mugs-guard-v2-full50-supplement-20261106.json",
+          "sha256": "d076f921d363a61a5ea48107da15cd6be2c5972b1a3bc44b08acded3db83a71a",
+          "rows": "cases",
+          "phase": "supplement",
+          "candidate_commit": "bfd1e1698ad6b73c1179961c5e93d0c22ac4455b"
+        }
+      ]
+    },
+    {
+      "task": "sweep_blocks",
+      "runtime_commit": "ca604e59ea87b280b14757c23134bf62701a9cbd",
+      "native_steps": 1000,
+      "max_wall_seconds": 5400,
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "protocol": "experiments/sweep_blocks/tools-v1-full50-20261106.json",
+      "protocol_sha256": "f8988cf722f95c6dcb078325d1a0557b40bf23925c22b7b72838720309d37727",
+      "reports": [
+        {
+          "path": "results/sweep-blocks-tools-v1-full50-20261106.json",
+          "sha256": "43db414e113600f3262fc6d2758c4616923f0f7c2aa4121176c7006e287f4765",
+          "rows": "cases",
+          "phase": "first",
+          "candidate_commit": "d5cbac71d47b1265883cd59c9db2a99ba645b164"
+        },
+        {
+          "path": "results/sweep-blocks-tools-v1-full50-supplement-20261106.json",
+          "sha256": "0f32d2efe8c9d5b611ea8ec44544fe3090dbe466ae3912259dffe2752cdbf176",
+          "rows": "cases",
+          "phase": "supplement",
+          "candidate_commit": "5cae5770d687f601a4abdbfa1911d785f69fc4cb"
+        }
+      ]
+    },
+    {
+      "task": "pack_objects_into_box",
+      "runtime_commit": "cd82ce5499c59e6da6c0505e59618f0d73b41a47",
+      "native_steps": 1300,
+      "max_wall_seconds": 9000,
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "protocol": "experiments/pack_objects_into_box/tools-v1-native-full50-20261107.json",
+      "protocol_sha256": "47b2afae5fced21b5ddba12d2bfacf004d9cdfce8f41ded2f42b0969f8ea92f9",
+      "reports": [
+        {
+          "path": "results/pack-box-tools-v1-native-full50-20261107.json",
+          "sha256": "da00dc91e93ba53c64757a855676536f8972861b360b2ae01c07111ed2b7d4c8",
+          "rows": "cases",
+          "phase": "first",
+          "candidate_commit": "4878cd3871b160bad8548b71172b1d51c44e843a"
+        }
+      ]
+    }
+  ]
+}

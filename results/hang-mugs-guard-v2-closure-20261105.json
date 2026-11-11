@@ -1,0 +1,1441 @@
+{
+  "checked_at": "2026-11-05T05:51:00.434567+00:00",
+  "complete": true,
+  "tag": "hang-mugs-guard-v2-dev-20261105",
+  "root": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools",
+  "candidate_commit": "8a954e3b8dc01fb99fbe57a60e968fa917ad832d",
+  "protocol": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/experiments/hang_mugs/guard-v2-development-20261105.json",
+  "protocol_sha256": "d8d070bc63264284dc550833bb4df44794ea1d4bb1c01137d3348c0367174d53",
+  "report": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/results/hang-mugs-guard-v2-dev-20261105.json",
+  "report_sha256": "3130b319cad87b66cacbe71e1c39eaa7ec0fc64cb67be670a40f1e454b1410f5",
+  "freeze_sha256": "e900ad1fedf8e1a6abd3fcb0e63429757a4a3fbc4ee2151a5348615cd5655e07",
+  "driver_sha256": "f9309eeb9d988e892555f59a4cd9912348b2e1b04883cfc476f851486e05f446",
+  "frozen_sources_verified": 248,
+  "baseline_native_reports_preserved": 7,
+  "registered_pids": [
+    1249684,
+    1249685,
+    1249694,
+    1249696,
+    1250076,
+    1250225,
+    1250229,
+    1250269,
+    1250354,
+    1250355,
+    1250356,
+    1250357,
+    1250431,
+    1250433,
+    1250860,
+    1250932,
+    1251112,
+    1251116,
+    1251156,
+    1251241,
+    1251242,
+    1251243,
+    1251245,
+    1251453,
+    1251455,
+    1251457,
+    1251488,
+    1251769,
+    1251771,
+    1251773,
+    1254523,
+    1254525,
+    1254912,
+    1255072,
+    1255077,
+    1255123,
+    1255201,
+    1255202,
+    1255203,
+    1255204,
+    1255353,
+    1255564,
+    1255566,
+    1255568,
+    1256597,
+    1258188
+  ],
+  "registered_process_identities": 44,
+  "policy_workspaces_checked": [
+    "/tmp/roborag-mcp-89s7gz4n",
+    "/tmp/roborag-mcp-4hjdds2h",
+    "/tmp/roborag-mcp-xnd0lbyr"
+  ],
+  "reused_pid_numbers": [],
+  "live_related_processes": [],
+  "rows": [
+    {
+      "seed": 1,
+      "variant": "random",
+      "layout": 3,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 602,
+      "steps_complete": true,
+      "wall_seconds": 1026.331577665871,
+      "usage": {
+        "input_tokens": 4644684,
+        "cached_input_tokens": 4513536,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19220,
+        "reasoning_output_tokens": 7060
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-guard-v2-dev-20261105/seed1-random-l3/native/eval_result/RoboDojo/hang_mugs_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l3/_result.json",
+      "native_sha256": "da320cac65f46500da326a25e3b5f36a433d844b25f08c9dff59c323ba942bdc",
+      "independent_action_rows_verified": 602,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-guard-v2-dev-20261105/seed1-random-l3/ik-continuity.jsonl",
+        "journal_sha256": "79c97d27a99b1217d08caa733404375402d32297177a4166f75192170f91b549",
+        "accepted_delta_rows": 566,
+        "rejected_attempts": 5,
+        "rejected_receipts_verified": 5,
+        "violation_counts": {
+          "joint_target_jump": 5
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "record_plan": 3,
+        "read_action_reference": 3,
+        "python_cell_start": 26,
+        "python_cell": 26,
+        "execute_chunk": 40,
+        "measure_mug_geometry": 1
+      },
+      "measurement_commands": {
+        "aperture": 1
+      },
+      "measurement_errors": 1,
+      "measurements_verified_zero_steps": 1,
+      "completed_cells": 26,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 4,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 11,
+        "calls": [
+          {
+            "cell": 6,
+            "step_before": 90,
+            "step_after": 101,
+            "action_steps": 11,
+            "motion_stopped": true,
+            "source_sha256": "1063de62c4c3f2136a0cf0f06c292b54aa966ff0c297a0261c3cc0ce229e77b4",
+            "feature_prediction": {
+              "xyz": [
+                -0.1506228267245237,
+                -0.0609901954071888,
+                0.94687510511702
+              ],
+              "target": [
+                -0.13323195583255784,
+                0.011942994247989903,
+                0.9392383897008587
+              ],
+              "error_m": 0.07536585411183719,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 7,
+            "step_before": 101,
+            "step_after": 118,
+            "action_steps": 17,
+            "motion_stopped": true,
+            "source_sha256": "cbc91f18855a48bcdd3dfc1150bdbde6dc2dde0eceaa957a5745c47ed313cb94",
+            "feature_prediction": {
+              "xyz": [
+                -0.1762188716801503,
+                -0.08218943753116864,
+                0.9642186542907307
+              ],
+              "target": [
+                -0.19,
+                -0.09,
+                0.97
+              ],
+              "error_m": 0.016862631528256983,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 8,
+            "step_before": 118,
+            "step_after": 138,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "source_sha256": "dae4b383ef052efc18f2ae0885807741cc55286da006998a8fd7a08f729ef97a",
+            "feature_prediction": {
+              "xyz": [
+                -0.1346310509076147,
+                0.011592659754142476,
+                0.9388422772405615
+              ],
+              "target": [
+                -0.13323195583255784,
+                0.011942994247989903,
+                0.9392383897008587
+              ],
+              "error_m": 0.00149569594765462,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 10,
+            "step_before": 158,
+            "step_after": 168,
+            "action_steps": 10,
+            "motion_stopped": false,
+            "source_sha256": "92f51047d879654b0759208081a527cad9d58aeb2f4b551831dca52e1f78584c",
+            "feature_prediction": {
+              "xyz": [
+                -0.09612637207757112,
+                0.026476191700941183,
+                0.9183497421381123
+              ],
+              "target": [
+                -0.0917872532439523,
+                0.025968413450518136,
+                0.9220737678426474
+              ],
+              "error_m": 0.005740571265292896,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 14,
+            "step_before": 258,
+            "step_after": 274,
+            "action_steps": 16,
+            "motion_stopped": false,
+            "source_sha256": "3de407564f7d60dad749ce55881796dc5a65db97ea178d9babf4c86cb9dabf13",
+            "feature_prediction": {
+              "xyz": [
+                -0.12922643857563682,
+                0.013909530637796402,
+                0.9373015483213143
+              ],
+              "target": [
+                -0.1288229449188764,
+                0.013435060120599291,
+                0.9374123660989213
+              ],
+              "error_m": 0.0006326215160496482,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 15,
+            "step_before": 274,
+            "step_after": 286,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "source_sha256": "03519b431f80c94eba9094dc9674f889ba53bd0e6941cbd49c28fb67ae8f4186",
+            "feature_prediction": {
+              "xyz": [
+                -0.08104874815745064,
+                0.029795218343980585,
+                0.9176651143833491
+              ],
+              "target": [
+                -0.08032382486838055,
+                0.02984778471930254,
+                0.9173261064776101
+              ],
+              "error_m": 0.0008019996003765719,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 18,
+            "step_before": 367,
+            "step_after": 387,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "source_sha256": "0b63907d630775bb478906facb46f88ff84a1a6f5c5e15b9aa248bdd36dc0ed3",
+            "feature_prediction": {
+              "xyz": [
+                -0.13131329987773033,
+                0.0019874390145940904,
+                1.0815087865414224
+              ],
+              "target": [
+                -0.13132426007391118,
+                0.0023097377833064137,
+                1.0818356252141643
+              ],
+              "error_m": 0.0004591515438431352,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 19,
+            "step_before": 387,
+            "step_after": 401,
+            "action_steps": 14,
+            "motion_stopped": false,
+            "source_sha256": "0160059b1988203ce85bd1fc6db07b6e1f86ae729c61a6cb0b0298eb98018949",
+            "feature_prediction": {
+              "xyz": [
+                -0.0830370867919164,
+                0.025038599542415094,
+                1.058943742335638
+              ],
+              "target": [
+                -0.08155374441258635,
+                0.025305982334033413,
+                1.057462104595079
+              ],
+              "error_m": 0.002113539345699342,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 22,
+            "step_before": 487,
+            "step_after": 503,
+            "action_steps": 16,
+            "motion_stopped": true,
+            "source_sha256": "e793dd68543fcef6c4990eb55a831ddf1cf65ad6e403fd3ded30a98b254ae646",
+            "feature_prediction": {
+              "xyz": [
+                0.08826396028667025,
+                0.04048032955454035,
+                0.9528748047737272
+              ],
+              "target": [
+                0.051501052706759476,
+                0.0927017222754554,
+                0.9375559418299134
+              ],
+              "error_m": 0.06567535910318612,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 23,
+            "step_before": 503,
+            "step_after": 523,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "source_sha256": "b67a26be12044d6fb931f47adee684541f1ceffa6c818a4ba6fb75504ab98d76",
+            "feature_prediction": {
+              "xyz": [
+                0.04736321525627268,
+                0.09032918181322307,
+                0.9357147545011208
+              ],
+              "target": [
+                0.04729162172591349,
+                0.09067794963712032,
+                0.9357712751591257
+              ],
+              "error_m": 0.00036049856221159,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 25,
+            "step_before": 523,
+            "step_after": 537,
+            "action_steps": 14,
+            "motion_stopped": false,
+            "source_sha256": "241e2708ecd8e6b8ea1c91d470885b11e0ce48697a40c2ab58a372b9081f3d3c",
+            "feature_prediction": {
+              "xyz": [
+                0.0014630282557653446,
+                0.06957212264359988,
+                0.917811459638522
+              ],
+              "target": [
+                -0.004063436240407472,
+                0.06598792344943237,
+                0.9139983417755162
+              ],
+              "error_m": 0.0076110552177804675,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          }
+        ],
+        "source_mentions_without_confirmation": [],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 11,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 40.0,
+        "steps": 800,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-hang_mugs-20261029/seed1-random-l3/native/eval_result/RoboDojo/hang_mugs_random/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-random-l3/_result.json",
+        "native_sha256": "fac190c5c38bfb76394e459210f47ae3f9a0a07407627892028992c80e834c7f"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 1,
+      "success": true,
+      "native_score": 100.0,
+      "steps": 696,
+      "steps_complete": true,
+      "wall_seconds": 1673.0338338520378,
+      "usage": {
+        "input_tokens": 10413056,
+        "cached_input_tokens": 10214784,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 35002,
+        "reasoning_output_tokens": 16633
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-guard-v2-dev-20261105/seed1-standard-l1/native/eval_result/RoboDojo/hang_mugs/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+      "native_sha256": "8ae6a937232fc1b8c6d1e3b297a60df76889c266a3fa45274dc4e42ae609b509",
+      "independent_action_rows_verified": 696,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-guard-v2-dev-20261105/seed1-standard-l1/ik-continuity.jsonl",
+        "journal_sha256": "aa37b72099411b06f0c38db1e7b215186abc14c935312c4c6a197d73c51f7fb1",
+        "accepted_delta_rows": 657,
+        "rejected_attempts": 13,
+        "rejected_receipts_verified": 13,
+        "violation_counts": {
+          "ik_failed": 3,
+          "joint_target_jump": 10
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 1,
+        "read_action_reference": 3,
+        "record_plan": 2,
+        "python_cell_start": 50,
+        "python_cell": 50,
+        "execute_chunk": 55,
+        "measure_mug_geometry": 8
+      },
+      "measurement_commands": {
+        "aperture": 3,
+        "peg_measure": 2,
+        "stereo_guide": 3
+      },
+      "measurement_errors": 4,
+      "measurements_verified_zero_steps": 8,
+      "completed_cells": 50,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 10,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 15,
+        "calls": [
+          {
+            "cell": 6,
+            "step_before": 101,
+            "step_after": 119,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "source_sha256": "7af50894b83ae69077c681258518e41a905a79cf84b8c9bfb27230362d679670",
+            "feature_prediction": {
+              "xyz": [
+                0.1022908621610256,
+                0.09536745578850038,
+                0.9561224633342292
+              ],
+              "target": [
+                0.10230479200183401,
+                0.09641843523837522,
+                0.9556789992973719
+              ],
+              "error_m": 0.0011407945461431644,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 8,
+            "step_before": 119,
+            "step_after": 129,
+            "action_steps": 10,
+            "motion_stopped": false,
+            "source_sha256": "bc05dc086a23c93f20964cafce67fa3d2721e605f852049b967b6dd8c0d0f2e5",
+            "feature_prediction": {
+              "xyz": [
+                0.04860672583113895,
+                0.0671804725112169,
+                0.9389462254357249
+              ],
+              "target": [
+                0.04789499038502551,
+                0.06682421667136461,
+                0.9389621102063528
+              ],
+              "error_m": 0.0007960765632909049,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 16,
+            "step_before": 226,
+            "step_after": 242,
+            "action_steps": 16,
+            "motion_stopped": true,
+            "source_sha256": "e6008dffec9641961e67cc7408c7c191ceb11eb1199ee21aa17557527f845de6",
+            "feature_prediction": {
+              "xyz": [
+                0.17424517531770078,
+                -0.06587268067243515,
+                1.0069298307754517
+              ],
+              "target": [
+                0.17529892935539293,
+                -0.06689610554075502,
+                1.0140161513359713
+              ],
+              "error_m": 0.0072369700233931465,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 17,
+            "step_before": 242,
+            "step_after": 254,
+            "action_steps": 12,
+            "motion_stopped": true,
+            "source_sha256": "a402bc44122f78e88dd1ffa1223ed9354206adde426be7e8dd31685839206d83",
+            "feature_prediction": {
+              "xyz": [
+                0.1636889786940584,
+                -0.05556260398099986,
+                0.9857221753822193
+              ],
+              "target": [
+                0.17424517531770084,
+                -0.06587268067243514,
+                1.0069298307754517
+              ],
+              "error_m": 0.025835936519088637,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 29,
+            "step_before": 272,
+            "step_after": 274,
+            "action_steps": 2,
+            "motion_stopped": true,
+            "source_sha256": "a2c9ac9f293c91154be7717b3bd307125dc029061f83002d0f82c59d4c21a1ac",
+            "feature_prediction": {
+              "xyz": [
+                0.17252500300405565,
+                -0.06849155604818163,
+                1.0055082781723772
+              ],
+              "target": [
+                0.04726275341487145,
+                -0.06987194494982768,
+                1.0431084154508659
+              ],
+              "error_m": 0.13079108138181308,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 30,
+            "step_before": 274,
+            "step_after": 276,
+            "action_steps": 2,
+            "motion_stopped": true,
+            "source_sha256": "e980fe5d7126ce646e9965d637ac92edfc2b49815f4d51ae0b0ce8cc4851a73b",
+            "feature_prediction": {
+              "xyz": [
+                0.1749090253150288,
+                -0.07311646583740024,
+                1.0055512514314118
+              ],
+              "target": [
+                0.20752500300405569,
+                -0.12849155604818163,
+                1.005508278172377
+              ],
+              "error_m": 0.06426666681230846,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 31,
+            "step_before": 294,
+            "step_after": 299,
+            "action_steps": 5,
+            "motion_stopped": true,
+            "source_sha256": "f9e0f5b69f9f1d77a7401250df039b91180c4528526d05a90e371402e9805e40",
+            "feature_prediction": {
+              "xyz": [
+                0.3042653269118022,
+                -0.11071198847633099,
+                1.079019520033859
+              ],
+              "target": [
+                0.3045073044041252,
+                -0.11089373083070467,
+                1.0757701019034371
+              ],
+              "error_m": 0.0032634799794818378,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 33,
+            "step_before": 299,
+            "step_after": 323,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "source_sha256": "0123c72fc73c6595dd4fe4d58defbe4fc5ca05f45239a8849749b9aac20bf419",
+            "feature_prediction": {
+              "xyz": [
+                0.3042550522802767,
+                -0.11050925087006877,
+                1.0790412462160117
+              ],
+              "target": [
+                0.3042653269118022,
+                -0.11071198847633097,
+                1.079019520033859
+              ],
+              "error_m": 0.00020415712585369945,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 34,
+            "step_before": 323,
+            "step_after": 342,
+            "action_steps": 19,
+            "motion_stopped": true,
+            "source_sha256": "970f043e10bc3427ed364ba91fc44d6813f520f10cab06cc5f7176d54063d314",
+            "feature_prediction": {
+              "xyz": [
+                0.1454556221397662,
+                0.05867271423493002,
+                1.1058523871123878
+              ],
+              "target": [
+                0.10236590889901262,
+                0.10441747881004344,
+                1.1203522208282746
+              ],
+              "error_m": 0.06449458931562628,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 36,
+            "step_before": 342,
+            "step_after": 360,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "source_sha256": "897ee940749df15f6fee1982614f6564ac28336f8c6ff2f2127039b3051fdbce",
+            "feature_prediction": {
+              "xyz": [
+                0.10254495652626597,
+                0.1041123591724577,
+                1.119843960304568
+              ],
+              "target": [
+                0.10236590889901262,
+                0.10441747881004344,
+                1.1203522208282746
+              ],
+              "error_m": 0.0006192615005181373,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 37,
+            "step_before": 360,
+            "step_after": 372,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "source_sha256": "ef059b1c945e01c4852aff8ce18a478c2344a5782135c15a976c45b8bdccac6b",
+            "feature_prediction": {
+              "xyz": [
+                0.051917758827915744,
+                0.06795013554158601,
+                1.1036338782169977
+              ],
+              "target": [
+                0.05147355572781681,
+                0.06754721753293073,
+                1.103752455105358
+              ],
+              "error_m": 0.0006113262584655057,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 46,
+            "step_before": 558,
+            "step_after": 582,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "source_sha256": "37497e2884134927e7e9206a4f8f62dadd95e4612e231f603c0889c92ae54da2",
+            "feature_prediction": {
+              "xyz": [
+                -0.23757063056153727,
+                -0.12467948033072204,
+                1.0267048950650497
+              ],
+              "target": [
+                -0.23682217741622252,
+                -0.12394834015063629,
+                1.0273242749141118
+              ],
+              "error_m": 0.0012158862903625448,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 47,
+            "step_before": 582,
+            "step_after": 599,
+            "action_steps": 17,
+            "motion_stopped": true,
+            "source_sha256": "53ae856f922031a9d6e0c316b75050e28f51eb71d8f040e62b8922cdd21d2892",
+            "feature_prediction": {
+              "xyz": [
+                -0.16595517738265403,
+                -0.03801538120770531,
+                1.0951667227745236
+              ],
+              "target": [
+                -0.13403180666209963,
+                -0.0006730441542400871,
+                1.124416534084192
+              ],
+              "error_m": 0.0571760718870032,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 48,
+            "step_before": 599,
+            "step_after": 623,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "source_sha256": "a212455c8554072f7096c579683a0d064dbe65a4204a8b0d533636054c6fabaa",
+            "feature_prediction": {
+              "xyz": [
+                -0.13436896672304555,
+                -0.000755253196033645,
+                1.1239646914823542
+              ],
+              "target": [
+                -0.13403180666209963,
+                -0.0006730441542400871,
+                1.124416534084192
+              ],
+              "error_m": 0.000569734122275695,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 49,
+            "step_before": 623,
+            "step_after": 635,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "source_sha256": "288c093290180041948e410ef07222205a9f2ce18c82b6d9bc290990bdc4ba51",
+            "feature_prediction": {
+              "xyz": [
+                -0.06495647619368007,
+                0.012520883624447185,
+                1.1008368876110284
+              ],
+              "target": [
+                -0.06412263587970646,
+                0.012565072535357935,
+                1.100700292665477
+              ],
+              "error_m": 0.0008461090403755792,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          }
+        ],
+        "source_mentions_without_confirmation": [
+          12,
+          15,
+          45
+        ],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 18,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": false,
+        "native_score": 0.0,
+        "steps": 800,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-hang_mugs-20261029/seed1-standard-l1/native/eval_result/RoboDojo/hang_mugs/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l1/_result.json",
+        "native_sha256": "cb192da4d03957828bd1177bb4987a4509e93784574074c643e4b011e859a08a"
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "standard",
+      "layout": 2,
+      "success": false,
+      "native_score": 15.0,
+      "steps": 800,
+      "steps_complete": true,
+      "wall_seconds": 1921.158590645995,
+      "usage": {
+        "input_tokens": 9543852,
+        "cached_input_tokens": 9351680,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 27226,
+        "reasoning_output_tokens": 12074
+      },
+      "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-guard-v2-dev-20261105/seed1-standard-l2/native/eval_result/RoboDojo/hang_mugs/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l2/_result.json",
+      "native_sha256": "5173cd585649428e7dd13bac6435ecb72aae639286055b7c3000eb5ff1544e34",
+      "independent_action_rows_verified": 800,
+      "native_guard_audit": {
+        "journal": "/home/zxc/文档/ChatGPT/RoboRAG/work/hang-mugs-tools/runs/hang-mugs-guard-v2-dev-20261105/seed1-standard-l2/ik-continuity.jsonl",
+        "journal_sha256": "58ef2a8a010baaab0cf878627390c7c82ff012c7e683b0e7c03636e9b5f01b96",
+        "accepted_delta_rows": 739,
+        "rejected_attempts": 12,
+        "rejected_receipts_verified": 12,
+        "violation_counts": {
+          "joint_target_jump": 10,
+          "ik_failed": 2
+        }
+      },
+      "tool_counts": {
+        "observe": 1,
+        "retrieve_evidence": 2,
+        "read_action_reference": 5,
+        "record_plan": 3,
+        "python_cell_start": 47,
+        "python_cell": 47,
+        "execute_chunk": 59,
+        "measure_mug_geometry": 1,
+        "hold_joints": 2
+      },
+      "measurement_commands": {
+        "aperture": 1
+      },
+      "measurement_errors": 1,
+      "measurements_verified_zero_steps": 1,
+      "completed_cells": 47,
+      "cells_with_errors": 0,
+      "truncated_or_stopped_cells": 11,
+      "feature_helper_trace": {
+        "confirmed_direct_calls": 24,
+        "calls": [
+          {
+            "cell": 6,
+            "step_before": 50,
+            "step_after": 74,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "source_sha256": "373f847eef832172750d037d92a64f83bbf62093e77a23bfefe6e971482db3f6",
+            "feature_prediction": {
+              "xyz": [
+                0.30961633874630184,
+                -0.05531993498675438,
+                1.0145962978068856
+              ],
+              "target": [
+                0.31,
+                -0.055,
+                1.015
+              ],
+              "error_m": 0.0006422848387312451,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 7,
+            "step_before": 74,
+            "step_after": 83,
+            "action_steps": 9,
+            "motion_stopped": true,
+            "source_sha256": "a12715f180fc340faab9b15fdc97c777c203308096360d6a348a90ac8be8120e",
+            "feature_prediction": {
+              "xyz": [
+                0.3028804072032595,
+                -0.04103229491787154,
+                1.0050027640485804
+              ],
+              "target": [
+                0.29,
+                -0.015,
+                0.99
+              ],
+              "error_m": 0.03269049093406514,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 8,
+            "step_before": 83,
+            "step_after": 87,
+            "action_steps": 4,
+            "motion_stopped": true,
+            "source_sha256": "4deb64acc0f1bf3b594b0b8f461dd93e424e235137c3e1f5792eb599a7946209",
+            "feature_prediction": {
+              "xyz": [
+                0.30194999443692094,
+                -0.038449971072500505,
+                0.9982968855879242
+              ],
+              "target": [
+                0.29,
+                -0.015,
+                0.99
+              ],
+              "error_m": 0.027596047195253465,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 9,
+            "step_before": 87,
+            "step_after": 111,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "source_sha256": "ca0bcde19be9c7d043644d549055f1593a3e1abbe56fd13435f8bad483d43830",
+            "feature_prediction": {
+              "xyz": [
+                0.3019027487212027,
+                -0.03844855764707593,
+                0.9981445580808406
+              ],
+              "target": [
+                0.30195,
+                -0.03845,
+                0.9983
+              ],
+              "error_m": 0.00016247139428801665,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 13,
+            "step_before": 111,
+            "step_after": 118,
+            "action_steps": 7,
+            "motion_stopped": true,
+            "source_sha256": "276215c58c806a088697f4ec6697299c8b0fc81bfdff14aef05b9bc66281d39b",
+            "feature_prediction": {
+              "xyz": [
+                0.2836726291917411,
+                -0.02554972273591071,
+                0.9728242239434335
+              ],
+              "target": [
+                0.25210082885113144,
+                -0.00864749444077265,
+                0.957341887030645
+              ],
+              "error_m": 0.03901495424025736,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 14,
+            "step_before": 118,
+            "step_after": 122,
+            "action_steps": 4,
+            "motion_stopped": true,
+            "source_sha256": "62fb906ef6e3d4d454f0324dbfb2787b3fb65c45137bcb10b6128adc85b213a0",
+            "feature_prediction": {
+              "xyz": [
+                0.28420643201182566,
+                -0.014551926056181323,
+                0.9484710606229078
+              ],
+              "target": [
+                0.32,
+                -0.02555,
+                1.01
+              ],
+              "error_m": 0.07202740812126766,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 15,
+            "step_before": 140,
+            "step_after": 157,
+            "action_steps": 17,
+            "motion_stopped": true,
+            "source_sha256": "0e50bad4004a104cfd40f9e0838b3992e9c009f76131239cc307a5863c20679c",
+            "feature_prediction": {
+              "xyz": [
+                0.37136598300440565,
+                -0.025479540988724583,
+                1.0017520720596216
+              ],
+              "target": [
+                0.3740393880964455,
+                -0.043534634287632594,
+                1.0374825583455323
+              ],
+              "error_m": 0.040122327188811834,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 16,
+            "step_before": 157,
+            "step_after": 163,
+            "action_steps": 6,
+            "motion_stopped": true,
+            "source_sha256": "dab7ed6e3ccc658c84b34536dd2f908407630116ce7c7c99acf8b6970a8abef2",
+            "feature_prediction": {
+              "xyz": [
+                0.3320107702839458,
+                -0.007295379790110523,
+                0.9556571061566231
+              ],
+              "target": [
+                0.2521,
+                -0.00865,
+                0.95734
+              ],
+              "error_m": 0.07993996706888662,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 17,
+            "step_before": 163,
+            "step_after": 179,
+            "action_steps": 16,
+            "motion_stopped": false,
+            "source_sha256": "807a69592c992d41559effc9b8a5de3eac4f8f10f0bdc8861586701f336ed05c",
+            "feature_prediction": {
+              "xyz": [
+                0.33203297840445234,
+                -0.007255457109115071,
+                0.9753538624419271
+              ],
+              "target": [
+                0.332011,
+                -0.007295,
+                0.975657
+              ],
+              "error_m": 0.00030649481169539133,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 19,
+            "step_before": 179,
+            "step_after": 197,
+            "action_steps": 18,
+            "motion_stopped": false,
+            "source_sha256": "ba5738549c4464b8b89fb7699ad1aa9a85380c2dff962bc8a40b0124d4757790",
+            "feature_prediction": {
+              "xyz": [
+                0.24176847322471848,
+                -0.006667032786286137,
+                0.952513668079141
+              ],
+              "target": [
+                0.2413242018164578,
+                -0.006677610632507741,
+                0.9524445543344239
+              ],
+              "error_m": 0.0004497395743510072,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 20,
+            "step_before": 197,
+            "step_after": 207,
+            "action_steps": 10,
+            "motion_stopped": false,
+            "source_sha256": "448f9b9624ea01e5df07da06c988248bb1225ddf3717cf23e4cae6d53e33b2f9",
+            "feature_prediction": {
+              "xyz": [
+                0.2049526919544585,
+                -3.978020951334038e-05,
+                0.9357442202151114
+              ],
+              "target": [
+                0.20450405944798955,
+                5.282571239736229e-05,
+                0.9357120009556682
+              ],
+              "error_m": 0.0004592222373890611,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 29,
+            "step_before": 339,
+            "step_after": 363,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "source_sha256": "1dc8848688f6ffe5949f1a747402b1783e37d5395988214a7b10cf09f081e8a1",
+            "feature_prediction": {
+              "xyz": [
+                0.28349075583836125,
+                -0.12977079281270207,
+                1.0147884056001208
+              ],
+              "target": [
+                0.283567,
+                -0.13,
+                1.015
+              ],
+              "error_m": 0.0003211250487788309,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 30,
+            "step_before": 363,
+            "step_after": 387,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "source_sha256": "ea37f32d64ecd8ba071390a11c33144bcaede768973eaaae70265caf0c1b472e",
+            "feature_prediction": {
+              "xyz": [
+                0.20034365761116343,
+                -0.1597898053618955,
+                1.0499220216538476
+              ],
+              "target": [
+                0.2,
+                -0.16,
+                1.05
+              ],
+              "error_m": 0.0004103205601320786,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 31,
+            "step_before": 387,
+            "step_after": 394,
+            "action_steps": 7,
+            "motion_stopped": true,
+            "source_sha256": "d986116b6828611fdb3d58f1c02fdcce614b58433bbab79993440a69d1a0a5a3",
+            "feature_prediction": {
+              "xyz": [
+                0.15689901011947582,
+                -0.09994409332847781,
+                1.0484735730631058
+              ],
+              "target": [
+                0.11550705730961833,
+                -0.09663390914166467,
+                1.0363691033325426
+              ],
+              "error_m": 0.04325239027177827,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 34,
+            "step_before": 410,
+            "step_after": 430,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "source_sha256": "b27b0e5eec17009826d417eed31163d1919f349b50728e8fdda4098a102d957c",
+            "feature_prediction": {
+              "xyz": [
+                0.15511214047907762,
+                -0.1138532932636204,
+                1.035814467972246
+              ],
+              "target": [
+                0.1552,
+                -0.1138,
+                1.0359
+              ],
+              "error_m": 0.0001336981493354687,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 35,
+            "step_before": 430,
+            "step_after": 442,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "source_sha256": "9760312b3679c60ab5b9fa33f5acc9c1be0334e1fc0f1bef49cce538f0fac282",
+            "feature_prediction": {
+              "xyz": [
+                0.11582818721448049,
+                -0.0968641776798632,
+                1.036210201119498
+              ],
+              "target": [
+                0.11550705730961833,
+                -0.09663390914166467,
+                1.0363691033325426
+              ],
+              "error_m": 0.00042590835726872113,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 36,
+            "step_before": 442,
+            "step_after": 454,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "source_sha256": "969fd448a51a48a3d047435aa91f41c5c0e52c1abfbff62e51b0251d9cf836ae",
+            "feature_prediction": {
+              "xyz": [
+                0.12140189553098855,
+                -0.05441807788654662,
+                1.018355580805354
+              ],
+              "target": [
+                0.12167013126291717,
+                -0.05381579675397494,
+                1.017994507527428
+              ],
+              "error_m": 0.0007517093072241061,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 38,
+            "step_before": 527,
+            "step_after": 548,
+            "action_steps": 21,
+            "motion_stopped": true,
+            "source_sha256": "74c50ef12996c0d370fb5a2167601b56eab54141679f4a180534cae88841d24f",
+            "feature_prediction": {
+              "xyz": [
+                -0.12432247141513775,
+                -0.03647121773853998,
+                0.9787475073674494
+              ],
+              "target": [
+                -0.08,
+                -0.02,
+                0.99
+              ],
+              "error_m": 0.048604537613084045,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 39,
+            "step_before": 548,
+            "step_after": 568,
+            "action_steps": 20,
+            "motion_stopped": false,
+            "source_sha256": "42d4fb4242b0133b15a90fc5f9238f4b1c851ce3d6eeb643b0d60eb53f2fbdf2",
+            "feature_prediction": {
+              "xyz": [
+                -0.050580349230808966,
+                0.014799017077756348,
+                0.9548899995688626
+              ],
+              "target": [
+                -0.05,
+                0.015,
+                0.955
+              ],
+              "error_m": 0.0006239386665246572,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 40,
+            "step_before": 568,
+            "step_after": 580,
+            "action_steps": 12,
+            "motion_stopped": false,
+            "source_sha256": "ba3faf72fa8cbeda4159be95a89506635e9dd664e0bdea1c2617631aec159786",
+            "feature_prediction": {
+              "xyz": [
+                0.024259953964699557,
+                0.029714995750510176,
+                0.9527075282225675
+              ],
+              "target": [
+                0.025594095390251717,
+                0.02961293492338496,
+                0.9527226899880595
+              ],
+              "error_m": 0.0013381254182402585,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 41,
+            "step_before": 580,
+            "step_after": 590,
+            "action_steps": 10,
+            "motion_stopped": false,
+            "source_sha256": "419f1166ddd3ed975c4dc3975693cfa69e26c0cdb74292452e7670123db16572",
+            "feature_prediction": {
+              "xyz": [
+                0.06830263698446633,
+                0.022414619258684737,
+                0.9335054810221186
+              ],
+              "target": [
+                0.07071590460974829,
+                0.021491065076615037,
+                0.9327713100119405
+              ],
+              "error_m": 0.002686227844141011,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 42,
+            "step_before": 645,
+            "step_after": 669,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "source_sha256": "2c97cc2365649e2d5cf218e95e0f6ebf26ea75449a7bfd2c5f5d439c66b858f5",
+            "feature_prediction": {
+              "xyz": [
+                -0.004335591883398979,
+                0.03437686585472781,
+                1.1268198018491646
+              ],
+              "target": [
+                -0.005411945315373583,
+                0.033612596363447766,
+                1.133754369781114
+              ],
+              "error_m": 0.007059098877948008,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 44,
+            "step_before": 669,
+            "step_after": 677,
+            "action_steps": 8,
+            "motion_stopped": false,
+            "source_sha256": "585c5ff4d526734b891f750de38bfdbb028e2d8dc96c0090349c49af141d3734",
+            "feature_prediction": {
+              "xyz": [
+                0.025936807788581415,
+                0.026337786148569145,
+                1.122462119371134
+              ],
+              "target": [
+                0.02615193503010489,
+                0.02915964940315235,
+                1.1193012482876405
+              ],
+              "error_m": 0.0042426758023772085,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          },
+          {
+            "cell": 47,
+            "step_before": 690,
+            "step_after": 714,
+            "action_steps": 24,
+            "motion_stopped": false,
+            "source_sha256": "b75bd965969ecaef447d8b27756b0db58b16b81a5ea1748799a20d76deef852d",
+            "feature_prediction": {
+              "xyz": [
+                -0.035110895457426704,
+                0.015293983663103222,
+                1.1298502263495436
+              ],
+              "target": [
+                -0.035,
+                0.015,
+                1.13
+              ],
+              "error_m": 0.0003480751973647047,
+              "assumption": "Rigid grasp; inspect RGB, not a holding or success measurement"
+            }
+          }
+        ],
+        "source_mentions_without_confirmation": [
+          28,
+          32,
+          45
+        ],
+        "interpretation": "Confirmed invocations, not evidence that the rigid-grasp assumption held. Unclassified mentions are not counted as calls."
+      },
+      "cell_source_mentions_move_feature": 27,
+      "helper_usage_note": "Source mentions are not an invocation count; confirm executed control paths before attributing outcomes.",
+      "historical_same_scene": {
+        "success": true,
+        "native_score": 100.0,
+        "steps": 347,
+        "native_result": "/home/zxc/文档/ChatGPT/RoboRAG/work/v3-generalization/runs/v3-generalization-hang_mugs-20261029/seed1-standard-l2/native/eval_result/RoboDojo/hang_mugs/RoboRAGMCP/arx_x5/1_gpt_plan_chunk/seed1-standard-l2/_result.json",
+        "native_sha256": "cc6468b7f7528bd52d7561d2f877115ef92241bd4a3fd3868f48e41f5da17fd0"
+      }
+    }
+  ],
+  "counts": {
+    "attempts_closed": 3,
+    "success": 2,
+    "failure": 1,
+    "unscored": 0,
+    "scored": 3,
+    "success_rate_scored": 0.6666666666666666,
+    "confirmed_success_fraction_closed": 0.6666666666666666
+  },
+  "costs": {
+    "steps": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 2098,
+      "known_mean": 699.3333333333334,
+      "partial_lower_bound_cases": 0
+    },
+    "wall_seconds": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 4620.524002163904,
+      "known_mean": 1540.174667387968
+    },
+    "input_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 24601592,
+      "known_mean": 8200530.666666667
+    },
+    "cached_input_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 24080000,
+      "known_mean": 8026666.666666667
+    },
+    "output_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 81448,
+      "known_mean": 27149.333333333332
+    },
+    "reasoning_output_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 35767,
+      "known_mean": 11922.333333333334
+    },
+    "total_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 24683040,
+      "known_mean": 8227680
+    },
+    "uncached_input_tokens": {
+      "known_count": 3,
+      "unknown_count": 0,
+      "known_sum": 521592,
+      "known_mean": 173864
+    }
+  },
+  "batch_wall_seconds": 2995.554668257013,
+  "actual_billed_usd": null,
+  "interpretation": "Second combined candidate on the same three existing development scenes after v1 closed at 1 success/2 failures, including a historical-success regression. V2 changes only dispatch reliability and its description. No heldout or single-cause claim; never merge best outcomes across candidates."
+}
