@@ -2,16 +2,31 @@
 
 ### A Studio for Embodying Coding Agents
 
-LinkMind brings robot observations, programmable control and interaction experience into a coding agent's working environment. Its **Interaction Experience Harness** connects compact procedural guidance to the original images, robot states and action records. The agent chooses what to inspect, writes actions for the current scene and revises its plan using live feedback.
+LinkMind studies **Embodied Infrastructure Half-Life**: how the added value of a fixed embodied support configuration can change as the underlying model improves. This motivates **LinkMind Studio**, a working environment that connects coding agents to robot observations, programmable control and live feedback. Its core **Interaction Experience Harness** links procedural guidance to original visual and numerical records, letting the agent choose what to inspect and adapt to the current scene.
+
+> **What support should an embodied agent retain, revise or remove as models and task requirements evolve?**
 
 [Method](docs/method.md) · [Installation and running](docs/reproduction.md) · [Paper main table](docs/main-table.md) · [Native evidence](docs/local-results.md) · [Release provenance](docs/release.md)
 
-## From experience to action
+## Key ideas
 
-- **Inspect experience on demand.** Retrieve a procedure, then open the source interval behind an operation. Complete TRAIN recordings remain available outside active context.
-- **Keep decisions with the agent.** The agent builds its own scene-specific plan, adapts historical references and generates short actions.
-- **Close the loop with observations.** Explicit motion checks, execution receipts and fresh RGB/state inform the next decision.
-- **Re-evaluate infrastructure as models change.** Support that helps one model or task may add less value for another. Simplification and model studies remain separately reported.
+### Embodied Infrastructure Half-Life
+
+A tool, skill or harness that helps one model may contribute less after a model upgrade, while more demanding tasks can create new support needs. We study this possible decline through the **incremental gain over the same model's basic robot interface**, holding the support configuration, scenes and evaluation budget fixed. A positive gain has halved when a later model retains at most half that gain, even if absolute task performance improves. This is a question to measure for each setting, rather than an assumed universal decay law. See the [design rationale](docs/method.md#the-design-question) and [cross-model study](docs/local-results.md#stack-bowls-model-comparison).
+
+### LinkMind Studio
+
+The studio brings **robot tools, reusable skills and execution feedback** into the coding agent's working environment through **Model Context Protocol (MCP)**. Explicit interfaces expose live RGB and robot state, declare control conventions and accept bounded action chunks. The agent owns the current plan: it chooses objectives, writes actions and revises its decisions after inspecting execution receipts and fresh observations.
+
+### Interaction Experience Harness
+
+The harness makes demonstrations inspectable at the level the agent needs:
+
+- **Source-linked experience.** Each procedural phase points to its original recording interval, preserving the connection between a described operation and its images, robot states and action records.
+- **Progressive disclosure.** Retrieve a compact procedure, then expand selected windows for state summaries, gripper events, images or numerical actions. Complete TRAIN recordings remain available outside active context.
+- **Scene-specific adaptation and live feedback.** Use historical evidence to construct new actions for the current scene, then inspect what actually happened. The agent can combine, skip or reorder demonstrated operations.
+
+**Default interaction loop:** Observe → retrieve and inspect experience → record a current plan → execute a short action chunk → inspect feedback and revise.
 
 The unified code registers **12 tasks**, integrates the **eight locally evaluated task implementations**, and includes the latest optional Push-T simplification profiles. The original Python namespace remains `roborag` for compatibility. Read the [method explanation](docs/method.md) for the design and its limits.
 
