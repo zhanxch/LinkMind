@@ -2,7 +2,9 @@
 
 ### A Studio for Embodying Coding Agents
 
-LinkMind studies **Embodied Infrastructure Half-Life**: how the added value of a fixed embodied support configuration can change as the underlying model improves. This motivates **LinkMind Studio**, a working environment that connects coding agents to robot observations, programmable control and live feedback. Its core **Interaction Experience Harness** links procedural guidance to original visual and numerical records, letting the agent choose what to inspect and adapt to the current scene.
+Model progress can change which support is load-bearing. OpenAI's [FDE team](https://openai.com/index/forward-deployed-engineering-means/) calls it progress when a model can handle use cases that once took months of custom engineering; Codex engineer Thibault Sottiaux describes a harness as scaffolding to remove over time in a [podcast interview](https://linearb.io/dev-interrupted/podcast/openai-codex-thibault-sottiaux-agentic-autonomy). [Anthropic's account](https://www.anthropic.com/research/harness-design-long-running-apps) gives a task-level example: Opus 4.6 no longer needed sprint decomposition for some work, while evaluation still helped near the model's capability edge.
+
+LinkMind studies this shifting value in robotics as **Embodied Infrastructure Half-Life**: how the gain from a fixed support configuration changes across models, measured against each model's basic robot interface on the same tasks, scenes and budgets. The half-life point is reached when that gain falls to at most half its initial value; a model upgrade alone does not establish that it has. **LinkMind Studio** makes the question concrete: its **Interaction Experience Harness** links procedures to original demonstrations that an agent can inspect, adapt to the current scene and check against live robot feedback.
 
 > **What support should an embodied agent retain, revise or remove as models and task requirements evolve?**
 
