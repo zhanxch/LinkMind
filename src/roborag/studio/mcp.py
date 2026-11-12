@@ -24,7 +24,7 @@ def request(path, data=None):
         raise ToolError(json.loads(exc.read()).get("error", "Studio request failed")) from exc
 
 
-def create_server():
+def create_server(*, basic=False):
     server = MCPServer("LinkMind Studio", instructions=(
         "LinkMind runs embodied simulation tasks from the user's conversational goal and constraints. "
         "Use studio_catalog and create_task, then start_episode when the user requested execution. "
@@ -44,7 +44,6 @@ def create_server():
         state = request('/api/state')
         return {k: state[k] for k in ('catalog', 'tasks', 'runs', 'active', 'preflight')}
 
-    @server.tool(annotations=readonly)
     def view_experience(task: str, experience_id: str = '') -> list:
         """Read historical TRAIN evidence: what happened, its source, and uncertainties. Not a skill or mandatory procedure.
 
@@ -66,7 +65,6 @@ def create_server():
         """Start one requested simulation attempt. Save its exact run_id; wait with task_context until ready."""
         return request(f'/api/tasks/{task_id}/start', {})
 
-    @server.tool()
     def remember_requirement(task_id: str, text: str, run_id: str) -> dict:
         """Persist a requirement only when the user asks to remember it. It remains unverified user input, not successful experience."""
         return request(f'/api/tasks/{task_id}/corrections', dict(text=text, run_id=run_id))
@@ -107,8 +105,25 @@ def create_server():
         """End the runner and simulator processes. The interrupted run is not a scored success."""
         return request(f"/api/runs/{run_id}/stop", {})
 
+    if not basic:
+        server.tool(annotations=readonly)(view_experience)
+        server.tool()(remember_requirement)
     return server
 
 
 if __name__ == "__main__":
-    create_server().run()
+    import argparse
+    from pathlib import Path
+    from urllib.parse import urlsplit
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--basic', action='store_true')
+    parser.add_argument('--connection', type=Path)
+    args = parser.parse_args()
+    if args.connection:
+        connection = json.loads(args.connection.read_text())
+        endpoint = urlsplit(connection['url'])
+        if endpoint.scheme != 'http' or endpoint.hostname != '127.0.0.1':
+            raise ValueError('LinkMind requires a local service')
+        os.environ['LINKMIND_STUDIO_URL'] = connection['url']
+        os.environ['LINKMIND_STUDIO_TOKEN'] = connection['token']
+    create_server(basic=args.basic).run()

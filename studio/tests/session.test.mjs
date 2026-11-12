@@ -19,7 +19,7 @@ test('dispatch checks host conversation identity before allowing execution',asyn
     return {ok:false,json:async()=>({error:'This conversation does not own that task'})};
   };
   try{
-    apply({on:(event,fn)=>{assert.equal(event,'tools/execute');handler=fn;}});
+    await apply({on:(event,fn)=>{assert.equal(event,'tools/execute');handler=fn;}});
     let dispatched=false;
     await assert.rejects(handler({name:'mcp__linkmind__start_episode',agent:{id:'chat-b'},arguments:{task_id:'task1',session_id:'chat-a'}},async()=>{dispatched=true;}),/does not own/);
     assert.equal(dispatched,false);

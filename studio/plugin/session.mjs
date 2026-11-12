@@ -1,5 +1,8 @@
 // Bind native dsh conversations to tasks through tool dispatch, not model-supplied IDs.
+import {readFile} from 'node:fs/promises';
+import z from '@deepseek-ai/schemastery';
 export const inject = ['tools'];
+export const Config = z.object({connectionFile:z.string().default('')});
 
 export function taskFromResult(result) {
   if (result.isError) return null;
@@ -12,9 +15,11 @@ export function taskFromResult(result) {
   throw new Error('Task was saved but its identity could not be linked to this conversation. Do not start it.');
 }
 
-export function apply(ctx) {
-  const backend = new URL(process.env.LINKMIND_STUDIO_URL);
-  const headers = {Authorization:`Bearer ${process.env.LINKMIND_STUDIO_TOKEN}`, 'Content-Type':'application/json'};
+export async function apply(ctx, config = {}) {
+  const connection = config.connectionFile ? JSON.parse(await readFile(config.connectionFile,'utf8')) :
+    ctx.get?.('linkmindStudio') || {url:process.env.LINKMIND_STUDIO_URL,token:process.env.LINKMIND_STUDIO_TOKEN};
+  const backend = new URL(connection.url);
+  const headers = {Authorization:`Bearer ${connection.token}`, 'Content-Type':'application/json'};
   const post = async (path, data) => {
     const response = await fetch(new URL(path,backend), {method:'POST',headers,body:JSON.stringify(data),signal:AbortSignal.timeout(10000)});
     const value = await response.json();

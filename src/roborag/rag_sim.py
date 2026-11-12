@@ -35,9 +35,12 @@ def main():
     parser.add_argument("--probe-only", action="store_true")
     parser.add_argument("--agent-workspace", type=Path)
     parser.add_argument("--max-wall-seconds", type=float, default=7200)
+    parser.add_argument("--live-camera-fps", type=float, default=0)
     add_budget_argument(parser)
     AppLauncher.add_app_launcher_args(parser)
     args = parser.parse_args()
+    if not 0 <= args.live_camera_fps <= 10:
+        parser.error("--live-camera-fps must be between 0 and 10")
     output = args.output.resolve()
     for name in ("inbox", "outbox"):
         (output / name).mkdir(parents=True, exist_ok=True)
@@ -53,6 +56,10 @@ def main():
     from roborag.rag_execution import execute_chunk, execute_delta_actions
     from roborag.scene_measurements import measure_scene
     from roborag.toast_motion import enable_toast_guard, dispatch_robot_request
+    live_camera = None
+    if args.live_camera_fps:
+        from roborag.studio.camera import LiveCamera
+        live_camera = LiveCamera(output / "live", args.live_camera_fps)
     class LiveAPI(EpisodeAPI):
         def state(self):
             value = super().state()
@@ -106,6 +113,8 @@ def main():
                 max_joint_increment_rad=.25, log_path=output / "ik-continuity.jsonl")
             rejection_errors = (IKContinuityError,)
         api = LiveAPI(env, output, task_instruction=task.removesuffix("_random") == "push_T")
+        if live_camera:
+            live_camera.attach(api)
         enable_toast_guard(api, task, output)
         def publish_ready():
             # Must run after native run_eval registers its reward/score checks.
@@ -114,6 +123,8 @@ def main():
             if exchange != output:
                 api.save_observation(exchange / "obs")
             api.save_observation(output / "observations/000_initial")
+            if live_camera:
+                live_camera.publish(api, force=True)
             write_json(output / "ready.json", dict(step=api.step, **budget,
                                                    task=task, layout=args.layout, seed=args.seed,
                                                    **({"execution_guard": {"kind": "native_ik_continuity", "max_joint_increment_rad": .25}}
@@ -158,6 +169,8 @@ def main():
                     code = 0
                 counter += 1
                 api.save_observation(output / "obs")
+                if live_camera:
+                    live_camera.publish(api, force=True)
                 if exchange != output:
                     api.save_observation(exchange / "obs")
                 snapshot = output / f"observations/{counter:03d}_step{api.step:03d}"

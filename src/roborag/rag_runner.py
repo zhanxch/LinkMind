@@ -105,6 +105,8 @@ def main():
         "--enable_cameras", "--headless",
         "--kit_args=--enable isaacsim.replicator.behavior --enable isaacsim.sensors.camera --/app/hangDetector/enabled=false --/app/updateOrder/checkForHydraRenderComplete=1000 --/app/renderer/waitIdle=true --/app/hydraEngine/waitIdle=true"]
     sim_command += budget_arguments(args.control_step_limit)
+    if args.agent_backend == "dsh":
+        sim_command += ["--live-camera-fps", "4"]
     with socket.socket() as sock:
         sock.bind(("127.0.0.1", 0))
         port = sock.getsockname()[1]

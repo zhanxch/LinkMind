@@ -1,8 +1,5 @@
-import {createRequire} from 'node:module';
 import {CodexRpc, codexStream} from './codex-rpc.mjs';
-
-const dsh = createRequire(new URL('../node_modules/@deepseek-ai/dsh/package.json', import.meta.url));
-const {LlmAdapter} = await import(dsh.resolve('@deepseek-ai/dsh-llm'));
+import {LlmAdapter} from '@deepseek-ai/dsh-llm';
 
 export class CodexAdapter extends LlmAdapter {
   constructor(attachments, cwd) { super(); this.attachments = attachments; this.cwd = cwd; }

@@ -384,9 +384,26 @@ class Studio:
                              for k in self.manifest], preflight=self.preflight(),
                     historical=read(self.root / "results/local-summary.json"), codex=self.codex)
 
+    def live_run(self, run_id):
+        """Read only published observations and the real final report, never simulator internals."""
+        self.refresh()
+        run = self.run(run_id)
+        output = self.output(run_id)
+        observation = read(output / "obs/state.json", {})
+        progress = read(output / "progress.json", {})
+        camera = read(output / "live/frame.json")
+        return {**run, "step": (camera or {}).get("step", observation.get("step", progress.get("step"))),
+                "observation_available": bool(observation),
+                "camera": camera,
+                "camera_error": read(output / "live/error.json")}
+
     def asset(self, run_id, name):
         output = self.output(run_id)
         allowed = {f"{c}.png": output / f"obs/{c}.png" for c in ("head", "wrist_l", "wrist_r")}
+        for camera in ("head", "wrist_l", "wrist_r"):
+            live = output / "live" / f"{camera}.png"
+            if live.is_file():
+                allowed[f"{camera}.png"] = live
         allowed.update({"result.json": output / "result.json", "run.json": output / "run.json",
                         "commands.jsonl": output / "commands.jsonl", "runner.log": output.parent / "runner.log",
                         "codex-events.jsonl": output.parent / "codex-events.jsonl", "codex-answer.txt": output.parent / "codex-answer.txt"})
@@ -415,6 +432,32 @@ def serve(studio, port, token):
 
         def do_POST(self):
             self.handle_request()
+
+        def stream_run(self, run_id):
+            # Each connection begins with a full snapshot, so reconnect/replay cannot
+            # lose the final score. No model call or robot command is made here.
+            value = studio.live_run(run_id)
+            self.send_response(200)
+            self.send_header("Content-Type", "text/event-stream")
+            self.send_header("Cache-Control", "no-store")
+            self.send_header("X-Accel-Buffering", "no")
+            self.end_headers()
+            previous = None
+            try:
+                for tick in range(480):  # reconnect periodically; no abandoned infinite worker
+                    payload = json.dumps(value, ensure_ascii=False, sort_keys=True)
+                    if payload != previous:
+                        self.wfile.write(("data: " + payload + "\n\n").encode())
+                        previous = payload
+                    elif tick % 20 == 0:
+                        self.wfile.write(b": keepalive\n\n")
+                    self.wfile.flush()
+                    if value["status"] not in ("starting", "ready", "finishing", "stopping"):
+                        return
+                    time.sleep(0.25)
+                    value = studio.live_run(run_id)
+            except (BrokenPipeError, ConnectionResetError):
+                pass
 
         def handle_request(self):
             if not secrets.compare_digest(self.headers.get("Authorization", ""), "Bearer " + token):
@@ -446,7 +489,11 @@ def serve(studio, port, token):
                     else: raise ValueError("Unknown action")
                 elif len(parts) == 4 and parts[:2] == ["api", "runs"]:
                     run_id, action = parts[2:]
-                    if self.command == "GET" and action == "context": value = studio.context(run_id)
+                    if self.command == "GET" and action == "stream":
+                        self.stream_run(run_id)
+                        return
+                    elif self.command == "GET" and action == "live": value = studio.live_run(run_id)
+                    elif self.command == "GET" and action == "context": value = studio.context(run_id)
                     elif self.command == "GET" and action == "tools": value = studio.tools(run_id)
                     elif self.command == "POST" and action == "call": value = studio.call(run_id, data, self.headers.get("X-LinkMind-Controller", "ui"))
                     elif self.command == "POST" and action == "stop": value = studio.stop(run_id)
@@ -475,6 +522,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--port", type=int, default=0)
     parser.add_argument("--state", type=Path)
+    parser.add_argument("--owner-pid", type=int)
+    parser.add_argument("--owner-identity")
     args = parser.parse_args()
     token = os.environ["LINKMIND_STUDIO_TOKEN"]
     studio = Studio(state=args.state)
@@ -483,6 +532,9 @@ def main():
         threading.Thread(target=server.shutdown, daemon=True).start()
     signal.signal(signal.SIGTERM, shutdown)
     signal.signal(signal.SIGINT, shutdown)
+    if args.owner_pid:
+        from .external_agent import watch_owner
+        watch_owner(args.owner_pid, args.owner_identity)
     print(json.dumps({"url": f"http://127.0.0.1:{server.server_port}"}), flush=True)
     try:
         server.serve_forever()

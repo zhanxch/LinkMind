@@ -1,0 +1,3 @@
+- insert:
+    - id: linkmind-studio
+      name: '@linkmind/dsh-studio'

@@ -138,6 +138,27 @@ class StudioTests(unittest.TestCase):
         for name in ("../../local.runtime.json", "studio-agent.json", "unknown"):
             with self.assertRaises(ValueError): self.studio.asset("run1", name)
 
+    def test_live_camera_step_and_terminal_stream_are_current(self):
+        self.seed_run(status="stopped")
+        output = self.studio.output("run1")
+        write_json(output / "obs/state.json", {"step":2})
+        write_json(output / "live/frame.json", {"step":9,"frame":4,"captured_at":100,"cameras":["head"]})
+        (output / "live/head.png").write_bytes(b'current-frame')
+        self.assertEqual(self.studio.live_run("run1")["step"],9)
+        self.assertEqual(self.studio.asset("run1","head.png").read_bytes(),b'current-frame')
+        server=serve(self.studio,0,"test-token")
+        thread=threading.Thread(target=server.serve_forever,daemon=True)
+        thread.start()
+        try:
+            # Reconnect delivers the full final state each time, without restarting anything.
+            for _ in range(2):
+                req=Request(f"http://127.0.0.1:{server.server_port}/api/runs/run1/stream",headers={"Authorization":"Bearer test-token"})
+                with urlopen(req,timeout=3) as response:
+                    event=json.loads(response.read().decode().removeprefix('data: ').strip())
+                self.assertEqual((event['status'],event['step'],event['camera']['frame']),('stopped',9,4))
+        finally:
+            server.shutdown();server.server_close();thread.join()
+
     def test_all_published_banks_expose_source_linked_experience(self):
         for task in self.studio.manifest:
             entries = self.studio.experience(task)

@@ -10,19 +10,17 @@ LinkMind studies this question in robotics through **Embodied Infrastructure Hal
 
 [Studio preview](docs/studio.md) · [Method](docs/method.md) · [Installation and running](docs/reproduction.md) · [Paper main table](docs/main-table.md) · [Native evidence](docs/local-results.md) · [Release provenance](docs/release.md)
 
-## Try the local Studio
+## Try the desktop Studio
 
-**LinkMind adds an embodied mode to DeepSeek Harness**, alongside its standard and creator modes. It keeps your goals and explicitly saved requirements across robot runs. Describe the task in a native dsh conversation, watch its tool calls, guide the agent during execution, and inspect the scene beside the chat. Historical demonstrations are browsable references that both you and the agent can inspect; the default model adapter reuses your local Codex login.
+**LinkMind is an embodied mode inside DeepSeek Harness.** Use DSH's normal conversation to describe a task, see streamed responses and tool calls, and send guidance during execution. Open **摄像头** beside the conversation for live simulation images. The existing model selector and message controls remain DSH's own.
 
-After installing the [Studio dependencies](docs/studio.md#start-the-workspace):
+Install [DSH Linux Desktop](https://github.com/zhanxch/dsh-linux), prepare the [simulation dependencies](docs/studio.md#installation), then fully quit DSH and run from this repository:
 
 ```bash
-cd studio
-npm ci
-npm start
+node studio/install-desktop.mjs
 ```
 
-This is a local simulator preview. It includes persistent tasks, current camera observations, source-linked demonstration references, streamed native conversation, process-level stop and native result records. Support selection is fixed per run; automatic gating, RSI and hardware control remain future work. Published benchmark results below belong to their original frozen implementations, not to the new Studio backend.
+Reopen DeepSeek Harness and select **具身模式 · LinkMind**. The first version focuses on native conversation, embodied tools, live cameras and explicit simulation stop. Experience panels, long-term memory, RSI and automatic support gating are outside this version. Published benchmark scores retain their original frozen implementation/protocol provenance.
 
 ## Key ideas
 

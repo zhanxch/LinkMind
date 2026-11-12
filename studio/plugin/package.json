@@ -1,14 +1,14 @@
 {
   "name": "@linkmind/dsh-studio",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "type": "module",
   "license": "MIT",
   "engines": {
-    "dsh": "0.2.2-rc.1"
+    "dsh": "0.2.2-rc.2"
   },
-  "main": "./index.mjs",
+  "main": "./desktop-host.mjs",
   "exports": {
-    ".": "./index.mjs",
+    ".": "./desktop-host.mjs",
     "./client": "./client.js",
     "./package.json": "./package.json"
   },
@@ -18,8 +18,27 @@
       "inject": [
         "@deepseek-ai/dsh-client-ui-conversation",
         "@deepseek-ai/dsh-client-ui-sidebar",
-        "@deepseek-ai/dsh-client-ui-sidebar-right"
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ]
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml",
+      "platforms": [
+        "linux"
       ]
     }
+  },
+  "description": "LinkMind：DSH 原生会话中的具身工具与实时摄像头",
+  "files": [
+    "*.mjs",
+    "client.js",
+    "cordis.patch.yml",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "3.19.0",
+    "@deepseek-ai/dsh-mcp-client": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.2"
   }
 }
