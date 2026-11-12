@@ -1,3 +1,11 @@
+# Studio development preview — 2026-11-12
+
+[LinkMind Studio](studio.md) adds a native embodied preset to DeepSeek Harness 0.2.2-rc.1. It uses dsh conversations, streamed tool calls, next-step guidance and a scene side panel. Historical TRAIN demonstrations remain source-linked references, not registered skills. Goals and explicitly saved requirements persist separately from episode outcomes.
+
+The optional dsh runner backend and Codex model adapter are new development configurations. No original published benchmark is attributed to them. Local no-motion smoke episodes verify observation, measurement and finalization only; they do not establish task success, adaptive gating, RSI or hardware readiness. Frozen experimental worktrees and the published main table remain unchanged.
+
+---
+
 # Public release status — 2026-11-11
 
 Unified LinkMind snapshot: completed-task integration `7d6294c` plus optional Push-T simplification `cd86be4`. All 12 registered task banks are packaged with checksums and a common launcher. Default evaluated task contracts remain intact; the unified release has not undergone a new complete native evaluation.

@@ -1,0 +1,17 @@
+{
+  "name": "linkmind-studio-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24.9"
+  },
+  "scripts": {
+    "start": "node launch.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-mcp-client": "0.2.2-rc.1"
+  }
+}
