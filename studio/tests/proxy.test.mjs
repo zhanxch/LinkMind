@@ -6,6 +6,7 @@ import {apply} from '../plugin/index.mjs';
 test('Studio proxy requires dsh authentication and same-origin writes', async () => {
   const backend=http.createServer((req,res)=>{
     assert.equal(req.headers.authorization,'Bearer local-test-token');
+    if(req.method==='POST')assert.equal(req.headers['content-length'],'2');
     res.writeHead(200,{'content-type':'application/json'}).end(JSON.stringify({path:req.url}));
   });
   await new Promise(resolve=>backend.listen(0,'127.0.0.1',resolve));
@@ -28,6 +29,9 @@ test('Studio proxy requires dsh authentication and same-origin writes', async ()
     // Desktop's authenticated protocol strips Origin but preserves this header.
     const native={method:'POST',headers:{cookie:'dsh=test','X-LinkMind-Request':'1'},body:'{}'};
     assert.equal((await fetch(origin+'/linkmind/api/tasks',native)).status,200);
+    const chunked=new ReadableStream({start(controller){controller.enqueue(new TextEncoder().encode('{'));controller.enqueue(new TextEncoder().encode('}'));controller.close();}});
+    assert.equal((await fetch(origin+'/linkmind/api/tasks',{...native,body:chunked,duplex:'half'})).status,200);
+    assert.equal((await fetch(origin+'/linkmind/api/tasks',{...native,body:'x'.repeat(1024*1024+1)})).status,413);
     assert.equal((await fetch(origin+'/linkmind/api/tasks',{...native,headers:{'X-LinkMind-Request':'1'}})).status,401);
     assert.equal((await fetch(origin+'/linkmind/api/tasks',{...native,headers:{...native.headers,origin:'https://other.example'}})).status,403);
   } finally {

@@ -257,6 +257,8 @@ class Studio:
     def require_active(self, run_id):
         self.refresh()
         run = self.run(run_id)
+        if run_id == self.active and run["status"] == "starting":
+            raise ValueError("Simulation is still starting. Poll task_context with wait_seconds=5 until ready before requesting tools or actions.")
         if run_id != self.active or run["status"] != "ready":
             raise ValueError("This run is not ready/active. Never redirect an old session to a different run.")
         return run
@@ -348,9 +350,14 @@ class Studio:
         run = self.run(run_id)
         task = self.task(run["task_id"])
         agent = read(self.output(run_id) / "studio-agent.json", {})
+        if run["status"] == "starting":
+            guidance = "Simulation is still starting. Poll task_context with wait_seconds=5 until run.status is ready. Do not request episode_tools or robot actions yet."
+        elif run["status"] == "ready":
+            guidance = "Call episode_tools for this exact run_id. Follow native tool schemas and instructions. Native score judges the benchmark goal only."
+        else:
+            guidance = "This run is ending or has ended. Inspect its status/result; do not send more actions or redirect calls to another run."
         return dict(run=run, task=task, episode_instructions=agent.get("prompt"),
-                    guidance="Call episode_tools for this exact run_id. Follow native tool schemas and instructions. "
-                    "Corrections are user input, not verified successful experience. Native score judges the benchmark goal only.")
+                    guidance=guidance)
 
     def experience(self, task, experience_id=None):
         entry = self.manifest[task]

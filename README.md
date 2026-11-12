@@ -8,7 +8,7 @@ LinkMind studies this question in robotics through **Embodied Infrastructure Hal
 
 > **What support should an embodied agent retain, revise or remove as models and task requirements evolve?**
 
-[Studio preview](docs/studio.md) · [Method](docs/method.md) · [Installation and running](docs/reproduction.md) · [Paper main table](docs/main-table.md) · [Native evidence](docs/local-results.md) · [Release provenance](docs/release.md)
+[Desktop Studio](docs/studio.md) · [Method](docs/method.md) · [Installation and running](docs/reproduction.md) · [Paper main table](docs/main-table.md) · [Native evidence](docs/local-results.md) · [Release provenance](docs/release.md)
 
 ## Try the desktop Studio
 

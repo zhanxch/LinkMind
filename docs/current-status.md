@@ -1,9 +1,10 @@
-# Studio development preview — 2026-11-12
+# Studio desktop development — 2026-11-12
 
-[LinkMind Studio](studio.md) adds a native embodied preset to DeepSeek Harness 0.2.2-rc.1. It uses dsh conversations, streamed tool calls, next-step guidance and a scene side panel. Historical TRAIN demonstrations remain source-linked references, not registered skills. Goals and explicitly saved requirements persist separately from episode outcomes.
+[LinkMind Studio](studio.md) installs as an embodied mode in DSH Linux Desktop, based on official DSH `0.2.2-rc.2`. Bundle `0.2.3` reuses the native conversation, streaming and **插话发送**, with a right-sidebar camera tab. The basic mode exposes eight episode tools. Experience panels, saved-correction UI, RSI and automatic support gating are outside this version.
 
-The optional dsh runner backend and Codex model adapter are new development configurations. No original published benchmark is attributed to them. Local no-motion smoke episodes verify observation, measurement and finalization only; they do not establish task success, adaptive gating, RSI or hardware readiness. Frozen experimental worktrees and the published main table remain unchanged.
+The final pass ran 31 targeted Node/Python checks. A real conversation in the authenticated development preview accepted a mid-turn change to observation only and finished at control step 0. Three camera views, stop, light/dark themes and wide/narrow layouts were inspected. The installed desktop protocol separately passed real simulation startup, streamed states, all three PNG views and stop; the Electron window itself was not UI-automated. The application starts its service and preserves account bytes.
 
+Earlier native action compatibility checks and a real 24-step Push-T hold verified camera updates during execution. A malformed hold was rejected before motion. All attempts are retained as development evidence, not benchmark scores. Frozen experimental worktrees, source reports and the published paper main table remain unchanged.
 ---
 
 # Public release status — 2026-11-11

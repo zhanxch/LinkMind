@@ -91,7 +91,7 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
         run.error&&h('p',{role:'alert',style:muted},run.error),
         run.camera_error&&h('p',{role:'status',style:muted},'摄像头暂时未能更新，当前保留最近画面'),
         disconnected&&h('p',{role:'status',style:muted},'连接中断，正在重连；当前显示的是最后收到的画面')),
-      h('p',{style:{...muted,margin:0}},'直接在会话中继续交流。新的引导会在下一动作段前处理；“停止仿真”会结束当前执行。'));
+      h('p',{style:{...muted,margin:0}},'运行中用“插话发送”引导下一动作段；排队消息按 DSH 的发送设置处理。“停止仿真”结束当前执行。'));
   }
   function CameraButton({open,sessionId,useSessions}) {
     const preset=useSessions(s=>s.byId[sessionId]?.projectionValues?.agentPreset);

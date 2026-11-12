@@ -76,6 +76,17 @@ class StudioTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "not ready"):
             self.studio.call("run1", dict(call_id="a", tool="execute_chunk", arguments={}))
 
+    def test_context_waits_for_startup_and_does_not_offer_tools_after_stop(self):
+        self.seed_run(status="starting")
+        context = self.studio.context("run1")
+        self.assertIsNone(context["episode_instructions"])
+        self.assertIn("Poll task_context", context["guidance"])
+        self.assertIn("Do not request episode_tools", context["guidance"])
+        self.studio.update("run1", status="ready")
+        self.assertIn("Call episode_tools", self.studio.context("run1")["guidance"])
+        self.studio.update("run1", status="stopped")
+        self.assertIn("do not send more actions", self.studio.context("run1")["guidance"])
+
     def test_identical_call_returns_receipt_once_including_image(self):
         self.seed_run()
         result = {"content": [{"type":"image", "mimeType":"image/png", "data":"original-image-bytes"}]}

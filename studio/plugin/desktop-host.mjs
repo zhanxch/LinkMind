@@ -30,6 +30,8 @@ export async function apply(ctx, config) {
   await ctx.effect(() => ctx.agentPresets.register(preset.config), 'LinkMind embodied mode');
   if (config.codex) {
     const agent = await import('./agent.mjs');
-    ctx.inject(['llm', 'attachments'], child => child.plugin(agent));
+    // A Cordis plugin fiber is not an effect disposer; returning it unloads
+    // the nested adapter after registration. Its parent already owns it.
+    ctx.inject(['llm', 'attachments'], child => { child.plugin(agent); });
   }
 }

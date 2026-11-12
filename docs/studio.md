@@ -23,7 +23,7 @@ Reopen **DeepSeek Harness** from the application menu. Select **具身模式 · 
 1. Select a model using DSH’s usual model menu. The desktop plugin uses the existing provider and login. Describe a task and request execution, for example: “启动一个 Push-T 仿真，使用最简配置。先观察场景，告诉我准备怎么做。”
 2. Read streamed responses and native tool calls in the conversation. LinkMind exposes task creation, episode startup, context, available robot tools, robot calls, finish and stop through MCP. Task-specific observation, measurement and bounded action tools retain their native schemas and image results.
 3. Click **摄像头** in the conversation header. Switch between head, left wrist and right wrist images. The panel follows this conversation’s latest attempt, shows the control step and frame age, and keeps the last frame when a connection drops.
-4. During execution, type in the same composer. Use DSH’s normal immediate-send/steer control for guidance at the next agent step, or its queue control for a later turn. LinkMind does not replace these controls. An already dispatched action segment finishes before new guidance can affect subsequent actions.
+4. During execution, type in the same composer. Use DSH’s **插话发送** control for guidance at the next agent step. With the default **排队发送** setting, Enter queues a later message and Ctrl/Cmd+Enter uses the alternate sending behavior; queued messages also offer **插话发送**. These behaviors follow DSH’s own busy-send setting. LinkMind does not replace these controls. An already dispatched action segment finishes before new guidance can affect subsequent actions.
 5. Click **停止仿真** to end the simulation. Cancelling model generation alone does not terminate a simulator. The camera stop control is an explicit process stop, not physical pause/resume or a hardware emergency stop.
 
 The first environment is RoboDojo simulation, with one active simulation at a time. A host tool hook binds tasks to the native conversation identity and checks it before robot execution. Completed or interrupted runs retain their own IDs; they cannot silently redirect commands to a new episode.
@@ -64,7 +64,11 @@ npm test
 
 Development verification includes service lifecycle, conversation ownership, non-replayed motion, basic MCP tools, desktop request authentication, camera throttling/failure recovery, and native action/score compatibility checks. A real Push-T smoke test verified that frames updated during a 24-step hold, two original tool images were returned, and stop released the simulator. The first malformed hold request was rejected before motion and retained; neither attempt is a benchmark.
 
-The installed bundle was checked in a separate DSH profile and all modes loaded without diagnostics. Automated visual inspection of the assembled desktop UI remains incomplete because the available browser tool rejected the local test address. This includes light/dark appearance, narrow sidebar layout and interactive steering in the rendered UI; source checks and backend tests do not establish those visual results.
+The installed `0.2.3` bundle was checked with the desktop host, and the account file remained byte-identical. A native `dsh-app` transport smoke test started a real Push-T simulation, received startup/ready/stopping/stopped events over the streaming response, loaded all three camera images, and stopped with no active simulation left. This also covers the desktop forwarding of streamed POST bodies.
+
+In an isolated DSH profile, a real conversation streamed assistant progress and native tool calls. While it was running, **插话发送** changed the request from preparing a hold to observation only; the same turn acknowledged the change and reported control step 0 without executing actions. Camera selection and stop were exercised in the rendered UI, with light/dark themes and wide/narrow layouts inspected. The optional Codex adapter stays registered for the lifetime of its host.
+
+The rendered interaction checks used the same client in the authenticated local Web preview. The installed Electron window itself was not driven by UI automation; its actual host/protocol and simulation lifecycle were verified separately. These are development checks, not new benchmark results.
 
 ## Source
 
