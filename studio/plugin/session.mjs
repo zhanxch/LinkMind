@@ -35,7 +35,7 @@ export async function apply(ctx, config = {}) {
     if (['start_episode','remember_requirement','robot_call','finish_episode','stop_episode'].includes(operation)) {
       await post('/api/session/check', {session_id:sessionId, task_id:args.task_id, run_id:args.run_id});
     }
-    if (['inspect_project','run_project','follow_project_run','stop_project_run'].includes(operation)) {
+    if (['inspect_project','run_project','follow_project_run','stop_project_run','project_context','update_project'].includes(operation)) {
       await post('/api/projects/check', {session_id:sessionId, project_id:args.project_id, run_id:args.run_id});
     }
     if (operation === 'compare_project_runs') {

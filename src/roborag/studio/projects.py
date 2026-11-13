@@ -165,7 +165,9 @@ class Projects:
 
     def check(self, session, project_id=None, run_id=None):
         project = self.project(self.run(run_id)['project_id'] if run_id else project_id)
-        if project['session_id'] != key(session):
+        joined = run_id and any((p := read(file))['path'] == project['path'] and p['session_id'] == session
+                                for file in self.directory.glob('*.json'))
+        if project['session_id'] != key(session) and not joined:
             raise ValueError('This conversation does not own that project registration')
         return {'allowed': True}
 
@@ -313,7 +315,7 @@ class Projects:
                 return self.live(r['id'])
         return None
 
-    def start(self, project_id, recipe_id, request_id):
+    def start(self, project_id, recipe_id, request_id, context=None):
         previous = self.receipt(project_id, recipe_id, request_id)
         if previous:
             return previous
@@ -336,6 +338,7 @@ class Projects:
         value = {'id':run_id, 'kind':'project', 'project_id':project_id, 'project_name':project['name'],
                  'project_path':str(root), 'session_id':project['session_id'], 'recipe_id':recipe_id, 'request_id':request_id,
                  'recipe':recipe, 'created_at':stamp(), 'status':'starting', 'output':str(output),
+                 'project_context':context or {},
                  'source':source(root,directory), 'argv':[expand(x,root,output) for x in recipe['argv']],
                  'cwd':str(beneath(root,recipe.get('cwd','.'))),
                  'env':{k:expand(v,root,output) for k,v in recipe.get('env',{}).items()},

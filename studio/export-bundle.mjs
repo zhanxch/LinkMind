@@ -20,7 +20,7 @@ async function copy(from,to=from) {
 for(const file of await readdir(path.join(here,'plugin'))){
   if(/\.(mjs|js)$/.test(file)||['package.json','cordis.patch.yml','LICENSE'].includes(file))await copy('studio/plugin/'+file,file);
 }
-const modules=['__init__.py','service.py','projects.py','project_worker.py','external_agent.py','codex_agent.py','mcp.py'];
+const modules=['__init__.py','service.py','project_book.py','projects.py','project_worker.py','external_agent.py','codex_agent.py','mcp.py'];
 for(const name of modules)await copy('src/roborag/studio/'+name,'backend/src/roborag/studio/'+name);
 await copy('src/roborag/episode_files.py','backend/src/roborag/episode_files.py');
 await writeFile(path.join(target,'backend/src/roborag/__init__.py'),'"""Standalone Studio runtime; simulator integrations are supplied separately."""\n');
@@ -28,7 +28,7 @@ await mkdir(path.join(target,'backend/resources'),{recursive:true});
 await writeFile(path.join(target,'backend/resources/task-bundles.json'),'{"tasks":{}}\n');
 for(const file of await readdir(path.join(root,'examples/studio-project')))await copy('examples/studio-project/'+file,'examples/studio-project/'+file);
 await copy('docs/studio-projects.md','docs/projects.md');
-for(const name of ['test_studio_projects.py','test_studio_workspace.py']){
+for(const name of ['test_studio_projects.py','test_studio_workspace.py','test_project_book.py']){
   await copy('tests/'+name,'tests/'+name);
   const file=path.join(target,'tests',name);
   await writeFile(file,(await readFile(file,'utf8')).replace("PYTHONPATH=str(ROOT/'src')","PYTHONPATH=str(ROOT/'backend/src')"));

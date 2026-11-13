@@ -55,3 +55,21 @@ test('project dispatch binds registration and checks both comparison runs agains
     assert.deepEqual(calls.map(x=>[x.session_id,x.run_id]),[['native-chat','mine'],['native-chat','other-chat']]);
   }finally{globalThis.fetch=original;}
 });
+
+
+test('project context and progress writes cannot bypass the conversation grant',async()=>{
+  const original=globalThis.fetch;let handler;
+  globalThis.fetch=async(url,options)=>{
+    assert.equal(url.pathname,'/api/projects/check');
+    assert.equal(JSON.parse(options.body).session_id,'native-chat');
+    return {ok:false,json:async()=>({error:'This conversation does not own that project'})};
+  };
+  try {
+    await apply({get:()=>({url:'http://127.0.0.1:9999',token:'test'}),on:(_,fn)=>handler=fn});
+    for(const operation of ['project_context','update_project']) {
+      let dispatched=false;
+      await assert.rejects(handler({name:'mcp__linkmind__'+operation,agent:{id:'native-chat'},arguments:{project_id:'other',session_id:'forged'}},async()=>{dispatched=true;}),/does not own/);
+      assert.equal(dispatched,false);
+    }
+  }finally{globalThis.fetch=original;}
+});

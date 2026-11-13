@@ -22,7 +22,8 @@ import uuid
 
 from roborag.episode_files import write_json
 from .external_agent import process_identity
-from .projects import Projects
+from .projects import Projects, beneath
+from .project_book import ProjectBook, TEMPLATES, find
 
 ROOT = Path(__file__).resolve().parents[3]
 ID = re.compile(r"^[a-zA-Z0-9_-]{1,80}$")
@@ -71,6 +72,7 @@ class Studio:
         self.lock = threading.RLock()
         self.call_lock = threading.Lock()
         self.projects = Projects(self.state, os.environ.get("PYTHONPATH", str(self.root / "src")))
+        self.book = ProjectBook(self.state)
         self.active = None
         self.process = None
         self.log = None
@@ -92,6 +94,65 @@ class Studio:
         if self.active:
             self.stop(self.active)
         self.lease.close()
+
+    def project_context(self, registration_id):
+        registration = self.projects.project(registration_id)
+        project = self.book.open(registration['path'])
+        runs = [{k: r.get(k) for k in ('id','recipe_id','status','created_at','project_context','returncode','output')}
+                for r in self.projects.list_runs() if r['project_path'] == project['path']]
+        return {'project': project, 'registration_id': registration_id, 'runs': runs,
+                'history': self.book.history(project['id']), 'templates': TEMPLATES,
+                'lifecycle': 'Project records persist across conversations and restarts. Execution still stops when DSH exits. No background agent or budget enforcement is enabled.'}
+
+    def project_change(self, registration_id, data, actor):
+        registration = self.projects.project(registration_id)
+        project = self.book.open(registration['path'])
+        if not isinstance(data.get('data'), dict):
+            raise ValueError('Project change data must be an object')
+        change = dict(data['data'])
+        change.pop('_source', None)
+        if data.get('operation') == 'save_record':
+            reference = change.get('reference', '')
+            if not isinstance(reference, str):
+                raise ValueError('Invalid evidence reference')
+            if reference.startswith('run:'):
+                run = self.projects.run(reference[4:])
+                if run['project_path'] != project['path']:
+                    raise ValueError('Evidence run belongs to another project')
+                change['_source'] = {'run_id': run['id'], 'source': run.get('source'), 'created_at': run['created_at']}
+            elif reference.startswith(('https://','http://')):
+                change['_source'] = {'url': reference, 'note': 'User/agent supplied URL; contents not verified or archived'}
+            elif reference:
+                file = beneath(Path(project['path']), reference)
+                if not file.is_file():
+                    raise ValueError('Evidence file does not exist inside the project')
+                size = file.stat().st_size
+                if size > 64*1024*1024:
+                    raise ValueError('Reference a report or manifest smaller than 64 MiB')
+                change['_source'] = {'path': str(file), 'sha256': hashlib.sha256(file.read_bytes()).hexdigest(), 'size': size}
+        self.book.change(project['id'], data.get('revision'), data.get('operation'), change, actor)
+        return self.project_context(registration_id)
+
+    def project_run_context(self, registration_id, data):
+        project = self.book.open(self.projects.project(registration_id)['path'])
+        context = {'project_id': project['id'], 'revision': project['revision']}
+        if data.get('objective_id'):
+            if data.get('project_revision') != project['revision']:
+                raise ValueError('Project changed; refresh the goal before starting')
+            goal = find(project['objectives'], data['objective_id'], 'Objective')
+            if goal['state'] in ('closed','paused'):
+                raise ValueError('This objective is paused or closed')
+            context.update(objective_id=goal['id'], objective_title=goal['title'], kind=goal['kind'])
+            if data.get('work_id'):
+                item = find(project['work'], data['work_id'], 'Work item')
+                if item['objective_id'] != goal['id'] or item['state'] in ('done','cancelled'):
+                    raise ValueError('Choose unfinished work in this objective')
+                if any(find(project['work'], dep, 'Dependency')['state'] != 'done' for dep in item['depends_on']):
+                    raise ValueError('Work dependencies are incomplete')
+                context['work_id'] = item['id']
+        elif data.get('work_id'):
+            raise ValueError('Work association requires an objective')
+        return context
 
     def tasks(self):
         return sorted((read(p) for p in (self.state / "tasks").glob("*.json")), key=lambda x:x["created_at"], reverse=True)
@@ -509,7 +570,9 @@ def serve(studio, port, token):
                     with studio.lock:
                         value = studio.projects.open_workspace(data['path'], data['session_id'])
                 elif self.command == "POST" and path == "/api/projects/open":
-                    value = studio.projects.register(data["path"])
+                    with studio.lock:
+                        value = studio.projects.register(data["path"])
+                        value['context'] = studio.project_context(value['id'])
                 elif self.command == "POST" and path == "/api/projects/check":
                     value = studio.projects.check(data["session_id"], data.get("project_id"), data.get("run_id"))
                 elif self.command == "POST" and path == "/api/projects/compare":
@@ -517,6 +580,15 @@ def serve(studio, port, token):
                 elif len(parts) == 4 and parts[:2] == ["api", "projects"]:
                     project_id, action = parts[2:]
                     if self.command == "GET" and action == "inspect": value = studio.projects.inspect(project_id)
+                    elif self.command == "GET" and action == "context": value = studio.project_context(project_id)
+                    elif self.command == "POST" and action == "revision":
+                        project = studio.book.open(studio.projects.project(project_id)['path'])
+                        value = studio.book.get(project['id'], data['revision'])
+                    elif self.command == "POST" and action == "change":
+                        with studio.lock:
+                            if self.headers.get('X-LinkMind-Controller') != 'dsh':
+                                studio.projects.check(data.get('session_id'), project_id=project_id)
+                            value = studio.project_change(project_id, data, 'agent' if self.headers.get('X-LinkMind-Controller') == 'dsh' else 'user')
                     elif self.command == "POST" and action == "bind-session": value = studio.projects.bind(project_id, data["session_id"])
                     elif self.command == "POST" and action == "configuration":
                         with studio.lock:
@@ -530,7 +602,13 @@ def serve(studio, port, token):
                                 raise ValueError("Another simulation/project is active; stop it before starting a new run")
                             if not previous and 'config_revision' in data and data['config_revision'] != studio.projects.configuration(project_id)['revision']:
                                 raise ValueError('Configuration changed on disk; refresh and review it before running')
-                            value = previous or studio.projects.start(project_id, data["recipe"], data['request_id'])
+                            if previous:
+                                if (previous.get('project_context', {}).get('objective_id') or '') != (data.get('objective_id') or '') or (previous.get('project_context', {}).get('work_id') or '') != (data.get('work_id') or ''):
+                                    raise ValueError('Request identity belongs to another goal/work item')
+                                value = previous
+                            else:
+                                context = studio.project_run_context(project_id, data)
+                                value = studio.projects.start(project_id, data["recipe"], data['request_id'], context=context)
                     else: raise ValueError("Unknown project operation")
                 elif self.command == "POST" and len(parts) == 4 and parts[:2] == ["api", "project-runs"] and parts[3] == "follow":
                     value = studio.projects.follow(parts[2], data.get("offset", 0), data.get("wait_seconds", 0))

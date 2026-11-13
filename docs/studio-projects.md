@@ -147,3 +147,11 @@ and comparison, ask the assistant to copy the example into a new Git repository,
 run the original, change `--steps` in a second recipe, and compare the two records.
 This is a Studio integration check, not an embodied benchmark or a reproduction
 of XPolicyLab, LinkMind or HexaShell results.
+
+## 项目连续性（Studio 0.5.0）
+
+原生项目侧栏新增持久目标、工作依赖、决定与证据、人工验收和修订历史。同一规范化工作区可跨会话接续；每次运行可关联目标/工作，并保存启动时的项目修订。复现、优化、开发具有不同的建议步骤，目标可派生。
+
+`project_context(project_id)` 读取当前项目，`update_project` 按修订保存进展。这里的 `project_id` 是本会话的登记 ID；返回的 `context.project.id` 才是跨会话稳定的项目身份，不能混用。旧会话登记保持隔离；新会话打开同一目录后可读取历史运行。
+
+项目数据位于插件 state 的 `project-book.sqlite3`，退出应用后仍保存；执行仍随宿主退出停止。没有预算强制执行、后台 agent、定时续作或跨设备导出。暂停目标只阻止新的关联运行；停止当前进程使用原有停止按钮。退出码 0 不触发验收；助手不能代替用户评审条件或关闭目标。
