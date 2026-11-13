@@ -54,8 +54,9 @@ def text_field(data, key, limit=4000, required=False):
 
 
 class Studio:
-    def __init__(self, root=ROOT, state=None):
+    def __init__(self, root=ROOT, state=None, workspace=None):
         self.root = Path(root)
+        self.workspace = Path(workspace or Path.home() / 'LinkMind Studio').expanduser().resolve()
         self.state = Path(state or self.root / "studio/.state")
         self.state.mkdir(parents=True, exist_ok=True)
         self.lease = (self.state / "service.lock").open("w")
@@ -493,6 +494,20 @@ def serve(studio, port, token):
                         raise ValueError("Expected a JSON object")
                 if self.command == "GET" and path == "/api/state":
                     value = studio.snapshot()
+                elif self.command == "POST" and path == "/api/workspace/default":
+                    with studio.lock:
+                        studio.workspace.mkdir(parents=True, exist_ok=True)
+                        starter = {'README.md': '# LinkMind Studio\n\nUse Project & configurations to create a run configuration, or open an existing repository as a DSH workspace. Files and launch configurations stay in that directory.\n',
+                                   'linkmind.studio.json': '{"version": 1, "recipes": {}}\n'}
+                        for name, content in starter.items():
+                            try:
+                                with (studio.workspace / name).open('x') as stream: stream.write(content)
+                            except FileExistsError:
+                                pass
+                        value = {'path': str(studio.workspace)}
+                elif self.command == "POST" and path == "/api/workspace/open":
+                    with studio.lock:
+                        value = studio.projects.open_workspace(data['path'], data['session_id'])
                 elif self.command == "POST" and path == "/api/projects/open":
                     value = studio.projects.register(data["path"])
                 elif self.command == "POST" and path == "/api/projects/check":
@@ -503,12 +518,18 @@ def serve(studio, port, token):
                     project_id, action = parts[2:]
                     if self.command == "GET" and action == "inspect": value = studio.projects.inspect(project_id)
                     elif self.command == "POST" and action == "bind-session": value = studio.projects.bind(project_id, data["session_id"])
+                    elif self.command == "POST" and action == "configuration":
+                        with studio.lock:
+                            studio.projects.check(data['session_id'], project_id=project_id)
+                            value = studio.projects.save_configuration(project_id, data['content'], data['revision'])
                     elif self.command == "POST" and action == "start":
                         with studio.lock:
                             studio.refresh()
                             previous = studio.projects.receipt(project_id, data['recipe'], data['request_id'])
                             if not previous and (studio.active or studio.projects.busy() or any(process_identity(r["pid"]) == r["pid_identity"] for r in studio.orphans)):
                                 raise ValueError("Another simulation/project is active; stop it before starting a new run")
+                            if not previous and 'config_revision' in data and data['config_revision'] != studio.projects.configuration(project_id)['revision']:
+                                raise ValueError('Configuration changed on disk; refresh and review it before running')
                             value = previous or studio.projects.start(project_id, data["recipe"], data['request_id'])
                     else: raise ValueError("Unknown project operation")
                 elif self.command == "POST" and len(parts) == 4 and parts[:2] == ["api", "project-runs"] and parts[3] == "follow":
@@ -559,11 +580,12 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--port", type=int, default=0)
     parser.add_argument("--state", type=Path)
+    parser.add_argument("--workspace", type=Path)
     parser.add_argument("--owner-pid", type=int)
     parser.add_argument("--owner-identity")
     args = parser.parse_args()
     token = os.environ["LINKMIND_STUDIO_TOKEN"]
-    studio = Studio(state=args.state)
+    studio = Studio(state=args.state, workspace=args.workspace)
     server = serve(studio, args.port, token)
     def shutdown(*_):
         threading.Thread(target=server.shutdown, daemon=True).start()

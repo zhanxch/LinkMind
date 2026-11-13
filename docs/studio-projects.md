@@ -8,6 +8,16 @@ replace an imported method with its own controller.
 
 ## Start from a repository
 
+You can discover and edit configurations without sending a message first:
+
+1. Select **具身模式 · LinkMind**, then **项目与配置** beside the workspace/mode picker.
+2. Expand **作为工作区打开**. Choose **默认 Studio 工作区** (normally `~/LinkMind Studio`), or browse/paste the local directory of an existing repository, such as HexaShell. It becomes a normal DSH workspace in the left sidebar; its files stay in place.
+3. The panel discovers `linkmind.studio.json` in that workspace and lists its named configurations. Select one to review its original command, model/task notes and path checks. **浏览文件** opens DSH's native file explorer for README and source inspection.
+4. Choose **新建配置**, **复制所选配置**, or **编辑配置文件** to edit the JSON in the sidebar. Save validates it; missing requirements block launch. Existing invalid JSON remains editable. An on-disk change by the assistant or another editor causes a conflict instead of overwriting it. Drafts survive switching sidebar tabs during the current app session.
+5. **运行所选配置** launches the reviewed configuration and opens **运行与摄像头**. Alternatively, **复制会话指令** prepares a message naming the current project and configuration; paste it into the normal conversation and send it yourself.
+
+The default workspace is created only when selected, with an empty configuration file. It does not install a robot controller. Configurations remain ordinary project files you can version in Git or edit with another editor. Runtime edits are blocked while that project is active. This sidebar edits launch JSON; DSH's file viewer is not a replacement for a full source-code IDE.
+
 Select or add the local repository with DSH's normal **工作区** picker. For a GitHub
 URL, ask the assistant to clone it into a new working directory first. Keep the
 project in the selected DSH workspace. On Linux, the shell's isolated `/tmp` may

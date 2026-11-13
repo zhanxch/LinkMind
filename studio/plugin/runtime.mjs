@@ -4,14 +4,17 @@ import {mkdir, readFile, writeFile, unlink, open} from 'node:fs/promises';
 import {homedir} from 'node:os';
 import path from 'node:path';
 import readline from 'node:readline';
+import {fileURLToPath} from 'node:url';
+import {existsSync} from 'node:fs';
 
 export async function startStudio(config) {
-  const root = path.resolve(config.root);
+  const root = config.root ? path.resolve(config.root) : fileURLToPath(new URL('./backend', import.meta.url));
   await readFile(path.join(root, 'resources/task-bundles.json'));
   let local = {};
   try {local = JSON.parse(await readFile(path.join(root, 'local.runtime.json'), 'utf8'));}
   catch (error) {if (error.code !== 'ENOENT') throw error;}
-  const python = config.python || local.policy_python || 'python3';
+  const standalonePython = path.join(homedir(), '.local/share/linkmind-studio/python/bin/python');
+  const python = config.python || local.policy_python || (existsSync(standalonePython) ? standalonePython : 'python3');
   const state = path.resolve(config.state || path.join(process.env.DSH_HOME || path.join(homedir(), '.dsh'), 'linkmind'));
   await mkdir(state, {recursive: true, mode: 0o700});
   const token = randomBytes(32).toString('hex');
@@ -21,6 +24,7 @@ export async function startStudio(config) {
   const identity = (await readFile(`/proc/${process.pid}/stat`, 'utf8')).split(') ').at(-1).split(' ')[19];
   const log = await open(path.join(state, 'service.log'), 'a', 0o600);
   const child = spawn(python, ['-m', 'roborag.studio.service', '--state', state,
+    '--workspace', path.resolve(config.workspace || path.join(homedir(), 'LinkMind Studio')),
     '--owner-pid', String(process.pid), '--owner-identity', identity],
   {cwd: root, env, stdio: ['ignore', 'pipe', log.fd]});
   let exited = false, spawnError;

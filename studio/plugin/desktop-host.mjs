@@ -5,17 +5,14 @@ import {embodiedPreset} from './preset.mjs';
 
 export const inject = ['webServer', 'connection', 'agentPresets'];
 export const Config = z.object({
-  root: z.string().default('').description('LinkMind 项目目录，包含任务资源和仿真配置'),
+  root: z.string().default('').description('可选的完整 LinkMind 目录；独立插件留空即可使用项目工作台'),
   python: z.string().default('').description('留空使用项目配置的 Python'),
   state: z.string().default('').description('留空将执行记录保存到 DSH 数据目录'),
+  workspace: z.string().default('').description('默认 Studio 工作区，留空使用主目录下的 LinkMind Studio'),
   codex: z.boolean().default(false).description('添加本机 Codex 模型，保留当前默认模型'),
 });
 
 export async function apply(ctx, config) {
-  if (!config.root) {
-    ctx.logger.info('LinkMind：请在插件设置中指定项目目录，重新加载后即可选择具身模式。');
-    return;
-  }
   let backend;
   await ctx.effect(async () => {
     backend = await startStudio(config);

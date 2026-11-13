@@ -18,6 +18,7 @@ const overlay=path.join(state,'development.patch.json');
 await writeFile(overlay,JSON.stringify([
   {id:'agent-default-model',config:{provider:'linkmind-codex',model:process.env.LINKMIND_MODEL||'codex-default'}},
   {insert:[{id:'linkmind-studio',name:path.join(here,'plugin/desktop-host.mjs'),config:{root,state,
+    workspace:process.env.LINKMIND_WORKSPACE||'',
     python:process.env.LINKMIND_PYTHON?path.resolve(process.env.LINKMIND_PYTHON):'',codex:true}}]},
 ]),{mode:0o600});
 const child=spawn(process.execPath,[path.join(here,'node_modules/@deepseek-ai/dsh/lib/bin.js'),

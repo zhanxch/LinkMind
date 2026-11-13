@@ -122,4 +122,47 @@ class ProjectTests(unittest.TestCase):
         self.assertEqual(p.returncode,0,p.stderr)
         self.assertEqual(json.loads((directory/'exit.json').read_text())['status'],'interrupted')
 
+    def test_workspace_discovery_repairs_bad_config_without_losing_another_edit(self):
+        path=self.root/'linkmind.studio.json'
+        path.write_text('{broken')
+        opened=self.projects.open_workspace(self.root,'chat-a')
+        self.assertEqual(opened['id'],self.project)
+        self.assertTrue(opened['configuration']['error'])
+        self.assertEqual(opened['configuration']['content'],'{broken')
+        revision=opened['configuration']['revision']
+        repaired=json.dumps({'version':1,'recipes':{'baseline':self.recipe}})
+        self.projects.save_configuration(self.project,repaired,revision)
+        self.assertTrue(self.projects.open_workspace(self.root,'chat-a')['checks']['baseline']['ready'])
+        with self.assertRaisesRegex(ValueError,'changed on disk'):
+            self.projects.save_configuration(self.project,repaired,revision)
+        self.assertEqual(path.read_text(),repaired)
+        current=self.projects.configuration(self.project)
+        with self.assertRaises(ValueError):
+            self.projects.save_configuration(self.project,'{}',current['revision'])
+        self.assertEqual(path.read_text(),repaired)
+        other=self.projects.open_workspace(self.root,'chat-b')
+        self.assertNotEqual(other['id'],self.project)
+        with self.assertRaisesRegex(ValueError,'does not own'):
+            self.projects.check('chat-b',project_id=self.project)
+
+    def test_missing_configuration_creation_and_external_symlink_protection(self):
+        path=self.root/'linkmind.studio.json';path.unlink()
+        config=self.projects.open_workspace(self.root,'chat-a')['configuration']
+        self.assertFalse(config['exists'])
+        self.projects.save_configuration(self.project,config['content'],config['revision'])
+        path.unlink();outside=self.base/'outside.json';outside.write_text('{}');path.symlink_to(outside)
+        with self.assertRaisesRegex(ValueError,'escapes'):
+            self.projects.save_configuration(self.project,config['content'],'missing')
+        self.assertEqual(outside.read_text(),'{}')
+
+    def test_running_project_locks_config_across_conversation_registrations(self):
+        self.script.write_text('import time\ntime.sleep(30)\n')
+        other=self.projects.open_workspace(self.root,'chat-b')
+        config=other['configuration'];run=self.start()
+        with self.assertRaisesRegex(ValueError,'Stop this project'):
+            self.projects.save_configuration(other['id'],config['content'],config['revision'])
+        self.assertEqual(self.projects.open_workspace(self.root,'chat-b')['active_runs'],[run])
+        self.projects.stop(run)
+        self.projects.save_configuration(other['id'],config['content'],config['revision'])
+
 if __name__=='__main__':unittest.main()

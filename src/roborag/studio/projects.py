@@ -83,7 +83,10 @@ def recipes(root):
         return {}
     if p.stat().st_size > 256*1024:
         raise ValueError('Project configuration is too large')
-    data = read(p)
+    return validate_recipes(root, read(p))
+
+
+def validate_recipes(root, data):
     if not isinstance(data, dict) or data.get('version') != 1 or not isinstance(data.get('recipes'), dict):
         raise ValueError('Expected linkmind.studio.json with version 1 and a recipes object')
     for name, recipe in data['recipes'].items():
@@ -165,6 +168,61 @@ class Projects:
         if project['session_id'] != key(session):
             raise ValueError('This conversation does not own that project registration')
         return {'allowed': True}
+
+    def open_workspace(self, path, session):
+        """Discover a selected DSH directory, including a broken/absent config."""
+        root = Path(path).expanduser().resolve()
+        key(session)
+        if not root.is_dir():
+            raise ValueError('Workspace directory does not exist')
+        project = next((p for file in self.directory.glob('*.json')
+                        if (p := read(file))['path'] == str(root) and p['session_id'] == session), None)
+        if project is None:
+            project = {'id': uuid.uuid4().hex[:16], 'path': str(root), 'name': root.name,
+                       'created_at': stamp(), 'session_id': session}
+            write_json(self.directory / (project['id']+'.json'), project)
+        configuration = self.configuration(project['id'])
+        inspection = {}
+        try:
+            inspection = self.inspect(project['id'])
+        except (ValueError, OSError) as exc:
+            configuration['error'] = str(exc)
+        return {**project, **inspection, 'configuration': configuration,
+                'active_runs': [r['id'] for r in self.list_runs()
+                                if r['project_path'] == str(root) and r['status'] in ('starting','running','stopping')]}
+
+    def configuration(self, project_id):
+        root = Path(self.project(project_id)['path'])
+        path = beneath(root, RECIPE_FILE)
+        if not path.exists():
+            return {'exists': False, 'content': '{"version": 1, "recipes": {}}\n',
+                    'revision': 'missing', 'error': None}
+        if path.stat().st_size > 256*1024:
+            raise ValueError('Project configuration is too large')
+        raw = path.read_bytes()
+        return {'exists': True, 'content': raw.decode('utf-8'),
+                'revision': hashlib.sha256(raw).hexdigest(), 'error': None}
+
+    def save_configuration(self, project_id, content, revision):
+        root = Path(self.project(project_id)['path'])
+        if any(r['project_path'] == str(root) and r['status'] in ('starting','running','stopping')
+               for r in self.list_runs()):
+            raise ValueError('Stop this project before editing its run configurations')
+        if not isinstance(content, str) or len(content.encode()) > 256*1024:
+            raise ValueError('Configuration must be UTF-8 JSON up to 256 KiB')
+        validate_recipes(root, json.loads(content))
+        current = self.configuration(project_id)
+        if revision != current['revision']:
+            raise ValueError('Configuration changed on disk; reload it before saving. Your draft has not been saved.')
+        path = root / RECIPE_FILE
+        temporary = root / ('.linkmind-config-'+uuid.uuid4().hex+'.tmp')
+        try:
+            with temporary.open('x', encoding='utf-8') as stream:
+                stream.write(content)
+            temporary.replace(path)
+        finally:
+            temporary.unlink(missing_ok=True)
+        return self.configuration(project_id)
 
     def inspect(self, project_id):
         project = self.project(project_id)
