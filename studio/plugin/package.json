@@ -1,6 +1,6 @@
 {
   "name": "@linkmind/dsh-studio",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "type": "module",
   "license": "MIT",
   "engines": {
@@ -43,6 +43,7 @@
   "peerDependencies": {
     "@deepseek-ai/schemastery": "3.19.0",
     "@deepseek-ai/dsh-mcp-client": "0.2.2-rc.2",
-    "@deepseek-ai/dsh-llm": "0.2.2-rc.2"
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-command-goal": "0.2.2-rc.2"
   }
 }

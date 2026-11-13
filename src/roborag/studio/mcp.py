@@ -89,13 +89,14 @@ def create_server(*, basic=False):
     def update_project(project_id: str, revision: int, operation: str, data: dict) -> dict:
         """Save project progress with optimistic concurrency; read project_context first.
         Supported operations and data:
+        refine_task: {id, changes:{title?,intent?,constraints?,criteria?:[text],next_action?,conclusion?}} for a native Goal task. Preserve its original request; derive a concise task brief and useful steps, without inventing user requirements.
         create_objective: {kind: reproduce|optimize|develop, title, intent, criteria:[text], constraints?, parent_id?}.
         update_objective: {id, changes:{title?, intent?, constraints?, next_action?, state?:ready|active|blocked|paused|review}}.
         save_work: {id? (omit to create), objective_id? (required on create), changes:{title?,state?:planned|active|blocked|done|cancelled,depends_on?:[work_id],verification?:text,evidence_ids?:[record_id]}}.
         save_record: {id? (omit to create),kind:decision|finding|hypothesis|blocker|evidence,text,objective_id?,reference?,status?:valid|obsolete}.
         Evidence reference is a project-relative file, a public URL (not auto-verified), or run:<id> from this project.
         Work done/cancelled requires a verification/reason. Dependencies must be completed before advancing work.
-        Preserve failed attempts. Request review by setting state=review; only the user can review criteria and close goals.
+        Preserve failed attempts. For mode=goal tasks, DSH native Goal owns lifecycle; refine_task and save_work/save_record maintain the shared task panel. Do not create a duplicate objective. For legacy objectives only, request review with state=review; only the user can close them.
         A revision conflict requires rereading, reconciling and retaining intent, not blindly overwriting.
         Use original method/protocol for reproduction, a fixed baseline and validation for optimization,
         and integrated user scenarios and deliverables for development. Never silently relax acceptance.

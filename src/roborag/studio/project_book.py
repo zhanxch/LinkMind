@@ -121,6 +121,67 @@ class ProjectBook:
 
     def apply(self, project, operation, data, actor):
         goals, work, records = (project[k] for k in ('objectives', 'work', 'records'))
+        if operation in ('create_goal_task', 'attach_goal_task', 'sync_goal_task'):
+            if actor != 'controller':
+                raise ValueError('Native Goal bindings are maintained by the DSH controller')
+            if operation == 'create_goal_task':
+                if data.get('kind') not in TEMPLATES or len(goals) >= 100:
+                    raise ValueError('Choose reproduce, optimize or develop (maximum 100 tasks)')
+                request = text(data.get('request'), 'task instruction', 8000, True)
+                goals.append({'id': uid(), 'mode': 'goal', 'kind': data['kind'], 'title': request[:80],
+                    'request': request, 'original_request': request, 'intent': '', 'constraints': '',
+                    'criteria': [], 'state': 'ready', 'outcome': None, 'conclusion': '',
+                    'created_at': now(), 'next_action': '根据指令和仓库内容完善任务说明',
+                    'sessions': [], 'bindings': {}, 'owner_session_id': '', 'native_goal_id': '', 'native_revision': 0})
+                return
+            goal = find(goals, data.get('id'), 'Task')
+            if goal.get('mode') != 'goal':
+                raise ValueError('This record is not a native Goal task')
+            session = text(data.get('session_id'), 'session', 200, True)
+            native_id = text(data.get('native_goal_id'), 'native goal', 200, True)
+            if operation == 'attach_goal_task':
+                if 'expected_owner' in data and data['expected_owner'] != [goal['owner_session_id'], goal['native_goal_id']]:
+                    raise ValueError('Task ownership changed; refresh before continuing')
+                if goal['state'] == 'closed':
+                    raise ValueError('This task is complete; start a new task for further work')
+                if session not in goal['sessions']:
+                    goal['sessions'].append(session)
+                goal.setdefault('bindings', {})[session] = native_id
+                goal.update(owner_session_id=session, native_goal_id=native_id, native_revision=0)
+            else:
+                if goal['owner_session_id'] != session or goal['native_goal_id'] != native_id:
+                    raise ValueError('Task has moved to another conversation')
+                revision = data.get('native_revision')
+                observation = (revision == goal['native_revision'] and data.get('phase') == goal.get('native_phase')
+                               and data.get('activation') in ('armed','disarmed') and data.get('activation') != goal.get('native_activation'))
+                if type(revision) is not int or revision < goal['native_revision'] or (revision == goal['native_revision'] and not observation):
+                    raise ValueError('Stale native goal revision')
+                phase = data.get('phase')
+                if phase not in ('active', 'paused', 'blocked', 'complete', 'cleared'):
+                    raise ValueError('Invalid native goal phase')
+                goal.update(native_revision=revision, native_phase=phase, native_activation=data.get('activation', 'disarmed'),
+                    state={'complete': 'closed', 'cleared': 'paused'}.get(phase, phase))
+                if phase == 'complete':
+                    goal.update(outcome='agent_completed', completed_at=now(), next_action='任务已完成，查看结论和证据')
+                if phase == 'cleared':
+                    goal.update(owner_session_id='', native_goal_id='')
+                if data.get('request'):
+                    goal['request'] = text(data['request'], 'task instruction', 8000, True)
+            return
+        if operation == 'refine_task':
+            goal = find(goals, data.get('id'), 'Task')
+            if goal.get('mode') != 'goal':
+                raise ValueError('Use update_objective for legacy objectives')
+            changes = data.get('changes', {})
+            if not isinstance(changes, dict) or not changes or set(changes) - {'title','intent','constraints','criteria','next_action','conclusion'}:
+                raise ValueError('Refine title, intent, constraints, criteria, next_action or conclusion')
+            for field, value in changes.items():
+                if field == 'criteria':
+                    goal[field] = [{'id': uid(), 'text': text(c, 'criterion', 2000, True), 'verdict': 'pending', 'evidence_ids': [], 'reviewed_at': None}
+                                   for c in strings(value, 'criteria')]
+                else:
+                    goal[field] = text(value, field, 200 if field == 'title' else 8000, field in ('title','intent'))
+            return
         if operation == 'create_objective':
             if len(goals) >= 100 or data.get('kind') not in TEMPLATES:
                 raise ValueError('Choose reproduce, optimize or develop (maximum 100 objectives)')

@@ -8,23 +8,19 @@ replace an imported method with its own controller.
 
 ## Start from a repository
 
-You can discover and edit configurations without sending a message first:
+Select the repository with DSH's normal **工作区** picker and choose **具身模式 · LinkMind**. Type `/` in the conversation and choose **goal**, then describe the outcome:
 
-1. Select **具身模式 · LinkMind**, then **项目与配置** beside the workspace/mode picker.
-2. Expand **作为工作区打开**. Choose **默认 Studio 工作区** (normally `~/LinkMind Studio`), or browse/paste the local directory of an existing repository, such as HexaShell. It becomes a normal DSH workspace in the left sidebar; its files stay in place.
-3. The panel discovers `linkmind.studio.json` in that workspace and lists its named configurations. Select one to review its original command, model/task notes and path checks. **浏览文件** opens DSH's native file explorer for README and source inspection.
-4. Choose **新建配置**, **复制所选配置**, or **编辑配置文件** to edit the JSON in the sidebar. Save validates it; missing requirements block launch. Existing invalid JSON remains editable. An on-disk change by the assistant or another editor causes a conflict instead of overwriting it. Drafts survive switching sidebar tabs during the current app session.
-5. **运行所选配置** launches the reviewed configuration and opens **运行与摄像头**. Alternatively, **复制会话指令** prepares a message naming the current project and configuration; paste it into the normal conversation and send it yourself.
+```text
+/goal 复现 当前仓库的 Push-T，保留原模型、场景和预算，运行并核对原始结果。
+```
 
-The default workspace is created only when selected, with an empty configuration file. It does not install a robot controller. Configurations remain ordinary project files you can version in Git or edit with another editor. Runtime edits are blocked while that project is active. This sidebar edits launch JSON; DSH's file viewer is not a replacement for a full source-code IDE.
+Use ordinary messages for guidance or a one-off run. Choose one of three native Goal extensions: `/goal reproduce <request>`, `/goal optimize <request>` or `/goal develop <request>` (Chinese 复现/优化/开发 also work). The assistant refines the supplied instruction into a task brief and useful steps; the user does not fill a work hierarchy or acceptance form. A launch recipe is needed only for managed execution; the assistant can prepare it from the original README and entry point.
 
-Select or add the local repository with DSH's normal **工作区** picker. For a GitHub
-URL, ask the assistant to clone it into a new working directory first. Keep the
-project in the selected DSH workspace. On Linux, the shell's isolated `/tmp` may
-not expose host temporary repositories; use a normal workspace directory. Then say:
+`/goal` shows the current native goal; `/goal edit <objective>` changes it; `/goal pause`, `/goal resume` and `/goal clear` control its lifecycle. Pausing continuation does **not** stop an external process; use **运行与摄像头 → 停止运行** for that. Goals are session-scoped and need rearming after a host restart or session fork. DSH's native round limits apply.
 
-> 打开这个具身项目。先读 README 和环境说明，确认原始版本、模型登录方式、
-> 权重和任务入口。准备一个最小运行的启动配置，说明还缺什么，再运行它。
+To inspect configurations manually, open the native file sidebar and click **运行配置**, or add that tab from the right sidebar. It lists `linkmind.studio.json` recipes, their command/model notes and path checks. New, copy and JSON editing remain optional; saving validates the file and concurrent edits cause a conflict. You can run a configuration directly or copy a launch instruction into the conversation. No project-goal association is required.
+
+For a GitHub URL, ask the assistant to clone into a working directory first. Environment setup still follows the repository instructions. On Linux use a normal workspace directory, since the shell's isolated `/tmp` may not expose host temporary repositories.
 
 The assistant uses native DSH file, search and shell tools. It registers the local
 path using `open_project`. That operation only inspects the project; it does not
@@ -148,10 +144,14 @@ run the original, change `--steps` in a second recipe, and compare the two recor
 This is a Studio integration check, not an embodied benchmark or a reproduction
 of XPolicyLab, LinkMind or HexaShell results.
 
-## 项目连续性（Studio 0.5.0）
+## Shared tasks and native Goal
 
-原生项目侧栏新增持久目标、工作依赖、决定与证据、人工验收和修订历史。同一规范化工作区可跨会话接续；每次运行可关联目标/工作，并保存启动时的项目修订。复现、优化、开发具有不同的建议步骤，目标可派生。
+The **任务** panel shows the original request, refined brief, constraints, verification criteria, work progress, decisions, evidence and linked runs. New tasks start without fabricated criteria or a fixed checklist. The assistant maintains them with `update_project` operations `refine_task`, `save_work` and `save_record`; optimistic revisions prevent overwriting another writer.
 
-`project_context(project_id)` 读取当前项目，`update_project` 按修订保存进展。这里的 `project_id` 是本会话的登记 ID；返回的 `context.project.id` 才是跨会话稳定的项目身份，不能混用。旧会话登记保持隔离；新会话打开同一目录后可读取历史运行。
+The shared task belongs to its canonical workspace. Native Goal owns continuation in the current conversation. In another conversation in the same workspace, choose the task and click **在此会话接续**, or use `/goal tasks` then `/goal continue <id>`. Original instructions, refinements and evidence stay with the same task, and the new conversation receives them as context. Task type remains reproduction, optimization or development.
 
-项目数据位于插件 state 的 `project-book.sqlite3`，退出应用后仍保存；执行仍随宿主退出停止。没有预算强制执行、后台 agent、定时续作或跨设备导出。暂停目标只阻止新的关联运行；停止当前进程使用原有停止按钮。退出码 0 不触发验收；助手不能代替用户评审条件或关闭目标。
+Only one conversation owns execution. Transfer refuses while the previous conversation is running; pause it and wait for the current turn to settle first. An idle previous Goal is paused on transfer. Stale native events and old-conversation writes cannot overwrite the new owner. An existing unfinished Goal in the destination must first be cleared. `/goal clear` detaches without deleting the shared task. Completing native Goal is shown as assistant-reported completion, not independent benchmark certification.
+
+Managed runs automatically associate with the current active shared task; explicit legacy associations still work. Original recipes and results remain the source for experimental claims. The panel links the run to its camera and logs.
+
+Task data persists in `project-book.sqlite3`; DSH owns durable conversation/Goal history. Host exit stops execution and rearming is explicit after restart. There is no cross-device synchronization or background daemon. The old 0.5.0 project forms are removed, but their historical records, evidence and revisions remain queryable; they are not silently converted into native Goals. Back up the plugin state while DSH is stopped.

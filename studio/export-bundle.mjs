@@ -28,7 +28,7 @@ await mkdir(path.join(target,'backend/resources'),{recursive:true});
 await writeFile(path.join(target,'backend/resources/task-bundles.json'),'{"tasks":{}}\n');
 for(const file of await readdir(path.join(root,'examples/studio-project')))await copy('examples/studio-project/'+file,'examples/studio-project/'+file);
 await copy('docs/studio-projects.md','docs/projects.md');
-for(const name of ['test_studio_projects.py','test_studio_workspace.py','test_project_book.py']){
+for(const name of ['test_studio_projects.py','test_studio_workspace.py','test_project_book.py','test_goal_tasks.py']){
   await copy('tests/'+name,'tests/'+name);
   const file=path.join(target,'tests',name);
   await writeFile(file,(await readFile(file,'utf8')).replace("PYTHONPATH=str(ROOT/'src')","PYTHONPATH=str(ROOT/'backend/src')"));

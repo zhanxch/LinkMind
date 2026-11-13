@@ -104,6 +104,16 @@ class Studio:
                 'history': self.book.history(project['id']), 'templates': TEMPLATES,
                 'lifecycle': 'Project records persist across conversations and restarts. Execution still stops when DSH exits. No background agent or budget enforcement is enabled.'}
 
+    def goal_task(self, registration_id, data):
+        self.projects.check(data.get('session_id'), project_id=registration_id)
+        project = self.book.open(self.projects.project(registration_id)['path'])
+        if data.get('operation') not in ('create_goal_task', 'attach_goal_task', 'sync_goal_task'):
+            raise ValueError('Unknown native Goal operation')
+        change = dict(data.get('data', {}))
+        change['session_id'] = data['session_id']
+        self.book.change(project['id'], data['revision'], data['operation'], change, 'controller')
+        return self.project_context(registration_id)
+
     def project_change(self, registration_id, data, actor):
         registration = self.projects.project(registration_id)
         project = self.book.open(registration['path'])
@@ -111,6 +121,18 @@ class Studio:
             raise ValueError('Project change data must be an object')
         change = dict(data['data'])
         change.pop('_source', None)
+        if actor == 'agent':
+            target = change.get('objective_id')
+            if data.get('operation') in ('refine_task', 'update_objective'):
+                target = change.get('id')
+            if data.get('operation') == 'save_work' and change.get('id'):
+                target = find(project['work'], change['id'], 'Work')['objective_id']
+            if data.get('operation') == 'save_record' and change.get('id'):
+                target = find(project['records'], change['id'], 'Record').get('objective_id')
+            goal = next((g for g in project['objectives'] if g['id'] == target), None)
+            if goal and goal.get('mode') == 'goal' and goal.get('owner_session_id') != registration.get('session_id'):
+                raise ValueError('Task belongs to another conversation; use /goal continue to take over explicitly')
+
         if data.get('operation') == 'save_record':
             reference = change.get('reference', '')
             if not isinstance(reference, str):
@@ -136,6 +158,12 @@ class Studio:
     def project_run_context(self, registration_id, data):
         project = self.book.open(self.projects.project(registration_id)['path'])
         context = {'project_id': project['id'], 'revision': project['revision']}
+        if not data.get('objective_id'):
+            session = self.projects.project(registration_id).get('session_id')
+            task = next((g for g in project['objectives'] if g.get('mode') == 'goal'
+                         and g.get('owner_session_id') == session and g['state'] == 'active'), None)
+            if task:
+                data = {**data, 'objective_id': task['id'], 'project_revision': project['revision']}
         if data.get('objective_id'):
             if data.get('project_revision') != project['revision']:
                 raise ValueError('Project changed; refresh the goal before starting')
@@ -584,6 +612,11 @@ def serve(studio, port, token):
                     elif self.command == "POST" and action == "revision":
                         project = studio.book.open(studio.projects.project(project_id)['path'])
                         value = studio.book.get(project['id'], data['revision'])
+                    elif self.command == "POST" and action == "goal-task":
+                        if self.headers.get('X-LinkMind-Controller') != 'dsh':
+                            raise ValueError('Native Goal controller required')
+                        with studio.lock:
+                            value = studio.goal_task(project_id, data)
                     elif self.command == "POST" and action == "change":
                         with studio.lock:
                             if self.headers.get('X-LinkMind-Controller') != 'dsh':
@@ -603,7 +636,7 @@ def serve(studio, port, token):
                             if not previous and 'config_revision' in data and data['config_revision'] != studio.projects.configuration(project_id)['revision']:
                                 raise ValueError('Configuration changed on disk; refresh and review it before running')
                             if previous:
-                                if (previous.get('project_context', {}).get('objective_id') or '') != (data.get('objective_id') or '') or (previous.get('project_context', {}).get('work_id') or '') != (data.get('work_id') or ''):
+                                if ('objective_id' in data and (previous.get('project_context', {}).get('objective_id') or '') != (data.get('objective_id') or '')) or (previous.get('project_context', {}).get('work_id') or '') != (data.get('work_id') or ''):
                                     raise ValueError('Request identity belongs to another goal/work item')
                                 value = previous
                             else:

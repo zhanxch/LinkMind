@@ -34,97 +34,87 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
     } finally {await reader.cancel().catch(()=>{});reader.releaseLock();}
   }
   const projectCopy={
-    zh:{title:'项目与配置',description:'浏览工作区文件，编辑和运行项目配置',files:'浏览文件',refresh:'刷新',defaultWorkspace:'默认 Studio 工作区',directory:'项目目录',browse:'浏览目录',openWorkspace:'作为工作区打开',workspaceHint:'选择本地仓库目录，例如 HexaShell。文件、配置与代码保留在原目录。',configurations:'运行配置',empty:'这个工作区还没有运行配置',emptyHint:'新建配置并填写项目的启动命令，或让会话助手根据 README 准备配置。',loading:'正在读取项目…',new:'新建配置',duplicate:'复制所选配置',edit:'编辑配置文件',save:'保存配置',cancel:'放弃草稿并刷新',editorHint:'编辑当前项目的 linkmind.studio.json。argv 是程序与参数数组；{project} 是项目目录，{output} 是本次输出目录。保存后才可运行。',draft:'未保存草稿',run:'运行所选配置',starting:'正在启动…',selected:'所选配置',command:'启动命令',metadata:'模型与任务说明',checks:'环境检查',ready:'路径检查通过',missing:'缺少所需文件或程序',unchecked:'未声明环境检查',active:'项目正在运行，请结束运行后再编辑配置',noSelection:'请先选择一个配置',copy:'复制会话指令',copied:'启动指令已复制，可粘贴到会话中发送',copyFailed:'复制失败，请在会话中说明要运行的配置名',saved:'配置已保存',readError:'无法读取项目',invalid:'配置有误，修正并保存后才能运行',current:'当前工作区',hint:'会话助手与此面板使用同一份配置。配置中的模型和命令决定实际运行方案。',prompt:'打开项目 {path}，使用已有的 {name} 配置实际启动一次。保持配置中的模型、场景和预算，不重新搭建方案。启动后告诉我运行状态。',template:'新配置',missingScript:'请替换为项目实际的入口文件',newHint:'默认工作区用于整理自己的项目；已有代码库可以直接作为工作区打开。'},
-    en:{title:'Project & configurations',description:'Browse workspace files, edit and run project configurations',files:'Browse files',refresh:'Refresh',defaultWorkspace:'Default Studio workspace',directory:'Project directory',browse:'Browse directory',openWorkspace:'Open as workspace',workspaceHint:'Choose a local repository, such as HexaShell. Files, configurations and code stay in its directory.',configurations:'Run configurations',empty:'This workspace has no run configurations',emptyHint:'Create one with the original launch command, or ask the conversation assistant to prepare it from the README.',loading:'Reading project…',new:'New configuration',duplicate:'Duplicate selected',edit:'Edit configuration file',save:'Save configurations',cancel:'Discard draft and reload',editorHint:'Edit linkmind.studio.json in this project. argv is a program and argument array; {project} is the project directory and {output} is the new run output. Save before running.',draft:'Unsaved draft',run:'Run selected configuration',starting:'Starting…',selected:'Selected configuration',command:'Launch command',metadata:'Model and task notes',checks:'Environment checks',ready:'Path checks passed',missing:'Required files or executables are missing',unchecked:'No environment checks declared',active:'This project is running. End the run before editing its configurations.',noSelection:'Select a configuration first',copy:'Copy conversation instruction',copied:'Instruction copied; paste it into the conversation to send',copyFailed:'Copy failed; name the configuration in the conversation',saved:'Configuration saved',readError:'Unable to read project',invalid:'Fix and save the configuration before running',current:'Current workspace',hint:'The conversation assistant and this panel share the same file. Its model settings and command define the actual run.',prompt:'Open project {path} and start its existing {name} configuration. Keep its model, scenario and budget unchanged. Report the run status.',template:'New configuration',missingScript:'Replace with the project’s real entry point',newHint:'Use the default workspace for your own projects, or open an existing repository directly.'}
+    zh:{title:'运行配置',description:'可选：查看或编辑已有的启动配置',goalHint:'/goal 复现 · 优化 · 开发：一句话开始，任务面板查看进展。',files:'浏览文件',refresh:'刷新',defaultWorkspace:'默认 Studio 工作区',directory:'项目目录',browse:'浏览目录',openWorkspace:'作为工作区打开',workspaceHint:'选择本地仓库目录，例如 HexaShell。文件、配置与代码保留在原目录。',configurations:'运行配置',empty:'这个工作区还没有运行配置',emptyHint:'新建配置并填写项目的启动命令，或让会话助手根据 README 准备配置。',loading:'正在读取项目…',new:'新建配置',duplicate:'复制所选配置',edit:'编辑配置文件',save:'保存配置',cancel:'放弃草稿并刷新',editorHint:'编辑当前项目的 linkmind.studio.json。argv 是程序与参数数组；{project} 是项目目录，{output} 是本次输出目录。保存后才可运行。',draft:'未保存草稿',run:'运行所选配置',starting:'正在启动…',selected:'所选配置',command:'启动命令',metadata:'模型与任务说明',checks:'环境检查',ready:'路径检查通过',missing:'缺少所需文件或程序',unchecked:'未声明环境检查',active:'项目正在运行，请结束运行后再编辑配置',noSelection:'请先选择一个配置',copy:'复制会话指令',copied:'启动指令已复制，可粘贴到会话中发送',copyFailed:'复制失败，请在会话中说明要运行的配置名',saved:'配置已保存',readError:'无法读取项目',invalid:'配置有误，修正并保存后才能运行',current:'当前工作区',hint:'会话助手与此面板使用同一份配置。配置中的模型和命令决定实际运行方案。',prompt:'打开项目 {path}，使用已有的 {name} 配置实际启动一次。保持配置中的模型、场景和预算，不重新搭建方案。启动后告诉我运行状态。',template:'新配置',missingScript:'请替换为项目实际的入口文件',newHint:'默认工作区用于整理自己的项目；已有代码库可以直接作为工作区打开。'},
+    en:{title:'Run configurations',description:'Optional: inspect or edit saved launch configurations',goalHint:'/goal reproduce · optimize · develop: start with an objective, follow it in Tasks.',files:'Browse files',refresh:'Refresh',defaultWorkspace:'Default Studio workspace',directory:'Project directory',browse:'Browse directory',openWorkspace:'Open as workspace',workspaceHint:'Choose a local repository, such as HexaShell. Files, configurations and code stay in its directory.',configurations:'Run configurations',empty:'This workspace has no run configurations',emptyHint:'Create one with the original launch command, or ask the conversation assistant to prepare it from the README.',loading:'Reading project…',new:'New configuration',duplicate:'Duplicate selected',edit:'Edit configuration file',save:'Save configurations',cancel:'Discard draft and reload',editorHint:'Edit linkmind.studio.json in this project. argv is a program and argument array; {project} is the project directory and {output} is the new run output. Save before running.',draft:'Unsaved draft',run:'Run selected configuration',starting:'Starting…',selected:'Selected configuration',command:'Launch command',metadata:'Model and task notes',checks:'Environment checks',ready:'Path checks passed',missing:'Required files or executables are missing',unchecked:'No environment checks declared',active:'This project is running. End the run before editing its configurations.',noSelection:'Select a configuration first',copy:'Copy conversation instruction',copied:'Instruction copied; paste it into the conversation to send',copyFailed:'Copy failed; name the configuration in the conversation',saved:'Configuration saved',readError:'Unable to read project',invalid:'Fix and save the configuration before running',current:'Current workspace',hint:'The conversation assistant and this panel share the same file. Its model settings and command define the actual run.',prompt:'Open project {path} and start its existing {name} configuration. Keep its model, scenario and budget unchanged. Report the run status.',template:'New configuration',missingScript:'Replace with the project’s real entry point',newHint:'Use the default workspace for your own projects, or open an existing repository directly.'}
   };
   // Preserve unsaved edits and uncertain start receipts across pane/session switches.
-  const projectDrafts=new Map(), projectSelections=new Map(), startRequests=new Map(), goalDrafts=new Map(), cameraSelections=new Map();
-  const bookNames={reproduce:'复现',optimize:'优化',develop:'开发',ready:'待推进',active:'进行中',blocked:'受阻',paused:'已暂停',review:'待验收',closed:'已结项',planned:'待开始',done:'已完成',cancelled:'已取消',achieved:'目标达成',not_achieved:'未达成',inconclusive:'证据不足',decision:'决定',finding:'发现',hypothesis:'假设',blocker:'阻塞',evidence:'证据',valid:'有效',obsolete:'已失效',pending:'未验收',met:'满足',not_met:'不满足'};
-  function ProjectOverview({registration,sessionId,onSelection,openRun}) {
-    const [context,setContext]=React.useState(null),[selected,setSelected]=React.useState(''),[workId,setWorkId]=React.useState('');
-    const [editor,setEditorState]=React.useState(null),[error,setError]=React.useState(''),[saving,setSaving]=React.useState(false),[snapshot,setSnapshot]=React.useState(null);
-    const message=e=>({'title must be text (1–200 characters)':'请填写目标名称（最多 200 字）','At least one acceptance condition is required':'请至少填写一条验收条件','Finish or explicitly cancel remaining work before acceptance':'还有未完成的工作，请完成或注明取消原因后再验收','All acceptance conditions need reviewed evidence':'请先逐条评审验收条件，并关联支持判断的证据','Attach evidence before reviewing this condition':'请先登记并选择支持判断的证据','Explain verification or why the work was cancelled':'请填写验证结果或取消原因','Complete dependencies before advancing this work':'请先完成此工作的依赖项','Work dependencies contain a cycle':'工作依赖形成了循环，请调整依赖关系','Evidence file does not exist inside the project':'未找到来源文件，请填写项目内的文件路径','Reviewed evidence is immutable; create a correction and review the criterion again':'这条证据已有验收引用，请新建更正记录，再重新评审'}[e.message]||e.message);
-    const draftKey=sessionId+':'+registration;
-    const setEditor=value=>{if(value)goalDrafts.set(draftKey,value);else goalDrafts.delete(draftKey);setEditorState(value);};
-    const refresh=async(signal)=>{const value=await api(`/projects/${registration}/context`,undefined,signal);if(!signal?.aborted){setContext(value);return value;}};
+  const projectDrafts=new Map(), projectSelections=new Map(), startRequests=new Map(), cameraSelections=new Map();
+  const taskCopy={"zh": {"title": "任务", "workspaceTitle": "工作区任务", "hint": "用 /goal 复现、/goal 优化、/goal 开发，加上一句要求开始。助手会完善任务说明并更新这里。", "all": "全部", "refresh": "刷新", "selectWorkspace": "先使用 DSH 工作区选择器打开项目目录。", "loading": "正在读取任务…", "empty": "还没有这类任务。在会话中输入目标即可创建，无需填写表单。", "current": "当前任务", "currentOwner": "当前会话接续此任务", "shared": "任务记录跨对话保留，可在当前会话接续", "resuming": "正在接续…", "resume": "继续当前任务", "takeover": "在此会话接续", "original": "原始指令", "request": "当前要求：", "brief": "任务说明", "briefPending": "助手会先结合你的要求与项目内容完善任务说明。", "constraints": "约束：", "criteria": "验证标准", "next": "下一步：", "nextPending": "在会话中确认下一步", "progress": "进展", "noSteps": "按任务需要安排步骤，不预设固定流程。", "records": "决定与证据", "runs": "关联运行", "conclusion": "结论", "completionNote": "完成状态由助手通过原生 Goal 报告；实验成绩请以证据和原始结果为准。", "footer": "补充或修改要求直接发到会话里。/goal pause 暂停续行；已启动的程序需在运行侧栏单独停止。", "sessions": "个关联对话", "reproduce": "复现", "optimize": "优化", "develop": "开发", "ready": "待完善", "active": "进行中", "waiting": "待继续", "blocked": "受阻", "paused": "已暂停", "review": "待核对", "closed": "已完成", "planned": "待开始", "done": "已完成", "cancelled": "已取消", "decision": "决定", "finding": "发现", "hypothesis": "假设", "blocker": "阻塞", "evidence": "证据"}, "en": {"title": "Tasks", "workspaceTitle": "Workspace tasks", "hint": "Use /goal reproduce, /goal optimize or /goal develop followed by your request. The assistant refines the brief and updates this panel.", "all": "All", "refresh": "Refresh", "selectWorkspace": "Open a project directory with the DSH workspace picker first.", "loading": "Loading tasks…", "empty": "No tasks of this type yet. Create one from the conversation; no forms required.", "current": "Current task", "currentOwner": "This conversation owns the task", "shared": "Task records persist across conversations; continue here when needed.", "resuming": "Continuing…", "resume": "Continue task", "takeover": "Continue in this conversation", "original": "Original instruction", "request": "Current request: ", "brief": "Task brief", "briefPending": "The assistant will refine the brief using your request and project context.", "constraints": "Constraints: ", "criteria": "Verification criteria", "next": "Next: ", "nextPending": "Discuss the next step in the conversation", "progress": "Progress", "noSteps": "Steps follow the task; no fixed workflow is imposed.", "records": "Decisions and evidence", "runs": "Linked runs", "conclusion": "Conclusion", "completionNote": "Completion is reported by the assistant through native Goal. Use evidence and original results for benchmark claims.", "footer": "Send corrections in the conversation. /goal pause pauses continuation; stop launched programs separately in the run sidebar.", "sessions": "linked conversations", "reproduce": "Reproduce", "optimize": "Optimize", "develop": "Develop", "ready": "To refine", "active": "Active", "waiting": "Awaiting continuation", "blocked": "Blocked", "paused": "Paused", "review": "Review", "closed": "Complete", "planned": "Planned", "done": "Done", "cancelled": "Cancelled", "decision": "Decision", "finding": "Finding", "hypothesis": "Hypothesis", "blocker": "Blocker", "evidence": "Evidence"}};
+  const taskState=(task,t)=>t(task.state==='active'&&task.native_activation==='disarmed'?'waiting':task.state);
+  function TaskButton({sessionId,useSessions,open,t}) {
+    const preset=useSessions(s=>s.byId[sessionId]?.projectionValues?.agentPreset);
+    return preset==='linkmind-embodied'?h(Button,{size:'sm',variant:'toolbar',onClick:open},t('title')):null;
+  }
+  function TaskPanel({sessionId,useSessions,executeGoal,openRun,t}) {
+    const cwd=useSessions(s=>s.byId[sessionId]?.cwd||s.byId[sessionId]?.projectionValues?.workingDirectory);
+    const [context,setContext]=React.useState(null),[selected,setSelected]=React.useState(''),[kind,setKind]=React.useState('');
+    const [error,setError]=React.useState(''),[loadError,setLoadError]=React.useState(''),[busy,setBusy]=React.useState(false),[retry,setRetry]=React.useState(0);
     React.useEffect(()=>{
-      const controller=new AbortController();let timer;setContext(null);setSelected('');setWorkId('');setEditorState(goalDrafts.get(draftKey)||null);
-      const update=async()=>{try{await refresh(controller.signal);}catch(e){if(!controller.signal.aborted)setError(message(e));}if(!controller.signal.aborted)timer=setTimeout(update,5000);};
+      const controller=new AbortController();let timer;
+      setContext(null);setSelected('');setError('');setLoadError('');
+      const update=async()=>{
+        try {
+          if(!cwd)throw new Error(t('selectWorkspace'));
+          const registration=await api('/workspace/open',{path:cwd,session_id:sessionId},controller.signal);
+          const value=await api(`/projects/${registration.id}/context`,undefined,controller.signal);
+          if(!controller.signal.aborted){setContext(value);setLoadError('');}
+        }catch(e){if(!controller.signal.aborted)setLoadError(e.message);}
+        if(!controller.signal.aborted)timer=setTimeout(update,2500);
+      };
       update();return()=>{controller.abort();clearTimeout(timer);};
-    },[registration,sessionId]);
-    const project=context?.project, goals=project?.objectives||[], goal=goals.find(g=>g.id===selected);
-    const work=(project?.work||[]).filter(w=>w.objective_id===selected), records=(project?.records||[]).filter(r=>!r.objective_id||r.objective_id===selected);
-    React.useEffect(()=>{if(project&&!selected&&goals.length)setSelected(goals.find(g=>g.state!=='closed')?.id||goals.at(-1).id);},[project,selected]);
-    React.useEffect(()=>{onSelection(goal?{objective_id:goal.id,objective_title:goal.title,editing:!!editor,project_revision:project.revision,work_id:work.some(w=>w.id===workId&&!['done','cancelled'].includes(w.state))?workId:'',locked:['closed','paused'].includes(goal.state)}:{loading:!context,editing:!!editor});},[project,selected,workId,editor]);
-    const open=(operation,data)=>{setEditor({operation,data:structuredClone(data),revision:project.revision});setError('');};
-    const mutate=async(operation,data,revision=project.revision)=>{
-      setSaving(true);setError('');
-      try{const next=await api(`/projects/${registration}/change`,{session_id:sessionId,revision,operation,data});setContext(next);setEditor(null);
-        if(operation==='create_objective'){setSelected(next.project.objectives.at(-1).id);setWorkId('');}
-      }catch(e){setError(message(e));await refresh().catch(()=>{});}finally{setSaving(false);}
-    };
-    const field={display:'flex',flexDirection:'column',gap:8,minWidth:0}, actions={display:'flex',flexWrap:'wrap',gap:8};
-    const btn=(label,onClick,disabled=false)=>h(Button,{size:'sm',variant:'outline',onClick,disabled:saving||disabled},label);
-    const input=(label,value,onChange,multiline=false)=>h('label',{style:field},label,h(multiline?'textarea':'input',{'aria-label':label,style:{...selectStyle,width:'100%',boxSizing:'border-box',...(multiline?{minHeight:80,resize:'vertical'}:{})},value:value||'',onChange:e=>onChange(e.target.value)}));
-    const select=(label,value,options,onChange)=>h('label',{style:field},label,h('select',{'aria-label':label,style:selectStyle,value,disabled:saving||(!!editor&&label==='当前项目目标'),onChange:e=>onChange(e.target.value)},...options.map(([v,l])=>h('option',{value:v,key:v},l))));
-    const patch=(key,value)=>setEditor({...editor,data:{...editor.data,[key]:value}});
-    const patchChange=(key,value)=>patch('changes',{...editor.data.changes,[key]:value});
-    const evidenceOptions=project?.records.filter(r=>r.kind==='evidence'&&r.status==='valid')||[];
-    const renderEditor=()=>{
-      if(!editor)return null;
-      const {operation,data}=editor;
-      let fields=[];
-      if(operation==='create_objective')fields=[
-        select('项目目标类型',data.kind,Object.keys(context.templates).map(k=>[k,bookNames[k]]),v=>patch('kind',v)),
-        h('p',{style:muted},context.templates[data.kind].description),
-        input('目标名称',data.title,v=>patch('title',v)),input('希望交付什么',data.intent,v=>patch('intent',v),true),
-        input('验收条件（每行一条）',(data.criteria||[]).join('\n'),v=>patch('criteria',v.split('\n')),true),
-        input('约束与预算说明',data.constraints,v=>patch('constraints',v),true),select('关联来源目标',data.parent_id,[['','独立目标'],...goals.map(g=>[g.id,g.title])],v=>patch('parent_id',v))];
-      if(operation==='update_objective')fields=[select('目标状态',data.changes.state,['ready','active','blocked','paused','review'].map(k=>[k,bookNames[k]]),v=>patchChange('state',v)),input('目标名称',data.changes.title,v=>patchChange('title',v)),input('希望交付什么',data.changes.intent,v=>patchChange('intent',v),true),input('约束与预算说明',data.changes.constraints,v=>patchChange('constraints',v),true),input('下一步',data.changes.next_action,v=>patchChange('next_action',v),true),input('验收条件（每行一条）',data.changes.criteria.join('\n'),v=>patchChange('criteria',v.split('\n')),true),h('p',{style:muted},'交付、约束或验收条件变更后，需要重新评审；原来的判断保留在修订记录中')];
-      if(operation==='save_work')fields=[input('工作名称',data.changes.title,v=>patchChange('title',v)),select('工作状态',data.changes.state,['planned','active','blocked','done','cancelled'].map(k=>[k,bookNames[k]]),v=>patchChange('state',v)),input('验证结果或取消原因',data.changes.verification,v=>patchChange('verification',v),true),
-        h('details',null,h('summary',null,'依赖其他工作'),...work.filter(w=>w.id!==data.id).map(w=>h('label',{key:w.id,style:{display:'flex',gap:8,padding:'6px 0'}},h('input',{type:'checkbox',checked:(data.changes.depends_on||[]).includes(w.id),onChange:e=>patchChange('depends_on',e.target.checked?[...(data.changes.depends_on||[]),w.id]:(data.changes.depends_on||[]).filter(id=>id!==w.id))}),w.title)))];
-      if(operation==='save_record')fields=[select('记录类型',data.kind,['decision','finding','hypothesis','blocker','evidence'].map(k=>[k,bookNames[k]]),v=>patch('kind',v)),input('记录内容',data.text,v=>patch('text',v),true),input('来源（项目内文件、网址或 run:编号）',data.reference,v=>patch('reference',v)),select('记录状态',data.status||'valid',['valid','obsolete'].map(k=>[k,bookNames[k]]),v=>patch('status',v))];
-      if(operation==='review_criterion')fields=[select('验收判断',data.verdict,['pending','met','not_met'].map(k=>[k,bookNames[k]]),v=>patch('verdict',v)),h('p',{style:muted},'选择支持判断的证据；程序退出和助手陈述不自动代表目标达成'),...evidenceOptions.map(r=>h('label',{key:r.id,style:{display:'flex',gap:8,overflowWrap:'anywhere'}},h('input',{type:'checkbox',checked:data.evidence_ids.includes(r.id),onChange:e=>patch('evidence_ids',e.target.checked?[...data.evidence_ids,r.id]:data.evidence_ids.filter(id=>id!==r.id))}),r.text)),!evidenceOptions.length&&h('p',{style:muted},'请先登记文件或运行证据')];
-      if(operation==='close_objective')fields=[select('项目结论',data.outcome,['achieved','not_achieved','inconclusive','cancelled'].map(k=>[k,bookNames[k]]),v=>patch('outcome',v)),input('结项说明',data.conclusion,v=>patch('conclusion',v),true)];
-      return h('section',{'aria-label':'项目编辑',style:{...field,padding:12,border:'1px solid color-mix(in srgb, currentColor 18%, transparent)',borderRadius:8}},
-        ...fields,error&&h('p',{role:'alert',style:muted},error),h('div',{style:actions},btn(saving?'正在保存…':'保存项目内容',()=>mutate(operation,data,editor.revision)),btn('放弃草稿',()=>{setEditor(null);setError('');})),
-        editor.revision!==project.revision&&h('div',{style:field},h('p',{style:muted},'项目在编辑期间已更新。下方显示当前内容；请核对后再应用草稿。'),btn('已核对，使用当前版本',()=>setEditor({...editor,revision:project.revision}))));
-    };
-    if(!context)return h('section',null,h('p',{role:error?'alert':'status',style:muted},error||'正在读取项目目标…'),error&&btn('重试',()=>refresh().then(()=>setError('')).catch(e=>setError(message(e)))));
-    return h('section',{'aria-label':'项目概览',style:field},
-      h('div',{style:actions},h('span',{style:{fontWeight:500,flex:1}},'项目概览'),btn('新建目标',()=>open('create_objective',{kind:'reproduce',title:'',intent:'',criteria:[''],constraints:'',parent_id:''}),!!editor),btn('刷新项目',()=>refresh().then(()=>setError('')).catch(e=>setError(message(e))))),
-      h('p',{style:{...muted,margin:0}},'目标、进展与证据跨会话保存。关闭应用会停止执行；预算说明暂不自动执行。'),
-      error&&!editor&&h('p',{role:'alert',style:{...muted,margin:0}},error),
-      goals.length?select('当前项目目标',selected,goals.map(g=>[g.id,`${bookNames[g.kind]} · ${g.title} · ${bookNames[g.state]}`]),v=>{setSelected(v);setWorkId('');}):h('p',{style:muted},'这个工作区还没有项目目标。选择复现、优化或开发，并约定交付和验收条件。'),
-      renderEditor(),
-      goal&&h(React.Fragment,null,
-        h('div',{style:{fontWeight:500,overflowWrap:'anywhere'}},goal.title),
-        goal.parent_id&&h('p',{style:muted},'来源目标：'+(goals.find(g=>g.id===goal.parent_id)?.title||goal.parent_id)),
-        h('p',{style:{margin:'4px 0',whiteSpace:'pre-wrap',overflowWrap:'anywhere'}},goal.intent),
-        goal.constraints&&h('p',{style:muted},'约束：'+goal.constraints),
-        goal.state!=='closed'&&h('p',{style:{margin:'4px 0',whiteSpace:'pre-wrap'}},'下一步：'+(goal.next_action||'尚未记录')),
-        goal.conclusion&&h('p',null,bookNames[goal.outcome]+' · '+goal.conclusion),
-        h('div',{style:actions},goal.state!=='closed'&&btn('编辑目标',()=>open('update_objective',{id:goal.id,changes:{state:goal.state,title:goal.title,intent:goal.intent,constraints:goal.constraints,next_action:goal.next_action,criteria:goal.criteria.map(c=>c.text)}}),!!editor),
-          goal.state!=='closed'&&btn(goal.state==='paused'?'继续目标':'暂停目标',()=>mutate('update_objective',{id:goal.id,changes:{state:goal.state==='paused'?'ready':'paused'}}),!!editor),
-          goal.state!=='closed'?btn('验收结项',()=>open('close_objective',{id:goal.id,outcome:'achieved',conclusion:''}),!!editor):btn('重新评审',()=>mutate('update_objective',{id:goal.id,changes:{state:'review'}}),!!editor)),
-        h('details',null,h('summary',null,`工作进展 · ${work.filter(w=>w.state==='done').length}/${work.length}`),h('div',{style:{...field,marginTop:8}},...work.map(w=>h('div',{key:w.id,style:{...field,padding:'8px 0',borderBottom:'1px solid color-mix(in srgb, currentColor 12%, transparent)'}},h('div',null,bookNames[w.state]+' · '+w.title),w.verification&&h('div',{style:muted},w.verification),h('div',null,btn('更新工作',()=>open('save_work',{id:w.id,changes:{title:w.title,state:w.state,verification:w.verification,depends_on:w.depends_on,evidence_ids:w.evidence_ids}}),!!editor||goal.state==='closed')))),btn('添加工作',()=>open('save_work',{objective_id:goal.id,changes:{title:'',state:'planned',verification:'',depends_on:[],evidence_ids:[]}}),!!editor||goal.state==='closed'))),
-        h('details',null,h('summary',null,'验收条件'),h('div',{style:{...field,marginTop:8}},...goal.criteria.map(c=>h('div',{key:c.id,style:field},h('span',null,bookNames[c.verdict]+' · '+c.text),h('div',null,btn('评审此条件',()=>open('review_criterion',{objective_id:goal.id,id:c.id,verdict:c.verdict,evidence_ids:c.evidence_ids}),!!editor||goal.state==='closed')))))),
-        goal.state!=='closed'&&select('本次运行关联的工作',workId,[['','仅关联当前目标'],...work.filter(w=>!['done','cancelled'].includes(w.state)).map(w=>[w.id,w.title])],setWorkId)),
-      h('details',null,h('summary',null,`决定与证据 · ${records.length}`),h('div',{style:{...field,marginTop:8}},...records.map(r=>h('div',{key:r.id,style:field},h('div',{style:{whiteSpace:'pre-wrap',overflowWrap:'anywhere'}},`${bookNames[r.kind]}${r.status==='obsolete'?' · 已失效':''} — ${r.text}`),r.reference&&h('div',{style:muted},r.reference),h('div',null,btn('修订记录',()=>open('save_record',{id:r.id,kind:r.kind,text:r.text,reference:r.reference,objective_id:r.objective_id,status:r.status}),!!editor)))),btn('添加记录或证据',()=>open('save_record',{kind:'decision',text:'',reference:'',objective_id:goal?.id||'',status:'valid'}),!!editor))),
-      context.runs.length>0&&h('details',null,h('summary',null,`项目运行记录 · ${context.runs.length}`),h('div',{style:{...field,marginTop:8}},...context.runs.slice(0,30).map(r=>h('div',{key:r.id,style:field},h('div',null,`${r.recipe_id} · ${statusText[r.status]||r.status}`),h('div',{style:muted},r.project_context?.objective_title||'历史运行 / 未关联目标'),h('div',{style:actions},btn('查看运行',()=>openRun(r.id)),btn('登记为证据',()=>open('save_record',{kind:'evidence',text:`运行 ${r.recipe_id} 的原始记录（请补充结论和适用范围）`,reference:'run:'+r.id,objective_id:goal?.id||'',status:'valid'}),!!editor)))))),
-      h('details',null,h('summary',null,'项目修订记录'),...context.history.slice(0,15).map(e=>h('div',{key:e.revision,style:{...field,marginTop:8}},h('span',{style:muted},`v${e.revision} · ${e.actor} · ${e.operation} · ${new Date(e.at).toLocaleString()}`),btn('查看 v'+e.revision,()=>api(`/projects/${registration}/revision`,{revision:e.revision}).then(setSnapshot).catch(e=>setError(message(e)))))),snapshot&&h('div',null,btn('关闭历史快照',()=>setSnapshot(null)),h('pre',{style:preStyle},JSON.stringify(snapshot,null,2)))));
+    },[sessionId,cwd,retry]);
+    const tasks=(context?.project.objectives||[]).filter(g=>g.mode==='goal');
+    const visible=tasks.filter(g=>!kind||g.kind===kind);
+    const task=visible.find(g=>g.id===selected)||visible.find(g=>g.owner_session_id===sessionId&&g.state!=='closed')||visible.at(-1);
+    const work=(context?.project.work||[]).filter(w=>w.objective_id===task?.id);
+    const records=(context?.project.records||[]).filter(r=>r.objective_id===task?.id);
+    const runs=(context?.runs||[]).filter(r=>r.project_context?.objective_id===task?.id);
+    const field={display:'flex',flexDirection:'column',gap:8,minWidth:0};
+    const resume=async()=>{setBusy(true);setError('');try{await executeGoal(`/goal continue ${task.id}`);setRetry(v=>v+1);}catch(e){setError(e.message);}finally{setBusy(false);}};
+    return h('div',{style:{height:'100%',overflowY:'auto',padding:16,fontSize:13,display:'flex',flexDirection:'column',gap:20}},
+      h('div',{style:field},h('span',null,t('workspaceTitle')),h('span',{style:{...muted,overflowWrap:'anywhere'}},cwd),
+        h('p',{style:{...muted,margin:0}},t('hint'))),
+      h('div',{style:{display:'flex',gap:8,flexWrap:'wrap'}},
+        ...[['',t('all')],['reproduce',t('reproduce')],['optimize',t('optimize')],['develop',t('develop')]].map(([value,label])=>h(Button,{key:value,size:'sm',variant:kind===value?'outline':'ghost',onClick:()=>{setKind(value);setSelected('');},'aria-pressed':kind===value},label)),
+        h(Button,{size:'sm',variant:'ghost',onClick:()=>setRetry(v=>v+1)},t('refresh'))),
+      (error||loadError)&&h('p',{role:'alert',style:muted},error||loadError),
+      !context&&!error&&!loadError&&h('p',{role:'status'},t('loading')),
+      context&&!visible.length&&h('p',{style:muted},t('empty')),
+      visible.length>0&&h('label',{style:field},t('current'),h('select',{'aria-label':t('current'),style:selectStyle,value:task?.id||'',onChange:e=>setSelected(e.target.value)},
+        ...visible.map(g=>h('option',{key:g.id,value:g.id},`${t(g.kind)} · ${g.title} · ${taskState(g,t)}`)))),
+      task&&h(React.Fragment,null,
+        h('section',{style:field},h('div',{style:{fontWeight:500,overflowWrap:'anywhere'}},task.title),
+          h('span',{style:muted},`${t(task.kind)} · ${taskState(task,t)} · ${task.sessions?.length||0} ${t('sessions')}`),
+          h('span',{style:muted},task.owner_session_id===sessionId?t('currentOwner'):t('shared')),
+          task.state!=='closed'&&h(Button,{size:'sm',variant:'outline',disabled:busy,onClick:resume},busy?t('resuming'):task.owner_session_id===sessionId?t('resume'):t('takeover')),
+          h('details',null,h('summary',null,t('original')),h('p',{style:{...muted,whiteSpace:'pre-wrap'}},task.original_request)),
+          task.request!==task.original_request&&h('p',{style:muted},t('request')+task.request)),
+        h('section',{style:field},h('span',null,t('brief')),h('p',{style:{...muted,whiteSpace:'pre-wrap',margin:0}},task.intent||t('briefPending')),
+          task.constraints&&h('p',{style:{...muted,whiteSpace:'pre-wrap',margin:0}},t('constraints')+task.constraints),
+          task.criteria?.length>0&&h('details',null,h('summary',null,t('criteria')),...task.criteria.map(c=>h('p',{key:c.id,style:muted},c.text))),
+          h('p',{style:{...muted,margin:0}},t('next')+(task.next_action||t('nextPending')))),
+        h('section',{style:field},h('span',null,t('progress')+(work.length?` · ${work.filter(w=>w.state==='done').length}/${work.length}`:'')),
+          ...work.map(w=>h('div',{key:w.id,style:field},h('span',null,`${t(w.state)} · ${w.title}`),w.verification&&h('span',{style:muted},w.verification))),
+          !work.length&&h('span',{style:muted},t('noSteps'))),
+        records.length>0&&h('section',{style:field},h('span',null,t('records')),...records.slice(-15).map(r=>h('div',{key:r.id,style:field},h('span',{style:muted},t(r.kind)),h('span',{style:{whiteSpace:'pre-wrap',overflowWrap:'anywhere'}},r.text),r.reference&&h('code',{style:{...muted,overflowWrap:'anywhere'}},r.reference)))),
+        runs.length>0&&h('section',{style:field},h('span',null,t('runs')),...runs.map(r=>h(Button,{key:r.id,size:'sm',variant:'outline',onClick:()=>openRun(r.id)},`${r.recipe_id} · ${statusText[r.status]||r.status}`))),
+        task.conclusion&&h('section',{style:field},h('span',null,t('conclusion')),h('p',{style:{...muted,whiteSpace:'pre-wrap',margin:0}},task.conclusion)),
+        task.outcome==='agent_completed'&&h('p',{style:muted},t('completionNote')),
+        h('p',{style:muted},t('footer'))));
+  }
+  function GoalHint({sessionId,useSessions,t}) {
+    const preset=useSessions(s=>s.byId[sessionId]?.projectionValues?.agentPreset);
+    return preset==='linkmind-embodied'?h('span',{style:muted},t('goalHint')):null;
   }
   function ProjectButton({sessionId,useSessions,open,t}) {
     const preset=useSessions(s=>s.byId[sessionId]?.projectionValues?.agentPreset);
     return preset==='linkmind-embodied'?h(Button,{size:'sm',variant:'toolbar',onClick:open},t('title')):null;
   }
-  function ProjectPanel({sessionId,useSessions,openFiles,openRun,chooseDirectory,openWorkspace,t,copyInstruction}) {
+  function ProjectPanel({sessionId,useSessions,openFiles,openRun,t,copyInstruction}) {
     const cwd=useSessions(s=>s.byId[sessionId]?.cwd||s.byId[sessionId]?.projectionValues?.workingDirectory);
     const draftKey=JSON.stringify([sessionId,cwd]);
     const [info,setInfo]=React.useState(null),[selected,setSelectedState]=React.useState(''),[draft,setDraftState]=React.useState(null);
     const [error,setError]=React.useState(''),[notice,setNotice]=React.useState(''),[busy,setBusy]=React.useState('');
-    const [directory,setDirectory]=React.useState(cwd||'');
-    const [goalContext,setGoalContext]=React.useState({});
     const generation=React.useRef(0);
     const setSelected=value=>{projectSelections.set(draftKey,value);setSelectedState(value);};
     const setDraft=value=>{if(value)projectDrafts.set(draftKey,value);else projectDrafts.delete(draftKey);setDraftState(value);};
@@ -138,7 +128,7 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
         setSelected(Object.hasOwn(value.recipes||{},current)?current:Object.keys(value.recipes||{})[0]||'');
       }catch(e){if(version===generation.current)setError(e.message);}
     };
-    React.useEffect(()=>{setInfo(null);setGoalContext({loading:true});setError('');setNotice('');setDirectory(cwd||'');setDraftState(projectDrafts.get(draftKey)||null);load();return()=>{generation.current++;};},[sessionId,cwd]);
+    React.useEffect(()=>{setInfo(null);setError('');setNotice('');setDraftState(projectDrafts.get(draftKey)||null);load();return()=>{generation.current++;};},[sessionId,cwd]);
     React.useEffect(()=>{
       if(!info?.id)return;
       const controller=new AbortController();let timer;
@@ -169,9 +159,9 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
       await api(`/projects/${info.id}/configuration`,{session_id:sessionId,...draft});setDraft(null);await load();setNotice(t('saved'));
     });
     const start=()=>perform('start',async()=>{
-      const identity=JSON.stringify([info.id,selected,info.configuration.revision,goalContext.objective_id,goalContext.work_id]);
+      const identity=JSON.stringify([info.id,selected,info.configuration.revision]);
       let request=startRequests.get(identity);if(!request){request=crypto.randomUUID();startRequests.set(identity,request);}
-      const run=await api(`/projects/${info.id}/start`,{recipe:selected,request_id:request,config_revision:info.configuration.revision,...goalContext});
+      const run=await api(`/projects/${info.id}/start`,{recipe:selected,request_id:request,config_revision:info.configuration.revision});
       startRequests.delete(identity);await load();openRun(run.id);
     });
     const recipe=info?.recipes?.[selected], check=info?.checks?.[selected];
@@ -181,18 +171,10 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
     return h('div',{style:{height:'100%',overflowY:'auto',padding:16,fontSize:13,display:'flex',flexDirection:'column',gap:20}},
       h('section',{style:field},h('span',{style:muted},t('current')),h('div',{style:{overflowWrap:'anywhere'}},cwd||t('directory')),
         h('div',{style:actions},h(Button,{size:'sm',variant:'outline',onClick:openFiles},t('files')),h(Button,{size:'sm',variant:'ghost',disabled:!!busy,onClick:()=>perform('refresh',load)},t('refresh')))),
-      h('details',null,h('summary',{style:{cursor:'pointer'}},t('openWorkspace')),
-        h('div',{style:{...field,marginTop:12}},h('p',{style:{...muted,margin:0}},t('newHint')),
-          h(Button,{size:'sm',variant:'outline',disabled:!!busy,onClick:()=>perform('workspace',async()=>{const value=await api('/workspace/default',{});await openWorkspace(value.path);})},t('defaultWorkspace')),
-          h('label',{style:field},t('directory'),h('input',{'aria-label':t('directory'),style:selectStyle,value:directory,onChange:e=>setDirectory(e.target.value)})),
-          h('div',{style:actions},h(Button,{size:'sm',variant:'outline',disabled:!!busy,onClick:()=>perform('pick',async()=>{const value=await chooseDirectory();if(value)setDirectory(value);})},t('browse')),
-            h(Button,{size:'sm',variant:'outline',disabled:!!busy||!directory.trim(),onClick:()=>perform('workspace',()=>openWorkspace(directory.trim()))},t('openWorkspace'))),
-          h('p',{style:{...muted,margin:0}},t('workspaceHint')))),
       error&&h('p',{role:'alert',style:{...muted,margin:0,overflowWrap:'anywhere'}},error),
       notice&&h('p',{role:'status',style:{...muted,margin:0}},notice),
       !info&&!error&&h('p',{role:'status'},t('loading')),
       info&&h(React.Fragment,null,
-        h(ProjectOverview,{key:info.id,registration:info.id,sessionId,onSelection:setGoalContext,openRun}),
         h('section',{style:field},h('span',null,t('configurations')),
           info.configuration.error&&h('p',{role:'alert',style:{...muted,margin:0}},t('invalid')+' — '+info.configuration.error),
           Object.keys(info.recipes||{}).length?h('div',{role:'radiogroup','aria-label':t('configurations'),style:field},
@@ -212,10 +194,8 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
           Object.keys(recipe.metadata||{}).length>0&&h('details',null,h('summary',null,t('metadata')),h('pre',{style:preStyle},JSON.stringify(recipe.metadata,null,2))),
           h('div',null,h('span',null,t('checks')),h('p',{style:{...muted,margin:'8px 0'}},!check?.checks?.length?t('unchecked'):check.ready?t('ready'):t('missing')),
             ...((check?.checks)||[]).map((c,i)=>h('div',{key:i,style:{...muted,overflowWrap:'anywhere'}},(c.ready?'✓ ':'— ')+c.label))),
-          goalContext.editing&&h('p',{style:muted},'先保存或放弃项目草稿，再运行或复制启动指令'),
-          goalContext.locked&&h('p',{style:muted},'当前项目目标已暂停或结项，继续目标或新建目标后再运行'),
-          h('div',{style:actions},h(Button,{size:'sm',disabled:locked||!!draft||!!info.configuration.error||!check?.ready||goalContext.locked||goalContext.loading||goalContext.editing,onClick:start},busy==='start'?t('starting'):t('run')),
-            h(Button,{size:'sm',variant:'outline',disabled:!!draft||goalContext.editing||goalContext.locked||goalContext.loading,onClick:()=>perform('copy',async()=>{await copyInstruction(cwd,selected,goalContext);setNotice(t('copied'));})},t('copy')))),
+          h('div',{style:actions},h(Button,{size:'sm',disabled:locked||!!draft||!!info.configuration.error||!check?.ready,onClick:start},busy==='start'?t('starting'):t('run')),
+            h(Button,{size:'sm',variant:'outline',disabled:!!draft,onClick:()=>perform('copy',async()=>{await copyInstruction(cwd,selected);setNotice(t('copied'));})},t('copy')))),
         h('p',{style:{...muted,margin:0}},t('hint'))));
   }
 
@@ -322,26 +302,34 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
     if(preset!=='linkmind-embodied')return null;
     return h(Button,{size:'sm',variant:'toolbar',onClick:open},'运行与摄像头');
   }
-  return {inject:['slots','sidebarRight','sidebarRightTabs','sessions','workspaces','uiWorkspace','locale'],apply(ctx){
+  return {inject:['slots','sidebarRight','sidebarRightTabs','sessions','locale','remote','remote.commands'],apply(ctx){
     ctx.effect(()=>ctx.locale.register('linkmindProject',projectCopy),'LinkMind project copy');
     const t=ctx.locale.bind('linkmindProject');
+    ctx.effect(()=>ctx.locale.register('linkmindTasks',taskCopy),'LinkMind task copy');
+    const tt=ctx.locale.bind('linkmindTasks');
     const openProject=sessionId=>ctx.sidebarRight.openTab('linkmind-project',{params:{sessionId}});
     const projectActions=sessionId=>({
       openFiles:()=>ctx.sidebarRight.openTab('files',{params:{sessionId}}),
       openRun:runId=>{cameraSelections.set(sessionId,runId||'');window.dispatchEvent(new Event('linkmind:choose-run'));return ctx.sidebarRight.openTab('linkmind-camera',{params:{sessionId}});},
-      chooseDirectory:()=>ctx.uiWorkspace.pickDirectory(),
-      openWorkspace:async path=>{
-        const workspace=await ctx.workspaces.create({path});let target;
-        await ctx.uiWorkspace.openWorkspace(workspace.workspaceId,id=>{target=id;},{agentPreset:'linkmind-embodied'});
-        if(target)openProject(target);
-      },
-      copyInstruction:async(path,name,goal)=>{const association=goal?.objective_id?`\n关联已有项目目标“${goal.objective_title}”（objective_id: ${goal.objective_id}）${goal.work_id?`，工作 work_id: ${goal.work_id}`:''}。先读取最新 project_context，再使用其 project_revision 启动；保留已有目标。`:'';if(!await writeClipboard(t('prompt',{path,name})+association))throw new Error(t('copyFailed'));},
+      copyInstruction:async(path,name)=>{if(!await writeClipboard(t('prompt',{path,name})))throw new Error(t('copyFailed'));},
     });
     ctx.effect(()=>ctx.sidebarRightTabs.register({id:'linkmind-project',kind:'linkmind-project',title:()=>t('title'),
       guide:[{id:'linkmind-project',order:-30,title:()=>t('title'),description:()=>t('description')}]}),'LinkMind project tab');
     ctx.slots.inject('sidebar.right.pane.tab',()=>ctx.slots.register({name:'sidebar.right.pane.tab',key:'linkmind-project',locale:'linkmindProject',inject:projectActions},ProjectPanel));
-    for(const name of ['conversation.hero.options','conversation.session.header.utilities','sidebar.right.tab.files.actions']){
+    for(const name of ['sidebar.right.tab.files.actions']){
       ctx.slots.inject(name,()=>ctx.slots.register({name,id:'linkmind-project',order:-30,locale:'linkmindProject',inject:sessionId=>({open:()=>openProject(sessionId)})},ProjectButton));
+    }
+
+    ctx.slots.inject('conversation.hero.options',()=>ctx.slots.register({name:'conversation.hero.options',id:'linkmind-goal-hint',order:30,locale:'linkmindProject'},GoalHint));
+
+    ctx.effect(()=>ctx.sidebarRightTabs.register({id:'linkmind-tasks',kind:'linkmind-tasks',title:()=> tt('title'),
+      guide:[{id:'linkmind-tasks',order:-40,title:()=> tt('title'),description:()=> tt('hint')}]}),'LinkMind tasks');
+    ctx.slots.inject('sidebar.right.pane.tab',()=>ctx.slots.register({name:'sidebar.right.pane.tab',key:'linkmind-tasks',locale:'linkmindTasks',inject:sessionId=>({
+      openRun:projectActions(sessionId).openRun,
+      executeGoal:async line=>{const reply=await ctx.remote.commands.execute(sessionId,line,[]);if(!reply.ok)throw new Error(reply.error.message);const result=reply.value?.result;if(!result||result.kind==='error')throw new Error(result?.text||'无法执行目标指令');},
+    })},TaskPanel));
+    for(const name of ['conversation.hero.options','conversation.session.header.utilities']){
+      ctx.slots.inject(name,()=>ctx.slots.register({name,id:'linkmind-tasks',order:-40,locale:'linkmindTasks',inject:sessionId=>({open:()=>ctx.sidebarRight.openTab('linkmind-tasks',{params:{sessionId}})})},TaskButton));
     }
 
     ctx.effect(()=>ctx.sidebarRightTabs.register({id:'linkmind-camera',kind:'linkmind-camera',title:()=> '运行与摄像头',
