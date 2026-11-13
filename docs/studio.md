@@ -4,7 +4,7 @@ LinkMind adds **具身模式 · LinkMind** to the existing DSH mode menu. Use th
 
 Bundle `0.4.0` supports both built-in interactive simulation and [external project development](studio-projects.md): open a repository, prepare an environment, save a recipe, run its original program, modify it and compare raw records. **项目与配置** beside the native workspace/mode picker discovers saved configurations, opens files, edits launch JSON and runs the selected configuration. It can create a default Studio workspace or add an existing repository to DSH's workspace list. The normal conversation remains the primary interface. Experience browsing, saved corrections, long-term memory, RSI and automatic infrastructure selection are outside this version. Imported methods execute through their own CLI and policy; they are not replaced by the conversation agent.
 
-The independently installable project-workbench bundle is distributed at [dsh-linkmind-studio](https://github.com/zhanxch/dsh-linkmind-studio). It includes the local project service and needs no simulator for configuration browsing or the synthetic example. This checkout is still needed for the optional built-in LinkMind simulation route. Control/activity visualization is a separate experiment, not part of this release.
+The independently installable project-workbench bundle is distributed at [deepseek-harness-LinkMind](https://github.com/zhanxch/deepseek-harness-LinkMind). It includes the local project service and needs no simulator for configuration browsing or the synthetic example. This checkout is still needed for the optional built-in LinkMind simulation route. Control/activity visualization is a separate experiment, not part of this release.
 
 ## Installation
 
