@@ -9,7 +9,7 @@ from urllib.error import HTTPError
 import unittest
 
 from roborag.studio.project_book import ProjectBook
-from test_studio_workspace import WorkspaceHTTPTests
+import test_studio_workspace as http_fixture
 
 
 class BookTests(unittest.TestCase):
@@ -101,7 +101,11 @@ class BookTests(unittest.TestCase):
             self.change('update_objective',dict(id=goal,changes={'state':'ready'}),'agent')
 
 
-class ProjectHTTPTests(WorkspaceHTTPTests):
+class ProjectHTTPTests(unittest.TestCase):
+    setUp = http_fixture.WorkspaceHTTPTests.setUp
+    tearDown = http_fixture.WorkspaceHTTPTests.tearDown
+    post = http_fixture.WorkspaceHTTPTests.post
+
     def test_same_workspace_joins_context_and_historical_runs(self):
         root = self.post('/workspace/default', {})['path']
         first = self.post('/workspace/open', {'path':root,'session_id':'first'})
