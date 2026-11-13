@@ -1,12 +1,12 @@
 # LinkMind in DeepSeek Harness Desktop
 
-LinkMind adds **具身模式 · LinkMind** to the existing DSH mode menu. Use the normal DSH conversation to describe a goal, watch streamed responses and tool calls, and send guidance while the agent works. The **摄像头** button opens a camera tab in DSH’s existing right sidebar. There is no additional chat application or agent loop.
+LinkMind adds **具身模式 · LinkMind** to the existing DSH mode menu. Use the normal DSH conversation to describe a goal, watch streamed responses and tool calls, and send guidance while the agent works. The **运行与摄像头** button opens a camera tab in DSH’s existing right sidebar. There is no additional chat application or agent loop.
 
-This version focuses on the basic collaboration loop: conversation → robot tools → live images → user guidance. Experience browsing, saved corrections, long-term memory, RSI and automatic infrastructure selection are outside this version. The underlying research implementations remain available through their existing CLI interfaces.
+Bundle `0.3.0` supports both built-in interactive simulation and [external project development](studio-projects.md): open a repository, prepare an environment, save a recipe, run its original program, modify it and compare raw records. The normal conversation remains the primary interface. Experience browsing, saved corrections, long-term memory, RSI and automatic infrastructure selection are outside this version. Imported methods execute through their own CLI and policy; they are not replaced by the conversation agent.
 
 ## Installation
 
-Use [DSH Linux Desktop](https://github.com/zhanxch/dsh-linux), based on official DSH `0.2.2-rc.2`. The LinkMind bundle is pinned to that host version. Install Node.js 24.9+ with npm and prepare the simulation checkout using [reproduction.md](reproduction.md): the assets, HexaShell checkout and ignored `local.runtime.json` must point to working simulation and policy interpreters. Install `experiments/rag-mcp-requirements.txt` into `.runtime/mcp` using the configured policy Python (3.11+).
+Use [DSH Linux Desktop](https://github.com/zhanxch/dsh-linux), based on official DSH `0.2.2-rc.2`. The LinkMind bundle is pinned to that host version. Install Node.js 24.9+ with npm and Python 3.11+. Install `experiments/rag-mcp-requirements.txt` into `.runtime/mcp` using that Python. This is enough for the Studio service and the [integration example](studio-projects.md#try-the-workflow-without-a-simulator); external projects prepare their own environments. To use the built-in simulation, also follow [reproduction.md](reproduction.md): assets, the HexaShell checkout and ignored `local.runtime.json` must point to working simulation and policy interpreters. The plugin's `python` setting can select the service interpreter; otherwise it uses `local.runtime.json` or `python3`.
 
 Open DSH Desktop once to initialize its profile, then fully quit it. From the LinkMind repository root:
 
@@ -22,7 +22,7 @@ Reopen **DeepSeek Harness** from the application menu. Select **具身模式 · 
 
 1. Select a model using DSH’s usual model menu. The desktop plugin uses the existing provider and login. Describe a task and request execution, for example: “启动一个 Push-T 仿真，使用最简配置。先观察场景，告诉我准备怎么做。”
 2. Read streamed responses and native tool calls in the conversation. LinkMind exposes task creation, episode startup, context, available robot tools, robot calls, finish and stop through MCP. Task-specific observation, measurement and bounded action tools retain their native schemas and image results.
-3. Click **摄像头** in the conversation header. Switch between head, left wrist and right wrist images. The panel follows this conversation’s latest attempt, shows the control step and frame age, and keeps the last frame when a connection drops.
+3. Click **运行与摄像头** in the conversation header. Switch between head, left wrist and right wrist images. The panel follows this conversation’s latest attempt or a selected earlier run, shows the control step and frame age, and keeps the last frame when a connection drops.
 4. During execution, type in the same composer. Use DSH’s **插话发送** control for guidance at the next agent step. With the default **排队发送** setting, Enter queues a later message and Ctrl/Cmd+Enter uses the alternate sending behavior; queued messages also offer **插话发送**. These behaviors follow DSH’s own busy-send setting. LinkMind does not replace these controls. An already dispatched action segment finishes before new guidance can affect subsequent actions.
 5. Click **停止仿真** to end the simulation. Cancelling model generation alone does not terminate a simulator. The camera stop control is an explicit process stop, not physical pause/resume or a hardware emergency stop.
 
@@ -70,11 +70,19 @@ In an isolated DSH profile, a real conversation streamed assistant progress and 
 
 The rendered interaction checks used the same client in the authenticated local Web preview. The installed Electron window itself was not driven by UI automation; its actual host/protocol and simulation lifecycle were verified separately. These are development checks, not new benchmark results.
 
+## Project workflow verification — 0.3.0
+
+The final pass ran 40 checks (28 Python and 12 Node), including real project subprocesses, incremental logs, source changes, original result comparison, repeat-request receipts, missing prerequisites, output path containment, detached child cleanup, timeout and owner loss. Reinstalling preserves the optional Codex setting and existing runtime options.
+
+A real Codex conversation in the authenticated preview read an integration repository, created a Git branch, edited its launch recipe through native DSH tools and launched the original program. Changing synthetic frames, streamed logs, historical selection and the stop button were inspected in light/dark themes and 1280/900-pixel windows. The first modification attempt used a host `/tmp` directory hidden from the native shell's isolated temporary mount; it was retained, then repeated successfully inside the selected workspace. The Codex adapter now distinguishes its transport-only local sandbox from DSH's host tool permissions.
+
+The installed `0.3.0` bundle was separately checked through the actual `dsh-app` authenticated protocol: a new project run streamed states, produced three distinct images and returned its original eight-frame JSON result. Credentials remained byte-identical and the Codex provider stayed available after restart. No Electron-window UI automation or third-party policy benchmark reproduction is claimed.
+
 ## Source
 
 - `studio/install-desktop.mjs`: DSH bundle installation and profile preservation.
 - `studio/plugin/desktop-host.mjs`, `runtime.mjs`: plugin configuration, service lifetime and mode registration.
-- `studio/plugin/client.js`: camera header button and native sidebar tab only.
+- `studio/plugin/client.js`: run header button and native sidebar for cameras, logs and results.
 - `studio/plugin/preset.mjs`, `session.mjs`: embodied mode and conversation ownership.
 - `src/roborag/studio/`: episode service, camera publication and MCP bridge.
 

@@ -4,6 +4,7 @@ import {access, copyFile, mkdir, readFile, readdir, realpath, rename, writeFile}
 import {homedir} from 'node:os';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
+import {configureDesktop} from './install-config.mjs';
 
 const here=path.dirname(fileURLToPath(import.meta.url)), root=path.dirname(here);
 const args=process.argv.slice(2);
@@ -56,8 +57,7 @@ const packed=JSON.parse(await run('npm',['pack','--json','--ignore-scripts','--p
 await run(dsh,['plugin','--profile',profile,'add',path.join(bundles,packed[0].filename),'--ignore-scripts']);
 const target=path.join(directory,'cordis.patch.yml');
 let patch='';try{patch=await readFile(target,'utf8');}catch(error){if(error.code!=='ENOENT')throw error;}
-patch=patch.replace(/\n?# BEGIN LinkMind desktop configuration\n[\s\S]*?# END LinkMind desktop configuration\n?/g,'');
-patch+='\n# BEGIN LinkMind desktop configuration\n- id: linkmind-studio\n  config:\n    root: '+JSON.stringify(root)+'\n# END LinkMind desktop configuration\n';
+patch=configureDesktop(patch,root);
 await writeFile(target+'.linkmind-tmp',patch,{mode:0o600});await rename(target+'.linkmind-tmp',target);
 console.log('LinkMind installed. Reopen DeepSeek Harness and select 具身模式 · LinkMind.');
 console.log('Profile backup: '+backup);

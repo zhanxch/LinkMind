@@ -26,7 +26,10 @@ def request(path, data=None):
 
 def create_server(*, basic=False):
     server = MCPServer("LinkMind Studio", instructions=(
-        "LinkMind runs embodied simulation tasks from the user's conversational goal and constraints. "
+        "LinkMind Studio supports external repositories through open_project, inspect_project and run_project. "
+        "Use the project tools for reproducing or modifying an existing open-source implementation. "
+        "The conversation model helps develop the project; the project recipe owns its actual policy/model. "
+        "The built-in interactive LinkMind simulation is a separate route: "
         "Use studio_catalog and create_task, then start_episode when the user requested execution. "
         "Operate only the run_id returned by that start. Never select a newer run implicitly. "
         "First read task_context, then episode_tools, then follow the returned native episode instructions and JSON schemas. "
@@ -37,6 +40,58 @@ def create_server(*, basic=False):
         "Use finish_episode when done, then read task_context to inspect the actual native result. "
         "A chat cancellation is not a robot stop: use the Studio Stop button to end execution."))
     readonly = ToolAnnotations(readOnlyHint=True, openWorldHint=False)
+
+    @server.tool()
+    def open_project(path: str) -> dict:
+        """Register a local open-source repository in this conversation. Does not install or execute it.
+
+        For a URL first use DSH's normal shell/Git tools to clone into the workspace.
+        Read its README and dependency files using native file tools. Keep the original
+        revision and make edits on a separate branch/checkout. Save launch recipes in
+        linkmind.studio.json using the native file editor, so edits remain reviewable.
+        Schema: {"version":1,"recipes":{"baseline":{"argv":["python","run.py","--output","{output}"],
+        "cwd":".","env":{},"checks":[{"kind":"path","value":"weights/model.pt","label":"Weights"}],
+        "timeout_seconds":5400,"result":"result.json","cameras":{"head":"live/head.png"},
+        "metadata":{"method":"upstream","model":"project-owned","task":"...","seed":1}}}}
+        argv is an argument array. {project}/{output} expand to absolute paths; output
+        is new per run. Cameras and result are relative to output. Omit unsupported
+        outputs. Do not put credentials in recipes or silently substitute the chat model.
+        """
+        return request('/api/projects/open', dict(path=path))
+
+    @server.tool(annotations=readonly)
+    def inspect_project(project_id: str) -> dict:
+        """Read saved recipes, code revision and dependency path checks. Readiness is not a completed reproduction."""
+        return request(f'/api/projects/{project_id}/inspect')
+
+    @server.tool()
+    def run_project(project_id: str, recipe: str, request_id: str) -> dict:
+        """Start a user-requested saved recipe using the project's original program, not the chat agent's control loop.
+        Saves source revision/diff and exact configuration in a new output directory.
+        Use a new request_id for each intended run; reuse it after an uncertain response to get the same receipt.
+        Observe it in the existing run/camera sidebar. Do not rerun a failure silently.
+        """
+        return request(f'/api/projects/{project_id}/start', dict(recipe=recipe, request_id=request_id))
+
+    @server.tool(annotations=readonly)
+    def follow_project_run(run_id: str, offset: int = 0, wait_seconds: Annotated[int, Field(ge=0, le=5)] = 0) -> dict:
+        """Read actual process state, incremental log and original result. Pass next_offset on subsequent calls.
+        The program continues independently between conversation turns; avoid repeatedly polling an unchanged run.
+        No steering is injected into the external policy by this read operation.
+        """
+        return request(f'/api/project-runs/{run_id}/follow', dict(offset=offset, wait_seconds=wait_seconds))
+
+    @server.tool()
+    def stop_project_run(run_id: str) -> dict:
+        """Stop this project run and its owned child processes, retaining logs and incomplete results."""
+        return request(f'/api/runs/{run_id}/stop', {})
+
+    @server.tool(annotations=readonly)
+    def compare_project_runs(left_run_id: str, right_run_id: str) -> dict:
+        """Return two original run records/results and changed configuration fields. Check task/scene/model/budget comparability.
+        Process exit 0 is not benchmark success. Do not merge human-assisted or incomplete runs into unassisted scores.
+        """
+        return request('/api/projects/compare', dict(run_ids=[left_run_id, right_run_id]))
 
     @server.tool(annotations=readonly)
     def studio_catalog() -> dict:

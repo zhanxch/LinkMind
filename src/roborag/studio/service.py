@@ -22,6 +22,7 @@ import uuid
 
 from roborag.episode_files import write_json
 from .external_agent import process_identity
+from .projects import Projects
 
 ROOT = Path(__file__).resolve().parents[3]
 ID = re.compile(r"^[a-zA-Z0-9_-]{1,80}$")
@@ -68,6 +69,7 @@ class Studio:
         self.manifest = read(self.root / "resources/task-bundles.json")["tasks"]
         self.lock = threading.RLock()
         self.call_lock = threading.Lock()
+        self.projects = Projects(self.state, os.environ.get("PYTHONPATH", str(self.root / "src")))
         self.active = None
         self.process = None
         self.log = None
@@ -85,6 +87,7 @@ class Studio:
                 write_json(p, run)
 
     def close(self):
+        self.projects.close()
         if self.active:
             self.stop(self.active)
         self.lease.close()
@@ -203,7 +206,7 @@ class Studio:
     def start(self, task_id):
         with self.lock:
             self.refresh()
-            if self.active or any(process_identity(r["pid"]) == r["pid_identity"] for r in self.orphans):
+            if self.projects.busy() or self.active or any(process_identity(r["pid"]) == r["pid_identity"] for r in self.orphans):
                 raise ValueError("The simulator is occupied; wait for the current process to end")
             task = self.task(task_id)
             check = self.preflight(task)
@@ -235,6 +238,8 @@ class Studio:
             return self.update(run_id, pid=self.process.pid, pid_identity=process_identity(self.process.pid))
 
     def stop(self, run_id):
+        if self.projects.exists(run_id):
+            return self.projects.stop(run_id)
         with self.lock:
             self.refresh()
             if self.active != run_id:
@@ -386,6 +391,7 @@ class Studio:
             run["observation"] = read(output / "obs/state.json")
             run["progress"] = read(output / "progress.json")
             runs.append(run)
+        runs.extend(self.projects.list_runs())
         return dict(tasks=tasks, runs=sorted(runs, key=lambda r:r["created_at"], reverse=True), active=self.active,
                     catalog=[dict(id=k, title=TITLES[k], profiles=["baseline", "none"] if k=="push_T" else ["baseline"])
                              for k in self.manifest], preflight=self.preflight(),
@@ -393,6 +399,8 @@ class Studio:
 
     def live_run(self, run_id):
         """Read only published observations and the real final report, never simulator internals."""
+        if self.projects.exists(run_id):
+            return self.projects.live(run_id)
         self.refresh()
         run = self.run(run_id)
         output = self.output(run_id)
@@ -405,6 +413,8 @@ class Studio:
                 "camera_error": read(output / "live/error.json")}
 
     def asset(self, run_id, name):
+        if self.projects.exists(run_id):
+            return self.projects.asset(run_id, name)
         output = self.output(run_id)
         allowed = {f"{c}.png": output / f"obs/{c}.png" for c in ("head", "wrist_l", "wrist_r")}
         for camera in ("head", "wrist_l", "wrist_r"):
@@ -459,7 +469,7 @@ def serve(studio, port, token):
                     elif tick % 20 == 0:
                         self.wfile.write(b": keepalive\n\n")
                     self.wfile.flush()
-                    if value["status"] not in ("starting", "ready", "finishing", "stopping"):
+                    if value["status"] not in ("starting", "ready", "running", "finishing", "stopping"):
                         return
                     time.sleep(0.25)
                     value = studio.live_run(run_id)
@@ -483,6 +493,26 @@ def serve(studio, port, token):
                         raise ValueError("Expected a JSON object")
                 if self.command == "GET" and path == "/api/state":
                     value = studio.snapshot()
+                elif self.command == "POST" and path == "/api/projects/open":
+                    value = studio.projects.register(data["path"])
+                elif self.command == "POST" and path == "/api/projects/check":
+                    value = studio.projects.check(data["session_id"], data.get("project_id"), data.get("run_id"))
+                elif self.command == "POST" and path == "/api/projects/compare":
+                    value = studio.projects.compare(data["run_ids"])
+                elif len(parts) == 4 and parts[:2] == ["api", "projects"]:
+                    project_id, action = parts[2:]
+                    if self.command == "GET" and action == "inspect": value = studio.projects.inspect(project_id)
+                    elif self.command == "POST" and action == "bind-session": value = studio.projects.bind(project_id, data["session_id"])
+                    elif self.command == "POST" and action == "start":
+                        with studio.lock:
+                            studio.refresh()
+                            previous = studio.projects.receipt(project_id, data['recipe'], data['request_id'])
+                            if not previous and (studio.active or studio.projects.busy() or any(process_identity(r["pid"]) == r["pid_identity"] for r in studio.orphans)):
+                                raise ValueError("Another simulation/project is active; stop it before starting a new run")
+                            value = previous or studio.projects.start(project_id, data["recipe"], data['request_id'])
+                    else: raise ValueError("Unknown project operation")
+                elif self.command == "POST" and len(parts) == 4 and parts[:2] == ["api", "project-runs"] and parts[3] == "follow":
+                    value = studio.projects.follow(parts[2], data.get("offset", 0), data.get("wait_seconds", 0))
                 elif self.command == "GET" and len(parts) in (3, 4) and parts[:2] == ["api", "experience"]:
                     value = studio.experience(parts[2], parts[3] if len(parts) == 4 else None)
                 elif self.command == "POST" and path == "/api/session/check":

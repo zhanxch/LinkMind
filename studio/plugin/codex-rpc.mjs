@@ -104,7 +104,7 @@ export async function* codexStream(options, attachments, {cwd, rpcFactory = conf
     const {thread} = await rpc.request('thread/start', {
       model: options.model, ephemeral: true, cwd, environments: [], approvalPolicy: 'never', sandbox: 'read-only',
       baseInstructions: system || 'Follow the conversation and use only the tools declared by the host.',
-      developerInstructions: 'The host owns execution. Use the provided dynamic tools for every action. Explain progress concisely. Do not use undeclared tools.',
+      developerInstructions: 'The DSH host owns execution. The local Codex sandbox is read-only and local execution is disabled in this inference transport. Dynamic tools execute on the DSH host under its own workspace and approval policy; host write/edit tools are not made read-only by this transport setting. Use only the provided dynamic tools for every action, honor their permission checks and do not bypass a denied operation. Explain progress concisely.',
       config: threadConfig,
       dynamicTools: (options.tools || []).map(t => ({type: 'function', name: wireToolName(t.name), description: t.description, inputSchema: t.parameters})),
     });

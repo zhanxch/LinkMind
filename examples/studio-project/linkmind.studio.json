@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "recipes": {
+    "smoke": {
+      "argv": ["python3", "run.py", "--steps", "8"],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "result": "result.json",
+      "cameras": {"preview": "frame.png"},
+      "metadata": {"method": "Studio integration check", "model": "none", "benchmark": false}
+    }
+  }
+}

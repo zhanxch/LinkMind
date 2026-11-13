@@ -17,7 +17,7 @@ export async function startStudio(config) {
   const token = randomBytes(32).toString('hex');
   const connectionFile = path.join(state, 'desktop-connection.json');
   const pythonPath = [path.join(root, 'src'), path.join(root, '.runtime/mcp')].join(path.delimiter);
-  const env = {...process.env, PYTHONPATH: pythonPath, LINKMIND_STUDIO_TOKEN: token};
+  const env = {...process.env, PYTHONPATH: pythonPath, LINKMIND_INHERITED_PYTHONPATH: process.env.PYTHONPATH || '', LINKMIND_STUDIO_TOKEN: token};
   const identity = (await readFile(`/proc/${process.pid}/stat`, 'utf8')).split(') ').at(-1).split(' ')[19];
   const log = await open(path.join(state, 'service.log'), 'a', 0o600);
   const child = spawn(python, ['-m', 'roborag.studio.service', '--state', state,

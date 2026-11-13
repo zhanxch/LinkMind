@@ -35,10 +35,20 @@ export async function apply(ctx, config = {}) {
     if (['start_episode','remember_requirement','robot_call','finish_episode','stop_episode'].includes(operation)) {
       await post('/api/session/check', {session_id:sessionId, task_id:args.task_id, run_id:args.run_id});
     }
+    if (['inspect_project','run_project','follow_project_run','stop_project_run'].includes(operation)) {
+      await post('/api/projects/check', {session_id:sessionId, project_id:args.project_id, run_id:args.run_id});
+    }
+    if (operation === 'compare_project_runs') {
+      for (const run_id of [args.left_run_id,args.right_run_id]) await post('/api/projects/check', {session_id:sessionId,run_id});
+    }
     const result = await next();
     if (operation === 'create_task') {
       const task = taskFromResult(result);
       if (task) await post(`/api/tasks/${encodeURIComponent(task.id)}/bind-session`, {session_id:sessionId});
+    }
+    if (operation === 'open_project') {
+      const project = taskFromResult(result);
+      if (project) await post(`/api/projects/${encodeURIComponent(project.id)}/bind-session`, {session_id:sessionId});
     }
     return result;
   });

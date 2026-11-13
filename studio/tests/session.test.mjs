@@ -37,3 +37,21 @@ test('dispatch checks host conversation identity before allowing execution',asyn
     }
   }
 });
+
+test('project dispatch binds registration and checks both comparison runs against the native conversation',async()=>{
+  const original=globalThis.fetch;
+  const calls=[];let handler;
+  globalThis.fetch=async(url,options)=>{
+    const body=JSON.parse(options.body);calls.push({path:url.pathname,...body});
+    return {ok:body.run_id!=='other-chat',json:async()=>({error:'This conversation does not own that project'})};
+  };
+  try{
+    await apply({get:()=>({url:'http://127.0.0.1:9999',token:'test'}),on:(_,fn)=>handler=fn});
+    await handler({name:'mcp__linkmind__open_project',agent:{id:'native-chat'},arguments:{}},async()=>({value:{structuredContent:{id:'project1'}}}));
+    assert.deepEqual(calls.pop(),{path:'/api/projects/project1/bind-session',session_id:'native-chat'});
+    let dispatched=false;
+    await assert.rejects(handler({name:'mcp__linkmind__compare_project_runs',agent:{id:'native-chat'},arguments:{left_run_id:'mine',right_run_id:'other-chat',session_id:'forged'}},async()=>{dispatched=true;}),/does not own/);
+    assert.equal(dispatched,false);
+    assert.deepEqual(calls.map(x=>[x.session_id,x.run_id]),[['native-chat','mine'],['native-chat','other-chat']]);
+  }finally{globalThis.fetch=original;}
+});

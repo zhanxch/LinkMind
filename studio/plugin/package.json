@@ -1,6 +1,6 @@
 {
   "name": "@linkmind/dsh-studio",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "type": "module",
   "license": "MIT",
   "engines": {
@@ -29,7 +29,7 @@
       ]
     }
   },
-  "description": "LinkMind：DSH 原生会话中的具身工具与实时摄像头",
+  "description": "LinkMind：DSH 原生会话中的具身项目开发、运行与实时摄像头",
   "files": [
     "*.mjs",
     "client.js",
