@@ -60,6 +60,9 @@ def main():
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--model", default="gpt-6-astra")
     parser.add_argument("--effort", default="medium")
+    parser.add_argument("--agent-backend", choices=["cli", "dsh"], default="cli")
+    parser.add_argument("--studio-owner-pid", type=int)
+    parser.add_argument("--studio-owner-identity")
     parser.add_argument("--max-wall-seconds", type=float, default=5400)
     add_budget_argument(parser)
     parser.add_argument("--no-rag", action="store_true")
@@ -67,6 +70,9 @@ def main():
     from .push_simplification import PROFILES, validate_profile, prompt_for_profile, workflow_for_profile, FIXED_PACKAGE
     parser.add_argument("--push-simplification", choices=PROFILES, default="baseline")
     args = parser.parse_args()
+    if args.agent_backend == "dsh":
+        from .studio.external_agent import watch_owner
+        watch_owner(args.studio_owner_pid, args.studio_owner_identity)
     validate_profile(args.push_simplification, args.task, args.controller, args.no_rag)
     if args.bank is None:
         args.bank = default_bank(ROOT, args.task)
@@ -99,6 +105,8 @@ def main():
         "--enable_cameras", "--headless",
         "--kit_args=--enable isaacsim.replicator.behavior --enable isaacsim.sensors.camera --/app/hangDetector/enabled=false --/app/updateOrder/checkForHydraRenderComplete=1000 --/app/renderer/waitIdle=true --/app/hydraEngine/waitIdle=true"]
     sim_command += budget_arguments(args.control_step_limit)
+    if args.agent_backend == "dsh":
+        sim_command += ["--live-camera-fps", "4"]
     with socket.socket() as sock:
         sock.bind(("127.0.0.1", 0))
         port = sock.getsockname()[1]
@@ -115,6 +123,10 @@ def main():
     paths += [ROOT / "src/roborag" / name for name in ("episode_budget.py", "scene_registration.py", "scene_transfer.py")]
     paths += [Path(__file__).resolve(), *evidence_source_paths(args.bank.resolve())]
     paths += [ROOT / "src/roborag/push_simplification.py"]
+    if args.agent_backend == "dsh":
+        paths += sorted((ROOT / "src/roborag/studio").glob("*.py"))
+        paths += [ROOT / "studio/package-lock.json", ROOT / "studio/launch.mjs", ROOT / "studio/preset.mjs"]
+        paths += sorted((ROOT / "studio/plugin").glob("*.*"))
     if args.push_simplification == "fixed":
         paths += [FIXED_PACKAGE]
     paths += sorted((hexa / "tasks/fold_clothes/tools/cloth_view").glob("*.py"))
@@ -166,9 +178,14 @@ def main():
                 time.sleep(.1)
         else:
             raise TimeoutError("MCP server startup")
-        agent = run_agent(workspace, output, prompt, model=args.model, effort=args.effort,
-            timeout=args.max_wall_seconds-(time.monotonic()-started),
-            python_packages=ROOT / "data/hexashell-agent-python", mcp_url=f"http://127.0.0.1:{port}/mcp")
+        if args.agent_backend == "dsh":
+            from .studio.external_agent import wait_for_external_agent
+            agent = wait_for_external_agent(workspace, output, prompt, f"http://127.0.0.1:{port}/mcp", sim,
+                args.max_wall_seconds-(time.monotonic()-started))
+        else:
+            agent = run_agent(workspace, output, prompt, model=args.model, effort=args.effort,
+                timeout=args.max_wall_seconds-(time.monotonic()-started),
+                python_packages=ROOT / "data/hexashell-agent-python", mcp_url=f"http://127.0.0.1:{port}/mcp")
         if not json.loads((workspace / "obs/state.json").read_text())["episode_over"]:
             save(workspace / "inbox/99999999999999999999-agent-exit.json", {"finish": "agent_exit"})
         if sim.wait(timeout=120):

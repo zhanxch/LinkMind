@@ -8,7 +8,19 @@ LinkMind studies this question in robotics through **Embodied Infrastructure Hal
 
 > **What support should an embodied agent retain, revise or remove as models and task requirements evolve?**
 
-[Method](docs/method.md) · [Installation and running](docs/reproduction.md) · [Paper main table](docs/main-table.md) · [Native evidence](docs/local-results.md) · [Release provenance](docs/release.md)
+[Desktop Studio](docs/studio.md) · [Run and modify projects](docs/studio-projects.md) · [Method](docs/method.md) · [Installation and running](docs/reproduction.md) · [Paper main table](docs/main-table.md) · [Native evidence](docs/local-results.md) · [Release provenance](docs/release.md)
+
+## Try the desktop Studio
+
+**LinkMind is an embodied mode inside DeepSeek Harness.** Use DSH's normal conversation to describe a task, see streamed responses and tool calls, and send guidance during execution. Open **运行与摄像头** beside the conversation for logs, run history, results and live images. The existing model selector and message controls remain DSH's own.
+
+Install [DSH Linux Desktop](https://github.com/zhanxch/dsh-linux), prepare the [Studio dependencies](docs/studio.md#installation), then fully quit DSH and run from this repository:
+
+```bash
+node studio/install-desktop.mjs
+```
+
+Reopen DeepSeek Harness and select **具身模式 · LinkMind**. Bundle `0.3.0` also opens external repositories, saves their original launch recipes, and supports editing and comparing runs through DSH's native development tools. [Try the eight-second integration example](docs/studio-projects.md#try-the-workflow-without-a-simulator) without a simulator. External programs keep their own policy/model; chat steering applies to the built-in interactive simulation. Experience panels, long-term memory, RSI and automatic support gating are outside this version. Published benchmark scores retain their original frozen implementation/protocol provenance.
 
 ## Key ideas
 
@@ -18,7 +30,7 @@ A tool, skill or harness that helps one model may contribute less after a model 
 
 ### LinkMind Studio
 
-The studio brings **robot tools, reusable skills and execution feedback** into the coding agent's working environment through **Model Context Protocol (MCP)**. Explicit interfaces expose live RGB and robot state, declare control conventions and accept bounded action chunks. The agent owns the current plan: it chooses objectives, writes actions and revises its decisions after inspecting execution receipts and fresh observations.
+The studio brings **robot tools, historical experience and execution feedback** into the coding agent's working environment through **Model Context Protocol (MCP)**. Explicit interfaces expose live RGB and robot state, declare control conventions and accept bounded action chunks. The agent owns the current plan: it chooses objectives, writes actions and revises its decisions after inspecting execution receipts and fresh observations.
 
 ### Interaction Experience Harness
 

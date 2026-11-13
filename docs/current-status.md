@@ -1,3 +1,20 @@
+# Studio project workflow — 2026-11-13
+
+Bundle `0.3.0` adds [external project workflows](studio-projects.md) to the native DSH embodied mode: repository inspection, native file/shell development tools, saved launch recipes, original-program execution, incremental logs, declared camera outputs and raw run comparison. The workbench assistant and tested policy/model are separate. Built-in interactive simulation and conversational steering remain available; external-policy steering requires an explicit project interface.
+
+Validation: 40 targeted checks; a real Codex conversation read, branched, edited and launched an integration project; the sidebar's log, camera, stop and history controls were checked in light/dark and wide/narrow layouts. The installed desktop protocol separately completed the eight-frame example and preserved login bytes and the Codex setting. This verifies Studio integration, not reproduction of XPolicyLab, HexaShell or LinkMind benchmark scores. See [verification details](studio.md#project-workflow-verification--030).
+
+---
+
+# Studio desktop development — 2026-11-12
+
+[LinkMind Studio](studio.md) installs as an embodied mode in DSH Linux Desktop, based on official DSH `0.2.2-rc.2`. Bundle `0.2.3` reuses the native conversation, streaming and **插话发送**, with a right-sidebar camera tab. The basic mode exposes eight episode tools. Experience panels, saved-correction UI, RSI and automatic support gating are outside this version.
+
+The final pass ran 31 targeted Node/Python checks. A real conversation in the authenticated development preview accepted a mid-turn change to observation only and finished at control step 0. Three camera views, stop, light/dark themes and wide/narrow layouts were inspected. The installed desktop protocol separately passed real simulation startup, streamed states, all three PNG views and stop; the Electron window itself was not UI-automated. The application starts its service and preserves account bytes.
+
+Earlier native action compatibility checks and a real 24-step Push-T hold verified camera updates during execution. A malformed hold was rejected before motion. All attempts are retained as development evidence, not benchmark scores. Frozen experimental worktrees, source reports and the published paper main table remain unchanged.
+---
+
 # Public release status — 2026-11-11
 
 Unified LinkMind snapshot: completed-task integration `7d6294c` plus optional Push-T simplification `cd86be4`. All 12 registered task banks are packaged with checksums and a common launcher. Default evaluated task contracts remain intact; the unified release has not undergone a new complete native evaluation.
