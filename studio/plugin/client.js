@@ -55,7 +55,7 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
     const project=context?.project, goals=project?.objectives||[], goal=goals.find(g=>g.id===selected);
     const work=(project?.work||[]).filter(w=>w.objective_id===selected), records=(project?.records||[]).filter(r=>!r.objective_id||r.objective_id===selected);
     React.useEffect(()=>{if(project&&!selected&&goals.length)setSelected(goals.find(g=>g.state!=='closed')?.id||goals.at(-1).id);},[project,selected]);
-    React.useEffect(()=>{onSelection(goal?{objective_id:goal.id,project_revision:project.revision,work_id:work.some(w=>w.id===workId&&!['done','cancelled'].includes(w.state))?workId:'',locked:['closed','paused'].includes(goal.state)}:{loading:!context});},[project,selected,workId]);
+    React.useEffect(()=>{onSelection(goal?{objective_id:goal.id,objective_title:goal.title,editing:!!editor,project_revision:project.revision,work_id:work.some(w=>w.id===workId&&!['done','cancelled'].includes(w.state))?workId:'',locked:['closed','paused'].includes(goal.state)}:{loading:!context,editing:!!editor});},[project,selected,workId,editor]);
     const open=(operation,data)=>{setEditor({operation,data:structuredClone(data),revision:project.revision});setError('');};
     const mutate=async(operation,data,revision=project.revision)=>{
       setSaving(true);setError('');
@@ -212,9 +212,10 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
           Object.keys(recipe.metadata||{}).length>0&&h('details',null,h('summary',null,t('metadata')),h('pre',{style:preStyle},JSON.stringify(recipe.metadata,null,2))),
           h('div',null,h('span',null,t('checks')),h('p',{style:{...muted,margin:'8px 0'}},!check?.checks?.length?t('unchecked'):check.ready?t('ready'):t('missing')),
             ...((check?.checks)||[]).map((c,i)=>h('div',{key:i,style:{...muted,overflowWrap:'anywhere'}},(c.ready?'✓ ':'— ')+c.label))),
+          goalContext.editing&&h('p',{style:muted},'先保存或放弃项目草稿，再运行或复制启动指令'),
           goalContext.locked&&h('p',{style:muted},'当前项目目标已暂停或结项，继续目标或新建目标后再运行'),
-          h('div',{style:actions},h(Button,{size:'sm',disabled:locked||!!draft||!!info.configuration.error||!check?.ready||goalContext.locked||goalContext.loading,onClick:start},busy==='start'?t('starting'):t('run')),
-            h(Button,{size:'sm',variant:'outline',disabled:!!draft,onClick:()=>perform('copy',async()=>{await copyInstruction(cwd,selected);setNotice(t('copied'));})},t('copy')))),
+          h('div',{style:actions},h(Button,{size:'sm',disabled:locked||!!draft||!!info.configuration.error||!check?.ready||goalContext.locked||goalContext.loading||goalContext.editing,onClick:start},busy==='start'?t('starting'):t('run')),
+            h(Button,{size:'sm',variant:'outline',disabled:!!draft||goalContext.editing||goalContext.locked||goalContext.loading,onClick:()=>perform('copy',async()=>{await copyInstruction(cwd,selected,goalContext);setNotice(t('copied'));})},t('copy')))),
         h('p',{style:{...muted,margin:0}},t('hint'))));
   }
 
@@ -327,14 +328,14 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
     const openProject=sessionId=>ctx.sidebarRight.openTab('linkmind-project',{params:{sessionId}});
     const projectActions=sessionId=>({
       openFiles:()=>ctx.sidebarRight.openTab('files',{params:{sessionId}}),
-      openRun:runId=>{cameraSelections.set(sessionId,runId||'');return ctx.sidebarRight.openTab('linkmind-camera',{params:{sessionId}});},
+      openRun:runId=>{cameraSelections.set(sessionId,runId||'');window.dispatchEvent(new Event('linkmind:choose-run'));return ctx.sidebarRight.openTab('linkmind-camera',{params:{sessionId}});},
       chooseDirectory:()=>ctx.uiWorkspace.pickDirectory(),
       openWorkspace:async path=>{
         const workspace=await ctx.workspaces.create({path});let target;
         await ctx.uiWorkspace.openWorkspace(workspace.workspaceId,id=>{target=id;},{agentPreset:'linkmind-embodied'});
         if(target)openProject(target);
       },
-      copyInstruction:async(path,name)=>{if(!await writeClipboard(t('prompt',{path,name})))throw new Error(t('copyFailed'));},
+      copyInstruction:async(path,name,goal)=>{const association=goal?.objective_id?`\n关联已有项目目标“${goal.objective_title}”（objective_id: ${goal.objective_id}）${goal.work_id?`，工作 work_id: ${goal.work_id}`:''}。先读取最新 project_context，再使用其 project_revision 启动；保留已有目标。`:'';if(!await writeClipboard(t('prompt',{path,name})+association))throw new Error(t('copyFailed'));},
     });
     ctx.effect(()=>ctx.sidebarRightTabs.register({id:'linkmind-project',kind:'linkmind-project',title:()=>t('title'),
       guide:[{id:'linkmind-project',order:-30,title:()=>t('title'),description:()=>t('description')}]}),'LinkMind project tab');
