@@ -155,3 +155,9 @@ Only one conversation owns execution. Transfer refuses while the previous conver
 Managed runs automatically associate with the current active shared task; explicit legacy associations still work. Original recipes and results remain the source for experimental claims. The panel links the run to its camera and logs.
 
 Task data persists in `project-book.sqlite3`; DSH owns durable conversation/Goal history. Host exit stops execution and rearming is explicit after restart. There is no cross-device synchronization or background daemon. The old 0.5.0 project forms are removed, but their historical records, evidence and revisions remain queryable; they are not silently converted into native Goals. Back up the plugin state while DSH is stopped.
+
+## 控制会话与项目目录
+
+工作台上方可查看控制 Agent 的原始消息、工具调用和返回值，并排显示最新摄像头快照。HexaShell 的 Codex JSONL 可自动识别；其他 API 方案可接入[控制会话事件协议](studio-control-conversation.md)。普通 stdout 仅作为诊断日志。
+
+左侧项目根节点对应 DSH 工作区，子文件夹整理独立会话。右键任意项目或分类即可在该工作区新建会话，分类不改变运行目录。配置和任务仍属于原工作区，不与会话文件夹自动绑定。

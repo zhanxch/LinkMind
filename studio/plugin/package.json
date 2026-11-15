@@ -1,6 +1,6 @@
 {
   "name": "@linkmind/dsh-studio",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "module",
   "license": "MIT",
   "engines": {
@@ -38,12 +38,23 @@
     "backend",
     "examples",
     "cordis.patch.yml",
-    "LICENSE"
+    "LICENSE",
+    "requirements.txt",
+    "install-desktop.mjs",
+    "SOURCE.json"
   ],
   "peerDependencies": {
     "@deepseek-ai/schemastery": "3.19.0",
     "@deepseek-ai/dsh-mcp-client": "0.2.2-rc.2",
     "@deepseek-ai/dsh-llm": "0.2.2-rc.2",
     "@deepseek-ai/dsh-command-goal": "0.2.2-rc.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhanxch/deepseek-harness-LinkMind.git"
+  },
+  "homepage": "https://github.com/zhanxch/deepseek-harness-LinkMind#readme",
+  "bugs": {
+    "url": "https://github.com/zhanxch/deepseek-harness-LinkMind/issues"
   }
 }

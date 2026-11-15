@@ -24,6 +24,7 @@ from roborag.episode_files import write_json
 from .external_agent import process_identity
 from .projects import Projects, beneath
 from .project_book import ProjectBook, TEMPLATES, find
+from .conversation_library import ConversationLibrary
 
 ROOT = Path(__file__).resolve().parents[3]
 ID = re.compile(r"^[a-zA-Z0-9_-]{1,80}$")
@@ -73,6 +74,7 @@ class Studio:
         self.call_lock = threading.Lock()
         self.projects = Projects(self.state, os.environ.get("PYTHONPATH", str(self.root / "src")))
         self.book = ProjectBook(self.state)
+        self.library = ConversationLibrary(self.state)
         self.active = None
         self.process = None
         self.log = None
@@ -581,7 +583,11 @@ def serve(studio, port, token):
                     data = json.loads(self.rfile.read(length))
                     if not isinstance(data, dict):
                         raise ValueError("Expected a JSON object")
-                if self.command == "GET" and path == "/api/state":
+                if self.command == "GET" and path == "/api/library":
+                    value = studio.library.snapshot()
+                elif self.command == "POST" and path == "/api/library":
+                    value = studio.library.change(data)
+                elif self.command == "GET" and path == "/api/state":
                     value = studio.snapshot()
                 elif self.command == "POST" and path == "/api/workspace/default":
                     with studio.lock:
@@ -643,6 +649,8 @@ def serve(studio, port, token):
                                 context = studio.project_run_context(project_id, data)
                                 value = studio.projects.start(project_id, data["recipe"], data['request_id'], context=context)
                     else: raise ValueError("Unknown project operation")
+                elif self.command == "POST" and len(parts) == 4 and parts[:2] == ["api", "project-runs"] and parts[3] == "conversation":
+                    value = studio.projects.conversation(parts[2], data.get("offset", 0), data.get("source"))
                 elif self.command == "POST" and len(parts) == 4 and parts[:2] == ["api", "project-runs"] and parts[3] == "follow":
                     value = studio.projects.follow(parts[2], data.get("offset", 0), data.get("wait_seconds", 0))
                 elif self.command == "GET" and len(parts) in (3, 4) and parts[:2] == ["api", "experience"]:

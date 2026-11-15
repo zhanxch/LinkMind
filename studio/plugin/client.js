@@ -1,7 +1,8 @@
 // DSH owns the conversation, streaming and steering. This is its native side pane.
 window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
   const React=require('react'), h=React.createElement;
-  const {Button,writeClipboard}=require('@deepseek-ai/dsh-client-ui-primitives');
+  const ui=require('@deepseek-ai/dsh-client-ui-primitives'), {Button,writeClipboard}=ui;
+  const {createSnapshotStore}=require('@deepseek-ai/dsh-client-store');
   const active=run=>['starting','ready','running','finishing','stopping'].includes(run?.status);
   const statusText={starting:'正在准备',ready:'仿真运行中',running:'程序运行中',finishing:'正在结束',completed:'执行已结束',stopping:'正在停止',stopped:'已停止',failed:'运行失败',interrupted:'已中断',timed_out:'已超时',cleanup_failed:'子进程未能完全停止'};
   const cameraNames={head:'主摄像头',wrist_l:'左腕摄像头',wrist_r:'右腕摄像头'};
@@ -264,13 +265,13 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
       catch(e){setError(e.message);}finally{setBusy(false);}
     };
     const age=frame?Math.max(0,Math.floor((now-frame.captured_at*1000)/1000)):null;
-    return h('div',{style:{height:'100%',overflowY:'auto',padding:16,fontSize:13,display:'flex',flexDirection:'column',gap:16}},
-      runs.length>0&&h('label',{style:{display:'flex',flexDirection:'column',gap:8}},'当前工作区与会话的运行',
+    return h('div',{className:'lm-run-panel',style:{height:'100%',overflowY:'auto',padding:12,fontSize:13,display:'flex',flexDirection:'column',gap:8}},
+      runs.length>0&&h('label',{style:{display:'flex',alignItems:'center',gap:8}},'运行记录',
         h('select',{'aria-label':'选择运行记录',value:selected,onChange:e=>setSelected(e.target.value),style:selectStyle},
           h('option',{value:''},'跟随最新运行'),
           ...runs.map(r=>h('option',{key:r.id,value:r.id},`${r.recipe_id||r.task} · ${new Date(r.created_at).toLocaleTimeString()} · ${statusText[r.status]||r.status}`)))),
-      run&&h('div',null,
-        project&&h('div',{style:{overflowWrap:'anywhere',marginBottom:8}},`${run.project_name} / ${run.recipe_id}`),
+      run&&h('div',{style:{display:'flex',alignItems:'center',flexWrap:'wrap',gap:8}},
+        project&&h('div',{style:{overflowWrap:'anywhere',marginBottom:0}},`${run.project_name} / ${run.recipe_id}`),
         h('div',{role:'status'},`${statusText[run.status]||run.status}${project?(run.elapsed_seconds?` · ${Math.round(run.elapsed_seconds)} 秒`:''):` · 控制步 ${run.step??run.observation?.step??'—'}`}`),
         project&&h('div',{style:muted},`版本 ${run.source?.commit?.slice(0,8)||'未记录'}${run.source?.dirty?' · 有本地修改':''}`),
         run.error&&h('p',{role:'alert',style:muted},run.error),
@@ -282,12 +283,13 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
           h('select',{'aria-label':'摄像头视角',value:view,onChange:e=>setCamera(e.target.value),style:selectStyle},
             ...Object.entries(views).map(([key,name])=>h('option',{key,value:key},name)))),
         active(run)&&h(Button,{size:'sm',variant:'outline',disabled:busy,onClick:stop,style:{marginLeft:'auto'}},busy?'正在停止…':project?'停止运行':'停止仿真')),
+      h('div',{className:'lm-process-grid'},project&&h(ControlConversation,{run}),h('section',{'aria-label':'摄像头'},
       image?h('figure',{style:{margin:0}},
         h('img',{src:image,alt:views[view],onError:()=>setImageError(true),style:{display:'block',width:'100%',aspectRatio:'4 / 3',maxHeight:'42vh',objectFit:'contain',background:'#151515',borderRadius:8}}),
         h('figcaption',{style:{...muted,marginTop:8}},imageError?'画面暂时不可用':age===null?'最近一次观察':`最近画面 · ${age} 秒前`),
         imageError&&h(Button,{size:'sm',variant:'ghost',onClick:()=>setRetry(value=>value+1)},'重试画面')):
-        h('p',{style:{...muted,margin:0}},project?(Object.keys(views).length?'等待程序输出摄像头画面':'该方案未配置摄像头输出'):run?.status==='starting'?'正在连接仿真摄像头…':'在会话里打开项目或描述仿真任务。运行后，这里会显示过程与画面。'),
-      project&&h('section',{'aria-label':'运行日志'},h('div',null,'程序输出'),
+        h('p',{style:{...muted,margin:0}},project?(Object.keys(views).length?'等待程序输出摄像头画面':'该方案未配置摄像头输出'):run?.status==='starting'?'正在连接仿真摄像头…':'在会话里打开项目或描述仿真任务。运行后，这里会显示过程与画面。'))),
+      project&&h('details',{'aria-label':'诊断日志'},h('summary',null,'诊断日志'),
         h('pre',{style:preStyle},log||'等待程序输出…'),
         logError&&h('p',{role:'status',style:muted},logError),
         h('p',{style:muted},'显示最近 32 KB，完整日志保存在运行目录')),
@@ -295,14 +297,17 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
         h('pre',{style:preStyle},JSON.stringify({metadata:run.recipe.metadata||{},argv:run.argv,output:run.output,result:result??'尚无可显示的 JSON 结果'},null,2)),
         h('p',{style:muted},'程序退出不等于任务成功，请以原始结果为准')),
       run?.artifact_errors?.length>0&&h('p',{role:'alert',style:muted},run.artifact_errors.join('\n')),
-      h('p',{style:{...muted,margin:0}},project?'会话用于协助开发；运行按项目配置执行。对话不会自动改变正在执行的策略。':'运行中用“插话发送”引导下一动作段；排队消息按 DSH 的发送设置处理。“停止仿真”结束当前执行。'));
+      h('details',{style:muted},h('summary',null,'如何引导'),h('p',null,project?'下方对话用于启动和修改方案。外部控制会话是否接受中途引导取决于方案的输入接口；当前 HexaShell 事件源提供实时查看。':'运行中用“插话发送”引导下一动作段；排队消息按 DSH 的发送设置处理。“停止仿真”结束当前执行。')));
   }
   function CameraButton({open,sessionId,useSessions}) {
     const preset=useSessions(s=>s.byId[sessionId]?.projectionValues?.agentPreset);
     if(preset!=='linkmind-embodied')return null;
     return h(Button,{size:'sm',variant:'toolbar',onClick:open},'运行与摄像头');
   }
-  return {inject:['slots','sidebarRight','sidebarRightTabs','sessions','locale','remote','remote.commands'],apply(ctx){
+  let ControlConversation;
+  return {inject:['slots','sidebarRight','sidebarRightTabs','sessions','locale','remote','remote.commands','remote.session','uiWorkspace','uiSession','resources','workspaces'],async apply(ctx){
+    const {installWorkbench,createControlConversation}=await import('/linkmind/workbench.mjs?v=0.7.0');
+    ControlConversation=createControlConversation(React,ui,api);
     ctx.effect(()=>ctx.locale.register('linkmindProject',projectCopy),'LinkMind project copy');
     const t=ctx.locale.bind('linkmindProject');
     ctx.effect(()=>ctx.locale.register('linkmindTasks',taskCopy),'LinkMind task copy');
@@ -333,9 +338,10 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
     }
 
     ctx.effect(()=>ctx.sidebarRightTabs.register({id:'linkmind-camera',kind:'linkmind-camera',title:()=> '运行与摄像头',
-      guide:[{id:'linkmind-camera',order:-20,title:()=> '运行与摄像头',description:()=> '查看项目输出、运行记录与实时画面'}]}),'LinkMind run tab');
+      guide:[{id:'linkmind-camera',order:-20,title:()=> '运行与摄像头',description:()=> '查看真实控制会话、工具结果与实时画面'}]}),'LinkMind run tab');
     ctx.slots.inject('sidebar.right.pane.tab',()=>ctx.slots.register({name:'sidebar.right.pane.tab',key:'linkmind-camera'},CameraPanel));
     ctx.slots.inject('conversation.session.header.utilities',()=>ctx.slots.register({name:'conversation.session.header.utilities',id:'linkmind-camera',order:-20,
       inject:sessionId=>({open:()=>ctx.sidebarRight.openTab('linkmind-camera',{params:{sessionId}})})},CameraButton));
+    installWorkbench(ctx,React,ui,api,createSnapshotStore);
   }};
 }});

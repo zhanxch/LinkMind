@@ -15,6 +15,7 @@ import uuid
 
 from roborag.episode_files import write_json
 from .external_agent import process_identity
+from .control_conversation import read_conversation, validate_source
 
 RECIPE_FILE = 'linkmind.studio.json'
 ID = re.compile(r'^[a-zA-Z0-9_-]{1,80}$')
@@ -120,6 +121,7 @@ def validate_recipes(root, data):
             key(name)
             if not isinstance(path,str) or Path(path).is_absolute() or '..' in Path(path).parts:
                 raise ValueError('Camera paths must be relative to this run output')
+        validate_source(recipe.get('conversation'))
         result = recipe.get('result')
         if result is not None and (not isinstance(result,str) or Path(result).is_absolute() or '..' in Path(result).parts):
             raise ValueError('Result path must be relative to this run output')
@@ -387,6 +389,10 @@ class Projects:
                 try:result=read(p)
                 except (ValueError,UnicodeError):result={'note':'Result is not JSON; inspect the original file at '+str(p)}
         return {'run':value,'log':chunk.decode(errors='replace'),'next_offset':offset+len(chunk),'result':result}
+
+    def conversation(self, run_id, offset=0, source=None):
+        value = self.run(run_id)
+        return read_conversation(self.runs / run_id / 'output', value['recipe'].get('conversation'), offset, source)
 
     def asset(self, run_id, name):
         value=self.run(run_id)
