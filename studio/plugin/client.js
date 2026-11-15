@@ -289,7 +289,7 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
         h('figcaption',{style:{...muted,marginTop:8}},imageError?'画面暂时不可用':age===null?'最近一次观察':`最近画面 · ${age} 秒前`),
         imageError&&h(Button,{size:'sm',variant:'ghost',onClick:()=>setRetry(value=>value+1)},'重试画面')):
         h('p',{style:{...muted,margin:0}},project?(Object.keys(views).length?'等待程序输出摄像头画面':'该方案未配置摄像头输出'):run?.status==='starting'?'正在连接仿真摄像头…':'在会话里打开项目或描述仿真任务。运行后，这里会显示过程与画面。'))),
-      project&&h('details',{'aria-label':'诊断日志'},h('summary',null,'诊断日志'),
+      h('div',{className:'lm-run-extras'},project&&h('details',{'aria-label':'诊断日志'},h('summary',null,'诊断日志'),
         h('pre',{style:preStyle},log||'等待程序输出…'),
         logError&&h('p',{role:'status',style:muted},logError),
         h('p',{style:muted},'显示最近 32 KB，完整日志保存在运行目录')),
@@ -297,7 +297,7 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
         h('pre',{style:preStyle},JSON.stringify({metadata:run.recipe.metadata||{},argv:run.argv,output:run.output,result:result??'尚无可显示的 JSON 结果'},null,2)),
         h('p',{style:muted},'程序退出不等于任务成功，请以原始结果为准')),
       run?.artifact_errors?.length>0&&h('p',{role:'alert',style:muted},run.artifact_errors.join('\n')),
-      h('details',{style:muted},h('summary',null,'如何引导'),h('p',null,project?'下方对话用于启动和修改方案。外部控制会话是否接受中途引导取决于方案的输入接口；当前 HexaShell 事件源提供实时查看。':'运行中用“插话发送”引导下一动作段；排队消息按 DSH 的发送设置处理。“停止仿真”结束当前执行。')));
+      h('details',{style:muted},h('summary',null,'如何引导'),h('p',null,project?'下方对话用于启动和修改方案。外部控制会话是否接受中途引导取决于方案的输入接口；当前 HexaShell 事件源提供实时查看。':'运行中用“插话发送”引导下一动作段；排队消息按 DSH 的发送设置处理。“停止仿真”结束当前执行。'))));
   }
   function CameraButton({open,sessionId,useSessions}) {
     const preset=useSessions(s=>s.byId[sessionId]?.projectionValues?.agentPreset);
