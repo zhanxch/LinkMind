@@ -17,8 +17,8 @@ export function apply(ctx, connection = {url: process.env.LINKMIND_STUDIO_URL, t
         res.writeHead(403).end('Forbidden'); return;
       }
       if (!ctx.connection.authorizeIndex(req, res)) return;
-      if (req.method === 'GET' && req.url.split('?')[0] === '/linkmind/workbench.mjs') {
-        const source = await readFile(new URL('./workbench.mjs', import.meta.url));
+      if (req.method === 'GET' && ['workbench.mjs','studio-shell.mjs','studio-overview.mjs'].some(name => req.url.split('?')[0] === '/linkmind/'+name)) {
+        const source = await readFile(new URL('./'+req.url.split('?')[0].slice('/linkmind/'.length), import.meta.url));
         res.writeHead(200, {'Content-Type':'text/javascript; charset=utf-8','Cache-Control':'no-cache','X-Content-Type-Options':'nosniff'});
         res.end(source); return;
       }

@@ -28,6 +28,7 @@ await mkdir(path.join(target,'backend/resources'),{recursive:true});
 await writeFile(path.join(target,'backend/resources/task-bundles.json'),'{"tasks":{}}\n');
 for(const file of await readdir(path.join(root,'examples/studio-project')))await copy('examples/studio-project/'+file,'examples/studio-project/'+file);
 await copy('docs/studio-projects.md','docs/projects.md');
+await copy('docs/studio-ide-workbench.md','docs/workbench.md');
 await copy('docs/studio-control-conversation.md','docs/control-conversation.md');
 const projectGuide=path.join(target,'docs/projects.md');
 await writeFile(projectGuide,(await readFile(projectGuide,'utf8')).replaceAll('(studio-control-conversation.md)','(control-conversation.md)'));
@@ -37,6 +38,9 @@ for(const name of ['test_studio_projects.py','test_studio_workspace.py','test_pr
   await writeFile(file,(await readFile(file,'utf8')).replace("PYTHONPATH=str(ROOT/'src')","PYTHONPATH=str(ROOT/'backend/src')"));
   sources['tests/'+name].note='Test Python path adjusted to standalone backend/src';
 }
+await copy('studio/studio-overview.test.mjs','tests/studio-overview.test.mjs');
+const overviewTest=path.join(target,'tests/studio-overview.test.mjs');
+await writeFile(overviewTest,(await readFile(overviewTest,'utf8')).replace("'./plugin/studio-overview.mjs'","'../studio-overview.mjs'"));
 await writeFile(path.join(target,'SOURCE.json'),JSON.stringify({repository:'https://github.com/zhanxch/LinkMind',
   commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),files:sources},null,2)+'\n');
 console.log(target);

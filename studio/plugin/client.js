@@ -105,7 +105,7 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
   }
   function GoalHint({sessionId,useSessions,t}) {
     const preset=useSessions(s=>s.byId[sessionId]?.projectionValues?.agentPreset);
-    return preset==='linkmind-embodied'?h('span',{style:muted},t('goalHint')):null;
+    return preset==='linkmind-embodied'?h('span',{className:'lm-goal-hint',style:muted},t('goalHint')):null;
   }
   function ProjectButton({sessionId,useSessions,open,t}) {
     const preset=useSessions(s=>s.byId[sessionId]?.projectionValues?.agentPreset);
@@ -286,7 +286,7 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
       h('div',{className:'lm-process-grid'},project&&h(ControlConversation,{run}),h('section',{'aria-label':'摄像头'},
       image?h('figure',{style:{margin:0}},
         h('img',{src:image,alt:views[view],onError:()=>setImageError(true),style:{display:'block',width:'100%',aspectRatio:'4 / 3',maxHeight:'42vh',objectFit:'contain',background:'#151515',borderRadius:8}}),
-        h('figcaption',{style:{...muted,marginTop:8}},imageError?'画面暂时不可用':age===null?'最近一次观察':`最近画面 · ${age} 秒前`),
+        h('figcaption',{style:{...muted,marginTop:8}},imageError?'画面暂时不可用':!active(run)&&frame?`历史快照 · ${new Date(frame.captured_at*1000).toLocaleString()}`:age===null?'最近一次观察':`最近画面 · ${age} 秒前`),
         imageError&&h(Button,{size:'sm',variant:'ghost',onClick:()=>setRetry(value=>value+1)},'重试画面')):
         h('p',{style:{...muted,margin:0}},project?(Object.keys(views).length?'等待程序输出摄像头画面':'该方案未配置摄像头输出'):run?.status==='starting'?'正在连接仿真摄像头…':'在会话里打开项目或描述仿真任务。运行后，这里会显示过程与画面。'))),
       h('div',{className:'lm-run-extras'},project&&h('details',{'aria-label':'诊断日志'},h('summary',null,'诊断日志'),
@@ -305,8 +305,8 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
     return h(Button,{size:'sm',variant:'toolbar',onClick:open},'运行与摄像头');
   }
   let ControlConversation;
-  return {inject:['slots','sidebarRight','sidebarRightTabs','sessions','locale','remote','remote.commands','remote.session','uiWorkspace','uiSession','resources','workspaces'],async apply(ctx){
-    const {installWorkbench,createControlConversation}=await import('/linkmind/workbench.mjs?v=0.7.0');
+  return {inject:['slots','sidebarRight','sidebarRightTabs','sessions','locale','remote','remote.commands','remote.session','uiWorkspace','uiSession','resources','workspaces','layout'],async apply(ctx){
+    const {installWorkbench,createControlConversation}=await import('/linkmind/workbench.mjs?v=0.8.0');
     ControlConversation=createControlConversation(React,ui,api);
     ctx.effect(()=>ctx.locale.register('linkmindProject',projectCopy),'LinkMind project copy');
     const t=ctx.locale.bind('linkmindProject');
@@ -342,6 +342,8 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
     ctx.slots.inject('sidebar.right.pane.tab',()=>ctx.slots.register({name:'sidebar.right.pane.tab',key:'linkmind-camera'},CameraPanel));
     ctx.slots.inject('conversation.session.header.utilities',()=>ctx.slots.register({name:'conversation.session.header.utilities',id:'linkmind-camera',order:-20,
       inject:sessionId=>({open:()=>ctx.sidebarRight.openTab('linkmind-camera',{params:{sessionId}})})},CameraButton));
+    const chooseOverviewRun=e=>{cameraSelections.set(e.detail.sessionId,e.detail.id);window.dispatchEvent(new Event('linkmind:choose-run'));};
+    window.addEventListener('linkmind:overview-run',chooseOverviewRun);ctx.effect(()=>()=>window.removeEventListener('linkmind:overview-run',chooseOverviewRun),'Overview run selection');
     installWorkbench(ctx,React,ui,api,createSnapshotStore);
   }};
 }});
