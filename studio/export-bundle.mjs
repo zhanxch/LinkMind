@@ -44,7 +44,7 @@ await writeFile(overviewTest,(await readFile(overviewTest,'utf8')).replace("'./p
 await copy('studio/tests/codex-session.test.mjs','tests/codex-session.test.mjs');
 const codexTest=path.join(target,'tests/codex-session.test.mjs');
 await writeFile(codexTest,(await readFile(codexTest,'utf8')).replaceAll("'../plugin/codex-","'../codex-"));
-for(const name of ['codex-telemetry.test.mjs','task-context.test.mjs','proxy.test.mjs']) {
+for(const name of ['codex-telemetry.test.mjs','task-context.test.mjs','proxy.test.mjs','studio-dock.test.mjs']) {
   await copy('studio/tests/'+name,'tests/'+name);
   const file=path.join(target,'tests',name);
   await writeFile(file,(await readFile(file,'utf8')).replaceAll("'../plugin/","'../"));

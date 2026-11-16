@@ -1,5 +1,6 @@
 // The Studio owns its chrome; DSH continues to own panes, sessions and composers.
 const frame='[data-slot="root"]>div:has(.lm-layout-marker[data-stacked=true]):not(:has([data-global-panel=true]))';
+export const studioFrame=frame;
 export const studioStyles = `
 body[data-ds-dark-theme] ${frame}{--dsw-alias-bg-base:#151821;--dsw-alias-bg-hover:#252a37;--dsw-alias-border-l3:#343947;--dsw-alias-label-primary:#e7e9f2;--dsw-alias-label-secondary:#a9b0c2;--lm-accent:#a48cf2}
 ${frame} [data-slot="sidebar"]>div>div:has([data-slot="sidebar.brand.mark"]){display:none}
@@ -8,6 +9,12 @@ ${frame} [data-slot="main.conversation"] [data-slot="conversation.composer.bar"]
 ${frame} [data-slot="main.conversation"] [data-phase=hero] div:has(>[data-slot="conversation.hero.workspace"]){font-size:12px}
 
 .lm-studio-chrome{display:none}
+${frame}:has(.lm-layout-marker[data-dock=terminal]) [data-slot="main"]{visibility:hidden;pointer-events:none}
+.lm-chat-tabs [role=tablist]{display:flex;align-items:center;flex-shrink:0}
+.lm-terminal-actions{display:flex;align-items:center;gap:4px;margin-left:auto;min-width:0}
+.lm-terminal-actions button{padding-inline:8px!important}
+.lm-terminal-picker{overflow:hidden;text-overflow:ellipsis;max-width:200px}
+.lm-dock-error{position:absolute;left:calc(48px + var(--lm-explorer,260px));right:0;bottom:24px;z-index:18;padding:8px 12px;background:var(--dsw-alias-bg-base);pointer-events:auto;font-size:12px}
 ${frame} .lm-process-grid{gap:12px}
 ${frame} .lm-control{border:1px solid var(--dsw-alias-border-l3);border-radius:9px;padding:12px;background:color-mix(in srgb,var(--dsw-alias-bg-hover) 40%,var(--dsw-alias-bg-base))}
 ${frame} .lm-control strong{font-weight:500}
@@ -67,9 +74,15 @@ ${frame}[data-sidebar-collapsed]>div:has(>[data-slot="sidebar"]){visibility:hidd
 export function createStudioChrome(React,ui) {
  const h=React.createElement;
  const icon=(name,size=18)=>h(ui[name],{size});
- return function StudioChrome({useCurrent,useSessions,useWorkspaces,usePrefs,setPreference,openPage,openSession,toggleSidebar,openSettings,requestExplorer}) {
+ return function StudioChrome({useCurrent,useSessions,useWorkspaces,usePrefs,useDock,setPreference,openPage,openSession,toggleSidebar,openSettings,requestExplorer,showChat,openTerminal,closeTerminal,dockRect}) {
   const id=useCurrent(s=>s.key), list=useSessions(s=>s), spaces=useWorkspaces(s=>s), p=usePrefs(s=>s), session=list.byId[id];
   const [search,setSearch]=React.useState(false),[query,setQuery]=React.useState(''),[menu,setMenu]=React.useState(null);
+  const dock=useDock(s=>s),[terminalMenu,setTerminalMenu]=React.useState(null);
+  const panel=dock.sessionId===id?dock.panel:'chat';
+  const selectedTerminal=dock.terminals.find(tab=>tab.id===dock.selected);
+  const lowerTabs=React.useRef(null);
+  const focusPanel=kind=>requestAnimationFrame(()=>{const root=lowerTabs.current?.closest('[data-slot="root"]');const target=kind==='chat'?root?.querySelector('[data-slot="main.conversation"] [contenteditable="true"]'):root?.querySelector(`[data-dockkit-content="${CSS.escape(dock.selected)}"] textarea`);target?.focus({preventScroll:true});});
+  const selectPanel=(kind,focus=false)=>{if(kind==='chat')showChat();else openTerminal();if(focus)focusPanel(kind);};
   const drag=React.useRef(false);
   const workspace=spaces.items.find(w=>w.sessionIds.includes(id));
   const title=session?.projectionValues?.title||(session?.blank?'新会话':session?.displayTitle)||'Agent 对话';
@@ -83,10 +96,15 @@ export function createStudioChrome(React,ui) {
     h('button',{className:'lm-quick-search',onClick:()=>setSearch(true),'aria-label':'搜索会话和视图'},icon('IconSearchOutlineRegular',15),h('span',null,'搜索会话、视图…'),h('kbd',null,'搜索')),
     h('div',{className:'lm-agent-state','data-running':!!session?.running},h('i',{className:'lm-status-dot'}),session?.running?'Agent 正在运行':'Agent 就绪'),actionButton('插件与设置','IconSettingsOutlineRegular',openSettings)),
    h('nav',{className:'lm-activity','aria-label':'工作台活动栏'},actionButton('项目会话目录','IconFolderOpenOutlineRegular',toggleSidebar),actionButton('搜索会话','IconSearchOutlineRegular',()=>setSearch(true)),actionButton('项目概览','IconLayersOutlineRegular',()=>openPage('linkmind-workbench')),actionButton('控制会话与摄像头','IconEyeOutlineRegular',()=>openPage('linkmind-camera')),actionButton('任务图','IconBranchOutlineRegular',()=>openPage('linkmind-graph')),actionButton('项目文件','IconCodeOutlineRegular',()=>openPage('files')),h('div',{className:'lm-activity-spacer'}),actionButton('运行配置','IconPlayOutlineRegular',()=>openPage('linkmind-project'))),
-   h('div',{className:'lm-chat-tabs'},h('button',{'aria-selected':true,onClick:()=>{},'aria-label':'Agent 对话'},icon('IconNewChatOutlineRegular',16),'Agent 对话'),h('button',{onClick:()=>openPage('terminal')},icon('IconCodeOutlineRegular',16),'终端'),h('button',{onClick:()=>openPage('linkmind-camera')},icon('IconEyeOutlineRegular',16),'控制会话'),h('button',{onClick:()=>openPage('linkmind-tasks')},icon('IconChecklistOutlineRegular',16),'任务'),h('span',{className:'lm-chat-title',title},title)),
+   h('div',{className:'lm-chat-tabs',ref:lowerTabs,style:dockRect?{top:dockRect.top,left:dockRect.left,right:'auto',width:dockRect.width}:undefined},
+    h('div',{role:'tablist','aria-label':'下方工作面板',onKeyDown:e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?'chat':e.key==='End'?'terminal':panel==='chat'?'terminal':'chat';selectPanel(next);e.currentTarget.querySelector(`[data-panel="${next}"]`)?.focus();}}},
+     ...[['chat','Agent 对话','IconNewChatOutlineRegular'],['terminal','终端','IconCodeOutlineRegular']].map(([kind,label,name])=>h('button',{key:kind,role:'tab','data-panel':kind,'aria-selected':panel===kind,tabIndex:panel===kind?0:-1,onClick:()=>selectPanel(kind,true)},icon(name,16),label,kind==='terminal'&&dock.terminals.length>0?` (${dock.terminals.length})`:null))),
+    panel==='terminal'?h('div',{className:'lm-terminal-actions'},h('button',{className:'lm-terminal-picker','aria-label':'选择终端','aria-haspopup':'menu','aria-expanded':!!terminalMenu,onClick:e=>setTerminalMenu(e.currentTarget)},selectedTerminal?.title||'终端',' ▾'),h('button',{'aria-label':'新建终端',onClick:()=>openTerminal({create:true})},icon('IconPlusOutlineRegular',16)),h('button',{'aria-label':'关闭当前终端',title:'关闭终端并结束其中的进程',onClick:closeTerminal},icon('IconCloseOutlineRegular',16))):h('span',{className:'lm-chat-title',title},title)),
+   dock.error&&h('div',{className:'lm-dock-error',role:'alert'},dock.error,h(ui.Button,{size:'sm',variant:'ghost',onClick:()=>openTerminal()},'重试')),
+   h(ui.Menu,{open:!!terminalMenu,anchor:null,anchorRef:{current:terminalMenu},returnFocus:()=>terminalMenu,portal:true,autoFocus:true,onClose:()=>setTerminalMenu(null),onSelect:tabId=>{setTerminalMenu(null);openTerminal({tabId});},items:dock.terminals.map((tab,index)=>({id:tab.id,label:`${index+1}. ${tab.title||'终端'}`}))}),
    h('footer',{className:'lm-statusbar'},h('span',null,'具身模式'),h('span',{className:'lm-status-path',title:workspace?.path||session?.cwd},workspace?.path||session?.cwd||'未选择工作区'),h('span',null,'DSH · 原生会话')),
    h('div',{className:'lm-side-grip',role:'separator',tabIndex:0,'aria-label':'调整项目目录宽度','aria-orientation':'vertical','aria-valuenow':p.explorer||260,'aria-valuemin':210,'aria-valuemax':420,onPointerDown:e=>{drag.current=true;e.currentTarget.setPointerCapture(e.pointerId);},onPointerMove:e=>{if(drag.current)setPreference({explorer:Math.min(420,Math.max(210,e.clientX-48))});},onPointerUp:e=>{drag.current=false;e.currentTarget.releasePointerCapture(e.pointerId);},onPointerCancel:()=>{drag.current=false;},onKeyDown:e=>{if(['ArrowLeft','ArrowRight','Home'].includes(e.key)){e.preventDefault();setPreference({explorer:e.key==='Home'?260:Math.max(210,Math.min(420,(p.explorer||260)+(e.key==='ArrowLeft'?-10:10)))});}}}),
-   h(ui.Menu,{open:!!menu,anchor:menu?.anchor||null,portal:true,autoFocus:true,onClose:()=>setMenu(null),onSelect:select,items:menu?.label==='文件'?[{id:'project',label:'打开项目文件夹…'},{id:'chat',label:'在所选位置新建会话'},{id:'folder',label:'在所选位置新建文件夹'},{id:'files',label:'查看项目文件'}]:[...actions.map(([label,id])=>({id,label})),{id:'settings',label:'插件与设置'}]}),
+   h(ui.Menu,{open:!!menu,anchor:null,anchorRef:{current:menu?.anchor||null},returnFocus:()=>menu?.anchor||null,portal:true,autoFocus:true,onClose:()=>setMenu(null),onSelect:select,items:menu?.label==='文件'?[{id:'project',label:'打开项目文件夹…'},{id:'chat',label:'在所选位置新建会话'},{id:'folder',label:'在所选位置新建文件夹'},{id:'files',label:'查看项目文件'}]:[...actions.map(([label,id])=>({id,label})),{id:'settings',label:'插件与设置'}]}),
    h(ui.Modal,{open:search,onClose:()=>setSearch(false),title:'搜索与快速打开',closeLabel:'关闭'},h('input',{className:'lm-command-input',autoFocus:true,'aria-label':'搜索会话和视图名称',value:query,onChange:e=>setQuery(e.target.value),placeholder:'输入会话名称，或打开一个视图…'}),h('div',{className:'lm-command-list'},...actions.filter(([label])=>label.includes(query)).map(([label,kind])=>h(ui.Button,{key:kind,variant:'ghost',onClick:()=>{setSearch(false);openPage(kind);}},label,h('small',null,'视图'))),...results.slice(0,30).map(s=>h(ui.Button,{key:s.id,variant:'ghost',onClick:()=>{setSearch(false);openSession(s.id);}},s.projectionValues?.title||s.displayTitle,h('small',null,spaces.items.find(w=>w.sessionIds.includes(s.id))?.title||s.cwd?.split('/').at(-1)))))));
  };
 }
