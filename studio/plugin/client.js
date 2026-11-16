@@ -304,11 +304,43 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
     if(preset!=='linkmind-embodied')return null;
     return h(Button,{size:'sm',variant:'toolbar',onClick:open},'运行与摄像头');
   }
+  function CodexStats({sessionId,useProjection,useSessions}) {
+    const model=useProjection('modelSelection');
+    const running=useSessions(s=>s.byId[sessionId]?.running);
+    const isCodex=(model?.next||model?.lastUsed)?.provider==='linkmind-codex';
+    const [stats,setStats]=React.useState(null),[error,setError]=React.useState('');
+    React.useEffect(()=>{
+      if(!isCodex)return;const abort=new AbortController();let timer;
+      setStats(null);setError('');
+      const load=async()=>{try{const value=await api('/codex-stats?session_id='+encodeURIComponent(sessionId),undefined,abort.signal);if(!abort.signal.aborted){setStats(value);setError('');}}catch(e){if(!abort.signal.aborted)setError('统计暂时不可用');}finally{if(running&&!abort.signal.aborted)timer=setTimeout(load,2000);}};
+      load();return()=>{abort.abort();clearTimeout(timer);};
+    },[sessionId,isCodex,running]);
+    const [open,setOpen]=React.useState(false);
+    if(!isCodex)return null;
+    const ready=stats?.responses>0, input=stats?.inputTokens||0;
+    const hit=input>0?100*(stats.cachedInputTokens/input):null;
+    const speed=stats?.responseMs>0?stats.measuredOutputTokens/(stats.responseMs/1000):null;
+    const count=n=>n.toLocaleString(), rate=n=>n===null?'待上报':n.toFixed(1);
+    const total=ready?stats.inputTokens+stats.outputTokens:0;
+    const label=error|| (ready?`输出吞吐 ${rate(speed)} tok/s · 缓存 ${rate(hit)}% · ${count(total)} tokens`:'Codex 统计：等待用量上报');
+    return h('span',{className:'lm-codex-stats'},
+      h('style',null,'[data-composer-dock]:has(.lm-codex-stats) [data-composer-stat]{display:none}.lm-codex-stats{min-width:0;display:flex;align-items:center;font-size:11px;color:var(--dsw-alias-label-secondary)}.lm-codex-stats button{font-size:11px;white-space:normal;text-align:left;height:auto}'),
+      h(Button,{size:'sm',variant:'ghost',onClick:()=>setOpen(true),'aria-label':'Codex 用量与速度统计'},label),
+      h(ui.Modal,{open,onClose:()=>setOpen(false),title:'Codex 用量与速度',closeLabel:'关闭'},
+        h('p',null,'主会话统计从本版本开始记录，来自 Codex 实际上报；不含标题生成和压缩等辅助请求，也不是账户账单。未上报的旧会话用量不作估算。缓存命中是输入 token 复用比例，不是跨会话记忆。'),
+        ready?h('dl',{style:{display:'grid',gridTemplateColumns:'1fr auto',gap:10}},
+          ...[['输入（含缓存）',count(stats.inputTokens)],['缓存读取',count(stats.cachedInputTokens)],['缓存写入',count(stats.cacheWriteInputTokens)],['输出（含推理 token）',count(stats.outputTokens)],['输入缓存命中率',hit===null?'待上报':rate(hit)+'%'],['输出吞吐（含首字等待）',speed===null?'待上报':rate(speed)+' tok/s'],['平均首段可见输出',stats.ttftCount?(stats.ttftMs/stats.ttftCount/1000).toFixed(2)+' s':'待上报'],['已报告响应数',count(stats.responses)]].flatMap(([k,v])=>[h('dt',{key:k},k),h('dd',{key:k+'v',style:{margin:0}},v)])):
+          h('p',null,'发送消息后显示。模型或旧版记录未提供的数据不会显示为 0。'),
+        h('p',{style:muted},'吞吐 = 已匹配响应的输出 token ÷ 推理等待时间，包含首字等待、不含 DSH 工具执行时间；与 DSH 的解码速度、原生 Codex 的统计口径不同。工具响应的用量可能在结果返回后才更新。'),
+        stats?.unmeasuredResponses>0&&h('p',{style:muted},`${stats.unmeasuredResponses} 个响应没有匹配的计时，仅计入累计用量。`),
+        h('p',{style:muted},'长对话由 DSH 按上下文压力压缩，也可以输入 /compact。任务目标、约束和验收标准保存在项目任务记录中，接续任务时按需载入；独立会话不会自动共享全部聊天历史。')));
+  }
   let ControlConversation;
   return {inject:['slots','sidebarRight','sidebarRightTabs','sessions','locale','remote','remote.commands','remote.session','uiWorkspace','uiSession','resources','workspaces','layout'],async apply(ctx){
     const {installWorkbench,createControlConversation}=await import('/linkmind/workbench.mjs?v=0.8.0');
     ControlConversation=createControlConversation(React,ui,api);
     ctx.effect(()=>ctx.locale.register('linkmindProject',projectCopy),'LinkMind project copy');
+    ctx.slots.inject('conversation.composer.dock',()=>ctx.slots.register({name:'conversation.composer.dock',id:'linkmind-codex-stats',order:-5},CodexStats));
     const t=ctx.locale.bind('linkmindProject');
     ctx.effect(()=>ctx.locale.register('linkmindTasks',taskCopy),'LinkMind task copy');
     const tt=ctx.locale.bind('linkmindTasks');

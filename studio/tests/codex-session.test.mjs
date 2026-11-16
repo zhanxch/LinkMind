@@ -30,8 +30,8 @@ function fixture() {
       },
       send(value){calls.push({method:'response',value});queueMicrotask(()=>{
         emit('item/agentMessage/delta',{itemId:'answer',delta:'Read the result.'});
-        emit('thread/tokenUsage/updated',{tokenUsage:{total:{inputTokens:100,cachedInputTokens:20,outputTokens:30,totalTokens:130}}});
-        emit('thread/tokenUsage/updated',{tokenUsage:{total:{inputTokens:120,cachedInputTokens:25,outputTokens:35,totalTokens:155}}});
+        emit('thread/tokenUsage/updated',{tokenUsage:{total:{inputTokens:100,cachedInputTokens:20,outputTokens:30,totalTokens:130},last:{inputTokens:100,cachedInputTokens:20,outputTokens:30,totalTokens:130}}});
+        emit('thread/tokenUsage/updated',{tokenUsage:{total:{inputTokens:220,cachedInputTokens:45,outputTokens:35,totalTokens:255},last:{inputTokens:120,cachedInputTokens:25,outputTokens:5,totalTokens:125}}});
         emit('turn/completed',{turn:{status:'completed'}});
       });},
       close(){connection.closed=true;},
@@ -41,7 +41,7 @@ function fixture() {
 }
 
 test('DSH tool boundary keeps the original turn, consumes result once and injects guidance first',async()=>{
-  const f=fixture(), metrics=[],sessions=new CodexSessions({...f,onMetric:m=>metrics.push(m)}),o=opts();
+  const f=fixture(), metrics=[],samples=[],sessions=new CodexSessions({...f,onUsage:s=>samples.push(s),onMetric:m=>metrics.push(m)}),o=opts();
   try {
     const first=await collect(sessions.stream(o,'/tmp'));
     record(o,first);
@@ -56,10 +56,12 @@ test('DSH tool boundary keeps the original turn, consumes result once and inject
     assert.equal(f.calls[response-1].method,'thread/inject_items');
     assert.equal(f.calls[response].value.id,71);
     assert.deepEqual(f.calls[response].value.result,{success:true,contentItems:[{type:'inputText',text:'A'}]});
-    assert.equal(second.find(x=>x.type==='usage').usage.inputTokens,80);
+    assert.equal(second.filter(x=>x.type==='usage').length,1);
     assert.equal(second.filter(x=>x.type==='usage').at(-1).usage.inputTokens,95);
-    assert.equal(second.filter(x=>x.type==='usage').at(-1).usage.outputTokens,35);
+    assert.equal(second.filter(x=>x.type==='usage').at(-1).usage.outputTokens,5);
     assert.deepEqual(metrics.map(m=>m.mode),['start','continue']);
+    assert.equal(samples.length,2);assert.equal(samples[1].total.inputTokens,220);
+    assert.ok(samples.every(s=>s.span.wallMs>=0));
     o.messages.push({role:'user',content:'Again'});
     await collect(sessions.stream(o,'/tmp'));
     assert.equal(f.calls.filter(x=>x.method==='turn/start').length,2);
@@ -111,4 +113,23 @@ test('changing prompt context does not discard a waiting tool or create another 
     assert.equal(f.calls.filter(x=>x.method==='thread/start').length,1);
     assert.ok(f.calls.some(x=>x.method==='thread/inject_items'&&x.params.items.some(i=>i.role==='developer')));
   }finally{sessions.close();}
+});
+
+test('multiple tool handoffs before a usage event retain the original response timer',async()=>{
+ let notify,replies=0;const samples=[];
+ const emit=(method,params,id)=>notify({method,params:{threadId:'parallel',...params},...(id===undefined?{}:{id})});
+ const rpcFactory=({onEvent})=>{notify=onEvent;return {initialize:async()=>{},close(){},
+  async request(method){if(method==='thread/start')return {thread:{id:'parallel'}};if(method==='turn/start'){queueMicrotask(()=>emit('item/tool/call',{callId:'c1',tool:wireToolName(tool.name),arguments:{}},1));return {turn:{id:'t'}};}return {};},
+  send(){replies++;queueMicrotask(()=>{if(replies===1)emit('item/tool/call',{callId:'c2',tool:wireToolName(tool.name),arguments:{}},2);else{
+    const total={inputTokens:100,cachedInputTokens:0,outputTokens:20,totalTokens:120};
+    emit('thread/tokenUsage/updated',{tokenUsage:{total,last:total}});emit('turn/completed',{turn:{status:'completed'}});
+  }});}};};
+ const sessions=new CodexSessions({rpcFactory,onUsage:s=>samples.push(s)}),o=opts();
+ try{
+  record(o,await collect(sessions.stream(o,'/tmp')));const span=sessions.sessions.get(o.sessionId).pendingSpan;
+  o.messages.push({role:'tool',source:{callId:'c1'},content:'first'});record(o,await collect(sessions.stream(o,'/tmp')));
+  assert.equal(sessions.sessions.get(o.sessionId).pendingSpan,span);
+  o.messages.push({role:'tool',source:{callId:'c2'},content:'second'});await collect(sessions.stream(o,'/tmp'));
+  assert.equal(samples.length,1);assert.equal(samples[0].span,span);
+ }finally{sessions.close();}
 });

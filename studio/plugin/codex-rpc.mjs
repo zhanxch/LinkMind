@@ -1,3 +1,4 @@
+import {usageBuckets} from './codex-telemetry.mjs';
 import {spawn} from 'node:child_process';
 import {createInterface} from 'node:readline';
 import {createHash} from 'node:crypto';
@@ -123,7 +124,9 @@ export async function* codexStream(options, attachments, {cwd, rpcFactory = conf
         const event = events.shift(), p = event.params || {};
         if (event.method === 'transport/error') throw event.error;
         if (p.threadId && p.threadId !== thread.id) continue;
-        if (event.method === 'item/agentMessage/delta' || event.method === 'item/reasoning/summaryTextDelta') {
+        if (event.method === 'thread/tokenUsage/updated') {
+          const usage=usageBuckets(p.tokenUsage?.last);if(usage)yield {type:'usage',usage};
+        } else if (event.method === 'item/agentMessage/delta' || event.method === 'item/reasoning/summaryTextDelta') {
           const type = event.method === 'item/agentMessage/delta' ? 'text' : 'reasoning';
           const key = `${p.itemId}:${type}`;
           if (!blocks.has(key)) {

@@ -3,6 +3,8 @@ import {mkdir, readFile, writeFile, rename} from 'node:fs/promises';
 import path from 'node:path';
 import {CodexRpc, projectMessages, threadConfig, wireToolName} from './codex-rpc.mjs';
 
+import {usageBuckets} from './codex-telemetry.mjs';
+
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 // Reasoning stays in Codex. DSH summaries are display data, not a replacement for it.
 const key = message => hash({role:message.role, content:typeof message.content==='string'?message.content:
@@ -18,9 +20,9 @@ export async function toolResponse(message, attachments, signal) {
 
 /** One owner per native DSH conversation; auxiliary calls never borrow its thread. */
 export class CodexSessions {
-  constructor({attachments, stateDir, rpcFactory=config=>new CodexRpc(config), onMetric=()=>{}, idleTimeoutMs=60000}={}) {
+  constructor({attachments, stateDir, rpcFactory=config=>new CodexRpc(config), onMetric=()=>{}, onUsage=()=>{}, idleTimeoutMs=60000}={}) {
     this.attachments=attachments; this.stateDir=stateDir; this.rpcFactory=rpcFactory;
-    this.onMetric=onMetric; this.sessions=new Map();this.idleTimeoutMs=idleTimeoutMs;
+    this.onMetric=onMetric;this.onUsage=onUsage; this.sessions=new Map();this.idleTimeoutMs=idleTimeoutMs;
   }
   async *stream(options, cwd) {
     if(!options.sessionId || options.purpose) throw new Error('Persistent Codex requires an ordinary conversation identity');
@@ -75,7 +77,7 @@ class Conversation {
       baseInstructions:system||'Follow the user and use the host tools.',developerInstructions:hostInstructions,config:threadConfig,
       dynamicTools:(options.tools||[]).map(t=>({type:'function',name:wireToolName(t.name),description:t.description,inputSchema:t.parameters})),
     });
-    this.threadId=thread.id;this.signature=signature;this.systemHash=hash(system);this.cursor=[];this.expected=null;this.pending=null;this.usage=null;
+    this.threadId=thread.id;this.signature=signature;this.systemHash=hash(system);this.cursor=[];this.expected=null;this.pending=null;this.usage=null;this.pendingSpan=null;
     await this.inject(history,options.signal);this.state='idle';
   }
   async inject(messages,signal) {
@@ -86,7 +88,7 @@ class Conversation {
   async *stream(options,cwd) {
     if(this.busy)throw new Error('Concurrent inference on the same Codex conversation is not allowed');
     clearTimeout(this.idleTimer);
-    this.busy=true;const began=performance.now();let handedOff=false,finished=false,mode='continue',firstDelta=null;
+    this.busy=true;const began=performance.now();let handedOff=false,finished=false,mode='continue',firstDelta=null,hasCurrentUsage=false;
     const abort=()=>{this.close();};
     options.signal?.addEventListener('abort',abort,{once:true});
     let blocks=new Map(),index=0;
@@ -117,8 +119,7 @@ class Conversation {
         await this.inject([{role:'developer',content:'Updated DSH host instructions (superseding prior host instructions):\n'+system}],options.signal);
         this.systemHash=hash(system);
       }
-      // DSH usage chunks are snapshots for this inference segment, not increments.
-      const usageBaseline=this.usage||{};
+      // Keep late tool-response accounting separate from the current request.
       if(this.pending){
         const result=tail.find(m=>m.role==='tool'&&m.source?.callId===this.pending.callId);
         if(!result)throw new Error('Missing recorded DSH tool result; refusing to retry the action');
@@ -141,9 +142,17 @@ class Conversation {
         if(p.threadId&&p.threadId!==this.threadId)continue;
         if(event.method==='turn/started')this.turnId=p.turn.id;
         if(event.method==='thread/tokenUsage/updated'){
-          const total=p.tokenUsage.total;
-          const delta=n=>Math.max(0,(total[n]||0)-(usageBaseline[n]||0));
-          if(this.usage || this.state==='running')yield {type:'usage',usage:{inputTokens:Math.max(0,delta('inputTokens')-delta('cachedInputTokens')-delta('cacheWriteInputTokens')),cacheReadTokens:delta('cachedInputTokens'),cacheWriteTokens:delta('cacheWriteInputTokens'),outputTokens:delta('outputTokens'),reasoningTokens:delta('reasoningOutputTokens'),totalTokens:delta('totalTokens')}};
+          const usage=p.tokenUsage, total=usage.total;
+          if(JSON.stringify(total)!==JSON.stringify(this.usage)) {
+            const delayed=!!this.pendingSpan;
+            await this.owner.onUsage({sessionId:this.id,threadId:this.threadId,model:options.model,total,previousTotal:this.usage,
+              contextWindow:usage.modelContextWindow,
+              span:this.pendingSpan||{wallMs:performance.now()-began,firstDeltaMs:firstDelta}});
+            this.pendingSpan=null;
+            // DSH's meter expects ONE current prompt, not cumulative billing.
+            // Late preceding-tool usage is retained in the durable Codex stats.
+            if(!delayed){const current=usageBuckets(usage.last);if(current){yield {type:'usage',usage:current};hasCurrentUsage=true;}}
+          }
           this.usage=total;
         }else if(event.method==='item/agentMessage/delta'||event.method==='item/reasoning/summaryTextDelta'){
           firstDelta??=performance.now()-began;
@@ -161,6 +170,7 @@ class Conversation {
           yield {type:'tool-call-delta',index,id:p.callId,name:declared.name,argumentsDelta:block.arguments};
           yield {type:'block-end',index,block};
           this.expected=key({role:'assistant',content});this.pending={id:event.id,callId:p.callId};this.state='tool';
+          if(!hasCurrentUsage)this.pendingSpan??={wallMs:performance.now()-began,firstDeltaMs:firstDelta};
           await this.save();handedOff=true;
           yield {type:'finish',reason:{kind:'tool-calls'}};return;
         }else if(event.id!==undefined&&event.method){

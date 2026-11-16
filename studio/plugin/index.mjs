@@ -1,3 +1,5 @@
+import nodePath from 'node:path';
+import {readCodexStats} from './codex-stats.mjs';
 import { request } from 'node:http';
 import { readFile } from 'node:fs/promises';
 
@@ -17,6 +19,15 @@ export function apply(ctx, connection = {url: process.env.LINKMIND_STUDIO_URL, t
         res.writeHead(403).end('Forbidden'); return;
       }
       if (!ctx.connection.authorizeIndex(req, res)) return;
+      if (req.method === 'GET' && req.url.split('?')[0] === '/linkmind/api/codex-stats') {
+        const sessionId=new URL(req.url,origin).searchParams.get('session_id');
+        if(!sessionId||sessionId.length>200){res.writeHead(400,{'Content-Type':'application/json'}).end(JSON.stringify({error:'Invalid session identity'}));return;}
+        try{
+          const stats=connection.state?await readCodexStats(nodePath.join(connection.state,'codex-conversations'),sessionId):null;
+          res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(stats));
+        }catch{res.writeHead(503,{'Content-Type':'application/json'}).end(JSON.stringify({error:'统计暂时不可用'}));}
+        return;
+      }
       if (req.method === 'GET' && ['workbench.mjs','studio-shell.mjs','studio-overview.mjs'].some(name => req.url.split('?')[0] === '/linkmind/'+name)) {
         const source = await readFile(new URL('./'+req.url.split('?')[0].slice('/linkmind/'.length), import.meta.url));
         res.writeHead(200, {'Content-Type':'text/javascript; charset=utf-8','Cache-Control':'no-cache','X-Content-Type-Options':'nosniff'});

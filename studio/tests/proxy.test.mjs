@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import http from 'node:http';
+import {mkdtemp,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {CodexStatsStore} from '../plugin/codex-stats.mjs';
 import {apply} from '../plugin/index.mjs';
 
 test('Studio proxy requires dsh authentication and same-origin writes', async () => {
@@ -12,14 +15,20 @@ test('Studio proxy requires dsh authentication and same-origin writes', async ()
   await new Promise(resolve=>backend.listen(0,'127.0.0.1',resolve));
   process.env.LINKMIND_STUDIO_URL=`http://127.0.0.1:${backend.address().port}`;
   process.env.LINKMIND_STUDIO_TOKEN='local-test-token';
+  const state=await mkdtemp(tmpdir()+'/linkmind-proxy-stats-');
+  await new CodexStatsStore(state+'/codex-conversations').record({sessionId:'qa',threadId:'t',total:{inputTokens:100,cachedInputTokens:50,outputTokens:5}});
   let route;
   const frontend=http.createServer((req,res)=>route.handler(req,res));
   await new Promise(resolve=>frontend.listen(0,'127.0.0.1',resolve));
   const origin=`http://127.0.0.1:${frontend.address().port}`;
   apply({effect:fn=>fn(),webServer:{host:'127.0.0.1',getOrigin:()=>origin,tapIndex:()=>()=>{},register:r=>{route=r;return ()=>{};}},
-    connection:{authorizeIndex(req,res){if(req.headers.cookie==='dsh=test')return true;res.writeHead(401).end();return false;}}});
+    connection:{authorizeIndex(req,res){if(req.headers.cookie==='dsh=test')return true;res.writeHead(401).end();return false;}}},{state,url:process.env.LINKMIND_STUDIO_URL,token:process.env.LINKMIND_STUDIO_TOKEN});
   try {
     assert.equal((await fetch(origin+'/linkmind/api/state')).status,401);
+    assert.equal((await fetch(origin+'/linkmind/api/codex-stats?session_id=qa')).status,401);
+    const stats=await fetch(origin+'/linkmind/api/codex-stats?session_id=qa',{headers:{cookie:'dsh=test'}});
+    assert.equal(stats.status,200);assert.equal((await stats.json()).inputTokens,100);
+    assert.equal((await fetch(origin+'/linkmind/api/codex-stats?session_id=',{headers:{cookie:'dsh=test'}})).status,400);
     assert.equal((await fetch(origin+'/linkmind/api/tasks',{method:'POST',headers:{cookie:'dsh=test',origin:'https://other.example'},body:'{}'})).status,403);
     assert.equal((await fetch(origin+'/linkmind/api/tasks',{method:'POST',headers:{cookie:'dsh=test'},body:'{}'})).status,403);
     const accepted=await fetch(origin+'/linkmind/api/tasks',{method:'POST',headers:{cookie:'dsh=test',origin},body:'{}'});
@@ -37,6 +46,7 @@ test('Studio proxy requires dsh authentication and same-origin writes', async ()
   } finally {
     frontend.closeAllConnections(); backend.closeAllConnections();
     await Promise.all([new Promise(r=>frontend.close(r)),new Promise(r=>backend.close(r))]);
+    await rm(state,{recursive:true,force:true});
     delete process.env.LINKMIND_STUDIO_URL;delete process.env.LINKMIND_STUDIO_TOKEN;
   }
 });

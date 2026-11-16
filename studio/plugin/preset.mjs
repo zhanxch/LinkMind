@@ -36,7 +36,8 @@ export function embodiedPreset(mcpConfig, connectionFile) {
       {id:'tool-goal',name:'@deepseek-ai/dsh-tool-goal'},
       {id:'tool-ask-user',name:'@deepseek-ai/dsh-tool-ask-user'},
       {id:'linkmind-mcp',name:'@deepseek-ai/dsh-mcp-client',config:mcpConfig},
-      {id:'compaction',name:'cordis:group',group:true,isolate:{compaction:true},config:[
+      {id:'compaction',name:'cordis:group',group:true,isolate:{compaction:true,toolResultPruner:true},config:[
+        {id:'compaction-tool-result-pruner',name:'@deepseek-ai/dsh-compaction-tool-result-pruner'},
         {id:'compaction-basic',name:'@deepseek-ai/dsh-compaction-basic'},
         {id:'command-compact',name:'@deepseek-ai/dsh-command-compact'},
       ]},

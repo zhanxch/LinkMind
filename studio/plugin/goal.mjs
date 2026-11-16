@@ -1,3 +1,4 @@
+import {taskContext} from './task-context.mjs';
 // Extend the native Goal command; DSH still owns continuation, limits and controls.
 import {readFile} from 'node:fs/promises';
 import z from '@deepseek-ai/schemastery';
@@ -96,10 +97,7 @@ export async function apply(ctx, config) {
         'Use the supplied project revision for a write; refresh project_context only if it is stale or more context is needed. '+
         'Preserve original_request; make assumptions visible and ask only about missing information that blocks useful progress. '+
         'Record progress and a concise conclusion/evidence before completing the native goal. Do not make a second objective.\n'+
-        JSON.stringify({project_id:latest.registration_id,revision:latest.project.revision,task:current,
-          work:latest.project.work.filter(w=>w.objective_id===task.id),
-          records:latest.project.records.filter(r=>r.objective_id===task.id).slice(-20),
-          runs:latest.runs.filter(r=>r.project_context?.objective_id===task.id).slice(0,10)})});
+        JSON.stringify(taskContext(latest,current))});
     }
     return next();
   });
