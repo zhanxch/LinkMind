@@ -1,8 +1,13 @@
 import {CodexRpc, codexStream} from './codex-rpc.mjs';
+import {CodexSessions} from './codex-session.mjs';
 import {LlmAdapter} from '@deepseek-ai/dsh-llm';
 
 export class CodexAdapter extends LlmAdapter {
-  constructor(attachments, cwd) { super(); this.attachments = attachments; this.cwd = cwd; }
+  constructor(attachments, cwd, {stateDir, resolveCwd=async()=>cwd, onMetric}={}) {
+    super(); this.attachments=attachments;this.cwd=cwd;this.resolveCwd=resolveCwd;
+    this.conversations=new CodexSessions({attachments,stateDir,onMetric});
+  }
+  close(sessionId) {this.conversations.close(sessionId);}
   providerInfo(provider) { return {id: provider, name: 'Codex · 本机登录'}; }
   async catalog() {
     if (!this.models) this.models = (async () => {
@@ -35,6 +40,8 @@ export class CodexAdapter extends LlmAdapter {
   }
   async *stream(options) {
     const model = await this.model(options.model);
-    yield* codexStream({...options, model:model.model}, this.attachments, {cwd:this.cwd});
+    const resolved={...options,model:model.model};
+    if(options.sessionId&&!options.purpose)yield* this.conversations.stream(resolved,await this.resolveCwd(options.sessionId));
+    else yield* codexStream(resolved,this.attachments,{cwd:this.cwd});
   }
 }

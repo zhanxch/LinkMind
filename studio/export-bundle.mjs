@@ -41,6 +41,13 @@ for(const name of ['test_studio_projects.py','test_studio_workspace.py','test_pr
 await copy('studio/studio-overview.test.mjs','tests/studio-overview.test.mjs');
 const overviewTest=path.join(target,'tests/studio-overview.test.mjs');
 await writeFile(overviewTest,(await readFile(overviewTest,'utf8')).replace("'./plugin/studio-overview.mjs'","'../studio-overview.mjs'"));
+await copy('studio/tests/codex-session.test.mjs','tests/codex-session.test.mjs');
+const codexTest=path.join(target,'tests/codex-session.test.mjs');
+await writeFile(codexTest,(await readFile(codexTest,'utf8')).replaceAll("'../plugin/codex-","'../codex-"));
+await copy('docs/studio-codex-continuity.md','docs/codex-continuity.md');
+await copy('studio/benchmarks/codex-continuity.mjs','benchmarks/codex-continuity.mjs');
+const benchmark=path.join(target,'benchmarks/codex-continuity.mjs');
+await writeFile(benchmark,(await readFile(benchmark,'utf8')).replaceAll("'../plugin/codex-","'../codex-"));
 await writeFile(path.join(target,'SOURCE.json'),JSON.stringify({repository:'https://github.com/zhanxch/LinkMind',
   commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),files:sources},null,2)+'\n');
 console.log(target);

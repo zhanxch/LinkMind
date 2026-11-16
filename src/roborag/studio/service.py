@@ -109,7 +109,7 @@ class Studio:
     def goal_task(self, registration_id, data):
         self.projects.check(data.get('session_id'), project_id=registration_id)
         project = self.book.open(self.projects.project(registration_id)['path'])
-        if data.get('operation') not in ('create_goal_task', 'attach_goal_task', 'sync_goal_task'):
+        if data.get('operation') not in ('create_goal_task', 'ensure_goal_task', 'attach_goal_task', 'sync_goal_task'):
             raise ValueError('Unknown native Goal operation')
         change = dict(data.get('data', {}))
         change['session_id'] = data['session_id']

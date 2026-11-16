@@ -121,9 +121,19 @@ class ProjectBook:
 
     def apply(self, project, operation, data, actor):
         goals, work, records = (project[k] for k in ('objectives', 'work', 'records'))
-        if operation in ('create_goal_task', 'attach_goal_task', 'sync_goal_task'):
+        if operation in ('create_goal_task', 'ensure_goal_task', 'attach_goal_task', 'sync_goal_task'):
             if actor != 'controller':
                 raise ValueError('Native Goal bindings are maintained by the DSH controller')
+            if operation == 'ensure_goal_task':
+                session = text(data.get('session_id'), 'session', 200, True)
+                native_id = text(data.get('native_goal_id'), 'native goal', 200, True)
+                # The same native goal is bound once, including after host restart.
+                # A historical binding must never reclaim a transferred task.
+                if any(g.get('bindings', {}).get(session) == native_id for g in goals):
+                    return
+                self.apply(project, 'create_goal_task', data, actor)
+                self.apply(project, 'attach_goal_task', dict(data, id=goals[-1]['id']), actor)
+                return
             if operation == 'create_goal_task':
                 if data.get('kind') not in TEMPLATES or len(goals) >= 100:
                     raise ValueError('Choose reproduce, optimize or develop (maximum 100 tasks)')

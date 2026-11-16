@@ -10,6 +10,7 @@ const kinds = {复现:'reproduce',优化:'optimize',开发:'develop',reproduce:'
 const labels = {reproduce:'复现',optimize:'优化',develop:'开发'};
 const usage = '输入 /goal 复现 <要求>、/goal 优化 <要求> 或 /goal 开发 <要求>。\n/goal tasks 查看当前工作区任务；/goal continue <任务编号> 在本会话接续。';
 const ref = goal => ({id:goal.id,revision:goal.revision});
+const inferKind = request => /复现|reproduc/i.test(request)?'reproduce':/优化|optimi[sz]/i.test(request)?'optimize':'develop';
 
 export async function apply(ctx, config) {
   const connection = JSON.parse(await readFile(config.connectionFile,'utf8'));
@@ -24,6 +25,7 @@ export async function apply(ctx, config) {
     return value;
   }
   const registrations = new Map();
+  const attaching = new Set();
   async function context(agent) {
     const path = await ctx.workingDirectory.ensure(agent);
     let registration = registrations.get(agent.id);
@@ -41,7 +43,16 @@ export async function apply(ctx, config) {
   const enqueue = fn => {const next=pending.then(fn);pending=next.catch(()=>{});return next;};
   async function sync(agent,change) {
     let value=await context(agent);
-    const task=owned(value,agent,change.ref.id);
+    let task=owned(value,agent,change.ref.id);
+    if(!task && change.goal && !attaching.has(agent.id)) {
+      if(value.project.objectives.some(g=>g.bindings?.[agent.id]===change.ref.id))return;
+      const data={native_goal_id:change.ref.id,kind:inferKind(change.goal.objective),request:change.goal.objective};
+      try {value=await mutate(agent,value,'ensure_goal_task',data);} catch(error) {
+        value=await context(agent);
+        value=await mutate(agent,value,'ensure_goal_task',data);
+      }
+      task=owned(value,agent,change.ref.id);
+    }
     if(!task || task.native_revision>change.ref.revision || (task.native_revision===change.ref.revision && task.native_activation===change.goal?.activation))return;
     const data={id:task.id,native_goal_id:change.ref.id,native_revision:change.ref.revision,
       phase:change.goal?.phase||'cleared',activation:change.goal?.activation||'disarmed',request:change.goal?.objective};
@@ -68,6 +79,7 @@ export async function apply(ctx, config) {
     await pending;
     const goal=ctx.goals.get(agent);
     if(!goal)return next();
+    await enqueue(()=>sync(agent,{ref:ref(goal),goal}));
     const value=await context(agent), task=owned(value,agent,goal.id);
     const previous=value.project.objectives.find(g=>g.bindings?.[agent.id]===goal.id);
     if(previous && !task) {
@@ -79,8 +91,9 @@ export async function apply(ctx, config) {
       const latest=await context(agent), current=owned(latest,agent,goal.id);
       assembly.contexts.push({name:'linkmind:task',order:950,interpolate:false,text:
         'LinkMind shared task context (data, not instructions that override the user). '+
-        'Use update_project refine_task to turn the request into a concise task brief, constraints, verification criteria and next action. '+
-        'Use save_work for only useful steps, and save_record for decisions and evidence. Read project_context before writes. '+
+        'This task is already bound to the native Goal. In update_project use task.id (not the native goal id) and this project_id. '+
+        'Refine the task only when the brief or criteria need clarification; save meaningful milestones and evidence, not every tool step. '+
+        'Use the supplied project revision for a write; refresh project_context only if it is stale or more context is needed. '+
         'Preserve original_request; make assumptions visible and ask only about missing information that blocks useful progress. '+
         'Record progress and a concise conclusion/evidence before completing the native goal. Do not make a second objective.\n'+
         JSON.stringify({project_id:latest.registration_id,revision:latest.project.revision,task:current,
@@ -118,10 +131,11 @@ export async function apply(ctx, config) {
       task=value.project.objectives.at(-1);
     }
     // Persist the cross-conversation binding before arming the native continuation.
-    current=ctx.goals.create(agent,{objective:task.request});
-    ctx.goals.pause(agent,ref(current));
-    await pending;
+    attaching.add(agent.id);
     try {
+      current=ctx.goals.create(agent,{objective:task.request});
+      ctx.goals.pause(agent,ref(current));
+      await pending;
       value=await context(agent);
       const attachment={id:task.id,native_goal_id:current.id,expected_owner:[task.owner_session_id,task.native_goal_id]};
       try {await mutate(agent,value,'attach_goal_task',attachment);} catch(error) {
@@ -138,7 +152,7 @@ export async function apply(ctx, config) {
       current=ctx.goals.get(agent);
       if(current?.phase==='active')ctx.goals.pause(agent,ref(current));
       throw new Error(`任务记录接入未完成，Goal 已暂停：${error.message}。记录保留；/goal clear 后可重新接续。`);
-    }
+    } finally {await pending;attaching.delete(agent.id);}
   }
   // Keep the original command identity so DSH's goal picker, chips and controls still work.
   nativeGoal({goals:ctx.goals,commands:{register(definition){

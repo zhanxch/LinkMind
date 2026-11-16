@@ -16,6 +16,8 @@ test('optional model adapter survives Cordis setup and is released with the desk
   ctx.provide('connection',{});
   ctx.provide('agentPresets',{register:async()=>()=>{}});
   ctx.provide('attachments',{});
+  ctx.provide('agents',{get:()=>undefined});
+  ctx.provide('workingDirectory',{});
   ctx.provide('llm',{registerAdapter(providers,adapter){
     registrations++;
     for(const provider of providers)adapters.set(provider,adapter);

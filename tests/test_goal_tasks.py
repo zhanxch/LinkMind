@@ -104,4 +104,19 @@ class GoalTaskTests(unittest.TestCase):
         self.assertEqual(value['owner_session_id'],'')
         self.assertEqual(value['original_request'],'Preserve the original model and reproduce Push-T')
 
+    def test_natural_goal_binding_is_idempotent_and_does_not_steal_transferred_tasks(self):
+        first = self.open()
+        data = dict(native_goal_id='native-natural', kind='reproduce', request='Reproduce fixture')
+        value = self.change(first, 'ensure_goal_task', data)
+        task = value['project']['objectives'][0]['id']
+        value = self.change(first, 'ensure_goal_task', data)
+        self.assertEqual(len(value['project']['objectives']), 1)
+        self.assertEqual(value['project']['objectives'][0]['native_goal_id'], 'native-natural')
+        second = self.open('second')
+        self.attach(second, task, 'native-next')
+        value = self.change(first, 'ensure_goal_task', data)
+        self.assertEqual(len(value['project']['objectives']), 1)
+        self.assertEqual(value['project']['objectives'][0]['owner_session_id'], 'second')
+        self.assertEqual(value['project']['objectives'][0]['native_goal_id'], 'native-next')
+
 if __name__ == '__main__': unittest.main()

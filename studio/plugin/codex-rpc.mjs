@@ -60,8 +60,8 @@ export const threadConfig = {
   'features.skip_host_skill_discovery': true,
 };
 
-// Native dsh logs remain the source of history. Each provider call reconstructs
-// that history in an ephemeral Codex thread; Codex never executes dsh's tools.
+// DSH logs are the source for initial imports and recovery. Ordinary calls
+// continue in codex-session.mjs; auxiliary requests use the isolated stream below.
 export async function projectMessages(messages, attachments, signal) {
   const items = [];
   for (const message of messages) {
@@ -78,6 +78,10 @@ export async function projectMessages(messages, attachments, signal) {
       } else if (block.type === 'tool-call') {
         if (content.length) items.push({type: 'message', role: message.role, content: content.splice(0)});
         items.push({type: 'function_call', call_id: block.id, name: wireToolName(block.name), arguments: block.arguments});
+      } else if (block.type === 'tool-addition' || block.type === 'tool-removal') {
+        // The current request declares the effective tool set. Historical schema
+        // changes are context, not executable declarations in the new thread.
+        content.push({type:'input_text',text:`Host tool ${block.toolName} was ${block.type==='tool-addition'?'added':'removed'} at this point in the conversation.`});
       } else if (block.type !== 'reasoning') {
         throw new Error(`Codex adapter cannot project content block ${block.type}`);
       }

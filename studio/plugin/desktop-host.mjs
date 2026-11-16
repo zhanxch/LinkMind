@@ -1,3 +1,4 @@
+import path from 'node:path';
 import z from '@deepseek-ai/schemastery';
 import {apply as proxy} from './index.mjs';
 import {startStudio} from './runtime.mjs';
@@ -29,6 +30,6 @@ export async function apply(ctx, config) {
     const agent = await import('./agent.mjs');
     // A Cordis plugin fiber is not an effect disposer; returning it unloads
     // the nested adapter after registration. Its parent already owns it.
-    ctx.inject(['llm', 'attachments'], child => { child.plugin(agent); });
+    ctx.inject(['llm', 'attachments', 'agents', 'workingDirectory'], child => { child.plugin(agent,{stateDir:path.join(backend.state,'codex-conversations')}); });
   }
 }
