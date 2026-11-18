@@ -29,7 +29,7 @@ export async function apply(ctx, config = {}) {
   ctx.on('tools/execute', async (exec, next) => {
     if (!exec.name.startsWith('mcp__linkmind__')) return next();
     const sessionId = exec.agent?.id;
-    if (!sessionId) throw new Error('LinkMind requires a native dsh conversation');
+    if (!sessionId) throw new Error('visual RSI studio requires a native dsh conversation');
     const operation = exec.name.slice('mcp__linkmind__'.length);
     const args = exec.arguments || {};
     if (['start_episode','remember_requirement','robot_call','finish_episode','stop_episode'].includes(operation)) {

@@ -7,7 +7,7 @@ export const inject = ['webServer', 'connection'];
 
 export function apply(ctx, connection = {url: process.env.LINKMIND_STUDIO_URL, token: process.env.LINKMIND_STUDIO_TOKEN}) {
   const backend = new URL(connection.url);
-  if (ctx.webServer.host !== '127.0.0.1') throw new Error('LinkMind Studio currently requires a loopback dsh listener');
+  if (ctx.webServer.host !== '127.0.0.1') throw new Error('visual RSI studio currently requires a loopback dsh listener');
   ctx.effect(() => ctx.webServer.register({
     kind: 'prefix', path: '/linkmind',
     handler: async (req, res) => {
@@ -65,5 +65,5 @@ export function apply(ctx, connection = {url: process.env.LINKMIND_STUDIO_URL, t
       if (body) upstream.end(body);
       else req.pipe(upstream);
     },
-  }), 'LinkMind Studio route');
+  }), 'visual RSI studio route');
 }

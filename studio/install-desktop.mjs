@@ -59,5 +59,5 @@ const target=path.join(directory,'cordis.patch.yml');
 let patch='';try{patch=await readFile(target,'utf8');}catch(error){if(error.code!=='ENOENT')throw error;}
 patch=configureDesktop(patch,root);
 await writeFile(target+'.linkmind-tmp',patch,{mode:0o600});await rename(target+'.linkmind-tmp',target);
-console.log('LinkMind installed. Reopen DeepSeek Harness and select 具身模式 · LinkMind.');
+console.log('visual RSI studio installed. Reopen DeepSeek Harness and select 具身模式 · visual RSI studio.');
 console.log('Profile backup: '+backup);

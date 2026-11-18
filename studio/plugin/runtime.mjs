@@ -39,7 +39,7 @@ export async function startStudio(config) {
     let timer;
     try {
       await Promise.race([done, new Promise((_, reject) => {
-        timer = setTimeout(() => reject(new Error('LinkMind service is still stopping; check service.log before restarting.')), 45000);
+        timer = setTimeout(() => reject(new Error('visual RSI studio service is still stopping; check service.log before restarting.')), 45000);
       })]);
     } finally {clearTimeout(timer);}
     // A failed duplicate launch must not remove the active owner's connection.
@@ -59,10 +59,10 @@ export async function startStudio(config) {
           resolve(parsed.origin);
         } catch (error) {reject(error);}
       })),
-      done.then(() => {throw spawnError || new Error(`LinkMind service could not start. See ${path.join(state, 'service.log')}`);}),
-      new Promise((_, reject) => {timer = setTimeout(() => reject(new Error('LinkMind service startup timed out')), 20000);}),
+      done.then(() => {throw spawnError || new Error(`visual RSI studio service could not start. See ${path.join(state, 'service.log')}`);}),
+      new Promise((_, reject) => {timer = setTimeout(() => reject(new Error('visual RSI studio service startup timed out')), 20000);}),
     ]);
-    if (exited) throw new Error('LinkMind service exited during startup');
+    if (exited) throw new Error('visual RSI studio service exited during startup');
     await writeFile(connectionFile, JSON.stringify({url, token, pid: child.pid}), {mode: 0o600});
     return {url, token, root, state, python, pythonPath, connectionFile, pid: child.pid, close,
       get alive() {return !exited;}};

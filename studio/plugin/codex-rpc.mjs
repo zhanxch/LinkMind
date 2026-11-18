@@ -48,7 +48,7 @@ export class CodexRpc {
     });
   }
   async initialize() {
-    await this.request('initialize', {clientInfo: {name: 'linkmind_dsh', title: 'LinkMind', version: '0.1.0'},
+    await this.request('initialize', {clientInfo: {name: 'linkmind_dsh', title: 'visual RSI studio', version: '0.1.0'},
       capabilities: {experimentalApi: true}});
     this.send({method: 'initialized', params: {}});
   }

@@ -219,7 +219,7 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
           const mine=state.runs.filter(r=>r.task_snapshot?.session_id===sessionId||(r.kind==='project'&&r.project_path===cwd));
           const chosen=selected?mine.find(r=>r.id===selected):mine[0];
           if(!controller.signal.aborted){setRuns(mine);setRun(current=>current?.id===chosen?.id?current:chosen||null);setError('');}
-        } catch(e){if(!controller.signal.aborted)setError('无法连接运行服务，请检查 LinkMind 插件是否已启用');}
+        } catch(e){if(!controller.signal.aborted)setError('无法连接运行服务，请检查 visual RSI studio 插件是否已启用');}
         if(!controller.signal.aborted)timer=setTimeout(update,1500);
       };
       update();return()=>{controller.abort();clearTimeout(timer);};
@@ -337,7 +337,7 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
   }
   let ControlConversation;
   return {inject:['slots','sidebarRight','sidebarRightTabs','sessions','locale','remote','remote.commands','remote.session','uiWorkspace','uiSession','resources','workspaces','layout'],async apply(ctx){
-    const {installWorkbench,createControlConversation}=await import('/linkmind/workbench.mjs?v=0.8.3');
+    const {installWorkbench,createControlConversation}=await import('/linkmind/workbench.mjs?v=0.8.4');
     ControlConversation=createControlConversation(React,ui,api);
     ctx.effect(()=>ctx.locale.register('linkmindProject',projectCopy),'LinkMind project copy');
     ctx.slots.inject('conversation.composer.dock',()=>ctx.slots.register({name:'conversation.composer.dock',id:'linkmind-codex-stats',order:-5},CodexStats));

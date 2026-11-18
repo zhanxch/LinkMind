@@ -91,7 +91,7 @@ export function createStudioChrome(React,ui) {
   const actionButton=(label,name,action,pressed)=>h(ui.Tooltip,{label,portal:true},h(ui.Button,{size:'sm',variant:'ghost','aria-label':label,'aria-pressed':pressed,onClick:action},icon(name,20)));
   const select=value=>{setMenu(null);if(value==='project')requestExplorer('project');else if(value==='chat')requestExplorer('chat');else if(value==='folder')requestExplorer('folder');else if(value==='settings')openSettings();else openPage(value);};
   return h('div',{className:'lm-studio-chrome'},
-   h('header',{className:'lm-titlebar'},h('div',{className:'lm-brand'},icon('IconAgentPresetOutlineRegular',23),'LinkMind Studio'),
+   h('header',{className:'lm-titlebar'},h('div',{className:'lm-brand'},icon('IconAgentPresetOutlineRegular',23),'visual RSI studio'),
     h('nav',{className:'lm-title-menu','aria-label':'工作台菜单'},...['文件','视图'].map(label=>h('button',{key:label,onClick:e=>setMenu({label,anchor:e.currentTarget})},label))),
     h('button',{className:'lm-quick-search',onClick:()=>setSearch(true),'aria-label':'搜索会话和视图'},icon('IconSearchOutlineRegular',15),h('span',null,'搜索会话、视图…'),h('kbd',null,'搜索')),
     h('div',{className:'lm-agent-state','data-running':!!session?.running},h('i',{className:'lm-status-dot'}),session?.running?'Agent 正在运行':'Agent 就绪'),actionButton('插件与设置','IconSettingsOutlineRegular',openSettings)),

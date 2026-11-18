@@ -1,6 +1,6 @@
 {
   "name": "@linkmind/dsh-studio",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "type": "module",
   "license": "MIT",
   "engines": {
@@ -31,7 +31,7 @@
       ]
     }
   },
-  "description": "LinkMind：DSH 原生会话中的具身项目开发、运行与实时摄像头",
+  "description": "visual RSI studio：可视化、数据管理、环境注册与实际效果",
   "files": [
     "*.mjs",
     "client.js",
