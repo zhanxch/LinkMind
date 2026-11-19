@@ -12,3 +12,14 @@ test('missing, cyclic and ambiguous ancestors stay visible without a comparison'
   const records = [['x','y'],['y','x'],['z',''],['z',''],['child','z'],['orphan','absent']];
   assert.deepEqual(roundLineage(records.map(([id,parent])=>({id,parent}))).map(row=>row.depth), records.map(()=>null));
 });
+
+test('compare exact evaluation cases and retain missing scores and changed conditions', async () => {
+  const {compareCases} = await import('../plugin/rsi-views.mjs');
+  const caseOf=(id,outcome,setup='a',split='dev')=>({id,outcome,setup,split});
+  const reference={episodes:[caseOf('fixed','failure'),caseOf('lost','success'),caseOf('held','success'),caseOf('new-seed','failure'),caseOf('unscored','interrupted'),caseOf('gone','success')]};
+  const current={episodes:[caseOf('lost','failure'),caseOf('fixed','success'),caseOf('held','success','a','heldout'),caseOf('new-seed','success','b'),caseOf('unscored','success'),caseOf('extra','failure')]};
+  assert.deepEqual(Object.fromEntries(compareCases(current,reference).map(p=>[p.id,p.kind])),{
+    lost:'regression', fixed:'gain',held:'different','new-seed':'different',unscored:'unknown',gone:'missing',extra:'added'
+  });
+  assert.ok(compareCases(current,null).every(p=>p.kind==='single'));
+});

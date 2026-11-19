@@ -25,6 +25,42 @@ export function roundLineage(rows) {
     .sort((a,b) => (a.depth ?? Infinity) - (b.depth ?? Infinity));
 }
 
+const outcomes = {success:'成功',failure:'失败',unscored:'未评分',interrupted:'中断'};
+const changeTypes = {
+  gain:'失败 → 成功', regression:'成功 → 失败', retained:'两版成功', failing:'两版失败',
+  unknown:'评分不全', different:'条件有变', added:'仅此版本', missing:'仅对照版本', single:'本次记录'
+};
+const costNames = {steps:'控制步数',wall_seconds:'耗时（秒）',uncached_input_tokens:'未缓存输入 token',interventions:'人工介入次数',retries:'重试次数'};
+const authors = {human:'人工修改',agent:'Agent 修改',unknown:'修改来源未记录'};
+
+export function compareCases(current, reference) {
+  const currentById = new Map((current?.episodes || []).map(ep=>[ep.id,ep]));
+  const previousById = new Map((reference?.episodes || []).map(ep=>[ep.id,ep]));
+  const pairs = [];
+  for (const id of new Set([...currentById.keys(), ...previousById.keys()])) {
+    const after = currentById.get(id), before = previousById.get(id);
+    let kind;
+    if (!reference) kind = 'single';
+    else if (!before) kind = 'added';
+    else if (!after) kind = 'missing';
+    else if ((before.setup || '') !== (after.setup || '') || (before.split || '') !== (after.split || '')) kind = 'different';
+    else if (![before,after].every(ep=>['success','failure'].includes(ep.outcome))) kind = 'unknown';
+    else if (before.outcome === after.outcome) kind = after.outcome === 'success' ? 'retained' : 'failing';
+    else kind = after.outcome === 'success' ? 'gain' : 'regression';
+    pairs.push({id,before,after,kind});
+  }
+  const order = ['regression','gain','failing','unknown','different','missing','added','retained','single'];
+  return pairs.sort((a,b)=>order.indexOf(a.kind)-order.indexOf(b.kind));
+}
+
+const reviewStyles = `
+.rsi-review-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;margin:16px 0 4px}.rsi-review-head h3{font-size:17px;margin:0}.rsi-caption{color:var(--dsw-alias-label-secondary);font-size:12px}.rsi-facts{display:flex;gap:8px 20px;flex-wrap:wrap;margin:9px 0 13px}.rsi-facts span{white-space:nowrap}.rsi-facts b{font-size:16px;font-variant-numeric:tabular-nums}.rsi-review .rsi-controls{align-items:end}.rsi-review td{font-variant-numeric:tabular-nums}.rsi-review th{white-space:nowrap}.rsi-case{background:none;border:0;color:inherit;text-align:left;cursor:pointer;font:inherit;text-decoration:underline;text-underline-offset:3px}.rsi-tone{border-left:3px solid var(--dsw-alias-border-l3);padding-left:6px}.rsi-tone[data-kind=gain]{border-color:#38a883}.rsi-tone[data-kind=regression],.rsi-tone[data-kind=failing]{border-color:#d8766a}.rsi-review details>summary{cursor:pointer;padding:5px 0}.rsi-case-detail{padding:8px 10px;border:1px solid var(--dsw-alias-border-l3);border-radius:6px}.rsi-review td small{display:block}.rsi-review .rsi-controls select{min-width:88px}.rsi-review dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 13px;margin:8px 0}.rsi-review dd{margin:0;overflow-wrap:anywhere}.rsi-delta{display:inline-grid;grid-template-columns:68px max-content;gap:7px;align-items:center}.rsi-delta-track{position:relative;display:block;height:12px;border-left:0;background:linear-gradient(to right,transparent 49%,var(--dsw-alias-label-secondary) 49% 51%,transparent 51%)}.rsi-delta-track i{position:absolute;top:4px;height:5px;min-width:0;border-radius:2px;background:#9485d9}.rsi-delta-track i[data-side=less]{background:#519ea8}
+`;
+
+function readable(value) {
+  return Number.isFinite(value) ? value.toLocaleString(undefined, {maximumFractionDigits:2}) : '—';
+}
+
 const styles = `
 .rsi-view{height:100%;box-sizing:border-box;overflow:auto;padding:18px 20px;color:var(--dsw-alias-label-primary);font-size:13px}.rsi-view h2{margin:0;font-size:19px;font-weight:500}.rsi-view h3{font-size:14px;margin:12px 0 6px;font-weight:500}.rsi-view p{line-height:1.55;margin:6px 0 12px;color:var(--dsw-alias-label-secondary)}.rsi-head,.rsi-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.rsi-head{justify-content:space-between;margin-bottom:14px}.rsi-controls{margin:10px 0}.rsi-view label{display:grid;gap:4px;min-width:0}.rsi-view input,.rsi-view select{font:inherit;color:inherit;background:var(--dsw-alias-bg-base);border:1px solid var(--dsw-alias-border-l3);border-radius:6px;padding:6px;max-width:100%;box-sizing:border-box}.rsi-view table{border-collapse:collapse;width:100%;text-align:left}.rsi-view td,.rsi-view th{padding:7px 9px;border-bottom:1px solid var(--dsw-alias-border-l3);overflow-wrap:anywhere}.rsi-view th{font-weight:500}.rsi-chart{width:100%;min-height:128px;max-height:180px;color:var(--dsw-alias-label-secondary)}.rsi-chart text{font:11px system-ui;fill:currentColor}.rsi-chart circle{fill:var(--lm-accent,currentColor)}.rsi-view details{margin:10px 0}.rsi-scroll{overflow:auto}.rsi-view [role=alert]{color:var(--dsw-alias-label-primary)}.rsi-view code{overflow-wrap:anywhere}.rsi-empty{padding:16px 0}.rsi-catalog{display:grid;gap:8px}.rsi-catalog li{overflow-wrap:anywhere}
 `;
@@ -56,7 +92,76 @@ export function createRSIViews(React, ui, api) {
       h('text',{x:74,y:140},'基线'),maxX>0&&h('text',{x:599,y:140,textAnchor:'end'},'迭代代数 '+maxX));
   }
 
-  function Board({sessionId,useSessions,openRun}) {
+  function CaseReview({rows,openRun,openEvidence}) {
+    const [version,setVersion]=React.useState(''), [compare,setCompare]=React.useState('parent');
+    const [caseId,selectCase]=React.useState(''), [cost,setCost]=React.useState('steps');
+    // The record index also distinguishes conflicting historical round IDs in the ledger.
+    const latest=rows.findLastIndex(r=>r.episodes?.length);
+    const index=version==='' ? (latest<0?rows.length-1:latest) : Number(version);
+    const current=rows[index] || rows[rows.length-1];
+    const parent=current.depth!=null && current.parent ? rows.find(r=>r.id===current.parent && r.depth!=null) : null;
+    const reference=compare==='parent'?parent:compare==='none'?null:rows[Number(compare)];
+    const pairs=compareCases(current,reference);
+    const tally=kind=>pairs.filter(p=>p.kind===kind).length;
+    const matched=tally('gain')+tally('regression')+tally('retained')+tally('failing');
+    const allCases=current.episodes || [];
+    const costs=[...new Set(pairs.flatMap(p=>[...Object.keys(p.after?.cost||{}),...Object.keys(p.before?.cost||{})]))];
+    const chosenCost=costs.includes(cost)?cost:costs[0];
+    const comparable=p=>['gain','regression','retained','failing'].includes(p.kind) &&
+      Number.isFinite(p.before?.cost?.[chosenCost]) && Number.isFinite(p.after?.cost?.[chosenCost]);
+    const scale=pairs.reduce((max,p)=>comparable(p)?Math.max(max,Math.abs(p.after.cost[chosenCost]-p.before.cost[chosenCost])):max,0);
+    function deltaCell(pair) {
+      if (!comparable(pair)) return '—';
+      const delta=pair.after.cost[chosenCost]-pair.before.cost[chosenCost];
+      const width=scale?Math.abs(delta)/scale*50:0;
+      return h('span',{className:'rsi-delta'},h('span',{className:'rsi-delta-track','aria-hidden':true},
+        h('i',{'data-side':delta<0?'less':'more',style:{width:width+'%',left:(delta<0?50-width:50)+'%'}})),
+        (delta>0?'+':'')+readable(delta));
+    }
+    const selected=pairs.find(p=>p.id===caseId);
+    const runButton=row=>row?.run_id&&button('查看 '+row.id+' 的控制会话与摄像头',()=>openRun(row.run_id));
+    const item=(label,value)=>h('span',null,h('b',null,value),' '+label);
+    const side=(ep,label)=>ep&&h('div',null,h('strong',null,label+' · '+outcomes[ep.outcome]),
+      ep.failure&&h('p',null,ep.failure),ep.evidence_available&&button('打开'+label+'证据',()=>openEvidence(ep.evidence)),
+      ep.evidence&&!ep.evidence_available&&h('small',null,'证据文件不可用'));
+    const tools=selected?[...new Set([...Object.keys(selected.before?.tools||{}),...Object.keys(selected.after?.tools||{})])]:[];
+    const cols=['场景 / 试次',reference?'对照 → 当前':'结果',...(chosenCost?[costNames[chosenCost]||chosenCost]:[]),...(reference&&chosenCost?['变化量']:[])];
+    return h('div',{className:'rsi-review'},h('style',null,reviewStyles),
+      h('div',{className:'rsi-controls'},field('查看版本',choose(String(index),v=>{setVersion(v);setCompare('parent');selectCase('');},rows.map((r,i)=>[String(i),r.id]))),
+        field('对照版本',choose(compare,v=>{setCompare(v);selectCase('');},[
+          ['parent',parent?'父版本 · '+parent.id:'无可确认的父版本'],['none','单看本版'],
+          ...rows.flatMap((r,i)=>r!==current&&r.depth!=null?[[String(i),r.id]]:[])
+        ]))),
+      h('div',{className:'rsi-review-head'},h('h3',null,current.change||current.id),h('span',{className:'rsi-caption'},authors[current.author]||authors.unknown,' · ',current.agent_version||current.commit?.slice(0,8)||current.id)),
+      current.trigger&&h('p',null,'触发这次修改的反馈 · '+current.trigger),
+      current.trigger_case&&h('p',null,'来源试次 · ',parent?.episodes?.some(ep=>ep.id===current.trigger_case)
+        ?button(current.trigger_case,()=>{setCompare('parent');selectCase(current.trigger_case);}):current.trigger_case),
+      current.hypothesis&&h('p',null,'待验证的假设 · '+current.hypothesis),
+      current.decision&&h('p',null,'已登记的决定 · '+current.decision),
+      current.depth==null&&h('p',null,'父子关系待核对，自动父版本比较不可用。'),
+      !pairs.length?h('p',null,'当前记录只有轮次信息或标量。上报逐例评估后，这里会列出修复、回归及其执行证据。'):
+        h(React.Fragment,null,
+          h('div',{className:'rsi-facts'},item('本版成功 / 已记录',allCases.filter(ep=>ep.outcome==='success').length+' / '+allCases.length),
+            reference&&item('同条件已评分对',matched),reference&&item('修复',tally('gain')),reference&&item('回归',tally('regression')),
+            reference&&pairs.length>matched&&item('未配对或评分不全',pairs.length-matched)),
+          h('div',{className:'rsi-controls'},h('h3',null,'逐例执行'),chosenCost&&field('执行代价',choose(chosenCost,setCost,costs.map(k=>[k,costNames[k]||k])))),
+          h('div',{className:'rsi-scroll'},h('table',null,h('thead',null,h('tr',null,...cols.map(v=>h('th',{key:v},v)))),
+            h('tbody',null,...pairs.map(p=>{
+              const before=p.before?.cost?.[chosenCost],after=p.after?.cost?.[chosenCost];
+              const label=p.after?.label||p.before?.label||p.id;
+              return h('tr',{key:p.id},h('td',null,h('button',{type:'button',className:'rsi-case','aria-expanded':selected?.id===p.id,onClick:()=>selectCase(selected?.id===p.id?'':p.id)},label),h('small',{className:'rsi-caption'},p.after?.split||p.before?.split)),
+                h('td',null,h('span',{className:'rsi-tone','data-kind':p.kind},reference?changeTypes[p.kind]:outcomes[p.after?.outcome])),
+                chosenCost&&h('td',null,reference?readable(before)+' → '+readable(after):readable(after)),reference&&chosenCost&&h('td',null,deltaCell(p)));
+            })))),
+          selected&&h('section',{className:'rsi-case-detail'},h('h3',null,selected.after?.label||selected.before?.label||selected.id),
+            h('div',{className:'rsi-caption'},selected.id),h('div',{className:'rsi-controls'},side(selected.before,'对照'),side(selected.after,'当前')),
+            tools.length>0&&h('details',{open:true},h('summary',null,'实际工具调用次数'),h('dl',null,...tools.map(name=>h(React.Fragment,{key:name},
+              h('dt',null,name),h('dd',null,reference?readable(selected.before?.tools?.[name])+' → '+readable(selected.after?.tools?.[name]):readable(selected.after?.tools?.[name])))))),
+            selected.before?.setup!==selected.after?.setup&&selected.kind==='different'&&h('p',null,'两次登记的场景条件不同。'))),
+      h('div',{className:'rsi-controls'},runButton(reference),runButton(current)));
+  }
+
+  function Board({sessionId,useSessions,openRun,openFile}) {
     const cwd = useWorkspace(sessionId,useSessions);
     const [data,save] = React.useState(null),[error,fail] = React.useState(''),[group,pickGroup] = React.useState(''),[metric,pickMetric] = React.useState(''),[tick,retry]=React.useState(0);
     React.useEffect(()=>{
@@ -79,18 +184,21 @@ export function createRSIViews(React, ui, api) {
       if (!groups.has(r.group)) groups.set(r.group,[]);
       groups.get(r.group).push(r);
     }
-    const active=groups.has(group)?group:groups.keys().next().value;
+    const firstReview=[...groups].find(([,items])=>items.some(r=>r.episodes?.length));
+    const active=groups.has(group)?group:firstReview?.[0]||groups.keys().next().value;
     const rows=roundLineage(groups.get(active)||[]);
     const metrics=[...new Set(rows.flatMap(r=>Object.keys(r.metrics)))];
     const chosen=metrics.includes(metric)?metric:metrics.includes('native.score')?'native.score':metrics[0];
-    const selectGroup=[...groups].map(([key,[r]])=>[key,[r.series,r.protocol,r.environment,...Object.values(r.condition),key.slice(0,5)].filter(v=>v!=null).join(' / ')]);
+    const selectGroup=[...groups].map(([key,[r]])=>[key,[r.series,r.protocol,r.environment,
+      ...Object.entries(r.condition).map(([k,v])=>k.replace(/^event\./,'')+'='+String(v))].filter(Boolean).join(' / ')]);
     const parents = new Map(rows.filter(r=>r.depth!==null).map(r=>[r.id,r]));
     return view(h('div',{className:'rsi-head'},h('h2',null,'Agent RSI Board'),button('刷新',()=>retry(x=>x+1))),
       errorText(error),data?.warnings.length>0&&errorText(data.warnings.slice(0,3).join(' · ')),
       !rows.length?h('div',{className:'rsi-empty'},h('h3',null,!cwd?'先打开工作区':data?'还没有 RSI 轮次':'正在读取轮次'),
         data&&h('p',null,'在会话中说「把这次实验记为基线，下一轮记录改动并与它比较」。外部实验也可以写入工作区的 studio.rsi.jsonl。')):
       h(React.Fragment,null,h('div',{className:'rsi-controls'},field('实验 / 对照条件',choose(active,pickGroup,selectGroup)),
-        metrics.length>0&&field('指标',choose(chosen,pickMetric,metrics.map(m=>[m,m])))),
+        ),h(CaseReview,{key:JSON.stringify([cwd,active]),rows,openRun,openEvidence:path=>openFile(cwd+'/'+path)}),
+        h('details',null,h('summary',null,'版本谱系与标量趋势'),metrics.length>0&&field('指标',choose(chosen,pickMetric,metrics.map(m=>[m,m]))),
         chosen&&h(Chart,{rows,metric:chosen}),h('div',{className:'rsi-scroll'},h('table',null,
         h('thead',null,h('tr',null,...['轮次 / 父轮次','版本与改动','状态',chosen||'指标','较父轮','运行'].map(v=>h('th',{key:v},v)))),
         h('tbody',null,...rows.map((r,i)=>{
@@ -100,7 +208,7 @@ export function createRSIViews(React, ui, api) {
             h('td',null,r.agent_version||r.commit?.slice(0,8)||'—',h('div',null,r.change),r.hypothesis&&h('small',null,'假设 · '+r.hypothesis),r.decision&&h('div',null,'决定 · '+r.decision)),
             h('td',null,r.status),h('td',null,v??'—'),h('td',null,delta===null?'—':(delta>0?'+':'')+delta),
             h('td',null,r.run_id?button('查看运行',()=>openRun(r.run_id)):'外部记录'));
-        }))))));
+        })))))));
   }
 
   function Environments({sessionId,useSessions,openPage,pickDirectory}) {

@@ -97,3 +97,41 @@ class RSIStudioTest(unittest.TestCase):
         self.assertEqual(meta['task'],'beat_block_hammer')
         self.assertEqual(rgb,pixels)
         twin.close_env.assert_called_once_with()
+
+    def test_case_evidence_and_optional_legacy_fields(self):
+        from roborag.studio.rsi_board import checked_round
+        old = dict(id='v1', series='test',protocol='simulation')
+        self.assertEqual(checked_round(old)['episodes'], [])
+        ep = dict(id='task/seed1',outcome='interrupted',cost={'steps':0},tools={'observe':0})
+        self.assertEqual(checked_round(dict(old,episodes=[ep]))['episodes'][0]['outcome'], 'interrupted')
+        for cases in ([ep, ep], [dict(ep,evidence='../elsewhere')], [dict(ep,cost={'steps':-1})]):
+            with self.assertRaises(ValueError):checked_round(dict(old,episodes=cases))
+
+    def test_bundled_push_t_cases_reference_matching_native_reports(self):
+        root = ROOT/'examples/studio-project'
+        with tempfile.TemporaryDirectory() as tmp:
+            manager=Projects(Path(tmp),PYTHONPATH)
+            self.addCleanup(manager.close)
+            project=manager.open_workspace(root,'review')
+            rows=board(manager,project['id'])['rounds']
+            self.assertEqual([row['id'] for row in rows],['baseline','summaries','no_plan','fixed','none'])
+            for row in rows:
+                self.assertEqual(len(row['episodes']),2)
+                for ep in row['episodes']:
+                    self.assertTrue(ep['evidence_available'])
+                    report=json.loads((root/ep['evidence']).read_text())
+                    self.assertEqual(report['layout_sha256'],ep['setup'])
+                    self.assertEqual(report['native_result']['details']['0']['success'],ep['outcome']=='success')
+                    self.assertEqual(report['steps'],ep['cost']['steps'])
+                    self.assertEqual(len(report['tool_sequence']),sum(ep['tools'].values()))
+
+    def test_native_case_verdict_and_cost_scope(self):
+        from roborag.studio.rsi_board import native_cases
+        run=dict(id='attempt',status='completed',recipe={'metadata':{'task':'push_T','seed':1,'layout':0}})
+        self.assertEqual(native_cases(run, {'complete':True,'native':{'score':100}})[0]['outcome'],'unscored')
+        cases=native_cases(run,{'wall_seconds':10,'native':{'details':{
+            '0':{'layout_id':0,'success':True},'1':{'layout_id':1,'success':False}}}})
+        self.assertEqual([c['outcome'] for c in cases],['success','failure'])
+        self.assertFalse(any(c['cost'] for c in cases))
+        self.assertEqual(native_cases(run,{'scored':True,'success':False,'steps':0})[0]['cost'],{'steps':0})
+        self.assertEqual(native_cases(run,{'scored':False,'success':False})[0]['outcome'],'unscored')

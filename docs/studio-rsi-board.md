@@ -2,11 +2,17 @@
 
 在 DSH 的具身模式中打开工作区，点击左侧 **环境注册** 或 **Agent RSI Board**。注册的环境供本机同一 Studio profile 的项目复用。Board 按工作区汇总，同一项目换一个会话仍能看到之前的迭代。
 
-## 第一次看两轮改动
+## 第一次打开
 
-打开 `examples/studio-project` 工作区，在会话中说「运行 rsi-calibration」，然后打开 **Agent RSI Board**，选择 `mean_absolute_error`。校准脚本先用原控制器测量四个固定目标的误差，再用测得的平均偏差修正控制器，重复相同测量。点击 **查看运行** 可以回到此次执行。这个演示使用 Python 标准库，两轮都实际计算，无需 GPU、模型账号或仿真器。
+打开 `examples/studio-project` 工作区，点 **Agent RSI Board**。随包附带 Push-T 五档工具消融的十次历史执行，打开即可查看。每档在同样的两个开发布局上测试一次。每个版本都按预先制定的人工改动标注；这份数据可以检验评估视图，无法验证 Agent 自主改进或留出集泛化。
 
-曲线的横轴是迭代代数。两个分支都从第一轮修改，就会落在同一代。表格保留每轮版本、修改、假设、决定、状态、指标和相对父轮的差值。缺少测量时显示空值，父轮缺失、重复或形成循环时保留记录并标记关系待核对。运行过程中会定时刷新。
+选择 **no_plan**，保留父版本 **summaries**。两种布局都成功。标准布局从 455 步降至 342 步，随机布局从 199 步升至 262 步。点击一个布局，查看实际工具调用次数，再打开该次证据，按序查看工具调用及原生评分。两个布局都只有一对试次，单次步数差没有隔离随机波动。[冻结协议](https://github.com/zhanxch/LinkMind/blob/270175a/experiments/push_T/simplification-pilot-20261111.json) · [原始汇总](https://github.com/zhanxch/LinkMind/blob/270175a/results/push-t-simplification-pilot-20261111.json)
+
+## 复盘一轮改动
+
+先看**为何改、谁改、改了什么**。有记录时，Board 展示触发反馈、来源试次、假设和保留或回滚的决定。再看**哪些试次改变了结果**。选择父版本或同协议的其他版本，按试次比较修复、回归、两版都失败和两版都成功。新增、缺席、条件改变、中断和未评分分别保留。分母显示本版实际记录的例数，配对数只包含两边都有明确判定且条件一致的试次。
+
+点一个场景查两版的失败描述、工具次数和证据。可切换查看步数、耗时或记录的其他执行代价。对托管运行可打开实际控制会话及摄像头。下方 **版本谱系与标量趋势** 保留原始曲线。只有标量的旧记录仍能查看。
 
 ## 注册本机环境
 
@@ -45,3 +51,20 @@
 ```
 
 上面两行是格式示意。指标由实验程序实测，支持任意命名的有限数值。独立程序可使用标准 JSONL，或导入 `roborag.studio.rsi_board.log_round(path, **fields)`。可比条件包括显式 protocol、conditions，以及托管运行记录的环境绑定与提交、时限和任务、种子、预算等元数据。只在同组内连接明确的父轮。对于外部记录，请在 conditions 明确写入环境版本、评估集、预算和人工介入条件。只有 Studio 托管运行才具备返回运行的链接；可查看的控制事件和摄像头取决于该运行实际提供的产物。
+
+## 记录逐例反馈
+
+`episodes` 是轮次记录的可选字段。每条试次提供稳定的 `id` 与 `outcome`（success、failure、unscored、interrupted）。同一 id 跨版本代表相同任务、种子、布局和尝试编号；重复评估用不同尝试编号。`setup` 可存布局或输入摘要，`split` 可标记开发集或留出集。两边 setup 或 split 不同的试次单列。明确上报零才能区分“用过零次”和“缺数据”。
+
+```json
+{
+  "series":"grasp","protocol":"heldout-v1","id":"v2","parent":"v1",
+  "author":"agent","trigger":"上一版侧抓时滑落","trigger_case":"cup/seed7/try1",
+  "hypothesis":"夹持后复测能提前发现滑动","change":"在抬升前加入复测",
+  "episodes":[{"id":"cup/seed7/try1","label":"杯子 · seed 7","split":"开发集",
+    "setup":"layout-A","outcome":"success","cost":{"steps":74,"interventions":0},
+    "tools":{"measure":3},"evidence":"reports/v2/cup7.json"}]
+}
+```
+
+这是接入格式。author 可选 agent、human、unknown；只有观察到的来源和实际做出的决定才写入。evidence 为工作区内可打开的相对文件。标记了 rsi 的托管运行会尝试从原生逐例成功标记或显式 scored/success 判定读取结果。整次运行的耗时与步数只归给单例报告。每个实验仍需明示协议、预算和数据集；Board 无法从轨迹推断修改的作者或因果效果。

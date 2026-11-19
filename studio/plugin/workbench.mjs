@@ -1,6 +1,6 @@
-import {createRSIViews} from './rsi-views.mjs?v=0.9.0';
-import {studioStyles,studioFrame,createStudioChrome} from './studio-shell.mjs?v=0.9.0';
-import {createStudioDock,terminalDockStyles} from './studio-dock.mjs?v=0.9.0';
+import {createRSIViews} from './rsi-views.mjs?v=0.9.1';
+import {studioStyles,studioFrame,createStudioChrome} from './studio-shell.mjs?v=0.9.1';
+import {createStudioDock,terminalDockStyles} from './studio-dock.mjs?v=0.9.1';
 import {overviewStyles,createOverview} from './studio-overview.mjs?v=0.8.0';
 // Presentation-only extension for DSH 0.2.2-rc.2. Native conversations and dock tabs keep their owners.
 export function installWorkbench(ctx, React, ui, api, createSnapshotStore) {
@@ -156,7 +156,7 @@ export function installWorkbench(ctx, React, ui, api, createSnapshotStore) {
     ctx.effect(()=>ctx.sidebarRightTabs.register({id:kind,kind,title:()=>title}),title);
     ctx.slots.inject('sidebar.right.pane.tab',()=>ctx.slots.register({
       name:'sidebar.right.pane.tab',key:kind,inject:()=>({
-        openPage,pickDirectory:()=>globalThis.__DSH_DIRECTORY_PICKER__?.pick?.()??ctx.uiWorkspace.pickDirectory(),
+        openFile:path=>ctx.sidebarRight.openResource('dsh-resource://file/session/'+encodeURIComponent(currentId())+'/'+path.split('/').map(encodeURIComponent).join('/')),openPage,pickDirectory:()=>globalThis.__DSH_DIRECTORY_PICKER__?.pick?.()??ctx.uiWorkspace.pickDirectory(),
         openRun:id=>{window.dispatchEvent(new CustomEvent('linkmind:overview-run',{detail:{id,sessionId:currentId()}}));openPage('linkmind-camera');}
       })},Panel));
   }

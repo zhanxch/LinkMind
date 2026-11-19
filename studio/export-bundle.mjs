@@ -26,7 +26,11 @@ await copy('src/roborag/episode_files.py','backend/src/roborag/episode_files.py'
 await writeFile(path.join(target,'backend/src/roborag/__init__.py'),'"""Standalone Studio runtime; simulator integrations are supplied separately."""\n');
 await mkdir(path.join(target,'backend/resources'),{recursive:true});
 await writeFile(path.join(target,'backend/resources/task-bundles.json'),'{"tasks":{}}\n');
-for(const file of await readdir(path.join(root,'examples/studio-project')))await copy('examples/studio-project/'+file,'examples/studio-project/'+file);
+const example='examples/studio-project/';
+for(const name of ['README.md','run.py','linkmind.studio.json','rsi_calibration.py','studio.rsi.jsonl'])await copy(example+name);
+for(const version of ['baseline','summaries','no_plan','fixed','none']){
+  for(const scene of ['standard','random'])await copy(example+'evidence/'+version+'-'+scene+'.json');
+}
 await copy('docs/studio-projects.md','docs/projects.md');
 await copy('docs/studio-rsi-board.md','docs/rsi-board.md');
 await copy('docs/studio-ide-workbench.md','docs/workbench.md');
