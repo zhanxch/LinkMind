@@ -54,7 +54,7 @@ export function compareCases(current, reference) {
 }
 
 const reviewStyles = `
-.rsi-review-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;margin:16px 0 4px}.rsi-review-head h3{font-size:17px;margin:0}.rsi-caption{color:var(--dsw-alias-label-secondary);font-size:12px}.rsi-facts{display:flex;gap:8px 20px;flex-wrap:wrap;margin:9px 0 13px}.rsi-facts span{white-space:nowrap}.rsi-facts b{font-size:16px;font-variant-numeric:tabular-nums}.rsi-review .rsi-controls{align-items:end}.rsi-review td{font-variant-numeric:tabular-nums}.rsi-review th{white-space:nowrap}.rsi-case{background:none;border:0;color:inherit;text-align:left;cursor:pointer;font:inherit;text-decoration:underline;text-underline-offset:3px}.rsi-tone{border-left:3px solid var(--dsw-alias-border-l3);padding-left:6px}.rsi-tone[data-kind=gain]{border-color:#38a883}.rsi-tone[data-kind=regression],.rsi-tone[data-kind=failing]{border-color:#d8766a}.rsi-review details>summary{cursor:pointer;padding:5px 0}.rsi-case-detail{padding:8px 10px;border:1px solid var(--dsw-alias-border-l3);border-radius:6px}.rsi-review td small{display:block}.rsi-review .rsi-controls select{min-width:88px}.rsi-review dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 13px;margin:8px 0}.rsi-review dd{margin:0;overflow-wrap:anywhere}.rsi-delta{display:inline-grid;grid-template-columns:68px max-content;gap:7px;align-items:center}.rsi-delta-track{position:relative;display:block;height:12px;border-left:0;background:linear-gradient(to right,transparent 49%,var(--dsw-alias-label-secondary) 49% 51%,transparent 51%)}.rsi-delta-track i{position:absolute;top:4px;height:5px;min-width:0;border-radius:2px;background:#9485d9}.rsi-delta-track i[data-side=less]{background:#519ea8}
+.rsi-review-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;margin:16px 0 4px}.rsi-review-head h3{font-size:17px;margin:0}.rsi-caption{color:var(--dsw-alias-label-secondary);font-size:12px}.rsi-facts{display:flex;gap:8px 20px;flex-wrap:wrap;margin:9px 0 13px}.rsi-facts span{white-space:nowrap}.rsi-facts b{font-size:16px;font-variant-numeric:tabular-nums}.rsi-review .rsi-controls{align-items:end}.rsi-review td{font-variant-numeric:tabular-nums}.rsi-review th{white-space:nowrap}.rsi-case{background:none;border:0;color:inherit;text-align:left;cursor:pointer;font:inherit;text-decoration:underline;text-underline-offset:3px}.rsi-tone{border-left:3px solid var(--dsw-alias-border-l3);padding-left:6px}.rsi-tone[data-kind=gain]{border-color:#38a883}.rsi-tone[data-kind=regression],.rsi-tone[data-kind=failing]{border-color:#d8766a}.rsi-review details>summary{cursor:pointer;padding:5px 0}.rsi-case-detail{padding:8px 10px;border:1px solid var(--dsw-alias-border-l3);border-radius:6px}.rsi-review td small{display:block}.rsi-review .rsi-controls select{min-width:88px}.rsi-versions>label:first-child{max-width:45%}.rsi-versions{margin-top:0}.rsi-cost-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.rsi-cost-head label{display:flex;align-items:center;gap:6px}.rsi-versions select{width:100%}@media(max-width:700px){.rsi-versions>label:first-child{max-width:100%}}.rsi-review dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 13px;margin:8px 0}.rsi-review dd{margin:0;overflow-wrap:anywhere}.rsi-delta{display:inline-grid;grid-template-columns:68px max-content;gap:7px;align-items:center}.rsi-delta-track{position:relative;display:block;height:12px;border-left:0;background:linear-gradient(to right,transparent 49%,var(--dsw-alias-label-secondary) 49% 51%,transparent 51%)}.rsi-delta-track i{position:absolute;top:4px;height:5px;min-width:0;border-radius:2px;background:#9485d9}.rsi-delta-track i[data-side=less]{background:#519ea8}
 `;
 
 function readable(value) {
@@ -92,7 +92,7 @@ export function createRSIViews(React, ui, api) {
       h('text',{x:74,y:140},'基线'),maxX>0&&h('text',{x:599,y:140,textAnchor:'end'},'迭代代数 '+maxX));
   }
 
-  function CaseReview({rows,openRun,openEvidence}) {
+  function CaseReview({rows,openRun,openEvidence,groupField}) {
     const [version,setVersion]=React.useState(''), [compare,setCompare]=React.useState('parent');
     const [caseId,selectCase]=React.useState(''), [cost,setCost]=React.useState('steps');
     // The record index also distinguishes conflicting historical round IDs in the ledger.
@@ -127,7 +127,7 @@ export function createRSIViews(React, ui, api) {
     const tools=selected?[...new Set([...Object.keys(selected.before?.tools||{}),...Object.keys(selected.after?.tools||{})])]:[];
     const cols=['场景 / 试次',reference?'对照 → 当前':'结果',...(chosenCost?[costNames[chosenCost]||chosenCost]:[]),...(reference&&chosenCost?['变化量']:[])];
     return h('div',{className:'rsi-review'},h('style',null,reviewStyles),
-      h('div',{className:'rsi-controls'},field('查看版本',choose(String(index),v=>{setVersion(v);setCompare('parent');selectCase('');},rows.map((r,i)=>[String(i),r.id]))),
+      h('div',{className:'rsi-controls rsi-versions'},groupField,field('查看版本',choose(String(index),v=>{setVersion(v);setCompare('parent');selectCase('');},rows.map((r,i)=>[String(i),r.id]))),
         field('对照版本',choose(compare,v=>{setCompare(v);selectCase('');},[
           ['parent',parent?'父版本 · '+parent.id:'无可确认的父版本'],['none','单看本版'],
           ...rows.flatMap((r,i)=>r!==current&&r.depth!=null?[[String(i),r.id]]:[])
@@ -144,7 +144,7 @@ export function createRSIViews(React, ui, api) {
           h('div',{className:'rsi-facts'},item('本版成功 / 已记录',allCases.filter(ep=>ep.outcome==='success').length+' / '+allCases.length),
             reference&&item('同条件已评分对',matched),reference&&item('修复',tally('gain')),reference&&item('回归',tally('regression')),
             reference&&pairs.length>matched&&item('未配对或评分不全',pairs.length-matched)),
-          h('div',{className:'rsi-controls'},h('h3',null,'逐例执行'),chosenCost&&field('执行代价',choose(chosenCost,setCost,costs.map(k=>[k,costNames[k]||k])))),
+          h('div',{className:'rsi-cost-head'},h('h3',null,'逐例执行'),chosenCost&&field('执行代价',choose(chosenCost,setCost,costs.map(k=>[k,costNames[k]||k])))),
           h('div',{className:'rsi-scroll'},h('table',null,h('thead',null,h('tr',null,...cols.map(v=>h('th',{key:v},v)))),
             h('tbody',null,...pairs.map(p=>{
               const before=p.before?.cost?.[chosenCost],after=p.after?.cost?.[chosenCost];
@@ -196,8 +196,8 @@ export function createRSIViews(React, ui, api) {
       errorText(error),data?.warnings.length>0&&errorText(data.warnings.slice(0,3).join(' · ')),
       !rows.length?h('div',{className:'rsi-empty'},h('h3',null,!cwd?'先打开工作区':data?'还没有 RSI 轮次':'正在读取轮次'),
         data&&h('p',null,'在会话中说「把这次实验记为基线，下一轮记录改动并与它比较」。外部实验也可以写入工作区的 studio.rsi.jsonl。')):
-      h(React.Fragment,null,h('div',{className:'rsi-controls'},field('实验 / 对照条件',choose(active,pickGroup,selectGroup)),
-        ),h(CaseReview,{key:JSON.stringify([cwd,active]),rows,openRun,openEvidence:path=>openFile(cwd+'/'+path)}),
+      h(React.Fragment,null,h(CaseReview,{key:JSON.stringify([cwd,active]),rows,openRun,openEvidence:path=>openFile(cwd+'/'+path),
+        groupField:field('实验 / 对照条件',choose(active,pickGroup,selectGroup))}),
         h('details',null,h('summary',null,'版本谱系与标量趋势'),metrics.length>0&&field('指标',choose(chosen,pickMetric,metrics.map(m=>[m,m]))),
         chosen&&h(Chart,{rows,metric:chosen}),h('div',{className:'rsi-scroll'},h('table',null,
         h('thead',null,h('tr',null,...['轮次 / 父轮次','版本与改动','状态',chosen||'指标','较父轮','运行'].map(v=>h('th',{key:v},v)))),
