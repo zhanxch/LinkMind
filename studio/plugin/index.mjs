@@ -28,7 +28,7 @@ export function apply(ctx, connection = {url: process.env.LINKMIND_STUDIO_URL, t
         }catch{res.writeHead(503,{'Content-Type':'application/json'}).end(JSON.stringify({error:'统计暂时不可用'}));}
         return;
       }
-      if (req.method === 'GET' && ['workbench.mjs','studio-shell.mjs','studio-dock.mjs','studio-overview.mjs','rsi-views.mjs','rsi-matrix.mjs'].some(name => req.url.split('?')[0] === '/linkmind/'+name)) {
+      if (req.method === 'GET' && ['workbench.mjs','studio-shell.mjs','studio-dock.mjs','studio-overview.mjs','rsi-views.mjs','rsi-matrix.mjs','rsi-flow.mjs'].some(name => req.url.split('?')[0] === '/linkmind/'+name)) {
         const source = await readFile(new URL('./'+req.url.split('?')[0].slice('/linkmind/'.length), import.meta.url));
         res.writeHead(200, {'Content-Type':'text/javascript; charset=utf-8','Cache-Control':'no-cache','X-Content-Type-Options':'nosniff'});
         res.end(source); return;

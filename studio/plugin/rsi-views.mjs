@@ -1,4 +1,5 @@
 import {createMatrix} from './rsi-matrix.mjs';
+import {createFlow} from './rsi-flow.mjs';
 
 // Both views use the native workspace/session supplied by the DSH tab.
 export function roundLineage(rows) {
@@ -71,6 +72,7 @@ const styles = `
 export function createRSIViews(React, ui, api) {
   const h = React.createElement;
   const Matrix = createMatrix(React,ui);
+  const Flow = createFlow(React,ui,api);
   const button = (title, action, disabled = false) => h(ui.Button,{size:'sm',variant:'outline',onClick:action,disabled},title);
   const field = (title, child) => h('label',null,title,child);
   const textInput = (value, set, placeholder) => h('input',{value,placeholder,onChange:e=>set(e.target.value)});
@@ -179,7 +181,13 @@ export function createRSIViews(React, ui, api) {
       h('div',{className:'rsi-controls'},runButton(reference),runButton(current)));
   }
 
-  function Board({sessionId,useSessions,openRun,openFile}) {
+  function Board(props) {
+    const cwd=useWorkspace(props.sessionId,props.useSessions);
+    const [display,select]=React.useState('flow');
+    return display==='flow'?h(Flow,{...props,key:JSON.stringify([cwd,props.sessionId]),cwd,onMatrix:()=>select('matrix')}):
+      h(ResultsBoard,{...props,onFlow:()=>select('flow')});
+  }
+  function ResultsBoard({sessionId,useSessions,openRun,openFile,onFlow}) {
     const cwd = useWorkspace(sessionId,useSessions);
     const [data,save]=React.useState(null),[error,fail]=React.useState(''),[group,pickGroup]=React.useState('');
     const [drill,setDrill]=React.useState(null),[detail,saveDetail]=React.useState(null),[split,pickSplit]=React.useState(null);
@@ -224,9 +232,9 @@ export function createRSIViews(React, ui, api) {
     const selectGroup=batches.map(b=>[b.id,b.series+' · '+b.protocol]);
     const chooseBatch=id=>{pickGroup(id);pickSplit(null);setDrill(null);};
     const parents = new Map(rows.filter(r=>r.depth!==null).map(r=>[r.id,r]));
-    return view(h('div',{className:'rsi-head'},h('h2',null,'Agent RSI Board'),
+    return view(h('div',{className:'rsi-head'},h('h2',null,'批量评测'),
       h('div',{className:'rsi-controls',style:{margin:0}},
-        drill&&button('返回总览',()=>setDrill(null)),button('刷新',()=>retry(x=>x+1)))),
+        button('演化流程',onFlow),drill&&button('返回总览',()=>setDrill(null)),button('刷新',()=>retry(x=>x+1)))),
       errorText(error || detail?.error),
       data?.warnings.length>0&&h('details',null,h('summary',null,'记录提示 · '+data.warnings.length),
         h('p',null,data.warnings.slice(0,3).join(' · '))),

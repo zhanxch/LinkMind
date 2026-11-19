@@ -31,6 +31,19 @@
         "task": "scalar calibration demo",
         "benchmark": false
       }
+    },
+    "rsi-workflow-demo": {
+      "argv": [
+        "python3",
+        "rsi_workflow_demo.py",
+        "--interval",
+        "1.2"
+      ],
+      "timeout_seconds": 65,
+      "metadata": {
+        "purpose": "Coding flow integration demo",
+        "benchmark": false
+      }
     }
   }
 }

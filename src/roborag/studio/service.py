@@ -56,6 +56,7 @@ def text_field(data, key, limit=4000, required=False):
 
 
 from .rsi_board import board
+from .rsi_flow import snapshot as flow_snapshot
 
 
 class Studio:
@@ -571,6 +572,28 @@ def serve(studio, port, token):
             except (BrokenPipeError, ConnectionResetError):
                 pass
 
+        def stream_flow(self, project_id):
+            value = flow_snapshot(studio.projects, project_id)
+            self.send_response(200)
+            self.send_header("Content-Type", "text/event-stream; charset=utf-8")
+            self.send_header("Cache-Control", "no-store")
+            self.send_header("X-Accel-Buffering", "no")
+            self.end_headers()
+            previous = None
+            try:
+                for tick in range(240):
+                    payload = json.dumps(value, ensure_ascii=False, sort_keys=True)
+                    if payload != previous:
+                        self.wfile.write(("data: " + payload + "\n\n").encode())
+                        previous = payload
+                    elif tick % 12 == 0:
+                        self.wfile.write(b": keepalive\n\n")
+                    self.wfile.flush()
+                    time.sleep(0.5)
+                    value = flow_snapshot(studio.projects, project_id)
+            except (BrokenPipeError, ConnectionResetError):
+                pass
+
         def handle_request(self):
             if not secrets.compare_digest(self.headers.get("Authorization", ""), "Bearer " + token):
                 self.respond(401, {"error": "Unauthorized"})
@@ -625,6 +648,9 @@ def serve(studio, port, token):
                 elif len(parts) == 4 and parts[:2] == ["api", "projects"]:
                     project_id, action = parts[2:]
                     if self.command == "GET" and action == "inspect": value = studio.projects.inspect(project_id)
+                    elif self.command == "GET" and action == "flow":
+                        self.stream_flow(project_id)
+                        return
                     elif self.command == "GET" and action == "board":
                         params = parse_qs(urlsplit(self.path).query, keep_blank_values=True)
                         value = board(studio.projects, project_id, view=params.get('view', [''])[0],

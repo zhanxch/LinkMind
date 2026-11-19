@@ -337,7 +337,7 @@ window.__ModuleLoader__.load({id:'@linkmind/dsh-studio', factory:require => {
   }
   let ControlConversation;
   return {inject:['slots','sidebarRight','sidebarRightTabs','sessions','locale','remote','remote.commands','remote.session','uiWorkspace','uiSession','resources','workspaces','layout'],async apply(ctx){
-    const {installWorkbench,createControlConversation}=await import('/linkmind/workbench.mjs?v=0.10.0');
+    const {installWorkbench,createControlConversation}=await import('/linkmind/workbench.mjs?v=0.11.0');
     ControlConversation=createControlConversation(React,ui,api);
     ctx.effect(()=>ctx.locale.register('linkmindProject',projectCopy),'LinkMind project copy');
     ctx.slots.inject('conversation.composer.dock',()=>ctx.slots.register({name:'conversation.composer.dock',id:'linkmind-codex-stats',order:-5},CodexStats));
