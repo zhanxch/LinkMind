@@ -1,0 +1,51 @@
+{
+  "task": "push_T",
+  "profile": "none",
+  "variant": "random",
+  "seed": 1,
+  "layout": 0,
+  "layout_sha256": "6956fccbba1e5db2c7f2c8a1c930b43f267da1a2713394fec8254ab6cbe921ab",
+  "candidate_commit": "cd86be4f3b5d3f10ceb578cb2365b10113064be3",
+  "native_sha256": "117b7aac5c033705b64fc53e97b00912e1fec4f50cff9869aee75b750b3529a6",
+  "native_result": {
+    "success_rate": 1.0,
+    "eval_time": 1,
+    "score": 100.0,
+    "details": {
+      "0": {
+        "layout_id": 0,
+        "success": true,
+        "score": 1.0
+      }
+    }
+  },
+  "steps": 155,
+  "wall_seconds": 314.35554175823927,
+  "usage": {
+    "input_tokens": 542183,
+    "cached_input_tokens": 501248,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 4239,
+    "reasoning_output_tokens": 1809
+  },
+  "tool_sequence": [
+    "observe",
+    "measure_planar",
+    "execute_chunk",
+    "measure_planar",
+    "measure_planar",
+    "execute_chunk",
+    "execute_chunk",
+    "execute_chunk",
+    "execute_chunk",
+    "execute_chunk",
+    "execute_chunk",
+    "execute_chunk",
+    "execute_chunk",
+    "execute_chunk",
+    "measure_planar",
+    "execute_chunk"
+  ],
+  "tool_trace_sha256": "57fe51dd0b791e27a621b37db57b15fc11f2b5254aa0f43c02118bd1418db673",
+  "source_summary": "https://github.com/zhanxch/LinkMind/blob/270175a/results/push-t-simplification-pilot-20261111.json"
+}

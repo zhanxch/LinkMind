@@ -1,0 +1,60 @@
+{
+  "name": "@linkmind/dsh-studio",
+  "version": "0.12.0",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "dsh": "0.2.2-rc.2"
+  },
+  "main": "./desktop-host.mjs",
+  "exports": {
+    ".": "./desktop-host.mjs",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-primitives",
+        "@deepseek-ai/dsh-client-ui-workspace",
+        "@deepseek-ai/dsh-client-ui-sidebar-files"
+      ]
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml",
+      "platforms": [
+        "linux"
+      ]
+    }
+  },
+  "description": "visual RSI studio：可视化、数据管理、环境注册与实际效果",
+  "files": [
+    "*.mjs",
+    "client.js",
+    "backend",
+    "examples",
+    "cordis.patch.yml",
+    "LICENSE",
+    "requirements.txt",
+    "install-desktop.mjs",
+    "SOURCE.json"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "3.19.0",
+    "@deepseek-ai/dsh-mcp-client": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-command-goal": "0.2.2-rc.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhanxch/deepseek-harness-LinkMind.git"
+  },
+  "homepage": "https://github.com/zhanxch/deepseek-harness-LinkMind#readme",
+  "bugs": {
+    "url": "https://github.com/zhanxch/deepseek-harness-LinkMind/issues"
+  }
+}

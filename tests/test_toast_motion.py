@@ -21,6 +21,26 @@ from roborag.toast_motion import execute_joint_hold, execute_guarded_delta, disp
 
 
 def original_sim_source(source):
+    # Studio-only display hooks default to off. Remove exactly these additions;
+    # every other simulator byte must still match the original frozen fixture.
+    display_additions = [
+        '    parser.add_argument("--live-camera-fps", type=float, default=0)\n',
+        '    if not 0 <= args.live_camera_fps <= 10:\n'
+        '        parser.error("--live-camera-fps must be between 0 and 10")\n',
+        '    live_camera = None\n'
+        '    if args.live_camera_fps:\n'
+        '        from roborag.studio.camera import LiveCamera\n'
+        '        live_camera = LiveCamera(output / "live", args.live_camera_fps)\n',
+        '        if live_camera:\n'
+        '            live_camera.attach(api)\n',
+        '            if live_camera:\n'
+        '                live_camera.publish(api, force=True)\n',
+        '                if live_camera:\n'
+        '                    live_camera.publish(api, force=True)\n',
+    ]
+    for inserted in display_additions:
+        assert source.count(inserted) == 1, inserted
+        source = source.replace(inserted, '')
     push_replacements = [('        rejection_errors = ()\n'
       '        if task.removesuffix("_random") == "push_T":\n'
       '            from src.eval_client.ik_continuity import IKContinuityError, IKContinuityGuard\n'
