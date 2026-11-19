@@ -1,15 +1,8 @@
-# Studio integration check
+# visual RSI studio examples
 
-This small standalone program verifies project launch, incremental logs, changing
-PNG frames and original JSON results. It uses only Python's standard library.
-Its blue dot is synthetic; it does not measure an embodied policy or call a model.
+Open this directory as a DSH workspace and select **具身模式 · visual RSI studio**. Both recipes use only the Python standard library.
 
-Open this directory in a **具身模式 · LinkMind** conversation and ask to run the
-`smoke` recipe in `linkmind.studio.json`. Open **运行与摄像头** to see output.
-Ask the assistant to copy this example into a new local Git repository before
-editing it if you want to try the original → modify → compare workflow.
+- Ask the agent to run `rsi-calibration` and open **Agent RSI Board**. The script measures a scalar controller's tracking error over two rounds on the same targets. It logs real measurements and the parent round. It uses a deterministic controller and calls no model.
+- Ask the agent to run `smoke` and open **控制会话与摄像头**. A synthetic blue dot exercises incremental logs, frame updates and JSON output.
 
-The application supplies a new `LINKMIND_RUN_OUTPUT` path for every run. This
-example creates it and atomically replaces `frame.png` so readers never see a
-partially written image. Your real project can instead use its own CLI argument
-with `{output}`. See [project workflow](../../docs/studio-projects.md).
+Each launch gets its own `LINKMIND_RUN_OUTPUT` directory. The calibration recipe writes one JSON line per round to `rounds.jsonl`; the smoke recipe atomically replaces `frame.png`. Edit the recipes in `linkmind.studio.json`.
