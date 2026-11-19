@@ -17,7 +17,7 @@ import subprocess
 import threading
 import time
 from urllib.request import Request, urlopen
-from urllib.parse import urlsplit
+from urllib.parse import parse_qs, urlsplit
 import uuid
 
 from roborag.episode_files import write_json
@@ -626,7 +626,10 @@ def serve(studio, port, token):
                     project_id, action = parts[2:]
                     if self.command == "GET" and action == "inspect": value = studio.projects.inspect(project_id)
                     elif self.command == "GET" and action == "board":
-                        value = board(studio.projects, project_id)
+                        params = parse_qs(urlsplit(self.path).query, keep_blank_values=True)
+                        value = board(studio.projects, project_id, view=params.get('view', [''])[0],
+                                      group=params.get('group', [''])[0], task=params.get('task', [None])[0],
+                                      split=params.get('split', [None])[0])
                     elif self.command == "POST" and action == "observe-config":
                         with studio.lock:
                             studio.projects.check(data['session_id'], project_id=project_id)

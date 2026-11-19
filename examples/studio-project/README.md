@@ -1,6 +1,6 @@
 # visual RSI studio examples
 
-Open this directory as a DSH workspace and select **具身模式 · visual RSI studio**. Open **Agent RSI Board** to compare five human-authored Push-T tool ablations on two development layouts. Select **no_plan** with **summaries** as the parent. Both layouts still pass. Their step counts move in opposite directions. Click a layout to inspect both recorded tool sequences and native verdicts in the evidence files.
+Open this directory as a DSH workspace and select **具身模式 · visual RSI studio**. Open **Agent RSI Board** for the RoboDojo batch overview (eight tasks, 400 scenes from the frozen historical reports). Switch experiments to compare five human-authored Push-T tool ablations on two development layouts. Select **no_plan** with **summaries** as the parent. Both layouts still pass. Their step counts move in opposite directions. Click a layout to inspect both recorded tool sequences and native verdicts in the evidence files.
 
 The ten historical reports use the frozen candidate cd86be4f and the 2026-11-11 planning protocol. This paired development pilot measures neither autonomous RSI nor held-out generalization. No simulation or model call is made when opening these files. Both runnable recipes use the Python standard library.
 

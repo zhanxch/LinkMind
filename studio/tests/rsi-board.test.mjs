@@ -19,7 +19,7 @@ test('compare exact evaluation cases and retain missing scores and changed condi
   const reference={episodes:[caseOf('fixed','failure'),caseOf('lost','success'),caseOf('held','success'),caseOf('new-seed','failure'),caseOf('unscored','interrupted'),caseOf('gone','success')]};
   const current={episodes:[caseOf('lost','failure'),caseOf('fixed','success'),caseOf('held','success','a','heldout'),caseOf('new-seed','success','b'),caseOf('unscored','success'),caseOf('extra','failure')]};
   assert.deepEqual(Object.fromEntries(compareCases(current,reference).map(p=>[p.id,p.kind])),{
-    lost:'regression', fixed:'gain',held:'different','new-seed':'different',unscored:'unknown',gone:'missing',extra:'added'
+    lost:'regression', fixed:'gain',held:'different','new-seed':'different',unscored:'restored',gone:'missing',extra:'added'
   });
   assert.ok(compareCases(current,null).every(p=>p.kind==='single'));
 });

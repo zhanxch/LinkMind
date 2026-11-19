@@ -2,6 +2,7 @@
 import hashlib
 import json
 import math
+from collections import Counter, defaultdict
 from pathlib import Path
 
 
@@ -21,7 +22,7 @@ def checked_episodes(items):
         if not isinstance(item, dict):
             raise ValueError('Expected an evaluation case')
         ep = {}
-        for field in ('id', 'label', 'setup', 'split', 'failure', 'evidence'):
+        for field in ('id', 'label', 'task', 'setup', 'split', 'failure', 'evidence'):
             val = item.get(field, '')
             if not isinstance(val, str) or len(val) > 1024 or (field == 'id' and not val.strip()):
                 raise ValueError('Invalid case field: ' + field)
@@ -33,7 +34,7 @@ def checked_episodes(items):
         if path.is_absolute() or '..' in path.parts:
             raise ValueError('Use workspace-relative evidence paths')
         outcome = item.get('outcome')
-        if outcome not in ('success','failure','interrupted','unscored'):
+        if outcome not in ('success','failure','interrupted','unscored','pending'):
             raise ValueError('Expected a recorded case outcome')
         ep['outcome'] = outcome
         for field in ('cost','tools'):
@@ -114,7 +115,7 @@ def native_cases(run, report):
                                 ('wall_seconds',report.get('wall_seconds'))]:
                 if finite_scalar(value) and value >= 0:
                     cost[name] = value
-        cases.append(dict(id=json.dumps(identity,ensure_ascii=False,separators=(',',':')),
+        cases.append(dict(task=str(meta['task']),id=json.dumps(identity,ensure_ascii=False,separators=(',',':')),
                           label=' · '.join(str(x) for x in (meta['task'],meta.get('variant'),
                                           f"seed {meta['seed']}" if 'seed' in meta else None,
                                           f'layout {layout}' if layout is not None else None) if x is not None),
@@ -122,19 +123,72 @@ def native_cases(run, report):
     return cases
 
 
-def board(projects, project_id):
+def known_versions(rows):
+    """Only a unique, acyclic path to an explicit root can supply a parent."""
+    counts = Counter(row['id'] for row in rows)
+    unique = {row['id']: row['parent'] for row in rows if counts[row['id']] == 1}
+    checked = {}
+    for version in unique:
+        pending = set()
+        current = version
+        while current and current in unique and current not in pending and current not in checked:
+            pending.add(current)
+            current = unique[current]
+        valid = not current or checked.get(current, False)
+        checked.update(dict.fromkeys(pending, valid))
+    return {version for version, valid in checked.items() if valid}
+
+
+def batch_overview(rows):
+    groups = defaultdict(list)
+    for row in rows:
+        groups[row['group']].append(row)
+    catalog = []
+    scored = {'success', 'failure'}
+    for group, versions in groups.items():
+        known = known_versions(versions)
+        by_version = {row['id']: row for row in versions if row['id'] in known}
+        columns = []
+        for row in versions:
+            parent = by_version.get(row['parent']) if row['id'] in known else None
+            before = {ep['id']: ep for ep in parent['episodes']} if parent else {}
+            after = {ep['id']: ep for ep in row['episodes']}
+            counts = defaultdict(Counter)
+            for case in before.keys() | after.keys():
+                old, new = before.get(case), after.get(case)
+                if new:
+                    counts[(new['task'], new['split'])][new['outcome']] += 1
+                if not parent:
+                    continue
+                if old and new and all(old[k] == new[k] for k in ('task','split','setup')):
+                    stats = counts[(new['task'], new['split'])]
+                    if old['outcome'] in scored and new['outcome'] in scored:
+                        stats['paired'] += 1
+                        if old['outcome'] != new['outcome']:
+                            stats['gain' if new['outcome'] == 'success' else 'regression'] += 1
+                    else:
+                        stats['unpaired'] += 1
+                        if old['outcome'] not in scored and new['outcome'] in scored:
+                            stats['restored'] += 1
+                else:
+                    for key in {(ep['task'], ep['split']) for ep in (old, new) if ep}:
+                        counts[key]['unpaired'] += 1
+            columns.append(dict(id=row['id'], parent=parent['id'] if parent else '',
+                                change=row['change'], record=row['record'],
+                                cells=[dict(task=task,split=split,**stats)
+                                       for (task,split),stats in sorted(counts.items())]))
+        first = versions[0]
+        catalog.append(dict(id=group,series=first['series'],protocol=first['protocol'],
+                            condition=first['condition'],rounds=columns))
+    return catalog
+
+
+def board(projects, project_id, *, view='', group='', task=None, split=None):
     from .projects import beneath
     root = Path(projects.project(project_id)['path'])
     rows, warnings = [], []
     def ingest(item, run=None):
         row = checked_round(item)
-        for episode in row['episodes']:
-            if episode['evidence']:
-                try:
-                    present = beneath(root, episode['evidence']).is_file()
-                except (ValueError, OSError):
-                    present = False
-                episode['evidence_available'] = present
         run = run or {}
         env = run.get('environment') or {}
         meta = run.get('recipe',{}).get('metadata',{})
@@ -144,6 +198,9 @@ def board(projects, project_id):
         condition = [row['series'],row['protocol'],env.get('binding'),env.get('revision'),
                      run.get('recipe',{}).get('timeout_seconds'),row['condition']]
         row['group'] = hashlib.sha256(json.dumps(condition,sort_keys=True).encode()).hexdigest()[:20]
+        row['record'] = len(rows)
+        for episode in row['episodes']:
+            episode['task'] = episode['task'] or str(meta.get('task') or row['conditions'].get('task') or '未标注任务')
         rows.append(row)
 
     def stream(base, relative, run=None):
@@ -161,6 +218,8 @@ def board(projects, project_id):
         except (OSError,ValueError) as exc:
             warnings.append(str(exc))
     stream(root, 'studio.rsi.jsonl')
+    for file in sorted((root/'studio.rsi.d').glob('*.jsonl')):
+        stream(root, str(file.relative_to(root)))
     for path in sorted(projects.runs.glob('*/run.json')):
         run = projects.run(path.parent.name)
         if run['project_path'] != str(root): continue
@@ -185,6 +244,19 @@ def board(projects, project_id):
             except ValueError as exc:
                 warnings.append(f"{run['id']}: {exc}")
         if 'rsi_events' in recipe: stream(Path(run['output']),recipe['rsi_events'],run)
+    if view == 'overview':
+        return {'batches':batch_overview(rows),'warnings':warnings}
+    if view == 'detail':
+        rows = [row for row in rows if row['group'] == group]
+    for row in rows:
+        row['episodes'] = [ep for ep in row['episodes']
+                           if (task is None or ep['task'] == task) and (split is None or ep['split'] == split)]
+        for episode in row['episodes']:
+            if episode['evidence']:
+                try:
+                    episode['evidence_available'] = beneath(root, episode['evidence']).is_file()
+                except (ValueError, OSError):
+                    episode['evidence_available'] = False
     return {'rounds':rows,'warnings':warnings}
 
 

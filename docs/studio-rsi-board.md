@@ -2,11 +2,13 @@
 
 在 DSH 的具身模式中打开工作区，点击左侧 **环境注册** 或 **Agent RSI Board**。注册的环境供本机同一 Studio profile 的项目复用。Board 按工作区汇总，同一项目换一个会话仍能看到之前的迭代。
 
-## 第一次打开
+## 批量总览
 
-打开 `examples/studio-project` 工作区，点 **Agent RSI Board**。随包附带 Push-T 五档工具消融的十次历史执行，打开即可查看。每档在同样的两个开发布局上测试一次。每个版本都按预先制定的人工改动标注；这份数据可以检验评估视图，无法验证 Agent 自主改进或留出集泛化。
+打开 `examples/studio-project` 工作区，点 **Agent RSI Board**。默认显示 RoboDojo 历史批量评测：8 个任务、400 个场景，按任务 × 版本查看。结果格显示成功数 / 已登记场景数，颜色条标出失败、未评分、中断和待运行。点击版本表头查看该列的评分覆盖。切换 **较父版** 后，修复、回归、补齐评分分别显示。点任意格进入该任务、版本及当前筛选的数据集。
 
-选择 **no_plan**，保留父版本 **summaries**。两种布局都成功。标准布局从 455 步降至 342 步，随机布局从 199 步升至 262 步。点击一个布局，查看实际工具调用次数，再打开该次证据，按序查看工具调用及原生评分。两个布局都只有一对试次，单次步数差没有隔离随机波动。[冻结协议](https://github.com/zhanxch/LinkMind/blob/270175a/experiments/push_T/simplification-pilot-20261111.json) · [原始汇总](https://github.com/zhanxch/LinkMind/blob/270175a/results/push-t-simplification-pilot-20261111.json)
+这组真实历史记录汇总自各任务自己的冻结版本和协议。首轮 385/400 有评分；只对原未评分场景补测后，398/400 有评分。13 个补齐评分进入独立计数。历史快照保留每个任务的报告来源，未开展新评测。[原生结果和协议登记](https://github.com/zhanxch/LinkMind/blob/6e25668/docs/local-results.md)
+
+在 **实验** 中选择 Push-T 五档工具消融，可复盘十次历史执行。每档在同样的两个开发布局上测试一次，改动来源为人工。选择 **no_plan** 与父版 **summaries**，可查看两种布局的步数变化和原生证据。[冻结协议](https://github.com/zhanxch/LinkMind/blob/270175a/experiments/push_T/simplification-pilot-20261111.json)
 
 ## 复盘一轮改动
 
@@ -43,7 +45,7 @@
 
 一个独立运行代表一轮时，在策略的 recipe 中增加 `"rsi":{"series":"grasp-policy","protocol":"heldout-v1","id":"base","agent_version":"v1","change":"初始版本"}`。下一轮换一个 id，填入 `"parent":"base"`，注明改动。Board 自动读取原生结果中的 `native.score`（如有）和运行耗时。重复执行需使用新的轮次 id 或不同的 series。
 
-同一次执行内有多轮时，在 recipe 添加 `"rsi_events":"rounds.jsonl"`，每次评估后向本次输出目录的该文件追加一行 JSON 并 flush。独立在 Studio 外运行也支持同一格式，写到工作区根目录的 `studio.rsi.jsonl` 即可。基线和后续版本共用 series 与 protocol。
+同一次执行内有多轮时，在 recipe 添加 `"rsi_events":"rounds.jsonl"`，每次评估后向本次输出目录的该文件追加一行 JSON 并 flush。独立运行支持同一格式，写到工作区根目录的 `studio.rsi.jsonl`，或每版一个 `studio.rsi.d/*.jsonl` 文件。基线和后续版本共用 series 与 protocol。
 
 ```jsonl
 {"version":1,"series":"grasp-policy","protocol":"heldout-v1","id":"r0","agent_version":"v1","change":"初始策略","conditions":{"suite":"heldout","seeds":"0-9"},"metrics":{"success_rate":0.4,"tool_calls":24}}
@@ -54,14 +56,14 @@
 
 ## 记录逐例反馈
 
-`episodes` 是轮次记录的可选字段。每条试次提供稳定的 `id` 与 `outcome`（success、failure、unscored、interrupted）。同一 id 跨版本代表相同任务、种子、布局和尝试编号；重复评估用不同尝试编号。`setup` 可存布局或输入摘要，`split` 可标记开发集或留出集。两边 setup 或 split 不同的试次单列。明确上报零才能区分“用过零次”和“缺数据”。
+`episodes` 是轮次记录的可选字段。每条试次提供稳定的 `id` 与 `outcome`（success、failure、unscored、interrupted、pending）。一个批量版本使用一条轮次记录，包含多个任务的试次。每个试次填写 `task`，并用带任务前缀的唯一 `id`。同一 id 跨版本代表相同任务、种子、布局和尝试编号。重复评估用不同尝试编号。`setup` 可存布局或输入摘要，`split` 可标记开发集或留出集。两边 setup 或 split 不同的试次单列。明确上报零才能区分“用过零次”和“缺数据”。
 
 ```json
 {
   "series":"grasp","protocol":"heldout-v1","id":"v2","parent":"v1",
-  "author":"agent","trigger":"上一版侧抓时滑落","trigger_case":"cup/seed7/try1",
+  "author":"agent","trigger":"上一版侧抓时滑落","trigger_case":"grasp/cup/seed7/try1",
   "hypothesis":"夹持后复测能提前发现滑动","change":"在抬升前加入复测",
-  "episodes":[{"id":"cup/seed7/try1","label":"杯子 · seed 7","split":"开发集",
+  "episodes":[{"id":"grasp/cup/seed7/try1","task":"grasp","label":"杯子 · seed 7","split":"开发集",
     "setup":"layout-A","outcome":"success","cost":{"steps":74,"interventions":0},
     "tools":{"measure":3},"evidence":"reports/v2/cup7.json"}]
 }

@@ -1,3 +1,5 @@
+import {createMatrix} from './rsi-matrix.mjs';
+
 // Both views use the native workspace/session supplied by the DSH tab.
 export function roundLineage(rows) {
   const unique = new Map(), counts = new Map();
@@ -25,10 +27,10 @@ export function roundLineage(rows) {
     .sort((a,b) => (a.depth ?? Infinity) - (b.depth ?? Infinity));
 }
 
-const outcomes = {success:'成功',failure:'失败',unscored:'未评分',interrupted:'中断'};
+const outcomes = {success:'成功',failure:'失败',unscored:'未评分',interrupted:'中断',pending:'待运行'};
 const changeTypes = {
   gain:'失败 → 成功', regression:'成功 → 失败', retained:'两版成功', failing:'两版失败',
-  unknown:'评分不全', different:'条件有变', added:'仅此版本', missing:'仅对照版本', single:'本次记录'
+  unknown:'评分不全', restored:'补齐评分', different:'条件有变', added:'仅此版本', missing:'仅对照版本', single:'本次记录'
 };
 const costNames = {steps:'控制步数',wall_seconds:'耗时（秒）',uncached_input_tokens:'未缓存输入 token',interventions:'人工介入次数',retries:'重试次数'};
 const authors = {human:'人工修改',agent:'Agent 修改',unknown:'修改来源未记录'};
@@ -44,12 +46,13 @@ export function compareCases(current, reference) {
     else if (!before) kind = 'added';
     else if (!after) kind = 'missing';
     else if ((before.setup || '') !== (after.setup || '') || (before.split || '') !== (after.split || '')) kind = 'different';
+    else if (!['success','failure'].includes(before.outcome) && ['success','failure'].includes(after.outcome)) kind = 'restored';
     else if (![before,after].every(ep=>['success','failure'].includes(ep.outcome))) kind = 'unknown';
     else if (before.outcome === after.outcome) kind = after.outcome === 'success' ? 'retained' : 'failing';
     else kind = after.outcome === 'success' ? 'gain' : 'regression';
     pairs.push({id,before,after,kind});
   }
-  const order = ['regression','gain','failing','unknown','different','missing','added','retained','single'];
+  const order = ['regression','gain','failing','restored','unknown','different','missing','added','retained','single'];
   return pairs.sort((a,b)=>order.indexOf(a.kind)-order.indexOf(b.kind));
 }
 
@@ -67,6 +70,7 @@ const styles = `
 
 export function createRSIViews(React, ui, api) {
   const h = React.createElement;
+  const Matrix = createMatrix(React,ui);
   const button = (title, action, disabled = false) => h(ui.Button,{size:'sm',variant:'outline',onClick:action,disabled},title);
   const field = (title, child) => h('label',null,title,child);
   const textInput = (value, set, placeholder) => h('input',{value,placeholder,onChange:e=>set(e.target.value)});
@@ -92,12 +96,17 @@ export function createRSIViews(React, ui, api) {
       h('text',{x:74,y:140},'基线'),maxX>0&&h('text',{x:599,y:140,textAnchor:'end'},'迭代代数 '+maxX));
   }
 
-  function CaseReview({rows,openRun,openEvidence,groupField}) {
+  function CaseReview({rows,openRun,openEvidence,groupField,initialVersion}) {
     const [version,setVersion]=React.useState(''), [compare,setCompare]=React.useState('parent');
     const [caseId,selectCase]=React.useState(''), [cost,setCost]=React.useState('steps');
+    const [filter,setFilter]=React.useState(''),[page,setPage]=React.useState(0);
     // The record index also distinguishes conflicting historical round IDs in the ledger.
     const latest=rows.findLastIndex(r=>r.episodes?.length);
-    const index=version==='' ? (latest<0?rows.length-1:latest) : Number(version);
+    let initial=rows.findIndex(row=>row.record===initialVersion?.record && row.id===initialVersion?.version);
+    if (initial<0 && initialVersion && rows.filter(row=>row.id===initialVersion.version).length===1) {
+      initial=rows.findIndex(row=>row.id===initialVersion.version);
+    }
+    const index=version==='' ? (initial>=0?initial:(latest<0?rows.length-1:latest)) : Number(version);
     const current=rows[index] || rows[rows.length-1];
     const parent=current.depth!=null && current.parent ? rows.find(r=>r.id===current.parent && r.depth!=null) : null;
     const reference=compare==='parent'?parent:compare==='none'?null:rows[Number(compare)];
@@ -118,6 +127,9 @@ export function createRSIViews(React, ui, api) {
         h('i',{'data-side':delta<0?'less':'more',style:{width:width+'%',left:(delta<0?50-width:50)+'%'}})),
         (delta>0?'+':'')+readable(delta));
     }
+    const visible=filter?pairs.filter(p=>p.kind===filter):pairs;
+    const pageCount=Math.ceil(visible.length/40);
+    const currentPage=Math.max(0,Math.min(page,pageCount-1));
     const selected=pairs.find(p=>p.id===caseId);
     const runButton=row=>row?.run_id&&button('查看 '+row.id+' 的控制会话与摄像头',()=>openRun(row.run_id));
     const item=(label,value)=>h('span',null,h('b',null,value),' '+label);
@@ -127,15 +139,15 @@ export function createRSIViews(React, ui, api) {
     const tools=selected?[...new Set([...Object.keys(selected.before?.tools||{}),...Object.keys(selected.after?.tools||{})])]:[];
     const cols=['场景 / 试次',reference?'对照 → 当前':'结果',...(chosenCost?[costNames[chosenCost]||chosenCost]:[]),...(reference&&chosenCost?['变化量']:[])];
     return h('div',{className:'rsi-review'},h('style',null,reviewStyles),
-      h('div',{className:'rsi-controls rsi-versions'},groupField,field('查看版本',choose(String(index),v=>{setVersion(v);setCompare('parent');selectCase('');},rows.map((r,i)=>[String(i),r.id]))),
-        field('对照版本',choose(compare,v=>{setCompare(v);selectCase('');},[
+      h('div',{className:'rsi-controls rsi-versions'},groupField,field('查看版本',choose(String(index),v=>{setVersion(v);setCompare('parent');selectCase('');setFilter('');setPage(0);},rows.map((r,i)=>[String(i),r.id]))),
+        field('对照版本',choose(compare,v=>{setCompare(v);selectCase('');setFilter('');setPage(0);},[
           ['parent',parent?'父版本 · '+parent.id:'无可确认的父版本'],['none','单看本版'],
           ...rows.flatMap((r,i)=>r!==current&&r.depth!=null?[[String(i),r.id]]:[])
         ]))),
       h('div',{className:'rsi-review-head'},h('h3',null,current.change||current.id),h('span',{className:'rsi-caption'},authors[current.author]||authors.unknown,' · ',current.agent_version||current.commit?.slice(0,8)||current.id)),
       current.trigger&&h('p',null,'触发这次修改的反馈 · '+current.trigger),
       current.trigger_case&&h('p',null,'来源试次 · ',parent?.episodes?.some(ep=>ep.id===current.trigger_case)
-        ?button(current.trigger_case,()=>{setCompare('parent');selectCase(current.trigger_case);}):current.trigger_case),
+        ?button(current.trigger_case,()=>{setCompare('parent');setFilter('');selectCase(current.trigger_case);}):current.trigger_case),
       current.hypothesis&&h('p',null,'待验证的假设 · '+current.hypothesis),
       current.decision&&h('p',null,'已登记的决定 · '+current.decision),
       current.depth==null&&h('p',null,'父子关系待核对，自动父版本比较不可用。'),
@@ -144,15 +156,21 @@ export function createRSIViews(React, ui, api) {
           h('div',{className:'rsi-facts'},item('本版成功 / 已记录',allCases.filter(ep=>ep.outcome==='success').length+' / '+allCases.length),
             reference&&item('同条件已评分对',matched),reference&&item('修复',tally('gain')),reference&&item('回归',tally('regression')),
             reference&&pairs.length>matched&&item('未配对或评分不全',pairs.length-matched)),
-          h('div',{className:'rsi-cost-head'},h('h3',null,'逐例执行'),chosenCost&&field('执行代价',choose(chosenCost,setCost,costs.map(k=>[k,costNames[k]||k])))),
+          h('div',{className:'rsi-cost-head'},h('h3',null,'逐例执行'),reference&&field('筛选',choose(filter,v=>{setFilter(v);selectCase('');setPage(0);},
+            [['','全部'],...Object.entries(changeTypes).filter(([kind])=>tally(kind)).map(([kind,label])=>[kind,label+' · '+tally(kind)])])),
+            chosenCost&&field('执行代价',choose(chosenCost,setCost,costs.map(k=>[k,costNames[k]||k])))),
           h('div',{className:'rsi-scroll'},h('table',null,h('thead',null,h('tr',null,...cols.map(v=>h('th',{key:v},v)))),
-            h('tbody',null,...pairs.map(p=>{
+            h('tbody',null,...visible.slice(currentPage*40,(currentPage+1)*40).map(p=>{
               const before=p.before?.cost?.[chosenCost],after=p.after?.cost?.[chosenCost];
               const label=p.after?.label||p.before?.label||p.id;
               return h('tr',{key:p.id},h('td',null,h('button',{type:'button',className:'rsi-case','aria-expanded':selected?.id===p.id,onClick:()=>selectCase(selected?.id===p.id?'':p.id)},label),h('small',{className:'rsi-caption'},p.after?.split||p.before?.split)),
                 h('td',null,h('span',{className:'rsi-tone','data-kind':p.kind},reference?changeTypes[p.kind]:outcomes[p.after?.outcome])),
                 chosenCost&&h('td',null,reference?readable(before)+' → '+readable(after):readable(after)),reference&&chosenCost&&h('td',null,deltaCell(p)));
             })))),
+          pageCount>1&&h('div',{className:'rsi-controls'},
+            button('上一页',()=>{setPage(currentPage-1);selectCase('');},currentPage===0),
+            h('span',null,(currentPage+1)+' / '+pageCount),
+            button('下一页',()=>{setPage(currentPage+1);selectCase('');},currentPage+1===pageCount)),
           selected&&h('section',{className:'rsi-case-detail'},h('h3',null,selected.after?.label||selected.before?.label||selected.id),
             h('div',{className:'rsi-caption'},selected.id),h('div',{className:'rsi-controls'},side(selected.before,'对照'),side(selected.after,'当前')),
             tools.length>0&&h('details',{open:true},h('summary',null,'实际工具调用次数'),h('dl',null,...tools.map(name=>h(React.Fragment,{key:name},
@@ -163,41 +181,62 @@ export function createRSIViews(React, ui, api) {
 
   function Board({sessionId,useSessions,openRun,openFile}) {
     const cwd = useWorkspace(sessionId,useSessions);
-    const [data,save] = React.useState(null),[error,fail] = React.useState(''),[group,pickGroup] = React.useState(''),[metric,pickMetric] = React.useState(''),[tick,retry]=React.useState(0);
+    const [data,save]=React.useState(null),[error,fail]=React.useState(''),[group,pickGroup]=React.useState('');
+    const [drill,setDrill]=React.useState(null),[detail,saveDetail]=React.useState(null),[split,pickSplit]=React.useState(null);
+    const [metric,pickMetric]=React.useState(''),[tick,retry]=React.useState(0);
     React.useEffect(()=>{
       const controller=new AbortController(), signal=controller.signal;
       let timer,registration;
-      save(null);fail('');
+      save(null);saveDetail(null);setDrill(null);fail('');
       async function update() {
         try {
           if (!cwd) return;
           registration ??= await api('/workspace/open',{path:cwd,session_id:sessionId},signal);
-          const value=await api('/projects/'+registration.id+'/board',undefined,signal);
-          if (!signal.aborted) {save(value);fail('');}
+          const value=await api('/projects/'+registration.id+'/board?view=overview',undefined,signal);
+          if (!signal.aborted) {save({...value,projectId:registration.id});fail('');}
         } catch(e) {if(!signal.aborted) fail(e.message);}
-        finally {if(cwd&&!signal.aborted) timer=setTimeout(update,4000);}
+        finally {if(cwd&&!signal.aborted) timer=setTimeout(update,6000);}
       }
       update();return ()=>{controller.abort();clearTimeout(timer);};
     },[sessionId,cwd,tick]);
-    const groups=new Map();
-    for (const r of data?.rounds||[]) {
-      if (!groups.has(r.group)) groups.set(r.group,[]);
-      groups.get(r.group).push(r);
-    }
-    const firstReview=[...groups].find(([,items])=>items.some(r=>r.episodes?.length));
-    const active=groups.has(group)?group:firstReview?.[0]||groups.keys().next().value;
-    const rows=roundLineage(groups.get(active)||[]);
+    const batches=data?.batches||[];
+    const taskCount=batch=>new Set(batch.rounds.flatMap(row=>row.cells.map(cell=>cell.task))).size;
+    const batch=batches.find(b=>b.id===group)||batches.reduce((best,b)=>!best||taskCount(b)>taskCount(best)?b:best,null);
+    const batchId=batch?.id;
+    const hasCases=batch?.rounds.some(row=>row.cells.length);
+    React.useEffect(()=>{
+      saveDetail(null);
+      if (!data?.projectId || !batchId || (!drill && hasCases)) return;
+      const controller=new AbortController(), signal=controller.signal;
+      const query=new URLSearchParams({view:'detail',group:batchId});
+      if (drill) {
+        query.set('task',drill.task);
+        if (drill.split!==null) query.set('split',drill.split);
+      }
+      api('/projects/'+data.projectId+'/board?'+query,undefined,signal)
+        .then(value=>{if(!signal.aborted) saveDetail({key:batchId,drill,value});})
+        .catch(e=>{if(!signal.aborted) saveDetail({key:batchId,drill,error:e.message});});
+      return ()=>controller.abort();
+    },[data?.projectId,batchId,drill,hasCases,tick]);
+    const rows=roundLineage(detail?.key===batchId && detail?.drill===drill ? detail.value?.rounds||[] : []);
     const metrics=[...new Set(rows.flatMap(r=>Object.keys(r.metrics)))];
     const chosen=metrics.includes(metric)?metric:metrics.includes('native.score')?'native.score':metrics[0];
-    const selectGroup=[...groups].map(([key,[r]])=>[key,[r.series,r.protocol,r.environment,
-      ...Object.entries(r.condition).map(([k,v])=>k.replace(/^event\./,'')+'='+String(v))].filter(Boolean).join(' / ')]);
+    const selectGroup=batches.map(b=>[b.id,b.series+' · '+b.protocol]);
+    const chooseBatch=id=>{pickGroup(id);pickSplit(null);setDrill(null);};
     const parents = new Map(rows.filter(r=>r.depth!==null).map(r=>[r.id,r]));
-    return view(h('div',{className:'rsi-head'},h('h2',null,'Agent RSI Board'),button('刷新',()=>retry(x=>x+1))),
-      errorText(error),data?.warnings.length>0&&errorText(data.warnings.slice(0,3).join(' · ')),
-      !rows.length?h('div',{className:'rsi-empty'},h('h3',null,!cwd?'先打开工作区':data?'还没有 RSI 轮次':'正在读取轮次'),
-        data&&h('p',null,'在会话中说「把这次实验记为基线，下一轮记录改动并与它比较」。外部实验也可以写入工作区的 studio.rsi.jsonl。')):
-      h(React.Fragment,null,h(CaseReview,{key:JSON.stringify([cwd,active]),rows,openRun,openEvidence:path=>openFile(cwd+'/'+path),
-        groupField:field('实验 / 对照条件',choose(active,pickGroup,selectGroup))}),
+    return view(h('div',{className:'rsi-head'},h('h2',null,'Agent RSI Board'),
+      h('div',{className:'rsi-controls',style:{margin:0}},
+        drill&&button('返回总览',()=>setDrill(null)),button('刷新',()=>retry(x=>x+1)))),
+      errorText(error || detail?.error),
+      data?.warnings.length>0&&h('details',null,h('summary',null,'记录提示 · '+data.warnings.length),
+        h('p',null,data.warnings.slice(0,3).join(' · '))),
+      drill&&h('h3',null,drill.task),
+      hasCases&&h('div',{hidden:!!drill},h(Matrix,{key:batchId,batches,batch,pickBatch:chooseBatch,split,pickSplit,openDetail:setDrill})),
+      !batch?h('p',null,!cwd?'先打开工作区':data?'暂无实验记录':'正在读取实验'):
+      !drill&&hasCases?null:
+      !rows.length?h('p',{role:'status'},detail?.error?'读取失败':'正在读取版本'):
+      h(React.Fragment,null,h(CaseReview,{key:JSON.stringify([cwd,batchId,drill]),rows,openRun,openEvidence:path=>openFile(cwd+'/'+path),
+        initialVersion:drill,groupField:drill?null:field('实验',choose(batchId,chooseBatch,selectGroup))}),
         h('details',null,h('summary',null,'版本谱系与标量趋势'),metrics.length>0&&field('指标',choose(chosen,pickMetric,metrics.map(m=>[m,m]))),
         chosen&&h(Chart,{rows,metric:chosen}),h('div',{className:'rsi-scroll'},h('table',null,
         h('thead',null,h('tr',null,...['轮次 / 父轮次','版本与改动','状态',chosen||'指标','较父轮','运行'].map(v=>h('th',{key:v},v)))),

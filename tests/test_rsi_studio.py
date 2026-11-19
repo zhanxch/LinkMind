@@ -113,7 +113,7 @@ class RSIStudioTest(unittest.TestCase):
             manager=Projects(Path(tmp),PYTHONPATH)
             self.addCleanup(manager.close)
             project=manager.open_workspace(root,'review')
-            rows=board(manager,project['id'])['rounds']
+            rows=[r for r in board(manager,project['id'])['rounds'] if r['series'].startswith('Push-T')]
             self.assertEqual([row['id'] for row in rows],['baseline','summaries','no_plan','fixed','none'])
             for row in rows:
                 self.assertEqual(len(row['episodes']),2)
@@ -135,3 +135,44 @@ class RSIStudioTest(unittest.TestCase):
         self.assertFalse(any(c['cost'] for c in cases))
         self.assertEqual(native_cases(run,{'scored':True,'success':False,'steps':0})[0]['cost'],{'steps':0})
         self.assertEqual(native_cases(run,{'scored':False,'success':False})[0]['outcome'],'unscored')
+
+    def test_batch_overview_preserves_coverage_and_limits_drilldown(self):
+        root=ROOT/'examples/studio-project'
+        with tempfile.TemporaryDirectory() as tmp:
+            manager=Projects(Path(tmp),PYTHONPATH)
+            self.addCleanup(manager.close)
+            project=manager.open_workspace(root,'batch-review')
+            view=board(manager,project['id'],view='overview')
+            batch=next(b for b in view['batches'] if b['series'].startswith('RoboDojo'))
+            first, final = batch['rounds']
+            cells=final['cells']
+            self.assertEqual(len({c['task'] for c in cells}),8)
+            self.assertEqual(sum(c.get('success',0) for c in cells),231)
+            self.assertEqual(sum(c.get('paired',0) for c in cells),385)
+            self.assertEqual(sum(c.get('restored',0) for c in cells),13)
+            self.assertEqual(sum(c.get('gain',0)+c.get('regression',0) for c in cells),0)
+            self.assertNotIn('episodes',final)
+            drill=board(manager,project['id'],view='detail',group=batch['id'],task='push_T',split='standard')
+            rows=drill['rounds']
+            self.assertEqual([r['record'] for r in rows],[first['record'],final['record']])
+            self.assertEqual([len(r['episodes']) for r in rows],[25,25])
+            self.assertTrue(all(ep['evidence_available'] for ep in rows[-1]['episodes']))
+
+    def test_batch_pairing_respects_identity_and_parent(self):
+        from roborag.studio.rsi_board import batch_overview
+        def case(n,outcome,task='push',setup='scene',split='dev'):
+            return dict(id=n,outcome=outcome,task=task,setup=setup,split=split)
+        def row(record, name, parent, cases):
+            return dict(group='g',series='s',protocol='p',condition={},record=record,id=name,parent=parent,
+                        change='',episodes=cases)
+        rows=[
+            row(0,'base','',[case('a','failure'),case('b','success'),case('c','success'),case('d','pending')]),
+            row(1,'child','base',[case('a','success'),case('b','failure'),case('c','success',setup='changed'),case('d','success')]),
+            row(2,'unlinked','missing',[case('a','success')]),
+            row(3,'cycle','unlinked',[case('a','failure')]),
+        ]
+        base, child, missing, desc = batch_overview(rows)[0]['rounds']
+        cell=child['cells'][0]
+        self.assertEqual([cell[k] for k in ('paired','gain','regression','restored','unpaired')],[2,1,1,1,2])
+        for entry in (base,missing,desc):
+            self.assertNotIn('paired',entry['cells'][0])

@@ -1,6 +1,6 @@
-import {createRSIViews} from './rsi-views.mjs?v=0.9.1';
-import {studioStyles,studioFrame,createStudioChrome} from './studio-shell.mjs?v=0.9.1';
-import {createStudioDock,terminalDockStyles} from './studio-dock.mjs?v=0.9.1';
+import {createRSIViews} from './rsi-views.mjs?v=0.10.0';
+import {studioStyles,studioFrame,createStudioChrome} from './studio-shell.mjs?v=0.10.0';
+import {createStudioDock,terminalDockStyles} from './studio-dock.mjs?v=0.10.0';
 import {overviewStyles,createOverview} from './studio-overview.mjs?v=0.8.0';
 // Presentation-only extension for DSH 0.2.2-rc.2. Native conversations and dock tabs keep their owners.
 export function installWorkbench(ctx, React, ui, api, createSnapshotStore) {

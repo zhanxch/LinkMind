@@ -31,6 +31,10 @@ for(const name of ['README.md','run.py','linkmind.studio.json','rsi_calibration.
 for(const version of ['baseline','summaries','no_plan','fixed','none']){
   for(const scene of ['standard','random'])await copy(example+'evidence/'+version+'-'+scene+'.json');
 }
+await copy(example+'studio.rsi.d/robodojo-history.jsonl');
+for(const task of ['fold_clothes','hang_mugs','make_toast','pack_objects_into_box','push_T','stack_blocks','stack_bowls','sweep_blocks']){
+  await copy(example+'batch-evidence/'+task+'.json');
+}
 await copy('docs/studio-projects.md','docs/projects.md');
 await copy('docs/studio-rsi-board.md','docs/rsi-board.md');
 await copy('docs/studio-ide-workbench.md','docs/workbench.md');
