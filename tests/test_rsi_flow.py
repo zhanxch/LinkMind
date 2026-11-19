@@ -59,3 +59,21 @@ class FlowSnapshotTest(unittest.TestCase):
             self.assertNotIn('evaluation',lanes['B'])
             self.assertLess(lanes['C']['evaluation']['metrics']['通过'],8)
             self.assertEqual(lanes['C']['decision']['status'],'rejected')
+
+    def test_unstarted_openrsi_candidate_stays_before_evaluation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            p=SimpleNamespace(project=lambda _: {'path':tmp})
+            def save(name,value):
+                path=root/name
+                path.parent.mkdir(parents=True,exist_ok=True)
+                path.write_text(json.dumps(value)+'\n')
+            save('studio.rsi.sources.json',{'version':1,'sources':[{'kind':'openrsi','path':'out'}]})
+            save('out/scheduler-state.json',{'status':'error','error':'stopped'})
+            save('out/learning-state.json',{'status':'complete'})
+            save('out/ledger.jsonl',{'split':'test','method':'hexa','task':'fold','origin':'rsi1'})
+            for method in ('hexa','pyrua'):
+                save(f'out/learning/{method}-fold/receipt.json',{'status':'frozen','method':method})
+            lanes=snapshot(p,'project')['rounds'][0]['candidates']
+            self.assertIn('evaluation',lanes['hexa-fold'])
+            self.assertNotIn('evaluation',lanes['pyrua-fold'])

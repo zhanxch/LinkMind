@@ -148,6 +148,17 @@ def openrsi_events(root, path, label, faults):
     if isinstance(active,dict) and active.get('method'):
         candidate = '-'.join(str(active[k]) for k in ('method','task') if active.get(k))
         yield item('proposal','running' if overall!='blocked' else 'blocked',candidate=candidate,focus='从训练证据提炼经验')
+    active_trial = read_json(path/'active.json')
+    if run_state not in ('testing','running','retrying') or not isinstance(active_trial,dict):
+        active_trial = None
+    if active_trial and any(row.get('id') == active_trial.get('id') for row in ledger):
+        active_trial = None
+
+    def candidate_trial(candidate, row):
+        return (candidate.startswith(str(row.get('method'))+'-') and
+                (not row.get('task') or candidate.endswith('-'+str(row.get('task')))) and
+                (row.get('condition') or row.get('origin')) not in ('bare',None))
+
     for receipt in sorted((path/'learning').glob('*/receipt.json')):
         data = read_json(receipt) or {}
         if not isinstance(data,dict) or data.get('status')!='frozen':
@@ -166,10 +177,9 @@ def openrsi_events(root, path, label, faults):
                    links=[link('冻结凭据',receipt),
                           link('启用的实际指令',path/'config'/(candidate+'-rsi1.json')),
                           link('原版配置',path/'config'/(str(data.get('method'))+'-bare.json'))])
-        if tests:
-            selected=[r for r in tests if candidate.startswith(str(r.get('method'))+'-') and
-                      (not r.get('task') or candidate.endswith('-'+str(r.get('task')))) and
-                      (r.get('condition') or r.get('origin')) not in ('bare',None)]
+        selected=[r for r in tests if candidate_trial(candidate,r)]
+        running=active_trial and candidate_trial(candidate,active_trial)
+        if selected or running:
             yield item('evaluation','done' if overall=='done' else overall,candidate=candidate,
                        focus='留出场景复测',metrics={'已登记':len(selected),'通过':sum(r.get('native_success') is True for r in selected),
                        '未评分':sum(r.get('native_success') is None for r in selected)},

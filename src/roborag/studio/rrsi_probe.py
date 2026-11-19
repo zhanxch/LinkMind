@@ -223,7 +223,8 @@ def instrument(loop, trace):
                 if d.S is not None:
                     checks.update({'噪声调整后的下限':high-delta,'分数达到下限':d.S>=high-delta,
                                    '成本规则通过':cost_rule(d.delta_S,d.delta_C,d.novelty,delta,ctx.instance.cfg)[0],
-                                   '域约束通过':not d.guards})
+                                   '域约束通过':not d.guards,
+                                   '两版均记录 token':incumbent.C is not None and d.C is not None})
                 ctx.event('decision',status,candidate=c.variant,focus='选中，等待写入下轮' if c is winner else
                           '符合门槛，未胜出' if d.admissible else '未采用',reason=d.reason,
                           metrics={'分数变化':d.delta_S,'token 相对变化':d.delta_C},checks=checks,
