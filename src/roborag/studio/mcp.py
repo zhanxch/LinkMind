@@ -41,6 +41,29 @@ def create_server(*, basic=False):
         "A chat cancellation is not a robot stop: use the Studio Stop button to end execution."))
     readonly = ToolAnnotations(readOnlyHint=True, openWorldHint=False)
 
+    @server.tool(annotations=readonly)
+    def list_environments() -> dict:
+        """List supported templates and local registered environment IDs."""
+        return request('/api/environments')
+
+    @server.tool()
+    def register_environment(root: str, python: str = '', adapter: str = 'auto', id: str = '', replace_revision: str = '') -> dict:
+        """Register a local simulator or studio.environment.json. No install or execution.
+        Use recipe.environment with {env.python}, {env.root} in argv. Rebinding an existing
+        ID takes the binding fingerprint returned by check_environment.
+        """
+        return request('/api/environments/register',dict(root=root,python=python,adapter=adapter,id=id,replace_revision=replace_revision))
+
+    @server.tool(annotations=readonly)
+    def check_environment(id: str) -> dict:
+        """Inspect checkout, interpreter, dependency presence and discover available tasks."""
+        return request('/api/environments/check',dict(id=id))
+
+    @server.tool(annotations=readonly)
+    def rsi_board(project_id: str) -> dict:
+        """Read project RSI rounds, lineage, evaluations and source run identities."""
+        return request(f'/api/projects/{project_id}/board')
+
     @server.tool()
     def open_project(path: str) -> dict:
         """Register a local open-source repository in this conversation. Does not install or execute it.

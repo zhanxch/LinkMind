@@ -1,5 +1,6 @@
-import {studioStyles,studioFrame,createStudioChrome} from './studio-shell.mjs?v=0.8.4';
-import {createStudioDock,terminalDockStyles} from './studio-dock.mjs?v=0.8.4';
+import {createRSIViews} from './rsi-views.mjs?v=0.9.0';
+import {studioStyles,studioFrame,createStudioChrome} from './studio-shell.mjs?v=0.9.0';
+import {createStudioDock,terminalDockStyles} from './studio-dock.mjs?v=0.9.0';
 import {overviewStyles,createOverview} from './studio-overview.mjs?v=0.8.0';
 // Presentation-only extension for DSH 0.2.2-rc.2. Native conversations and dock tabs keep their owners.
 export function installWorkbench(ctx, React, ui, api, createSnapshotStore) {
@@ -150,6 +151,15 @@ export function installWorkbench(ctx, React, ui, api, createSnapshotStore) {
   ctx.slots.inject('sidebar.right.pane.tab',()=>ctx.slots.register({name:'sidebar.right.pane.tab',key:'linkmind-workbench',inject:()=>({openPage,openRun:id=>{window.dispatchEvent(new CustomEvent('linkmind:overview-run',{detail:{id,sessionId:currentId()}}));openPage('linkmind-camera');},openFile:path=>ctx.sidebarRight.openResource('dsh-resource://file/session/'+encodeURIComponent(currentId())+'/'+path.split('/').map(encodeURIComponent).join('/'))})},Overview));
   ctx.effect(()=>ctx.sidebarRightTabs.register({id:'linkmind-graph',kind:'linkmind-graph',title:()=> '任务图'}),'LinkMind task graph');
   ctx.slots.inject('sidebar.right.pane.tab',()=>ctx.slots.register({name:'sidebar.right.pane.tab',key:'linkmind-graph',inject:()=>({openPage,graphOnly:true})},Overview));
+  const {Board,Environments}=createRSIViews(React,ui,api);
+  for(const [kind,title,Panel] of [['studio-rsi','Agent RSI Board',Board],['studio-environments','环境注册',Environments]]) {
+    ctx.effect(()=>ctx.sidebarRightTabs.register({id:kind,kind,title:()=>title}),title);
+    ctx.slots.inject('sidebar.right.pane.tab',()=>ctx.slots.register({
+      name:'sidebar.right.pane.tab',key:kind,inject:()=>({
+        openPage,pickDirectory:()=>globalThis.__DSH_DIRECTORY_PICKER__?.pick?.()??ctx.uiWorkspace.pickDirectory(),
+        openRun:id=>{window.dispatchEvent(new CustomEvent('linkmind:overview-run',{detail:{id,sessionId:currentId()}}));openPage('linkmind-camera');}
+      })},Panel));
+  }
   for(const [key,title,icon] of [['linkmind-graph','任务图','IconBranchOutlineRegular'],['linkmind-workbench','项目概览','IconLayersOutlineRegular'],['linkmind-camera','控制会话与摄像头','IconEyeOutlineRegular'],['linkmind-tasks','任务','IconBranchOutlineRegular'],['linkmind-project','运行配置','IconPlayOutlineRegular']]) {
     ctx.slots.inject('sidebar.right.pane.tab.title',()=>ctx.slots.register({name:'sidebar.right.pane.tab.title',key},()=>h('span',{className:'lm-tab-label'},h(ui[icon],{size:15}),title)));
   }

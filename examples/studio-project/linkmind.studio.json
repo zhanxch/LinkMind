@@ -2,12 +2,35 @@
   "version": 1,
   "recipes": {
     "smoke": {
-      "argv": ["python3", "run.py", "--steps", "8"],
+      "argv": [
+        "python3",
+        "run.py",
+        "--steps",
+        "8"
+      ],
       "cwd": ".",
       "timeout_seconds": 60,
       "result": "result.json",
-      "cameras": {"preview": "frame.png"},
-      "metadata": {"method": "Studio integration check", "model": "none", "benchmark": false}
+      "cameras": {
+        "preview": "frame.png"
+      },
+      "metadata": {
+        "method": "Studio integration check",
+        "model": "none",
+        "benchmark": false
+      }
+    },
+    "rsi-calibration": {
+      "argv": [
+        "python3",
+        "rsi_calibration.py"
+      ],
+      "rsi_events": "rounds.jsonl",
+      "timeout_seconds": 60,
+      "metadata": {
+        "task": "scalar calibration demo",
+        "benchmark": false
+      }
     }
   }
 }

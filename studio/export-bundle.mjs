@@ -20,7 +20,7 @@ async function copy(from,to=from) {
 for(const file of await readdir(path.join(here,'plugin'))){
   if(/\.(mjs|js)$/.test(file)||['package.json','cordis.patch.yml','LICENSE'].includes(file))await copy('studio/plugin/'+file,file);
 }
-const modules=['__init__.py','service.py','project_book.py','conversation_library.py','control_conversation.py','projects.py','project_worker.py','external_agent.py','codex_agent.py','mcp.py'];
+const modules=['__init__.py','service.py','project_book.py','conversation_library.py','control_conversation.py','projects.py','environments.py','observe_environment.py','rsi_board.py','project_worker.py','external_agent.py','codex_agent.py','mcp.py'];
 for(const name of modules)await copy('src/roborag/studio/'+name,'backend/src/roborag/studio/'+name);
 await copy('src/roborag/episode_files.py','backend/src/roborag/episode_files.py');
 await writeFile(path.join(target,'backend/src/roborag/__init__.py'),'"""Standalone Studio runtime; simulator integrations are supplied separately."""\n');
@@ -28,11 +28,12 @@ await mkdir(path.join(target,'backend/resources'),{recursive:true});
 await writeFile(path.join(target,'backend/resources/task-bundles.json'),'{"tasks":{}}\n');
 for(const file of await readdir(path.join(root,'examples/studio-project')))await copy('examples/studio-project/'+file,'examples/studio-project/'+file);
 await copy('docs/studio-projects.md','docs/projects.md');
+await copy('docs/studio-rsi-board.md','docs/rsi-board.md');
 await copy('docs/studio-ide-workbench.md','docs/workbench.md');
 await copy('docs/studio-control-conversation.md','docs/control-conversation.md');
 const projectGuide=path.join(target,'docs/projects.md');
 await writeFile(projectGuide,(await readFile(projectGuide,'utf8')).replaceAll('(studio-control-conversation.md)','(control-conversation.md)'));
-for(const name of ['test_studio_projects.py','test_studio_workspace.py','test_project_book.py','test_goal_tasks.py','test_control_conversation.py']){
+for(const name of ['test_studio_projects.py','test_studio_workspace.py','test_project_book.py','test_goal_tasks.py','test_control_conversation.py','test_rsi_studio.py']){
   await copy('tests/'+name,'tests/'+name);
   const file=path.join(target,'tests',name);
   await writeFile(file,(await readFile(file,'utf8')).replace("PYTHONPATH=str(ROOT/'src')","PYTHONPATH=str(ROOT/'backend/src')"));
@@ -44,7 +45,7 @@ await writeFile(overviewTest,(await readFile(overviewTest,'utf8')).replace("'./p
 await copy('studio/tests/codex-session.test.mjs','tests/codex-session.test.mjs');
 const codexTest=path.join(target,'tests/codex-session.test.mjs');
 await writeFile(codexTest,(await readFile(codexTest,'utf8')).replaceAll("'../plugin/codex-","'../codex-"));
-for(const name of ['codex-telemetry.test.mjs','task-context.test.mjs','proxy.test.mjs','studio-dock.test.mjs']) {
+for(const name of ['codex-telemetry.test.mjs','task-context.test.mjs','proxy.test.mjs','studio-dock.test.mjs','rsi-board.test.mjs']) {
   await copy('studio/tests/'+name,'tests/'+name);
   const file=path.join(target,'tests',name);
   await writeFile(file,(await readFile(file,'utf8')).replaceAll("'../plugin/","'../"));

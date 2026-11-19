@@ -14,6 +14,8 @@ import time
 import uuid
 
 from roborag.episode_files import write_json
+from .environments import Environments
+from .rsi_board import checked_round
 from .external_agent import process_identity
 from .control_conversation import read_conversation, validate_source
 
@@ -94,6 +96,14 @@ def validate_recipes(root, data):
         key(name)
         if not isinstance(recipe, dict):
             raise ValueError('Each recipe must be an object')
+        if 'environment' in recipe:
+            key(recipe['environment'])
+        if 'rsi' in recipe:
+            checked_round(recipe['rsi'])
+        if 'rsi_events' in recipe:
+            events = recipe['rsi_events']
+            if not isinstance(events,str) or not events or Path(events).is_absolute() or '..' in Path(events).parts:
+                raise ValueError('RSI events must be output-relative')
         argv = recipe.get('argv')
         if not isinstance(argv, list) or not argv or len(argv) > 200 or any(not isinstance(x, str) or '\0' in x or len(x)>8192 for x in argv):
             raise ValueError('Recipe argv must be a nonempty argument array, not a shell command string')
@@ -128,7 +138,9 @@ def validate_recipes(root, data):
     return data['recipes']
 
 
-def expand(value, root, output):
+def expand(value, root, output, tokens=None):
+    for token, replacement in (tokens or {}).items():
+        value = value.replace(token, replacement)
     return value.replace('{project}', str(root)).replace('{output}', str(output))
 
 
@@ -140,6 +152,7 @@ class Projects:
         self.directory.mkdir(exist_ok=True)
         self.runs.mkdir(exist_ok=True)
         self.children = {}
+        self.environments = Environments(state)
 
     def register(self, path):
         root = Path(path).expanduser().resolve()
@@ -234,13 +247,21 @@ class Projects:
         configured = recipes(root)
         checks = {}
         for name, recipe in configured.items():
-            env = {**os.environ, **{k:expand(v,root,root) for k,v in recipe.get('env', {}).items()}}
             rows = []
+            tokens = {}
+            if 'environment' in recipe:
+                try:
+                    rec = self.environments.get(recipe['environment'])
+                    rows.extend(self.environments.check(rec['id'], dependencies=False)['checks'])
+                    tokens = self.environments.tokens(rec)
+                except ValueError as exc:
+                    rows.append({'label': str(exc), 'ready': False})
+            env = {**os.environ, **{k:expand(v, root, root, tokens) for k,v in recipe.get('env', {}).items()}}
             for check in recipe.get('checks', []):
-                value = expand(check['value'], root, root)
+                value = expand(check['value'], root, root, tokens)
                 ok = (Path(value) if Path(value).is_absolute() else root/value).exists() if check['kind']=='path' else bool(shutil.which(value, path=env.get('PATH')))
                 rows.append({'label': check.get('label', check['value']), 'ready': ok})
-            executable = expand(recipe['argv'][0], root, root)
+            executable = expand(recipe['argv'][0], root, root, tokens)
             cwd = beneath(root, recipe.get('cwd', '.'))
             resolved = str(cwd/executable) if '/' in executable and not Path(executable).is_absolute() else executable
             rows.append({'label': 'Launch executable', 'ready': bool(shutil.which(resolved, path=env.get('PATH')))})
@@ -331,6 +352,11 @@ class Projects:
         if not inspection['checks'][recipe_id]['ready']:
             raise ValueError('Missing recipe requirements: '+json.dumps(inspection['checks'][recipe_id]['checks']))
         root = Path(project['path'])
+        binding = self.environments.get(recipe['environment']) if 'environment' in recipe else None
+        environment = self.environments.check(binding['id']) if binding else None
+        if environment and not environment['ready']:
+            raise ValueError('Environment checks failed: '+json.dumps(environment['checks']))
+        tokens = self.environments.tokens(binding) if binding else {}
         run_id = uuid.uuid4().hex[:16]
         directory = self.runs/run_id
         directory.mkdir()
@@ -341,10 +367,14 @@ class Projects:
                  'project_path':str(root), 'session_id':project['session_id'], 'recipe_id':recipe_id, 'request_id':request_id,
                  'recipe':recipe, 'created_at':stamp(), 'status':'starting', 'output':str(output),
                  'project_context':context or {},
-                 'source':source(root,directory), 'argv':[expand(x,root,output) for x in recipe['argv']],
+                 'source':source(root,directory), 'argv':[expand(x,root,output,tokens) for x in recipe['argv']],
                  'cwd':str(beneath(root,recipe.get('cwd','.'))),
-                 'env':{k:expand(v,root,output) for k,v in recipe.get('env',{}).items()},
+                 'env':{k:expand(v,root,output,tokens) for k,v in recipe.get('env',{}).items()},
                  'result_note':'Process completion is not task success. Read the original result; human intervention must be reported separately.'}
+        if binding:
+            value['environment'] = {**environment,'root':binding['root'],'python':binding['python'],'adapter':binding['adapter']}
+            value['env']['RSI_ENV_ROOT'] = binding['root']
+            value['env']['RSI_ENV_PYTHON'] = binding['python']
         write_json(directory/'run.json',value)
         env = {**os.environ, 'PYTHONPATH':self.python_path}
         try:

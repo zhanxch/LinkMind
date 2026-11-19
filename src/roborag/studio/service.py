@@ -55,6 +55,9 @@ def text_field(data, key, limit=4000, required=False):
     return value.strip()
 
 
+from .rsi_board import board
+
+
 class Studio:
     def __init__(self, root=ROOT, state=None, workspace=None):
         self.root = Path(root)
@@ -587,6 +590,14 @@ def serve(studio, port, token):
                     value = studio.library.snapshot()
                 elif self.command == "POST" and path == "/api/library":
                     value = studio.library.change(data)
+                elif self.command == "GET" and path == "/api/environments":
+                    value = studio.projects.environments.catalog()
+                elif self.command == "POST" and path == "/api/environments/register":
+                    with studio.lock:
+                        value = studio.projects.environments.register(data)
+                elif self.command == "POST" and path == "/api/environments/check":
+                    value = studio.projects.environments.check(data['id'])
+                    value['tasks'] = studio.projects.environments.tasks(data['id'])
                 elif self.command == "GET" and path == "/api/state":
                     value = studio.snapshot()
                 elif self.command == "POST" and path == "/api/workspace/default":
@@ -614,6 +625,20 @@ def serve(studio, port, token):
                 elif len(parts) == 4 and parts[:2] == ["api", "projects"]:
                     project_id, action = parts[2:]
                     if self.command == "GET" and action == "inspect": value = studio.projects.inspect(project_id)
+                    elif self.command == "GET" and action == "board":
+                        value = board(studio.projects, project_id)
+                    elif self.command == "POST" and action == "observe-config":
+                        with studio.lock:
+                            studio.projects.check(data['session_id'], project_id=project_id)
+                            config = studio.projects.configuration(project_id)
+                            doc = json.loads(config['content'])
+                            recipe = studio.projects.environments.observation(data['id'],data.get('task',''),data.get('suite',''),data.get('seed',0))
+                            name = 'observe-' + data['id']
+                            if name in doc['recipes'] and recipe != doc['recipes'][name]:
+                                raise ValueError('Configuration already exists. Edit it in Run configurations.')
+                            doc['recipes'][name] = recipe
+                            studio.projects.save_configuration(project_id,json.dumps(doc,ensure_ascii=False,indent=2)+'\n',config['revision'])
+                            value = {'recipe':name}
                     elif self.command == "GET" and action == "context": value = studio.project_context(project_id)
                     elif self.command == "POST" and action == "revision":
                         project = studio.book.open(studio.projects.project(project_id)['path'])
