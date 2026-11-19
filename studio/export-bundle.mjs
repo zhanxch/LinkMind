@@ -20,7 +20,7 @@ async function copy(from,to=from) {
 for(const file of await readdir(path.join(here,'plugin'))){
   if(/\.(mjs|js)$/.test(file)||['package.json','cordis.patch.yml','LICENSE'].includes(file))await copy('studio/plugin/'+file,file);
 }
-const modules=['__init__.py','service.py','project_book.py','conversation_library.py','control_conversation.py','projects.py','environments.py','observe_environment.py','rsi_board.py','rsi_flow.py','rrsi_probe.py','project_worker.py','external_agent.py','codex_agent.py','mcp.py'];
+const modules=['__init__.py','service.py','project_book.py','conversation_library.py','control_conversation.py','projects.py','environments.py','observe_environment.py','rsi_board.py','rsi_flow.py','rsi_validation.py','rrsi_probe.py','project_worker.py','external_agent.py','codex_agent.py','mcp.py'];
 for(const name of modules)await copy('src/roborag/studio/'+name,'backend/src/roborag/studio/'+name);
 await copy('src/roborag/episode_files.py','backend/src/roborag/episode_files.py');
 await writeFile(path.join(target,'backend/src/roborag/__init__.py'),'"""Standalone Studio runtime; simulator integrations are supplied separately."""\n');

@@ -1,6 +1,6 @@
 # Agent RSI Board 的演化流程
 
-打开具身模式工作区，然后打开 **Agent RSI Board**。默认页实时显示一轮里正在处理的证据、并行候选各自走到哪一阶段、被拒原因和生效版本。点节点打开假设、检查结果与原文件。右上角 **批量评测** 打开同一个工作区的任务 × 版本矩阵。
+打开具身模式工作区，然后打开 **Agent RSI Board**。默认页实时显示一轮里正在处理的证据、并行候选各自走到哪一阶段、被拒原因、版本采用与下一轮加载。点节点打开假设、检查结果和原文件。右上角 **批量评测** 打开同一个工作区的任务 × 版本矩阵。
 
 ## 本机演示
 
@@ -17,7 +17,25 @@ PYTHONPATH="$BACKEND_SRC" python -m roborag.studio.rrsi_probe ./rrsi.py --domain
 
 同一 checkout 有多个独立实验时，设不同的 `RSI_FLOW_RUN`。默认追加到当前工作区的 `studio.rsi.events.jsonl`。可以通过 `RSI_FLOW_PATH` 改到工作区内的其他文件并在 sources 清单中登记。代码差异和原生评估文件必须位于事件文件所在工作区内，Studio 才能打开它们。分析者请求诊断的试次、提议者请求读取的轨迹和写入的文件来自原生 JSON 动作。候选完成后的实际改动以 diff 为准。上游工作树和依赖由 RRSI 管理。
 
-RRSI 的审查节点包含泄漏检查与运行自检。候选通过审查后才出现在评估列。选择节点展示实际分数、token 变化、噪声调整下限、成本规则和域约束。评估阶段会预告计划试次，上游任务尚未写出逐例进度时显示进行中，原生报告到达后显示覆盖。只有 frontier 确认采用版本时，生效列才标为已生效。
+RRSI 的审查节点显示泄漏检查，验证列显示原生自检与额外挂接的检查。候选达到必需检查后进入评估。选择节点展示实际分数、token 变化、噪声调整下限、成本规则和域约束。评估阶段会预告计划试次，上游任务尚未写出逐例进度时显示进行中，原生报告到达后显示覆盖。frontier 写入采用版本后，「采用」列亮起。下一轮提案实际收到的工作树 HEAD 与 frontier 提交一致时，才在上一轮显示「已加载」，并提供加载轮次和完整 Git 提交。
+
+## 可插拔的验证器
+
+在调用 RRSI 探针时，通过 `RSI_VALIDATORS` 指定一个显式的本地清单。每个条目运行一条命令，使用退出码、超时和输出作为凭据。以下例子使用项目自行安装的工具。
+
+```json
+{
+  "version": 1,
+  "validators": [
+    {"id":"lint","label":"Python lint","argv":["ruff","check","."],"required":true,"timeout_seconds":30},
+    {"id":"proof","label":"Lean 构建","argv":["lake","build"],"required":false,"timeout_seconds":300}
+  ]
+}
+```
+
+必需检查失败或无法执行时，候选不会进入 RRSI 正式评估。建议检查只产出提示。命令在候选提交的临时副本里执行，验证输出保存在该候选目录。参数支持 `{candidate}`、`{workspace}`、`{diff}` 和 `{python}`。验证器使用运行器的权限，只传入你信任的本地命令。看板只读取事件和凭据。RRSI 探针在常规 `round` 和 `run` 路径调用验证器。
+
+其他运行器可以复用 `run_validators(validators, candidate, output, notify, version=...)`，或直接发送 `stage=validation`、`check`、`required`、`status` 及结果链接。一个候选可以有多条验证事件，每项检查有自己的状态。发送 `stage=loaded` 时须指定先前采用的版本和实际 `loaded_in` 轮次。界面只显示与采用版本一致的加载凭据。
 
 ## OpenRSI 凭据
 
@@ -27,7 +45,7 @@ RRSI 的审查节点包含泄漏检查与运行自检。候选通过审查后才
 {"version":1,"sources":[{"kind":"openrsi","label":"倒水 · 第一轮","path":"outputs/pour-round1"}]}
 ```
 
-适配器读取 scheduler、试次账本、学习状态和冻结凭据。打开节点可查看提案、原版与启用后的配置、评估结果索引。卡在取样时只显示实际取样和停止原因。经验学习、配置冻结、复测各有独立状态。旧格式里没有独立采用凭据时，生效列保持空白。
+适配器读取 scheduler、试次账本、学习状态和冻结凭据。打开节点可查看提案、原版与启用后的配置、评估结果索引。卡在取样时只显示实际取样和停止原因。经验学习、配置冻结、复测各有独立状态。验证列核对当前冻结配置、学习凭据和锁定的评估协议。复测加载使用试次配置哈希、运行记录中的实际输入和模型调用共同核验，记录在「留出复测」内。正式采用与下一轮加载需要各自的事件。
 
 ## 原生事件
 
@@ -37,6 +55,6 @@ RRSI 的审查节点包含泄漏检查与运行自检。候选通过审查后才
 {"schema":1,"run":"coding-rsi","round":2,"stage":"proposal","candidate":"A","status":"done","workflow":"coding","focus":"处理反复出现的恢复失败","change":"增加有界校验","links":[{"label":"候选差异","path":"runs/r2/A/diff.patch"}]}
 ```
 
-阶段为 `round`、`evidence`、`proposal`、`review`、`evaluation`、`decision`、`activation`。整轮使用 `stage=round`。无 candidate 的事件显示在整轮行。节点可附带 `focus`、`hypothesis`、`change`、`reason`、`version`、`progress`（done/total）、`metrics`、`checks` 和工作区内文件链接。还可以通过 `studio_run` 指向对应的 Studio 运行，打开控制会话和摄像头。
+阶段为 `round`、`evidence`、`proposal`、`review`、`validation`、`evaluation`、`decision`、`activation`、`loaded`。整轮使用 `stage=round`。无 candidate 的事件显示在整轮行。节点可附带 `focus`、`hypothesis`、`change`、`reason`、`version`、`progress`（done/total）、`metrics`、`checks` 和工作区内文件链接。还可以通过 `studio_run` 指向对应的 Studio 运行，打开控制会话和摄像头。
 
-可用状态为 running、done、passed、rejected、admissible、adopted、retained、blocked、failed、skipped。用 agent 明示的假设和实际证据编号记录关注点。由真实的文件写入、评估器判定和版本变更触发后续状态。服务推送变更快照，断线重连从完整快照恢复。
+可用状态为 running、done、passed、rejected、admissible、adopted、retained、blocked、failed、skipped、pending、error、loaded。用 agent 明示的假设和实际证据编号记录关注点。由真实的文件写入、评估器判定和版本变更触发后续状态。服务推送变更快照，断线重连从完整快照恢复。

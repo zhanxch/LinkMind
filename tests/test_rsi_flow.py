@@ -77,3 +77,75 @@ class FlowSnapshotTest(unittest.TestCase):
             lanes=snapshot(p,'project')['rounds'][0]['candidates']
             self.assertIn('evaluation',lanes['hexa-fold'])
             self.assertNotIn('evaluation',lanes['pyrua-fold'])
+
+    def test_validation_and_exact_version_load_are_separate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            p=SimpleNamespace(project=lambda _: {'path':tmp})
+            def event(stage,status,**fields):
+                emit(root/TRACE,run='rrsi',round=0,candidate='A',stage=stage,status=status,**fields)
+            event('validation','passed',check='smoke',required=True)
+            event('validation','pending',check='lint',required=True)
+            event('validation','failed',check='notes',required=False)
+            a=snapshot(p,'project')['rounds'][0]['candidates']['A']
+            self.assertEqual(a['validation']['status'],'running')
+            self.assertNotIn('activation',a)
+            event('validation','passed',check='lint',required=True)
+            event('activation','adopted',version='aaa')
+            event('loaded','loaded',version='bbb',loaded_in=1)
+            a=snapshot(p,'project')['rounds'][0]['candidates']['A']
+            self.assertEqual(a['validation']['status'],'warning')
+            self.assertNotIn('loaded',a)
+            event('loaded','loaded',version='aaa',loaded_in=1)
+            self.assertEqual(snapshot(p,'project')['rounds'][0]['candidates']['A']['loaded']['loaded_in'],1)
+
+    def test_plugin_receipts_required_advisory_and_missing_tool(self):
+        import sys
+        from roborag.studio.rsi_validation import Validator, run_validators
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            output=root/'output'
+            commands=(Validator('lint','Syntax',(sys.executable,'-c','print("syntax ok")')),
+                      Validator('format','Format',(sys.executable,'-c','raise SystemExit(1)'),False),
+                      Validator('proof','Proof',(str(root/'not-found'),)))
+            events=[]
+            failed=run_validators(commands,root,output,lambda v,s,*_:events.append((v.id,s)),version='immutable')
+            self.assertEqual(failed,['proof'])
+            self.assertEqual(events[:3],[('lint','pending'),('format','pending'),('proof','pending')])
+            self.assertIn(('format','failed'),events)
+            self.assertIn(('proof','error'),events)
+            self.assertIn('syntax ok',(output/'lint.log').read_text())
+            receipt=json.loads((output/'lint.json').read_text())
+            self.assertEqual(receipt['candidate_version'],'immutable')
+
+    def test_openrsi_retest_does_not_produce_a_next_round_load(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            p=SimpleNamespace(project=lambda _: {'path':tmp})
+            def save(name,value):
+                path=root/name
+                path.parent.mkdir(parents=True,exist_ok=True)
+                path.write_text(json.dumps(value)+'\n')
+                return hashlib.sha256(path.read_bytes()).hexdigest()
+            save('studio.rsi.sources.json',{'version':1,'sources':[{'kind':'openrsi','path':'out'}]})
+            save('out/scheduler-state.json',{'status':'error'})
+            save('out/learning-state.json',{'status':'complete'})
+            config=save('out/config/hexa-fold-rsi1.json',{'instructions':'frozen knowledge'})
+            protocol=save('out/protocol.json',{})
+            rcpt=save('out/learning/hexa-fold/receipt.json',{'status':'frozen','config_sha256':config,'method':'hexa'})
+            save('out/evaluation-lock.json',{'protocol_sha256':protocol,'learning_receipts':{'hexa-fold':rcpt}})
+            save('out/ledger.jsonl',{'split':'test','method':'hexa','task':'fold','origin':'rsi1',
+                 'path':str(root/'out/runs/example'),'config_sha256':config,'frozen_config_verified_after':True})
+            save('out/runs/example/result.json',{'metrics':{'llm_calls':2}})
+            prompt=root/'out/runs/example/debug/episode_000/execution/upstream/prompt.txt'
+            prompt.parent.mkdir(parents=True)
+            prompt.write_text('captured model input: frozen knowledge')
+            hexa=snapshot(p,'project')['rounds'][0]['candidates']['hexa-fold']
+            self.assertEqual(hexa['validation']['status'],'passed')
+            self.assertEqual(hexa['evaluation']['metrics']['复测已核验加载'],1)
+            self.assertNotIn('activation',hexa)
+            self.assertNotIn('loaded',hexa)
+            prompt.write_text('different model input')
+            hexa=snapshot(p,'project')['rounds'][0]['candidates']['hexa-fold']
+            self.assertEqual(hexa['evaluation']['metrics']['复测已核验加载'],0)

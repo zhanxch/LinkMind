@@ -7,13 +7,19 @@ import importlib
 import json
 import os
 import runpy
+import subprocess
+import tarfile
+import tempfile
+import uuid
 import sys
 from pathlib import Path
 
 if __package__:
     from .rsi_flow import TRACE, emit, text
+    from .rsi_validation import run_validators, validators_from
 else:
     from rsi_flow import TRACE, emit, text
+    from rsi_validation import run_validators, validators_from
 
 ACTIVE = contextvars.ContextVar('rsi_round', default=None)
 CANDIDATE = contextvars.ContextVar('rsi_candidate', default='')
@@ -34,14 +40,76 @@ class Observation:
             return [{'label':label,'path':str(path.relative_to(self.trace.parent))}]
         return []
 
-    def event(self, stage, status, **fields):
+    def event(self, stage, status, *, turn=None, **fields):
         try:
-            emit(self.trace, run=self.name, round=self.turn, stage=stage, status=status, **fields)
+            emit(self.trace, run=self.name, round=self.turn if turn is None else turn, stage=stage, status=status, **fields)
         except (OSError, ValueError) as exc:
             print(f'[studio observer] {exc}',file=sys.stderr,flush=True)
 
 
-def instrument(loop, trace):
+def full_commit(repo, ref):
+    result = subprocess.run(['git','rev-parse','--verify',str(ref)+'^{commit}'], cwd=repo,
+                            capture_output=True, text=True, check=True)
+    return result.stdout.strip()
+
+
+def record_loaded(ctx, harness):
+    """Prove the next proposal actually received a checkout of the chosen revision."""
+    if 'loaded' in ctx.references:
+        return
+    try:
+        frontier = ctx.instance.frontier()
+        history = frontier['trajectory']
+        next_round = ctx.turn
+        expected = full_commit(ctx.instance.repo, history[next_round]['commit'])
+        if expected != full_commit(harness, 'HEAD'):
+            return
+        receipt = ctx.folder/'studio-base.json'
+        receipt.write_text(json.dumps(dict(round=next_round, frontier_commit=expected,
+                                          proposal_checkout_head=expected,
+                                          candidate=CANDIDATE.get()), indent=2)+'\n')
+        links = ctx.link('提案工作树与版本凭据',receipt)
+        ctx.event('round','running',version=expected,links=links)
+        if next_round > 0:
+            fields = dict(turn=next_round-1, version=expected, loaded_in=next_round,
+                          focus=f'第 {next_round} 轮的提案工作树已加载',links=links)
+            ctx.event('loaded','loaded',**fields)
+            incumbent = frontier['incumbent']
+            if incumbent.get('t') == next_round and incumbent.get('variant'):
+                ctx.event('loaded','loaded',candidate=incumbent['variant'],**fields)
+        ctx.references.add('loaded')
+    except (OSError, ValueError, KeyError, IndexError, subprocess.SubprocessError) as exc:
+        print(f'[studio observer] could not verify loaded checkout: {exc}',file=sys.stderr,flush=True)
+
+
+def validate_candidate(ctx, cand, folder, validators):
+    """Validate the immutable Git candidate in a throwaway checkout."""
+    def notify(check, status, reason, receipt, log):
+        links = (ctx.link('运行凭据',receipt)+ctx.link('命令输出',log)) if receipt and log else []
+        ctx.event('validation',status,candidate=cand.variant,check=check.id,required=check.required,
+                  title=check.label,reason=reason,version=version,links=links)
+
+    version = cand.commit
+    try:
+        version = full_commit(ctx.instance.repo, cand.commit)
+        with tempfile.TemporaryDirectory(prefix='studio-validator-') as tmp:
+            scratch=Path(tmp)
+            checkout=scratch/'candidate'
+            checkout.mkdir()
+            archive=scratch/'source.tar'
+            subprocess.run(['git','archive','--format=tar','-o',str(archive),version],
+                           cwd=ctx.instance.repo, check=True, capture_output=True)
+            with tarfile.open(archive) as source:
+                source.extractall(checkout, filter='data')
+            return run_validators(validators,checkout,folder/'validators'/uuid.uuid4().hex,notify,version=version,
+                                  variables={'{python}':sys.executable,'{workspace}':ctx.trace.parent,'{diff}':folder/'diff.patch'})
+    except (OSError, ValueError, tarfile.TarError, subprocess.SubprocessError) as exc:
+        ctx.event('validation','error',candidate=cand.variant,check='validator-preparation',
+                  title='候选副本准备',required=True,reason=text(str(exc)))
+        return ['validator-preparation']
+
+
+def instrument(loop, trace, validators=()):
     def hook(owner, name):
         def decorate(fn):
             original=getattr(owner,name)
@@ -78,7 +146,7 @@ def instrument(loop, trace):
             old,new=trajectory[ctx.turn:ctx.turn+2]
             changed=old.get('commit')!=new.get('commit')
             activation=dict(focus='更新下轮使用版本' if changed else '下一轮继续使用原版本',
-                            version=new.get('commit',''),links=ctx.link('版本记录',instance.frontier_path))
+                            version=full_commit(instance.repo,new['commit']),links=ctx.link('版本记录',instance.frontier_path))
             ctx.event('activation','adopted' if changed else 'retained',**activation)
             variant=frontier['incumbent'].get('variant')
             if changed and variant:
@@ -164,20 +232,33 @@ def instrument(loop, trace):
             elif cand.gate_failure=='no_proposal':
                 ctx.event('proposal','skipped',candidate=variant,reason=text(cand.detail))
                 return cand
-            verdict='rejected' if cand.gate_failure=='critic_reject' else 'failed' if cand.gate_failure=='smoke_fail' else 'passed'
-            ctx.event('review',verdict,candidate=variant,focus='泄漏审查与运行自检',
-                      reason=text(cand.detail),version=cand.commit or '',
-                      links=ctx.link('审查记录',folder/'critic.json')+ctx.link('运行自检',folder/'smoke.json'))
+            rejected=cand.gate_failure=='critic_reject'
+            ctx.event('review','rejected' if rejected else 'passed',candidate=variant,focus='评测泄漏审查',
+                      reason=text(cand.detail) if rejected else '',version=cand.commit or '',
+                      links=ctx.link('审查记录',folder/'critic.json'))
+            smoke_path=folder/'smoke.json'
+            if smoke_path.is_file():
+                passed=from_json(smoke_path).get('ok') is True
+                ctx.event('validation','passed' if passed else 'failed',candidate=variant,check='native-smoke',
+                          title='RRSI 原生自检',required=True,reason=text(cand.detail) if not passed else '',
+                          version=cand.commit or '',links=ctx.link('自检凭据',smoke_path))
+            if validators and cand.gate_failure is None:
+                failed = validate_candidate(ctx,cand,folder,validators)
+                if failed:
+                    cand.gate_failure='validator_failed'
+                    cand.detail='Required validation failed: '+', '.join(failed)
             return cand
         finally:
             CANDIDATE.reset(token)
 
     @hook(loop,'propose')
-    def propose(original,*args,**kwargs):
+    def propose(original,domain,harness,*args,**kwargs):
         ctx=ACTIVE.get()
+        if ctx and not kwargs.get('repair_brief'):
+            record_loaded(ctx,harness)
         if ctx and kwargs.get('repair_brief'):
             ctx.event('proposal','running',candidate=CANDIDATE.get(),focus='修订审查意见中的问题')
-        proposal=original(*args,**kwargs)
+        proposal=original(domain,harness,*args,**kwargs)
         if ctx and proposal.get('status')=='done':
             edits=proposal.get('edits') or []
             ctx.event('proposal','done',candidate=CANDIDATE.get(),title=text(proposal.get('summary')),
@@ -256,7 +337,7 @@ def main():
     def traced_driver(_entry,*args,**kwargs):
         return drive(Path(__file__).resolve(),*args,**kwargs)
     driver.drive=traced_driver
-    instrument(loop,trace)
+    instrument(loop,trace,validators_from(os.environ.get('RSI_VALIDATORS')))
     sys.argv=[str(entry),*rest]
     runpy.run_path(str(entry),run_name='__main__')
 

@@ -1,11 +1,12 @@
-const stages = ['evidence','proposal','review','evaluation','decision','activation'];
+const stages = ['evidence','proposal','review','validation','evaluation','decision','activation','loaded'];
 const labels = {
-  coding:['诊断','提案','审查','评估','决策','生效'],
-  embodied:['采集证据','提炼经验','核验与冻结','留出复测','决策','生效'],
-  generic:['证据','提案','审查','评估','决策','生效']
+  coding:['诊断','提案','审查','验证','评估','决策','采用','下一轮'],
+  embodied:['采集证据','提炼经验','冻结','验证','留出复测','决策','采用','下一轮'],
+  generic:['证据','提案','审查','验证','评估','决策','采用','下一轮']
 };
 const statusText = {running:'进行中',done:'完成',passed:'通过',rejected:'拒绝',admissible:'可采用',
-  adopted:'已生效',retained:'保留原版',blocked:'暂停',failed:'失败',skipped:'跳过'};
+  adopted:'已采用',retained:'保留原版',blocked:'暂停',failed:'失败',skipped:'跳过',
+  pending:'待运行',error:'错误',loaded:'已加载',warning:'有提示'};
 const styles = `
 .rsi-flow{height:100%;box-sizing:border-box;overflow:auto;padding:14px 18px;color:var(--dsw-alias-label-primary);font-size:12px;--flow-on:#6069da;--flow-ok:#2e9c88;--flow-stop:#bf6d5e;--flow-dim:var(--dsw-alias-label-secondary)}
 .rsi-flow select{font:inherit;color:inherit;background:var(--dsw-alias-bg-base);border:1px solid var(--dsw-alias-border-l3);border-radius:5px;padding:5px;min-width:0;max-width:100%}
@@ -16,7 +17,7 @@ const styles = `
 .flow-focus[data-status=blocked],.flow-focus[data-status=failed]{border-left-color:var(--flow-stop)}
 .flow-focus strong{font-size:14px}.flow-focus span,.flow-note,.flow-node small{color:var(--flow-dim)}
 .flow-badges{margin-left:auto;font-variant-numeric:tabular-nums}.flow-tag{border:1px solid var(--dsw-alias-border-l3);border-radius:4px;padding:2px 5px;white-space:nowrap}
-.flow-grid{display:grid;grid-template-columns:minmax(78px,1fr) repeat(6,minmax(73px,1.3fr));gap:5px;align-items:stretch}
+.flow-grid{display:grid;grid-template-columns:minmax(78px,1fr) repeat(8,minmax(67px,1.3fr));gap:5px;align-items:stretch}
 .flow-scroll{overflow:auto;padding-bottom:4px}
 .flow-column{font-weight:500;color:var(--flow-dim);padding:1px 3px 4px;position:relative;white-space:nowrap}
 .flow-column:not(:first-child):not(:last-child)::after{content:'→';position:absolute;right:-2px;color:var(--flow-dim)}
@@ -29,7 +30,13 @@ const styles = `
 .flow-node[data-status=running] b::before,.flow-connection[data-link=live]::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--flow-on);margin-right:5px;animation:studio-pulse 1.8s ease-in-out infinite}
 @keyframes studio-pulse{50%{opacity:.32}}
 @media(prefers-reduced-motion:reduce){.flow-node[data-status=running] b::before,.flow-connection[data-link=live]::before{animation:none}}
-.flow-node[data-status=passed],.flow-node[data-status=adopted]{background:color-mix(in srgb,var(--flow-ok) 17%,transparent)}
+.flow-node[data-status=passed]{background:color-mix(in srgb,var(--flow-ok) 17%,transparent)}
+.flow-node[data-status=adopted]{border-color:var(--flow-ok);background:color-mix(in srgb,var(--flow-ok) 26%,transparent)}
+.flow-node[data-status=loaded]{border-color:var(--flow-on);background:color-mix(in srgb,var(--flow-on) 23%,transparent)}
+.flow-node[data-status=warning]{border-color:#bd9051}.flow-validation{display:grid;gap:5px;margin-top:5px}
+.flow-validator{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:4px 0;border-top:1px solid var(--dsw-alias-border-l3)}
+.flow-validator-state{border:1px solid var(--dsw-alias-border-l3);border-radius:4px;padding:1px 5px}
+.flow-validator-state[data-status=passed]{color:var(--flow-ok)}.flow-validator-state[data-status=failed],.flow-validator-state[data-status=error]{color:var(--flow-stop)}
 .flow-node[data-status=blocked],.flow-node[data-status=rejected],.flow-node[data-status=failed]{background:color-mix(in srgb,var(--flow-stop) 17%,transparent)}
 .flow-meter{position:absolute;bottom:0;left:0;height:2px;background:var(--flow-on)}
 .flow-details{margin-top:7px;padding:7px 9px;border-radius:5px;border:1px solid var(--dsw-alias-border-l3)}
@@ -64,7 +71,7 @@ export async function followSnapshots(url,signal,onValue) {
 
 function focusNode(round) {
   const candidates=[...Object.values(round.shared),...Object.values(round.candidates).flatMap(Object.values)];
-  const rank={running:4,blocked:3,failed:3,adopted:2,retained:2};
+  const rank={running:5,loaded:4,blocked:3,failed:3,adopted:2,retained:2};
   return candidates.sort((a,b)=>(rank[b.status]||0)-(rank[a.status]||0) ||
     b.time-a.time || stages.indexOf(b.stage)-stages.indexOf(a.stage))[0];
 }
@@ -124,17 +131,18 @@ export function createFlow(React,ui,api) {
       const entry=map[stage];
       const identity=JSON.stringify([candidate,stage]);
       const progress=entry?.progress;
+      const awaiting=stage==='loaded'&&!entry&&['adopted','retained'].includes(map.activation?.status);
       const nodeStatus=stateFor(entry);
       const title=entry?.title||entry?.focus||entry?.change||entry?.reason;
-      const brief=entry?.metrics?.['分数']!==undefined?'分数 '+renderValue(entry.metrics['分数']):
+      const brief=entry?.loaded_in!==undefined?'第 '+entry.loaded_in+' 轮':entry?.metrics?.['分数']!==undefined?'分数 '+renderValue(entry.metrics['分数']):
         entry?.metrics?.['通过']!==undefined && progress?'通过 '+entry.metrics['通过']+' / '+progress.total:
         progress?'已测 '+progress.done+' / '+progress.total:title;
       const connector=!!entry && !!map[stages[index+1]] && !['failed','rejected','blocked','skipped'].includes(nodeStatus);
       return h('button',{key:stage,type:'button',className:'flow-node',disabled:!entry,
         'data-status':nodeStatus,'data-edge':connector,'aria-pressed':selection===identity,
-        'aria-label':(candidate||'全轮')+' '+laneLabels[index]+' '+(statusText[nodeStatus]||'暂无记录'),
+        'aria-label':(candidate||'全轮')+' '+laneLabels[index]+' '+(statusText[nodeStatus]||(awaiting?'待加载凭据':'暂无记录')),
         title,onClick:()=>inspect(selection===identity?'':identity)},
-        h('b',null,entry?(statusText[nodeStatus]||nodeStatus):'—'),
+        h('b',null,entry?(statusText[nodeStatus]||nodeStatus):awaiting?'待加载凭据':'—'),
         brief&&h('small',null,brief),
         progress&&h('i',{className:'flow-meter',style:{width:100*progress.done/progress.total+'%'},'aria-hidden':true}));
     }
@@ -144,13 +152,14 @@ export function createFlow(React,ui,api) {
     }
     const info=current?[
       ['关注',current.focus],['实际改动',current.change],['假设',current.hypothesis],
-      ['依据',current.reason],['版本',current.version],...Object.entries(current.metrics||{}),
+      ['依据',current.reason],['版本',current.version],['实际加载轮次',current.loaded_in],...Object.entries(current.metrics||{}),
       ...Object.entries(current.checks||{})
     ].filter(([,v])=>v!==undefined&&v!==''):[];
     return h('section',{className:'rsi-flow'},h('style',null,styles),controls,
       h('div',{className:'flow-focus','data-status':status,role:'status'},
         h('strong',null,(round.meta.title||round.run)+' · '+(statusText[status]||'已记录')),
         round.meta.target&&h('span',null,round.meta.target),
+        round.meta.version&&h('span',{title:round.meta.version},'本轮基线 '+round.meta.version.slice(0,12)),
         focus&&h('span',null,(focus.candidate?focus.candidate+' · ':'')+
           laneLabels[stages.indexOf(focus.stage)]+(focus.focus?' · '+focus.focus:'')),
         h('div',{className:'flow-badges'},
@@ -164,7 +173,16 @@ export function createFlow(React,ui,api) {
       current&&h('section',{className:'flow-details'},
         h('strong',null,(active[0]||'整轮')+' · '+laneLabels[stages.indexOf(active[1])]),
         info.length>0&&h('dl',null,info.map(([k,v],i)=>h(React.Fragment,{key:i},h('dt',null,k),h('dd',null,renderValue(v))))),
-        h('div',{className:'flow-details-actions'},...(current.links||[]).map(link=>
+        current.validators&&h('div',{className:'flow-validation'},Object.values(current.validators).map(v=>
+          h('div',{className:'flow-validator',key:v.check},h('b',null,v.title||v.check),
+            h('span',{className:'flow-note'},v.required?'必需':'建议'),
+            h('span',{className:'flow-validator-state','data-status':v.status},statusText[v.status]||v.status),
+            v.reason&&h('span',{className:'flow-note'},v.reason),
+            (v.links||[]).map(link=>h('span',{key:link.path},button(link.label,()=>openFile(cwd+'/'+link.path))))))),
+        h('div',{className:'flow-details-actions'},
+          current.loaded_in!==undefined&&series.some(r=>r.round===current.loaded_in)&&
+            button('查看加载轮次',()=>{selectRound(String(current.loaded_in));inspect('');}),
+          ...(current.links||[]).map(link=>
           h('span',{key:link.path},button(link.label,()=>openFile(cwd+'/'+link.path)))),
           current.studio_run&&button('打开控制会话与摄像头',()=>openRun(current.studio_run)))),
       received?.warnings?.length>0&&h('details',null,h('summary',null,'来源提示 · '+received.warnings.length),

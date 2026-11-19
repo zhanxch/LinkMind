@@ -2,15 +2,16 @@
 from __future__ import annotations
 
 import fcntl
+import hashlib
 import json
 import math
 import os
 import time
 from pathlib import Path
 
-STAGES = ('evidence', 'proposal', 'review', 'evaluation', 'decision', 'activation')
+STAGES = ('evidence', 'proposal', 'review', 'validation', 'evaluation', 'decision', 'activation', 'loaded')
 STATES = ('running', 'done', 'passed', 'rejected', 'admissible', 'adopted', 'retained',
-          'blocked', 'failed', 'skipped')
+          'blocked', 'failed', 'skipped', 'pending', 'error', 'loaded', 'warning')
 FIELDS = ('title', 'focus', 'change', 'hypothesis', 'reason', 'target', 'version')
 TRACE = 'studio.rsi.events.jsonl'
 SOURCES = 'studio.rsi.sources.json'
@@ -40,9 +41,26 @@ def checked_event(event):
         raise ValueError('Invalid RSI stage event')
     if stage == 'round' and candidate:
         raise ValueError('Round event cannot identify a candidate')
+    if stage == 'validation':
+        if __package__:
+            from .rsi_validation import CHECK_ID
+        else:
+            from rsi_validation import CHECK_ID
+        ident = event.get('check')
+        if not isinstance(ident,str) or not CHECK_ID.fullmatch(ident) or status not in (
+            'pending','running','passed','failed','error','skipped'
+        ) or type(event.get('required')) is not bool:
+            raise ValueError('Invalid validator event')
+    if stage == 'loaded' and (status != 'loaded' or not text(event.get('version')).strip() or
+                              type(event.get('loaded_in')) is not int or not turn < event['loaded_in'] <= 100000):
+        raise ValueError('Load event requires the exact version and consuming round')
     event_time = atom(event.get('time'))
     row = {'run': run, 'round': turn, 'stage': stage, 'status': status,
            'candidate': candidate, 'time': event_time if type(event_time) in (int,float) else 0}
+    if stage == 'validation':
+        row.update(check=ident, required=event['required'])
+    if stage == 'loaded':
+        row['loaded_in'] = event['loaded_in']
     for key in FIELDS:
         if key in event:
             row[key] = text(event[key], 500)
@@ -113,6 +131,40 @@ def lines(path, faults):
         faults.add('暂时无法读取事件文件')
 
 
+def digest(path, limit=2*1024*1024):
+    try:
+        with path.open('rb') as f:
+            data=f.read(limit+1)
+        return hashlib.sha256(data).hexdigest() if len(data)<=limit else None
+    except OSError:
+        return None
+
+
+def openrsi_loaded_trials(root, trials, version, instructions):
+    """Require the launch hash, exact rendered instructions and actual model calls."""
+    from .projects import beneath
+    if not instructions:
+        return []
+    verified=[]
+    for trial in trials:
+        if trial.get('config_sha256')!=version or trial.get('frozen_config_verified_after') is not True:
+            continue
+        try:
+            folder=beneath(root,trial['path'])
+            result=read_json(beneath(root,folder/'result.json')) or {}
+            metrics=result.get('metrics') or {}
+            if type(metrics.get('llm_calls')) is not int or metrics['llm_calls'] <= 0:
+                continue
+            prompt=beneath(root,folder/'debug/episode_000/execution/upstream/prompt.txt')
+            with prompt.open('rb') as f:
+                data=f.read(2*1024*1024)
+            if instructions.encode() in data:
+                verified.append((prompt,folder/'result.json'))
+        except (OSError, ValueError, KeyError, TypeError, AttributeError):
+            continue
+    return verified
+
+
 def openrsi_events(root, path, label, faults):
     """Project from real receipts. Missing milestones stay absent."""
     state = read_json(path/'scheduler-state.json')
@@ -159,11 +211,16 @@ def openrsi_events(root, path, label, faults):
                 (not row.get('task') or candidate.endswith('-'+str(row.get('task')))) and
                 (row.get('condition') or row.get('origin')) not in ('bare',None))
 
+    lock_path=path/'evaluation-lock.json'
+    lock=read_json(lock_path) or {}
     for receipt in sorted((path/'learning').glob('*/receipt.json')):
         data = read_json(receipt) or {}
         if not isinstance(data,dict) or data.get('status')!='frozen':
             continue
         candidate=receipt.parent.name
+        config=path/'config'/(candidate+'-rsi1.json')
+        config_version=text(data.get('config_sha256'),64)
+        config_ok=bool(config_version and config_version==digest(config))
         proposal=read_json(receipt.parent/'included-proposal.json') or {}
         files=proposal.get('files') or []
         files=[f for f in files if isinstance(f,dict)]
@@ -173,17 +230,36 @@ def openrsi_events(root, path, label, faults):
                    metrics={'经验文件':len(files),'来源试次':len(data.get('source_ids') or [])},
                    links=[link('查看实际提案',receipt.parent/'included-proposal.json')])
         yield item('review','passed',candidate=candidate,focus='来源校验与快照冻结',
-                   version=text(data.get('config_sha256'),12),
+                   version=config_version,
                    links=[link('冻结凭据',receipt),
                           link('启用的实际指令',path/'config'/(candidate+'-rsi1.json')),
                           link('原版配置',path/'config'/(str(data.get('method'))+'-bare.json'))])
+        if config_version:
+            yield item('validation','passed' if config_ok else 'failed',candidate=candidate,
+                       check='config-digest',title='配置哈希',required=True,version=config_version,
+                       links=[link('冻结凭据',receipt),link('实际配置',config)])
+        receipts=lock.get('learning_receipts') if isinstance(lock,dict) else None
+        if isinstance(receipts,dict) and candidate in receipts:
+            sealed=bool(receipts[candidate]==digest(receipt) and lock.get('protocol_sha256') and
+                        lock['protocol_sha256']==digest(path/'protocol.json'))
+            yield item('validation','passed' if sealed else 'failed',candidate=candidate,
+                       check='evaluation-seal',title='评估锁与协议',required=True,
+                       links=[link('评估锁',lock_path),link('评估协议',path/'protocol.json')])
         selected=[r for r in tests if candidate_trial(candidate,r)]
         running=active_trial and candidate_trial(candidate,active_trial)
         if selected or running:
+            configured=read_json(config) if config_ok else None
+            instructions=text(configured.get('instructions'),128*1024) if isinstance(configured,dict) else ''
+            verified=openrsi_loaded_trials(root,selected,config_version,instructions)
+            links=[link('原生结果索引',path/'episode-metrics.json')]
+            if verified:
+                prompt,result=verified[0]
+                links += [link('复测实际输入样例',prompt),link('复测执行回执',result)]
             yield item('evaluation','done' if overall=='done' else overall,candidate=candidate,
-                       focus='留出场景复测',metrics={'已登记':len(selected),'通过':sum(r.get('native_success') is True for r in selected),
-                       '未评分':sum(r.get('native_success') is None for r in selected)},
-                       links=[link('原生结果索引',path/'episode-metrics.json')])
+                       focus=f'复测已加载 {len(verified)} 个试次' if verified else '留出场景复测',
+                       metrics={'已登记':len(selected),'通过':sum(r.get('native_success') is True for r in selected),
+                                '未评分':sum(r.get('native_success') is None for r in selected),'复测已核验加载':len(verified)},
+                       links=links)
     if collection_complete and overall=='blocked' and not tests:
         yield item('evaluation','blocked',reason=error,links=[link('调度记录',path/'scheduler-state.json')])
 
@@ -205,8 +281,12 @@ def snapshot(projects, project_id):
             row['meta'].update(value)
             return
         target=row['candidates'].setdefault(value['candidate'],{}) if value['candidate'] else row['shared']
-        prior=target.setdefault(value['stage'],{})
-        prior.update(value)
+        if value['stage']=='validation':
+            node=target.setdefault('validation',{'stage':'validation','candidate':value['candidate'],'validators':{}})
+            node['validators'][value['check']]=value
+            node['time']=max(node.get('time',0),value['time'])
+        else:
+            target.setdefault(value['stage'],{}).update(value)
     if local_file(root, TRACE):
         for event in lines(root/TRACE,faults):
             ingest(event)
@@ -228,6 +308,21 @@ def snapshot(projects, project_id):
                 faults.add('一个流程来源无法读取')
     for row in rounds.values():
         for lane in (row['shared'],*row['candidates'].values()):
+            validation=lane.get('validation')
+            if validation:
+                items=list(validation['validators'].values())
+                finished={'passed','failed','error','skipped'}
+                total, done=len(items),sum(item['status'] in finished for item in items)
+                required_fail=any(item['required'] and item['status'] in ('failed','error','skipped') for item in items)
+                advisory_fail=any(not item['required'] and item['status'] in ('failed','error') for item in items)
+                status='failed' if required_fail else 'running' if done<total else 'warning' if advisory_fail else 'passed'
+                validation.update(status=status, progress={'done':done,'total':total})
+                for item in items:
+                    item['links']=[link for link in item.get('links',[]) if local_file(root,link['path'])]
+            load,adoption=lane.get('loaded'),lane.get('activation') or {}
+            if load and (adoption.get('status') not in ('adopted','retained') or load['version']!=adoption.get('version')):
+                del lane['loaded']
+                faults.add('有加载凭据与对应采用版本不一致或缺少采用记录')
             for stage in lane.values():
                 stage['links']=[link for link in stage.get('links',[]) if local_file(root,link['path'])]
     return {'rounds':sorted(rounds.values(),key=lambda r:(r['run'],r['round'])), 'warnings':sorted(faults)}
